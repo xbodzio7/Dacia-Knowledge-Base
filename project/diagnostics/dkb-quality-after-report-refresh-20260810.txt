@@ -1,0 +1,1684 @@
+quality_exit_code=1
+head_sha=21a38552235a63d98f8b98c3b29e898a0a751dda
+
+=== IMPORT SUMMARY TAIL ===
+{
+  "prices_already_covered": 68,
+  "values_added": 1620,
+  "values_already_covered": 1374,
+  "availability_already_covered": 1441,
+  "ranges_added": 21,
+  "technical_duplicate_page_rows": 242,
+  "availability_added": 373,
+  "degenerate_ranges_materialized_as_scalars": 3,
+  "prices_added": 2,
+  "documents": 70,
+  "pages": 654,
+  "deferred_total": 380
+}
+{
+  "attributes_added": 29,
+  "attribute_types_widened": 2,
+  "values_added": 1372,
+  "values_already_covered": 101,
+  "cargo_contexts_added": 295,
+  "availability_added": 59,
+  "availability_already_covered": 24,
+  "ranges_already_covered": 22,
+  "ranges_added": 8,
+  "explicit_not_applicable_numeric_statements": 9,
+  "documents": 70,
+  "pages": 654,
+  "deferred_total": 0
+}
+preserved divergent source observations: key=('sandero_iii_essential_tce100_manual', 'minimum_kerb_weight', '', ''), prior=[{'id': '2974', 'code': 'sandero_iii_essential_tce100_manual_minimum_kerb_weight_20260202', 'value': '1059', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Minimalna masa pojazdu gotowego do jazdy: 1059 kg'}], imported=[{'id': '3699', 'code': 'sandero_iii_essential_tce100_manual_minimum_kerb_weight_all_20260809_cfgpdf', 'value': '1142', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_essential_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1142'}]
+preserved divergent source observations: key=('sandero_iii_essential_tce100_manual', 'standard_tyre_specification', '', ''), prior=[{'id': '2979', 'code': 'sandero_iii_essential_tce100_manual_standard_tyre_specification_20260202', 'value': '185/65 R15 88H - 195/55 R16 87H', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H'}], imported=[{'id': '3697', 'code': 'sandero_iii_essential_tce100_manual_standard_tyre_specification_all_20260809_cfgpdf', 'value': '185/65 R15 88H', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_essential_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Opony standardowe 185/65 R15 88H'}]
+preserved divergent source observations: key=('sandero_iii_essential_tce100_manual', 'overall_width', '', ''), prior=[{'id': '2986', 'code': 'sandero_iii_essential_tce100_manual_overall_width_20260202', 'value': '1853', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 20, section 06. WYMIARY: szerokość nadwozia: 1853 mm'}], imported=[{'id': '3702', 'code': 'sandero_iii_essential_tce100_manual_overall_width_all_20260809_cfgpdf', 'value': '1753', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_essential_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Szerokość całkowita 1753 / 1784 (Stepway)'}]
+preserved divergent source observations: key=('sandero_iii_expression_tce100_manual', 'minimum_kerb_weight', '', ''), prior=[{'id': '3027', 'code': 'sandero_iii_expression_tce100_manual_minimum_kerb_weight_20260202', 'value': '1059', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Minimalna masa pojazdu gotowego do jazdy: 1059 kg'}], imported=[{'id': '3714', 'code': 'sandero_iii_expression_tce100_manual_minimum_kerb_weight_all_20260809_cfgpdf', 'value': '1173', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_expression_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1173'}]
+preserved divergent source observations: key=('sandero_iii_expression_tce100_manual', 'standard_tyre_specification', '', ''), prior=[{'id': '3032', 'code': 'sandero_iii_expression_tce100_manual_standard_tyre_specification_20260202', 'value': '185/65 R15 88H - 195/55 R16 87H', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H'}], imported=[{'id': '3712', 'code': 'sandero_iii_expression_tce100_manual_standard_tyre_specification_all_20260809_cfgpdf', 'value': '195/55 R16 87H', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_expression_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Opony standardowe 195/55 R16 87H'}]
+preserved divergent source observations: key=('sandero_iii_expression_tce100_manual', 'overall_width', '', ''), prior=[{'id': '3039', 'code': 'sandero_iii_expression_tce100_manual_overall_width_20260202', 'value': '1853', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 20, section 06. WYMIARY: szerokość nadwozia: 1853 mm'}], imported=[{'id': '3717', 'code': 'sandero_iii_expression_tce100_manual_overall_width_all_20260809_cfgpdf', 'value': '1753', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_expression_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Szerokość całkowita 1753 / 1784 (Stepway)'}]
+preserved divergent source observations: key=('sandero_iii_journey_tce100_manual', 'minimum_kerb_weight', '', ''), prior=[{'id': '3080', 'code': 'sandero_iii_journey_tce100_manual_minimum_kerb_weight_20260202', 'value': '1059', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Minimalna masa pojazdu gotowego do jazdy: 1059 kg'}], imported=[{'id': '3752', 'code': 'sandero_iii_journey_tce100_manual_minimum_kerb_weight_all_20260809_cfgpdf', 'value': '1174', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_journey_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1174'}]
+preserved divergent source observations: key=('sandero_iii_journey_tce100_manual', 'standard_tyre_specification', '', ''), prior=[{'id': '3085', 'code': 'sandero_iii_journey_tce100_manual_standard_tyre_specification_20260202', 'value': '185/65 R15 88H - 195/55 R16 87H', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Wymiary opon: 185/65 R15 88H - 195/55 R16 87H'}], imported=[{'id': '3750', 'code': 'sandero_iii_journey_tce100_manual_standard_tyre_specification_all_20260809_cfgpdf', 'value': '195/55 R16 87H', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_journey_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Opony standardowe 195/55 R16 87H'}]
+preserved divergent source observations: key=('sandero_iii_journey_tce100_manual', 'overall_width', '', ''), prior=[{'id': '3092', 'code': 'sandero_iii_journey_tce100_manual_overall_width_20260202', 'value': '1853', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_catalog_tce_slice_20260202', 'notes': 'Official source page 20, section 06. WYMIARY: szerokość nadwozia: 1853 mm'}], imported=[{'id': '3755', 'code': 'sandero_iii_journey_tce100_manual_overall_width_all_20260809_cfgpdf', 'value': '1753', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_iii_journey_tce100_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Szerokość całkowita 1753 / 1784 (Stepway)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_essential_tce110_manual', 'minimum_kerb_weight', '', ''), prior=[{'id': '3134', 'code': 'sandero_stepway_iii_essential_tce110_manual_minimum_kerb_weight_20260202', 'value': '1095', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_stepway_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Minimalna masa pojazdu gotowego do jazdy: 1095 kg'}], imported=[{'id': '3790', 'code': 'sandero_stepway_iii_essential_tce110_manual_minimum_kerb_weight_all_20260809_cfgpdf', 'value': '1179', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_essential_tce110_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1179'}]
+preserved divergent source observations: key=('sandero_stepway_iii_essential_tce110_manual', 'overall_width', '', ''), prior=[{'id': '3145', 'code': 'sandero_stepway_iii_essential_tce110_manual_overall_width_20260202', 'value': '1853', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_stepway_catalog_tce_slice_20260202', 'notes': 'Official source page 20, section 06. WYMIARY: szerokość nadwozia: 1853 mm'}], imported=[{'id': '3794', 'code': 'sandero_stepway_iii_essential_tce110_manual_overall_width_all_20260809_cfgpdf', 'value': '1784', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_essential_tce110_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Szerokość całkowita 1753 / 1784 (Stepway)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_expression_tce110_manual', 'minimum_kerb_weight', '', ''), prior=[{'id': '3187', 'code': 'sandero_stepway_iii_expression_tce110_manual_minimum_kerb_weight_20260202', 'value': '1095', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_stepway_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Minimalna masa pojazdu gotowego do jazdy: 1095 kg'}], imported=[{'id': '3814', 'code': 'sandero_stepway_iii_expression_tce110_manual_minimum_kerb_weight_all_20260809_cfgpdf', 'value': '1190', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_expression_tce110_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1190'}]
+preserved divergent source observations: key=('sandero_stepway_iii_expression_tce110_manual', 'overall_width', '', ''), prior=[{'id': '3198', 'code': 'sandero_stepway_iii_expression_tce110_manual_overall_width_20260202', 'value': '1853', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_stepway_catalog_tce_slice_20260202', 'notes': 'Official source page 20, section 06. WYMIARY: szerokość nadwozia: 1853 mm'}], imported=[{'id': '3818', 'code': 'sandero_stepway_iii_expression_tce110_manual_overall_width_all_20260809_cfgpdf', 'value': '1784', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_expression_tce110_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Szerokość całkowita 1753 / 1784 (Stepway)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_extreme_tce110_manual', 'minimum_kerb_weight', '', ''), prior=[{'id': '3240', 'code': 'sandero_stepway_iii_extreme_tce110_manual_minimum_kerb_weight_20260202', 'value': '1095', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_stepway_catalog_tce_slice_20260202', 'notes': 'Official source page 17, section 06. SILNIKI — ZAWIESZENIE / MASY I POJEMNOŚCI: Minimalna masa pojazdu gotowego do jazdy: 1095 kg'}], imported=[{'id': '3851', 'code': 'sandero_stepway_iii_extreme_tce110_manual_minimum_kerb_weight_all_20260809_cfgpdf', 'value': '1191', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_extreme_tce110_manual_20260809', 'notes': 'Exact saved configurator PDF, page 5: Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg) 1191'}]
+preserved divergent source observations: key=('sandero_stepway_iii_extreme_tce110_manual', 'overall_width', '', ''), prior=[{'id': '3251', 'code': 'sandero_stepway_iii_extreme_tce110_manual_overall_width_20260202', 'value': '1853', 'observation_date': '2026-02-02', 'source_code': 'src_pl_sandero_stepway_catalog_tce_slice_20260202', 'notes': 'Official source page 20, section 06. WYMIARY: szerokość nadwozia: 1853 mm'}], imported=[{'id': '3855', 'code': 'sandero_stepway_iii_extreme_tce110_manual_overall_width_all_20260809_cfgpdf', 'value': '1784', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_extreme_tce110_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Szerokość całkowita 1753 / 1784 (Stepway)'}]
+preserved divergent source observations: key=('duster_iii_essential_ecog120_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3464', 'code': 'duster_iii_essential_ecog120_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4448', 'code': 'duster_iii_essential_ecog120_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_essential_ecog120_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('duster_iii_expression_ecog120_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3465', 'code': 'duster_iii_expression_ecog120_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4474', 'code': 'duster_iii_expression_ecog120_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_expression_ecog120_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('duster_iii_extreme_ecog120_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3466', 'code': 'duster_iii_extreme_ecog120_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4625', 'code': 'duster_iii_extreme_ecog120_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_extreme_ecog120_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('duster_iii_journey_ecog120_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3467', 'code': 'duster_iii_journey_ecog120_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4777', 'code': 'duster_iii_journey_ecog120_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_journey_ecog120_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('duster_iii_expression_mildhybrid140_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3468', 'code': 'duster_iii_expression_mildhybrid140_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4530', 'code': 'duster_iii_expression_mildhybrid140_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_expression_mildhybrid140_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('duster_iii_extreme_mildhybrid140_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3469', 'code': 'duster_iii_extreme_mildhybrid140_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4681', 'code': 'duster_iii_extreme_mildhybrid140_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_extreme_mildhybrid140_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('duster_iii_journey_mildhybrid140_4x2_manual', 'emission_standard', '', ''), prior=[{'id': '3470', 'code': 'duster_iii_journey_mildhybrid140_4x2_manual_emission_standard_20251020', 'value': 'euro_6e_bis', 'observation_date': '2025-10-20', 'source_code': 'src_pl_duster_mini_brochure_20251020', 'notes': 'Source page 20, section SILNIKI: Norma emisji spalin Euro 6E bis Euro 6E bis'}], imported=[{'id': '4835', 'code': 'duster_iii_journey_mildhybrid140_4x2_manual_emission_standard_all_20260809_cfgpdf', 'value': 'euro_6', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_duster_iii_journey_mildhybrid140_4x2_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Norma emisji spalin EURO6'}]
+preserved divergent source observations: key=('spring_essential_electric70_automatic', 'combined_range', '', ''), prior=[{'id': '3501', 'code': 'spring_essential_electric70_automatic_combined_range_20260219', 'value': '222', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Homologowany zasięg w cyklu mieszanym WLTP (km). Exact grade/powertrain footnote applicability preserved.'}], imported=[{'id': '5254', 'code': 'spring_essential_electric70_automatic_combined_range_all_20260809_cfgpdf', 'value': '221', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_essential_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: EV - zasięg w cyklu mieszanym WLTP E-TECH (km) 221'}]
+preserved divergent source observations: key=('spring_essential_electric70_automatic', 'maximum_payload', '', ''), prior=[{'id': '3503', 'code': 'spring_essential_electric70_automatic_maximum_payload_20260219', 'value': '349', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Ładowność. Exact grade-footnote value.'}], imported=[{'id': '5262', 'code': 'spring_essential_electric70_automatic_maximum_payload_all_20260809_cfgpdf', 'value': '274', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_essential_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Maksymalna ładowność (kg) 274'}]
+preserved divergent source observations: key=('spring_essential_electric70_automatic', 'standard_tyre_specification', '', ''), prior=[{'id': '3504', 'code': 'spring_essential_electric70_automatic_standard_tyre_specification_20260219', 'value': '165/70 R14', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Rozmiary opon. Exact grade/powertrain applicability preserved.'}], imported=[{'id': '5261', 'code': 'spring_essential_electric70_automatic_standard_tyre_specification_all_20260809_cfgpdf', 'value': '165/70 R14 81T', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_essential_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Opony standardowe 165/70 R14 81T'}]
+preserved divergent source observations: key=('spring_essential_electric70_automatic', 'top_speed', '', ''), prior=[{'id': '3507', 'code': 'spring_essential_electric70_automatic_top_speed_20260219', 'value': '125', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Prędkość maksymalna (km/h). Direct powertrain-table value.'}], imported=[{'id': '5256', 'code': 'spring_essential_electric70_automatic_top_speed_all_20260809_cfgpdf', 'value': '130', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_essential_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Prędkość maksymalna (km/h) 130'}]
+preserved divergent source observations: key=('spring_expression_electric70_automatic', 'combined_range', '', ''), prior=[{'id': '3519', 'code': 'spring_expression_electric70_automatic_combined_range_20260219', 'value': '225', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Homologowany zasięg w cyklu mieszanym WLTP (km). Exact grade/powertrain footnote applicability preserved.'}], imported=[{'id': '5296', 'code': 'spring_expression_electric70_automatic_combined_range_all_20260809_cfgpdf', 'value': '226', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_expression_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: EV - zasięg w cyklu mieszanym WLTP E-TECH (km) 226'}]
+preserved divergent source observations: key=('spring_expression_electric70_automatic', 'maximum_payload', '', ''), prior=[{'id': '3521', 'code': 'spring_expression_electric70_automatic_maximum_payload_20260219', 'value': '338', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Ładowność. Exact grade-footnote value.'}], imported=[{'id': '5304', 'code': 'spring_expression_electric70_automatic_maximum_payload_all_20260809_cfgpdf', 'value': '271', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_expression_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Maksymalna ładowność (kg) 271'}]
+preserved divergent source observations: key=('spring_expression_electric70_automatic', 'standard_tyre_specification', '', ''), prior=[{'id': '3522', 'code': 'spring_expression_electric70_automatic_standard_tyre_specification_20260219', 'value': '165/65 R15', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Rozmiary opon. Exact grade/powertrain applicability preserved.'}], imported=[{'id': '5303', 'code': 'spring_expression_electric70_automatic_standard_tyre_specification_all_20260809_cfgpdf', 'value': '165/65 R15 81T', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_expression_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Opony standardowe 165/65 R15 81T'}]
+preserved divergent source observations: key=('spring_expression_electric70_automatic', 'top_speed', '', ''), prior=[{'id': '3525', 'code': 'spring_expression_electric70_automatic_top_speed_20260219', 'value': '125', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Prędkość maksymalna (km/h). Direct powertrain-table value.'}], imported=[{'id': '5298', 'code': 'spring_expression_electric70_automatic_top_speed_all_20260809_cfgpdf', 'value': '130', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_expression_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Prędkość maksymalna (km/h) 130'}]
+preserved divergent source observations: key=('spring_extreme_electric100_automatic', 'combined_range', '', ''), prior=[{'id': '3537', 'code': 'spring_extreme_electric100_automatic_combined_range_20260219', 'value': '225', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Homologowany zasięg w cyklu mieszanym WLTP (km). Exact grade/powertrain footnote applicability preserved.'}], imported=[{'id': '5275', 'code': 'spring_extreme_electric100_automatic_combined_range_all_20260809_cfgpdf', 'value': '226', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_extreme_electric100_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: EV - zasięg w cyklu mieszanym WLTP E-TECH (km) 226'}]
+preserved divergent source observations: key=('spring_extreme_electric100_automatic', 'maximum_payload', '', ''), prior=[{'id': '3539', 'code': 'spring_extreme_electric100_automatic_maximum_payload_20260219', 'value': '331', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Ładowność. Exact grade-footnote value.'}], imported=[{'id': '5283', 'code': 'spring_extreme_electric100_automatic_maximum_payload_all_20260809_cfgpdf', 'value': '267', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_extreme_electric100_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Maksymalna ładowność (kg) 267'}]
+preserved divergent source observations: key=('spring_extreme_electric100_automatic', 'standard_tyre_specification', '', ''), prior=[{'id': '3540', 'code': 'spring_extreme_electric100_automatic_standard_tyre_specification_20260219', 'value': '165/65 R15', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Rozmiary opon. Exact grade/powertrain applicability preserved.'}], imported=[{'id': '5282', 'code': 'spring_extreme_electric100_automatic_standard_tyre_specification_all_20260809_cfgpdf', 'value': '165/65 R15 81T', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_extreme_electric100_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Opony standardowe 165/65 R15 81T'}]
+preserved divergent source observations: key=('spring_extreme_electric100_automatic', 'top_speed', '', ''), prior=[{'id': '3543', 'code': 'spring_extreme_electric100_automatic_top_speed_20260219', 'value': '125', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Prędkość maksymalna (km/h). Direct powertrain-table value.'}], imported=[{'id': '5277', 'code': 'spring_extreme_electric100_automatic_top_speed_all_20260809_cfgpdf', 'value': '130', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_extreme_electric100_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 5: Prędkość maksymalna (km/h) 130'}]
+preserved divergent source observations: key=('sandero_stepway_iii_essential_ecog120_manual', 'overall_height', '', ''), prior=[{'id': '3553', 'code': 'sandero_stepway_iii_essential_ecog120_manual_overall_height_source_gap_20260626', 'value': '1586', 'observation_date': '2026-06-26', 'source_code': 'src_pl_sandero_stepway_essential_ecog120_mt_20260626', 'notes': 'Source page 6: Wysokość pojazdu nieobciążonego z relingami dachowymi: 1586 mm (Stepway). Exact Essential Stepway configuration has roof rails as standard; the alternative 1535 mm height without roof rails is excluded.'}], imported=[{'id': '3804', 'code': 'sandero_stepway_iii_essential_ecog120_manual_overall_height_all_20260809_cfgpdf', 'value': '1535', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_essential_ecog120_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Wysokość całkowita 1496/1535 (Stepway bez relingów)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_expression_ecog120_manual', 'overall_height', '', ''), prior=[{'id': '3556', 'code': 'sandero_stepway_iii_expression_ecog120_manual_overall_height_source_gap_20260626', 'value': '1586', 'observation_date': '2026-06-26', 'source_code': 'src_pl_sandero_stepway_expression_ecog120_mt_20260626', 'notes': 'Source page 6: Wysokość Pojazdu Nieobciążonego Z Relingami (Mm): 1586 (Stepway). Exact Expression Stepway configuration has roof rails as standard; the alternative 1535 mm height without roof rails is excluded.'}], imported=[{'id': '3830', 'code': 'sandero_stepway_iii_expression_ecog120_manual_overall_height_all_20260809_cfgpdf', 'value': '1535', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_expression_ecog120_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Wysokość całkowita 1496/1535 (Stepway bez relingów)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_extreme_ecog120_manual', 'overall_height', '', ''), prior=[{'id': '3559', 'code': 'sandero_stepway_iii_extreme_ecog120_manual_overall_height_source_gap_20260626', 'value': '1586', 'observation_date': '2026-06-26', 'source_code': 'src_pl_sandero_stepway_extreme_ecog120_mt_20260626', 'notes': 'Source page 6: Wysokość Pojazdu Nieobciążonego Z Relingami (Mm): 1586 (Stepway). Exact Extreme Stepway configuration has roof rails as standard; the alternative 1535 mm height without roof rails is excluded.'}], imported=[{'id': '3866', 'code': 'sandero_stepway_iii_extreme_ecog120_manual_overall_height_all_20260809_cfgpdf', 'value': '1535', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_extreme_ecog120_manual_20260809', 'notes': 'Exact saved configurator PDF, page 6: Wysokość całkowita 1496/1535 (Stepway bez relingów)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_expression_ecog120_automatic', 'overall_height', '', ''), prior=[{'id': '3561', 'code': 'sandero_stepway_iii_expression_ecog120_automatic_overall_height_source_gap_20260626', 'value': '1586', 'observation_date': '2026-06-26', 'source_code': 'src_pl_sandero_stepway_expression_ecog120_at_20260626', 'notes': 'Source page 6: Wysokość Pojazdu Nieobciążonego Z Relingami (Mm): 1586 (Stepway). Exact Expression Stepway configuration has modular roof rails as standard; the alternative 1535 mm height without roof rails is excluded.'}], imported=[{'id': '3841', 'code': 'sandero_stepway_iii_expression_ecog120_automatic_overall_height_all_20260809_cfgpdf', 'value': '1535', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_expression_ecog120_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 6: Wysokość całkowita 1496/1535 (Stepway bez relingów)'}]
+preserved divergent source observations: key=('sandero_stepway_iii_extreme_ecog120_automatic', 'overall_height', '', ''), prior=[{'id': '3564', 'code': 'sandero_stepway_iii_extreme_ecog120_automatic_overall_height_source_gap_20260626', 'value': '1586', 'observation_date': '2026-06-26', 'source_code': 'src_pl_sandero_stepway_extreme_ecog120_at_20260626', 'notes': 'Source page 6: Wysokość Pojazdu Nieobciążonego Z Relingami (Mm): 1586 (Stepway). Exact Extreme Stepway configuration has roof rails as standard; the alternative 1535 mm height without roof rails is excluded.'}], imported=[{'id': '3878', 'code': 'sandero_stepway_iii_extreme_ecog120_automatic_overall_height_all_20260809_cfgpdf', 'value': '1535', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_sandero_stepway_iii_extreme_ecog120_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 6: Wysokość całkowita 1496/1535 (Stepway bez relingów)'}]
+preserved divergent source observations: key=('spring_essential_electric70_automatic', 'steering_type', '', ''), prior=[{'id': '3571', 'code': 'spring_essential_electric70_automatic_steering_type_20260219', 'value': 'Elektryczne wspomaganie układu kierowniczego', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Układ kierowniczy: elektryczne wspomaganie. Common brochure value applies identically to all three exact Spring grade/powertrain configurations.'}], imported=[{'id': '5251', 'code': 'spring_essential_electric70_automatic_steering_type_all_20260809_cfgpdf', 'value': 'electric', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_essential_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 3: elektryczne wspomaganie kierownicy'}]
+preserved divergent source observations: key=('spring_expression_electric70_automatic', 'steering_type', '', ''), prior=[{'id': '3583', 'code': 'spring_expression_electric70_automatic_steering_type_20260219', 'value': 'Elektryczne wspomaganie układu kierowniczego', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Układ kierowniczy: elektryczne wspomaganie. Common brochure value applies identically to all three exact Spring grade/powertrain configurations.'}], imported=[{'id': '5293', 'code': 'spring_expression_electric70_automatic_steering_type_all_20260809_cfgpdf', 'value': 'electric', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_expression_electric70_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 3: elektryczne wspomaganie kierownicy'}]
+preserved divergent source observations: key=('spring_extreme_electric100_automatic', 'steering_type', '', ''), prior=[{'id': '3595', 'code': 'spring_extreme_electric100_automatic_steering_type_20260219', 'value': 'Elektryczne wspomaganie układu kierowniczego', 'observation_date': '2026-02-19', 'source_code': 'src_pl_spring_brochure_20260219', 'notes': 'Source page 18: Układ kierowniczy: elektryczne wspomaganie. Common brochure value applies identically to all three exact Spring grade/powertrain configurations.'}], imported=[{'id': '5272', 'code': 'spring_extreme_electric100_automatic_steering_type_all_20260809_cfgpdf', 'value': 'electric', 'observation_date': '2026-08-09', 'source_code': 'src_pl_cfgpdf_spring_extreme_electric100_automatic_20260809', 'notes': 'Exact saved configurator PDF, page 3: elektryczne wspomaganie kierownicy'}]
+compatible multi-source groups preserved: 0
+divergent multi-source groups preserved: 280
+canonical current-value reconciliations: 0
+
+=== REPORT REFRESH ===
+missing_technical_count= 58
+Portfolio model-family summary
+------------------------------
+Model families        : 6
+Active configurations : 84
+Reporting scopes      : 23
+Provenance sources    : 105
+Source relationships  : 354
+Cross-scope pairs     : none
+Portfolio model-family comparison matrix
+----------------------------------------
+Model families        : 6
+Active configurations : 84
+Reporting scopes      : 23
+Source relationships  : 354
+Cross-scope pairs     : none
+Rankings              : none
+Portfolio model-version comparison matrix
+-----------------------------------------
+Model families        : 6
+Active versions       : 22
+Active configurations : 84
+Reporting scopes      : 23
+Source relationships  : 354
+Configuration pairs   : none
+Rankings              : none
+
+=== QUALITY FAILURE INDEX ===
+5:test_rejects_exact_duplicate_interval (test_association_intervals.AssociationIntervalValidationTests.test_rejects_exact_duplicate_interval) ... ok
+270:test_semantic_validator_rejects_duplicate_value_context (test_brochure_cargo_context_schema_foundation.BrochureCargoContextSchemaFoundationTests.test_semantic_validator_rejects_duplicate_value_context) ... ok
+300:test_existing_dimensions_are_reused_not_duplicated (test_brochure_gear_performance_context_model.BrochureGearPerformanceContextModelTests.test_existing_dimensions_are_reused_not_duplicated) ... ok
+317:test_validator_rejects_ineligible_attribute_and_duplicate_identity (test_brochure_gear_performance_schema_foundation.BrochureGearPerformanceSchemaFoundationTests.test_validator_rejects_ineligible_attribute_and_duplicate_identity) ... ok
+353:test_rejects_duplicate_table_names (test_build_sqlite.SqliteBuildTests.test_rejects_duplicate_table_names) ... ok
+370:test_rejects_duplicate_current_price (test_configuration_comparison.ConfigurationComparisonTests.test_rejects_duplicate_current_price) ... ok
+388:test_extract_html_argument_rejects_missing_or_duplicate_paths (test_configuration_comparison_html.ConfigurationComparisonHtmlTests.test_extract_html_argument_rejects_missing_or_duplicate_paths) ... ok
+420:test_rejects_gap_set_mismatch (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_gap_set_mismatch) ... ok
+421:test_rejects_source_metadata_mismatch (test_configuration_gap_evidence.ConfigurationGapEvidenceTests.test_rejects_source_metadata_mismatch) ... ok
+436:test_rejects_plan_content_mismatch (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_plan_content_mismatch) ... ok
+437:test_rejects_plan_decision_set_mismatch (test_configuration_gap_resolution_plan.ConfigurationGapResolutionPlanTests.test_rejects_plan_decision_set_mismatch) ... ok
+447:test_source_hash_mismatch_is_rejected (test_configuration_gap_source_review.ConfigurationGapSourceReviewTests.test_source_hash_mismatch_is_rejected) ... ok
+455:test_rejects_gap_set_mismatch (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_gap_set_mismatch) ... ok
+456:test_rejects_input_report_date_mismatch (test_configuration_gap_triage.ConfigurationGapTriageTests.test_rejects_input_report_date_mismatch) ... ok
+466:test_selection_normalizes_order_duplicates_and_unknown_codes (test_configuration_selection_export.ConfigurationSelectionExportTests.test_selection_normalizes_order_duplicates_and_unknown_codes) ... ok
+575:test_rejects_case_insensitive_duplicate_header (test_csv_validator.CsvValidatorTests.test_rejects_case_insensitive_duplicate_header) ... ok
+589:test_cli_verifies_existing_release_and_expected_identity (test_data_product_release.DataProductReleaseTests.test_cli_verifies_existing_release_and_expected_identity) ... error: verified release version does not match --version
+610:test_rejects_tag_manifest_commit_mismatch_transactionally (test_data_product_release_download.DataProductReleaseDownloadTests.test_rejects_tag_manifest_commit_mismatch_transactionally) ... ok
+703:test_rejects_sqlite_mismatch (test_documentation_baseline.DocumentationBaselineTests.test_rejects_sqlite_mismatch) ... ok
+918:test_registered_source_hash_mismatch_is_rejected (test_import_configuration_values.ImportConfigurationValuesTests.test_registered_source_hash_mismatch_is_rejected) ... ok
+919:test_registered_source_text_mismatch_is_rejected (test_import_configuration_values.ImportConfigurationValuesTests.test_registered_source_text_mismatch_is_rejected) ... ok
+920:test_rejects_attribute_contract_mismatch (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_attribute_contract_mismatch) ... ok
+921:test_rejects_duplicate_configuration_and_fuel_context (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_duplicate_configuration_and_fuel_context) ... ok
+925:test_rejects_source_configuration_mismatch (test_import_configuration_values.ImportConfigurationValuesTests.test_rejects_source_configuration_mismatch) ... ok
+1158:test_deferred_ranges_and_semantic_mismatches_are_absent (test_jogger_technical_specifications.JoggerTechnicalSpecificationTests.test_deferred_ranges_and_semantic_mismatches_are_absent) ... ok
+1244:test_rejects_additional_untracked_path (test_package_publish.PackagePublishTests.test_rejects_additional_untracked_path) ... ERROR: working tree path manifest differs
+1300:test_review_manifest_rejects_path_mismatch (test_package_workflow.PackageWorkflowTests.test_review_manifest_rejects_path_mismatch) ... From /home/runner/work/Dacia-Knowledge-Base/dkb-workflow-test-xqznn3wu/remote
+1415:test_reports_duplicate_target_key_once (test_references.ReferenceValidationTests.test_reports_duplicate_target_key_once) ... ok
+1437:test_rejects_duplicate_rule_definition (test_rule_contracts.RuleContractValidationTests.test_rejects_duplicate_rule_definition) ... ok
+1449:test_reports_case_insensitive_unique_duplicate (test_rule_execution.RuleExecutionTests.test_reports_case_insensitive_unique_duplicate) ... ok
+1571:test_controlled_drive_type_is_not_duplicated_as_strings (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_controlled_drive_type_is_not_duplicated_as_strings) ... ok
+1653:test_two_prices_are_present_and_the_pair_price_differs (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_two_prices_are_present_and_the_pair_price_differs) ... ok
+1753:test_minimum_row_signature_mismatch (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_signature_mismatch) ... ok
+1827:test_rejects_observation_source_mismatch (test_source_coverage.SourceCoverageTests.test_rejects_observation_source_mismatch) ... ok
+1921:test_reports_case_insensitive_duplicate_code (test_uniqueness.UniqueColumnValidationTests.test_reports_case_insensitive_duplicate_code) ... ok
+1922:test_reports_duplicate_id (test_uniqueness.UniqueColumnValidationTests.test_reports_duplicate_id) ... ok
+1931:test_duplicate_selected_candidate_is_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_duplicate_selected_candidate_is_rejected) ... ok
+1945:test_build_rejects_missing_or_duplicate_candidate_assignment (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_build_rejects_missing_or_duplicate_candidate_assignment) ... ok
+1967:test_duplicate_reconciliation_candidate_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_duplicate_reconciliation_candidate_is_rejected) ... ok
+1968:test_evidence_count_mismatch_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_count_mismatch_is_rejected) ... ok
+1982:test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
+1986:test_reports_row_count_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_row_count_mismatch) ... ok
+1987:test_reports_schema_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_schema_mismatch) ... ok
+2000:FAIL: test_standalone_html_products_preserve_offline_boundary (test_portfolio_model_family_release_integration.PortfolioModelFamilyReleaseIntegrationTests.test_standalone_html_products_preserve_offline_boundary)
+2006:AssertionError: 0 != 2
+2009:FAIL: test_review_tool_verify_mode_passes (test_post_v1_11_0_release_priority_selection_20260803.PostV111ReleasePrioritySelectionReviewTest.test_review_tool_verify_mode_passes)
+2015:AssertionError: 1 != 0 : Traceback (most recent call last):
+2023:    raise RuntimeError(f"generated output differs: {path.relative_to(ROOT)}")
+2024:RuntimeError: generated output differs: data/reporting/post_v1_11_0_release_priority_selection_review.json
+2030:FAILED (failures=2)
+2391:Quality receipt rejected: receipt field differs: branch
+
+=== QUALITY STDOUT TAIL ===
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_reanalysis_removes_false_and_resolved_gaps (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_reanalysis_removes_false_and_resolved_gaps) ... ok
+test_review_closes_only_not_stated_slots (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_review_closes_only_not_stated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_three_scalar_values_are_exact (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_three_scalar_values_are_exact) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_front_rear_parking_assistance_is_direct_standard_equipment (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_front_rear_parking_assistance_is_direct_standard_equipment) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_reanalysis_exhausts_source_and_advances_selection (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_reanalysis_exhausts_source_and_advances_selection) ... ok
+test_review_partitions_resolved_out_of_scope_and_unstated_slots (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_review_partitions_resolved_out_of_scope_and_unstated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_two_scalar_values_are_exact (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_two_scalar_values_are_exact) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_parking_assistance_is_direct_standard_equipment (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_parking_assistance_is_direct_standard_equipment) ... ok
+test_reanalysis_exhausts_source_and_advances_selection (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_reanalysis_exhausts_source_and_advances_selection) ... ok
+test_review_partitions_resolved_alternative_and_unstated_slots (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_review_partitions_resolved_alternative_and_unstated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_two_scalar_values_are_exact (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_two_scalar_values_are_exact) ... ok
+test_canonical_observations_are_dated_and_source_bounded (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_canonical_observations_are_dated_and_source_bounded) ... ok
+test_report_reconciles_every_captured_row (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_report_reconciles_every_captured_row) ... ok
+test_source_and_all_exact_configuration_relationships_are_registered (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_source_and_all_exact_configuration_relationships_are_registered) ... ok
+test_unmatched_evidence_remains_explicit (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_unmatched_evidence_remains_explicit) ... ok
+test_capture_covers_all_exact_current_states_once (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_capture_covers_all_exact_current_states_once) ... ok
+test_capture_preserves_non_import_boundaries (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_capture_preserves_non_import_boundaries) ... ok
+test_every_configuration_has_full_grouped_content (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_every_configuration_has_full_grouped_content) ... ok
+test_standard_equipment_is_not_reduced_to_highlights (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_standard_equipment_is_not_reduced_to_highlights) ... ok
+test_summary_matches_all_literal_modal_rows (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_summary_matches_all_literal_modal_rows) ... ok
+test_technical_rows_preserve_labels_and_values (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_technical_rows_preserve_labels_and_values) ... ok
+test_default_tce110_media_display_package_is_preserved_but_not_imported_to_ecog (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_default_tce110_media_display_package_is_preserved_but_not_imported_to_ecog) ... ok
+test_five_exact_official_catalogue_prices_are_imported (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_five_exact_official_catalogue_prices_are_imported) ... ok
+test_importer_check_reproduces_master_contract (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_importer_check_reproduces_master_contract) ... ok
+test_snapshot_is_registered_with_exact_hash_and_dynamic_boundary (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_snapshot_is_registered_with_exact_hash_and_dynamic_boundary) ... ok
+test_source_relationships_cover_exact_model_versions_and_configurations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_source_relationships_cover_exact_model_versions_and_configurations) ... ok
+test_version_highlights_expand_to_24_exact_standard_observations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_version_highlights_expand_to_24_exact_standard_observations) ... ok
+test_boundaries (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_boundaries) ... ok
+test_committed_outputs (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_committed_outputs) ... ok
+test_decision_partition (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_decision_partition) ... ok
+test_markdown (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_markdown) ... ok
+test_maximum_continuation (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_maximum_continuation) ... ok
+test_maximum_label (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_maximum_label) ... ok
+test_minimum_row_signature_mismatch (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_signature_mismatch) ... ok
+test_minimum_row_source_facts (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_source_facts) ... ok
+test_next_package (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_next_package) ... ok
+test_policy (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_policy) ... ok
+test_source_receipt (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_source_receipt) ... ok
+test_steering_rejects_other_attributes (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_steering_rejects_other_attributes) ... ok
+test_steering_signature (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_steering_signature) ... ok
+test_summary (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_summary) ... ok
+test_tce_value_remains_unattached (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_tce_value_remains_unattached) ... ok
+test_drift (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_drift) ... ok
+test_fact (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_fact) ... ok
+test_import_policy (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_import_policy) ... ok
+test_manifest (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_manifest) ... ok
+test_missing_signature (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
+test_package (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_package) ... ok
+test_restricted (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_restricted) ... ok
+test_signature_default_context (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_signature_default_context) ... ok
+test_signature_fuel_context (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_signature_fuel_context) ... ok
+test_statuses (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_statuses) ... ok
+test_wrong_kind (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_wrong_kind) ... ok
+test_boundaries (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_boundaries) ... ok
+test_committed_outputs (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_committed_outputs) ... ok
+test_cross_attribute_signatures_are_rejected (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_cross_attribute_signatures_are_rejected) ... ok
+test_decision_partition (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_decision_partition) ... ok
+test_gross_train_row (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_gross_train_row) ... ok
+test_gross_vehicle_row (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_gross_vehicle_row) ... ok
+test_kerb_mass (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_kerb_mass) ... ok
+test_markdown (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_markdown) ... ok
+test_next_package (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_next_package) ... ok
+test_policy (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_policy) ... ok
+test_power (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_power) ... ok
+test_source_receipt (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_source_receipt) ... ok
+test_summary (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_summary) ... ok
+test_torque (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_torque) ... ok
+test_unique (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_unique) ... ok
+test_drift (test_sandero_technical_page17_ambiguity_review.UnitTests.test_drift) ... ok
+test_fact (test_sandero_technical_page17_ambiguity_review.UnitTests.test_fact) ... ok
+test_import_policy (test_sandero_technical_page17_ambiguity_review.UnitTests.test_import_policy) ... ok
+test_manifest (test_sandero_technical_page17_ambiguity_review.UnitTests.test_manifest) ... ok
+test_missing_signature (test_sandero_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
+test_package (test_sandero_technical_page17_ambiguity_review.UnitTests.test_package) ... ok
+test_restricted (test_sandero_technical_page17_ambiguity_review.UnitTests.test_restricted) ... ok
+test_signature_default_context (test_sandero_technical_page17_ambiguity_review.UnitTests.test_signature_default_context) ... ok
+test_signature_fuel_context (test_sandero_technical_page17_ambiguity_review.UnitTests.test_signature_fuel_context) ... ok
+test_statuses (test_sandero_technical_page17_ambiguity_review.UnitTests.test_statuses) ... ok
+test_wrong_kind (test_sandero_technical_page17_ambiguity_review.UnitTests.test_wrong_kind) ... ok
+test_availability_prices_and_source_mapping_are_unchanged (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_availability_prices_and_source_mapping_are_unchanged) ... ok
+test_existing_engine_category_is_reused_without_a_new_unit (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_existing_engine_category_is_reused_without_a_new_unit) ... ok
+test_existing_engine_observations_are_not_rewritten (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_existing_engine_observations_are_not_rewritten) ... ok
+test_import_uses_existing_total_valve_count_attribute (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_import_uses_existing_total_valve_count_attribute) ... ok
+test_total_count_remains_distinct_from_related_engine_counts (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_total_count_remains_distinct_from_related_engine_counts) ... ok
+test_total_valve_count_is_an_active_integer_engine_attribute (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_total_valve_count_is_an_active_integer_engine_attribute) ... ok
+test_configuration_source_and_date_coverage (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_configuration_source_and_date_coverage) ... ok
+test_internal_ordering_criteria_are_excluded (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_internal_ordering_criteria_are_excluded) ... ok
+test_new_attributes_are_active_strings (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_new_attributes_are_active_strings) ... ok
+test_notes_preserve_section_and_wording (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_notes_preserve_section_and_wording) ... ok
+test_package_codes_are_unique (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_package_ids_shape_and_count) ... ok
+test_stepway_essential_conflict_boundary (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_stepway_essential_conflict_boundary) ... ok
+test_values_are_not_availability_booleans (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_values_are_not_availability_booleans) ... ok
+test_values_match_controlled_manifest (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_values_match_controlled_manifest) ... ok
+test_accepts_utf8_bom (test_search.SearchTests.test_accepts_utf8_bom) ... ok
+test_does_not_search_its_own_export (test_search.SearchTests.test_does_not_search_its_own_export) ... ok
+test_exports_consistent_union_of_columns (test_search.SearchTests.test_exports_consistent_union_of_columns) ... ok
+test_highlight_is_case_insensitive (test_search.SearchTests.test_highlight_is_case_insensitive) ... ok
+test_limits_search_to_selected_field (test_search.SearchTests.test_limits_search_to_selected_field) ... ok
+test_searches_all_fields (test_search.SearchTests.test_searches_all_fields) ... ok
+test_flexicharger_validation_preserves_all_three_exact_mappings (test_source_assimilation_audit_contract_20260802.SourceAssimilationAuditContractTests.test_flexicharger_validation_preserves_all_three_exact_mappings) ... ok
+test_standard_requires_complete_page_and_visual_review (test_source_assimilation_audit_contract_20260802.SourceAssimilationAuditContractTests.test_standard_requires_complete_page_and_visual_review) ... ok
+test_distinguishes_missing_source_from_missing_record (test_source_coverage.SourceCoverageTests.test_distinguishes_missing_source_from_missing_record) ... ok
+test_future_source_is_separate_registration_state (test_source_coverage.SourceCoverageTests.test_future_source_is_separate_registration_state) ... ok
+test_json_and_markdown_are_deterministic (test_source_coverage.SourceCoverageTests.test_json_and_markdown_are_deterministic) ... ok
+test_range_observations_count_as_source_covered_technical_evidence (test_source_coverage.SourceCoverageTests.test_range_observations_count_as_source_covered_technical_evidence) ... ok
+test_rejects_invalid_source_hash (test_source_coverage.SourceCoverageTests.test_rejects_invalid_source_hash) ... ok
+test_rejects_observation_source_mismatch (test_source_coverage.SourceCoverageTests.test_rejects_observation_source_mismatch) ... ok
+test_reports_registered_sources_and_record_gaps (test_source_coverage.SourceCoverageTests.test_reports_registered_sources_and_record_gaps) ... ok
+test_sections_distinguish_partial_and_missing (test_source_coverage.SourceCoverageTests.test_sections_distinguish_partial_and_missing) ... ok
+test_unscoped_newer_observation_advances_report_date (test_source_coverage_repository_as_of.SourceCoverageRepositoryAsOfTests.test_unscoped_newer_observation_advances_report_date) ... ok
+test_domestic_socket_exact_boundary (test_spring_charging_cable_commercial_semantics_migration_20260802.SpringChargingCableCommercialSemanticsMigrationTests.test_domestic_socket_exact_boundary) ... ok
+test_type2_membership_and_history (test_spring_charging_cable_commercial_semantics_migration_20260802.SpringChargingCableCommercialSemanticsMigrationTests.test_type2_membership_and_history) ... ok
+test_item_applicability_is_limited_to_exact_brochure_grades (test_spring_commercial_packages.SpringCommercialPackagesTests.test_item_applicability_is_limited_to_exact_brochure_grades) ... ok
+test_master_rows_match_generated_contract_and_contiguous_suffixes (test_spring_commercial_packages.SpringCommercialPackagesTests.test_master_rows_match_generated_contract_and_contiguous_suffixes) ... ok
+test_package_does_not_add_models_versions_or_configurations (test_spring_commercial_packages.SpringCommercialPackagesTests.test_package_does_not_add_models_versions_or_configurations) ... ok
+test_package_membership_aligns_with_direct_optional_matrix_cells (test_spring_commercial_packages.SpringCommercialPackagesTests.test_package_membership_aligns_with_direct_optional_matrix_cells) ... ok
+test_power_package_preserves_source_v2l_boundary (test_spring_commercial_packages.SpringCommercialPackagesTests.test_power_package_preserves_source_v2l_boundary) ... ok
+test_registered_source_hash_and_existing_configuration_boundary (test_spring_commercial_packages.SpringCommercialPackagesTests.test_registered_source_hash_and_existing_configuration_boundary) ... ok
+test_reviewed_prices_and_remaining_unknowns_are_exposed_without_inference (test_spring_commercial_packages.SpringCommercialPackagesTests.test_reviewed_prices_and_remaining_unknowns_are_exposed_without_inference) ... ok
+test_versioned_specs_preserve_exact_counts_and_blank_prices (test_spring_commercial_packages.SpringCommercialPackagesTests.test_versioned_specs_preserve_exact_counts_and_blank_prices) ... ok
+test_direct_matrix_cells_preserve_grade_differences (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_direct_matrix_cells_preserve_grade_differences) ... ok
+test_every_matrix_attribute_is_active_and_compatible (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_every_matrix_attribute_is_active_and_compatible) ... ok
+test_existing_availability_is_preserved_around_spring_block (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_existing_availability_is_preserved_around_spring_block) ... ok
+test_generated_rows_have_exact_status_distribution (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_generated_rows_have_exact_status_distribution) ... ok
+test_master_rows_match_generated_contract_and_contiguous_suffix (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_master_rows_match_generated_contract_and_contiguous_suffix) ... ok
+test_selected_configurations_and_brochure_versions_are_exact (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_selected_configurations_and_brochure_versions_are_exact) ... ok
+test_source_hash_and_evidence_boundary_are_locked (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_source_hash_and_evidence_boundary_are_locked) ... ok
+test_versioned_spec_has_exact_matrix_dimensions (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_versioned_spec_has_exact_matrix_dimensions) ... ok
+test_all_three_spring_grades_have_domestic_cable_mapping (test_spring_expression_flexicharger_correction_20260802.SpringExpressionFlexiChargerCorrectionTests.test_all_three_spring_grades_have_domestic_cable_mapping) ... ok
+test_expression_mapping_is_exact_and_priced (test_spring_expression_flexicharger_correction_20260802.SpringExpressionFlexiChargerCorrectionTests.test_expression_mapping_is_exact_and_priced) ... ok
+test_each_colour_membership_uses_only_exterior_color (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_each_colour_membership_uses_only_exterior_color) ... ok
+test_every_colour_maps_to_all_three_existing_configurations (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_every_colour_maps_to_all_three_existing_configurations) ... ok
+test_exact_current_essential_white_and_khaki_pricing (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_exact_current_essential_white_and_khaki_pricing) ... ok
+test_master_rows_match_generated_contract_and_contiguous_suffixes (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_master_rows_match_generated_contract_and_contiguous_suffixes) ... ok
+test_package_adds_no_model_version_or_configuration (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_package_adds_no_model_version_or_configuration) ... ok
+test_registered_source_hash_and_existing_configuration_boundary (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_registered_source_hash_and_existing_configuration_boundary) ... ok
+test_spec_preserves_six_exact_names_and_finish_classes (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_spec_preserves_six_exact_names_and_finish_classes) ... ok
+test_brochure_inventory_covers_all_22_pages (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_brochure_inventory_covers_all_22_pages) ... ok
+test_charging_cable_conflict_cannot_be_silently_flattened (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_charging_cable_conflict_cannot_be_silently_flattened) ... ok
+test_exact_hashes_and_completion_status_are_preserved (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_exact_hashes_and_completion_status_are_preserved) ... ok
+test_price_list_inventory_covers_all_6_pages (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_price_list_inventory_covers_all_6_pages) ... ok
+test_all_36_approved_observations_are_materialized (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_all_36_approved_observations_are_materialized) ... ok
+test_all_six_technical_deferrals_remain_explicit (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_all_six_technical_deferrals_remain_explicit) ... ok
+test_closure_tool_verify_mode_passes (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_closure_tool_verify_mode_passes) ... ok
+test_every_ledger_area_has_one_closure_outcome (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_every_ledger_area_has_one_closure_outcome) ... ok
+test_every_required_downstream_receipt_is_complete (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_every_required_downstream_receipt_is_complete) ... ok
+test_exact_source_hashes_and_all_28_pages_are_closed (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_exact_source_hashes_and_all_28_pages_are_closed) ... ok
+test_four_documentary_conflicts_remain_preserved (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_four_documentary_conflicts_remain_preserved) ... ok
+test_no_eligible_source_candidate_remains (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_no_eligible_source_candidate_remains) ... ok
+test_state_manifest_tracks_all_closure_outputs_while_current (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_state_manifest_tracks_all_closure_outputs_while_current) ... ok
+test_state_preserves_source_milestone_closure_contract (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_state_preserves_source_milestone_closure_contract) ... ok
+test_controlled_enum_values_exist (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_controlled_enum_values_exist) ... ok
+test_enum_registry_contains_only_required_new_rules (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_enum_registry_contains_only_required_new_rules) ... ok
+test_importer_verify_mode_passes (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_importer_verify_mode_passes) ... ok
+test_master_contains_exact_contiguous_migration_suffix (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_master_contains_exact_contiguous_migration_suffix) ... ok
+test_no_deferred_my25_or_contextual_values_were_added (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_no_deferred_my25_or_contextual_values_were_added) ... ok
+test_report_records_exact_scope_and_deferrals (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_report_records_exact_scope_and_deferrals) ... ok
+test_reporting_scopes_include_all_common_technical_slots (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_reporting_scopes_include_all_common_technical_slots) ... ok
+test_spec_is_exact_three_by_twelve_matrix (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_spec_is_exact_three_by_twelve_matrix) ... ok
+test_spec_preserves_page_boundaries (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_spec_preserves_page_boundaries) ... ok
+test_state_manifest_tracks_every_durable_output (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_state_manifest_tracks_every_durable_output) ... ok
+test_approved_values_are_common_and_exact (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_approved_values_are_common_and_exact) ... ok
+test_enum_support_is_bounded_to_existing_attributes (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_enum_support_is_bounded_to_existing_attributes) ... ok
+test_exact_approved_migration_boundary (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_exact_approved_migration_boundary) ... ok
+test_model_year_and_measurement_deferrals_are_preserved (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_model_year_and_measurement_deferrals_are_preserved) ... ok
+test_prohibited_automatic_migrations_remain_excluded (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_prohibited_automatic_migrations_remain_excluded) ... ok
+test_review_is_deterministic_while_current (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_review_is_deterministic_while_current) ... ok
+test_scope_is_review_only_and_source_complete (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_scope_is_review_only_and_source_complete) ... ok
+test_state_and_historical_transition_contract (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_state_and_historical_transition_contract) ... ok
+test_ambiguous_fields_remain_unimported (test_spring_technical_20260219.SpringTechnical20260219Test.test_ambiguous_fields_remain_unimported) ... ok
+test_boot_capacity_has_exact_iso_context (test_spring_technical_20260219.SpringTechnical20260219Test.test_boot_capacity_has_exact_iso_context) ... ok
+test_completeness_scope_is_exact (test_spring_technical_20260219.SpringTechnical20260219Test.test_completeness_scope_is_exact) ... ok
+test_each_configuration_has_eighteen_values_and_one_range (test_spring_technical_20260219.SpringTechnical20260219Test.test_each_configuration_has_eighteen_values_and_one_range) ... ok
+test_exact_row_counts_and_suffixes (test_spring_technical_20260219.SpringTechnical20260219Test.test_exact_row_counts_and_suffixes) ... ok
+test_grade_bounded_values (test_spring_technical_20260219.SpringTechnical20260219Test.test_grade_bounded_values) ... ok
+test_importer_check_mode (test_spring_technical_20260219.SpringTechnical20260219Test.test_importer_check_mode) ... ok
+test_power_rpm_ranges_preserve_endpoints (test_spring_technical_20260219.SpringTechnical20260219Test.test_power_rpm_ranges_preserve_endpoints) ... ok
+test_repository_baselines_and_reconciliation_preserve_spring_counts (test_spring_technical_20260219.SpringTechnical20260219Test.test_repository_baselines_and_reconciliation_preserve_spring_counts) ... ok
+test_accepts_utf8_bom (test_statistics.StatisticsTests.test_accepts_utf8_bom) ... ok
+test_calculates_completeness (test_statistics.StatisticsTests.test_calculates_completeness) ... ok
+test_collects_repository_totals (test_statistics.StatisticsTests.test_collects_repository_totals) ... ok
+test_counts_header_only_file_as_empty (test_statistics.StatisticsTests.test_counts_header_only_file_as_empty) ... ok
+test_ignores_csv_files_outside_master_data (test_statistics.StatisticsTests.test_ignores_csv_files_outside_master_data) ... ok
+test_ignores_git_directory (test_statistics.StatisticsTests.test_ignores_git_directory) ... ok
+test_sorts_largest_dataset_first (test_statistics.StatisticsTests.test_sorts_largest_dataset_first) ... ok
+test_accepts_active_catalog_status (test_statuses.StatusValidationTests.test_accepts_active_catalog_status) ... ok
+test_accepts_archived_closed_range (test_statuses.StatusValidationTests.test_accepts_archived_closed_range) ... ok
+test_accepts_current_open_range (test_statuses.StatusValidationTests.test_accepts_current_open_range) ... ok
+test_rejects_archived_open_range (test_statuses.StatusValidationTests.test_rejects_archived_open_range) ... ok
+test_rejects_current_closed_range (test_statuses.StatusValidationTests.test_rejects_current_closed_range) ... ok
+test_rejects_empty_status (test_statuses.StatusValidationTests.test_rejects_empty_status) ... ok
+test_rejects_incorrect_status_case (test_statuses.StatusValidationTests.test_rejects_incorrect_status_case) ... ok
+test_rejects_unknown_status (test_statuses.StatusValidationTests.test_rejects_unknown_status) ... ok
+test_reports_missing_end_column (test_statuses.StatusValidationTests.test_reports_missing_end_column) ... ok
+test_reports_missing_file (test_statuses.StatusValidationTests.test_reports_missing_file) ... ok
+test_reports_missing_status_column (test_statuses.StatusValidationTests.test_reports_missing_status_column) ... ok
+test_scans_all_configured_files (test_statuses.StatusValidationTests.test_scans_all_configured_files) ... ok
+test_accepts_unique_id_and_code (test_uniqueness.UniqueColumnValidationTests.test_accepts_unique_id_and_code) ... ok
+test_checks_file_with_only_code (test_uniqueness.UniqueColumnValidationTests.test_checks_file_with_only_code) ... ok
+test_ignores_file_without_key_columns (test_uniqueness.UniqueColumnValidationTests.test_ignores_file_without_key_columns) ... ok
+test_reports_case_insensitive_duplicate_code (test_uniqueness.UniqueColumnValidationTests.test_reports_case_insensitive_duplicate_code) ... ok
+test_reports_duplicate_id (test_uniqueness.UniqueColumnValidationTests.test_reports_duplicate_id) ... ok
+test_reports_empty_code (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_code) ... ok
+test_reports_empty_id (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_id) ... ok
+test_scans_all_master_csv_files (test_uniqueness.UniqueColumnValidationTests.test_scans_all_master_csv_files) ... ok
+test_validate_command_executes_complete_validator (test_validate_cli.ValidateCliIntegrationTests.test_validate_command_executes_complete_validator) ... ok
+test_committed_artifacts_preserve_the_dated_review_boundary (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_committed_artifacts_preserve_the_dated_review_boundary) ... ok
+test_real_reconciliation_has_expected_candidate_partition (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_real_reconciliation_has_expected_candidate_partition) ... ok
+test_build_assigns_every_selected_candidate_once (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_build_assigns_every_selected_candidate_once) ... ok
+test_candidate_tokens_prefer_left_table_label (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_candidate_tokens_prefer_left_table_label) ... ok
+test_duplicate_selected_candidate_is_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_duplicate_selected_candidate_is_rejected) ... ok
+test_equipment_match_requires_same_model_and_availability_table (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_equipment_match_requires_same_model_and_availability_table) ... ok
+test_heading_is_explicit_non_import (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_heading_is_explicit_non_import) ... ok
+test_match_key_is_unicode_and_punctuation_stable (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_match_key_is_unicode_and_punctuation_stable) ... ok
+test_multiple_signatures_are_ambiguous (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_multiple_signatures_are_ambiguous) ... ok
+test_no_match_is_unresolved_not_negative_evidence (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_no_match_is_unresolved_not_negative_evidence) ... ok
+test_numbered_footnote_is_explicit_non_import (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_numbered_footnote_is_explicit_non_import) ... ok
+test_ordered_match_requires_two_tokens (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_ordered_match_requires_two_tokens) ... ok
+test_render_and_json_are_deterministic (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_render_and_json_are_deterministic) ... ok
+test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_restricted_output_paths_are_rejected) ... ok
+test_single_signature_is_already_covered (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_single_signature_is_already_covered) ... ok
+test_target_groups_require_exact_review_boundary (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_target_groups_require_exact_review_boundary) ... ok
+test_technical_match_requires_same_source_and_page (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_technical_match_requires_same_source_and_page) ... ok
+test_anchor_candidates_match_ledger_exactly (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_anchor_candidates_match_ledger_exactly) ... ok
+test_build_rejects_missing_or_duplicate_candidate_assignment (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_build_rejects_missing_or_duplicate_candidate_assignment) ... ok
+test_controlled_decisions_and_statuses_are_exact (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_controlled_decisions_and_statuses_are_exact) ... ok
+test_decision_candidate_totals_recalculate_exactly (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_decision_candidate_totals_recalculate_exactly) ... ok
+test_every_candidate_is_assigned_exactly_once (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_every_candidate_is_assigned_exactly_once) ... ok
+test_evidence_references_are_repository_relative_and_present (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_evidence_references_are_repository_relative_and_present) ... ok
+test_group_candidate_counts_match_membership (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_group_candidate_counts_match_membership) ... ok
+test_group_order_is_stable_by_source_and_page (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_group_order_is_stable_by_source_and_page) ... ok
+test_metadata_and_summary_are_exact (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_metadata_and_summary_are_exact) ... ok
+test_outputs_and_next_package_remain_review_only (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_outputs_and_next_package_remain_review_only) ... ok
+test_policy_preserves_non_import_boundaries (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_policy_preserves_non_import_boundaries) ... ok
+test_repeated_generation_is_byte_identical (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_repeated_generation_is_byte_identical) ... ok
+test_source_page_ranges_partition_all_114_pages (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_source_page_ranges_partition_all_114_pages) ... ok
+test_verify_detects_json_drift (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_verify_detects_json_drift) ... ok
+test_real_repository_partition_and_highest_priority (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationRepositoryTests.test_real_repository_partition_and_highest_priority) ... ok
+test_boundary_key_contains_source_domain_page_status (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_boundary_key_contains_source_domain_page_status) ... ok
+test_build_assigns_each_residual_candidate_once (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_assigns_each_residual_candidate_once) ... ok
+test_build_preserves_status_boundary (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_preserves_status_boundary) ... ok
+test_build_selects_only_residual_statuses (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_selects_only_residual_statuses) ... ok
+test_candidate_sort_key_uses_lines_then_id (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_candidate_sort_key_uses_lines_then_id) ... ok
+test_canonical_json_is_deterministic (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_canonical_json_is_deterministic) ... ok
+test_chunks_reject_non_positive_size (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_chunks_reject_non_positive_size) ... ok
+test_chunks_respect_maximum_size (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_chunks_respect_maximum_size) ... ok
+test_duplicate_reconciliation_candidate_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_duplicate_reconciliation_candidate_is_rejected) ... ok
+test_evidence_count_mismatch_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_count_mismatch_is_rejected) ... ok
+test_evidence_counts_preserve_all_references (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_counts_preserve_all_references) ... ok
+test_make_package_preserves_candidate_identity_and_text (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_make_package_preserves_candidate_identity_and_text) ... ok
+test_make_package_rejects_cross_boundary_candidate (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_make_package_rejects_cross_boundary_candidate) ... ok
+test_no_residual_candidates_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_no_residual_candidates_is_rejected) ... ok
+test_package_group_order_prefers_ambiguous (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_ambiguous) ... ok
+test_package_group_order_prefers_larger_group (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_larger_group) ... ok
+test_package_group_order_prefers_technical (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_technical) ... ok
+test_render_markdown_is_deterministic (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_render_markdown_is_deterministic) ... ok
+test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_restricted_output_paths_are_rejected) ... ok
+test_verify_output_detects_drift (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_verify_output_detects_drift) ... ok
+test_accepts_matching_database (test_verify_sqlite.SqliteVerificationTests.test_accepts_matching_database) ... ok
+test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmpzf9r1q7l/missing.sqlite
+ok
+test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
+test_reports_invalid_database_file (test_verify_sqlite.SqliteVerificationTests.test_reports_invalid_database_file) ... ok
+test_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_database) ... ok
+test_reports_missing_table (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_table) ... ok
+test_reports_row_count_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_row_count_mismatch) ... ok
+test_reports_schema_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_schema_mismatch) ... ok
+test_reports_unexpected_table (test_verify_sqlite.SqliteVerificationTests.test_reports_unexpected_table) ... ok
+test_accepts_closed_range (test_year_ranges.YearRangeValidationTests.test_accepts_closed_range) ... ok
+test_accepts_open_range (test_year_ranges.YearRangeValidationTests.test_accepts_open_range) ... ok
+test_rejects_empty_required_start_year (test_year_ranges.YearRangeValidationTests.test_rejects_empty_required_start_year) ... ok
+test_rejects_invalid_end_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_end_year_format) ... ok
+test_rejects_invalid_start_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_start_year_format) ... ok
+test_rejects_reversed_range (test_year_ranges.YearRangeValidationTests.test_rejects_reversed_range) ... ok
+test_reports_missing_columns (test_year_ranges.YearRangeValidationTests.test_reports_missing_columns) ... ok
+test_reports_missing_file (test_year_ranges.YearRangeValidationTests.test_reports_missing_file) ... ok
+test_scans_all_configured_files (test_year_ranges.YearRangeValidationTests.test_scans_all_configured_files) ... ok
+
+======================================================================
+FAIL: test_standalone_html_products_preserve_offline_boundary (test_portfolio_model_family_release_integration.PortfolioModelFamilyReleaseIntegrationTests.test_standalone_html_products_preserve_offline_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_portfolio_model_family_release_integration.py", line 290, in test_standalone_html_products_preserve_offline_boundary
+    self.assertEqual(family_html.count('data-state="not_stated"'), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_review_tool_verify_mode_passes (test_post_v1_11_0_release_priority_selection_20260803.PostV111ReleasePrioritySelectionReviewTest.test_review_tool_verify_mode_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_v1_11_0_release_priority_selection_20260803.py", line 87, in test_review_tool_verify_mode_passes
+    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_post_v1_11_0_release_priority_selection_20260803.py", line 386, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_post_v1_11_0_release_priority_selection_20260803.py", line 380, in main
+    verify()
+    ~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_post_v1_11_0_release_priority_selection_20260803.py", line 339, in verify
+    raise RuntimeError(f"generated output differs: {path.relative_to(ROOT)}")
+RuntimeError: generated output differs: data/reporting/post_v1_11_0_release_priority_selection_review.json
+
+
+----------------------------------------------------------------------
+Ran 1915 tests in 171.736s
+
+FAILED (failures=2)
+Quality checks failed at: Run unit tests (exit code 1). Full log: /home/runner/work/_temp/quality.log
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Already up to date.
+Building SQLite database: /tmp/tmpv1ed8sq7/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 12 rows
+  data/master/attributes.csv -> attributes: 416 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 103 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 322 rows
+  data/master/commercial_items.csv -> commercial_items: 50 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 6931 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 345 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 6682 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 615 rows
+  data/master/configuration_prices.csv -> configuration_prices: 134 rows
+  data/master/configurations.csv -> configurations: 84 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 2 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/electric_motor_types.csv -> electric_motor_types: 1 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 354 rows
+  data/master/source_models.csv -> source_models: 37 rows
+  data/master/source_versions.csv -> source_versions: 69 rows
+  data/master/sources.csv -> sources: 108 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 22 rows
+Database ready: /tmp/tmpv1ed8sq7/dkb.sqlite
+Building SQLite database: /tmp/tmpbmczfrgo/reports/test.sqlite
+Source directory: /tmp/tmpbmczfrgo/data/master
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpbmczfrgo/reports/test.sqlite
+Building SQLite database: /tmp/tmpt9m1lxxj/nested/directory/test.sqlite
+Source directory: /tmp/tmpt9m1lxxj/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmpt9m1lxxj/nested/directory/test.sqlite
+Building SQLite database: /tmp/tmpuxjte_5c/test.sqlite
+Source directory: /tmp/tmpuxjte_5c/data/master
+Building SQLite database: /tmp/tmp_ba8g3f0/test.sqlite
+Source directory: /tmp/tmp_ba8g3f0/data/master
+  data/master/models.csv -> models: 1 rows
+Database ready: /tmp/tmp_ba8g3f0/test.sqlite
+Configuration comparison bundle
+-------------------------------
+Selected configurations : 2
+Scope groups            : 1
+Comparable scopes       : 1
+Singleton scopes        : 0
+Cross-scope pairs       : none
+- sandero_stepway_ecog120_automatic | comparable | configurations=2 | pairs=1 | differences=10
+Manifest               : /tmp/tmpw5o9xlfh/first/comparison-bundle-manifest.json
+JSON configuration comparison report written to /tmp/tmp47ls1_06/comparison.json
+Configuration comparison
+------------------------
+As of                  : 2026-06-01
+Active configurations  : 2
+Pair type filter       : all
+Available pairs        : 1
+Selected pairs         : 1
+Price differences      : 1
+Technical differences  : 0
+Equipment differences  : 1
+CSV difference domain   : all
+CSV difference item     : all
+CSV difference rows     : 2
+Not-comparable states  : 3
+HTML configuration comparison report written to /tmp/tmp47ls1_06/comparison.html
+JSON configuration shortlist written to /tmp/tmp1qzxvdlk/shortlist.json
+Markdown configuration shortlist written to /tmp/tmp1qzxvdlk/shortlist.md
+CSV configuration shortlist written to /tmp/tmp1qzxvdlk/shortlist.csv
+Configuration shortlist as of 2026-01-01
+Matched 2 of 4 active configurations.
+- 70000 PLN | Model A Expression | Eco-G 120 | manual | 5 seats | cfg_a
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+JSON configuration shortlist written to /tmp/tmpzxyxn4qk/shortlist.json
+Interactive HTML configuration shortlist written to /tmp/tmpzxyxn4qk/shortlist.html
+Configuration shortlist as of 2026-01-01
+Matched 1 of 4 active configurations.
+- 90000 PLN | Model A Extreme | Eco-G 120 | automatic | 5 seats | cfg_b
+Building SQLite database: /tmp/tmpheqoj2f3/dkb.sqlite
+Source directory: /home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/data/master
+  data/master/attribute_categories.csv -> attribute_categories: 30 rows
+  data/master/attribute_enum_domains.csv -> attribute_enum_domains: 12 rows
+  data/master/attributes.csv -> attributes: 416 rows
+  data/master/body_types.csv -> body_types: 8 rows
+  data/master/categories.csv -> categories: 15 rows
+  data/master/commercial_item_attributes.csv -> commercial_item_attributes: 103 rows
+  data/master/commercial_item_configurations.csv -> commercial_item_configurations: 322 rows
+  data/master/commercial_items.csv -> commercial_items: 50 rows
+  data/master/configuration_attribute_availability.csv -> configuration_attribute_availability: 6931 rows
+  data/master/configuration_attribute_value_ranges.csv -> configuration_attribute_value_ranges: 345 rows
+  data/master/configuration_attribute_values.csv -> configuration_attribute_values: 6682 rows
+  data/master/configuration_cargo_volume_contexts.csv -> configuration_cargo_volume_contexts: 615 rows
+  data/master/configuration_prices.csv -> configuration_prices: 134 rows
+  data/master/configurations.csv -> configurations: 84 rows
+  data/master/currencies.csv -> currencies: 1 rows
+  data/master/domains.csv -> domains: 13 rows
+  data/master/engines.csv -> engines: 14 rows
+  data/master/enums/aspiration_types.csv -> aspiration_types: 5 rows
+  data/master/enums/battery_chemistries.csv -> battery_chemistries: 2 rows
+  data/master/enums/cargo_compartment_types.csv -> cargo_compartment_types: 3 rows
+  data/master/enums/cargo_measurement_bases.csv -> cargo_measurement_bases: 2 rows
+  data/master/enums/cargo_seat_states.csv -> cargo_seat_states: 4 rows
+  data/master/enums/commercial_item_types.csv -> commercial_item_types: 2 rows
+  data/master/enums/context_presence_states.csv -> context_presence_states: 2 rows
+  data/master/enums/cylinder_configurations.csv -> cylinder_configurations: 5 rows
+  data/master/enums/drive_types.csv -> drive_types: 4 rows
+  data/master/enums/electric_motor_types.csv -> electric_motor_types: 1 rows
+  data/master/enums/emission_standards.csv -> emission_standards: 4 rows
+  data/master/enums/engine_types.csv -> engine_types: 6 rows
+  data/master/enums/equipment_availability_statuses.csv -> equipment_availability_statuses: 4 rows
+  data/master/enums/fuel_types.csv -> fuel_types: 7 rows
+  data/master/enums/injection_types.csv -> injection_types: 5 rows
+  data/master/enums/recommended_fuels.csv -> recommended_fuels: 6 rows
+  data/master/enums/transmission_type.csv -> transmission_type: 8 rows
+  data/master/gearboxes.csv -> gearboxes: 7 rows
+  data/master/model_engines.csv -> model_engines: 30 rows
+  data/master/model_gearboxes.csv -> model_gearboxes: 17 rows
+  data/master/models.csv -> models: 19 rows
+  data/master/segments.csv -> segments: 6 rows
+  data/master/source_configurations.csv -> source_configurations: 354 rows
+  data/master/source_models.csv -> source_models: 37 rows
+  data/master/source_versions.csv -> source_versions: 69 rows
+  data/master/sources.csv -> sources: 108 rows
+  data/master/units.csv -> units: 27 rows
+  data/master/validation_rules.csv -> validation_rules: 8 rows
+  data/master/value_types.csv -> value_types: 7 rows
+  data/master/versions.csv -> versions: 22 rows
+Database ready: /tmp/tmpheqoj2f3/dkb.sqlite
+Cross-model comparison view
+---------------------------
+Model families        : 6
+Reporting scopes      : 23
+Active configurations : 84
+Within-scope pairs    : 133
+Cross-scope pairs     : none
+Versioned data product release
+------------------------------
+Version                 : 1.2.3
+Tag                     : data-products-v1.2.3
+Repository commit       : 1111111111111111111111111111111111111111
+Selected configurations : 84
+Independent scopes      : 23
+Archive                 : /tmp/tmpqo6rhc7g/release/dacia-knowledge-base-data-products-v1.2.3.zip
+Manifest                : /tmp/tmpqo6rhc7g/release/data-product-release-manifest.json
+Checksums               : /tmp/tmpqo6rhc7g/release/SHA256SUMS
+Jogger fog-light history: PASS (6 April standard + 6 July not_available)
+CSV files checked : 1
+Already UTF-8     : 1
+Windows-1250      : 0
+Unreadable        : 0
+
+Converted 0 file(s) to UTF-8.
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 867e8ba7244196be9a05fe0073c874a0a9ebd7d6
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 4d94ef5c2f30dd5503f62ac3ca83f9560a7a72fb
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 867e8ba7244196be9a05fe0073c874a0a9ebd7d6
+HEAD   : 4d94ef5c2f30dd5503f62ac3ca83f9560a7a72fb
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+4d94ef5 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+Remote HEAD: 4d94ef5c2f30dd5503f62ac3ca83f9560a7a72fb
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-177zz7rl/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 867e8ba7244196be9a05fe0073c874a0a9ebd7d6
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 4d94ef5c2f30dd5503f62ac3ca83f9560a7a72fb
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : 867e8ba7244196be9a05fe0073c874a0a9ebd7d6
+HEAD   : 4d94ef5c2f30dd5503f62ac3ca83f9560a7a72fb
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+4d94ef5 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== PUSH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : 867e8ba7244196be9a05fe0073c874a0a9ebd7d6
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: 4d94ef5c2f30dd5503f62ac3ca83f9560a7a72fb
+
+===== PACKAGE FINISH =====
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+HEAD   : e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e5e5711 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-zp8fi0ka/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt rejected: receipt field differs: branch
+
+===== FULL QUALITY LOG =====
+Quality receipt created: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+HEAD   : e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e5e5711 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-c7y6qmdg/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+HEAD   : e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e5e5711 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-1wkwet83/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+
+===== FAIL =====
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+HEAD   : e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e5e5711 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-wrqroz1b/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+Mode   : precommit
+Quality receipt: PASS (298 tests)
+
+===== STAGING =====
+Staged paths: 1
+
+===== COMMIT =====
+Commit: e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+HEAD   : e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e5e5711 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-wlwg7mbn/output/handoff.json
+PASS
+
+===== PACKAGE PUBLISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+Subject: tooling: publish test
+Files  : 1
+Mode   : committed
+Quality receipt: PASS (298 tests)
+Existing package commit reused: e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+
+===== PACKAGE FINISH =====
+
+===== PACKAGE FINISH =====
+Branch : tooling/test
+Base   : ffd7a7b03dfbfebc8ba0621f22bfbb3db0dd500b
+HEAD   : e5e57117bbb9b9269337deffe28d69b23d2d4ea7
+Commits: 1
+Files  : 1
+Subject: tooling: publish test
+Manifest: PASS
+
+===== COMMITS =====
+e5e5711 (HEAD -> tooling/test) tooling: publish test
+
+===== CHANGED PATHS =====
+tools/example.py
+
+===== DIFF STAT =====
+tools/example.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+===== PUSH =====
+Upstream: not configured
+Command : git push -u origin tooling/test
+
+===== PACKAGE FINISH CHECK =====
+PASS
+
+===== COMPLETE =====
+Handoff: /tmp/dkb-publish-wlwg7mbn/output/handoff.json
+PASS
+Versioned data product release
+------------------------------
+Version                 : 1.15.0
+Tag                     : data-products-v1.15.0
+Repository commit       : 1111111111111111111111111111111111111111
+Selected configurations : 84
+Independent scopes      : 23
+Archive                 : /tmp/tmpu2ugpzit/cli/dacia-knowledge-base-data-products-v1.15.0.zip
+Manifest                : /tmp/tmpu2ugpzit/cli/data-product-release-manifest.json
+Checksums               : /tmp/tmpu2ugpzit/cli/SHA256SUMS
+Portfolio model-family summary
+------------------------------
+Model families        : 6
+Active configurations : 84
+Reporting scopes      : 23
+Provenance sources    : 105
+Source relationships  : 354
+Cross-scope pairs     : none
+Portfolio model-family comparison matrix
+----------------------------------------
+Model families        : 6
+Active configurations : 84
+Reporting scopes      : 23
+Source relationships  : 354
+Cross-scope pairs     : none
+Rankings              : none
+Portfolio model-version comparison matrix
+-----------------------------------------
+Model families        : 6
+Active versions       : 22
+Active configurations : 84
+Reporting scopes      : 23
+Source relationships  : 354
+Configuration pairs   : none
+Rankings              : none
+Portfolio source coverage matrix
+--------------------------------
+Used provenance sources : 105
+Source relationships    : 354
+Active configurations   : 84
+Active versions         : 22
+Model families          : 6
+Source scoring          : none
+Rankings                : none
+
+==> Broken
+Stepway Essential source-gap observations: PASS (3 values + 3 ranges + 2 scope corrections)
+Stepway Expression automatic source-gap observations: PASS (3 values + 3 ranges + 1 availability)
+Stepway Expression source-gap observations: PASS (3 values + 3 ranges)
+Stepway Extreme automatic source-gap observations: PASS (2 values + 3 ranges + 1 availability)
+Stepway Extreme source-gap observations: PASS (2 values + 3 ranges + 1 availability)
+Spring commercial packages: PASS (5 items, 18 memberships, 7 mappings)
+Building SQLite database: /tmp/tmpm4h8fs9d/test.sqlite
+Source directory: /tmp/tmpm4h8fs9d/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpm4h8fs9d/test.sqlite
+Building SQLite database: /tmp/tmpzpbfo_1j/test.sqlite
+Source directory: /tmp/tmpzpbfo_1j/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpzpbfo_1j/test.sqlite
+Building SQLite database: /tmp/tmpk0uxfurr/test.sqlite
+Source directory: /tmp/tmpk0uxfurr/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpk0uxfurr/test.sqlite
+Building SQLite database: /tmp/tmpzan09al0/test.sqlite
+Source directory: /tmp/tmpzan09al0/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpzan09al0/test.sqlite
+Building SQLite database: /tmp/tmp9v5nh5qd/test.sqlite
+Source directory: /tmp/tmp9v5nh5qd/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmp9v5nh5qd/test.sqlite
+Building SQLite database: /tmp/tmpvvyd4a2b/test.sqlite
+Source directory: /tmp/tmpvvyd4a2b/data/master
+  data/master/attributes.csv -> attributes: 1 rows
+  data/master/models.csv -> models: 2 rows
+Database ready: /tmp/tmpvvyd4a2b/test.sqlite
+
+=== QUALITY LOG TAIL ===
+test_21_no_rejections (test_sandero_equipment_page19_ambiguity_review.RepositoryTests.test_21_no_rejections) ... ok
+test_22_json_output (test_sandero_equipment_page19_ambiguity_review.RepositoryTests.test_22_json_output) ... ok
+test_23_markdown_output (test_sandero_equipment_page19_ambiguity_review.RepositoryTests.test_23_markdown_output) ... ok
+test_24_policy_and_next (test_sandero_equipment_page19_ambiguity_review.RepositoryTests.test_24_policy_and_next) ... ok
+test_25_markdown_boundary (test_sandero_equipment_page19_ambiguity_review.RepositoryTests.test_25_markdown_boundary) ... ok
+test_01_signature (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_01_signature) ... ok
+test_02_package_identity (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_02_package_identity) ... ok
+test_03_package_evidence_totals (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_03_package_evidence_totals) ... ok
+test_04_wrong_kind (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_04_wrong_kind) ... ok
+test_05_import_policy (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_05_import_policy) ... ok
+test_06_missing_signature (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+test_07_manifest_length (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_07_manifest_length) ... ok
+test_08_manifest_decision (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_08_manifest_decision) ... ok
+test_09_restricted_output (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_09_restricted_output) ... ok
+test_10_output_drift (test_sandero_equipment_page19_ambiguity_review.UnitTests.test_10_output_drift) ... ok
+test_bis_variant_remains_distinct_from_euro_6e (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_bis_variant_remains_distinct_from_euro_6e) ... ok
+test_configuration_values_reference_controlled_standards (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_configuration_values_reference_controlled_standards) ... ok
+test_dictionary_codes_are_unique_and_active (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_dictionary_codes_are_unique_and_active) ... ok
+test_dictionary_contains_exact_active_bis_variant (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_dictionary_contains_exact_active_bis_variant) ... ok
+test_existing_attribute_is_active_enum (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_existing_attribute_is_active_enum) ... ok
+test_model_package_does_not_change_other_data_tables (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_model_package_does_not_change_other_data_tables) ... ok
+test_source_registry_and_mapping_are_unchanged (test_sandero_euro_6e_bis_model.SanderoEuro6eBisModelTests.test_source_registry_and_mapping_are_unchanged) ... ok
+test_codes_are_unique_and_dated (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_codes_are_unique_and_dated) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_exact_bis_variant_is_not_reduced_to_euro_6e (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_exact_bis_variant_is_not_reduced_to_euro_6e) ... ok
+test_existing_attribute_and_dictionary_value_are_active (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_existing_attribute_and_dictionary_value_are_active) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_package_ids_shape_and_count) ... ok
+test_value_is_not_availability_or_price (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_exact_source_meaning (test_sandero_euro_6e_bis_values.SanderoEuro6eBisValueTests.test_values_and_notes_preserve_exact_source_meaning) ... ok
+test_colour_is_not_equipment_availability (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_colour_is_not_equipment_availability) ... ok
+test_exterior_category_and_attribute_are_defined (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_exterior_category_and_attribute_are_defined) ... ok
+test_manifest_matches_all_configurations_and_sources (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_manifest_matches_all_configurations_and_sources) ... ok
+test_package_codes_are_unique (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_package_ids_shape_and_count) ... ok
+test_source_configuration_mapping_matches_manifest (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_source_configuration_mapping_matches_manifest) ... ok
+test_values_and_notes_preserve_source_wording (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_values_and_notes_preserve_source_wording) ... ok
+test_zero_price_is_provenance_not_configuration_value (test_sandero_exterior_colour_values.SanderoExteriorColourValueTests.test_zero_price_is_provenance_not_configuration_value) ... ok
+test_codes_are_unique_and_dated (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_codes_are_unique_and_dated) ... ok
+test_controlled_drive_type_is_not_duplicated_as_strings (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_controlled_drive_type_is_not_duplicated_as_strings) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_existing_attribute_and_dictionary_value_are_active (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_existing_attribute_and_dictionary_value_are_active) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_package_ids_shape_and_count) ... ok
+test_value_is_not_availability_or_price (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_exact_source_meaning (test_sandero_front_wheel_drive_values.SanderoFrontWheelDriveValueTests.test_values_and_notes_preserve_exact_source_meaning) ... ok
+test_existing_mass_values_are_not_rewritten (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_existing_mass_values_are_not_rewritten) ... ok
+test_existing_weight_category_and_mass_unit_are_reused (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_existing_weight_category_and_mass_unit_are_reused) ... ok
+test_import_uses_existing_maximum_payload_attribute (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_import_uses_existing_maximum_payload_attribute) ... ok
+test_maximum_payload_is_active_integer_weight (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_maximum_payload_is_active_integer_weight) ... ok
+test_model_package_does_not_change_availability_or_prices (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_model_package_does_not_change_availability_or_prices) ... ok
+test_payload_remains_distinct_from_other_mass_concepts (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_payload_remains_distinct_from_other_mass_concepts) ... ok
+test_source_registry_and_mapping_are_unchanged (test_sandero_maximum_payload_model.SanderoMaximumPayloadModelTests.test_source_registry_and_mapping_are_unchanged) ... ok
+test_codes_are_unique_and_dated (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_codes_are_unique_and_dated) ... ok
+test_each_configuration_has_exactly_one_value (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_each_configuration_has_exactly_one_value) ... ok
+test_existing_attribute_is_active_unitless_integer (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_existing_attribute_is_active_unitless_integer) ... ok
+test_manifest_sources_date_and_fuel_context (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_manifest_sources_date_and_fuel_context) ... ok
+test_package_ids_shape_and_count (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_package_ids_shape_and_count) ... ok
+test_total_count_does_not_populate_side_door_count (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_total_count_does_not_populate_side_door_count) ... ok
+test_value_is_not_availability_or_price (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_value_is_not_availability_or_price) ... ok
+test_values_and_notes_preserve_source_wording (test_sandero_number_of_doors_values.SanderoNumberOfDoorsValueTests.test_values_and_notes_preserve_source_wording) ... ok
+test_four_exact_official_catalogue_prices_are_imported (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_four_exact_official_catalogue_prices_are_imported) ... ok
+test_importer_check_reproduces_master_contract (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_importer_check_reproduces_master_contract) ... ok
+test_snapshot_is_registered_with_exact_hash_and_dynamic_boundary (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_snapshot_is_registered_with_exact_hash_and_dynamic_boundary) ... ok
+test_source_relationships_cover_exact_model_versions_and_configurations (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_source_relationships_cover_exact_model_versions_and_configurations) ... ok
+test_two_official_automatic_configurations_are_active (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_two_official_automatic_configurations_are_active) ... ok
+test_unproven_packages_and_default_tce_options_are_not_mapped_to_new_automatic_states (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_unproven_packages_and_default_tce_options_are_not_mapped_to_new_automatic_states) ... ok
+test_version_highlights_expand_to_16_exact_standard_observations (test_sandero_official_web_20260723.SanderoOfficialWeb20260723Tests.test_version_highlights_expand_to_16_exact_standard_observations) ... ok
+test_exact_active_targets_are_linked_to_source (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_exact_active_targets_are_linked_to_source) ... ok
+test_power_ranges_preserve_exact_fuel_context (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_power_ranges_preserve_exact_fuel_context) ... ok
+test_reconciliation_non_import_boundaries_remain_absent (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_reconciliation_non_import_boundaries_remain_absent) ... ok
+test_registered_pdf_and_exact_source_fragments (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_registered_pdf_and_exact_source_fragments) ... ok
+test_source_date_unit_and_closed_intervals (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_source_date_unit_and_closed_intervals) ... ok
+test_torque_ranges_preserve_missing_automatic_petrol_boundary (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_torque_ranges_preserve_missing_automatic_petrol_boundary) ... ok
+test_two_specs_and_contiguous_exact_receipt (test_sandero_page17_power_torque_rpm_ranges.SanderoPage17PowerTorqueRpmRangeTests.test_two_specs_and_contiguous_exact_receipt) ... ok
+test_every_candidate_occurs_once_per_configuration (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_every_candidate_occurs_once_per_configuration) ... ok
+test_explicit_negative_is_limited_to_height_adjustment (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_explicit_negative_is_limited_to_height_adjustment) ... ok
+test_imported_attribute_definitions_are_boolean_active (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_imported_attribute_definitions_are_boolean_active) ... ok
+test_notes_preserve_page_and_exact_source_wording (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_notes_preserve_page_and_exact_source_wording) ... ok
+test_package_covers_all_configurations_and_sources (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_covers_all_configurations_and_sources) ... ok
+test_package_has_expected_ids_shape_and_count (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_has_expected_ids_shape_and_count) ... ok
+test_package_status_counts_match_sources (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_package_status_counts_match_sources) ... ok
+test_trim_and_upholstery_remain_outside_this_package (test_sandero_passive_safety_availability.SanderoPassiveSafetyAvailabilityTests.test_trim_and_upholstery_remain_outside_this_package) ... ok
+test_all_three_sources_have_exhaustion_receipts (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_all_three_sources_have_exhaustion_receipts) ... ok
+test_analysis_has_no_eligible_source_candidate (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_analysis_has_no_eligible_source_candidate) ... ok
+test_completed_closure_remains_preserved_after_follow_up_packages (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_completed_closure_remains_preserved_after_follow_up_packages) ... ok
+test_journey_parking_assistance_is_standard (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_journey_parking_assistance_is_standard) ... ok
+test_source_hashes_match_registered_files (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_source_hashes_match_registered_files) ... ok
+test_spec_has_three_exact_rows (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_spec_has_three_exact_rows) ... ok
+test_tce_review_preserves_nine_unimported_slots (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_tce_review_preserves_nine_unimported_slots) ... ok
+test_two_wheel_finish_values_are_exact (test_sandero_residual_source_closure_20260801.SanderoResidualSourceClosureTests.test_two_wheel_finish_values_are_exact) ... ok
+test_attribute_is_defined_as_active_string (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_attribute_is_defined_as_active_string) ... ok
+test_axle_neutral_source_does_not_populate_axle_attributes (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_axle_neutral_source_does_not_populate_axle_attributes) ... ok
+test_complete_specification_is_separate_from_wheel_size (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_complete_specification_is_separate_from_wheel_size) ... ok
+test_manifest_matches_configurations_sources_and_date (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_manifest_matches_configurations_sources_and_date) ... ok
+test_package_codes_are_unique (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_package_ids_shape_and_count) ... ok
+test_source_rating_is_not_modeled_as_maximum (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_source_rating_is_not_modeled_as_maximum) ... ok
+test_value_is_not_equipment_availability_or_price (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_value_is_not_equipment_availability_or_price) ... ok
+test_values_and_notes_preserve_source_wording (test_sandero_standard_tyre_specification.SanderoStandardTyreSpecificationTests.test_values_and_notes_preserve_source_wording) ... ok
+test_brochure_sources_document_all_nine_configurations (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_brochure_sources_document_all_nine_configurations) ... ok
+test_context_semantics_match_source_rows (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_context_semantics_match_source_rows) ... ok
+test_each_configuration_has_exact_five_context_signatures (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_each_configuration_has_exact_five_context_signatures) ... ok
+test_exact_value_and_context_counts (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_exact_value_and_context_counts) ... ok
+test_import_contract_check_passes (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_import_contract_check_passes) ... ok
+test_legacy_cargo_history_is_not_migrated_or_replaced (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_legacy_cargo_history_is_not_migrated_or_replaced) ... ok
+test_state_and_import_report_are_complete (test_sandero_stepway_brochure_cargo_20260725.SanderoStepwayBrochureCargoTests.test_state_and_import_report_are_complete) ... ok
+test_exact_counts_ids_configurations_attributes_and_sources (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_exact_counts_ids_configurations_attributes_and_sources) ... ok
+test_later_configuration_pdf_observations_remain_unchanged (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_later_configuration_pdf_observations_remain_unchanged) ... ok
+test_maximum_kerb_weight_preserves_powertrain_and_model_values (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_maximum_kerb_weight_preserves_powertrain_and_model_values) ... ok
+test_model_receipt_and_project_state_advance (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_model_receipt_and_project_state_advance) ... ok
+test_model_wide_source_text_is_preserved_without_decomposition (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_model_wide_source_text_is_preserved_without_decomposition) ... ok
+test_reporting_scopes_include_four_new_chassis_slots (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_reporting_scopes_include_four_new_chassis_slots) ... ok
+test_source_hashes_relationships_and_importer_contract (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_source_hashes_relationships_and_importer_contract) ... ok
+test_turning_diameter_uses_explicit_between_kerbs_attribute (test_sandero_stepway_chassis_20260726.SanderoStepwayChassisTests.test_turning_diameter_uses_explicit_between_kerbs_attribute) ... ok
+test_comparison_summary_is_stable (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_comparison_summary_is_stable) ... ok
+test_completeness_preserves_full_denominators_and_explicit_gaps (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_completeness_preserves_full_denominators_and_explicit_gaps) ... ok
+test_evidence_decisions_are_preserved_without_inference (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_evidence_decisions_are_preserved_without_inference) ... ok
+test_scope_selects_exactly_two_automatic_configurations (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_scope_selects_exactly_two_automatic_configurations) ... ok
+test_single_pair_is_same_transmission_and_evidence_aware (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_single_pair_is_same_transmission_and_evidence_aware) ... ok
+test_source_coverage_preserves_partial_and_missing_sections (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_source_coverage_preserves_partial_and_missing_sections) ... ok
+test_two_prices_are_present_and_the_pair_price_differs (test_sandero_stepway_ecog120_automatic_reporting_scope.SanderoStepwayEcoG120AutomaticReportingScopeTests.test_two_prices_are_present_and_the_pair_price_differs) ... ok
+test_11_source_receipt_hash (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_11_source_receipt_hash) ... ok
+test_12_source_receipt_page (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_12_source_receipt_page) ... ok
+test_13_summary_decision (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_13_summary_decision) ... ok
+test_14_selected_evidence_totals (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_14_selected_evidence_totals) ... ok
+test_15_rejected_evidence_totals (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_15_rejected_evidence_totals) ... ok
+test_16_candidate_exact (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_16_candidate_exact) ... ok
+test_17_selected_attribute (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_17_selected_attribute) ... ok
+test_18_rejected_attribute (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_18_rejected_attribute) ... ok
+test_19_rejection_reason (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_19_rejection_reason) ... ok
+test_20_source_availability (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_20_source_availability) ... ok
+test_21_adjacent_row (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_21_adjacent_row) ... ok
+test_22_json_output (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_22_json_output) ... ok
+test_23_markdown_output (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_23_markdown_output) ... ok
+test_24_policy_and_next (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_24_policy_and_next) ... ok
+test_25_markdown_boundary (test_sandero_stepway_equipment_page18_ambiguity_review.RepositoryTests.test_25_markdown_boundary) ... ok
+test_01_signature (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_01_signature) ... ok
+test_02_package_identity (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_02_package_identity) ... ok
+test_03_package_evidence_totals (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_03_package_evidence_totals) ... ok
+test_04_wrong_kind (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_04_wrong_kind) ... ok
+test_05_import_policy (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_05_import_policy) ... ok
+test_06_missing_signature (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_06_missing_signature) ... ok
+test_07_missing_rejection_reason (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_07_missing_rejection_reason) ... ok
+test_08_manifest_decision (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_08_manifest_decision) ... ok
+test_09_restricted_output (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_09_restricted_output) ... ok
+test_10_output_drift (test_sandero_stepway_equipment_page18_ambiguity_review.UnitTests.test_10_output_drift) ... ok
+test_both_completeness_scopes_use_fourth_gear (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_both_completeness_scopes_use_fourth_gear) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_reanalysis_removes_false_and_resolved_gaps (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_reanalysis_removes_false_and_resolved_gaps) ... ok
+test_review_closes_only_not_stated_slots (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_review_closes_only_not_stated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_three_scalar_values_are_exact (test_sandero_stepway_essential_source_gap_20260626.SanderoStepwayEssentialSourceGapTests.test_three_scalar_values_are_exact) ... ok
+test_all_current_scope_configurations_have_one_exact_state (test_sandero_stepway_exact_configurator_states_20260809.SanderoStepwayExactConfiguratorStatesTests.test_all_current_scope_configurations_have_one_exact_state) ... ok
+test_capture_preserves_non_projection_boundaries (test_sandero_stepway_exact_configurator_states_20260809.SanderoStepwayExactConfiguratorStatesTests.test_capture_preserves_non_projection_boundaries) ... ok
+test_captured_prices_match_current_canonical_prices (test_sandero_stepway_exact_configurator_states_20260809.SanderoStepwayExactConfiguratorStatesTests.test_captured_prices_match_current_canonical_prices) ... ok
+test_every_surface_is_exact_and_nonempty (test_sandero_stepway_exact_configurator_states_20260809.SanderoStepwayExactConfiguratorStatesTests.test_every_surface_is_exact_and_nonempty) ... ok
+test_reopened_surface_summary_is_exact (test_sandero_stepway_exact_configurator_states_20260809.SanderoStepwayExactConfiguratorStatesTests.test_reopened_surface_summary_is_exact) ... ok
+test_all_nonzero_factory_options_keep_exact_current_amounts (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_all_nonzero_factory_options_keep_exact_current_amounts) ... ok
+test_closed_package_tables_remain_stable_as_source_registries_grow (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_closed_package_tables_remain_stable_as_source_registries_grow) ... ok
+test_current_easy_price_supersedes_but_does_not_delete_history (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_current_easy_price_supersedes_but_does_not_delete_history) ... ok
+test_deterministic_import_verifier_passes (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_deterministic_import_verifier_passes) ... ok
+test_exact_colour_membership_is_normalized_without_inferred_prices (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_exact_colour_membership_is_normalized_without_inferred_prices) ... ok
+test_selected_wheel_and_upholstery_values_are_exact_for_all_states (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_selected_wheel_and_upholstery_values_are_exact_for_all_states) ... ok
+test_source_and_all_exact_configuration_relationships_are_registered (test_sandero_stepway_exact_design_factory_option_normalization_20260809.SanderoStepwayExactDesignFactoryOptionNormalizationTests.test_source_and_all_exact_configuration_relationships_are_registered) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_reanalysis_exhausts_source_and_advances_selection (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_reanalysis_exhausts_source_and_advances_selection) ... ok
+test_rear_parking_assistance_is_direct_standard_equipment (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_rear_parking_assistance_is_direct_standard_equipment) ... ok
+test_review_partitions_resolved_out_of_scope_and_unstated_slots (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_review_partitions_resolved_out_of_scope_and_unstated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_three_scalar_values_are_exact (test_sandero_stepway_expression_auto_source_gap_20260626.SanderoStepwayExpressionAutomaticSourceGapTests.test_three_scalar_values_are_exact) ... ok
+test_both_completeness_scopes_use_fourth_gear (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_both_completeness_scopes_use_fourth_gear) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_reanalysis_removes_false_and_resolved_gaps (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_reanalysis_removes_false_and_resolved_gaps) ... ok
+test_review_closes_only_not_stated_slots (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_review_closes_only_not_stated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_three_scalar_values_are_exact (test_sandero_stepway_expression_source_gap_20260626.SanderoStepwayExpressionSourceGapTests.test_three_scalar_values_are_exact) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_front_rear_parking_assistance_is_direct_standard_equipment (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_front_rear_parking_assistance_is_direct_standard_equipment) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_reanalysis_exhausts_source_and_advances_selection (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_reanalysis_exhausts_source_and_advances_selection) ... ok
+test_review_partitions_resolved_out_of_scope_and_unstated_slots (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_review_partitions_resolved_out_of_scope_and_unstated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_two_scalar_values_are_exact (test_sandero_stepway_extreme_auto_source_gap_20260626.SanderoStepwayExtremeAutomaticSourceGapTests.test_two_scalar_values_are_exact) ... ok
+test_exact_source_identity_and_specification (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_exact_source_identity_and_specification) ... ok
+test_full_materialized_contract_passes (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_full_materialized_contract_passes) ... ok
+test_materialized_ids_are_exact_contiguous_suffixes (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_materialized_ids_are_exact_contiguous_suffixes) ... ok
+test_parking_assistance_is_direct_standard_equipment (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_parking_assistance_is_direct_standard_equipment) ... ok
+test_reanalysis_exhausts_source_and_advances_selection (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_reanalysis_exhausts_source_and_advances_selection) ... ok
+test_review_partitions_resolved_alternative_and_unstated_slots (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_review_partitions_resolved_alternative_and_unstated_slots) ... ok
+test_three_ranges_preserve_printed_endpoints (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_three_ranges_preserve_printed_endpoints) ... ok
+test_two_scalar_values_are_exact (test_sandero_stepway_extreme_source_gap_20260626.SanderoStepwayExtremeSourceGapTests.test_two_scalar_values_are_exact) ... ok
+test_canonical_observations_are_dated_and_source_bounded (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_canonical_observations_are_dated_and_source_bounded) ... ok
+test_report_reconciles_every_captured_row (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_report_reconciles_every_captured_row) ... ok
+test_source_and_all_exact_configuration_relationships_are_registered (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_source_and_all_exact_configuration_relationships_are_registered) ... ok
+test_unmatched_evidence_remains_explicit (test_sandero_stepway_full_modal_canonical_reconciliation_20260809.SanderoStepwayFullModalCanonicalReconciliationTests.test_unmatched_evidence_remains_explicit) ... ok
+test_capture_covers_all_exact_current_states_once (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_capture_covers_all_exact_current_states_once) ... ok
+test_capture_preserves_non_import_boundaries (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_capture_preserves_non_import_boundaries) ... ok
+test_every_configuration_has_full_grouped_content (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_every_configuration_has_full_grouped_content) ... ok
+test_standard_equipment_is_not_reduced_to_highlights (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_standard_equipment_is_not_reduced_to_highlights) ... ok
+test_summary_matches_all_literal_modal_rows (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_summary_matches_all_literal_modal_rows) ... ok
+test_technical_rows_preserve_labels_and_values (test_sandero_stepway_full_technical_standard_equipment_capture_20260809.SanderoStepwayFullTechnicalStandardEquipmentCaptureTests.test_technical_rows_preserve_labels_and_values) ... ok
+test_default_tce110_media_display_package_is_preserved_but_not_imported_to_ecog (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_default_tce110_media_display_package_is_preserved_but_not_imported_to_ecog) ... ok
+test_five_exact_official_catalogue_prices_are_imported (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_five_exact_official_catalogue_prices_are_imported) ... ok
+test_importer_check_reproduces_master_contract (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_importer_check_reproduces_master_contract) ... ok
+test_snapshot_is_registered_with_exact_hash_and_dynamic_boundary (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_snapshot_is_registered_with_exact_hash_and_dynamic_boundary) ... ok
+test_source_relationships_cover_exact_model_versions_and_configurations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_source_relationships_cover_exact_model_versions_and_configurations) ... ok
+test_version_highlights_expand_to_24_exact_standard_observations (test_sandero_stepway_official_web_20260723.SanderoStepwayOfficialWeb20260723Tests.test_version_highlights_expand_to_24_exact_standard_observations) ... ok
+test_boundaries (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_boundaries) ... ok
+test_committed_outputs (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_committed_outputs) ... ok
+test_decision_partition (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_decision_partition) ... ok
+test_markdown (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_markdown) ... ok
+test_maximum_continuation (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_maximum_continuation) ... ok
+test_maximum_label (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_maximum_label) ... ok
+test_minimum_row_signature_mismatch (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_signature_mismatch) ... ok
+test_minimum_row_source_facts (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_minimum_row_source_facts) ... ok
+test_next_package (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_next_package) ... ok
+test_policy (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_policy) ... ok
+test_source_receipt (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_source_receipt) ... ok
+test_steering_rejects_other_attributes (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_steering_rejects_other_attributes) ... ok
+test_steering_signature (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_steering_signature) ... ok
+test_summary (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_summary) ... ok
+test_tce_value_remains_unattached (test_sandero_stepway_technical_page17_ambiguity_review.RepositoryTests.test_tce_value_remains_unattached) ... ok
+test_drift (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_drift) ... ok
+test_fact (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_fact) ... ok
+test_import_policy (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_import_policy) ... ok
+test_manifest (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_manifest) ... ok
+test_missing_signature (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
+test_package (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_package) ... ok
+test_restricted (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_restricted) ... ok
+test_signature_default_context (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_signature_default_context) ... ok
+test_signature_fuel_context (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_signature_fuel_context) ... ok
+test_statuses (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_statuses) ... ok
+test_wrong_kind (test_sandero_stepway_technical_page17_ambiguity_review.UnitTests.test_wrong_kind) ... ok
+test_boundaries (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_boundaries) ... ok
+test_committed_outputs (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_committed_outputs) ... ok
+test_cross_attribute_signatures_are_rejected (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_cross_attribute_signatures_are_rejected) ... ok
+test_decision_partition (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_decision_partition) ... ok
+test_gross_train_row (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_gross_train_row) ... ok
+test_gross_vehicle_row (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_gross_vehicle_row) ... ok
+test_kerb_mass (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_kerb_mass) ... ok
+test_markdown (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_markdown) ... ok
+test_next_package (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_next_package) ... ok
+test_policy (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_policy) ... ok
+test_power (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_power) ... ok
+test_source_receipt (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_source_receipt) ... ok
+test_summary (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_summary) ... ok
+test_torque (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_torque) ... ok
+test_unique (test_sandero_technical_page17_ambiguity_review.RepositoryTests.test_unique) ... ok
+test_drift (test_sandero_technical_page17_ambiguity_review.UnitTests.test_drift) ... ok
+test_fact (test_sandero_technical_page17_ambiguity_review.UnitTests.test_fact) ... ok
+test_import_policy (test_sandero_technical_page17_ambiguity_review.UnitTests.test_import_policy) ... ok
+test_manifest (test_sandero_technical_page17_ambiguity_review.UnitTests.test_manifest) ... ok
+test_missing_signature (test_sandero_technical_page17_ambiguity_review.UnitTests.test_missing_signature) ... ok
+test_package (test_sandero_technical_page17_ambiguity_review.UnitTests.test_package) ... ok
+test_restricted (test_sandero_technical_page17_ambiguity_review.UnitTests.test_restricted) ... ok
+test_signature_default_context (test_sandero_technical_page17_ambiguity_review.UnitTests.test_signature_default_context) ... ok
+test_signature_fuel_context (test_sandero_technical_page17_ambiguity_review.UnitTests.test_signature_fuel_context) ... ok
+test_statuses (test_sandero_technical_page17_ambiguity_review.UnitTests.test_statuses) ... ok
+test_wrong_kind (test_sandero_technical_page17_ambiguity_review.UnitTests.test_wrong_kind) ... ok
+test_availability_prices_and_source_mapping_are_unchanged (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_availability_prices_and_source_mapping_are_unchanged) ... ok
+test_existing_engine_category_is_reused_without_a_new_unit (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_existing_engine_category_is_reused_without_a_new_unit) ... ok
+test_existing_engine_observations_are_not_rewritten (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_existing_engine_observations_are_not_rewritten) ... ok
+test_import_uses_existing_total_valve_count_attribute (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_import_uses_existing_total_valve_count_attribute) ... ok
+test_total_count_remains_distinct_from_related_engine_counts (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_total_count_remains_distinct_from_related_engine_counts) ... ok
+test_total_valve_count_is_an_active_integer_engine_attribute (test_sandero_total_valve_count_model.SanderoTotalValveCountModelTests.test_total_valve_count_is_an_active_integer_engine_attribute) ... ok
+test_configuration_source_and_date_coverage (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_configuration_source_and_date_coverage) ... ok
+test_internal_ordering_criteria_are_excluded (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_internal_ordering_criteria_are_excluded) ... ok
+test_new_attributes_are_active_strings (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_new_attributes_are_active_strings) ... ok
+test_notes_preserve_section_and_wording (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_notes_preserve_section_and_wording) ... ok
+test_package_codes_are_unique (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_package_codes_are_unique) ... ok
+test_package_ids_shape_and_count (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_package_ids_shape_and_count) ... ok
+test_stepway_essential_conflict_boundary (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_stepway_essential_conflict_boundary) ... ok
+test_values_are_not_availability_booleans (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_values_are_not_availability_booleans) ... ok
+test_values_match_controlled_manifest (test_sandero_wheel_upholstery_values.SanderoWheelUpholsteryValueTests.test_values_match_controlled_manifest) ... ok
+test_accepts_utf8_bom (test_search.SearchTests.test_accepts_utf8_bom) ... ok
+test_does_not_search_its_own_export (test_search.SearchTests.test_does_not_search_its_own_export) ... ok
+test_exports_consistent_union_of_columns (test_search.SearchTests.test_exports_consistent_union_of_columns) ... ok
+test_highlight_is_case_insensitive (test_search.SearchTests.test_highlight_is_case_insensitive) ... ok
+test_limits_search_to_selected_field (test_search.SearchTests.test_limits_search_to_selected_field) ... ok
+test_searches_all_fields (test_search.SearchTests.test_searches_all_fields) ... ok
+test_flexicharger_validation_preserves_all_three_exact_mappings (test_source_assimilation_audit_contract_20260802.SourceAssimilationAuditContractTests.test_flexicharger_validation_preserves_all_three_exact_mappings) ... ok
+test_standard_requires_complete_page_and_visual_review (test_source_assimilation_audit_contract_20260802.SourceAssimilationAuditContractTests.test_standard_requires_complete_page_and_visual_review) ... ok
+test_distinguishes_missing_source_from_missing_record (test_source_coverage.SourceCoverageTests.test_distinguishes_missing_source_from_missing_record) ... ok
+test_future_source_is_separate_registration_state (test_source_coverage.SourceCoverageTests.test_future_source_is_separate_registration_state) ... ok
+test_json_and_markdown_are_deterministic (test_source_coverage.SourceCoverageTests.test_json_and_markdown_are_deterministic) ... ok
+test_range_observations_count_as_source_covered_technical_evidence (test_source_coverage.SourceCoverageTests.test_range_observations_count_as_source_covered_technical_evidence) ... ok
+test_rejects_invalid_source_hash (test_source_coverage.SourceCoverageTests.test_rejects_invalid_source_hash) ... ok
+test_rejects_observation_source_mismatch (test_source_coverage.SourceCoverageTests.test_rejects_observation_source_mismatch) ... ok
+test_reports_registered_sources_and_record_gaps (test_source_coverage.SourceCoverageTests.test_reports_registered_sources_and_record_gaps) ... ok
+test_sections_distinguish_partial_and_missing (test_source_coverage.SourceCoverageTests.test_sections_distinguish_partial_and_missing) ... ok
+test_unscoped_newer_observation_advances_report_date (test_source_coverage_repository_as_of.SourceCoverageRepositoryAsOfTests.test_unscoped_newer_observation_advances_report_date) ... ok
+test_domestic_socket_exact_boundary (test_spring_charging_cable_commercial_semantics_migration_20260802.SpringChargingCableCommercialSemanticsMigrationTests.test_domestic_socket_exact_boundary) ... ok
+test_type2_membership_and_history (test_spring_charging_cable_commercial_semantics_migration_20260802.SpringChargingCableCommercialSemanticsMigrationTests.test_type2_membership_and_history) ... ok
+test_item_applicability_is_limited_to_exact_brochure_grades (test_spring_commercial_packages.SpringCommercialPackagesTests.test_item_applicability_is_limited_to_exact_brochure_grades) ... ok
+test_master_rows_match_generated_contract_and_contiguous_suffixes (test_spring_commercial_packages.SpringCommercialPackagesTests.test_master_rows_match_generated_contract_and_contiguous_suffixes) ... ok
+test_package_does_not_add_models_versions_or_configurations (test_spring_commercial_packages.SpringCommercialPackagesTests.test_package_does_not_add_models_versions_or_configurations) ... ok
+test_package_membership_aligns_with_direct_optional_matrix_cells (test_spring_commercial_packages.SpringCommercialPackagesTests.test_package_membership_aligns_with_direct_optional_matrix_cells) ... ok
+test_power_package_preserves_source_v2l_boundary (test_spring_commercial_packages.SpringCommercialPackagesTests.test_power_package_preserves_source_v2l_boundary) ... ok
+test_registered_source_hash_and_existing_configuration_boundary (test_spring_commercial_packages.SpringCommercialPackagesTests.test_registered_source_hash_and_existing_configuration_boundary) ... ok
+test_reviewed_prices_and_remaining_unknowns_are_exposed_without_inference (test_spring_commercial_packages.SpringCommercialPackagesTests.test_reviewed_prices_and_remaining_unknowns_are_exposed_without_inference) ... ok
+test_versioned_specs_preserve_exact_counts_and_blank_prices (test_spring_commercial_packages.SpringCommercialPackagesTests.test_versioned_specs_preserve_exact_counts_and_blank_prices) ... ok
+test_direct_matrix_cells_preserve_grade_differences (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_direct_matrix_cells_preserve_grade_differences) ... ok
+test_every_matrix_attribute_is_active_and_compatible (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_every_matrix_attribute_is_active_and_compatible) ... ok
+test_existing_availability_is_preserved_around_spring_block (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_existing_availability_is_preserved_around_spring_block) ... ok
+test_generated_rows_have_exact_status_distribution (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_generated_rows_have_exact_status_distribution) ... ok
+test_master_rows_match_generated_contract_and_contiguous_suffix (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_master_rows_match_generated_contract_and_contiguous_suffix) ... ok
+test_selected_configurations_and_brochure_versions_are_exact (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_selected_configurations_and_brochure_versions_are_exact) ... ok
+test_source_hash_and_evidence_boundary_are_locked (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_source_hash_and_evidence_boundary_are_locked) ... ok
+test_versioned_spec_has_exact_matrix_dimensions (test_spring_equipment_availability.SpringEquipmentAvailabilityTests.test_versioned_spec_has_exact_matrix_dimensions) ... ok
+test_all_three_spring_grades_have_domestic_cable_mapping (test_spring_expression_flexicharger_correction_20260802.SpringExpressionFlexiChargerCorrectionTests.test_all_three_spring_grades_have_domestic_cable_mapping) ... ok
+test_expression_mapping_is_exact_and_priced (test_spring_expression_flexicharger_correction_20260802.SpringExpressionFlexiChargerCorrectionTests.test_expression_mapping_is_exact_and_priced) ... ok
+test_each_colour_membership_uses_only_exterior_color (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_each_colour_membership_uses_only_exterior_color) ... ok
+test_every_colour_maps_to_all_three_existing_configurations (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_every_colour_maps_to_all_three_existing_configurations) ... ok
+test_exact_current_essential_white_and_khaki_pricing (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_exact_current_essential_white_and_khaki_pricing) ... ok
+test_master_rows_match_generated_contract_and_contiguous_suffixes (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_master_rows_match_generated_contract_and_contiguous_suffixes) ... ok
+test_package_adds_no_model_version_or_configuration (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_package_adds_no_model_version_or_configuration) ... ok
+test_registered_source_hash_and_existing_configuration_boundary (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_registered_source_hash_and_existing_configuration_boundary) ... ok
+test_spec_preserves_six_exact_names_and_finish_classes (test_spring_exterior_colour_options.SpringExteriorColourOptionsTests.test_spec_preserves_six_exact_names_and_finish_classes) ... ok
+test_brochure_inventory_covers_all_22_pages (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_brochure_inventory_covers_all_22_pages) ... ok
+test_charging_cable_conflict_cannot_be_silently_flattened (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_charging_cable_conflict_cannot_be_silently_flattened) ... ok
+test_exact_hashes_and_completion_status_are_preserved (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_exact_hashes_and_completion_status_are_preserved) ... ok
+test_price_list_inventory_covers_all_6_pages (test_spring_full_source_assimilation_20260802.SpringFullSourceAssimilationContract.test_price_list_inventory_covers_all_6_pages) ... ok
+test_all_36_approved_observations_are_materialized (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_all_36_approved_observations_are_materialized) ... ok
+test_all_six_technical_deferrals_remain_explicit (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_all_six_technical_deferrals_remain_explicit) ... ok
+test_closure_tool_verify_mode_passes (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_closure_tool_verify_mode_passes) ... ok
+test_every_ledger_area_has_one_closure_outcome (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_every_ledger_area_has_one_closure_outcome) ... ok
+test_every_required_downstream_receipt_is_complete (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_every_required_downstream_receipt_is_complete) ... ok
+test_exact_source_hashes_and_all_28_pages_are_closed (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_exact_source_hashes_and_all_28_pages_are_closed) ... ok
+test_four_documentary_conflicts_remain_preserved (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_four_documentary_conflicts_remain_preserved) ... ok
+test_no_eligible_source_candidate_remains (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_no_eligible_source_candidate_remains) ... ok
+test_state_manifest_tracks_all_closure_outputs_while_current (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_state_manifest_tracks_all_closure_outputs_while_current) ... ok
+test_state_preserves_source_milestone_closure_contract (test_spring_legacy_pdf_assimilation_closure_20260802.SpringLegacyPdfAssimilationClosureTest.test_state_preserves_source_milestone_closure_contract) ... ok
+test_controlled_enum_values_exist (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_controlled_enum_values_exist) ... ok
+test_enum_registry_contains_only_required_new_rules (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_enum_registry_contains_only_required_new_rules) ... ok
+test_importer_verify_mode_passes (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_importer_verify_mode_passes) ... ok
+test_master_contains_exact_contiguous_migration_suffix (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_master_contains_exact_contiguous_migration_suffix) ... ok
+test_no_deferred_my25_or_contextual_values_were_added (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_no_deferred_my25_or_contextual_values_were_added) ... ok
+test_report_records_exact_scope_and_deferrals (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_report_records_exact_scope_and_deferrals) ... ok
+test_reporting_scopes_include_all_common_technical_slots (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_reporting_scopes_include_all_common_technical_slots) ... ok
+test_spec_is_exact_three_by_twelve_matrix (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_spec_is_exact_three_by_twelve_matrix) ... ok
+test_spec_preserves_page_boundaries (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_spec_preserves_page_boundaries) ... ok
+test_state_manifest_tracks_every_durable_output (test_spring_nonconflicting_common_technical_observations_migration_20260802.SpringCommonTechnicalMigrationTest.test_state_manifest_tracks_every_durable_output) ... ok
+test_approved_values_are_common_and_exact (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_approved_values_are_common_and_exact) ... ok
+test_enum_support_is_bounded_to_existing_attributes (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_enum_support_is_bounded_to_existing_attributes) ... ok
+test_exact_approved_migration_boundary (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_exact_approved_migration_boundary) ... ok
+test_model_year_and_measurement_deferrals_are_preserved (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_model_year_and_measurement_deferrals_are_preserved) ... ok
+test_prohibited_automatic_migrations_remain_excluded (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_prohibited_automatic_migrations_remain_excluded) ... ok
+test_review_is_deterministic_while_current (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_review_is_deterministic_while_current) ... ok
+test_scope_is_review_only_and_source_complete (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_scope_is_review_only_and_source_complete) ... ok
+test_state_and_historical_transition_contract (test_spring_nonconflicting_technical_observations_review_20260802.SpringNonconflictingTechnicalReviewTests.test_state_and_historical_transition_contract) ... ok
+test_ambiguous_fields_remain_unimported (test_spring_technical_20260219.SpringTechnical20260219Test.test_ambiguous_fields_remain_unimported) ... ok
+test_boot_capacity_has_exact_iso_context (test_spring_technical_20260219.SpringTechnical20260219Test.test_boot_capacity_has_exact_iso_context) ... ok
+test_completeness_scope_is_exact (test_spring_technical_20260219.SpringTechnical20260219Test.test_completeness_scope_is_exact) ... ok
+test_each_configuration_has_eighteen_values_and_one_range (test_spring_technical_20260219.SpringTechnical20260219Test.test_each_configuration_has_eighteen_values_and_one_range) ... ok
+test_exact_row_counts_and_suffixes (test_spring_technical_20260219.SpringTechnical20260219Test.test_exact_row_counts_and_suffixes) ... ok
+test_grade_bounded_values (test_spring_technical_20260219.SpringTechnical20260219Test.test_grade_bounded_values) ... ok
+test_importer_check_mode (test_spring_technical_20260219.SpringTechnical20260219Test.test_importer_check_mode) ... ok
+test_power_rpm_ranges_preserve_endpoints (test_spring_technical_20260219.SpringTechnical20260219Test.test_power_rpm_ranges_preserve_endpoints) ... ok
+test_repository_baselines_and_reconciliation_preserve_spring_counts (test_spring_technical_20260219.SpringTechnical20260219Test.test_repository_baselines_and_reconciliation_preserve_spring_counts) ... ok
+test_accepts_utf8_bom (test_statistics.StatisticsTests.test_accepts_utf8_bom) ... ok
+test_calculates_completeness (test_statistics.StatisticsTests.test_calculates_completeness) ... ok
+test_collects_repository_totals (test_statistics.StatisticsTests.test_collects_repository_totals) ... ok
+test_counts_header_only_file_as_empty (test_statistics.StatisticsTests.test_counts_header_only_file_as_empty) ... ok
+test_ignores_csv_files_outside_master_data (test_statistics.StatisticsTests.test_ignores_csv_files_outside_master_data) ... ok
+test_ignores_git_directory (test_statistics.StatisticsTests.test_ignores_git_directory) ... ok
+test_sorts_largest_dataset_first (test_statistics.StatisticsTests.test_sorts_largest_dataset_first) ... ok
+test_accepts_active_catalog_status (test_statuses.StatusValidationTests.test_accepts_active_catalog_status) ... ok
+test_accepts_archived_closed_range (test_statuses.StatusValidationTests.test_accepts_archived_closed_range) ... ok
+test_accepts_current_open_range (test_statuses.StatusValidationTests.test_accepts_current_open_range) ... ok
+test_rejects_archived_open_range (test_statuses.StatusValidationTests.test_rejects_archived_open_range) ... ok
+test_rejects_current_closed_range (test_statuses.StatusValidationTests.test_rejects_current_closed_range) ... ok
+test_rejects_empty_status (test_statuses.StatusValidationTests.test_rejects_empty_status) ... ok
+test_rejects_incorrect_status_case (test_statuses.StatusValidationTests.test_rejects_incorrect_status_case) ... ok
+test_rejects_unknown_status (test_statuses.StatusValidationTests.test_rejects_unknown_status) ... ok
+test_reports_missing_end_column (test_statuses.StatusValidationTests.test_reports_missing_end_column) ... ok
+test_reports_missing_file (test_statuses.StatusValidationTests.test_reports_missing_file) ... ok
+test_reports_missing_status_column (test_statuses.StatusValidationTests.test_reports_missing_status_column) ... ok
+test_scans_all_configured_files (test_statuses.StatusValidationTests.test_scans_all_configured_files) ... ok
+test_accepts_unique_id_and_code (test_uniqueness.UniqueColumnValidationTests.test_accepts_unique_id_and_code) ... ok
+test_checks_file_with_only_code (test_uniqueness.UniqueColumnValidationTests.test_checks_file_with_only_code) ... ok
+test_ignores_file_without_key_columns (test_uniqueness.UniqueColumnValidationTests.test_ignores_file_without_key_columns) ... ok
+test_reports_case_insensitive_duplicate_code (test_uniqueness.UniqueColumnValidationTests.test_reports_case_insensitive_duplicate_code) ... ok
+test_reports_duplicate_id (test_uniqueness.UniqueColumnValidationTests.test_reports_duplicate_id) ... ok
+test_reports_empty_code (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_code) ... ok
+test_reports_empty_id (test_uniqueness.UniqueColumnValidationTests.test_reports_empty_id) ... ok
+test_scans_all_master_csv_files (test_uniqueness.UniqueColumnValidationTests.test_scans_all_master_csv_files) ... ok
+test_validate_command_executes_complete_validator (test_validate_cli.ValidateCliIntegrationTests.test_validate_command_executes_complete_validator) ... ok
+test_committed_artifacts_preserve_the_dated_review_boundary (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_committed_artifacts_preserve_the_dated_review_boundary) ... ok
+test_real_reconciliation_has_expected_candidate_partition (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationRepositoryTests.test_real_reconciliation_has_expected_candidate_partition) ... ok
+test_build_assigns_every_selected_candidate_once (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_build_assigns_every_selected_candidate_once) ... ok
+test_candidate_tokens_prefer_left_table_label (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_candidate_tokens_prefer_left_table_label) ... ok
+test_duplicate_selected_candidate_is_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_duplicate_selected_candidate_is_rejected) ... ok
+test_equipment_match_requires_same_model_and_availability_table (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_equipment_match_requires_same_model_and_availability_table) ... ok
+test_heading_is_explicit_non_import (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_heading_is_explicit_non_import) ... ok
+test_match_key_is_unicode_and_punctuation_stable (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_match_key_is_unicode_and_punctuation_stable) ... ok
+test_multiple_signatures_are_ambiguous (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_multiple_signatures_are_ambiguous) ... ok
+test_no_match_is_unresolved_not_negative_evidence (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_no_match_is_unresolved_not_negative_evidence) ... ok
+test_numbered_footnote_is_explicit_non_import (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_numbered_footnote_is_explicit_non_import) ... ok
+test_ordered_match_requires_two_tokens (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_ordered_match_requires_two_tokens) ... ok
+test_render_and_json_are_deterministic (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_render_and_json_are_deterministic) ... ok
+test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_restricted_output_paths_are_rejected) ... ok
+test_single_signature_is_already_covered (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_single_signature_is_already_covered) ... ok
+test_target_groups_require_exact_review_boundary (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_target_groups_require_exact_review_boundary) ... ok
+test_technical_match_requires_same_source_and_page (test_verified_pdf_candidate_coverage_reconciliation.CoverageReconciliationUnitTests.test_technical_match_requires_same_source_and_page) ... ok
+test_anchor_candidates_match_ledger_exactly (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_anchor_candidates_match_ledger_exactly) ... ok
+test_build_rejects_missing_or_duplicate_candidate_assignment (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_build_rejects_missing_or_duplicate_candidate_assignment) ... ok
+test_controlled_decisions_and_statuses_are_exact (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_controlled_decisions_and_statuses_are_exact) ... ok
+test_decision_candidate_totals_recalculate_exactly (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_decision_candidate_totals_recalculate_exactly) ... ok
+test_every_candidate_is_assigned_exactly_once (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_every_candidate_is_assigned_exactly_once) ... ok
+test_evidence_references_are_repository_relative_and_present (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_evidence_references_are_repository_relative_and_present) ... ok
+test_group_candidate_counts_match_membership (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_group_candidate_counts_match_membership) ... ok
+test_group_order_is_stable_by_source_and_page (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_group_order_is_stable_by_source_and_page) ... ok
+test_metadata_and_summary_are_exact (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_metadata_and_summary_are_exact) ... ok
+test_outputs_and_next_package_remain_review_only (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_outputs_and_next_package_remain_review_only) ... ok
+test_policy_preserves_non_import_boundaries (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_policy_preserves_non_import_boundaries) ... ok
+test_repeated_generation_is_byte_identical (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_repeated_generation_is_byte_identical) ... ok
+test_source_page_ranges_partition_all_114_pages (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_source_page_ranges_partition_all_114_pages) ... ok
+test_verify_detects_json_drift (test_verified_pdf_candidate_ledger_review.VerifiedPdfCandidateLedgerReviewTests.test_verify_detects_json_drift) ... ok
+test_real_repository_partition_and_highest_priority (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationRepositoryTests.test_real_repository_partition_and_highest_priority) ... ok
+test_boundary_key_contains_source_domain_page_status (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_boundary_key_contains_source_domain_page_status) ... ok
+test_build_assigns_each_residual_candidate_once (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_assigns_each_residual_candidate_once) ... ok
+test_build_preserves_status_boundary (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_preserves_status_boundary) ... ok
+test_build_selects_only_residual_statuses (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_build_selects_only_residual_statuses) ... ok
+test_candidate_sort_key_uses_lines_then_id (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_candidate_sort_key_uses_lines_then_id) ... ok
+test_canonical_json_is_deterministic (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_canonical_json_is_deterministic) ... ok
+test_chunks_reject_non_positive_size (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_chunks_reject_non_positive_size) ... ok
+test_chunks_respect_maximum_size (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_chunks_respect_maximum_size) ... ok
+test_duplicate_reconciliation_candidate_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_duplicate_reconciliation_candidate_is_rejected) ... ok
+test_evidence_count_mismatch_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_count_mismatch_is_rejected) ... ok
+test_evidence_counts_preserve_all_references (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_evidence_counts_preserve_all_references) ... ok
+test_make_package_preserves_candidate_identity_and_text (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_make_package_preserves_candidate_identity_and_text) ... ok
+test_make_package_rejects_cross_boundary_candidate (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_make_package_rejects_cross_boundary_candidate) ... ok
+test_no_residual_candidates_is_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_no_residual_candidates_is_rejected) ... ok
+test_package_group_order_prefers_ambiguous (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_ambiguous) ... ok
+test_package_group_order_prefers_larger_group (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_larger_group) ... ok
+test_package_group_order_prefers_technical (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_package_group_order_prefers_technical) ... ok
+test_render_markdown_is_deterministic (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_render_markdown_is_deterministic) ... ok
+test_restricted_output_paths_are_rejected (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_restricted_output_paths_are_rejected) ... ok
+test_verify_output_detects_drift (test_verified_pdf_candidate_residual_gap_prioritization.ResidualGapPrioritizationUnitTests.test_verify_output_detects_drift) ... ok
+test_accepts_matching_database (test_verify_sqlite.SqliteVerificationTests.test_accepts_matching_database) ... ok
+test_cli_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_cli_reports_missing_database) ... ERROR: SQLite database does not exist: /tmp/tmpzf9r1q7l/missing.sqlite
+ok
+test_reports_data_mismatch_with_same_count (test_verify_sqlite.SqliteVerificationTests.test_reports_data_mismatch_with_same_count) ... ok
+test_reports_invalid_database_file (test_verify_sqlite.SqliteVerificationTests.test_reports_invalid_database_file) ... ok
+test_reports_missing_database (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_database) ... ok
+test_reports_missing_table (test_verify_sqlite.SqliteVerificationTests.test_reports_missing_table) ... ok
+test_reports_row_count_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_row_count_mismatch) ... ok
+test_reports_schema_mismatch (test_verify_sqlite.SqliteVerificationTests.test_reports_schema_mismatch) ... ok
+test_reports_unexpected_table (test_verify_sqlite.SqliteVerificationTests.test_reports_unexpected_table) ... ok
+test_accepts_closed_range (test_year_ranges.YearRangeValidationTests.test_accepts_closed_range) ... ok
+test_accepts_open_range (test_year_ranges.YearRangeValidationTests.test_accepts_open_range) ... ok
+test_rejects_empty_required_start_year (test_year_ranges.YearRangeValidationTests.test_rejects_empty_required_start_year) ... ok
+test_rejects_invalid_end_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_end_year_format) ... ok
+test_rejects_invalid_start_year_format (test_year_ranges.YearRangeValidationTests.test_rejects_invalid_start_year_format) ... ok
+test_rejects_reversed_range (test_year_ranges.YearRangeValidationTests.test_rejects_reversed_range) ... ok
+test_reports_missing_columns (test_year_ranges.YearRangeValidationTests.test_reports_missing_columns) ... ok
+test_reports_missing_file (test_year_ranges.YearRangeValidationTests.test_reports_missing_file) ... ok
+test_scans_all_configured_files (test_year_ranges.YearRangeValidationTests.test_scans_all_configured_files) ... ok
+
+======================================================================
+FAIL: test_standalone_html_products_preserve_offline_boundary (test_portfolio_model_family_release_integration.PortfolioModelFamilyReleaseIntegrationTests.test_standalone_html_products_preserve_offline_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_portfolio_model_family_release_integration.py", line 290, in test_standalone_html_products_preserve_offline_boundary
+    self.assertEqual(family_html.count('data-state="not_stated"'), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_review_tool_verify_mode_passes (test_post_v1_11_0_release_priority_selection_20260803.PostV111ReleasePrioritySelectionReviewTest.test_review_tool_verify_mode_passes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tests/test_post_v1_11_0_release_priority_selection_20260803.py", line 87, in test_review_tool_verify_mode_passes
+    self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_post_v1_11_0_release_priority_selection_20260803.py", line 386, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_post_v1_11_0_release_priority_selection_20260803.py", line 380, in main
+    verify()
+    ~~~~~~^^
+  File "/home/runner/work/Dacia-Knowledge-Base/Dacia-Knowledge-Base/tools/review_post_v1_11_0_release_priority_selection_20260803.py", line 339, in verify
+    raise RuntimeError(f"generated output differs: {path.relative_to(ROOT)}")
+RuntimeError: generated output differs: data/reporting/post_v1_11_0_release_priority_selection_review.json
+
+
+----------------------------------------------------------------------
+Ran 1915 tests in 171.736s
+
+FAILED (failures=2)
+Exit code: 1
+
+=== QUALITY SUMMARY JSON ===
+{
+  "exit_code": 1,
+  "generated_at": "2026-08-10T09:34:56.025295+00:00",
+  "status": "FAIL",
+  "steps": [
+    {
+      "exit_code": 0,
+      "label": "Compile Python sources",
+      "status": "PASS"
+    },
+    {
+      "exit_code": 1,
+      "label": "Run unit tests",
+      "status": "FAIL"
+    }
+  ],
+  "tests": 1915,
+  "version": 1
+}
