@@ -1,0 +1,31 @@
+name: AI Sandero Stepway residual live probe 20260810
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-full-modal-residual-review-001
+    paths:
+      - .github/workflows/ai-sandero-stepway-residual-live-probe-20260810.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Recompute conservative full-modal plan without writing data
+        run: |
+          python - <<'PY'
+          import json
+          from tools.import_sandero_stepway_full_modal_reconciliation_20260809 import build
+
+          _tables, report = build()
+          print('LIVE_SUMMARY=' + json.dumps(report['summary'], ensure_ascii=False, sort_keys=True))
+          print('LIVE_UNRESOLVED_EQUIPMENT=' + json.dumps(report['unresolved_equipment_literals'], ensure_ascii=False))
+          print('LIVE_UNRESOLVED_TECHNICAL=' + json.dumps(report['unresolved_technical_labels'], ensure_ascii=False))
+          PY
