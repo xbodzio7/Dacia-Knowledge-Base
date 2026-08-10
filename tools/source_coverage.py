@@ -32,14 +32,54 @@ def _resolve(repository: Path, spec_path: Path):
         raise SourceCoverageError(str(exc)) from exc
 
 
+def _scope_spec_as_of(
+    spec: dict[str, Any],
+    as_of_value: str | None,
+) -> dict[str, Any]:
+    """Project dated technical-slot scope without weakening base validation."""
+    if as_of_value is None:
+        return spec
+
+    as_of = _base.iso_date(as_of_value, "--as-of")
+    raw_slots = spec.get("technical_slots")
+    if not isinstance(raw_slots, list):
+        return spec
+
+    scoped_slots: list[Any] = []
+    for item in raw_slots:
+        if not isinstance(item, dict):
+            scoped_slots.append(item)
+            continue
+        effective_from_value = str(item.get("effective_from", ""))
+        if effective_from_value:
+            effective_from = _base.iso_date(
+                effective_from_value,
+                "technical slot effective_from",
+            )
+            if effective_from > as_of:
+                continue
+        scoped_slots.append(item)
+
+    return {**spec, "technical_slots": scoped_slots}
+
+
 def collect_report(
     repository: Path,
     spec_path: Path,
     as_of_value: str | None = None,
 ) -> dict[str, Any]:
     scope = _resolve(repository, spec_path)
-    with selected_configuration_reader(_base, repository, scope):
-        report = _ORIGINAL_COLLECT(repository, spec_path, as_of_value)
+    original_read_json = _base.read_json
+
+    def read_json_as_of(path: Path) -> dict[str, Any]:
+        return _scope_spec_as_of(original_read_json(path), as_of_value)
+
+    _base.read_json = read_json_as_of
+    try:
+        with selected_configuration_reader(_base, repository, scope):
+            report = _ORIGINAL_COLLECT(repository, spec_path, as_of_value)
+    finally:
+        _base.read_json = original_read_json
     report["scope"].update(disclosure(scope))
     return report
 
