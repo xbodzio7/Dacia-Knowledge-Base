@@ -1,4 +1,5 @@
 name: AI diagnose full quality after report refresh
+# Rerun after preserving dated reporting contracts.
 
 on:
   push:
