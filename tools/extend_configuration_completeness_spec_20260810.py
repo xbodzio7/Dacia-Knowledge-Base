@@ -11,6 +11,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 SPEC_PATH = ROOT / "data/reporting/configuration_completeness.json"
 MASTER = ROOT / "data/master"
+# Dated so historical reporting scopes can exclude this evidence expansion.
 EFFECTIVE_FROM = "2026-08-09"
 
 EXPECTED_NEW_TECHNICAL_SLOTS = tuple(
