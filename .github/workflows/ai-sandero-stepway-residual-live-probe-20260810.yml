@@ -18,7 +18,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Recompute live conservative boundary
-        run: python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py
       - name: Verify residual review report
         run: python -m unittest tests.test_sandero_stepway_full_modal_residual_review_20260810 -v
+      - name: Probe scalar and source-state coverage after PDF import
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path('.')
+          capture=json.loads((root/'project/sources/dacia-pl-sandero-stepway-full-technical-standard-equipment-20260809.json').read_text(encoding='utf-8'))
+          with (root/'data/master/configuration_attribute_values.csv').open(encoding='utf-8-sig',newline='') as f: values=list(csv.DictReader(f))
+          slots={(r['configuration_code'],r['attribute_code']) for r in values}
+          mapping={
+            '1000 m ze startu zatrzymanego (s)':'standing_km','Długość całkowita':'overall_length','Liczba drzwi':'number_of_doors','Liczba zaworów':'total_valve_count','Maksymalna ładowność (kg)':'maximum_payload','Norma emisji spalin':'emission_standard','Opony standardowe':'standard_tyre_specification','Poziom hałasu przy 50 km/h (dB)':'noise_level_at_50_kmh','Procedura homologacji':'homologation_procedure_code','Protokół homologacji':'homologation_protocol','Przyspieszenie 0-100 km/h (s)':'acceleration_0_100','Rodzaj nadwozia':'body_style_source_stated','Rodzaj napędu':'drive_layout','Rodzaj paliwa':'fuel_type','Rodzaj skrzyni biegów':'gearbox_source_description','Rozstaw osi':'wheelbase','Szerokość dolnej części bagażnika':'cargo_floor_width','Typ techniczny':'technical_type_code','Wysokość całkowita':'overall_height_source_stated','Zwis przedni':'front_overhang','Zwis tylny':'rear_overhang'}
+          total=0; missing=[]
+          for cfg in capture['configurations']:
+            for group in cfg['technical']:
+              for item in group['items']:
+                attr=mapping.get(item['label'])
+                if not attr: continue
+                total+=1
+                if (cfg['configuration_code'],attr) not in slots: missing.append((cfg['configuration_code'],item['label'],attr,item['value']))
+          print('SCALAR_CANDIDATES',total)
+          print('SCALAR_MISSING',len(missing))
+          print(json.dumps(missing,ensure_ascii=False))
+          if total != 315: raise SystemExit(f'unexpected scalar candidate count: {total}')
+          PY
