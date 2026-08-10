@@ -49,3 +49,5 @@ jobs:
           if ! git diff --cached --quiet; then git commit -m "fix(quality): install deterministic PDF fallback backend"; fi
           git pull --rebase origin ai/dacia-configurator-pdf-archive-20260809
           git push origin HEAD:ai/dacia-configurator-pdf-archive-20260809
+
+# retrigger: 2026-08-10 source-page extraction fallback
