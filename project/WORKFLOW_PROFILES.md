@@ -186,6 +186,34 @@ The profile is selected from actual available capabilities, not from assumptions
 
 ---
 
+# Capability-aware task selection
+
+The canonical `next_package` is the first package to evaluate, not an unconditional command to stop or an assumption that the current environment can execute it.
+
+After selecting the active profile, the AI shall evaluate whether the current `next_package` is executable with the actual capabilities and evidence available in the session.
+
+If the `next_package` is **not executable because of an environment or tool limitation**, the AI shall, before declaring `ACTION_REQUIRED`:
+
+1. preserve the canonical package and its status in `project/state.json`;
+2. record the exact capability/evidence blocker in `SESSION` when useful;
+3. inspect the repository-defined package/manifest/backlog sequence for the next safe, in-scope package that is executable under the active profile;
+4. select that package for the current session if doing so does not require a new architectural decision, source assumption, scope expansion, or user choice;
+5. continue autonomously with that executable package;
+6. return to the blocked canonical package when the required capability becomes available.
+
+A package blocked only by the current environment is **not completed, cancelled, rejected, or advanced**. Skipping it for execution is a session-level scheduling decision and does not modify canonical state.
+
+`ACTION_REQUIRED` is therefore reached only when:
+
+- the blocked package is the only safe executable work remaining; or
+- continuing with another package would require a decision, scope change, unsupported assumption, missing evidence, or other autonomy boundary defined elsewhere in the project contracts.
+
+The AI must not skip a blocked package merely because it is inconvenient, and it must not reorder packages in a way that violates dependencies or canonical prioritization.
+
+This rule does not permit importing data without required evidence, bypassing validation, changing `state.json` to hide a blocker, or treating a planned package as completed merely because another package was executed.
+
+---
+
 # Checkpoints
 
 Before implementation:
