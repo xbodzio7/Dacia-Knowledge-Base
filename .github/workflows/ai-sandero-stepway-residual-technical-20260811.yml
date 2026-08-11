@@ -6,6 +6,7 @@ on:
       - agent/sandero-stepway-full-modal-residual-technical-001
     paths:
       - .github/workflows/ai-sandero-stepway-residual-technical-20260811.yml
+      - tools/materialize_sandero_stepway_full_modal_residual_technical_20260811.py
 
 permissions:
   contents: write
@@ -23,7 +24,7 @@ jobs:
           python-version: '3.13'
       - name: Verify candidate contract
         run: python -m unittest tests.test_sandero_stepway_full_modal_residual_technical_20260811 -v
-      - name: Materialize technical residual candidates
+      - name: Materialize scalar technical residual candidates
         run: python tools/materialize_sandero_stepway_full_modal_residual_technical_20260811.py --apply
       - name: Verify materialization
         run: |
