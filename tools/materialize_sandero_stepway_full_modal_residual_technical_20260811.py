@@ -54,7 +54,7 @@ def load_values() -> tuple[list[str], list[dict[str, str]]]:
         return list(reader.fieldnames or []), list(reader)
 
 
-def build_rows() -> list[dict[str, str]]:
+def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     capture = json.loads(CAPTURE.read_text(encoding="utf-8"))
     _fields, existing = load_values()
     existing_slots = {
@@ -63,6 +63,7 @@ def build_rows() -> list[dict[str, str]]:
     }
     next_id = max((int(r["id"]) for r in existing), default=0) + 1
     rows: list[dict[str, str]] = []
+    deferred: list[dict[str, str]] = []
     for cfg in capture["configurations"]:
         code = cfg["configuration_code"]
         for group in cfg["technical"]:
@@ -73,7 +74,8 @@ def build_rows() -> list[dict[str, str]]:
                 attr, kind = mapping
                 value = parse(item["value"], kind)
                 if value is None:
-                    raise RuntimeError(f"non-scalar value for {item['label']}: {item['value']!r}")
+                    deferred.append({"configuration_code": code, "label": item["label"], "value": item["value"], "reason": "composite_or_non_scalar_value"})
+                    continue
                 slot = (code, attr, "", "")
                 if slot in existing_slots:
                     continue
@@ -91,19 +93,19 @@ def build_rows() -> list[dict[str, str]]:
                 })
                 existing_slots.add(slot)
                 next_id += 1
-    return rows
+    return rows, deferred
 
 
-def apply() -> int:
+def apply() -> dict[str, int]:
     fields, existing = load_values()
-    rows = build_rows()
+    rows, deferred = collect()
     if rows:
         existing.extend(rows)
         with VALUES.open("w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
             writer.writeheader()
             writer.writerows(existing)
-    return len(rows)
+    return {"added": len(rows), "deferred_non_scalar": len(deferred)}
 
 
 def verify() -> dict[str, int]:
@@ -119,7 +121,8 @@ def verify() -> dict[str, int]:
         1 for r in existing
         if r.get("source_code") == SOURCE and r.get("code", "").endswith("_residual")
     )
-    return {"candidate_rows": candidates, "materialized_rows": materialized}
+    _rows, deferred = collect()
+    return {"candidate_rows": candidates, "materialized_rows": materialized, "currently_deferred_non_scalar": len(deferred)}
 
 
 if __name__ == "__main__":
@@ -127,7 +130,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
-    if args.apply:
-        print(json.dumps({"added": apply(), **verify()}, ensure_ascii=False, sort_keys=True))
-    else:
-        print(json.dumps(verify(), ensure_ascii=False, sort_keys=True))
+    result = apply() if args.apply else {}
+    print(json.dumps({**result, **verify()}, ensure_ascii=False, sort_keys=True))
