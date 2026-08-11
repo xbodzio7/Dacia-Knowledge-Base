@@ -112,6 +112,8 @@
     "open_pr_after_package_stabilization": true,
     "allow_multi_source_package": "only_for_one_logical_closure_scope",
     "release_double_build_required": true,
-    "release_exact_source_sha_required": true
+    "release_exact_source_sha_required": true,
+    "workflow_selection": "environment_detected",
+    "active_profile": null
   }
 }

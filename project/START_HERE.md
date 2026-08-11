@@ -33,6 +33,23 @@ When narrative documents disagree about the current phase or package, the canoni
 
 ---
 
+# Workflow Bootstrap
+
+**Do not start project work from conversation memory alone.** A new chat, new session, application/browser switch, tool-limit change, recovery event, or handoff must not cause the AI to reconstruct the workflow from memory.
+
+Before any project action, the AI shall:
+
+- load `project/state.json` and identify the current package, next package, autonomy policy and execution policy;
+- verify the actual repository/remote state when repository execution is available;
+- identify the execution capabilities actually available in the current session, including GitHub read/write access, local repository access and Codex/Work availability;
+- select the strongest appropriate profile defined in `WORKFLOW_PROFILES.md`;
+- complete the Workflow Check defined there;
+- only then begin project work.
+
+The previous conversation is context only. It cannot select, override or reactivate a workflow profile. If the bootstrap cannot be completed, enter `RECOVERY` or diagnostic mode and report the exact blocker.
+
+---
+
 # Mandatory Rules
 
 Before implementation the AI shall:
