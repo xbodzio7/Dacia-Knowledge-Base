@@ -7,6 +7,55 @@
 
 ---
 
+# Workflow Bootstrap Contract
+
+**Never start project work from conversation memory alone.** A new chat, new session, application/browser switch, tool-limit change, recovery event, or handoff must not cause the AI to reconstruct the workflow from memory.
+
+Before any project action, the AI shall perform this bootstrap:
+
+1. Read `project/state.json` and identify the current package, next package, autonomy policy and execution policy.
+2. Read `project/STATE_SUMMARY.md`, `project/WORKFLOW_PROFILES.md`, `project/AUTONOMOUS_MAINTAINER.md` and `project/SESSION_STATE.md` as required by `START_HERE.md`.
+3. Verify the actual repository/remote state and the capabilities available in the current session.
+4. Determine whether GitHub read/write access, local repository access, Codex/Work and other required execution capabilities are actually available.
+5. Select the strongest appropriate execution profile from the table below.
+6. Perform the Workflow Check before implementation.
+7. Continue autonomously from the verified repository state unless an `ACTION_REQUIRED` boundary is reached.
+
+The previous conversation is context only. It cannot select, override or reactivate a workflow profile.
+
+## Active Workflow Profile
+
+At session start the AI shall be able to state, internally or in the session record when useful:
+
+- active profile;
+- repository access mode;
+- local repository availability;
+- Codex/Work availability;
+- current execution policy;
+- autonomy mode;
+- next package;
+- applicable stop conditions.
+
+`project/state.json` remains canonical for project state. The active profile is an execution decision derived from the current environment; it must not be treated as a permanent project-state value.
+
+## Workflow Check
+
+Before implementation, all of the following must be true:
+
+- [ ] canonical `state.json` loaded;
+- [ ] required startup documents loaded;
+- [ ] current remote `main`/repository state verified when repository execution is available;
+- [ ] current package and exact scope identified from repository state;
+- [ ] actual execution capabilities identified;
+- [ ] active profile selected from those capabilities;
+- [ ] evidence/source boundary resolved;
+- [ ] no `ACTION_REQUIRED` blocker present;
+- [ ] acceptance criteria defined.
+
+If a check fails, do not silently substitute a remembered workflow. Enter `RECOVERY` or diagnostic mode as appropriate and identify the exact blocker.
+
+---
+
 # Purpose
 
 This document defines the supported execution profiles for developing and maintaining DKB when different ChatGPT plans, GitHub access modes, local repository access, or Codex availability are present.
