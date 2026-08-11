@@ -212,6 +212,38 @@ The AI must not skip a blocked package merely because it is inconvenient, and it
 
 This rule does not permit importing data without required evidence, bypassing validation, changing `state.json` to hide a blocker, or treating a planned package as completed merely because another package was executed.
 
+## Waiting-for-capability rule
+
+When the canonical `next_package` is blocked **only because the current session lacks a required execution capability**, and there is no other safe in-scope package that can be executed without a new decision, the AI shall enter a non-terminal waiting state:
+
+`WAITING_FOR_EXECUTION_CAPABILITY`
+
+This state is a **session-level scheduling state**, not a project/package status. It must not modify or overwrite the canonical `next_package` in `project/state.json`.
+
+The AI shall record, when useful in `SESSION` or the next handoff:
+
+- the blocked `package_id`;
+- the exact missing capability (for example: local filesystem access, executable repository tools, binary/PDF inspection, or a required write-capable execution profile);
+- the strongest profile currently available;
+- the exact `resume_stage`;
+- any safe alternative package considered and why it is not available or not appropriate.
+
+The AI must **not** report this state as `ACTION_REQUIRED` merely because the environment is insufficient. A tool limitation is an `ACTION_REQUIRED` boundary only when the repository contracts require a user decision, permission, source evidence, architectural choice, or another explicit action that cannot be satisfied by waiting for or selecting an available execution profile.
+
+On every new chat/session or capability change, the bootstrap must re-evaluate the canonical `next_package` from repository state. If the required capability is now available, the AI shall resume the blocked package at its recorded `resume_stage`. If it remains unavailable, the AI shall again evaluate the repository-defined package sequence for the next safe executable package before entering `WAITING_FOR_EXECUTION_CAPABILITY`.
+
+The waiting state must never:
+
+- mark the blocked package complete;
+- advance `project/state.json` past the blocked package;
+- create placeholder commits or empty branches for appearance of progress;
+- weaken evidence requirements;
+- bypass tests or Quality;
+- infer missing source data;
+- convert an environment limitation into a false `ACTION_REQUIRED` request.
+
+This rule is specifically intended to make workflow selection deterministic across new chats, sessions, application surfaces and temporary tool limitations while preserving the canonical repository state.
+
 ---
 
 # Checkpoints
