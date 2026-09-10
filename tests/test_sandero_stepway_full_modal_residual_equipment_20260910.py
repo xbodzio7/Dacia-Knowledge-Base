@@ -10,10 +10,12 @@ from tools.materialize_sandero_stepway_full_modal_residual_equipment_20260910 im
 
 
 class SanderoStepwayFullModalResidualEquipmentTests(unittest.TestCase):
-    def test_safe_residual_equipment_is_exactly_286_occurrences(self) -> None:
+    def test_materializable_safe_equipment_is_exactly_277_occurrences(self) -> None:
         _fields, _rows, report = build()
-        self.assertEqual(report["safe_equipment_occurrences"], 286)
-        self.assertEqual(report["mapped_occurrences"], 286)
+        self.assertEqual(report["classified_safe_equipment_occurrences"], 286)
+        self.assertEqual(report["materializable_safe_equipment_occurrences"], 277)
+        self.assertEqual(report["mapped_occurrences"], 277)
+        self.assertEqual(report["preserved_schema_gap_occurrences"], 9)
 
     def test_preserved_residual_equipment_is_155_occurrences(self) -> None:
         _fields, _rows, report = build()
@@ -27,7 +29,7 @@ class SanderoStepwayFullModalResidualEquipmentTests(unittest.TestCase):
         _fields, rows, report = build()
         codes = [row["code"] for row in rows]
         self.assertEqual(len(codes), len(set(codes)))
-        self.assertGreaterEqual(report["new_availability_rows"], 0)
+        self.assertGreaterEqual(report["materialized_availability_rows"], 0)
 
 
 if __name__ == "__main__":
