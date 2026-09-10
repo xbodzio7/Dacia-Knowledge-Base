@@ -16,7 +16,7 @@ SAFE_MARKERS = (
     "obręcze kół", "felgi aluminiowe", "esp z systemem", "tapicerka materiałowa",
     "płetwy rekina", "dwa światła cofania", "filtr cząstek stałych",
     "fotel kierowcy z regulacją wzdłużną", "kierownica pokryta skórą ekologiczną",
-    "kierownica z pianki", "kluczyk z 3 przyciskami", "komunikaty w języku polskim",
+    "kierownica z pianki", "komunikaty w języku polskim",
     "lusterka boczne regulowane ręcznie", "relingi dachowe", "niska konsola środkowa",
     "normalny dach", "system multimedialny media", "ograniczenie prędkości do 180",
     "poduszki boczne z przodu", "regulator-ogranicznik", "system wspomagania parkowania przód/tył",
@@ -31,8 +31,8 @@ NEGATIVE = {
     "szyba przednia nieogrzewana",
 }
 
-# Explicit mappings are used instead of inferring from an unrelated prior literal.
-# A tuple may contain more than one canonical attribute for a composite source literal.
+# Explicit mappings replace the failed prior-literal inference. Composite literals
+# intentionally materialize more than one canonical availability observation.
 LITERAL_MAPPINGS: dict[str, tuple[tuple[str, str], ...]] = {
     '15" stalowe obręcze kół - wzór ELMA': (("wheel_design", "standard"),),
     '16" felgi aluminiowe': (("wheel_material", "standard"),),
@@ -93,38 +93,36 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
     fields, availability = read_csv("configuration_attribute_availability.csv")
     attributes = {row["code"] for row in read_csv("attributes.csv")[1]}
 
-    safe_literals = {
+    classified_safe = {
         row["literal"] for row in reconciliation["unresolved_equipment_literals"]
         if row["literal"] not in NEGATIVE
         and any(marker in row["literal"].casefold() for marker in SAFE_MARKERS)
     }
-    safe_occurrences = sum(
+    classified_safe_occurrences = sum(
         row["occurrences"] for row in reconciliation["unresolved_equipment_literals"]
-        if row["literal"] in safe_literals
+        if row["literal"] not in NEGATIVE
+        and any(marker in row["literal"].casefold() for marker in SAFE_MARKERS)
     )
-    if safe_occurrences != 286:
-        raise RuntimeError(f"expected 286 safe equipment occurrences, got {safe_occurrences}")
+    if classified_safe_occurrences != 277:
+        raise RuntimeError(f"expected 277 materializable safe occurrences, got {classified_safe_occurrences}")
 
-    missing_mappings = sorted(
-        literal for literal in safe_literals
-        if norm(literal) not in {norm(key) for key in LITERAL_MAPPINGS}
-    )
+    mapping_keys = {norm(key) for key in LITERAL_MAPPINGS}
+    missing_mappings = sorted(literal for literal in classified_safe if norm(literal) not in mapping_keys)
     if missing_mappings:
         raise RuntimeError(f"safe literals without explicit mapping: {missing_mappings!r}")
 
     existing_codes = {row["code"] for row in availability}
     mapped_occurrences = 0
-    mapped_rows = 0
+    added_rows = 0
     invalid_attributes: set[str] = set()
 
     for config in capture["configurations"]:
         configuration_code = config["configuration_code"]
         for group in config["equipment"]:
             for item in group["items"]:
-                if item not in safe_literals:
+                if item not in classified_safe:
                     continue
-                mappings = LITERAL_MAPPINGS[item]
-                for attribute_code, status in mappings:
+                for attribute_code, status in LITERAL_MAPPINGS[item]:
                     if attribute_code not in attributes:
                         invalid_attributes.add(attribute_code)
                         continue
@@ -142,24 +140,27 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
                         "notes": f"Exact full-modal equipment literal: {item}",
                     })
                     existing_codes.add(code)
-                    mapped_rows += 1
+                    added_rows += 1
                 mapped_occurrences += 1
 
     if invalid_attributes:
         raise RuntimeError(f"explicit mappings reference missing attributes: {sorted(invalid_attributes)!r}")
-    if mapped_occurrences != 286:
-        raise RuntimeError(f"expected 286 mapped occurrences, got {mapped_occurrences}")
+    if mapped_occurrences != 277:
+        raise RuntimeError(f"expected 277 mapped occurrences, got {mapped_occurrences}")
 
     report = {
         "schema_version": 2,
         "package_id": "sandero_stepway_full_modal_residual_equipment_001",
         "observed_on": DATE,
-        "safe_equipment_occurrences": safe_occurrences,
+        "classified_safe_equipment_occurrences": 286,
+        "materializable_safe_equipment_occurrences": classified_safe_occurrences,
         "mapped_occurrences": mapped_occurrences,
-        "materialized_availability_rows": mapped_rows,
-        "preserved_equipment_occurrences": 441 - safe_occurrences,
+        "materialized_availability_rows": added_rows,
+        "preserved_schema_gap_occurrences": 9,
+        "preserved_equipment_occurrences": 441 - 286,
         "source_code": SOURCE_CODE,
         "mapping_policy": "explicit_canonical_mapping",
+        "schema_gap_literals": ["kluczyk z 3 przyciskami"],
     }
     return fields, availability, report
 
