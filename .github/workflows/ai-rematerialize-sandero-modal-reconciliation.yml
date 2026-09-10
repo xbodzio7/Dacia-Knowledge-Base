@@ -1,9 +1,9 @@
-name: AI rematerialize conservative Sandero modal reconciliation
+name: AI rematerialize Sandero residual equipment
 
 on:
   push:
     branches:
-      - ai/sandero-stepway-full-modal-reconciliation-001
+      - agent/sandero-stepway-full-modal-residual-equipment-001
     paths:
       - .github/workflows/ai-rematerialize-sandero-modal-reconciliation.yml
 
@@ -16,42 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ai/sandero-stepway-full-modal-reconciliation-001
+          ref: agent/sandero-stepway-full-modal-residual-equipment-001
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Remove only prior observations from this snapshot
-        shell: bash
-        run: |
-          python - <<'PY'
-          import csv
-          from pathlib import Path
-          root = Path('.')
-          source = 'src_pl_sandero_stepway_full_modal_20260809'
-          for rel in ('data/master/configuration_attribute_availability.csv','data/master/configuration_attribute_values.csv'):
-              path = root / rel
-              with path.open(encoding='utf-8-sig', newline='') as f:
-                  reader = csv.DictReader(f)
-                  fields = list(reader.fieldnames or [])
-                  rows = [r for r in reader if r.get('source_code') != source]
-              with path.open('w', encoding='utf-8', newline='') as f:
-                  writer = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
-                  writer.writeheader(); writer.writerows(rows)
-          PY
-      - name: Apply corrected reconciliation
-        run: |
-          python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py --apply
-          python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py --verify
-      - name: Commit rematerialized data
+      - name: Apply residual equipment
+        run: python tools/materialize_sandero_stepway_full_modal_residual_equipment_20260910.py --apply
+      - name: Verify residual equipment
+        run: python -m unittest tests/test_sandero_stepway_full_modal_residual_equipment_20260910.py
+      - name: Commit materialized data and remove hook
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/master/configuration_attribute_availability.csv \
-            data/master/configuration_attribute_values.csv \
-            data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.json \
-            data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.md
-          git commit -m "data(sandero): rematerialize conservative modal reconciliation"
-          git push origin HEAD:ai/sandero-stepway-full-modal-reconciliation-001
+          git add data/master/configuration_attribute_availability.csv
+          git rm .github/workflows/ai-rematerialize-sandero-modal-reconciliation.yml
+          git rm .github/workflows/ai-rematerialize-sandero-residual-equipment.yml
+          git commit -m "data(sandero): materialize residual standard equipment"
+          git push origin HEAD:agent/sandero-stepway-full-modal-residual-equipment-001
