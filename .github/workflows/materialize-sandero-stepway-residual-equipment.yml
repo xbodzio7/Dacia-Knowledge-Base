@@ -1,20 +1,21 @@
 name: Materialize Sandero Stepway Residual Equipment
 
 on:
-  push:
-    branches:
-      - agent/sandero-stepway-full-modal-residual-equipment-001
+  pull_request:
+    types: [opened, synchronize]
 
 permissions:
   contents: write
 
 jobs:
   materialize:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Check out branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
+          ref: ${{ github.event.pull_request.head.ref }}
           persist-credentials: true
 
       - name: Set up Python
@@ -29,6 +30,8 @@ jobs:
         run: python -m unittest -q tests/test_sandero_stepway_full_modal_residual_equipment_20260910.py
 
       - name: Commit generated master data and remove temporary workflow
+        env:
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -36,4 +39,4 @@ jobs:
           git rm .github/workflows/materialize-sandero-stepway-residual-equipment.yml
           git diff --cached --check
           git commit -m "data(sandero): materialize residual standard equipment [skip ci]"
-          git push
+          git push origin "HEAD:${HEAD_BRANCH}"
