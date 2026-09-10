@@ -29,12 +29,12 @@ id,code,category,name,data_type,unit,description,status
 28,emission_standard,Engine,Emission standard,enum,,Applicable emission standard,active
 29,start_stop_system,Engine,Start-stop system,boolean,,Automatic engine stop/start support,active
 30,hybrid_support,Engine,Hybrid support,boolean,,Engine used in hybrid powertrain,active
-31,engine_oil_capacity,Engine,Engine oil capacity,decimal,L,Engine oil capacity including filter replacement,active
+31,engine_oil_capacity,Engine,Engine oil capacity,decimal,L,Oil capacity including filter replacement,active
 32,coolant_capacity,Engine,Coolant capacity,decimal,L,Cooling system capacity,active
 33,recommended_fuel,Engine,Recommended fuel,enum,,Recommended fuel grade,active
 34,recommended_engine_oil,Engine,Recommended engine oil,string,,Recommended engine oil specification,active
-35,timing_drive_type,Engine,Timing drive,enum,,Timing belt, chain or gears,active
-36,engine_orientation,Engine,Engine orientation,string,,Transverse or longitudinal installation,active
+35,timing_drive_type,Engine,Timing drive,enum,,"Timing belt, chain or gears",active
+36,engine_orientation,Engine,Engine orientation,enum,,Transverse or longitudinal installation,active
 37,engine_weight,Engine,Engine weight,decimal,kg,Approximate dry engine weight,active
 38,engine_management_system,Engine,Engine management system,string,,Electronic engine control system,active
 39,drive_type,Drivetrain,Drive type,enum,,Driven axle configuration,active
@@ -76,22 +76,22 @@ id,code,category,name,data_type,unit,description,status
 75,traction_motor_count,Hybrid System,Traction motor count,integer,,Number of traction electric motors,active
 76,traction_motor_power,Hybrid System,Traction motor power,decimal,kW,Combined traction motor power,active
 77,traction_motor_torque,Hybrid System,Traction motor torque,decimal,Nm,Combined traction motor torque,active
-78,starter_generator_type,Hybrid System,Starter generator type,string,,Integrated starter generator architecture,active
+78,starter_generator_type,Hybrid System,Starter generator type,enum,,Integrated starter generator architecture,active
 79,starter_generator_power,Hybrid System,Starter generator power,decimal,kW,Starter generator maximum power,active
 80,starter_generator_voltage,Hybrid System,Starter generator voltage,integer,V,Starter generator operating voltage,active
-81,hybrid_battery_type,Hybrid System,Hybrid battery type,string,,Battery chemistry used by hybrid system,active
+81,hybrid_battery_type,Hybrid System,Hybrid battery type,enum,,Battery chemistry used by hybrid system,active
 82,hybrid_battery_capacity,Hybrid System,Hybrid battery capacity,decimal,kWh,Usable hybrid battery capacity,active
-83,hybrid_battery_voltage,Hybrid System,Hybrid battery voltage,integer,V,Nominal battery operating voltage,active
+83,hybrid_battery_voltage,Hybrid System,Hybrid battery voltage,integer,V,Nominal hybrid battery voltage,active
 84,hybrid_battery_location,Hybrid System,Hybrid battery location,string,,Installation location of hybrid battery,active
 85,regenerative_braking,Hybrid System,Regenerative braking,boolean,,Regenerative braking capability,active
 86,ev_mode_support,Hybrid System,EV mode support,boolean,,Vehicle can operate in electric mode,active
 87,ev_mode_max_speed,Hybrid System,EV mode max speed,integer,km/h,Maximum EV mode speed,active
 88,automatic_energy_recovery,Hybrid System,Automatic energy recovery,boolean,,Automatic energy recovery management,active
-89,electric_motor_type,Electric System,Electric motor type,string,,Traction motor technology,active
+89,electric_motor_type,Electric System,Electric motor type,enum,,Traction motor technology,active
 90,electric_motor_count,Electric System,Electric motor count,integer,,Number of traction motors,active
 91,electric_motor_power,Electric System,Electric motor power,decimal,kW,Combined electric motor power,active
 92,electric_motor_torque,Electric System,Electric motor torque,decimal,Nm,Combined electric motor torque,active
-93,traction_battery_type,Electric System,Traction battery type,string,,Traction battery chemistry,active
+93,traction_battery_type,Electric System,Traction battery type,enum,,Traction battery chemistry,active
 94,traction_battery_capacity_gross,Electric System,Traction battery gross capacity,decimal,kWh,Gross battery capacity,active
 95,traction_battery_capacity_net,Electric System,Traction battery net capacity,decimal,kWh,Usable battery capacity,active
 96,traction_battery_voltage,Electric System,Traction battery voltage,integer,V,Nominal battery voltage,active
@@ -99,7 +99,7 @@ id,code,category,name,data_type,unit,description,status
 98,onboard_charger_power,Electric System,On-board charger power,decimal,kW,Maximum AC charging power,active
 99,dc_charging_supported,Electric System,DC charging support,boolean,,Support for DC fast charging,active
 100,dc_charging_power_max,Electric System,Maximum DC charging power,decimal,kW,Maximum DC charging power,active
-101,charging_connector_type,Electric System,Charging connector type,string,,Charging connector standard,active
+101,charging_connector_type,Electric System,Charging connector type,enum,,Charging connector standard,active
 102,vehicle_to_load,Electric System,Vehicle-to-load support,boolean,,External power supply capability,active
 103,vehicle_to_grid,Electric System,Vehicle-to-grid support,boolean,,Bidirectional charging capability,active
 104,top_speed,Performance,Top speed,integer,km/h,Maximum vehicle speed,active
@@ -131,13 +131,13 @@ id,code,category,name,data_type,unit,description,status
 130,washer_fluid_capacity,Capacities,Washer fluid reservoir capacity,decimal,L,Windscreen washer fluid reservoir capacity,active
 132,combined_range,Performance,Combined range,integer,km,Maximum driving range under standard test cycle,active
 133,electric_energy_consumption,Efficiency,Electric energy consumption,decimal,kWh/100 km,Average electrical energy consumption under standard test cycle,active
-135,drive_layout,Drivetrain,Drive layout,string,,Vehicle drive configuration (e.g. FWD, RWD, AWD),active
+135,drive_layout,Drivetrain,Drive layout,string,,"Vehicle drive configuration (e.g. FWD, RWD, AWD)",active
 136,differential_lock,Drivetrain,Differential lock,boolean,,Vehicle equipped with a differential lock,active
-137,steering_type,Steering,Steering type,string,,Type of steering system (e.g. hydraulic, electric power steering),active
+137,steering_type,Steering,Steering type,string,,"Type of steering system (e.g. hydraulic, electric power steering)",active
 138,front_suspension,Suspension,Front suspension,string,,Front suspension design,active
 139,rear_suspension,Suspension,Rear suspension,string,,Rear suspension design,active
-140,front_brake_type,Brakes,Front brake type,string,,Front brake design (e.g. ventilated disc, solid disc),active
-141,rear_brake_type,Brakes,Rear brake type,string,,Rear brake design (e.g. disc, drum),active
+140,front_brake_type,Brakes,Front brake type,string,,"Front brake design (e.g. ventilated disc, solid disc)",active
+141,rear_brake_type,Brakes,Rear brake type,string,,"Rear brake design (e.g. disc, drum)",active
 142,parking_brake_type,Brakes,Parking brake type,string,,Type of parking brake (manual or electric),active
 143,front_tyre_size,Wheels,Front tyre size,string,,Front tyre size specification (e.g. 215/60 R17),active
 144,rear_tyre_size,Wheels,Rear tyre size,string,,Rear tyre size specification (e.g. 215/60 R17),active
@@ -146,11 +146,11 @@ id,code,category,name,data_type,unit,description,status
 147,tyre_pressure_monitoring_system,Safety,Tyre pressure monitoring system,boolean,,Vehicle equipped with a tyre pressure monitoring system (TPMS),active
 148,wheel_bolt_pattern,Wheels,Wheel bolt pattern,string,,Wheel bolt pattern specification (e.g. 5x114.3),active
 149,wheel_material,Wheels,Wheel material,string,,Primary wheel material (e.g. steel or alloy),active
-150,wheel_finish,Wheels,Wheel finish,string,,Wheel finish (e.g. painted, machined, diamond-cut),active
+150,wheel_finish,Wheels,Wheel finish,string,,"Wheel finish (e.g. painted, machined, diamond-cut)",active
 151,locking_wheel_bolts,Wheels,Locking wheel bolts,boolean,,Vehicle equipped with locking wheel bolts,active
 152,self_sealing_tyres,Wheels,Self-sealing tyres,boolean,,Vehicle equipped with self-sealing tyres,active
 153,run_flat_tyres,Wheels,Run-flat tyres,boolean,,Vehicle equipped with run-flat tyres,active
-154,seasonal_tyre_type,Wheels,Seasonal tyre type,string,,Factory supplied tyre season (summer, winter or all-season),active
+154,seasonal_tyre_type,Wheels,Seasonal tyre type,string,,"Factory supplied tyre season (summer, winter or all-season)",active
 155,recommended_front_tyre_pressure,Wheels,Recommended front tyre pressure,decimal,bar,Recommended cold inflation pressure for front tyres,active
 156,recommended_rear_tyre_pressure,Wheels,Recommended rear tyre pressure,decimal,bar,Recommended cold inflation pressure for rear tyres,active
 157,minimum_wheel_size,Wheels,Minimum wheel size,string,,Minimum approved wheel size for the vehicle,active
@@ -188,10 +188,10 @@ id,code,category,name,data_type,unit,description,status
 190,interior_width,Dimensions,Interior width,integer,mm,Maximum usable interior width,active
 191,interior_height,Dimensions,Interior height,integer,mm,Maximum usable interior height,active
 192,roof_load_capacity,Dimensions,Roof load capacity,integer,kg,Maximum permitted roof load,active
-193,roof_height_with_rails,Dimensions,Roof height including roof rails,integer,mm,Vehicle height including roof rails,active
+193,roof_height_with_rails,Dimensions,Roof height with rails,integer,mm,Vehicle height including roof rails,active
 194,number_of_doors,Doors,Number of doors,integer,,Total number of vehicle doors,active
 195,number_of_side_doors,Doors,Number of side doors,integer,,Number of passenger side doors excluding tailgate,active
-196,tailgate_type,Doors,Tailgate type,string,,Type of rear opening (tailgate, barn doors, sedan boot),active
+196,tailgate_type,Doors,Tailgate type,string,,"Type of rear opening (tailgate, barn doors, sedan boot)",active
 197,power_tailgate,Doors,Power tailgate,boolean,,Vehicle equipped with electrically operated tailgate,active
 198,hands_free_tailgate,Doors,Hands-free tailgate,boolean,,Tailgate can be opened hands-free,active
 199,soft_close_doors,Doors,Soft-close doors,boolean,,Doors equipped with soft-close mechanism,active
@@ -204,7 +204,7 @@ id,code,category,name,data_type,unit,description,status
 206,number_of_seats,Seats,Number of seats,integer,,Total number of seating positions,active
 207,seat_configuration,Seats,Seat configuration,string,,Seating layout (e.g. 2+3 or 2+3+2),active
 208,front_seat_type,Seats,Front seat type,string,,Type of front seats,active
-209,rear_seat_type,Seats,Rear seat type,string,,Rear seat type,active
+209,rear_seat_type,Seats,Rear seat type,string,,Type of rear seats,active
 210,driver_seat_adjustment,Seats,Driver seat adjustment,string,,Driver seat adjustment type,active
 211,passenger_seat_adjustment,Seats,Passenger seat adjustment,string,,Front passenger seat adjustment type,active
 212,driver_seat_height_adjustment,Seats,Driver seat height adjustment,boolean,,Driver seat height adjustment available,active
@@ -225,7 +225,7 @@ id,code,category,name,data_type,unit,description,status
 227,third_row_seats,Seats,Third-row seats,boolean,,Vehicle equipped with third-row seating,active
 228,third_row_folding,Seats,Third-row seat folding,string,,Third-row seat folding configuration,active
 229,easy_entry_second_row,Seats,Easy entry second row,boolean,,Easy-entry mechanism for access to rear seats,active
-230,window_type,Windows,Window type,string,,Type of vehicle windows (fixed, sliding, etc.),active
+230,window_type,Windows,Window type,string,,"Type of vehicle windows (fixed, sliding, etc.)",active
 231,front_windows_power,Windows,Front power windows,boolean,,Front windows electrically operated,active
 232,rear_windows_power,Windows,Rear power windows,boolean,,Rear windows electrically operated,active
 233,one_touch_windows,Windows,One-touch windows,boolean,,One-touch up/down window control,active
@@ -249,7 +249,7 @@ id,code,category,name,data_type,unit,description,status
 251,rear_view_camera,Driving Systems,Rear view camera,boolean,,Rear reversing camera,active
 252,360_camera_system,Driving Systems,360-degree camera system,boolean,,Surround view camera system,active
 253,cross_traffic_alert,Driving Systems,Cross traffic alert,boolean,,Rear cross traffic warning system,active
-254,headlights_type,Lighting,Headlights type,string,,Type of headlights (halogen, LED, matrix LED),active
+254,headlights_type,Lighting,Headlights type,string,,"Type of headlights (halogen, LED, matrix LED)",active
 255,automatic_headlights,Lighting,Automatic headlights,boolean,,Automatic headlight activation based on ambient light,active
 256,led_daytime_running_lights,Lighting,LED daytime running lights,boolean,,LED DRL system,active
 257,adaptive_headlights,Lighting,Adaptive headlights,boolean,,Headlights that adjust beam direction,active
@@ -298,9 +298,9 @@ id,code,category,name,data_type,unit,description,status
 303,heated_steering_wheel_integration,HVAC,Heated steering wheel integration,boolean,,Integration with steering wheel heating,active
 304,cooling_glovebox,HVAC,Cooling glovebox,boolean,,Cooled storage compartment,active
 306,number_of_cylinders,Powertrain,Number of cylinders,integer,,Engine cylinder count,active
-307,transmission_type,Powertrain,Transmission type,string,,Drivetrain configuration (FWD, RWD, AWD),active
+307,transmission_type,Powertrain,Transmission type,string,,"Drivetrain configuration (FWD, RWD, AWD)",active
 308,number_of_gears,Powertrain,Number of gears,integer,,Number of transmission gears,active
-309,drivetrain_type,Powertrain,Drivetrain type,string,,Drivetrain configuration (FWD, RWD, AWD),active
+309,drivetrain_type,Powertrain,Drivetrain type,string,,"Drivetrain configuration (FWD, RWD, AWD)",active
 310,onboard_computer,Infotainment,On-board computer,boolean,,Vehicle information computer available to the driver,active
 311,media_display_system,Infotainment,Media Display system,boolean,,Dacia Media Display multimedia system,active
 312,media_control_system,Infotainment,Media Control system,boolean,,Dacia Media Control multimedia system,active
@@ -332,7 +332,7 @@ id,code,category,name,data_type,unit,description,status
 338,passenger_front_airbag,Safety,Passenger front airbag,boolean,,Frontal airbag for the front passenger.,active
 339,emergency_stop_signal,Safety,Emergency stop signal,boolean,,Hazard warning lights activate automatically under hard braking.,active
 340,rear_three_point_seat_belts,Safety,Rear three-point seat belts,boolean,,Rear seating positions use three-point seat belts.,active
-341,emergency_call_ecall,Safety,Emergency call eCall,boolean,,Vehicle supports the European eCall emergency-call function,active
+341,emergency_call_ecall,Safety,Emergency call eCall,boolean,,Vehicle supports the European eCall emergency-call function.,active
 342,central_locking,Doors,Central locking,boolean,,Vehicle doors are controlled by a central locking system.,active
 343,front_side_airbags,Safety,Front side airbags,boolean,,Front occupants are protected by side airbags.,active
 344,curtain_airbags,Safety,Curtain airbags,boolean,,Vehicle is equipped with curtain airbags.,active
@@ -346,7 +346,7 @@ id,code,category,name,data_type,unit,description,status
 352,wheel_design,Wheels,Wheel design,string,,Commercial wheel design name.,active
 353,upholstery_variant,Seats,Upholstery variant,string,,Commercial upholstery variant or normalized source description.,active
 354,exterior_color,Exterior,Exterior colour,string,,Commercial exterior body colour or normalized source description.,active
-355,standard_tyre_specification,Wheels,Standard tyre specification,string,,Complete axle-neutral standard tyre specification including nominal size, load index and speed symbol.,active
+355,standard_tyre_specification,Wheels,Standard tyre specification,string,,"Complete axle-neutral standard tyre specification including nominal size, load index and speed symbol.",active
 356,noise_level_at_50_kmh,Acoustics,Noise level at 50 km/h,decimal,dB,Vehicle noise level measured at 50 km/h without inferring measurement location or test procedure,active
 357,maximum_payload,Weights,Maximum payload,integer,kg,Maximum permitted payload stated explicitly by the source without deriving it from other mass values,active
 358,total_valve_count,Engine,Total valve count,integer,,Total number of engine valves stated explicitly by the source; distinct from valves per cylinder,active
@@ -354,7 +354,7 @@ id,code,category,name,data_type,unit,description,status
 360,cargo_volume_vda_to_luggage_cover,Capacities,Cargo volume VDA to luggage-cover height,integer,L,Luggage compartment volume measured according to VDA up to the source-stated luggage-cover or roller-blind height,active
 361,cargo_volume_vda_to_seatback,Capacities,Cargo volume VDA to seat-back height,integer,L,Luggage compartment volume measured according to VDA up to the source-stated seat-back height,active
 362,lpg_vessel_capacity_total,Capacities,Total LPG vessel capacity,decimal,L,Total internal capacity of the LPG pressure vessel,active
-363,lpg_vessel_filling_capacity,Capacities,LPG vessel filling capacity,decimal,L,Source-stated LPG volume available or permitted for filling, distinct from total vessel capacity,active
+363,lpg_vessel_filling_capacity,Capacities,LPG vessel filling capacity,decimal,L,"Source-stated LPG volume available or permitted for filling, distinct from total vessel capacity",active
 364,hybrid_system_power_total,Hybrid System,Total hybrid system power,decimal,kW,Source-stated total output of the complete hybrid propulsion system; not a calculated sum of component powers,active
 365,glass_sunroof,Doors,Glass sunroof,boolean,,Electrically operated glass sunroof,active
 366,roof_rails,Exterior,Roof rails,boolean,,Roof rails fitted as standard or option.,active
@@ -365,7 +365,7 @@ id,code,category,name,data_type,unit,description,status
 371,hill_descent_control,Driving Systems,Hill descent control,boolean,,Electronic hill descent control.,active
 372,my_safety_button,ADAS,My Safety button,boolean,,Dedicated control for selected driver-assistance systems.,active
 373,rescue_code,Safety,Rescue Code,boolean,,Vehicle rescue QR code marking.,active
-374,door_open_warning,Doors,Door-open warning,boolean,,Warning for an incompletely closed door.,active
+374,door_open_warning,Safety,Door-open warning,boolean,,Warning for an incompletely closed door.,active
 375,eco_mode,Driving Systems,ECO driving mode,boolean,,Selectable economy driving mode.,active
 376,eco_leather_steering_wheel,Steering,Eco-leather steering wheel,boolean,,Steering wheel covered with synthetic eco leather.,active
 377,youclip_phone_holder,Infotainment,YouClip phone holder,boolean,,YouClip-compatible smartphone holder.,active
@@ -377,11 +377,11 @@ id,code,category,name,data_type,unit,description,status
 383,instrument_cluster_colour_10_1,Infotainment,10.1-inch colour instrument display,boolean,,10.1-inch configurable colour instrument display.,active
 384,particulate_filter,Emissions,Particulate filter,boolean,,Presence of a particulate filter stated explicitly by the source without inferring filter technology.,active
 385,hybrid_system_voltage,Hybrid System,Hybrid system voltage,integer,V,Source-stated voltage class of the complete hybrid system; distinct from component nominal voltage.,active
-386,hybrid_battery_capacity_source_stated,Hybrid System,Source-stated hybrid battery capacity,decimal,kWh,Hybrid battery capacity exactly as stated by the source without classifying it as gross, net or usable.,active
+386,hybrid_battery_capacity_source_stated,Hybrid System,Source-stated hybrid battery capacity,decimal,kWh,"Hybrid battery capacity exactly as stated by the source without classifying it as gross, net or usable.",active
 387,cargo_volume_without_spare_wheel_iso3832,Capacities,Cargo volume without spare wheel (ISO 3832),integer,dm3,Maximum luggage-compartment volume without a spare wheel measured according to ISO 3832.,active
 388,maximum_cargo_volume_iso3832,Capacities,Maximum cargo volume (ISO 3832),integer,dm3,Maximum source-stated luggage-compartment volume measured according to ISO 3832.,active
 389,turning_circle_between_kerbs,Performance,Turning circle between kerbs,decimal,m,Minimum turning-circle diameter explicitly measured between kerbs; distinct from wheel-track and unspecified turning-circle observations.,active
-390,turning_circle_wheel_track,Performance,Turning circle by wheel track,decimal,m,Minimum turning-circle diameter explicitly stated using the wheel-track basis; distinct from between-kerbs and unspecified turning-circle observations.,active
+390,turning_circle_wheel_track,Performance,Turning circle by wheel track,decimal,m,Minimum turning-circle diameter explicitly stated using the wheel-track basis; distinct from between-kerbs and unspecified observations.,active
 391,maximum_kerb_weight,Weights,Maximum kerb weight,integer,kg,Maximum vehicle kerb weight explicitly qualified as maximum by the source; distinct from minimum and unqualified kerb-weight observations.,active
 392,payload,Weights,Payload,integer,kg,Source-stated payload observation. Exact values use the scalar table and bounded intervals use the range table; distinct from an explicitly stated maximum payload.,active
 393,type2_charging_cable_supplied,Electric System,Type 2 charging cable supplied,boolean,,Physical Type 2 charging cable supplied with the vehicle for wallbox and public-terminal charging; distinct from the vehicle charging-connector standard.,active
@@ -390,12 +390,12 @@ id,code,category,name,data_type,unit,description,status
 396,body_style_source_stated,Exterior,Source-stated body style,string,,Body-style wording exactly as stated by the source without remapping to a project taxonomy.,active
 397,technical_type_code,Powertrain,Technical type code,string,,Manufacturer or homologation technical type code exactly as stated by the source.,active
 398,gearbox_source_description,Transmission,Source-stated gearbox description,string,,Transmission description exactly as stated by the source.,active
-399,traction_battery_capacity_source_stated,Electric System,Source-stated traction battery capacity,decimal,kWh,Traction-battery capacity exactly as stated without classifying it as gross, net or usable.,active
+399,traction_battery_capacity_source_stated,Electric System,Source-stated traction battery capacity,decimal,kWh,"Traction-battery capacity exactly as stated without classifying it as gross, net or usable.",active
 400,cargo_floor_width,Dimensions,Cargo floor width,integer,mm,Width of the lower part of the luggage compartment exactly as stated by the source.,active
 401,height_with_tailgate_open,Dimensions,Height with tailgate open,integer,mm,Overall source-stated vehicle height with the rear tailgate open.,active
 402,overall_height_source_stated,Dimensions,Source-stated overall height,string,,Complete overall-height wording retained when a source gives multiple contextual values in one field.,active
 403,homologation_procedure_code,Emissions,Homologation procedure code,string,,Source-stated homologation procedure identifier.,active
-404,homologation_protocol,Emissions,Homologation protocol,string,,Source-stated homologation protocol, such as WLTP.,active
+404,homologation_protocol,Emissions,Homologation protocol,string,,"Source-stated homologation protocol, such as WLTP.",active
 405,ac_charging_time_20_100_source_stated,Electric System,AC charge time 20-100% source-stated,string,,Exact source-stated AC charging duration from 20% to 100%.,active
 406,electric_motor_torque_rpm,Electric System,Electric motor maximum torque RPM,integer,rpm,Source-stated electric-motor speed corresponding to maximum stated torque.,active
 407,reversing_lights_count,Lighting,Reversing lights count,integer,,Number of reversing lamps explicitly stated for the configuration.,active
@@ -415,4 +415,3 @@ id,code,category,name,data_type,unit,description,status
 421,speaker_count,Infotainment,Speaker count,integer,,Number of loudspeakers explicitly stated for the multimedia system.,active
 422,dab_radio,Infotainment,DAB radio,boolean,,Digital Audio Broadcasting radio explicitly stated by the source.,active
 423,interface_language_source_stated,Infotainment,Source-stated interface language,string,,Vehicle interface or message language explicitly stated by the source.,active
-424,key_button_count,Doors,Supplied key button count,integer,,Number of buttons on a supplied vehicle key explicitly stated by the source.,active
