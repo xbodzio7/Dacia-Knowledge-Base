@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "package_id": "sandero_stepway_full_modal_evidence_boundary_001",
+  "reviewed_on": "2026-09-12",
+  "source_code": "src_pl_sandero_stepway_full_modal_20260809",
+  "source_reconciliation": "data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.json",
+  "scope": {
+    "captured_rows": 1708,
+    "current_residual_rows": 940
+  },
+  "decisions": {
+    "preserve_negative_or_base_equipment": {
+      "bez automatycznego parkowania": 7,
+      "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)": 13,
+      "brak świateł przeciwmgielnych": 9,
+      "kierownica nieogrzewana": 15,
+      "szyba przednia nieogrzewana": 15
+    },
+    "preserve_unmapped_equipment": {
+      "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury": 12,
+      "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)": 6,
+      "korek wlewu paliwa (bez keyless entry)": 9,
+      "kryterium techniczne niezbędne do zamówienia klimatyzacji": 14,
+      "pas bezpieczeństwa kierowcy bez regulacji wysokości": 15,
+      "right content": 15,
+      "system ogrzewania z cyrkulacją powietrza": 1,
+      "wymóg termiczny wnętrza pojazdu": 9,
+      "zestaw ochronny ANTIGRAVIL": 15
+    },
+    "preserve_schema_gap_equipment": {
+      "kluczyk z 3 przyciskami": 9
+    },
+    "preserve_contextual_technical": {
+      "Emisja CO2 cykl mieszany WLTP (g/km)": 15,
+      "Emisja CO2 cykl mieszany WLTP*LPG (g/km)": 9,
+      "Maksymalny moment obrotowy w Nm": 15,
+      "Moc maksymalna kW (KM)": 15,
+      "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)": 15,
+      "Pojemność przestrzeni bagażowej min. (dm3)": 15,
+      "Wysokość bez obciążenia z otwartą klapą tylną": 15,
+      "Zużycie paliwa cykl mieszany WLTP (l/100 km)": 15,
+      "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)": 10
+    },
+    "preserve_model_qualified_technical": {
+      "Prześwit pojazdu": 15,
+      "Szerokość całkowita": 15,
+      "Szerokość całkowita z lusterkami zewnętrznymi": 15,
+      "Wysokość pojazdu nieobciążonego z relingami (mm)": 15
+    }
+  },
+  "counts": {
+    "preserved_negative_or_base_equipment": 59,
+    "preserved_unmapped_equipment": 96,
+    "preserved_schema_gap_equipment": 9,
+    "preserved_contextual_technical": 124,
+    "preserved_model_qualified_technical": 60,
+    "preserved_evidence_boundary_total": 348
+  },
+  "policy": {
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false,
+    "negative_evidence_is_not_inferred": true,
+    "composite_or_model_qualified_values_are_not_projected": true,
+    "parser_artifacts_are_not_promoted": true
+  },
+  "reason": "These residual observations are retained as exact source evidence because their wording is negative/base-state, composite, model-qualified, schema-incomplete, accessory/contextual, or otherwise lacks a unique canonical mapping. The separate scalar technical materialization work remains outside this package."
+}
