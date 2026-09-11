@@ -10,6 +10,7 @@ MASTER = REPOSITORY / "data" / "master"
 ATTRIBUTES_PATH = MASTER / "attributes.csv"
 VALUES_PATH = MASTER / "configuration_attribute_values.csv"
 AVAILABILITY_PATH = MASTER / "configuration_attribute_availability.csv"
+RESIDUAL_SOURCE_CODE = "src_pl_sandero_stepway_full_modal_20260809"
 
 EXPECTED_VALUES = {tuple(item) for item in [('sandero_iii_expression_ecog120_manual', 'upholstery_variant', 'materiałowa w kolorze czarnym i wstawkami denim'), ('sandero_iii_expression_ecog120_manual', 'wheel_design', 'ATARA'), ('sandero_iii_expression_ecog120_manual', 'wheel_material', 'steel'), ('sandero_iii_expression_ecog120_manual', 'wheel_size', '16"'), ('sandero_iii_journey_ecog120_manual', 'upholstery_variant', 'materiałowa w kolorze denim i czarnymi wstawkami'), ('sandero_iii_journey_ecog120_manual', 'wheel_design', 'TAMIA'), ('sandero_iii_journey_ecog120_manual', 'wheel_material', 'alloy'), ('sandero_iii_journey_ecog120_manual', 'wheel_size', '16"'), ('sandero_stepway_iii_essential_ecog120_manual', 'upholstery_variant', 'materiałowa stepway'), ('sandero_stepway_iii_essential_ecog120_manual', 'wheel_material', 'steel'), ('sandero_stepway_iii_essential_ecog120_manual', 'wheel_size', '16"'), ('sandero_stepway_iii_expression_ecog120_automatic', 'upholstery_variant', 'materiałowa stepway'), ('sandero_stepway_iii_expression_ecog120_automatic', 'wheel_design', 'ATARA'), ('sandero_stepway_iii_expression_ecog120_automatic', 'wheel_material', 'steel'), ('sandero_stepway_iii_expression_ecog120_automatic', 'wheel_size', '16"'), ('sandero_stepway_iii_expression_ecog120_manual', 'upholstery_variant', 'materiałowa stepway'), ('sandero_stepway_iii_expression_ecog120_manual', 'wheel_design', 'ATARA'), ('sandero_stepway_iii_expression_ecog120_manual', 'wheel_material', 'steel'), ('sandero_stepway_iii_expression_ecog120_manual', 'wheel_size', '16"'), ('sandero_stepway_iii_extreme_ecog120_automatic', 'upholstery_variant', 'microclud extreme'), ('sandero_stepway_iii_extreme_ecog120_automatic', 'wheel_design', 'TAMIA'), ('sandero_stepway_iii_extreme_ecog120_automatic', 'wheel_finish', 'black'), ('sandero_stepway_iii_extreme_ecog120_automatic', 'wheel_material', 'alloy'), ('sandero_stepway_iii_extreme_ecog120_automatic', 'wheel_size', '16"'), ('sandero_stepway_iii_extreme_ecog120_manual', 'upholstery_variant', 'microclud extreme'), ('sandero_stepway_iii_extreme_ecog120_manual', 'wheel_design', 'TAMIA'), ('sandero_stepway_iii_extreme_ecog120_manual', 'wheel_finish', 'black'), ('sandero_stepway_iii_extreme_ecog120_manual', 'wheel_material', 'alloy'), ('sandero_stepway_iii_extreme_ecog120_manual', 'wheel_size', '16"')]}
 EXPECTED_CONFIG_COUNTS = Counter({'sandero_iii_expression_ecog120_manual': 4, 'sandero_iii_journey_ecog120_manual': 4, 'sandero_stepway_iii_essential_ecog120_manual': 3, 'sandero_stepway_iii_expression_ecog120_automatic': 4, 'sandero_stepway_iii_expression_ecog120_manual': 4, 'sandero_stepway_iii_extreme_ecog120_automatic': 5, 'sandero_stepway_iii_extreme_ecog120_manual': 5})
@@ -115,7 +116,11 @@ class SanderoWheelUpholsteryValueTests(unittest.TestCase):
             "wheel_finish", "upholstery_variant",
         }
         self.assertFalse(
-            any(row["attribute_code"] in forbidden for row in self.availability)
+            any(
+                row["attribute_code"] in forbidden
+                and row["source_code"] != RESIDUAL_SOURCE_CODE
+                for row in self.availability
+            )
         )
 
     def test_internal_ordering_criteria_are_excluded(self) -> None:

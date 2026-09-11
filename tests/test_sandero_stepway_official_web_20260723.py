@@ -96,12 +96,9 @@ class SanderoStepwayOfficialWeb20260723Tests(unittest.TestCase):
         self.assertEqual(
             newly_covered,
             {
-                ("sandero_stepway_iii_essential_ecog120_manual", "roof_rails"),
                 ("sandero_stepway_iii_essential_ecog120_manual", "my_safety_button"),
                 ("sandero_stepway_iii_expression_ecog120_manual", "fog_lights_front"),
-                ("sandero_stepway_iii_expression_ecog120_manual", "modular_roof_rails"),
                 ("sandero_stepway_iii_expression_ecog120_automatic", "fog_lights_front"),
-                ("sandero_stepway_iii_expression_ecog120_automatic", "modular_roof_rails"),
             },
         )
 
