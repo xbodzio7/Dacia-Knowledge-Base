@@ -32,3 +32,5 @@ jobs:
           fi
           git commit -m 'chore(project): synchronize generated state documentation [skip-doc-sync]'
           git push
+
+# trigger sync after workflow registration
