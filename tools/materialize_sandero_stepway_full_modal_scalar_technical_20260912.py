@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data/master/configuration_attribute_values.csv"
+ATTRIBUTES = ROOT / "data/master/attributes.csv"
 CAPTURE = ROOT / "project/sources/dacia-pl-sandero-stepway-full-technical-standard-equipment-20260809.json"
 REPORT = ROOT / "data/reporting/sandero_stepway_full_modal_scalar_technical_20260912.json"
 SOURCE_CODE = "src_pl_sandero_stepway_full_modal_20260809"
@@ -18,8 +19,6 @@ MAPPINGS: dict[str, tuple[str, str]] = {
     "Liczba drzwi": ("number_of_doors", "integer"),
     "Liczba zaworów": ("total_valve_count", "integer"),
     "Maksymalna ładowność (kg)": ("maximum_payload", "integer"),
-    "Maksymalny moment obrotowy w Nm": ("engine_torque", "integer"),
-    "Moc maksymalna kW (KM)": ("engine_power", "integer"),
     "Norma emisji spalin": ("emission_standard", "string"),
     "Opony standardowe": ("standard_tyre_specification", "string"),
     "Poziom hałasu przy 50 km/h (dB)": ("noise_level_at_50_kmh", "decimal"),
@@ -38,11 +37,23 @@ MAPPINGS: dict[str, tuple[str, str]] = {
     "Zwis tylny": ("rear_overhang", "integer"),
 }
 
-# Two additional unresolved labels are deliberately excluded: they are contextual
-# mixed-fuel values and are preserved as source evidence by the evidence-boundary package.
 EXCLUDED_CONTEXTUAL = {
-    "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
-    "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+    "Emisja CO2 cykl mieszany WLTP (g/km)": 15,
+    "Emisja CO2 cykl mieszany WLTP*LPG (g/km)": 9,
+    "Maksymalny moment obrotowy w Nm": 15,
+    "Moc maksymalna kW (KM)": 15,
+    "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)": 15,
+    "Pojemność przestrzeni bagażowej min. (dm3)": 15,
+    "Wysokość bez obciążenia z otwartą klapą tylną": 15,
+    "Zużycie paliwa cykl mieszany WLTP (l/100 km)": 15,
+    "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)": 10,
+}
+
+EXCLUDED_MODEL_QUALIFIED = {
+    "Prześwit pojazdu": 15,
+    "Szerokość całkowita": 15,
+    "Szerokość całkowita z lusterkami zewnętrznymi": 15,
+    "Wysokość pojazdu nieobciążonego z relingami (mm)": 15,
 }
 
 
@@ -66,7 +77,7 @@ def normalize_value(text: str, kind: str) -> str | None:
     value = " ".join(text.strip().split())
     if not value:
         return None
-    if kind == "string" or kind == "enum":
+    if kind in {"string", "enum"}:
         return value
     if kind == "integer":
         return first_number(value, integer=True)
@@ -91,7 +102,8 @@ def existing_key(row: dict[str, str]) -> tuple[str, str, str, str]:
 def build() -> tuple[list[str], list[dict[str, str]], dict]:
     capture = json.loads(CAPTURE.read_text(encoding="utf-8"))
     fields, rows = read_rows(MASTER)
-    attributes = {row["attribute_code"] for row in rows if row.get("attribute_code")}
+    _, attribute_rows = read_rows(ATTRIBUTES)
+    attributes = {row["code"] for row in attribute_rows}
 
     expected_by_label = {label: 0 for label in MAPPINGS}
     generated_by_attribute = {attribute: 0 for attribute, _ in MAPPINGS.values()}
@@ -150,6 +162,7 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
         "label_occurrences": dict(sorted(expected_by_label.items())),
         "attribute_occurrences": dict(sorted(generated_by_attribute.items())),
         "excluded_contextual_labels": dict(sorted(EXCLUDED_CONTEXTUAL.items())),
+        "excluded_model_qualified_labels": dict(sorted(EXCLUDED_MODEL_QUALIFIED.items())),
         "policy": {
             "source_backed_only": True,
             "scalar_only": True,
@@ -164,7 +177,6 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
 
 def main() -> None:
     fields, rows, report = build()
-    MASTER.write_text("", encoding="utf-8")
     with MASTER.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
