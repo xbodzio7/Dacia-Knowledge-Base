@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-11
+- State updated: 2026-09-12
 
 ## Phase
 
@@ -16,17 +16,17 @@
 
 ## Reference delivery
 
-- Package: Sandero Stepway Full Modal Canonical Reconciliation
-- Pull Request: #629
-- Verified head: `3312ef32b7d34a2a1dfbf2e182c68cd7b81fd318`
-- Quality run: #31328077301
+- Package: Sandero Stepway Full Modal Evidence Boundary
+- Pull Request: #638
+- Verified head: `1da151eff7c6965da12289750ec400ca94963e62`
+- Quality run: #34656057381
 
 ## Verified baseline
 
 - Tests: 1925
 - Master CSV files: 47
-- Master rows: 16911
-- Configuration values: 6682
+- Master rows: 16937
+- Configuration values: 6708
 - Configuration import specifications: 139
 - Configuration value ranges: 345
 - Configuration range import specifications: 24
@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Dacia Current Configurator PDF Portfolio Assimilation** — `complete`
+**Sandero Stepway Full Modal Scalar Technical Materialization** — `complete`
 
-Archive and assimilate the complete 2026-08-09 Dacia Poland configurator PDF portfolio across 70 exact configurations, importing only source-backed prices, technical values/ranges, cargo contexts and positive equipment observations while preserving ambiguous or negative wording as evidence without inference.
+Materialize only exact source-backed scalar technical observations from the 315-row residual candidate set that are not already canonically covered, without duplicating existing values or projecting contextual/model-qualified evidence.
 
 ## Next package
 
