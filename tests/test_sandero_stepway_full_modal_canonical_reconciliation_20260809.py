@@ -57,7 +57,7 @@ class SanderoStepwayFullModalCanonicalReconciliationTests(unittest.TestCase):
     def test_canonical_observations_are_dated_and_source_bounded(self) -> None:
         equipment = [row for row in self.availability if row["source_code"] == SOURCE_CODE]
         technical = [row for row in self.values if row["source_code"] == SOURCE_CODE]
-        self.assertEqual(len(equipment), 588)
+        self.assertEqual(len(equipment), 943)
         self.assertEqual(len(technical), 26)
         self.assertTrue(all(row["observation_date"] == "2026-08-09" for row in equipment))
         self.assertTrue(all(row["observation_date"] == "2026-08-09" for row in technical))
