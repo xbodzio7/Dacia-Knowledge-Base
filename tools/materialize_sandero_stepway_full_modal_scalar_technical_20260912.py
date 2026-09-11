@@ -105,8 +105,10 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
     _, attribute_rows = read_rows(ATTRIBUTES)
     attributes = {row["code"] for row in attribute_rows}
 
-    expected_by_label = {label: 0 for label in MAPPINGS}
+    candidate_by_label = {label: 0 for label in MAPPINGS}
+    generated_by_label = {label: 0 for label in MAPPINGS}
     generated_by_attribute = {attribute: 0 for attribute, _ in MAPPINGS.values()}
+    skipped_existing_by_label = {label: 0 for label in MAPPINGS}
     generated: list[dict[str, str]] = []
     seen = {existing_key(row) for row in rows}
 
@@ -117,6 +119,7 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
                 label = item["label"]
                 if label not in MAPPINGS:
                     continue
+                candidate_by_label[label] += 1
                 attribute_code, kind = MAPPINGS[label]
                 if attribute_code not in attributes:
                     raise RuntimeError(f"canonical attribute missing: {attribute_code}")
@@ -125,9 +128,8 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
                     raise RuntimeError(f"cannot normalize scalar value: {label}: {item['value']}")
                 key = (configuration_code, attribute_code, "", "")
                 if key in seen:
-                    raise RuntimeError(
-                        f"duplicate canonical value would be created: {configuration_code}/{attribute_code}"
-                    )
+                    skipped_existing_by_label[label] += 1
+                    continue
                 row = {
                     "id": str(next_id(rows + generated)),
                     "code": f"{configuration_code}_{attribute_code}_20260809_full_modal",
@@ -142,14 +144,18 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
                 }
                 generated.append(row)
                 seen.add(key)
-                expected_by_label[label] += 1
+                generated_by_label[label] += 1
                 generated_by_attribute[attribute_code] += 1
 
-    total = len(generated)
-    if total != 315:
-        raise RuntimeError(f"expected 315 scalar technical rows, generated {total}")
-    if any(count == 0 for count in expected_by_label.values()):
-        missing = [label for label, count in expected_by_label.items() if count == 0]
+    candidate_total = sum(candidate_by_label.values())
+    generated_total = len(generated)
+    skipped_total = sum(skipped_existing_by_label.values())
+    if candidate_total != 315:
+        raise RuntimeError(f"expected 315 scalar technical candidates, found {candidate_total}")
+    if generated_total + skipped_total != candidate_total:
+        raise RuntimeError("candidate accounting is inconsistent")
+    if any(count == 0 for count in candidate_by_label.values()):
+        missing = [label for label, count in candidate_by_label.items() if count == 0]
         raise RuntimeError(f"expected scalar labels are missing from capture: {missing}")
 
     report = {
@@ -158,9 +164,13 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
         "reviewed_on": "2026-09-12",
         "source_code": SOURCE_CODE,
         "source_capture": str(CAPTURE.relative_to(ROOT)).replace("\\", "/"),
-        "rows_generated": total,
-        "label_occurrences": dict(sorted(expected_by_label.items())),
-        "attribute_occurrences": dict(sorted(generated_by_attribute.items())),
+        "candidate_rows": candidate_total,
+        "generated_rows": generated_total,
+        "already_covered_rows": skipped_total,
+        "candidate_label_occurrences": dict(sorted(candidate_by_label.items())),
+        "generated_label_occurrences": dict(sorted(generated_by_label.items())),
+        "already_covered_label_occurrences": dict(sorted(skipped_existing_by_label.items())),
+        "generated_attribute_occurrences": dict(sorted(generated_by_attribute.items())),
         "excluded_contextual_labels": dict(sorted(EXCLUDED_CONTEXTUAL.items())),
         "excluded_model_qualified_labels": dict(sorted(EXCLUDED_MODEL_QUALIFIED.items())),
         "policy": {
@@ -168,6 +178,7 @@ def build() -> tuple[list[str], list[dict[str, str]], dict]:
             "scalar_only": True,
             "composite_or_model_qualified_values_excluded": True,
             "mixed_fuel_context_excluded": True,
+            "existing_canonical_values_are_not_duplicated": True,
             "availability_changes": False,
             "import_spec_changes": False,
         },
