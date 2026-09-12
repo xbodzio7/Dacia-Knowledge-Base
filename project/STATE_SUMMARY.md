@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-11
+- State updated: 2026-09-13
 
 ## Phase
 
@@ -16,10 +16,10 @@
 
 ## Reference delivery
 
-- Package: Sandero Stepway Full Modal Canonical Reconciliation
-- Pull Request: #629
-- Verified head: `3312ef32b7d34a2a1dfbf2e182c68cd7b81fd318`
-- Quality run: #31328077301
+- Package: Sandero Stepway Full Modal Evidence Boundary
+- Pull Request: #638
+- Verified head: `1ec4ae2c85cf01ca7a0b6e6dad73482ae031f2c8`
+- Quality run: #34656057381
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Dacia Current Configurator PDF Portfolio Assimilation** — `complete`
+**Sandero Stepway Full Modal Evidence Boundary** — `complete`
 
-Archive and assimilate the complete 2026-08-09 Dacia Poland configurator PDF portfolio across 70 exact configurations, importing only source-backed prices, technical values/ranges, cargo contexts and positive equipment observations while preserving ambiguous or negative wording as evidence without inference.
+Record the exact residual full-modal observations that remain evidence rather than master data, after the source-bounded equipment normalization, without inference or projection.
 
 ## Next package
 
-**Sandero Stepway Full Modal Residual Review** — `planned`
+**Sandero Stepway Full Modal Residual Technical Values** — `planned`
 
-Review the bounded set of 873 unmatched or ambiguous full-modal rows and normalize only residual observations that gain exact source-backed canonical mappings, while preserving composite and model-qualified evidence without projection.
+Materialize the 315 source-bounded scalar/source-state technical candidates already isolated in PR #634, with no overlap with the equipment or preserved-evidence packages and without modifying or rerunning PR #634 until its branch can be reconciled against the current main.
 
 ## Autonomy
 
