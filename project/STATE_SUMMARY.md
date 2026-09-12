@@ -30,7 +30,7 @@
 - Configuration import specifications: 139
 - Configuration value ranges: 345
 - Configuration range import specifications: 24
-- Availability records: 7641
+- Availability records: 7286
 - Canonical attributes: 416
 - Attribute categories: 30
 
