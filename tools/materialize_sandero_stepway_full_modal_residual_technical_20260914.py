@@ -54,7 +54,7 @@ def load_values() -> tuple[list[str], list[dict[str, str]]]:
         return list(reader.fieldnames or []), list(reader)
 
 
-def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+def collect() -> tuple[list[dict[str, str]], list[dict[str, str]], int]:
     capture = json.loads(CAPTURE.read_text(encoding="utf-8"))
     fields, existing = load_values()
     required_fields = {
@@ -65,11 +65,16 @@ def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     if missing_fields:
         raise ValueError(f"configuration_attribute_values.csv missing required fields: {missing_fields}")
 
-    existing_slots = {
-        (r["configuration_code"], r["attribute_code"], r.get("fuel_type_code", ""), r.get("gear_number", ""))
-        for r in existing
-    }
+    existing_by_slot: dict[tuple[str, str, str, str], set[str]] = {}
     existing_codes = {r.get("code", "") for r in existing}
+    for row in existing:
+        slot = (
+            row["configuration_code"],
+            row["attribute_code"],
+            row.get("fuel_type_code", ""),
+            row.get("gear_number", ""),
+        )
+        existing_by_slot.setdefault(slot, set()).add(row.get("value", "").strip())
     next_id = max((int(r["id"]) for r in existing if r.get("id", "").isdigit()), default=0) + 1
 
     source_drive_values = set()
@@ -80,6 +85,8 @@ def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     }
     rows: list[dict[str, str]] = []
     deferred: list[dict[str, str]] = []
+    occupied = 0
+    conflicts: list[str] = []
 
     for cfg in capture["configurations"]:
         code = cfg["configuration_code"]
@@ -102,7 +109,13 @@ def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
                     })
                     continue
                 slot = (code, attr, "", "")
-                if slot in existing_slots:
+                current_values = existing_by_slot.get(slot)
+                if current_values is not None:
+                    occupied += 1
+                    if value not in current_values:
+                        conflicts.append(
+                            f"{code}/{attr}: source={value!r}, current={sorted(current_values)!r}"
+                        )
                     continue
                 candidate_code = f"{code}_{attr}_20260809_full_modal_residual"
                 if candidate_code in existing_codes:
@@ -119,7 +132,7 @@ def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
                     "source_code": SOURCE,
                     "notes": f"Exact full-modal residual scalar/source-state mapping: {item['label']}: {raw_value}",
                 })
-                existing_slots.add(slot)
+                existing_by_slot[slot] = {value}
                 existing_codes.add(candidate_code)
                 next_id += 1
 
@@ -129,20 +142,22 @@ def collect() -> tuple[list[dict[str, str]], list[dict[str, str]]]:
             "drive_layout source vocabulary is not fully represented in current master data: "
             + ", ".join(unresolved_drive_values)
         )
+    if conflicts:
+        raise ValueError("occupied residual technical slots disagree with source values: " + "; ".join(conflicts))
 
-    return rows, deferred
+    return rows, deferred, occupied
 
 
 def apply() -> dict[str, int]:
     fields, existing = load_values()
-    rows, deferred = collect()
+    rows, deferred, occupied = collect()
     if rows:
         existing.extend(rows)
         with VALUES.open("w", encoding="utf-8", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
             writer.writeheader()
             writer.writerows(existing)
-    return {"added": len(rows), "deferred_non_scalar": len(deferred)}
+    return {"added": len(rows), "deferred_non_scalar": len(deferred), "occupied_candidates": occupied}
 
 
 def verify() -> dict[str, int]:
@@ -158,11 +173,12 @@ def verify() -> dict[str, int]:
         1 for r in existing
         if r.get("source_code") == SOURCE and r.get("code", "").endswith("_residual")
     )
-    rows, deferred = collect()
+    rows, deferred, occupied = collect()
     return {
         "candidate_rows": candidates,
         "materialized_rows": materialized,
         "pending_rows": len(rows),
+        "occupied_candidates": occupied,
         "currently_deferred_non_scalar": len(deferred),
     }
 
