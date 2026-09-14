@@ -27,25 +27,26 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "repository_data_gap_triage_001",
-    "kind": "gap_triage",
-    "name": "Repository Data Gap Triage",
-    "status": "complete",
-    "goal": "Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope; select one bounded package without reopening closed evidence or inventing new mappings.",
-    "manifest_paths": [
-      "project/reviews/repository-data-gap-triage-20260914.md",
-      "data/reporting/repository_data_gap_triage_20260914.json"
-    ]
-  },
-  "next_package": {
     "package_id": "bigster_extreme_wheel_name_reconciliation_001",
     "kind": "data_gap_reconciliation",
     "name": "Bigster Extreme Wheel Name Reconciliation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Reconcile the unresolved Bigster Extreme 18-inch wheel identity against exact current official Dacia catalogue configurations; preserve the 4x2 versus 4x4 distinction and materialize only genuinely missing canonical observations.",
     "manifest_paths": [
-      "project/reviews/bigster-extreme-wheel-name-reconciliation-20260914.md",
-      "data/reporting/bigster_extreme_wheel_name_reconciliation_20260914.json"
+      "tools/review_bigster_extreme_wheel_name_reconciliation_20260914.py",
+      "data/reporting/bigster_extreme_wheel_name_reconciliation_20260914.json",
+      "project/reviews/bigster-extreme-wheel-name-reconciliation-20260914.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "catalogue_gap_002_exact_colour_surface_capture_001",
+    "kind": "data_gap_capture",
+    "name": "Exact Colour Surface Capture",
+    "status": "planned",
+    "goal": "Capture the next unresolved CAT-GAP-002 exact colour compatibility surface only from reproducible exact-state configurator evidence; do not infer compatibility from grade-level or static-page colour lists.",
+    "manifest_paths": [
+      "project/reviews/catalogue-gap-002-exact-colour-surface-capture-20260914.md",
+      "data/reporting/catalogue_gap_002_exact_colour_surface_capture_20260914.json"
     ]
   },
   "autonomy": {

@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Repository Data Gap Triage** — `complete`
+**Bigster Extreme Wheel Name Reconciliation** — `complete`
 
-Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope; select one bounded package without reopening closed evidence or inventing new mappings.
+Reconcile the unresolved Bigster Extreme 18-inch wheel identity against exact current official Dacia catalogue configurations; preserve the 4x2 versus 4x4 distinction and materialize only genuinely missing canonical observations.
 
 ## Next package
 
-**Bigster Extreme Wheel Name Reconciliation** — `planned`
+**Exact Colour Surface Capture** — `planned`
 
-Reconcile the unresolved Bigster Extreme 18-inch wheel identity against exact current official Dacia catalogue configurations; preserve the 4x2 versus 4x4 distinction and materialize only genuinely missing canonical observations.
+Capture the next unresolved CAT-GAP-002 exact colour compatibility surface only from reproducible exact-state configurator evidence; do not infer compatibility from grade-level or static-page colour lists.
 
 ## Autonomy
 
