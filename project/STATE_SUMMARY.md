@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Exact Colour Surface Capture** — `complete`
+**Jogger Paint Finish Footnote Reconciliation** — `complete`
 
-Record the reproducible evidence boundary for CAT-GAP-002 and preserve the exact-state capture blocker without promoting static colour lists into compatibility observations.
+Reconcile CAT-GAP-015 for the current three-colour Jogger surface without inferring finish type from price alone; preserve source wording and make no canonical data changes.
 
 ## Next package
 
-**Jogger Paint Finish Footnote Reconciliation** — `planned`
+**Exact-State Configurator Interaction Capture** — `blocked_for_action_required`
 
-Reconcile the remaining CAT-GAP-015 Jogger paint-finish classification conflict using current authoritative Dacia configurator and catalogue evidence; preserve source wording and do not infer finish class from colour price alone.
+Capture CAT-GAP-002 exact colour compatibility surfaces from reproducible interactive configurator state changes; do not infer compatibility from static pages or grade-level colour lists.
 
 ## Autonomy
 
