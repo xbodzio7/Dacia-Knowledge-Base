@@ -42,7 +42,7 @@ Reconcile CAT-GAP-015 for the current three-colour Jogger surface without inferr
 
 ## Next package
 
-**Exact-State Configurator Interaction Capture** — `blocked_for_action_required`
+**Exact-State Configurator Interaction Capture** — `blocked`
 
 Capture CAT-GAP-002 exact colour compatibility surfaces from reproducible interactive configurator state changes; do not infer compatibility from static pages or grade-level colour lists.
 
