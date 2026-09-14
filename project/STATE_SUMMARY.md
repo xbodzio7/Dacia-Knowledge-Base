@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-13
+- State updated: 2026-09-14
 
 ## Phase
 
@@ -36,15 +36,18 @@
 
 ## Current package
 
-**Sandero Stepway Full Modal Evidence Boundary** — `complete`
+**Sandero Stepway Full Modal Residual Technical Values** — `complete`
 
-Record the exact residual full-modal observations that remain evidence rather than master data, after the source-bounded equipment normalization, without inference or projection.
+Reconcile the 315 source-bounded residual technical candidates against current master data; the final live preflight found 297 occupied scalar slots, 18 deferred composite/non-scalar observations and no pending scalar rows, so no master-data write was required.
+
+Pull Request: #643
+Merge SHA: `37d9f692602f868a9cf6ccaea65b793ed85a2932`
 
 ## Next package
 
-**Sandero Stepway Full Modal Residual Technical Values** — `planned`
+**Sandero Stepway Full Modal Residual Equipment** — `planned`
 
-Materialize the 315 source-bounded scalar/source-state technical candidates already isolated in PR #634, with no overlap with the equipment or preserved-evidence packages and without modifying or rerunning PR #634 until its branch can be reconciled against the current main.
+Materialize only the source-bounded standard-equipment candidates already classified as safe for canonical mapping, while preserving negative/base, unmapped, schema-gap and other evidence boundaries; do not reuse or rerun PR #637.
 
 ## Autonomy
 
