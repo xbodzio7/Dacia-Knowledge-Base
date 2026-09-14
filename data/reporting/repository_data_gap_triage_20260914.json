@@ -2,7 +2,7 @@
   "version": 1,
   "kind": "repository_data_gap_triage",
   "captured_on": "2026-09-14",
-  "base_main_sha": "bdcd1700ee08c0cc0e8cd524cf5bd293a7b2591e",
+  "base_main_sha": "1d5f3502f11f51222012552d5badecdf2f6b0e1e",
   "baseline": {
     "tests": 1925,
     "csv_files": 47,
@@ -20,31 +20,26 @@
     {"gap_id":"CAT-GAP-002","priority":"high","status":"open","scope":"81 active exact colour surfaces; most unresolved alternative-choice surfaces","execution":"blocked_for_next_capture","reason":"requires reproducible exact-state configurator interaction for unresolved grade/powertrain surfaces; static page retrieval does not establish the full compatibility graph"},
     {"gap_id":"CAT-GAP-003","priority":"high","status":"open","scope":"81 active exact wheel/cover surfaces","execution":"blocked_for_next_capture","reason":"same exact-state configurator dependency as CAT-GAP-002"},
     {"gap_id":"CAT-GAP-004","priority":"high","status":"open","scope":"active exact upholstery/trim surfaces","execution":"blocked_for_next_capture","reason":"many unresolved alternatives require exact-state configurator evidence"},
-    {"gap_id":"CAT-GAP-014","priority":"medium","status":"open","scope":"Bigster Extreme 18-inch wheel identity across current powertrains","execution":"unblocked","reason":"current official Dacia catalogue pages expose exact Bigster Extreme configurations and the wheel name; bounded to four active Extreme powertrains"},
-    {"gap_id":"CAT-GAP-015","priority":"medium","status":"open","scope":"Jogger paint-finish footnote conflict","execution":"not_yet_closed","reason":"current official configurator exposes colour identity and price but does not by itself establish every finish classification"}
+    {"gap_id":"CAT-GAP-014","priority":"medium","status":"closed","scope":"Bigster Extreme 18-inch wheel identity across current powertrains","execution":"closed_zero_data_delta","reason":"PR #649 reconciled all four bounded current Extreme powertrain slots with direct current official Dacia catalogue evidence; no new canonical rows were required"},
+    {"gap_id":"CAT-GAP-015","priority":"medium","status":"open","scope":"Jogger paint-finish footnote conflict","execution":"unblocked_for_authoritative_reconciliation","reason":"current official Jogger configurator and 2026 equipment/price documentation expose current colour pricing and finish categories; the remaining task is to reconcile the exact colour-to-finish classification without inferring from price alone"}
   ],
   "selected_next_package": {
-    "package_id": "bigster_extreme_wheel_name_reconciliation_001",
-    "gap_id": "CAT-GAP-014",
-    "reason": "It is the smallest currently unblocked catalogue gap with direct authoritative current evidence. It avoids reopening the closed Sandero full-modal boundary and avoids inference from generic brochure wording.",
-    "target_configurations": [
-      "bigster_extreme_mildhybrid140_4x2_manual",
-      "bigster_extreme_mildhybridg140_4x2_manual",
-      "bigster_extreme_hybrid155_4x2_automatic",
-      "bigster_extreme_hybridg150_4x4_automatic"
-    ],
+    "package_id": "jogger_paint_finish_footnote_reconciliation_001",
+    "gap_id": "CAT-GAP-015",
+    "reason": "CAT-GAP-014 is now closed and CAT-GAP-002/003/004 remain blocked on exact-state interaction. CAT-GAP-015 is the smallest remaining authoritative, source-backed reconciliation gap that can be investigated without reopening blocked compatibility surfaces.",
+    "target_scope": "Current 2026 Jogger colour identities and paint-finish classification across the active colour documentation.",
     "expected_evidence": [
-      {"configuration":"bigster_extreme_mildhybrid140_4x2_manual","wheel":"aluminiowe obręcze kół 18\" TAGASAN pół diamentowane","source":"https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01475236656"},
-      {"configuration":"bigster_extreme_mildhybridg140_4x2_manual","wheel":"aluminiowe obręcze kół 18\" TAGASAN pół diamentowane","source":"https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01376899341"},
-      {"configuration":"bigster_extreme_hybrid155_4x2_automatic","wheel":"aluminiowe obręcze kół 18\" TAGASAN pół diamentowane","source":"https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01276795097"},
-      {"configuration":"bigster_extreme_hybridg150_4x4_automatic","wheel":"aluminiowe obręcze kół 18\" 225 TAGASAN pół diamentowane","source":"https://kup.dacia.pl/nowedealerszczegoly/pgd/dacia/bigster/2026/121423"}
+      {"source":"https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html","use":"current official configurator colour identities and displayed prices"},
+      {"source":"https://cdn.group.renault.com/dac/pl/pdf/cenniki/JOGGER_PY_2026.pdf.asset.pdf/998fb1c410.pdf","use":"current 2026 Jogger equipment/price document finish-price categories"},
+      {"source":"https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf","use":"official colour-to-finish footnote wording where applicable; use only as supporting historical/current terminology evidence"}
     ],
     "contract": [
-      "reconcile exact configuration identity before writing any canonical observation",
-      "preserve source wording",
-      "do not generalize one wheel size across 4x2 and 4x4",
-      "do not infer compatibility from grade alone",
-      "do not reopen CAT-GAP-002 or the closed Sandero full-modal evidence boundary"
+      "reconcile exact colour identity and finish classification before any canonical observation changes",
+      "preserve official source wording",
+      "do not infer finish class from colour price alone",
+      "do not generalize historical colour classifications into the current 2026 set without evidence",
+      "do not reopen CAT-GAP-002, CAT-GAP-003 or CAT-GAP-004",
+      "do not reopen the closed Sandero Stepway full-modal evidence boundary"
     ]
   }
 }
