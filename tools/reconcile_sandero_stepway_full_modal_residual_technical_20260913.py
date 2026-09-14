@@ -33,13 +33,6 @@ MAPPING = {
     "Zwis tylny": "rear_overhang",
 }
 
-# These mappings require explicit semantic reconciliation before promotion.
-# In particular, drive_layout already caused a value-vocabulary failure in the
-# abandoned partial attempt; this audit deliberately does not normalize values.
-REVIEW_REQUIRED = {
-    "Rodzaj napędu": "drive_layout_value_vocabulary_requires_reconciliation",
-}
-
 
 def load_csv(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
@@ -62,6 +55,25 @@ def collect_candidates() -> list[dict[str, str]]:
     return result
 
 
+def reconcile_value_vocabularies(
+    candidates: list[dict[str, str]], existing: list[dict[str, str]]
+) -> dict[str, object]:
+    drive_source_values = {
+        row["value"] for row in candidates if row["attribute_code"] == "drive_layout"
+    }
+    drive_existing_values = {
+        row["value"] for row in existing if row["attribute_code"] == "drive_layout"
+    }
+    unresolved = sorted(drive_source_values - drive_existing_values)
+    return {
+        "source_values": sorted(drive_source_values),
+        "current_master_values": sorted(drive_existing_values),
+        "unresolved_source_values": unresolved,
+        "status": "resolved" if not unresolved else "requires_review",
+        "normalization_performed": False,
+    }
+
+
 def audit() -> dict[str, object]:
     candidates = collect_candidates()
     attributes = {row["code"] for row in load_csv(ATTRIBUTES)}
@@ -81,15 +93,21 @@ def audit() -> dict[str, object]:
         entry["count"] = int(entry["count"]) + 1
         if row["value"] not in entry["values"]:
             entry["values"].append(row["value"])
+    drive_layout_reconciliation = reconcile_value_vocabularies(candidates, existing)
     return {
         "package_id": "sandero_stepway_full_modal_residual_technical_reconciliation_001",
-        "reviewed_on": "2026-09-13",
+        "reviewed_on": "2026-09-14",
         "source": "src_pl_sandero_stepway_full_modal_20260809",
         "candidate_rows": len(candidates),
         "mapping_labels": len(MAPPING),
         "attributes_missing_from_current_dictionary": missing_attributes,
         "already_occupied_exact_slots": len(collisions),
-        "review_required": REVIEW_REQUIRED,
+        "review_required": {
+            "Rodzaj napędu": drive_layout_reconciliation["status"]
+        },
+        "value_vocabulary_reconciliation": {
+            "drive_layout": drive_layout_reconciliation
+        },
         "promotion_allowed": False,
         "materialization_performed": False,
         "per_label": by_label,
