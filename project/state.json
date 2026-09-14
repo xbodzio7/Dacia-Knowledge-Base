@@ -27,27 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_full_modal_preserved_evidence_review_001",
-    "kind": "evidence_gap_review",
-    "name": "Sandero Stepway Full Modal Preserved Evidence Review",
-    "status": "complete",
-    "goal": "Close the remaining preserved evidence boundary from the exact 2026-08-09 Sandero/Sandero Stepway full-modal capture; 348 preserved rows were reviewed and no exact new canonical promotion was established.",
-    "manifest_paths": [
-      "project/reviews/sandero-stepway-full-modal-preserved-evidence-review-20260914.md",
-      "data/reporting/sandero_stepway_full_modal_preserved_evidence_review_20260914.json"
-    ],
-    "pull_request": 646,
-    "merge_sha": "2558aff048d5cbbc3ca07861083d54168db2fdef"
-  },
-  "next_package": {
     "package_id": "repository_data_gap_triage_001",
     "kind": "gap_triage",
     "name": "Repository Data Gap Triage",
-    "status": "planned",
+    "status": "complete",
     "goal": "Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope; select one bounded package without reopening closed evidence or inventing new mappings.",
     "manifest_paths": [
       "project/reviews/repository-data-gap-triage-20260914.md",
       "data/reporting/repository_data_gap_triage_20260914.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "bigster_extreme_wheel_name_reconciliation_001",
+    "kind": "data_gap_reconciliation",
+    "name": "Bigster Extreme Wheel Name Reconciliation",
+    "status": "planned",
+    "goal": "Reconcile the unresolved Bigster Extreme 18-inch wheel identity against exact current official Dacia catalogue configurations; preserve the 4x2 versus 4x4 distinction and materialize only genuinely missing canonical observations.",
+    "manifest_paths": [
+      "project/reviews/bigster-extreme-wheel-name-reconciliation-20260914.md",
+      "data/reporting/bigster_extreme_wheel_name_reconciliation_20260914.json"
     ]
   },
   "autonomy": {
