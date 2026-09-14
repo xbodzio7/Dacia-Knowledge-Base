@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-09-13",
+  "updated_on": "2026-09-14",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,26 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_full_modal_evidence_boundary_001",
-    "kind": "evidence_boundary_documentation",
-    "name": "Sandero Stepway Full Modal Evidence Boundary",
-    "status": "complete",
-    "goal": "Record the exact residual full-modal observations that remain evidence rather than master data, after the source-bounded equipment normalization, without inference or projection.",
-    "manifest_paths": [
-      "data/reporting/sandero_stepway_full_modal_evidence_boundary_20260912.json",
-      "tools/review_sandero_stepway_full_modal_evidence_boundary_20260912.py"
-    ]
-  },
-  "next_package": {
     "package_id": "sandero_stepway_full_modal_residual_technical_001",
     "kind": "technical_scalar_materialization",
     "name": "Sandero Stepway Full Modal Residual Technical Values",
-    "status": "planned",
-    "goal": "Materialize the 315 source-bounded scalar/source-state technical candidates already isolated in PR #634, with no overlap with the equipment or preserved-evidence packages and without modifying or rerunning PR #634 until its branch can be reconciled against the current main.",
+    "status": "complete",
+    "goal": "Reconcile the 315 source-bounded residual technical candidates against current master data; the final live preflight found 297 occupied scalar slots, 18 deferred composite/non-scalar observations and no pending scalar rows, so no master-data write was required.",
     "manifest_paths": [
-      "project/packages/sandero-stepway-full-modal-residual-technical-001-20260811.md",
-      "tools/materialize_sandero_stepway_full_modal_residual_technical_20260811.py",
-      "tests/test_sandero_stepway_full_modal_residual_technical_20260811.py"
+      "project/packages/sandero-stepway-full-modal-residual-technical-materialization-001-20260914.md",
+      "tools/materialize_sandero_stepway_full_modal_residual_technical_20260914.py"
+    ],
+    "pull_request": 643,
+    "merge_sha": "37d9f692602f868a9cf6ccaea65b793ed85a2932"
+  },
+  "next_package": {
+    "package_id": "sandero_stepway_full_modal_residual_equipment_001",
+    "kind": "equipment_materialization",
+    "name": "Sandero Stepway Full Modal Residual Equipment",
+    "status": "planned",
+    "goal": "Materialize only the source-bounded standard-equipment candidates already classified as safe for canonical mapping, while preserving negative/base, unmapped, schema-gap and other evidence boundaries; do not reuse or rerun PR #637.",
+    "manifest_paths": [
+      "project/packages/sandero-stepway-full-modal-residual-equipment-001-20260914.md",
+      "tools/materialize_sandero_stepway_full_modal_residual_equipment_20260914.py"
     ]
   },
   "autonomy": {
