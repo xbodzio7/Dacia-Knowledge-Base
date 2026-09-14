@@ -25,8 +25,14 @@ class SanderoStepwayResidualTechnicalMaterializationTests(unittest.TestCase):
 
     def test_materialization_is_bounded_and_idempotent(self) -> None:
         result = verify()
-        self.assertEqual(result["materialized_rows"] + result["pending_rows"], 315)
-        self.assertEqual(result["materialized_rows"] + result["pending_rows"], result["candidate_rows"])
+        self.assertEqual(
+            result["materialized_rows"] + result["pending_rows"] + result["currently_deferred_non_scalar"],
+            315,
+        )
+        self.assertEqual(
+            result["materialized_rows"] + result["pending_rows"] + result["currently_deferred_non_scalar"],
+            result["candidate_rows"],
+        )
         self.assertEqual(SOURCE, "src_pl_sandero_stepway_full_modal_20260809")
 
 
