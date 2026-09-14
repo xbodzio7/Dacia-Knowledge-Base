@@ -27,27 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_full_modal_residual_equipment_001",
-    "kind": "equipment_materialization",
-    "name": "Sandero Stepway Full Modal Residual Equipment",
-    "status": "complete",
-    "goal": "Reconcile the source-bounded standard-equipment occurrences already classified as safe against current master availability data; the live preflight found 277 explicitly mappable occurrences, 370 occupied canonical targets, 9 schema-gap occurrences and no new availability rows.",
-    "manifest_paths": [
-      "project/packages/sandero-stepway-full-modal-residual-equipment-001-20260914.md",
-      "tools/materialize_sandero_stepway_full_modal_residual_equipment_20260914.py"
-    ],
-    "pull_request": 644,
-    "merge_sha": "a43d30c8d49249a8e6d098dc4ead15554cc20767"
-  },
-  "next_package": {
     "package_id": "sandero_stepway_full_modal_preserved_evidence_review_001",
     "kind": "evidence_gap_review",
     "name": "Sandero Stepway Full Modal Preserved Evidence Review",
-    "status": "planned",
-    "goal": "Review the remaining preserved full-modal equipment and technical-context evidence, including the schema-gap boundary, and promote only observations with exact current canonical mappings; zero-data-delta remains valid.",
+    "status": "complete",
+    "goal": "Close the remaining preserved evidence boundary from the exact 2026-08-09 Sandero/Sandero Stepway full-modal capture; 348 preserved rows were reviewed and no exact new canonical promotion was established.",
     "manifest_paths": [
       "project/reviews/sandero-stepway-full-modal-preserved-evidence-review-20260914.md",
       "data/reporting/sandero_stepway_full_modal_preserved_evidence_review_20260914.json"
+    ],
+    "pull_request": 646,
+    "merge_sha": "2558aff048d5cbbc3ca07861083d54168db2fdef"
+  },
+  "next_package": {
+    "package_id": "repository_data_gap_triage_001",
+    "kind": "gap_triage",
+    "name": "Repository Data Gap Triage",
+    "status": "planned",
+    "goal": "Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope; select one bounded package without reopening closed evidence or inventing new mappings.",
+    "manifest_paths": [
+      "project/reviews/repository-data-gap-triage-20260914.md",
+      "data/reporting/repository_data_gap_triage_20260914.json"
     ]
   },
   "autonomy": {
