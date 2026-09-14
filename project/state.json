@@ -27,28 +27,29 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_colour_surface_capture_001",
-    "kind": "data_gap_capture",
-    "name": "Exact Colour Surface Capture",
+    "package_id": "jogger_paint_finish_footnote_reconciliation_001",
+    "kind": "data_gap_reconciliation",
+    "name": "Jogger Paint Finish Footnote Reconciliation",
     "status": "complete",
-    "goal": "Record the reproducible evidence boundary for CAT-GAP-002 and preserve the exact-state capture blocker without promoting static colour lists into compatibility observations.",
+    "goal": "Reconcile CAT-GAP-015 for the current three-colour Jogger surface without inferring finish type from price alone; preserve source wording and make no canonical data changes.",
+    "manifest_paths": [
+      "project/reviews/jogger-paint-finish-footnote-reconciliation-20260914.md",
+      "data/reporting/jogger_paint_finish_footnote_reconciliation_20260914.json"
+    ],
+    "pull_request": 652,
+    "merge_sha": "94158f8771ae7cac05c9cc752d97f1c8c2614d57"
+  },
+  "next_package": {
+    "package_id": "catalogue_gap_002_exact_state_interaction_001",
+    "kind": "data_gap_capture",
+    "name": "Exact-State Configurator Interaction Capture",
+    "status": "blocked",
+    "goal": "Capture CAT-GAP-002 exact colour compatibility surfaces from reproducible interactive configurator state changes; do not infer compatibility from static pages or grade-level colour lists.",
     "manifest_paths": [
       "project/reviews/catalogue-gap-002-exact-colour-surface-capture-20260914.md",
       "data/reporting/catalogue_gap_002_exact_colour_surface_capture_20260914.json"
     ],
-    "pull_request": 650,
-    "merge_sha": "1d5f3502f11f51222012552d5badecdf2f6b0e1e"
-  },
-  "next_package": {
-    "package_id": "jogger_paint_finish_footnote_reconciliation_001",
-    "kind": "data_gap_reconciliation",
-    "name": "Jogger Paint Finish Footnote Reconciliation",
-    "status": "planned",
-    "goal": "Reconcile the remaining CAT-GAP-015 Jogger paint-finish classification conflict using current authoritative Dacia configurator and catalogue evidence; preserve source wording and do not infer finish class from colour price alone.",
-    "manifest_paths": [
-      "project/reviews/jogger-paint-finish-footnote-reconciliation-20260914.md",
-      "data/reporting/jogger_paint_finish_footnote_reconciliation_20260914.json"
-    ]
+    "blocker": "The current session can retrieve official configurator pages but cannot reproduce interactive selector changes and record the resulting exact state for the unresolved target surfaces."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
