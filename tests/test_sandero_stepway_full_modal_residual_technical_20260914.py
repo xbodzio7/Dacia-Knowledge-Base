@@ -20,19 +20,19 @@ class SanderoStepwayResidualTechnicalMaterializationTests(unittest.TestCase):
         self.assertEqual(result["candidate_rows"], 315)
 
     def test_drive_layout_vocabulary_is_resolved_before_materialization(self) -> None:
-        rows, _deferred = collect()
-        self.assertTrue(rows or verify()["materialized_rows"] == 315)
+        rows, _deferred, _occupied = collect()
+        self.assertEqual(len(rows), 0)
+
+    def test_current_master_already_covers_all_scalar_candidates(self) -> None:
+        result = verify()
+        self.assertEqual(result["pending_rows"], 0)
+        self.assertEqual(result["occupied_candidates"] + result["currently_deferred_non_scalar"], 315)
+        self.assertEqual(result["occupied_candidates"], 297)
+        self.assertEqual(result["currently_deferred_non_scalar"], 18)
 
     def test_materialization_is_bounded_and_idempotent(self) -> None:
         result = verify()
-        self.assertEqual(
-            result["materialized_rows"] + result["pending_rows"] + result["currently_deferred_non_scalar"],
-            315,
-        )
-        self.assertEqual(
-            result["materialized_rows"] + result["pending_rows"] + result["currently_deferred_non_scalar"],
-            result["candidate_rows"],
-        )
+        self.assertLessEqual(result["materialized_rows"], result["occupied_candidates"])
         self.assertEqual(SOURCE, "src_pl_sandero_stepway_full_modal_20260809")
 
 
