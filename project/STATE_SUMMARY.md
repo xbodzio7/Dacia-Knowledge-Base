@@ -38,22 +38,13 @@
 
 **Sandero Stepway Full Modal Preserved Evidence Review** — `complete`
 
-Closed the remaining preserved evidence boundary from the exact 2026-08-09 Sandero/Sandero Stepway full-modal capture. 348 preserved rows were reviewed; no exact new canonical promotion was established and the repository baseline remains unchanged.
-
-- Pull Request: #646
-- Merge commit: `2558aff048d5cbbc3ca07861083d54168db2fdef`
-- 59 negative/base equipment rows remain evidence-only.
-- 96 unmapped equipment rows remain evidence-only.
-- 9 `kluczyk z 3 przyciskami` rows remain a schema-gap boundary.
-- 124 contextual technical rows remain contextual.
-- 60 model-qualified technical rows remain literal evidence.
-- No new master-data rows, import specifications or attributes.
+Close the remaining preserved evidence boundary from the exact 2026-08-09 Sandero/Sandero Stepway full-modal capture; 348 preserved rows were reviewed and no exact new canonical promotion was established.
 
 ## Next package
 
 **Repository Data Gap Triage** — `planned`
 
-Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope. Select one bounded package without reopening closed evidence or inventing new mappings.
+Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope; select one bounded package without reopening closed evidence or inventing new mappings.
 
 ## Autonomy
 
