@@ -16,13 +16,17 @@ The audit verifies:
 - exact configuration slots already occupied in current master data are identified instead of duplicated;
 - `Liczba drzwi` remains mapped only to `number_of_doors`;
 - no `door_count` target is introduced;
-- the audit performs no master-data writes and explicitly reports promotion as disallowed.
+- `Rodzaj napędu` is reconciled against the current `drive_layout` value vocabulary using exact source literals;
+- no value normalization or inference is performed;
+- the audit performs no master-data writes.
 
-## Known semantic boundary
+## Resolved semantic boundary
 
-`Rodzaj napędu` is mapped by the historical PR #634 package to `drive_layout`, but its source values require explicit value-vocabulary reconciliation before promotion. This is intentionally surfaced as a blocker rather than silently converting source values.
+The previous package treated `Rodzaj napędu` → `drive_layout` as an unresolved blocker because an earlier partial materialization attempt had produced invalid values.
 
-This boundary is especially important because the earlier partial attempt to materialize technical values produced invalid `drive_layout` values. The present package therefore audits compatibility only.
+The current audit no longer assumes that blocker. It reads the source literals and the values already present for `drive_layout` in current master data and reports any source literal not already represented there. This is an exact vocabulary check, not a normalization step.
+
+If the source value is already present in the current vocabulary, it remains unchanged. No conversion such as `przedni` → `FWD` is performed.
 
 ## Safety boundaries
 
@@ -36,6 +40,8 @@ This boundary is especially important because the earlier partial attempt to mat
 
 `tools/reconcile_sandero_stepway_full_modal_residual_technical_20260913.py`
 
-## Test
+The tool now performs the `drive_layout` vocabulary reconciliation directly against current master data.
 
-`tests/test_sandero_stepway_full_modal_residual_technical_reconciliation_20260913.py`
+## Next step
+
+If the audit reports no unresolved `drive_layout` source values, the remaining work is a separate materialization package which must preserve exact source literals, skip already occupied slots, and remain bounded to the 315 source candidates.
