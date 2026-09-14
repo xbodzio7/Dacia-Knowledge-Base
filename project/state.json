@@ -27,26 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "bigster_extreme_wheel_name_reconciliation_001",
-    "kind": "data_gap_reconciliation",
-    "name": "Bigster Extreme Wheel Name Reconciliation",
-    "status": "complete",
-    "goal": "Reconcile the unresolved Bigster Extreme 18-inch wheel identity against exact current official Dacia catalogue configurations; preserve the 4x2 versus 4x4 distinction and materialize only genuinely missing canonical observations.",
-    "manifest_paths": [
-      "tools/review_bigster_extreme_wheel_name_reconciliation_20260914.py",
-      "data/reporting/bigster_extreme_wheel_name_reconciliation_20260914.json",
-      "project/reviews/bigster-extreme-wheel-name-reconciliation-20260914.md"
-    ]
-  },
-  "next_package": {
     "package_id": "catalogue_gap_002_exact_colour_surface_capture_001",
     "kind": "data_gap_capture",
     "name": "Exact Colour Surface Capture",
-    "status": "planned",
-    "goal": "Capture the next unresolved CAT-GAP-002 exact colour compatibility surface only from reproducible exact-state configurator evidence; do not infer compatibility from grade-level or static-page colour lists.",
+    "status": "complete",
+    "goal": "Record the reproducible evidence boundary for CAT-GAP-002 and preserve the exact-state capture blocker without promoting static colour lists into compatibility observations.",
     "manifest_paths": [
       "project/reviews/catalogue-gap-002-exact-colour-surface-capture-20260914.md",
       "data/reporting/catalogue_gap_002_exact_colour_surface_capture_20260914.json"
+    ],
+    "pull_request": 650,
+    "merge_sha": "1d5f3502f11f51222012552d5badecdf2f6b0e1e"
+  },
+  "next_package": {
+    "package_id": "jogger_paint_finish_footnote_reconciliation_001",
+    "kind": "data_gap_reconciliation",
+    "name": "Jogger Paint Finish Footnote Reconciliation",
+    "status": "planned",
+    "goal": "Reconcile the remaining CAT-GAP-015 Jogger paint-finish classification conflict using current authoritative Dacia configurator and catalogue evidence; preserve source wording and do not infer finish class from colour price alone.",
+    "manifest_paths": [
+      "project/reviews/jogger-paint-finish-footnote-reconciliation-20260914.md",
+      "data/reporting/jogger_paint_finish_footnote_reconciliation_20260914.json"
     ]
   },
   "autonomy": {

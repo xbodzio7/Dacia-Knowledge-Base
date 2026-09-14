@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Extreme Wheel Name Reconciliation** — `complete`
+**Exact Colour Surface Capture** — `complete`
 
-Reconcile the unresolved Bigster Extreme 18-inch wheel identity against exact current official Dacia catalogue configurations; preserve the 4x2 versus 4x4 distinction and materialize only genuinely missing canonical observations.
+Record the reproducible evidence boundary for CAT-GAP-002 and preserve the exact-state capture blocker without promoting static colour lists into compatibility observations.
 
 ## Next package
 
-**Exact Colour Surface Capture** — `planned`
+**Jogger Paint Finish Footnote Reconciliation** — `planned`
 
-Capture the next unresolved CAT-GAP-002 exact colour compatibility surface only from reproducible exact-state configurator evidence; do not infer compatibility from grade-level or static-page colour lists.
+Reconcile the remaining CAT-GAP-015 Jogger paint-finish classification conflict using current authoritative Dacia configurator and catalogue evidence; preserve source wording and do not infer finish class from colour price alone.
 
 ## Autonomy
 
