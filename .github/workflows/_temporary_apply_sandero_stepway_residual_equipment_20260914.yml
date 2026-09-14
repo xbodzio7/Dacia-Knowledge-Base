@@ -1,0 +1,45 @@
+name: Temporary Apply Sandero Stepway Residual Equipment
+
+on:
+  push:
+    branches:
+      - agent/sandero-stepway-full-modal-residual-equipment-materialization-001
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Apply bounded materialization
+        run: python tools/materialize_sandero_stepway_full_modal_residual_equipment_20260914.py --apply
+
+      - name: Commit data and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/master/configuration_attribute_availability.csv
+          git rm .github/workflows/_temporary_apply_sandero_stepway_residual_equipment_20260914.yml
+          if git diff --cached --quiet; then
+            echo "No materialization delta; removing temporary workflow only."
+          fi
+          git commit -m "data(sandero): materialize residual standard equipment"
+          git push origin HEAD:agent/sandero-stepway-full-modal-residual-equipment-materialization-001
