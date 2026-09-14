@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "kind": "jogger_paint_finish_footnote_reconciliation",
+  "captured_on": "2026-09-14",
+  "gap_id": "CAT-GAP-015",
+  "status": "reconciled_no_canonical_change",
+  "scope": "Current 2026 Jogger colour identities and paint-finish classification",
+  "current_configurator": {
+    "source": "https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html",
+    "observed_colours": [
+      {"colour":"biel alpejska","displayed_price":"0 zł"},
+      {"colour":"szary schiste","displayed_price":"+2700 zł"},
+      {"colour":"czarna perła","displayed_price":"+2700 zł"}
+    ],
+    "limitation": "The current central configurator exposes identity and price but does not itself label each colour with a finish class."
+  },
+  "current_2026_documentation": {
+    "source": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/JOGGER_PY_2026.pdf.asset.pdf/998fb1c410.pdf",
+    "finish_price_categories": [
+      "Lakier niemetalizowany / niemetalizowany specjalny: 0 / 2700 zł",
+      "Lakier metalizowany: 2700 / 2900 zł"
+    ],
+    "limitation": "The 2026 equipment/price document separates finish-price categories but does not map the three current colour names individually."
+  },
+  "colour_finish_evidence": [
+    {
+      "colour":"biel alpejska",
+      "classification":"niemetalizowany",
+      "source":"https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/jogger/2026/122384",
+      "evidence":"Current 2026 Dacia dealer listing identifies Biel Alpejska and lists Lakier niemetalizowany."
+    },
+    {
+      "colour":"szary schiste",
+      "classification":"metalizowany",
+      "source":"https://kup.dacia.pl/nowedealerszczegoly/auto-spektrum/dacia/jogger/2025/127199",
+      "evidence":"Dacia dealer listing identifies Szary Schiste and lists Lakier metalizowany; current 2026 Dacia-shop inventory also continues to advertise Szary Schiste as a paid colour."
+    },
+    {
+      "colour":"czarna perła",
+      "classification":"metalizowany",
+      "source":"https://kup.dacia.pl/nowedealerszczegoly/opalinski/dacia/jogger/2025/111516",
+      "evidence":"Dacia dealer listing identifies Czarna Perła on Jogger and the configuration is within the metalized-colour pattern; the official Jogger brochure explicitly classifies Czarna Perła as metalizowany."
+    }
+  ],
+  "official_terminology_support": {
+    "source": "https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf",
+    "classification": {
+      "biel_alpejska":"niemetalizowany",
+      "czarna_perla":"metalizowany",
+      "szary_schiste":"metalizowany"
+    },
+    "use": "Terminology support only; historical brochure wording is not used to project additional colours into the current 2026 configurator."
+  },
+  "decision": "The remaining CAT-GAP-015 wording conflict is reconciled for the current three-colour Jogger surface: Biel Alpejska is non-metallic; Szary Schiste and Czarna Perła are metallic. No canonical master-data or availability change is required by this reconciliation.",
+  "evidence_boundary": "The central 2026 configurator remains price-oriented rather than finish-labelled. The classification is therefore recorded as a reconciled source result, not as a claim that the central configurator itself exposes finish labels.",
+  "excluded_actions": [
+    "no inference from price alone",
+    "no projection to colours not present in the current three-colour set",
+    "no master-data writes",
+    "no availability writes",
+    "no reopening of CAT-GAP-002, CAT-GAP-003 or CAT-GAP-004",
+    "no reopening of the closed Sandero Stepway full-modal evidence boundary"
+  ]
+}
