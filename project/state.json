@@ -43,7 +43,7 @@
     "package_id": "catalogue_gap_002_exact_state_interaction_001",
     "kind": "data_gap_capture",
     "name": "Exact-State Configurator Interaction Capture",
-    "status": "blocked_for_action_required",
+    "status": "blocked",
     "goal": "Capture CAT-GAP-002 exact colour compatibility surfaces from reproducible interactive configurator state changes; do not infer compatibility from static pages or grade-level colour lists.",
     "manifest_paths": [
       "project/reviews/catalogue-gap-002-exact-colour-surface-capture-20260914.md",
