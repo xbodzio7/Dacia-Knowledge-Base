@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "kind": "catalogue_gap_002_exact_colour_surface_capture",
+  "captured_on": "2026-09-14",
+  "gap_id": "CAT-GAP-002",
+  "status": "blocked_for_exact_state_capture",
+  "scope": "81 active exact colour surfaces; unresolved alternative-choice compatibility surfaces",
+  "objective": "Capture exact colour compatibility only from reproducible exact-state configurator evidence.",
+  "current_official_static_evidence": {
+    "jogger_5_seat": {
+      "source": "https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html",
+      "observed_default_state": "essential Eco-G 120 5-miejsc",
+      "observed_colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "observed_colour_count": 3
+    },
+    "jogger_7_seat": {
+      "source": "https://www.dacia.pl/samochody/jogger-ri1-ph2-7seats/konfigurator.html",
+      "observed_default_state": "essential Eco-G 120 7-miejsc",
+      "observed_colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "observed_colour_count": 3
+    }
+  },
+  "evidence_boundary": {
+    "static_pages_prove": [
+      "the listed colours available for the observed default state",
+      "the current configurator exposes version, engine and colour selectors"
+    ],
+    "static_pages_do_not_prove": [
+      "the complete colour compatibility graph across every active grade/powertrain state",
+      "that a colour shown in one exact state remains available after changing grade or powertrain",
+      "the complete set of 81 target exact colour surfaces"
+    ]
+  },
+  "execution_constraint": "The available session tools can retrieve official configurator pages but cannot reproduce interactive selector changes and record each resulting exact state.",
+  "decision": "Do not promote static colour lists into exact configuration observations. Preserve CAT-GAP-002 as blocked until reproducible exact-state interaction evidence is available.",
+  "excluded_actions": [
+    "no inference from grade-level colour lists",
+    "no cross-configuration projection",
+    "no master-data writes",
+    "no availability writes",
+    "no reopening of the closed Sandero Stepway full-modal evidence boundary",
+    "no changes to historical PR #634, #637 or #639"
+  ]
+}
