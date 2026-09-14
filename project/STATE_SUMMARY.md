@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Full Modal Residual Technical Values** — `complete`
+**Sandero Stepway Full Modal Residual Equipment** — `complete`
 
-Reconcile the 315 source-bounded residual technical candidates against current master data; the final live preflight found 297 occupied scalar slots, 18 deferred composite/non-scalar observations and no pending scalar rows, so no master-data write was required.
+Reconcile the source-bounded standard-equipment occurrences already classified as safe against current master availability data; the live preflight found 277 explicitly mappable occurrences, 370 occupied canonical targets, 9 schema-gap occurrences and no new availability rows.
 
 ## Next package
 
-**Sandero Stepway Full Modal Residual Equipment** — `planned`
+**Sandero Stepway Full Modal Preserved Evidence Review** — `planned`
 
-Materialize only the source-bounded standard-equipment candidates already classified as safe for canonical mapping, while preserving negative/base, unmapped, schema-gap and other evidence boundaries; do not reuse or rerun PR #637.
+Review the remaining preserved full-modal equipment and technical-context evidence, including the schema-gap boundary, and promote only observations with exact current canonical mappings; zero-data-delta remains valid.
 
 ## Autonomy
 
