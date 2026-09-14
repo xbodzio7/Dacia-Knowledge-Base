@@ -40,9 +40,6 @@
 
 Reconcile the 315 source-bounded residual technical candidates against current master data; the final live preflight found 297 occupied scalar slots, 18 deferred composite/non-scalar observations and no pending scalar rows, so no master-data write was required.
 
-Pull Request: #643
-Merge SHA: `37d9f692602f868a9cf6ccaea65b793ed85a2932`
-
 ## Next package
 
 **Sandero Stepway Full Modal Residual Equipment** — `planned`
