@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Full Modal Residual Equipment** — `complete`
+**Sandero Stepway Full Modal Preserved Evidence Review** — `complete`
 
-Reconcile the source-bounded standard-equipment occurrences already classified as safe against current master availability data; the live preflight found 277 explicitly mappable occurrences, 370 occupied canonical targets, 9 schema-gap occurrences and no new availability rows.
+Close the remaining preserved evidence boundary from the exact 2026-08-09 Sandero/Sandero Stepway full-modal capture; 348 preserved rows were reviewed and no exact new canonical promotion was established.
 
 ## Next package
 
-**Sandero Stepway Full Modal Preserved Evidence Review** — `planned`
+**Repository Data Gap Triage** — `planned`
 
-Review the remaining preserved full-modal equipment and technical-context evidence, including the schema-gap boundary, and promote only observations with exact current canonical mappings; zero-data-delta remains valid.
+Use the current repository state and existing completeness/coverage evidence to identify the next concrete, source-backed data gap after closure of the Sandero Stepway full-modal residual scope; select one bounded package without reopening closed evidence or inventing new mappings.
 
 ## Autonomy
 
