@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "kind": "jogger_exact_colour_choice_progress_overlay",
+  "captured_on": "2026-09-15",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "gap_status": "blocked",
+  "capture_method": "live_official_dacia_configurator_interaction",
+  "source_urls": [
+    "https://www.dacia.pl/samochody/jogger-hybrydowy/konfigurator.html",
+    "https://www.dacia.pl/samochody/jogger/konfigurator.html"
+  ],
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "portfolio": {
+    "active_exact_colour_surfaces": 81,
+    "exact_surfaces_captured_before": 2,
+    "new_exact_surfaces_captured": 4,
+    "exact_surfaces_captured_after": 6,
+    "remaining_surfaces": 75
+  },
+  "completed_surfaces": [
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "model": "jogger",
+      "seats": 5,
+      "grade": "journey",
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2700},
+        {"name": "sandstone", "price_pln": 2700},
+        {"name": "zielony cedar", "price_pln": 2700},
+        {"name": "szary urban", "price_pln": 2700},
+        {"name": "czarna perła", "price_pln": 2700},
+        {"name": "brązowy terracotta", "price_pln": 2900}
+      ]
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_manual",
+      "model": "jogger",
+      "seats": 5,
+      "grade": "journey",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2700},
+        {"name": "sandstone", "price_pln": 2700},
+        {"name": "zielony cedar", "price_pln": 2700},
+        {"name": "szary urban", "price_pln": 2700},
+        {"name": "czarna perła", "price_pln": 2700},
+        {"name": "brązowy terracotta", "price_pln": 2900}
+      ]
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "model": "jogger",
+      "seats": 5,
+      "grade": "expression",
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2700},
+        {"name": "sandstone", "price_pln": 2700},
+        {"name": "zielony cedar", "price_pln": 2700},
+        {"name": "szary urban", "price_pln": 2700},
+        {"name": "czarna perła", "price_pln": 2700},
+        {"name": "brązowy terracotta", "price_pln": 2900}
+      ]
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "model": "jogger",
+      "seats": 5,
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2700},
+        {"name": "sandstone", "price_pln": 2700},
+        {"name": "zielony cedar", "price_pln": 2700},
+        {"name": "szary urban", "price_pln": 2700},
+        {"name": "czarna perła", "price_pln": 2700},
+        {"name": "brązowy terracotta", "price_pln": 2900}
+      ]
+    }
+  ],
+  "access_findings": {
+    "hybrid_configurator": "interactive selectors expose 5-seat Jogger states; 7-seat selector was not exposed",
+    "generic_jogger_configurator": "7-seat states were not exposed through the visible selector during this run",
+    "exact_interaction_capability": "available and successfully demonstrated for four additional 5-seat states",
+    "full_enumeration": "not achieved"
+  },
+  "blocker": "The 81-surface closure still requires exact current colour capture for the remaining active configuration states, especially the 7-seat surfaces. The live configurator interaction capability is now demonstrated, but the current browser run did not expose a reproducible 7-seat selector or complete the full matrix.",
+  "next_priority": [
+    "capture remaining 5-seat Jogger states through interactive selector changes",
+    "find a reproducible official route to 7-seat Jogger configurator states",
+    "only then close CAT-GAP-002 when every accepted active surface has an exact current choice list"
+  ]
+}
