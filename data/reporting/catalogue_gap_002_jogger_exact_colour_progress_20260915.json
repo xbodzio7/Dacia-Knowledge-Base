@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "kind": "jogger_exact_colour_choice_progress_overlay",
   "captured_on": "2026-09-16",
   "market": "PL",
@@ -21,10 +21,10 @@
   },
   "portfolio": {
     "active_exact_colour_surfaces": 81,
-    "exact_surfaces_captured_before": 9,
-    "new_exact_surfaces_captured": 2,
-    "exact_surfaces_captured_after": 11,
-    "remaining_surfaces": 70
+    "exact_surfaces_captured_before": 11,
+    "new_exact_surfaces_captured": 3,
+    "exact_surfaces_captured_after": 14,
+    "remaining_surfaces": 67
   },
   "completed_surfaces": [
     {"configuration_code":"jogger_journey_5seat_tce110_manual","model":"jogger","seats":5,"grade":"journey","powertrain":"TCe 110","transmission":"manual","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
@@ -36,8 +36,11 @@
     {"configuration_code":"jogger_extreme_7seat_ecog120_manual","model":"jogger","seats":7,"grade":"extreme","powertrain":"Eco-G 120","transmission":"manual","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
     {"configuration_code":"jogger_journey_7seat_tce110_manual","model":"jogger","seats":7,"grade":"journey","powertrain":"TCe 110","transmission":"manual","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
     {"configuration_code":"jogger_expression_5seat_ecog120_manual","model":"jogger","seats":5,"grade":"expression","powertrain":"Eco-G 120","transmission":"manual","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
-    {"configuration_code":"jogger_extreme_5seat_ecog120_automatic","model":"jogger","seats":5,"grade":"extreme","powertrain":"Eco-G 120","transmission":"automatic","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]}
+    {"configuration_code":"jogger_extreme_5seat_ecog120_automatic","model":"jogger","seats":5,"grade":"extreme","powertrain":"Eco-G 120","transmission":"automatic","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
+    {"configuration_code":"jogger_journey_5seat_ecog120_automatic","model":"jogger","seats":5,"grade":"journey","powertrain":"Eco-G 120","transmission":"automatic","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
+    {"configuration_code":"jogger_essential_5seat_ecog120_manual","model":"jogger","seats":5,"grade":"essential","powertrain":"Eco-G 120","transmission":"manual","visible_colour_count":3,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"czarna perła","price_pln":2700}]},
+    {"configuration_code":"jogger_extreme_5seat_tce110_manual","model":"jogger","seats":5,"grade":"extreme","powertrain":"TCe 110","transmission":"manual","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]}
   ],
-  "capture_note_20260916": "Two additional 5-seat exact states were obtained by direct selector interaction in the official Polish Dacia Jogger configurator. Expression Eco-G 120 manual and Extreme Eco-G 120 automatic were actually selected and their complete visible colour lists were read. The requested Essential Eco-G 120 manual state was not part of this run and is not added here."
-  ,"blocker": "70 active exact colour surfaces remain unresolved. This progress artifact does not close CAT-GAP-002 and does not alter master data."
+  "capture_note_20260916": "Three additional 5-seat exact states were obtained by direct selector interaction in the official Polish Dacia Jogger configurator. Journey Eco-G 120 automatic, Essential Eco-G 120 manual and Extreme TCe 110 manual were actually selected and their complete visible colour lists were read."
+  ,"blocker": "67 active exact colour surfaces remain unresolved. This progress artifact does not close CAT-GAP-002 and does not alter master data."
 }
