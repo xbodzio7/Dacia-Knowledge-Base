@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "as_of": "2026-09-19",
+  "version": 3,
+  "as_of": "2026-09-20",
   "decisions": [
     {
       "id": "current-web-confirmed-hybrid155",
@@ -22,18 +22,32 @@
     {
       "id": "configurator-option-level-gap",
       "status": "open",
-      "finding": "The public configurator page is reachable and exposes version/engine/design/equipment sections, but this web session does not provide a reliable reproducible record of every selectable option for each Hybrid 155 configuration. Do not convert the current page's default configuration into master observations.",
+      "finding": "The public configurator pages are readable and expose current selectable/default equipment for the configurations they expose, but this session does not provide a reliable reproducible mechanism to switch every version/engine combination and enumerate the complete Hybrid 155 option dependency tree. Do not convert the current default configuration into historical 11.08.2026 master observations.",
       "evidence": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
     },
     {
       "id": "historical-boundary",
       "status": "closed",
       "finding": "No current-web observation is being written into the dated 11.08.2026 master dataset merely because it is visible now. Historical source boundaries remain intact."
+    },
+    {
+      "id": "current-configurator-engine-scope",
+      "status": "confirmed",
+      "finding": "The current public Sandero configurator exposes TCe 100, while the current Stepway configurator exposes TCe 110 and Eco-G 120. Neither public configurator page exposes Hybrid 155 as a selectable engine in the page content available to this session.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
+      ]
+    },
+    {
+      "id": "reassessment-result",
+      "status": "complete",
+      "finding": "The current gap reassessment found no new source-backed master-data change that can be safely added without either a dated source establishing the historical effective date or a reproducible interactive configurator capture for Hybrid 155."
     }
   ],
   "next_actions": [
-    "Use an interactive configurator/browser session when available to enumerate Hybrid 155 option states and configuration dependencies.",
-    "Reconcile the interactive results against the 11.08.2026 equipment matrix before creating any new master rows.",
+    "Obtain a reproducible interactive configurator session capable of switching Sandero/Sandero Stepway versions and engines, then enumerate Hybrid 155 option states and dependencies if the configurator exposes them.",
+    "Reconcile any interactive results against the 11.08.2026 equipment matrix before creating new master rows.",
     "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date."
   ]
 }
