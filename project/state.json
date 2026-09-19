@@ -27,13 +27,13 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_hybrid155_price_list_reconciliation_001",
+    "package_id": "sandero_hybrid155_current_source_conflict_001",
     "kind": "source_reconciliation",
-    "name": "Hybrid 155 Official 11.08.2026 Price-List Reconciliation",
+    "name": "Current Hybrid 155 Source Conflict",
     "status": "complete",
-    "goal": "Reconcile the Hybrid 155 historical master-data package against the exact official Polish price-list PDFs effective 11.08.2026 and document remaining configurator-only gaps without duplicate imports.",
-    "pull_request": 671,
-    "merge_sha": "ac2e776b197149762cb12273579ad1a8bbfdb5eb",
+    "goal": "Record and isolate current-web inconsistencies around Hybrid 155 without altering the dated 11.08.2026 historical master data.",
+    "pull_request": 672,
+    "merge_sha": "319cdbd167e9b3f16dc5b1b822040b9261beb9a1",
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
     ]
@@ -42,11 +42,12 @@
     "package_id": "sandero_hybrid155_configurator_interactive_capture_001",
     "kind": "configurator_evidence_capture",
     "name": "Hybrid 155 Interactive Configurator Capture",
-    "status": "planned",
+    "status": "blocked_pending_browser_access",
     "goal": "Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.",
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
-    ]
+    ],
+    "blocker": "Generic EasyConnect configurator endpoint is currently unreachable via available fetch tooling; Opera Browser Connector is not connected; TinyFish browser automation has insufficient wallet balance."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
