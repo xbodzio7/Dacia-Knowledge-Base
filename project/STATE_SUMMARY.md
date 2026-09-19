@@ -25,26 +25,26 @@
 
 - Tests: 1925
 - Master CSV files: 47
-- Master rows: 16954
-- Configuration values: 6682
+- Master rows: 17276
+- Configuration values: 6746
 - Configuration import specifications: 139
 - Configuration value ranges: 345
 - Configuration range import specifications: 24
-- Availability records: 7286
+- Availability records: 7544
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**Sandero Stepway Price List 2026-08-11 Master Reconciliation** — `complete`
+**Hybrid 155 Technical and Equipment Materialization** — `complete`
 
-Materialize the explicit 11.08.2026 Sandero/Sandero Stepway catalogue combinations, current catalogue gross prices and source provenance without overwriting historical 03.07.2026 evidence.
+Materialize source-explicit technical and equipment observations for the four Hybrid 155 configurations added by the 11.08.2026 price-list reconciliation.
 
 ## Next package
 
-**Hybrid 155 Technical and Equipment Materialization** — `planned`
+**Sandero Stepway Current Gap Reassessment** — `planned`
 
-Materialize only source-explicit technical/equipment observations for the four newly added Hybrid 155 configurations before reassessing remaining brochure and configurator gaps.
+Reassess remaining current price-list, brochure and configurator gaps after the 11.08.2026 Hybrid 155 materialization, without reopening closed evidence boundaries.
 
 ## Autonomy
 
