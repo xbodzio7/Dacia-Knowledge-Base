@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "as_of": "2026-09-20",
   "decisions": [
     {
@@ -67,12 +67,33 @@
       "id": "reassessment-result",
       "status": "complete",
       "finding": "The current gap reassessment found no new source-backed master-data change that can be safely added. The historical Hybrid 155 combinations and equipment matrix are already source-backed by the official 11.08.2026 price lists; the remaining gap is interactive option/dependency enumeration."
+    },
+    {
+      "id": "current-web-source-conflict-20260920",
+      "status": "confirmed",
+      "finding": "Current Dacia Poland public sources are internally inconsistent about the present Hybrid 155 scope. The Sandero and Sandero Stepway model pages and dedicated engine pages explicitly expose Hybrid 155, including configuration prompts, while the current Dacia family overview omits Hybrid 155 for Sandero Stepway and the Dacia Shop hybrid inventory filter reports SANDERO F.2 (0) vehicles. These are current-web observations only and do not override the dated 11.08.2026 price-list evidence.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/silniki.html",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/silniki.html",
+        "https://www.dacia.pl/samochody-rodzinne.html",
+        "https://www.dacia.pl/katalog-nci.html?energy.group=HEV"
+      ]
+    },
+    {
+      "id": "current-configurator-endpoint-discovery",
+      "status": "blocked",
+      "finding": "The model-page configuration links resolve to the generic Renault/Dacia EasyConnect configurator URL https://easyconnectstore.renault.no/content/config.html, but the public fetch endpoint currently returns target_unreachable and the connected Opera browser is unavailable. Therefore no reproducible interactive Hybrid 155 option capture was obtained in this session.",
+      "evidence": [
+        "https://easyconnectstore.renault.no/content/config.html",
+        "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3"
+      ]
     }
   ],
   "next_actions": [
     "Obtain a reproducible interactive configurator session capable of switching Sandero/Sandero Stepway versions and engines, then enumerate Hybrid 155 option states and dependencies if the configurator exposes them.",
     "Reconcile any interactive results against the 11.08.2026 equipment matrix before creating new master rows.",
     "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date.",
-    "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices."
+    "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices.",
+    "Treat current model-page/engine-page vs family-overview/shop discrepancies as a live-web source conflict, not as a reason to alter historical master data."
   ]
 }
