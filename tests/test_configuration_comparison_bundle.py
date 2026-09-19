@@ -67,7 +67,7 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
             for scope in scopes
             for code in scope.configuration_codes
         ]
-        self.assertEqual(len(codes), 84)
+        self.assertEqual(len(codes), 88)
         self.assertEqual(len(set(codes)), 84)
         self.assertEqual(
             sum(scope.slug.startswith("duster_") for scope in scopes),
