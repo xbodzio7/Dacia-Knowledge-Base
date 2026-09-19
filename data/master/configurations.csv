@@ -83,3 +83,7 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 82,duster_iii_expression_hybridg150_4x4_automatic,duster_iii_expression,hybrid-G 150 4x4,automatic,active,Official Polish MY26 Duster catalogue effective 2026-07-03 lists Expression hybrid-G 150 4x4 with a six-speed EDC dual-clutch automatic transmission.
 83,duster_iii_extreme_hybridg150_4x4_automatic,duster_iii_extreme,hybrid-G 150 4x4,automatic,active,Official Polish MY26 Duster catalogue effective 2026-07-03 lists Extreme hybrid-G 150 4x4 with a six-speed EDC dual-clutch automatic transmission.
 84,duster_iii_journey_hybridg150_4x4_automatic,duster_iii_journey,hybrid-G 150 4x4,automatic,active,Official Polish MY26 Duster catalogue effective 2026-07-03 lists Journey hybrid-G 150 4x4 with a six-speed EDC dual-clutch automatic transmission.
+85,sandero_iii_expression_hybrid155_automatic,sandero_iii_expression,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+86,sandero_iii_journey_hybrid155_automatic,sandero_iii_journey,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+87,sandero_stepway_iii_expression_hybrid155_automatic,sandero_stepway_iii_expression,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+88,sandero_stepway_iii_extreme_hybrid155_automatic,sandero_stepway_iii_extreme,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
