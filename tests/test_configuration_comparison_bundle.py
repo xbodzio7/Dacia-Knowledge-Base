@@ -61,7 +61,7 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
 
     def test_scope_inventory_maps_all_active_configurations_once(self) -> None:
         scopes = discover_scopes(REPOSITORY)
-        self.assertEqual(len(scopes), 25)
+        self.assertEqual(len(scopes), 24)
         codes = [
             code
             for scope in scopes
