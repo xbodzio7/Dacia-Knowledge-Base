@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Active configurations: 84
+- Active configurations: 88
 - Completeness scopes: 24
 - Scoped configurations: 91
 - Missing technical slots: 96
