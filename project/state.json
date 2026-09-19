@@ -27,13 +27,13 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_hybrid155_current_source_conflict_001",
+    "package_id": "sandero_hybrid155_config_endpoint_discovery_001",
     "kind": "source_reconciliation",
-    "name": "Current Hybrid 155 Source Conflict",
+    "name": "Hybrid 155 Configurator Endpoint Discovery",
     "status": "complete",
-    "goal": "Record and isolate current-web inconsistencies around Hybrid 155 without altering the dated 11.08.2026 historical master data.",
-    "pull_request": 672,
-    "merge_sha": "319cdbd167e9b3f16dc5b1b822040b9261beb9a1",
+    "goal": "Document the newly verified public Dacia configurator surface, model identifiers, share URL behavior and static gradeCode test without altering the dated 11.08.2026 historical master data.",
+    "pull_request": null,
+    "merge_sha": null,
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
     ]
@@ -47,7 +47,7 @@
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
     ],
-    "blocker": "Generic EasyConnect configurator endpoint is currently unreachable via available fetch tooling; Opera Browser Connector is not connected; TinyFish browser automation has insufficient wallet balance."
+    "blocker": "The public Dacia configurator pages are now reachable and render default states, but static gradeCode URLs do not switch the configuration and the Hybrid 155 model-page links resolve to a generic EasyConnect endpoint. Interactive state switching still requires browser automation or another reproducible interactive mechanism; Opera Browser Connector is not connected and TinyFish browser automation has insufficient wallet balance."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
