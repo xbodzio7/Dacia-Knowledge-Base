@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-09-14",
+  "updated_on": "2026-09-19",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -17,7 +17,7 @@
   "baseline": {
     "tests": 1925,
     "csv_files": 47,
-    "rows": 16912,
+    "rows": 16954,
     "configuration_values": 6682,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 345,
@@ -27,29 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_paint_finish_footnote_reconciliation_001",
-    "kind": "data_gap_reconciliation",
-    "name": "Jogger Paint Finish Footnote Reconciliation",
-    "status": "complete",
-    "goal": "Reconcile CAT-GAP-015 for the current three-colour Jogger surface without inferring finish type from price alone; preserve source wording and make no canonical data changes.",
-    "manifest_paths": [
-      "project/reviews/jogger-paint-finish-footnote-reconciliation-20260914.md",
-      "data/reporting/jogger_paint_finish_footnote_reconciliation_20260914.json"
-    ],
-    "pull_request": 652,
-    "merge_sha": "94158f8771ae7cac05c9cc752d97f1c8c2614d57"
+    "package_id": "sandero_stepway_price_list_20260811_master_reconciliation_001",
+    "kind": "data_master_reconciliation",
+    "name": "Sandero Stepway Price List 2026-08-11 Master Reconciliation",
+    "status": "in_progress",
+    "goal": "Materialize the explicit 11.08.2026 Sandero/Sandero Stepway catalogue combinations, current catalogue gross prices and source provenance without overwriting historical 03.07.2026 evidence."
   },
   "next_package": {
-    "package_id": "catalogue_gap_002_exact_state_interaction_001",
-    "kind": "data_gap_capture",
-    "name": "Exact-State Configurator Interaction Capture",
-    "status": "blocked",
-    "goal": "Capture CAT-GAP-002 exact colour compatibility surfaces from reproducible interactive configurator state changes; do not infer compatibility from static pages or grade-level colour lists.",
-    "manifest_paths": [
-      "project/reviews/catalogue-gap-002-exact-colour-surface-capture-20260914.md",
-      "data/reporting/catalogue_gap_002_exact_colour_surface_capture_20260914.json"
-    ],
-    "blocker": "The current session can retrieve official configurator pages but cannot reproduce interactive selector changes and record the resulting exact state for the unresolved target surfaces."
+    "package_id": "sandero_stepway_price_list_20260811_technical_equipment_materialization_001",
+    "kind": "data_master_reconciliation",
+    "name": "Hybrid 155 Technical and Equipment Materialization",
+    "status": "planned",
+    "goal": "Materialize only source-explicit technical/equipment observations for the four newly added Hybrid 155 configurations before reassessing remaining brochure and configurator gaps."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
