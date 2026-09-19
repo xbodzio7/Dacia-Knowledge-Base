@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260811"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260811"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260811"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260811"
+    }
+  ],
+  "technical_slots": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "boot_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "emission_standard",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "top_speed",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": ""
+    }
+  ],
+  "equipment_attributes": [
+    "anti_lock_braking_system",
+    "automatic_emergency_braking",
+    "automatic_headlights",
+    "central_locking",
+    "cruise_control",
+    "driver_attention_monitoring",
+    "electronic_parking_brake",
+    "electronic_stability_control",
+    "emergency_call_ecall",
+    "front_parking_sensors",
+    "front_windows_power",
+    "heated_front_seats",
+    "heated_steering_wheel",
+    "hill_start_assist",
+    "isofix_rear",
+    "keyless_entry",
+    "lane_departure_warning",
+    "lane_keep_assist",
+    "led_daytime_running_lights",
+    "led_headlights",
+    "rear_parking_sensors",
+    "rear_view_camera",
+    "rear_windows_power",
+    "side_mirrors_electric_adjustment",
+    "side_mirrors_heated",
+    "speed_limiter",
+    "steering_wheel_height_adjustment",
+    "steering_wheel_reach_adjustment",
+    "traffic_sign_recognition",
+    "tyre_pressure_monitoring_system",
+    "tyre_repair_kit",
+    "automatic_climate_control",
+    "media_display_system",
+    "navigation_system"
+  ],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  }
+}
