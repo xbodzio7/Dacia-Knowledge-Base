@@ -1,5 +1,39 @@
 {
-  "version": 1,
-  "as_of": "2026-08-11",
-  "decisions": []
+  "version": 2,
+  "as_of": "2026-09-19",
+  "decisions": [
+    {
+      "id": "current-web-confirmed-hybrid155",
+      "status": "confirmed",
+      "finding": "Official Dacia Poland current model pages still expose Hybrid 155 for Sandero Expression, Sandero Journey, Sandero Stepway Expression and Sandero Stepway Extreme.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+        "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM4",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE2"
+      ]
+    },
+    {
+      "id": "current-web-price-parity",
+      "status": "confirmed",
+      "finding": "The current Dacia Poland model pages show the same gross starting prices already materialized from the 11.08.2026 price list: Sandero Expression 84,600 PLN; Sandero Journey 90,200 PLN; Stepway Expression 90,700 PLN; Stepway Extreme 96,800 PLN.",
+      "evidence": "Current official model pages searched on 2026-09-19."
+    },
+    {
+      "id": "configurator-option-level-gap",
+      "status": "open",
+      "finding": "The public configurator page is reachable and exposes version/engine/design/equipment sections, but this web session does not provide a reliable reproducible record of every selectable option for each Hybrid 155 configuration. Do not convert the current page's default configuration into master observations.",
+      "evidence": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
+    },
+    {
+      "id": "historical-boundary",
+      "status": "closed",
+      "finding": "No current-web observation is being written into the dated 11.08.2026 master dataset merely because it is visible now. Historical source boundaries remain intact."
+    }
+  ],
+  "next_actions": [
+    "Use an interactive configurator/browser session when available to enumerate Hybrid 155 option states and configuration dependencies.",
+    "Reconcile the interactive results against the 11.08.2026 equipment matrix before creating any new master rows.",
+    "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date."
+  ]
 }
