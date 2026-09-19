@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "as_of": "2026-09-20",
   "decisions": [
     {
@@ -18,6 +18,21 @@
       "status": "confirmed",
       "finding": "The current Dacia Poland model pages show the same gross starting prices already materialized from the 11.08.2026 price list: Sandero Expression 84,600 PLN; Sandero Journey 90,200 PLN; Stepway Expression 90,700 PLN; Stepway Extreme 96,800 PLN.",
       "evidence": "Current official model pages searched on 2026-09-19."
+    },
+    {
+      "id": "official-price-list-20260811",
+      "status": "confirmed",
+      "finding": "The official Polish Sandero and Sandero Stepway price-list PDFs currently served by Dacia are explicitly effective from 11.08.2026. Both list the four Hybrid 155 combinations already materialized in master data and include a common equipment matrix plus a technical engine table. The Sandero price list identifies Hybrid 155 as an automatic Multimode configuration, 1,789 cm3, 4 cylinders/16 valves, 80 kW (108 KM) combustion engine output plus 36 kW (49 KM) E-motor and 15 kW HSG, 4.2 l/100 km for Sandero and 4.4 l/100 km for Stepway, and 96/100 g/km CO2 respectively.",
+      "evidence": [
+        "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/9ae62ec686.pdf",
+        "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-stepway-price.pdf.asset.pdf/1dadfb7a8f.pdf"
+      ]
+    },
+    {
+      "id": "price-list-equipment-matrix-already-materialized",
+      "status": "confirmed",
+      "finding": "The current master availability file contains 7,544 records and the four Hybrid 155 configurations are already represented with 11.08.2026 observations under source code src_pl_sandero_stepway_price_my26_20260811. The direct official price-list matrix therefore confirms the existing historical source boundary rather than requiring a duplicate import.",
+      "evidence": "Repository master data checked on 2026-09-20; source code src_pl_sandero_stepway_price_my26_20260811."
     },
     {
       "id": "configurator-option-level-gap",
@@ -40,14 +55,24 @@
       ]
     },
     {
+      "id": "brochure-vs-price-list-scope",
+      "status": "confirmed",
+      "finding": "The current Sandero brochure served from Dacia does not enumerate Hybrid 155 in its engine section, while the official price list effective 11.08.2026 explicitly does. The brochure must therefore not be used as negative evidence against the Hybrid 155 combinations in the 11.08.2026 master dataset.",
+      "evidence": [
+        "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf",
+        "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/9ae62ec686.pdf"
+      ]
+    },
+    {
       "id": "reassessment-result",
       "status": "complete",
-      "finding": "The current gap reassessment found no new source-backed master-data change that can be safely added without either a dated source establishing the historical effective date or a reproducible interactive configurator capture for Hybrid 155."
+      "finding": "The current gap reassessment found no new source-backed master-data change that can be safely added. The historical Hybrid 155 combinations and equipment matrix are already source-backed by the official 11.08.2026 price lists; the remaining gap is interactive option/dependency enumeration."
     }
   ],
   "next_actions": [
     "Obtain a reproducible interactive configurator session capable of switching Sandero/Sandero Stepway versions and engines, then enumerate Hybrid 155 option states and dependencies if the configurator exposes them.",
     "Reconcile any interactive results against the 11.08.2026 equipment matrix before creating new master rows.",
-    "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date."
+    "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date.",
+    "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices."
   ]
 }
