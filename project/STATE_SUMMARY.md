@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-14
+- State updated: 2026-09-19
 
 ## Phase
 
@@ -25,7 +25,7 @@
 
 - Tests: 1925
 - Master CSV files: 47
-- Master rows: 16912
+- Master rows: 16954
 - Configuration values: 6682
 - Configuration import specifications: 139
 - Configuration value ranges: 345
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Paint Finish Footnote Reconciliation** — `complete`
+**Sandero Stepway Price List 2026-08-11 Master Reconciliation** — `complete`
 
-Reconcile CAT-GAP-015 for the current three-colour Jogger surface without inferring finish type from price alone; preserve source wording and make no canonical data changes.
+Materialize the explicit 11.08.2026 Sandero/Sandero Stepway catalogue combinations, current catalogue gross prices and source provenance without overwriting historical 03.07.2026 evidence.
 
 ## Next package
 
-**Exact-State Configurator Interaction Capture** — `blocked`
+**Hybrid 155 Technical and Equipment Materialization** — `planned`
 
-Capture CAT-GAP-002 exact colour compatibility surfaces from reproducible interactive configurator state changes; do not infer compatibility from static pages or grade-level colour lists.
+Materialize only source-explicit technical/equipment observations for the four newly added Hybrid 155 configurations before reassessing remaining brochure and configurator gaps.
 
 ## Autonomy
 

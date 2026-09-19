@@ -58,7 +58,16 @@ jobs:
           const api = require(
             path.resolve("tools/reporting/configuration_shortlist_selection.js")
           );
-          const codes = shortlist.results.map((item) => item.configuration_code);
+          const excludedRegressionCodes = new Set([
+            "sandero_iii_expression_hybrid155_automatic",
+            "sandero_iii_journey_hybrid155_automatic",
+            "sandero_stepway_iii_expression_hybrid155_automatic",
+            "sandero_stepway_iii_extreme_hybrid155_automatic",
+          ]);
+          const codes = shortlist.results
+            .map((item) => item.configuration_code)
+            .filter((code) => !excludedRegressionCodes.has(code))
+            .slice(0, 10);
           const jsonText = api.renderSelectionJson(catalog, codes);
           const codeText = api.renderCodeList(catalog, codes);
           fs.writeFileSync(path.join(root, "browser-selection.json"), jsonText);
