@@ -42,7 +42,7 @@
     "package_id": "sandero_hybrid155_configurator_interactive_capture_001",
     "kind": "configurator_evidence_capture",
     "name": "Hybrid 155 Interactive Configurator Capture",
-    "status": "blocked_pending_browser_access",
+    "status": "blocked",
     "goal": "Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.",
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
