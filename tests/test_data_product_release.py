@@ -74,10 +74,10 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(self.manifest["release_tag"], release_tag(VERSION))
         self.assertEqual(self.manifest["repository_commit"], COMMIT_SHA)
         self.assertEqual(self.manifest["selected_configuration_count"], 88)
-        self.assertEqual(self.manifest["scope_group_count"], 25)
+        self.assertEqual(self.manifest["scope_group_count"], 24)
         self.assertEqual(self.manifest["model_family_count"], 6)
         self.assertTrue(self.manifest["cross_model_view_generated"])
-        self.assertEqual(self.manifest["comparable_scope_count"], 24)
+        self.assertEqual(self.manifest["comparable_scope_count"], 23)
         self.assertEqual(self.manifest["singleton_scope_count"], 1)
         self.assertFalse(self.manifest["cross_scope_pairs_generated"])
         self.assertFalse(self.manifest["ranking_generated"])
@@ -171,14 +171,14 @@ class DataProductReleaseTests(unittest.TestCase):
             )
             names = set(archive.namelist())
         self.assertEqual(bundle["selected_configuration_count"], 88)
-        self.assertEqual(bundle["scope_group_count"], 25)
-        self.assertEqual(bundle["comparable_scope_count"], 24)
+        self.assertEqual(bundle["scope_group_count"], 24)
+        self.assertEqual(bundle["comparable_scope_count"], 23)
         self.assertEqual(bundle["singleton_scope_count"], 1)
         self.assertFalse(bundle["cross_scope_pairs_generated"])
-        self.assertEqual(len(bundle["groups"]), 25)
+        self.assertEqual(len(bundle["groups"]), 24)
         self.assertEqual(
             sum(group["status"] == "comparable" for group in bundle["groups"]),
-            24,
+            23,
         )
         self.assertEqual(
             sum(group["status"] == "singleton" for group in bundle["groups"]),
@@ -205,12 +205,12 @@ class DataProductReleaseTests(unittest.TestCase):
                 "cross-model/cross-model-comparison-view.html"
             ).decode("utf-8")
         self.assertEqual(view["summary"]["model_family_count"], 6)
-        self.assertEqual(view["summary"]["reporting_scope_count"], 25)
+        self.assertEqual(view["summary"]["reporting_scope_count"], 24)
         self.assertEqual(view["summary"]["active_configuration_count"], 88)
         self.assertEqual(view["summary"]["within_scope_pair_count"], 139)
         self.assertFalse(view["summary"]["cross_scope_pairs_generated"])
         self.assertEqual(rendered.count('class="model-card"'), 6)
-        self.assertEqual(rendered.count('class="scope-card"'), 25)
+        self.assertEqual(rendered.count('class="scope-card"'), 24)
         self.assertNotIn("<script", rendered.lower())
 
     def test_manifest_matches_every_archive_member(self) -> None:
@@ -250,7 +250,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertIn(f"Data Products v{VERSION}", notes)
         self.assertIn(COMMIT_SHA, notes)
         self.assertIn("Selected configurations: 88", notes)
-        self.assertIn("Independent scopes: 25", notes)
+        self.assertIn("Independent scopes: 24", notes)
         self.assertIn("cross-model navigation view", notes)
         self.assertNotIn("workflow", notes.lower())
         self.assertNotIn("generated at", notes.lower())
