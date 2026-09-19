@@ -22,7 +22,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 <!-- dkb:documentation-baseline:session:start -->
 - 1925 testów automatycznych zakończonych powodzeniem,
 - 47 pliki CSV w `data/master`,
-- 16911 rekordów danych,
+- 16912 rekordów danych,
 - 51 relacje między tabelami,
 - 26 reguł statusów,
 - walidator repozytorium w wersji 0.10,
