@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "as_of": "2026-09-20",
   "decisions": [
     {
@@ -87,10 +87,46 @@
         "https://easyconnectstore.renault.no/content/config.html",
         "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3"
       ]
+    },
+    {
+      "id": "current-configurator-public-page-reachable-20260920",
+      "status": "confirmed",
+      "finding": "The current Polish Dacia configurator pages themselves are publicly fetchable and server-render a default configuration. Sandero currently renders essential TCe 100; Stepway currently renders stepway essential TCe 110 with Eco-G 120 also listed as an engine choice. The fetchable page therefore proves current public configurator content is accessible, but not that arbitrary version/engine states can be selected through a static URL.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
+      ]
+    },
+    {
+      "id": "hybrid155-model-admin-identifiers-20260920",
+      "status": "confirmed",
+      "finding": "The current Hybrid 155 model pages expose modelAdminId=sandero-bi1-ph2 for Sandero and modelAdminId=sandero-stepway-bi1-ph2 for Sandero Stepway. Their 'Skonfiguruj samochód dla siebie' links point to the same generic EasyConnect endpoint rather than a model-specific public URL.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM4"
+      ]
+    },
+    {
+      "id": "configurator-gradecode-static-url-test-20260920",
+      "status": "confirmed",
+      "finding": "Appending the Hybrid 155 gradeCode values used by the model pages to the public configurator URL does not switch the rendered configuration: the page still canonicalizes to the generic configurator and renders the default Sandero essential TCe 100 state. This route therefore cannot be used as a reproducible static capture mechanism for Hybrid 155.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?gradeCode=ENS_ACLASS00M%24SERIELIM3"
+      ]
+    },
+    {
+      "id": "rplug-share-url-discovery-20260920",
+      "status": "confirmed",
+      "finding": "The current configurator page exposes a pl.co.rplug.renault.com share URL in Open Graph metadata, and the Dacia page's offer links carry a modelURI to that share URL plus a saveCode. Fetching the current share URL resolves back to the Dacia configurator default state; no public URL parameter was found that switches it to Hybrid 155.",
+      "evidence": [
+        "https://pl.co.rplug.renault.com/c/BAEZ20AhhAjJXJZJb/A",
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html"
+      ]
     }
   ],
   "next_actions": [
-    "Obtain a reproducible interactive configurator session capable of switching Sandero/Sandero Stepway versions and engines, then enumerate Hybrid 155 option states and dependencies if the configurator exposes them.",
+    "Obtain a reproducible interactive configurator session capable of selecting Hybrid 155 or, if unavailable, record the exact reason the current public configurator excludes it.",
+    "Use the discovered modelAdminId values only as identifiers for source tracing; do not infer configuration option states from them.",
     "Reconcile any interactive results against the 11.08.2026 equipment matrix before creating new master rows.",
     "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date.",
     "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices.",
