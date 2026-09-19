@@ -112,9 +112,9 @@
     "historical_2026_07_03_prices_preserved": true,
     "current_2026_08_11_prices_recorded_as_new_dated_rows": true,
     "colour_compatibility_mutated": false,
-    "equipment_availability_for_new_configs_materialized": false,
-    "technical_values_for_new_configs_materialized": false,
+    "equipment_availability_for_new_configs_materialized": true,
+    "technical_values_for_new_configs_materialized": true,
     "package_memberships_mutated": false
   },
-  "next_package": "Materialize source-explicit Hybrid 155 technical/equipment observations for the four new configurations, then reassess remaining current-price-list/brochure gaps before interactive configurator work."
+  "next_package": "Reassess remaining current-price-list/brochure/configurator gaps; the four Hybrid 155 configurations now have source-explicit technical and equipment observations."
 }
