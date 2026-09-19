@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-09-19",
+  "updated_on": "2026-09-20",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,24 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_price_list_20260811_technical_equipment_materialization_001",
-    "kind": "data_master_reconciliation",
-    "name": "Hybrid 155 Technical and Equipment Materialization",
-    "status": "complete",
-    "goal": "Materialize source-explicit technical and equipment observations for the four Hybrid 155 configurations added by the 11.08.2026 price-list reconciliation.",
-    "pull_request": 669,
-    "merge_sha": "7c0636243b431a8eadc2c2e629e7630f02889a1b",
-    "manifest_paths": [
-      "project/reviews/sandero-hybrid155-technical-equipment-materialization-20260919.md",
-      "data/reporting/sandero_hybrid155_automatic_materialization_20260919.json"
-    ]
-  },
-  "next_package": {
     "package_id": "sandero_stepway_current_gap_reassessment_001",
     "kind": "data_gap_reassessment",
     "name": "Sandero Stepway Current Gap Reassessment",
-    "status": "planned",
+    "status": "complete",
     "goal": "Reassess remaining current price-list, brochure and configurator gaps after the 11.08.2026 Hybrid 155 materialization, without reopening closed evidence boundaries.",
+    "pull_request": 670,
+    "merge_sha": "23cf4300e7401afd1fbc234714f702adc5ab8176",
+    "manifest_paths": [
+      "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "sandero_hybrid155_configurator_interactive_capture_001",
+    "kind": "configurator_evidence_capture",
+    "name": "Hybrid 155 Interactive Configurator Capture",
+    "status": "planned",
+    "goal": "Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.",
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
     ]
