@@ -45,6 +45,7 @@
     "status": "planned",
     "goal": "Materialize only source-explicit technical/equipment observations for the four newly added Hybrid 155 configurations before reassessing remaining brochure and configurator gaps.",
     "manifest_paths": [
+      "data/reporting/sandero_hybrid155_automatic_completeness.json",
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
     ]
   },
