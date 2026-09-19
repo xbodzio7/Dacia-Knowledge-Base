@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-19
+- State updated: 2026-09-20
 
 ## Phase
 
@@ -36,15 +36,17 @@
 
 ## Current package
 
-**Hybrid 155 Technical and Equipment Materialization** — `complete`
+**Hybrid 155 Configurator Endpoint Discovery** — `complete`
 
-Materialize source-explicit technical and equipment observations for the four Hybrid 155 configurations added by the 11.08.2026 price-list reconciliation.
+Document the newly verified public Dacia configurator surface, model identifiers, share URL behavior and static `gradeCode` test without altering the dated 11.08.2026 historical master data.
 
 ## Next package
 
-**Sandero Stepway Current Gap Reassessment** — `planned`
+**Hybrid 155 Interactive Configurator Capture** — `blocked_pending_browser_access`
 
-Reassess remaining current price-list, brochure and configurator gaps after the 11.08.2026 Hybrid 155 materialization, without reopening closed evidence boundaries.
+Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.
+
+The public Dacia configurator pages are now reachable and render default states, but static `gradeCode` URLs do not switch the configuration and the Hybrid 155 model-page links resolve to a generic EasyConnect endpoint. Interactive state switching still requires browser automation or another reproducible interactive mechanism; Opera Browser Connector is not connected and TinyFish browser automation has insufficient wallet balance.
 
 ## Autonomy
 
