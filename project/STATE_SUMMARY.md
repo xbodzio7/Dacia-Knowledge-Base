@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-19
+- State updated: 2026-09-20
 
 ## Phase
 
@@ -36,13 +36,13 @@
 
 ## Current package
 
-**Current Hybrid 155 Source Conflict** — sandero_hybrid155_current_source_conflict_001
+**Current Hybrid 155 Source Conflict** — `complete`
 
 Record and isolate current-web inconsistencies around Hybrid 155 without altering the dated 11.08.2026 historical master data.
 
 ## Next package
 
-**Hybrid 155 Interactive Configurator Capture** — sandero_hybrid155_configurator_interactive_capture_001
+**Hybrid 155 Interactive Configurator Capture** — `blocked`
 
 Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.
 
