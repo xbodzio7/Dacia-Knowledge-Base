@@ -42,7 +42,7 @@ Document the newly verified public Dacia configurator surface, model identifiers
 
 ## Next package
 
-**Hybrid 155 Interactive Configurator Capture** — `blocked_pending_browser_access`
+**Hybrid 155 Interactive Configurator Capture** — `blocked`
 
 Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.
 
