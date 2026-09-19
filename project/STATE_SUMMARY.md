@@ -36,7 +36,7 @@
 
 ## Current package
 
-**Sandero Stepway Price List 2026-08-11 Master Reconciliation** — `in_progress`
+**Sandero Stepway Price List 2026-08-11 Master Reconciliation** — `active`
 
 Materialize the explicit 11.08.2026 Sandero/Sandero Stepway catalogue combinations, current catalogue gross prices and source provenance without overwriting historical 03.07.2026 evidence.
 
