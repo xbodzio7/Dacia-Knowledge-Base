@@ -178,7 +178,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(len(bundle["groups"]), 24)
         self.assertEqual(
             sum(group["status"] == "comparable" for group in bundle["groups"]),
-            22,
+            23,
         )
         self.assertEqual(
             sum(group["status"] == "singleton" for group in bundle["groups"]),
