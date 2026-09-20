@@ -57,7 +57,10 @@
       "duster_journey_tribrid_configurator_verified": true,
       "duster_parking_configuration_observation_added": true,
       "duster_journey_ecog120_auto_parking_evidence_added": true,
-      "duster_current_evidence_sources_registered": true
+      "duster_current_evidence_sources_registered": true,
+      "duster_ecog120_automatic_catalog_evidence_added": true,
+      "duster_extreme_ecog120_automatic_techno_parking_evidence_added": true,
+      "duster_extreme_ecog120_automatic_winter_label_conflict_preserved": true
     }
   },
   "next_package": {
