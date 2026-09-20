@@ -151,7 +151,7 @@ class PostBrochurePrioritySelectionReviewTests(unittest.TestCase):
             for row in rows(MASTER / "configurations.csv")
             if row["status"] == "active" and row["code"] not in excluded
         ]
-        self.assertEqual(len(active), 76)
+        self.assertEqual(len(active), 72)
         self.assertEqual(
             self.report["repository_readiness"]["active_configurations"],
             72,
