@@ -20,12 +20,13 @@ Read the following documents and state resources in exactly this order:
 6. `AI_WORKING_AGREEMENT.md`
 7. `AI_CONTEXT.md`
 8. `SOURCE_ASSIMILATION_STANDARD.md`
-9. `DOCUMENTATION_STANDARD.md`
-10. `DOCUMENT_TYPES.md`
-11. `GLOSSARY.md`
-12. `DECISIONS.md`
-13. `SESSION_STATE.md`
-14. `ROADMAP.md`
+9. `SOURCE_FIRST_EXTRACTION_WORKFLOW.md`
+10. `DOCUMENTATION_STANDARD.md`
+11. `DOCUMENT_TYPES.md`
+12. `GLOSSARY.md`
+13. `DECISIONS.md`
+14. `SESSION_STATE.md`
+15. `ROADMAP.md`
 
 `README.md` may be consulted if additional project context is required.
 
@@ -62,7 +63,9 @@ Before implementation the AI shall:
 
 Implementation shall not begin before the required analysis has been completed.
 
-Before using a PDF, brochure, price list, saved configuration, instruction or equivalent documentary source, the AI shall resolve its coverage state under `SOURCE_ASSIMILATION_STANDARD.md`. A registered source, normalized slice or earlier bounded migration must not be presented as a complete document analysis unless every page, table, footnote, symbol and relevant rendered visual has been reviewed and classified.
+Before using a PDF, brochure, price list, saved configuration, instruction or equivalent documentary source, the AI shall resolve its coverage state under `SOURCE_ASSIMILATION_STANDARD.md` and follow `SOURCE_FIRST_EXTRACTION_WORKFLOW.md`. A registered source, normalized slice or earlier bounded migration must not be presented as a complete document analysis unless every page, table, footnote, symbol and relevant rendered visual has been reviewed and classified.
+
+For vehicle data-completion work, the documentary source must be assimilated and compared with master data before the interactive configurator is used for gap filling. The configurator is not the default first extraction source.
 
 After implementation begins, work continues autonomously through tests, Pull Request, CI repair and merge until the package or milestone is complete. A generic `continue` or `kontynuuj` command is not required between correctly completed stages.
 
