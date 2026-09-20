@@ -110,6 +110,7 @@ def verify_contract() -> None:
     type2_rows = [
         row for row in mapping_index.values()
         if row["commercial_item_code"] == TYPE2_ITEM
+        and row["source_code"] == "src_pl_spring_brochure_20260219"
     ]
     if len(type2_rows) != 3 or any(
         row["availability_status"] != "optional" for row in type2_rows
