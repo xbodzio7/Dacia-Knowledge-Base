@@ -57,7 +57,16 @@
       "duster_winter_plus_journey_package"
     ],
     "limitation": "Dealer stock evidence is not yet registered in the canonical source inventory, so these rows are not imported in this package.",
-    "decision": "Configurator evidence is now sufficient to materialize the Journey tribrid 150 4x4 PARKING package as a configuration-specific observation. The current option list excerpt does not establish a negative state for Winter Plus."
+    "decision": "The two PARKING observations are now materialized with valid source references and schema status optional. The current configurator still does not establish a negative state for Winter Plus, so Winter Plus remains open.",
+    "limitations": "The exact configurator evidence is directly registered as a current web-configurator source. The Extreme Hybrid-G 150 4x4 dealer page used for corroboration is also registered. Other dealer pages remain reporting evidence only until separately registered.",
+    "materialized": [
+      "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — current configurator, 2200 PLN",
+      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state; no amount inferred"
+    ],
+    "deferred": [
+      "duster_winter_plus_extreme_package / duster_iii_extreme_hybridg150_4x4_automatic",
+      "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic"
+    ]
   },
   "decision": "Register exact stock pages as configuration-specific evidence only if project source policy permits dealer-portal evidence for current stock; otherwise obtain exact official configurator/saved-configuration evidence before master mutation.",
   "next_package": "duster_automatic_option_applicability_reconciliation_005",
