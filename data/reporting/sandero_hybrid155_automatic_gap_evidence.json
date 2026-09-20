@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "as_of": "2026-09-20",
   "decisions": [
     {
@@ -47,10 +47,10 @@
     },
     {
       "id": "current-configurator-engine-scope",
-      "status": "confirmed",
-      "finding": "The current public Sandero configurator exposes TCe 100, while the current Stepway configurator exposes TCe 110 and Eco-G 120. Neither public configurator page exposes Hybrid 155 as a selectable engine in the page content available to this session.",
+      "status": "reconciled",
+      "finding": "The current public Sandero configurator exposes four engine choices in the readable engine selector: TCe 100, Eco-G 120, Eco-G 120 auto and hybrid 155. The current public Stepway configurator exposes only TCe 110 and Eco-G 120 in its readable engine selector; Hybrid 155 is not exposed there.",
       "evidence": [
-        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ20AhhAjJXJZJb%2FAj1A&stepType=engines",
         "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
       ]
     },
@@ -81,16 +81,25 @@
     },
     {
       "id": "current-configurator-endpoint-discovery",
-      "status": "blocked",
-      "finding": "The model-page configuration links resolve to the generic Renault/Dacia EasyConnect configurator URL https://easyconnectstore.renault.no/content/config.html, but the public fetch endpoint currently returns target_unreachable and the connected Opera browser is unavailable. Therefore no reproducible interactive Hybrid 155 option capture was obtained in this session.",
+      "status": "partially_resolved",
+      "finding": "A connected Opera session now provides a readable accessibility tree for the public Dacia configurators. The Sandero configurator is directly readable and exposes Hybrid 155 as a selectable engine option. The available browser integration in this session exposes navigation and read/screenshot operations but no action primitive for activating the engine radio button, so a selected Hybrid 155 configuration and its dependent option tree cannot yet be captured reproducibly.",
       "evidence": [
-        "https://easyconnectstore.renault.no/content/config.html",
-        "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3"
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ20AhhAjJXJZJb%2FAj1A&stepType=engines",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
+      ]
+    },
+    {
+      "id": "current-configurator-readable-capture-20260920",
+      "status": "confirmed",
+      "finding": "On 2026-09-20 the connected Opera session successfully read the Sandero configurator engine selector. The selector shows TCe 100, Eco-G 120, Eco-G 120 auto and hybrid 155; the currently selected configuration remains expression TCe 100 f.2 at 68,000 PLN. The same session read the Stepway configurator, whose engine selector shows TCe 110 and Eco-G 120 only; its current configuration is essential stepway TCe 110 f.2 at 71,700 PLN.",
+      "evidence": [
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ20AhhAjJXJZJb%2FAj1A&stepType=engines",
+        "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
       ]
     }
   ],
   "next_actions": [
-    "Obtain a reproducible interactive configurator session capable of switching Sandero/Sandero Stepway versions and engines, then enumerate Hybrid 155 option states and dependencies if the configurator exposes them.",
+    "If an interaction-capable browser action becomes available, activate Sandero Hybrid 155 in the public configurator and capture the resulting version/price/default equipment state for each exposed grade.",
     "Reconcile any interactive results against the 11.08.2026 equipment matrix before creating new master rows.",
     "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date.",
     "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices.",
