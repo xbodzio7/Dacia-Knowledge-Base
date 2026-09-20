@@ -32,8 +32,8 @@
     "name": "Hybrid 155 Interactive Configurator Capture",
     "status": "complete",
     "goal": "Capture the reproducible current Hybrid 155 interactive configurator state exposed by the connected Opera session and reconcile it against the dated 11.08.2026 documentary master boundary without importing undated current-web values.",
-    "pull_request": null,
-    "merge_sha": null,
+    "pull_request": 678,
+    "merge_sha": "f4db5975cafc6f4d51b7ff2ced9ebbba251f0eab",
     "manifest_paths": [
       "data/reporting/sandero_hybrid155_automatic_gap_evidence.json",
       "data/reporting/sandero_hybrid155_configurator_capture_20260920.json"
@@ -50,10 +50,50 @@
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
-    "allowed_operations": ["create_package_branch", "modify_manifest_paths", "run_tests_and_quality", "create_package_commit", "push_package_branch", "create_and_update_pull_request", "repair_in_scope_ci_failures", "merge_green_pull_request", "update_project_state_and_generated_documentation"],
-    "stop_conditions": ["missing_source_file_or_local_access", "authentication_mfa_secret_or_new_permission", "ambiguous_source_evidence", "new_domain_or_architecture_decision", "scope_expansion_beyond_current_milestone", "destructive_costly_or_irreversible_operation", "manual_github_policy_block", "conflict_not_resolvable_from_repository_evidence"],
-    "action_required_fields": ["reason", "required_action", "options_and_consequences", "resume_stage"]
+    "allowed_operations": [
+      "create_package_branch",
+      "modify_manifest_paths",
+      "run_tests_and_quality",
+      "create_package_commit",
+      "push_package_branch",
+      "create_and_update_pull_request",
+      "repair_in_scope_ci_failures",
+      "merge_green_pull_request",
+      "update_project_state_and_generated_documentation"
+    ],
+    "stop_conditions": [
+      "missing_source_file_or_local_access",
+      "authentication_mfa_secret_or_new_permission",
+      "ambiguous_source_evidence",
+      "new_domain_or_architecture_decision",
+      "scope_expansion_beyond_current_milestone",
+      "destructive_costly_or_irreversible_operation",
+      "manual_github_policy_block",
+      "conflict_not_resolvable_from_repository_evidence"
+    ],
+    "action_required_fields": [
+      "reason",
+      "required_action",
+      "options_and_consequences",
+      "resume_stage"
+    ]
   },
-  "review_policy": {"review_only_pull_requests": "exception_only", "milestone_review_interval_packages": 5, "one_logical_package_per_pull_request": true, "delete_remote_branches_automatically": false},
-  "execution_policy": {"mode": "accelerated_milestone_closure", "focused_tests_during_development": true, "full_quality_on_final_head": true, "batch_mechanical_repairs": true, "open_pr_after_package_stabilization": true, "allow_multi_source_package": "only_for_one_logical_closure_scope", "release_double_build_required": true, "release_exact_source_sha_required": true, "workflow_selection": "environment_detected", "active_profile": null}
+  "review_policy": {
+    "review_only_pull_requests": "exception_only",
+    "milestone_review_interval_packages": 5,
+    "one_logical_package_per_pull_request": true,
+    "delete_remote_branches_automatically": false
+  },
+  "execution_policy": {
+    "mode": "accelerated_milestone_closure",
+    "focused_tests_during_development": true,
+    "full_quality_on_final_head": true,
+    "batch_mechanical_repairs": true,
+    "open_pr_after_package_stabilization": true,
+    "allow_multi_source_package": "only_for_one_logical_closure_scope",
+    "release_double_build_required": true,
+    "release_exact_source_sha_required": true,
+    "workflow_selection": "environment_detected",
+    "active_profile": null
+  }
 }
