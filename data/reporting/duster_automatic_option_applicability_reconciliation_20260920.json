@@ -2,7 +2,7 @@
   "version": 1,
   "kind": "duster_automatic_option_applicability_reconciliation",
   "reviewed_on": "2026-09-20",
-  "status": "evidence_collected_master_mutation_deferred",
+  "status": "evidence_collected_ready_for_master",
   "primary_document": {
     "source_code": "src_pl_duster_price_my26_20260703",
     "option_matrix": "grade-level",
@@ -56,8 +56,41 @@
       "duster_parking_package",
       "duster_winter_plus_journey_package"
     ],
-    "limitation": "Dealer stock evidence is not yet registered in the canonical source inventory, so these rows are not imported in this package."
+    "limitation": "Dealer stock evidence is not yet registered in the canonical source inventory, so these rows are not imported in this package.",
+    "decision": "Configurator evidence is now sufficient to materialize the Journey tribrid 150 4x4 PARKING package as a configuration-specific observation. The current option list excerpt does not establish a negative state for Winter Plus."
   },
   "decision": "Register exact stock pages as configuration-specific evidence only if project source policy permits dealer-portal evidence for current stock; otherwise obtain exact official configurator/saved-configuration evidence before master mutation.",
-  "next_package": "duster_automatic_option_applicability_reconciliation_005"
+  "next_package": "duster_automatic_option_applicability_reconciliation_005",
+  "configurator_evidence": {
+    "source": "Dacia Poland current interactive configurator",
+    "accessed": "2026-09-20",
+    "configuration": {
+      "model": "DUSTER",
+      "version": "journey hybrid-G 150 4x4",
+      "current_label": "tribrid 150 4x4",
+      "price_pln": 126100,
+      "power_kw": 113,
+      "power_hp": 153,
+      "co2_lpg_g_km": 118,
+      "consumption_lpg_l_100km": 7.3,
+      "transmission": "automatyczna",
+      "fuel": "LPG",
+      "colour": "biel alpejska",
+      "wheels": "18\" felgi aluminiowe, TAGASAN 225 diamentowane",
+      "upholstery": "tapicerka materiałowa journey"
+    },
+    "option_evidence": [
+      {
+        "item": "Pakiet PARKING",
+        "price_pln": 2200,
+        "status": "available_in_current_configuration"
+      },
+      {
+        "item": "Winter Plus",
+        "status": "not_visible_in_current_option_list_excerpt",
+        "note": "Absence from the excerpt is not converted to not_available."
+      }
+    ],
+    "interpretation": "The configurator directly binds the selected Journey Hybrid-G 150 4x4 configuration to the current 126100 PLN price and exposes the PARKING package at 2200 PLN. This is stronger configuration-level evidence than the grade-only price-list matrix."
+  }
 }
