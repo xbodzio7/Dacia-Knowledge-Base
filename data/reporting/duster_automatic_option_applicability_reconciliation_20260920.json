@@ -67,6 +67,28 @@
       ],
       "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/127567",
       "interpretation": "Exact current dealer listing establishes a winter package on Extreme Eco-G 120 auto, but the package naming is internally inconsistent, so it is not promoted to a specific Winter/Winter Plus master row."
+    },
+    {
+      "configuration": "duster_iii_expression_ecog120_automatic",
+      "trim": "Expression",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet ZIMOWY I"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01277655755",
+      "interpretation": "Exact current Dacia catalog page binds the winter package to an Expression Eco-G 120 automatic vehicle."
+    },
+    {
+      "configuration": "duster_iii_extreme_ecog120_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet TECHNO 1",
+        "Pakiet PARKINGOWY",
+        "Pakiet ZIMOWY III"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01277657828",
+      "interpretation": "Exact current Dacia catalog page binds TECHNO 1 and PARKINGOWY to Extreme Eco-G 120 automatic. ZIMOWY III is retained as evidence but not normalized because it does not map unambiguously to the current master winter package naming."
     }
   ],
   "master_gap": {
@@ -79,17 +101,21 @@
       "duster_winter_plus_journey_package"
     ],
     "limitation": "Dealer stock evidence is not yet registered in the canonical source inventory, so these rows are not imported in this package.",
-    "decision": "PARKING is now materialized for Journey tribrid 150 4x4, Extreme tribrid 150 4x4 and Journey Eco-G 120 auto with valid source references. Winter Plus remains open for the tribrid configurations; Extreme Eco-G 120 auto has a source naming conflict and is not normalized.",
-    "limitations": "The exact configurator evidence is directly registered as a current web-configurator source. The Extreme Hybrid-G 150 4x4 dealer page used for corroboration is also registered. Other dealer pages remain reporting evidence only until separately registered. One additional Journey Eco-G 120 auto dealer source is now registered and its PARKING observation is materialized. Extreme Eco-G 120 auto winter evidence remains deferred because the source uses conflicting package labels.",
+    "decision": "Configuration-level PARKING is now evidenced across the two tribrid states and Eco-G Journey/Extreme automatic states. TECHNO 1 is directly evidenced for Extreme Eco-G 120 auto. Expression Eco-G 120 auto has exact ZIMOWY I evidence. Winter-package normalization remains open where current naming differs from the July price-list matrix.",
+    "limitations": "The exact configurator evidence is directly registered as a current web-configurator source. The Extreme Hybrid-G 150 4x4 dealer page used for corroboration is also registered. Other dealer pages remain reporting evidence only until separately registered. One additional Journey Eco-G 120 auto dealer source is now registered and its PARKING observation is materialized. Extreme Eco-G 120 auto winter evidence remains deferred because the source uses conflicting package labels. The official Dacia NCI catalog now supplies exact configuration evidence for Expression Eco-G 120 auto (ZIMOWY I) and Extreme Eco-G 120 auto (TECHNO 1, PARKINGOWY). The Extreme winter package remains deliberately unnormalized because its current label is ZIMOWY III.",
     "materialized": [
       "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — current configurator, 2200 PLN",
       "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state; no amount inferred",
-      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred"
+      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred",
+      "duster_winter_expression_journey_package / duster_iii_expression_ecog120_automatic — Dacia catalog exact configuration",
+      "duster_parking_package / duster_iii_extreme_ecog120_automatic — Dacia catalog exact configuration",
+      "duster_techno_1_package / duster_iii_extreme_ecog120_automatic — Dacia catalog exact configuration"
     ],
     "deferred": [
       "duster_winter_plus_extreme_package / duster_iii_extreme_hybridg150_4x4_automatic",
       "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic",
-      "duster_iii_extreme_ecog120_automatic winter package naming conflict"
+      "duster_iii_extreme_ecog120_automatic winter package naming conflict",
+      "duster_iii_extreme_ecog120_automatic ZIMOWY III — package-name normalization conflict"
     ]
   },
   "decision": "Register exact stock pages as configuration-specific evidence only if project source policy permits dealer-portal evidence for current stock; otherwise obtain exact official configurator/saved-configuration evidence before master mutation.",
