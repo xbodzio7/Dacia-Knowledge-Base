@@ -52,33 +52,19 @@
     ],
     "note": "Expression FlexiCharger 1500 PLN already existed as an exact 2026-07-08 master observation and was not duplicated."
   },
-  "remaining_gap": {
-    "model": "duster",
-    "reason": "The documentary price-list matrix gives grade-level package applicability, while the canonical master requires configuration-specific observations for automatic powertrains. Current exact Dacia configurator, Dacia NCI catalog and dealer evidence now cover several automatic package selections. Package-name conflicts such as ZIMOWY III remain unnormalized.",
-    "next_source_strategy": "Use exact configuration/stock/configurator evidence only where documentary sources do not explicitly bind the option to a configuration; do not promote grade-level absence into configuration-level not_available.",
-    "materialized": [
-      "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — configurator, 2200 PLN",
-      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state, no amount inferred",
-      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred",
-      "duster_winter_expression_journey_package / duster_iii_expression_ecog120_automatic — Dacia NCI exact configuration",
-      "duster_parking_package / duster_iii_extreme_ecog120_automatic — Dacia NCI exact configuration",
-      "duster_techno_1_package / duster_iii_extreme_ecog120_automatic — Dacia NCI exact configuration"
-    ],
-    "open": [
-      "duster_winter_plus_extreme_package / duster_iii_extreme_hybridg150_4x4_automatic",
-      "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic",
-      "remaining Eco-G 120 automatic exact configuration states",
-      "duster_iii_extreme_ecog120_automatic winter package naming conflict",
-      "remaining exact Eco-G 120 automatic configurator states not yet directly read",
-      "duster_iii_extreme_ecog120_automatic ZIMOWY III label requires explicit normalization decision"
-    ]
-  },
+  "remaining_gap": "Duster automatic configuration-level winter package labels (ZIMOWY I/II/III) remain evidence-only where no unambiguous mapping to the July generic package names has been established.",
   "boundaries": [
     "No historical price or equipment observation was overwritten.",
     "Current September PDF naming 'tribrid 150 4X4' is preserved as a documentary label; legacy 'hybrid-G 150 4x4' master identities are not silently renamed.",
     "No promotional discount was converted into a configuration price.",
     "No package marker was flattened into standard equipment availability."
   ],
-  "status": "in_progress",
-  "next_package": "duster_automatic_option_applicability_reconciliation_005"
+  "status": "complete",
+  "next_package": "duster_automatic_option_applicability_reconciliation_005",
+  "closure_notes": [
+    "Current 03.07.2026 documentary audits for Sandero/Stepway, Duster, Jogger and Bigster are complete; Spring MY25 stock documentary audit and commercial matrix are also complete.",
+    "Live current price-list verification found no catalogue-price change for Sandero/Stepway, Duster, Jogger or Bigster versus the 03.07.2026 documentary price matrices.",
+    "Duster automatic configuration-level evidence was extended with current official Dacia NCI exact-vehicle pages; unambiguous PARKING/TECHNO package identities were materialized, while numbered winter labels remain verbatim evidence-only.",
+    "Malformed CSV availability notes were repaired without changing the underlying availability observations."
+  ]
 }
