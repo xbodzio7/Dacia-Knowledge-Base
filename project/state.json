@@ -30,7 +30,7 @@
     "package_id": "current_price_list_documentary_checkpoint_20260920",
     "kind": "documentary_source_assimilation",
     "name": "Current Price-List Documentary Extraction Checkpoint",
-    "status": "evidence_materialization_in_progress",
+    "status": "active",
     "goal": "Record the verified documentary extraction boundary for the current MY26 price-list portfolio while keeping historical dates and source provenance separate.",
     "pull_request": null,
     "merge_sha": "23dd76eece0cd3a80cecb1e9df1c85cc565d867c",
@@ -60,7 +60,7 @@
   },
   "next_package": {
     "id": "duster_automatic_option_applicability_reconciliation_005",
-    "status": "in_progress",
+    "status": "active",
     "goal": "Read remaining Duster tribrid/Eco-G automatic configurator states and materialize only directly evidenced configuration-level option/package observations."
   },
   "autonomy": {
