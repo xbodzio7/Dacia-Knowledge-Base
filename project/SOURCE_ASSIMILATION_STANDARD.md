@@ -14,6 +14,37 @@ Every PDF, brochure, price list, saved configuration, instruction or equivalent 
 
 Reading only the pages needed for the current package is allowed for preliminary triage, but it must be labelled `partial_review` and must not be described as complete source analysis.
 
+## Source priority for vehicle data completion
+
+For a defined model year, market and validity date, source collection follows this order:
+
+1. **Official dated price list / brochure** — primary source for the historical product state.
+2. **Other official dated documentary sources** — used to complete or clarify the primary source when their scope is explicit.
+3. **Official interactive configurator** — used after documentary extraction and repository gap analysis to fill genuine omissions, resolve configuration dependencies, or record current-web differences whose effective date is not established.
+4. **Other sources** — only when explicitly permitted by the package scope and with provenance.
+
+The configurator must not become a substitute for complete price-list or brochure extraction.
+
+A current undated configurator observation must not silently overwrite a dated historical value.
+
+## Mandatory data-completion sequence
+
+For model, version or configuration data-completion work:
+
+1. establish the exact official documentary source set;
+2. fully assimilate the applicable price lists and brochures;
+3. compare the complete documentary fact inventory with master data;
+4. identify genuine gaps, contradictions and unresolved applicability;
+5. use the configurator only against those gaps or for explicitly separate current-web evidence;
+6. reconcile configurator observations against the documentary evidence;
+7. import the accepted canonical fact once, with exact provenance.
+
+Facts already covered by the assimilated documentary source must not be re-imported merely because the configurator exposes the same field.
+
+For prices, standard equipment, optional equipment, unavailable equipment, packages and option prices, the dated price list/equipment matrix remains the historical baseline. Current configurator prices and availability remain current-web evidence unless their effective date is established.
+
+For technical specifications, a configurator field must first be checked against the assimilated documentary source. If the source already contains the specification, the configurator observation is a cross-check rather than a new master fact. If the specification is genuinely absent, the configurator may supply it when applicability and provenance are explicit.
+
 ## Source lifecycle
 
 Each documentary source has one of these coverage states:
