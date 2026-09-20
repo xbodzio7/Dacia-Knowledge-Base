@@ -60,7 +60,11 @@
       "duster_current_evidence_sources_registered": true,
       "duster_ecog120_automatic_catalog_evidence_added": true,
       "duster_extreme_ecog120_automatic_techno_parking_evidence_added": true,
-      "duster_extreme_ecog120_automatic_winter_label_conflict_preserved": true
+      "duster_extreme_ecog120_automatic_winter_label_conflict_preserved": true,
+      "documentary_audits_extended": [
+        "duster_2026-02-06_my26_py25",
+        "jogger_2026-04-01"
+      ]
     }
   },
   "next_package": {
