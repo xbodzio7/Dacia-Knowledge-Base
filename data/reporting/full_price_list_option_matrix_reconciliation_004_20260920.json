@@ -66,9 +66,11 @@
     "Live current price-list verification found no catalogue-price change for Sandero/Stepway, Duster, Jogger or Bigster versus the 03.07.2026 documentary price matrices.",
     "Duster automatic configuration-level evidence was extended with current official Dacia NCI exact-vehicle pages; unambiguous PARKING/TECHNO package identities were materialized, while numbered winter labels remain verbatim evidence-only.",
     "Malformed CSV availability notes were repaired without changing the underlying availability observations.",
-    "Historical Jogger 01.04.2026 cennik was retrieved from the official Dacia PDF and fully audited; its 5/7-seat contexts and package/option states are preserved as a separate historical source."
+    "Historical Jogger 01.04.2026 cennik was retrieved from the official Dacia PDF and fully audited; its 5/7-seat contexts and package/option states are preserved as a separate historical source.",
+    "Historical Duster 06.02.2026 MY26/PY25 cennik was retrieved directly from the official Dacia Poland page and fully audited, preserving MY25 stock and MY26 contexts separately. The dated matrix did not list Eco-G 120 automatic in its opening price table; this is not generalized into a negative availability state."
   ],
   "documentary_audits_extended": [
-    "jogger_2026-04-01"
+    "jogger_2026-04-01",
+    "duster_2026-02-06_my26_py25"
   ]
 }
