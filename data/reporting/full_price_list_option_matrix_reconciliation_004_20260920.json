@@ -54,8 +54,17 @@
   },
   "remaining_gap": {
     "model": "duster",
-    "reason": "The documentary price-list matrix gives grade-level package applicability, but the canonical master requires configuration-specific observations and the current configuration portfolio contains multiple automatic powertrains. Existing rows cover manual/mild-hybrid/hybrid combinations and exact-stock evidence covers selected Eco-G automatic vehicles. No automatic applicability is inferred for the remaining configurations.",
-    "next_source_strategy": "Use exact configuration/stock/configurator evidence only where documentary sources do not explicitly bind the option to a configuration; do not promote grade-level absence into configuration-level not_available."
+    "reason": "The documentary price-list matrix gives grade-level package applicability, while the canonical master requires configuration-specific observations for automatic powertrains. Journey tribrid 150 4x4 PARKING is directly evidenced by the current configurator; Extreme tribrid 150 4x4 PARKING is corroborated by a registered exact dealer-stock source. Winter Plus remains open because absence from the configurator excerpt is not negative evidence.",
+    "next_source_strategy": "Use exact configuration/stock/configurator evidence only where documentary sources do not explicitly bind the option to a configuration; do not promote grade-level absence into configuration-level not_available.",
+    "materialized": [
+      "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — configurator, 2200 PLN",
+      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state, no amount inferred"
+    ],
+    "open": [
+      "duster_winter_plus_extreme_package / duster_iii_extreme_hybridg150_4x4_automatic",
+      "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic",
+      "remaining Eco-G 120 automatic exact configuration states"
+    ]
   },
   "boundaries": [
     "No historical price or equipment observation was overwritten.",
