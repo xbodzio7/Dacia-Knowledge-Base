@@ -1,0 +1,6 @@
+code,name,item_type,status,notes
+spring_flexicharger_home_cable,Przewód ładowania z gniazdka domowego FlexiCharger,option,active,"Official 2026-07-08 stock price list: exact option price 1500 PLN for Essential, Expression and Extreme."
+spring_techno_package,Pakiet Techno,package,active,"Existing commercial item; 2026-07-08 price 3500 PLN on Expression."
+spring_dc40_charging_option,Układ szybkiego ładowania DC 40 kW (CCS),option,active,"Existing commercial item; 2026-07-08 direct option price 2750 PLN on Expression; Extreme is package-qualified."
+spring_power_package,Pakiet Power,package,active,"Existing commercial item; 2026-07-08 price 3000 PLN on Extreme."
+spring_city_package,Pakiet City,package,active,"Existing commercial item; 2026-07-08 price 1800 PLN on Extreme."
