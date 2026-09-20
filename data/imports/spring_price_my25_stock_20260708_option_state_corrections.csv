@@ -1,0 +1,14 @@
+configuration_code,attribute_code,availability_status,source_page,source_label,normalization_notes
+spring_expression_electric70_automatic,front_parking_sensors,not_available,3,Przednie czujniki parkowania,"Direct July 2026 matrix; Extreme is package-qualified, not an Expression feature."
+spring_extreme_electric100_automatic,front_parking_sensors,not_available,3,Przednie czujniki parkowania,"Direct July 2026 matrix; available through CITY package, represented separately by commercial mapping."
+spring_expression_electric70_automatic,rear_view_camera,not_available,3,Kamera cofania,"Direct July 2026 matrix; included in TECHNO package, represented separately by commercial mapping."
+spring_extreme_electric100_automatic,rear_view_camera,standard,3,Kamera cofania,"Direct July 2026 matrix."
+spring_expression_electric70_automatic,media_display_system,not_available,4,system multimedialny Media Display,"Direct July 2026 matrix; package-qualified, package membership remains separate."
+spring_extreme_electric100_automatic,media_display_system,standard,4,system multimedialny Media Display,"Direct July 2026 matrix."
+spring_expression_electric70_automatic,navigation_system,not_available,4,system multimedialny Media Nav Live,"Direct July 2026 matrix; not available on Expression except via no package state in this price list."
+spring_extreme_electric100_automatic,navigation_system,not_available,4,system multimedialny Media Nav Live,"Direct July 2026 matrix; package-qualified through CITY, represented separately by commercial mapping."
+spring_expression_electric70_automatic,second_usb_c,not_available,4,drugie wyjście USB-C,"Direct July 2026 matrix; package-qualified through TECHNO."
+spring_extreme_electric100_automatic,second_usb_c,standard,4,drugie wyjście USB-C,"Direct July 2026 matrix."
+spring_expression_electric70_automatic,dc_charging_supported,optional,4,Gniazdo DC 40 kW,Direct July 2026 option price is represented by commercial mapping.
+spring_extreme_electric100_automatic,dc_charging_supported,not_available,4,Gniazdo DC 40 kW,"Direct July 2026 matrix; package-qualified through POWER."
+spring_expression_electric70_automatic,remote_firmware_updates,not_available,4,FOTA,"Not explicitly printed in the 2026-07-08 stock matrix; no negative inference is made."
