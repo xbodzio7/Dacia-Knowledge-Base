@@ -18,7 +18,7 @@ SPRING_DATE = "2026-02-19"
 STOCK_DATE = "2026-07-24"
 SPRING_CONFIGURATOR_DATE = "2026-07-31"
 SPRING_CURRENT_CONTEXT_DATE = "2026-08-02"
-LATEST_STEPWAY_PRICE_DATE = "2026-07-23"
+LATEST_STEPWAY_PRICE_DATE = "2026-08-11"
 
 
 def read(name: str) -> list[dict[str, str]]:
@@ -36,9 +36,9 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 50)
+        self.assertEqual(len(self.items), 51)
         self.assertEqual(len(self.members), 103)
-        self.assertEqual(len(self.mappings), 322)
+        self.assertEqual(len(self.mappings), 339)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
