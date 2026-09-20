@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "kind": "bigster_price_my26_20260703_documentary_audit",
+  "reviewed_on": "2026-09-20",
+  "source_code": "src_pl_bigster_price_my26_20260703",
+  "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/5edf29d32f.pdf",
+  "pages": 8,
+  "effective_date": "2026-07-03",
+  "offer_state_note": "Price-list header effective 03.07.2026; final page states offer state 01.09.2026. Both documentary dates are preserved.",
+  "prices_pln": {
+    "mild hybrid 140": {
+      "essential": 101400,
+      "expression": 110400,
+      "extreme": 118900,
+      "journey": 118500
+    },
+    "mild hybrid-G 140": {
+      "essential": 101400,
+      "expression": 110400,
+      "extreme": 118900,
+      "journey": 118500
+    },
+    "hybrid 155": {
+      "essential": null,
+      "expression": 124900,
+      "extreme": 133400,
+      "journey": 133000
+    },
+    "hybrid-G 150 4x4": {
+      "essential": null,
+      "expression": 128900,
+      "extreme": 137600,
+      "journey": 137200
+    }
+  },
+  "commercial_notes": {
+    "catalogue_discount_pln": 3000,
+    "vat_included": true,
+    "financing_benefit": "up to 7% subject to MFS products"
+  },
+  "grade_highlights": {
+    "essential": [
+      "ABS/AEBS/LKA/LDWS/DDAW/ISA/AFU/ESP",
+      "6 airbags",
+      "manual air conditioning",
+      "10 inch Media Display",
+      "7 inch digital instrument cluster",
+      "rear camera and rear parking sensors",
+      "cruise control",
+      "front and rear electric windows",
+      "roof rails",
+      "17 inch alloy wheels"
+    ],
+    "expression": [
+      "dual-zone automatic climate with rear vents",
+      "automatic wipers",
+      "shark-fin antenna",
+      "driver lumbar adjustment",
+      "height-adjustable passenger seat",
+      "power-folding mirrors",
+      "electric parking brake",
+      "central console with armrest/storage",
+      "40/20/40 rear bench with Easy Fold"
+    ],
+    "extreme": [
+      "panoramic opening glass roof",
+      "tinted rear windows",
+      "modular roof rails",
+      "automatic high beam",
+      "Keyless Entry",
+      "wireless charger",
+      "Media Nav Live",
+      "rubber mats and boot liner",
+      "18 inch alloy wheels"
+    ],
+    "journey": [
+      "tinted rear windows",
+      "power tailgate",
+      "Keyless Entry",
+      "10.1 inch digital instrument cluster",
+      "automatic high beam",
+      "Media Nav Live",
+      "wireless charger",
+      "18 inch alloy wheels"
+    ]
+  },
+  "matrix_verified": {
+    "exterior_and_wheels": "explicit grade-by-grade matrix audited",
+    "seats_and_interior": "explicit grade-by-grade matrix audited",
+    "active_passive_safety": "explicit grade-by-grade matrix audited",
+    "visibility_and_driving": "explicit grade-by-grade matrix audited",
+    "comfort_and_storage": "explicit grade-by-grade matrix audited",
+    "multimedia_and_connectivity": "explicit grade-by-grade matrix audited",
+    "options_and_packages": "explicit prices, package contents and applicability audited",
+    "technical_data": "powertrain-specific technical table audited",
+    "footnotes": "commercial/legal footnotes audited"
+  },
+  "options_and_packages": {
+    "panoramic_roof": "4300 PLN on applicable grade",
+    "nineteen_inch_rims": "1200 PLN on Journey",
+    "metallic_paint": "3000 PLN",
+    "two_tone_body": "1400 PLN on Extreme and Journey; unavailable with black paint",
+    "power_tailgate": "1300 PLN on Extreme; standard on Journey",
+    "media_nav_live": "2400 PLN where offered; standard on Extreme and Journey",
+    "easy_p1": "2700 PLN on Expression; front/rear/side parking sensors + Multiview Camera + BSW + Keyless Entry",
+    "parking_p2": "2200 PLN on Extreme and Journey; front/rear/side parking sensors + Multiview Camera + BSW",
+    "winter_p3": "1200 PLN on Expression, Extreme and Journey; heated front seats + heated steering wheel",
+    "winter_plus_p4": "2300 PLN on Expression, Extreme and Journey; heated front seats + heated steering wheel + heated windscreen"
+  },
+  "documentary_boundaries": [
+    "Bigster is documented as a 5-seat vehicle in this price list.",
+    "Spare-wheel entries are 800 PLN. The matrix explicitly distinguishes a temporary 215/70 R16 wheel note for a stated 'mild hybrid 130 4x4' application and a 135/80 R17 space-saver for mild hybrid 140 4x2 and hybrid 155; do not silently normalize this apparent naming inconsistency.",
+    "Repair kit is standard unless a spare wheel is selected.",
+    "Boot figures are powertrain-specific: the technical table gives maximum volume without spare wheel and maximum expanded volume; do not cross-project between powertrains.",
+    "The 4x4 powertrain is hybrid-G 150 4x4 in the price matrix, while the technical/spare-wheel text contains legacy/variant naming that must be preserved as documentary evidence until reconciled.",
+    "The price list states that options may require additional equipment or exclude one another.",
+    "WLTP consumption and CO2 values are configuration-dependent."
+  ],
+  "technical_data": {
+    "mild hybrid 140": {
+      "drive": "4x2",
+      "transmission": "6-speed manual",
+      "fuel": "petrol",
+      "displacement_cm3": 1199,
+      "cylinders_valves": "3 / 12",
+      "power_kw_hp": "103 (140)",
+      "torque_nm": 230,
+      "battery_kwh": 0.839,
+      "electrification": "48V mild-hybrid",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s": 9.8,
+      "fuel_tank_l": 50,
+      "co2_g_km": 124,
+      "combined_consumption_l_100km": 5.5,
+      "boot_max_without_spare_dm3": 667,
+      "boot_max_dm3": 1937,
+      "min_kerb_weight_kg": 1350,
+      "gross_vehicle_weight_kg": 1890,
+      "braked_trailer_max_kg": 1500
+    },
+    "mild hybrid-G 140": {
+      "drive": "4x2",
+      "transmission": "6-speed manual",
+      "fuel": "petrol + LPG",
+      "displacement_cm3": 1199,
+      "cylinders_valves": "3 / 12",
+      "power_kw_hp": "103 (140)",
+      "torque_nm": 230,
+      "battery_kwh": 0.839,
+      "electrification": "48V mild-hybrid",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s": 10,
+      "fuel_tank_l": "50 petrol / 50 LPG",
+      "co2_g_km": "132 petrol / 116 LPG",
+      "combined_consumption_l_100km": "5.8 petrol / 7.1 LPG",
+      "boot_max_without_spare_dm3": 609,
+      "boot_max_dm3": 1877,
+      "min_kerb_weight_kg": 1350,
+      "gross_vehicle_weight_kg": 1890,
+      "braked_trailer_max_kg": 1500
+    },
+    "hybrid-G 150 4x4": {
+      "drive": "4x4",
+      "transmission": "6-speed dual-clutch automatic",
+      "fuel": "petrol + LPG",
+      "displacement_cm3": 1199,
+      "cylinders_valves": "3 / 12",
+      "hybrid_system_power": "103 kW (140 hp) + 10 kW (13 hp) as printed in table",
+      "engine_power": "80 kW (109 hp)",
+      "electric_motor": "36 kW; HSG 15 kW",
+      "torque_nm": 230,
+      "electrification": "48V mild-hybrid as printed in technical table",
+      "battery_kwh": 0.839,
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s": 10.4,
+      "fuel_tank_l": "50 petrol / 50 LPG",
+      "co2_g_km": "134 petrol / 117 LPG",
+      "combined_consumption_l_100km": "5.9 petrol / 7.2 LPG",
+      "boot_max_without_spare_dm3": 444,
+      "boot_max_dm3": 1712,
+      "min_kerb_weight_kg": 1536,
+      "gross_vehicle_weight_kg": 2045,
+      "braked_trailer_max_kg": 1500
+    },
+    "hybrid 155": {
+      "drive": "4x2",
+      "transmission": "automatic Multi-mode",
+      "fuel": "petrol",
+      "max_system_power": "116 kW (157 hp)",
+      "traction_battery": "1.4 kWh, 200 V full hybrid",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s": 9.7,
+      "fuel_tank_l": 50,
+      "co2_g_km": 106,
+      "combined_consumption_l_100km": 4.7,
+      "boot_max_without_spare_dm3": 546,
+      "boot_max_dm3": 1851,
+      "min_kerb_weight_kg": 1419,
+      "gross_vehicle_weight_kg": 1940
+    }
+  },
+  "source_citation_basis": "Official Dacia Poland Bigster MY26 price list. Header effective date 03.07.2026; final offer-state note 01.09.2026."
+}
