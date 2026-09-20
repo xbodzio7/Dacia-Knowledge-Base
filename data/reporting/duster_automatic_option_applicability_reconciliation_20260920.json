@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "kind": "duster_automatic_option_applicability_reconciliation",
+  "reviewed_on": "2026-09-20",
+  "status": "evidence_collected_master_mutation_deferred",
+  "primary_document": {
+    "source_code": "src_pl_duster_price_my26_20260703",
+    "option_matrix": "grade-level",
+    "explicit_constraints": [
+      "ACC is only with automatic gearbox",
+      "Extreme/Journey parking package and winter packages are explicitly priced in the grade matrix"
+    ]
+  },
+  "exact_configuration_evidence": [
+    {
+      "configuration": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING",
+        "Pakiet ZIMOWY PLUS"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/decar/dacia/duster/2026/122830",
+      "interpretation": "Exact current stock vehicle evidence confirms both packages selected on a Hybrid-G 150 4x4 Extreme vehicle."
+    },
+    {
+      "configuration": "duster_iii_journey_hybridg150_4x4_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING",
+        "Pakiet ZIMOWY PLUS",
+        "Media Nav Live",
+        "ładowarka indukcyjna"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/dacia/duster/2026/124693",
+      "interpretation": "Exact current stock vehicle evidence confirms package selection on a Hybrid-G 150 4x4 Journey vehicle."
+    },
+    {
+      "configuration": "duster_iii_journey_hybridg150_4x4_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/pietrzak/dacia/duster/2026/128308",
+      "interpretation": "Independent current dealer listing corroborates PARKING on Journey Hybrid-G 150 4x4."
+    }
+  ],
+  "master_gap": {
+    "hybridg150_extreme": [
+      "duster_parking_package",
+      "duster_winter_plus_extreme_package"
+    ],
+    "hybridg150_journey": [
+      "duster_parking_package",
+      "duster_winter_plus_journey_package"
+    ],
+    "limitation": "Dealer stock evidence is not yet registered in the canonical source inventory, so these rows are not imported in this package."
+  },
+  "decision": "Register exact stock pages as configuration-specific evidence only if project source policy permits dealer-portal evidence for current stock; otherwise obtain exact official configurator/saved-configuration evidence before master mutation.",
+  "next_package": "duster_automatic_option_applicability_reconciliation_005"
+}
