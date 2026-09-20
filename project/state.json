@@ -27,27 +27,27 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_current_dependency_capture_001",
-    "kind": "configurator_evidence_capture",
-    "name": "Stepway Residual Current Dependency Capture",
-    "status": "complete",
-    "goal": "Capture current Stepway Expression Hybrid 155 dependency state and establish the evidence boundary for Extreme without inventing interactive states.",
-    "pull_request": null,
-    "merge_sha": null,
-    "manifest_paths": [
-      "data/reporting/sandero_stepway_current_dependency_capture_20260920.json"
-    ]
-  },
-  "next_package": {
     "package_id": "sandero_current_dependency_capture_001",
     "kind": "configurator_evidence_capture",
     "name": "Sandero Residual Current Dependency Capture",
-    "status": "planned",
-    "goal": "Enumerate current Sandero Expression and Journey dependency states not already represented by dated documentary evidence.",
+    "status": "complete",
+    "goal": "Capture current Sandero Expression Hybrid 155 dependency state and establish the evidence boundary for Journey without inventing interactive states.",
+    "pull_request": null,
+    "merge_sha": null,
     "manifest_paths": [
-      "data/reporting/sandero_stepway_current_dependency_capture_20260920.json"
+      "data/reporting/sandero_current_dependency_capture_20260920.json"
+    ]
+  },
+  "next_package": {
+    "package_id": "sandero_current_dependency_capture_002",
+    "kind": "configurator_evidence_capture",
+    "name": "Sandero Journey Interactive Dependency Completion",
+    "status": "planned",
+    "goal": "Enumerate current Sandero Journey option and dependency states when a reproducible interactive action surface is available.",
+    "manifest_paths": [
+      "data/reporting/sandero_current_dependency_capture_20260920.json"
     ],
-    "blocker": "None for read-only current configurator capture; interactive option switching remains unavailable in the connected Opera connector."
+    "blocker": "The connected Opera connector currently provides read-only accessibility-tree access and navigation but no click/press invocation primitive."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
