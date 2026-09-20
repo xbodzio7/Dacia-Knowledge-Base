@@ -96,13 +96,21 @@
         "Connected Opera accessibility capture on 2026-09-20",
         "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html"
       ]
+    },
+    {
+      "id": "current-configurator-option-groups-20260920",
+      "status": "confirmed",
+      "finding": "After manual expansion of the four visible current configurator option groups for Sandero expression hybrid 155, the readable state exposes one current option in each group: MEDIA NAV 1,600 PLN (MULTIMEDIA), pakiet COMFORT 2,000 PLN (KOMFORT I WNĘTRZE), kamera cofania 700 PLN (PROWADZENIE POJAZDU), and pakiet THERMO 1,900 PLN (OGRZEWANIE I WENTYLACJA). These are current-web observations and are not imported into the dated 11.08.2026 master dataset without historical reconciliation.",
+      "evidence": [
+        "Connected Opera accessibility capture on 2026-09-20",
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html"
+      ]
     }
   ],
   "next_actions": [
-    "Use the selected Sandero Expression Hybrid 155 state to enumerate only option-level data not already covered by the 11.08.2026 price-list matrix; do not duplicate engine/price/technical facts already materialized.",
-    "Capture visible current-web option names/prices and dependencies where the readable configurator exposes them, keeping them in reporting/provenance unless a dated source establishes their effective date.",
-    "Reconcile any option-level results against the 11.08.2026 equipment matrix before creating new master rows.",
-    "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices.",
+    "Reconcile the four current configurator option-level observations against the 11.08.2026 price-list equipment matrix; import only genuinely missing, source-compatible master facts.",
+    "If further completeness is required, expand the current configurator's 'Wyposażenie standardowe' and 'Specyfikacja techniczna' sections and capture their readable content without duplicating existing master data.",
+    "Keep current-web option prices and availability in reporting/provenance unless a dated source establishes their effective date.",
     "Treat current model-page/engine-page vs family-overview/shop discrepancies as a live-web source conflict, not as a reason to alter historical master data."
   ]
 }
