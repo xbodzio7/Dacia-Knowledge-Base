@@ -65,7 +65,11 @@ class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
             "spring_essential_electric70_automatic",
             "spring_extreme_electric100_automatic",
         ):
-            item = by_configuration[configuration]
+            item = next(
+                item for item in mappings
+                if item["configuration_code"] == configuration
+                and item["source_code"] == "src_pl_spring_commercial_context_20260802"
+            )
             self.assertEqual(item["availability_status"], "optional")
             self.assertEqual(item["amount"], "1500")
             self.assertEqual(item["currency_code"], "PLN")
