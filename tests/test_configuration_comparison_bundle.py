@@ -294,9 +294,9 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
                 output,
                 direct_codes=SANDERO_HYBRID155,
             )
-        self.assertEqual(manifest["selected_configuration_count"], 1)
-        self.assertEqual(manifest["singleton_scope_count"], 1)
-        self.assertEqual(manifest["comparable_scope_count"], 0)
+        self.assertEqual(manifest["selected_configuration_count"], 2)
+        self.assertEqual(manifest["singleton_scope_count"], 0)
+        self.assertEqual(manifest["comparable_scope_count"], 1)
         self.assertEqual(
             manifest["groups"][0]["configuration_codes"],
             list(SANDERO_HYBRID155),
