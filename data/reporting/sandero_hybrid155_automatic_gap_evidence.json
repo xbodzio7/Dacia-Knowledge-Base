@@ -89,19 +89,19 @@
       ]
     },
     {
-      "id": "current-configurator-readable-capture-20260920",
+      "id": "current-configurator-hybrid155-selected-20260920",
       "status": "confirmed",
-      "finding": "On 2026-09-20 the connected Opera session successfully read the Sandero configurator engine selector. The selector shows TCe 100, Eco-G 120, Eco-G 120 auto and hybrid 155; the currently selected configuration remains expression TCe 100 f.2 at 68,000 PLN. The same session read the Stepway configurator, whose engine selector shows TCe 110 and Eco-G 120 only; its current configuration is essential stepway TCe 110 f.2 at 71,700 PLN.",
+      "finding": "On 2026-09-20 the connected Opera session successfully activated and read the Sandero Hybrid 155 configuration. The selected configuration is SANDERO expression hybrid 155 at 84,600 PLN. The readable state shows full hybrid, automatic transmission, maximum output 80 + 35 (156 KM), WLTP mixed CO2 96 g/km, WLTP mixed fuel consumption 4.2 l/100 km, Alpine White, 16-inch ATARA steel wheels and black fabric upholstery with denim inserts. The current selector exposes 7 colors and the visible optional-equipment area contains MEDIA NAV for 1,600 PLN plus category groups for comfort/interior, driving assistance and heating/ventilation. This is current-web evidence only.",
       "evidence": [
-        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ20AhhAjJXJZJb%2FAj1A&stepType=engines",
-        "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
+        "Connected Opera accessibility capture on 2026-09-20",
+        "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html"
       ]
     }
   ],
   "next_actions": [
-    "If an interaction-capable browser action becomes available, activate Sandero Hybrid 155 in the public configurator and capture the resulting version/price/default equipment state for each exposed grade.",
-    "Reconcile any interactive results against the 11.08.2026 equipment matrix before creating new master rows.",
-    "Keep current-web observations in reporting/provenance unless a dated source establishes their effective date.",
+    "Use the selected Sandero Expression Hybrid 155 state to enumerate only option-level data not already covered by the 11.08.2026 price-list matrix; do not duplicate engine/price/technical facts already materialized.",
+    "Capture visible current-web option names/prices and dependencies where the readable configurator exposes them, keeping them in reporting/provenance unless a dated source establishes their effective date.",
+    "Reconcile any option-level results against the 11.08.2026 equipment matrix before creating new master rows.",
     "Use the official 11.08.2026 price-list PDFs as the primary historical source when resolving conflicts with undated or incomplete brochure/configurator slices.",
     "Treat current model-page/engine-page vs family-overview/shop discrepancies as a live-web source conflict, not as a reason to alter historical master data."
   ]
