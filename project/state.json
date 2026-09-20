@@ -27,25 +27,25 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_current_dependency_capture_001",
+    "package_id": "sandero_journey_static_current_002",
     "kind": "configurator_evidence_capture",
-    "name": "Sandero Residual Current Dependency Capture",
+    "name": "Sandero Journey Current Grade Evidence",
     "status": "complete",
-    "goal": "Capture current Sandero Expression Hybrid 155 dependency state and establish the evidence boundary for Journey without inventing interactive states.",
+    "goal": "Capture readable current Sandero Journey grade, engine, color and equipment evidence without inventing live interactive option states.",
     "pull_request": null,
     "merge_sha": null,
     "manifest_paths": [
-      "data/reporting/sandero_current_dependency_capture_20260920.json"
+      "data/reporting/sandero_journey_static_current_20260920.json"
     ]
   },
   "next_package": {
-    "package_id": "sandero_current_dependency_capture_002",
+    "package_id": "sandero_journey_interactive_dependency_003",
     "kind": "configurator_evidence_capture",
     "name": "Sandero Journey Interactive Dependency Completion",
     "status": "planned",
-    "goal": "Enumerate current Sandero Journey option and dependency states when a reproducible interactive action surface is available.",
+    "goal": "Enumerate current Sandero Journey option compatibility and dependency states from the live configurator.",
     "manifest_paths": [
-      "data/reporting/sandero_current_dependency_capture_20260920.json"
+      "data/reporting/sandero_journey_static_current_20260920.json"
     ],
     "blocker": "The connected Opera connector currently provides read-only accessibility-tree access and navigation but no click/press invocation primitive."
   },

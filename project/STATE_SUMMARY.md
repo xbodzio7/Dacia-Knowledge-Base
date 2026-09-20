@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Residual Current Dependency Capture** — `complete`
+**Sandero Journey Current Grade Evidence** — `complete`
 
-Captured the current Sandero Expression Hybrid 155 configurator state through the connected Opera session, including seven colors, the current wheel/upholstery state and visible optional equipment. The current Journey grade and Hybrid 155 starting price are documented, but no interactive Journey switch or option matrix was synthesized because the connector exposes no click/press invocation. No master rows were imported because this is current-web evidence outside the dated historical boundary.
+Captured the readable current Sandero Journey grade page through the connected Opera session: seven colors, four currently exposed engines/powertrains, current starting prices and grade equipment highlights. No live interactive option matrix was synthesized because the connector exposes no click/press invocation primitive. No master rows were imported because this is current-web evidence outside the dated historical boundary.
 
 ## Next package
 
 **Sandero Journey Interactive Dependency Completion** — `planned`
 
-Enumerate current Sandero Journey option and dependency states when a reproducible interactive action surface is available. The connected Opera session currently provides read-only accessibility-tree access and navigation but no click/press invocation primitive.
+Enumerate current Sandero Journey option compatibility and dependency states from the live configurator. The connected Opera connector currently provides read-only accessibility-tree access and navigation but no click/press invocation primitive.
 
 ## Autonomy
 
