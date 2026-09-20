@@ -168,9 +168,9 @@ class SanderoStepwayExactDesignFactoryOptionNormalizationTests(unittest.TestCase
     def test_closed_package_tables_remain_stable_as_source_registries_grow(self) -> None:
         self.assertGreaterEqual(len(self.sources), 38)
         self.assertGreaterEqual(len(self.source_configurations), 284)
-        self.assertEqual(len(self.items), 50)
+        self.assertEqual(len(self.items), 51)
         self.assertEqual(len(self.item_attributes), 103)
-        self.assertEqual(len(self.mappings), 322)
+        self.assertEqual(len(self.mappings), 339)
         owned_values = [row for row in self.values if row["source_code"] == SOURCE_CODE]
         self.assertEqual(len(owned_values), 60)
 
