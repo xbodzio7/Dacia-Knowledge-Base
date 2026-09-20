@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "kind": "full_price_list_option_matrix_reconciliation",
+  "reviewed_on": "2026-09-20",
+  "package_id": "full_price_list_option_matrix_reconciliation_004",
+  "source_first": true,
+  "sources": [
+    {
+      "model": "sandero_stepway",
+      "source_code": "src_pl_sandero_stepway_price_my26_20260811",
+      "status": "already_materialized_on_main",
+      "note": "Current 11.08.2026 price-list option/package observations were previously assimilated; current live verification shows catalogue prices unchanged."
+    },
+    {
+      "model": "duster",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "status": "documentary_audit_complete_master_partial",
+      "note": "Catalogue prices and core commercial items are materialized. Remaining gap is exact applicability of some packages/options to current automatic configurations where the documentary matrix is grade-level but the project requires configuration-specific evidence."
+    },
+    {
+      "model": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "status": "documentary_audit_complete_master_materialized",
+      "note": "Media Nav, heated seats and package price mappings are present for the documented 5-seat/7-seat configuration set; July fog-light correction is also materialized separately."
+    },
+    {
+      "model": "bigster",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "status": "documentary_audit_complete_master_materialized",
+      "note": "Commercial items, configuration prices and equipment import are already present for the July 2026 configuration set."
+    },
+    {
+      "model": "spring",
+      "source_code": "src_pl_spring_price_my25_stock_20260708",
+      "status": "documentary_audit_complete_master_materialized",
+      "note": "Exact July stock commercial observations were added in this package while preserving earlier February and August observations as historical dated evidence."
+    }
+  ],
+  "spring_materialization": {
+    "master_file": "data/master/commercial_item_configurations.csv",
+    "rows_added": 8,
+    "observations": [
+      "FlexiCharger Essential 1500 PLN",
+      "FlexiCharger Extreme 1500 PLN",
+      "Type 2 cable standard for Essential",
+      "Type 2 cable standard for Expression",
+      "Type 2 cable standard for Extreme",
+      "DC 40 kW Expression 2750 PLN",
+      "TECHNO Expression 3500 PLN",
+      "CITY Extreme 1800 PLN",
+      "POWER Extreme 3000 PLN"
+    ],
+    "note": "Expression FlexiCharger 1500 PLN already existed as an exact 2026-07-08 master observation and was not duplicated."
+  },
+  "remaining_gap": {
+    "model": "duster",
+    "reason": "The documentary price-list matrix gives grade-level package applicability, but the canonical master requires configuration-specific observations and the current configuration portfolio contains multiple automatic powertrains. Existing rows cover manual/mild-hybrid/hybrid combinations and exact-stock evidence covers selected Eco-G automatic vehicles. No automatic applicability is inferred for the remaining configurations.",
+    "next_source_strategy": "Use exact configuration/stock/configurator evidence only where documentary sources do not explicitly bind the option to a configuration; do not promote grade-level absence into configuration-level not_available."
+  },
+  "boundaries": [
+    "No historical price or equipment observation was overwritten.",
+    "Current September PDF naming 'tribrid 150 4X4' is preserved as a documentary label; legacy 'hybrid-G 150 4x4' master identities are not silently renamed.",
+    "No promotional discount was converted into a configuration price.",
+    "No package marker was flattened into standard equipment availability."
+  ],
+  "status": "in_progress",
+  "next_package": "duster_automatic_option_applicability_reconciliation_005"
+}
