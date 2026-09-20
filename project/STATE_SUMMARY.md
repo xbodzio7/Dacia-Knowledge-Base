@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-19
+- State updated: 2026-09-20
 
 ## Phase
 
@@ -36,15 +36,16 @@
 
 ## Current package
 
-**Hybrid 155 Technical and Equipment Materialization** — `complete`
+**Hybrid 155 Interactive Configurator Capture** — `complete`
 
-Materialize source-explicit technical and equipment observations for the four Hybrid 155 configurations added by the 11.08.2026 price-list reconciliation.
+Captured the reproducible current Hybrid 155 Sandero Expression configurator state through the connected Opera session; current-web values remain undated evidence and no master rows were imported.
+
 
 ## Next package
 
 **Sandero Stepway Current Gap Reassessment** — `planned`
 
-Reassess remaining current price-list, brochure and configurator gaps after the 11.08.2026 Hybrid 155 materialization, without reopening closed evidence boundaries.
+Reassess remaining current price-list, brochure and configurator gaps using documentary sources first and configurator evidence only for residual gaps/dependencies.
 
 ## Autonomy
 
