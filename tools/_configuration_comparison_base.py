@@ -654,7 +654,7 @@ def collect_report(
     extra_slots = sorted(
         {(key[1], key[2]) for key in current_values} - allowed_slots
     )
-    if extra_slots:
+    if allowed_slots and extra_slots:
         raise ComparisonError(
             f"observed technical slots are absent from scope: {extra_slots}"
         )
