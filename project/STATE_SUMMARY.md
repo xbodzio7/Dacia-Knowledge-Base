@@ -36,16 +36,15 @@
 
 ## Current package
 
-**Hybrid 155 Interactive Configurator Capture** — `complete`
+**Stepway Residual Current Dependency Capture** — `complete`
 
-Captured the reproducible current Hybrid 155 Sandero Expression configurator state through the connected Opera session; current-web values remain undated evidence and no master rows were imported.
-
+Captured the current Stepway Expression Hybrid 155 configurator state through the connected Opera session, including seven colors, current wheel/upholstery state and visible optional equipment. Static current Extreme grade evidence was also reconciled. No master rows were imported because this is current-web evidence outside the dated historical boundary.
 
 ## Next package
 
-**Sandero Stepway Current Gap Reassessment** — `planned`
+**Sandero Residual Current Dependency Capture** — `planned`
 
-Reassess remaining current price-list, brochure and configurator gaps using documentary sources first and configurator evidence only for residual gaps/dependencies.
+Enumerate current Sandero Expression and Journey dependency states not already represented by dated documentary evidence. The connected Opera session provides read access; interactive option switching remains unavailable through the current connector surface.
 
 ## Autonomy
 
