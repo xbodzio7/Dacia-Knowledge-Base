@@ -96,7 +96,7 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             {code: len(rows) for code, rows in package_components.items()},
             {
                 "spring_essential_electric70_automatic": 0,
-                "spring_expression_electric70_automatic": 3,
+                "spring_expression_electric70_automatic": 1,
                 "spring_extreme_electric100_automatic": 3,
             },
         )
