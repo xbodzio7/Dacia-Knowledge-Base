@@ -67,7 +67,7 @@ class SpringCommercialPackagesTests(unittest.TestCase):
         spring = [
             row
             for row in self.mappings
-            if row["commercial_item_code"] in importer.EXPECTED_ITEMS
+            if row["code"] in importer.EXPECTED_MAPPING_CODES
         ]
         self.assertEqual(
             Counter(row["commercial_item_code"] for row in spring),
