@@ -66,7 +66,11 @@ def verify(root: Path = ROOT) -> None:
     historical_mappings = [
         row for row in mappings if row["commercial_item_code"] == TYPE2_ITEM
     ]
-    historical_mappings = [\n        row for row in historical_mappings\n        if row["source_code"] == "src_pl_spring_brochure_20260219"\n    ]\n    if len(historical_mappings) != 3:
+    historical_mappings = [
+        row for row in historical_mappings
+        if row["source_code"] == "src_pl_spring_brochure_20260219"
+    ]
+    if len(historical_mappings) != 3:
         raise AssertionError("historical Type 2 mapping count drifted")
     if {row["configuration_code"] for row in historical_mappings} != {
         "spring_essential_electric70_automatic",
