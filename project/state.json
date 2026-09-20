@@ -71,7 +71,8 @@
     "id": "duster_automatic_option_applicability_reconciliation_005",
     "status": "active",
     "goal": "Resolve remaining Duster automatic option/package applicability only where direct documentary or exact current official configurator/NCI evidence provides an unambiguous package identity or explicit mapping.",
-    "name": "Duster Automatic Option Applicability Reconciliation"
+    "name": "Duster Automatic Option Applicability Reconciliation",
+    "package_id": "duster_automatic_option_applicability_reconciliation_005"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
