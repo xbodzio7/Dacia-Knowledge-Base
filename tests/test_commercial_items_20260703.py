@@ -62,6 +62,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
                 "src_pl_spring_brochure_20260219",
                 "src_pl_spring_commercial_context_20260802",
                 "src_pl_sandero_stepway_exact_configurator_states_20260809",
+                "dacia_catalog_20260920_duster_extreme_tribrid150_4x4",
             },
         )
         self.assertTrue(all(row["source_text"] for row in self.members))
