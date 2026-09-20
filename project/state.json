@@ -66,7 +66,8 @@
   "next_package": {
     "id": "duster_automatic_option_applicability_reconciliation_005",
     "status": "active",
-    "goal": "Read remaining Duster tribrid/Eco-G automatic configurator states and materialize only directly evidenced configuration-level option/package observations."
+    "goal": "Read remaining Duster tribrid/Eco-G automatic configurator states and materialize only directly evidenced configuration-level option/package observations.",
+    "name": "Duster Automatic Option Applicability Reconciliation"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
