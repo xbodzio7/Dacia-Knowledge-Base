@@ -45,6 +45,28 @@
       ],
       "url": "https://kup.dacia.pl/nowedealerszczegoly/pietrzak/dacia/duster/2026/128308",
       "interpretation": "Independent current dealer listing corroborates PARKING on Journey Hybrid-G 150 4x4."
+    },
+    {
+      "configuration": "duster_iii_journey_ecog120_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING",
+        "Pakiet ZIMOWY PLUS"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/auto-spektrum/dacia/duster/2026/129094",
+      "interpretation": "Exact current dealer listing for Journey Eco-G 120 auto explicitly lists PARKING and ZIMOWY PLUS as additional options."
+    },
+    {
+      "configuration": "duster_iii_extreme_ecog120_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet ZIMOWY",
+        "Pakiet ZIMOWY PLUS in equipment summary"
+      ],
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/127567",
+      "interpretation": "Exact current dealer listing establishes a winter package on Extreme Eco-G 120 auto, but the package naming is internally inconsistent, so it is not promoted to a specific Winter/Winter Plus master row."
     }
   ],
   "master_gap": {
@@ -57,15 +79,17 @@
       "duster_winter_plus_journey_package"
     ],
     "limitation": "Dealer stock evidence is not yet registered in the canonical source inventory, so these rows are not imported in this package.",
-    "decision": "The two PARKING observations are now materialized with valid source references and schema status optional. The current configurator still does not establish a negative state for Winter Plus, so Winter Plus remains open.",
-    "limitations": "The exact configurator evidence is directly registered as a current web-configurator source. The Extreme Hybrid-G 150 4x4 dealer page used for corroboration is also registered. Other dealer pages remain reporting evidence only until separately registered.",
+    "decision": "PARKING is now materialized for Journey tribrid 150 4x4, Extreme tribrid 150 4x4 and Journey Eco-G 120 auto with valid source references. Winter Plus remains open for the tribrid configurations; Extreme Eco-G 120 auto has a source naming conflict and is not normalized.",
+    "limitations": "The exact configurator evidence is directly registered as a current web-configurator source. The Extreme Hybrid-G 150 4x4 dealer page used for corroboration is also registered. Other dealer pages remain reporting evidence only until separately registered. One additional Journey Eco-G 120 auto dealer source is now registered and its PARKING observation is materialized. Extreme Eco-G 120 auto winter evidence remains deferred because the source uses conflicting package labels.",
     "materialized": [
       "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — current configurator, 2200 PLN",
-      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state; no amount inferred"
+      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state; no amount inferred",
+      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred"
     ],
     "deferred": [
       "duster_winter_plus_extreme_package / duster_iii_extreme_hybridg150_4x4_automatic",
-      "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic"
+      "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic",
+      "duster_iii_extreme_ecog120_automatic winter package naming conflict"
     ]
   },
   "decision": "Register exact stock pages as configuration-specific evidence only if project source policy permits dealer-portal evidence for current stock; otherwise obtain exact official configurator/saved-configuration evidence before master mutation.",
