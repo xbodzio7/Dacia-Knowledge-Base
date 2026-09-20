@@ -32,8 +32,8 @@
     "name": "Sandero Stepway Current Gap Reassessment",
     "status": "complete",
     "goal": "Reassess current Stepway configurator evidence against assimilated dated documentary sources without reopening historical boundaries.",
-    "pull_request": null,
-    "merge_sha": null,
+    "pull_request": 679,
+    "merge_sha": "0053c7e03787a514a18fefc03eb2bdff1624f757",
     "manifest_paths": [
       "data/reporting/sandero_stepway_current_gap_reassessment_20260920.json"
     ]
