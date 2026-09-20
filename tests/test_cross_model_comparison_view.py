@@ -42,12 +42,12 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             self.view["summary"],
             {
                 "model_family_count": 6,
-                "reporting_scope_count": 23,
+                "reporting_scope_count": 24,
                 "single_model_scope_count": 21,
-                "mixed_model_scope_count": 2,
+                "mixed_model_scope_count": 3,
                 "active_configuration_count": 84,
-                "within_scope_pair_count": 133,
-                "catalog_price_recorded_count": 84,
+                "within_scope_pair_count": 139,
+                "catalog_price_recorded_count": 88,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
                 "recommendations_generated": False,
@@ -113,10 +113,10 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(scope["configuration_count"], 5)
         self.assertEqual(scope["pair_count"], 10)
         self.assertEqual(scope["technical_slot_count"], 60)
-        self.assertEqual(self.models["sandero_iii"]["shared_scope_count"], 2)
+        self.assertEqual(self.models["sandero_iii"]["shared_scope_count"], 3)
         self.assertEqual(
             self.models["sandero_stepway_iii"]["shared_scope_count"],
-            2,
+            3,
         )
         tce_scope = self.scopes["sandero_tce100_stepway_tce110_manual"]
         self.assertEqual(tce_scope["configuration_count"], 6)
@@ -133,7 +133,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
             sum(scope["pair_count"] for scope in self.view["scopes"]),
-            133,
+            139,
         )
         self.assertTrue(
             all(
@@ -189,7 +189,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertTrue(html_text.startswith("<!doctype html>"))
         self.assertEqual(html_text.count('class="model-card"'), 6)
         self.assertEqual(html_text.count('class="scope-card"'), 24)
-        self.assertEqual(html_text.count('class="badge mixed"'), 2)
+        self.assertEqual(html_text.count('class="badge mixed"'), 3)
 
     def test_html_is_standalone_scope_safe_and_marks_unknown_values(self) -> None:
         rendered = render_html(self.view)
