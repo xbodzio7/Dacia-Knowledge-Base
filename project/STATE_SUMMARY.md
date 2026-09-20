@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1925
+- Tests: 1913
 - Master CSV files: 47
-- Master rows: 17276
+- Master rows: 17303
 - Configuration values: 6746
 - Configuration import specifications: 139
 - Configuration value ranges: 345
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Journey Current Grade Evidence** — `complete`
+**Full Price-List Option Matrix Reconciliation** — `complete`
 
-Captured the readable current Sandero Journey grade page through the connected Opera session: seven colors, four currently exposed engines/powertrains, current starting prices and grade equipment highlights. No live interactive option matrix was synthesized because the connector exposes no click/press invocation primitive. No master rows were imported because this is current-web evidence outside the dated historical boundary.
+Reconcile the verified current MY26 price-list portfolio and directly evidenced Duster automatic configuration/package observations without overwriting historical documentary values or inferring negative availability.
 
 ## Next package
 
-**Sandero Journey Interactive Dependency Completion** — `planned`
+**Duster Automatic Option Applicability Reconciliation** — `active`
 
-Enumerate current Sandero Journey option compatibility and dependency states from the live configurator. The connected Opera connector currently provides read-only accessibility-tree access and navigation but no click/press invocation primitive.
+Resolve remaining Duster automatic option/package applicability only where direct documentary or exact current official configurator/NCI evidence provides an unambiguous package identity or explicit mapping.
 
 ## Autonomy
 
