@@ -199,5 +199,17 @@
       }
     ],
     "interpretation": "The configurator directly binds the selected Journey Hybrid-G 150 4x4 configuration to the current 126100 PLN price and exposes the PARKING package at 2200 PLN. This is stronger configuration-level evidence than the grade-only price-list matrix."
+  },
+  "documentary_mapping_review": {
+    "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/73baf27ec0.pdf",
+    "source_effective_date": "2026-09-01",
+    "observations": [
+      "Current September Duster price list explicitly retains generic Pakiet ZIMOWY and Pakiet ZIMOWY PLUS names and separates their grade-level applicability.",
+      "Expression has only the generic ZIMOWY 1200 PLN row among the current winter package rows; therefore exact NCI label ZIMOWY I is safely associated with the Expression winter-package family, without renaming the source label.",
+      "Extreme has both generic ZIMOWY 1200 PLN and ZIMOWY PLUS 2300 PLN rows; exact NCI label ZIMOWY III alone does not identify which generic package was selected.",
+      "Journey has both generic ZIMOWY 1200 PLN and ZIMOWY PLUS 2300 PLN rows; exact NCI label ZIMOWY II alone does not identify which generic package was selected.",
+      "Accordingly, ZIMOWY I is reconciled only to the existing Expression winter-package family; ZIMOWY II and ZIMOWY III remain verbatim evidence-only."
+    ],
+    "decision": "Do not infer the generic ZIMOWY versus ZIMOWY PLUS selection from numbered NCI labels II/III. The July/current price-list matrix supplies grade-level availability and price, but not a one-to-one mapping from numbered NCI labels to the two winter package variants."
   }
 }
