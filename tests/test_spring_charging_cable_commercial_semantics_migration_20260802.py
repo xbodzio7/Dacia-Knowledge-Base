@@ -24,6 +24,7 @@ class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
             item
             for item in rows("data/master/commercial_item_configurations.csv")
             if item["commercial_item_code"] == "spring_type2_charging_cable_option"
+            and item["source_code"] == "src_pl_spring_brochure_20260219"
         ]
         self.assertEqual(len(mappings), 3)
         self.assertTrue(
