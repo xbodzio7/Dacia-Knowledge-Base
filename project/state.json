@@ -15,9 +15,9 @@
     "quality_run": 34656057381
   },
   "baseline": {
-    "tests": 1925,
+    "tests": 1913,
     "csv_files": 47,
-    "rows": 17276,
+    "rows": 17303,
     "configuration_values": 6746,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 345,
@@ -27,13 +27,13 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "current_price_list_documentary_checkpoint_20260920",
+    "package_id": "full_price_list_option_matrix_reconciliation_004",
     "kind": "documentary_source_assimilation",
-    "name": "Current Price-List Documentary Extraction Checkpoint",
-    "status": "active",
-    "goal": "Record the verified documentary extraction boundary for the current MY26 price-list portfolio while keeping historical dates and source provenance separate.",
-    "pull_request": null,
-    "merge_sha": "23dd76eece0cd3a80cecb1e9df1c85cc565d867c",
+    "name": "Full Price-List Option Matrix Reconciliation",
+    "status": "complete",
+    "goal": "Reconcile the verified current MY26 price-list portfolio and directly evidenced Duster automatic configuration/package observations without overwriting historical documentary values or inferring negative availability.",
+    "pull_request": 683,
+    "merge_sha": null,
     "manifest_paths": [
       "data/reporting/current_price_list_documentary_extraction_checkpoint_20260920.json"
     ],
@@ -53,7 +53,7 @@
         "bigster"
       ],
       "spring_july_stock_option_matrix_materialized": true,
-      "remaining_master_gap": "duster automatic option/package applicability",
+      "remaining_master_gap": "Duster numbered winter package labels remain evidence-only where no unambiguous mapping to the July canonical package names exists.",
       "duster_journey_tribrid_configurator_verified": true,
       "duster_parking_configuration_observation_added": true,
       "duster_journey_ecog120_auto_parking_evidence_added": true,
@@ -66,7 +66,7 @@
   "next_package": {
     "id": "duster_automatic_option_applicability_reconciliation_005",
     "status": "active",
-    "goal": "Read remaining Duster tribrid/Eco-G automatic configurator states and materialize only directly evidenced configuration-level option/package observations.",
+    "goal": "Resolve remaining Duster automatic option/package applicability only where direct documentary or exact current official configurator/NCI evidence provides an unambiguous package identity or explicit mapping.",
     "name": "Duster Automatic Option Applicability Reconciliation"
   },
   "autonomy": {
