@@ -31,6 +31,7 @@ JOGGER_AUTOMATIC = (
     "jogger_journey_5seat_ecog120_automatic",
 )
 DUSTER_SINGLETON = "duster_iii_expression_ecog100_4x2_manual"
+SANDERO_HYBRID155 = "sandero_iii_expression_hybrid155_automatic"
 
 
 class ConfigurationComparisonBundleTests(unittest.TestCase):
@@ -280,6 +281,22 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
                 "comparison-bundle-manifest.json",
                 "configuration-comparison-workbook.xlsx",
             ],
+        )
+
+    def test_scope_with_no_declared_technical_slots_can_still_compare_prices(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "bundle"
+            manifest = create_bundle(
+                REPOSITORY,
+                output,
+                direct_codes=(SANDERO_HYBRID155,),
+            )
+        self.assertEqual(manifest["selected_configuration_count"], 1)
+        self.assertEqual(manifest["singleton_scope_count"], 1)
+        self.assertEqual(manifest["comparable_scope_count"], 0)
+        self.assertEqual(
+            manifest["groups"][0]["configuration_codes"],
+            [SANDERO_HYBRID155],
         )
 
     def test_unknown_code_fails_before_output_publication(self) -> None:
