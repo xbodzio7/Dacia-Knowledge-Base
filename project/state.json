@@ -30,7 +30,7 @@
     "package_id": "current_price_list_documentary_checkpoint_20260920",
     "kind": "documentary_source_assimilation",
     "name": "Current Price-List Documentary Extraction Checkpoint",
-    "status": "in_progress",
+    "status": "evidence_materialization_in_progress",
     "goal": "Record the verified documentary extraction boundary for the current MY26 price-list portfolio while keeping historical dates and source provenance separate.",
     "pull_request": null,
     "merge_sha": "23dd76eece0cd3a80cecb1e9df1c85cc565d867c",
@@ -53,13 +53,15 @@
         "bigster"
       ],
       "spring_july_stock_option_matrix_materialized": true,
-      "remaining_master_gap": "duster automatic option/package applicability"
+      "remaining_master_gap": "duster automatic option/package applicability",
+      "duster_journey_tribrid_configurator_verified": true,
+      "duster_parking_configuration_observation_added": true
     }
   },
   "next_package": {
     "id": "duster_automatic_option_applicability_reconciliation_005",
-    "status": "planned",
-    "goal": "Resolve exact configuration-level applicability of Duster July 2026 option/package rows for automatic configurations using documentary or exact configuration evidence only; do not infer negative availability."
+    "status": "in_progress",
+    "goal": "Read remaining Duster tribrid/Eco-G automatic configurator states and materialize only directly evidenced configuration-level option/package observations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
