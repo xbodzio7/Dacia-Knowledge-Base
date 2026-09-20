@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "kind": "current_price_list_documentary_extraction_checkpoint",
+  "reviewed_on": "2026-09-20",
+  "policy": {
+    "source_first": true,
+    "configurator_used_only_for_gaps": true,
+    "historical_data_overwrite_forbidden": true,
+    "negative_state_inference_forbidden": true
+  },
+  "sources": [
+    {
+      "source_code": "src_pl_sandero_stepway_price_my26_20260703",
+      "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-stepway-price.pdf.asset.pdf/bd9f9519ce.pdf",
+      "pages": 7,
+      "documentary_sections_verified": [
+        "catalogue_prices",
+        "grade_equipment_matrix",
+        "individual_options",
+        "packages",
+        "technical_data",
+        "footnotes_and_effective_date"
+      ],
+      "key_current_matrix": {
+        "tce_100": {"sandero_expression": 68000, "sandero_journey": 73600},
+        "tce_110_stepway": {"essential": 71700, "expression": 76400, "extreme": 82500},
+        "eco_g_120_manual": {"sandero_expression": 68000, "sandero_journey": 73600, "stepway_essential": 71700, "stepway_expression": 76400, "stepway_extreme": 82500},
+        "eco_g_120_auto": {"sandero_expression": 74900, "sandero_journey": 80500, "stepway_expression": 83300, "stepway_extreme": 89400},
+        "hybrid_155": {"sandero_expression": 84600, "sandero_journey": 90200, "stepway_expression": 90700, "stepway_extreme": 96800}
+      },
+      "documentary_boundary": "This 2026-07-03 file is an earlier dated commercial source; the later 2026-08-11 Sandero/Stepway price-list assimilation remains the current commercial snapshot and must not overwrite this historical record."
+    },
+    {
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/73baf27ec0.pdf",
+      "pages": 8,
+      "documentary_sections_verified": [
+        "catalogue_prices",
+        "grade_equipment_matrix",
+        "individual_options_and_packages",
+        "technical_data",
+        "footnotes"
+      ],
+      "catalogue_prices_verified": {
+        "eco_g_120": [82000, 90000, 96000, 96200],
+        "eco_g_120_auto": [null, 96900, 102900, 103100],
+        "mild_hybrid_140": [null, 97600, 103600, 103800],
+        "hybrid_155": [null, 112100, 118100, 118300],
+        "hybrid_g_150_4x4": [null, 119900, 125900, 126100]
+      },
+      "remaining_assimilation_task": "Reconcile every equipment-matrix cell, option/package price and footnote against master availability without projecting across powertrain/drive boundaries."
+    },
+    {
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/51a64d2724.pdf",
+      "pages": 7,
+      "documentary_sections_verified": [
+        "catalogue_prices",
+        "grade_equipment_matrix",
+        "packages",
+        "technical_data",
+        "footnotes"
+      ],
+      "catalogue_prices_verified": {
+        "5_seat": {
+          "eco_g_120_manual": [77900, 82050, 89900, null],
+          "eco_g_120_auto": [null, null, 96800, 98950],
+          "tce_110": [null, 84050, 91900, 94050],
+          "hybrid_155": [null, 103550, 111400, 113550]
+        },
+        "7_seat": {
+          "eco_g_120_manual": [82400, 86550, 94400, null],
+          "eco_g_120_auto": [null, null, 101300, 103450],
+          "tce_110": [null, 88550, 96400, 98550],
+          "hybrid_155": [null, 108050, 115900, 118050]
+        }
+      },
+      "remaining_assimilation_task": "Reconcile all equipment cells, option/package mappings and technical footnotes, preserving five-seat/seven-seat context."
+    },
+    {
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/5edf29d32f.pdf",
+      "pages": 8,
+      "documentary_sections_verified": [
+        "catalogue_prices",
+        "grade_equipment_matrix",
+        "individual_options_and_packages",
+        "technical_data",
+        "footnotes"
+      ],
+      "catalogue_prices_verified": {
+        "mild_hybrid_140": [101400, 110400, 118900, 118500],
+        "mild_hybrid_g_140": [101400, 110400, 118900, 118500],
+        "hybrid_155": [null, 124900, 133400, 133000],
+        "hybrid_g_150_4x4": [null, 128900, 137600, 137200]
+      },
+      "remaining_assimilation_task": "Reconcile every equipment cell, option/package price and technical footnote; preserve repair-kit/spare-wheel/double-floor and measurement-basis context."
+    }
+  ],
+  "spring": {
+    "source_code": "src_pl_spring_price_my25_stock_20260708",
+    "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
+    "status": "priority_full_audit_pending",
+    "known_gap": "The source-audit inventory explicitly records missed FlexiCharger evidence in the full matrix."
+  },
+  "completion_assessment": {
+    "fully_assimilated_sources_in_this_checkpoint": 0,
+    "sources_with_verified_full_documentary_sections": 4,
+    "still_open_price_list_assimilation_sources": [
+      "src_pl_duster_price_my26_py25_20260206",
+      "src_pl_jogger_price_my26_20260401",
+      "src_pl_sandero_stepway_price_my26_20260703",
+      "src_pl_duster_price_my26_20260703",
+      "src_pl_jogger_price_my26_20260703",
+      "src_pl_bigster_price_my26_20260703",
+      "src_pl_spring_price_my25_stock_20260708"
+    ],
+    "still_open_brochure_sources": [
+      "src_pl_bigster_brochure_20251210",
+      "src_pl_jogger_brochure_20251217",
+      "src_pl_sandero_brochure_20260202",
+      "src_pl_sandero_stepway_brochure_20260202",
+      "src_pl_duster_mini_brochure_20251020",
+      "src_pl_spring_brochure_20260219"
+    ],
+    "next_package": "Full documentary option-matrix reconciliation, starting with Spring priority gap and then Duster/Jogger/Bigster 2026-07-03."
+  }
+}
