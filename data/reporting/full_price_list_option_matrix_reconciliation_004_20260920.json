@@ -54,19 +54,23 @@
   },
   "remaining_gap": {
     "model": "duster",
-    "reason": "The documentary price-list matrix gives grade-level package applicability, while the canonical master requires configuration-specific observations for automatic powertrains. Current exact evidence now covers PARKING for Journey tribrid 150 4x4, Extreme tribrid 150 4x4 and Journey Eco-G 120 auto. Winter package evidence for Extreme Eco-G 120 auto is internally inconsistent and remains deferred.",
+    "reason": "The documentary price-list matrix gives grade-level package applicability, while the canonical master requires configuration-specific observations for automatic powertrains. Current exact Dacia configurator, Dacia NCI catalog and dealer evidence now cover several automatic package selections. Package-name conflicts such as ZIMOWY III remain unnormalized.",
     "next_source_strategy": "Use exact configuration/stock/configurator evidence only where documentary sources do not explicitly bind the option to a configuration; do not promote grade-level absence into configuration-level not_available.",
     "materialized": [
       "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — configurator, 2200 PLN",
       "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state, no amount inferred",
-      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred"
+      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred",
+      "duster_winter_expression_journey_package / duster_iii_expression_ecog120_automatic — Dacia NCI exact configuration",
+      "duster_parking_package / duster_iii_extreme_ecog120_automatic — Dacia NCI exact configuration",
+      "duster_techno_1_package / duster_iii_extreme_ecog120_automatic — Dacia NCI exact configuration"
     ],
     "open": [
       "duster_winter_plus_extreme_package / duster_iii_extreme_hybridg150_4x4_automatic",
       "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic",
       "remaining Eco-G 120 automatic exact configuration states",
       "duster_iii_extreme_ecog120_automatic winter package naming conflict",
-      "remaining exact Eco-G 120 automatic configurator states not yet directly read"
+      "remaining exact Eco-G 120 automatic configurator states not yet directly read",
+      "duster_iii_extreme_ecog120_automatic ZIMOWY III label requires explicit normalization decision"
     ]
   },
   "boundaries": [
