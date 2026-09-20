@@ -104,44 +104,46 @@
   "reconciliation_result": {
     "exact_july_prices_ready_for_mapping": [
       [
-        "spring_flexicharger_home_cable__spring_essential_electric70_automatic",
+        "spring_domestic_socket_charging_cable_option__spring_essential_electric70_automatic__price_list_20260708",
         1500
       ],
       [
-        "spring_flexicharger_home_cable__spring_expression_electric70_automatic",
+        "spring_domestic_socket_charging_cable_option__spring_expression_electric70_automatic",
         1500
       ],
       [
-        "spring_flexicharger_home_cable__spring_extreme_electric100_automatic",
+        "spring_domestic_socket_charging_cable_option__spring_extreme_electric100_automatic__price_list_20260708",
         1500
       ],
       [
-        "spring_dc40_charging_option__spring_expression_electric70_automatic",
+        "spring_dc40_charging_option__spring_expression_electric70_automatic__price_list_20260708",
         2750
       ],
       [
-        "spring_techno_package__spring_expression_electric70_automatic",
+        "spring_techno_package__spring_expression_electric70_automatic__price_list_20260708",
         3500
       ],
       [
-        "spring_city_package__spring_extreme_electric100_automatic",
+        "spring_city_package__spring_extreme_electric100_automatic__price_list_20260708",
         1800
       ],
       [
-        "spring_power_package__spring_extreme_electric100_automatic",
+        "spring_power_package__spring_extreme_electric100_automatic__price_list_20260708",
         3000
       ]
     ],
-    "type2_cable_boundary": "The July price list states the Type 2 cable as standard for all three grades. Existing repository representation treats the same commercial item as an optional brochure item and the earlier representation review explicitly marks a dedicated supplied-cable concept as requiring a modeling decision. No master availability mutation is made here.",
-    "package_marker_boundary": "A package marker is not converted to standard or not_available in this reconciliation. Package membership remains represented by commercial-item mappings.",
+    "type2_cable_boundary": "The July price list explicitly marks the Type 2 cable as standard for Essential, Expression and Extreme. This is recorded as a dated standard commercial observation while the earlier February brochure optional observations remain historical.",
+    "package_marker_boundary": "Package-qualified equipment remains represented through commercial-item mappings; no package marker is flattened into a standalone standard equipment row.",
     "promotional_price_boundary": "The 17000 PLN stock discount is not converted into configuration prices because the source does not state exact discounted prices per configuration."
   },
   "acceptance": {
     "source_matrix_extracted": true,
     "exact_option_prices_captured": true,
-    "existing_commercial_item_identity_reused": true,
+    "master_commercial_observations_materialized": true,
     "historical_brochure_data_overwritten": false,
-    "master_data_mutated": false,
-    "next_action": "Map the seven exact dated commercial rows into the existing commercial schema; resolve the Type 2 supplied-cable representation separately before changing its availability semantics."
+    "promotional_price_inference": false,
+    "master_rows_added": 8,
+    "source_page": 4,
+    "next_action": "Continue the same documentary option-matrix reconciliation for any remaining non-Spring master gaps; Spring July stock commercial matrix is materially closed."
   }
 }
