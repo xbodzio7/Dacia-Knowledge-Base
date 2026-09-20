@@ -174,8 +174,8 @@ def verify_partition() -> None:
 def verify_active_scopes() -> None:
     models = active_configuration_models()
     counts = Counter(models.values())
-    ensure(counts["sandero_iii"] == 7, "active Sandero scope differs")
-    ensure(counts["sandero_stepway_iii"] == 8, "active Stepway scope differs")
+    ensure(counts["sandero_iii"] == 9, "active Sandero scope differs")
+    ensure(counts["sandero_stepway_iii"] == 10, "active Stepway scope differs")
     ensure(counts["jogger"] == 22, "active Jogger scope differs")
     ensure(counts["bigster"] == 14, "active Bigster scope differs")
     ensure(counts["duster_iii"] == 30, "active Duster scope differs")
