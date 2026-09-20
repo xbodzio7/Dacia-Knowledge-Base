@@ -276,7 +276,7 @@ def source_relationship_targets() -> dict[str, set[str]]:
 def verify_projection_scopes() -> None:
     configurations, models = active_configuration_models()
     model_counts = Counter(models.values())
-    ensure(model_counts["sandero_iii"] == 7, "active Sandero count differs")
+    ensure(model_counts["sandero_iii"] == 9, "active Sandero count differs")
     ensure(model_counts["jogger"] == 22, "active Jogger count differs")
     ensure(model_counts["duster_iii"] == 30, "active Duster count differs")
 
