@@ -70,7 +70,11 @@ class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
             self.assertEqual(item["currency_code"], "PLN")
             self.assertEqual(item["price_date"], "2026-08-02")
             self.assertEqual(item["source_code"], "src_pl_spring_commercial_context_20260802")
-        expression = next(\n            item for item in mappings\n            if item["configuration_code"] == "spring_expression_electric70_automatic"\n            and item["source_code"] == "src_pl_spring_price_my25_stock_20260708"\n        )
+        expression = next(
+            item for item in mappings
+            if item["configuration_code"] == "spring_expression_electric70_automatic"
+            and item["source_code"] == "src_pl_spring_price_my25_stock_20260708"
+        )
         self.assertEqual(expression["availability_status"], "optional")
         self.assertEqual(expression["amount"], "1500")
         self.assertEqual(expression["currency_code"], "PLN")
