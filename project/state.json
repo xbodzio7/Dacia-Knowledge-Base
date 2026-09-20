@@ -42,12 +42,13 @@
     "package_id": "sandero_hybrid155_configurator_interactive_capture_001",
     "kind": "configurator_evidence_capture",
     "name": "Hybrid 155 Interactive Configurator Capture",
-    "status": "blocked_pending_browser_access",
+    "status": "active",
     "goal": "Enumerate Hybrid 155 option states and dependencies through a reproducible interactive configurator session, if the current public configurator exposes those states, then reconcile the result against the 11.08.2026 equipment matrix before any master-data import.",
     "manifest_paths": [
-      "data/reporting/sandero_hybrid155_automatic_gap_evidence.json"
+      "data/reporting/sandero_hybrid155_automatic_gap_evidence.json",
+      "data/reporting/sandero_hybrid155_configurator_capture_20260920.json"
     ],
-    "blocker": "Generic EasyConnect configurator endpoint is currently unreachable via available fetch tooling; Opera Browser Connector is not connected; TinyFish browser automation has insufficient wallet balance."
+    "blocker": "Browser access is available through the connected Opera session; proceed with documentary-first assimilation and use configurator evidence only for residual gaps/dependencies."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
