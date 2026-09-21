@@ -8,7 +8,7 @@
   "notes_template": "Source page {page}, section {section}: {source_text}",
   "rows": [
     {
-      "configuration_code": "duster_iii_journey_hybrid155_automatic",
+      "configuration_code": "duster_iii_journey_hybrid155_4x2_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "451",
@@ -19,7 +19,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_essential_ecog120_manual",
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "455",
@@ -30,7 +30,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_expression_ecog120_manual",
+      "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "455",
@@ -41,7 +41,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_extreme_ecog120_manual",
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "455",
@@ -52,7 +52,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_journey_ecog120_manual",
+      "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "455",
@@ -96,7 +96,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_expression_mildhybrid140_manual",
+      "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "454",
@@ -107,7 +107,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_extreme_mildhybrid140_manual",
+      "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "454",
@@ -118,7 +118,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_journey_mildhybrid140_manual",
+      "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "454",
