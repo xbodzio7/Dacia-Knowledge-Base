@@ -8,17 +8,6 @@
   "notes_template": "Source page {page}, section {section}: {source_text}",
   "rows": [
     {
-      "configuration_code": "duster_iii_extreme_hybrid155_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "4.8",
-      "maximum_value": "4.8",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_journey_hybrid155_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
@@ -30,77 +19,11 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_journey_hybrid155_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "109",
-      "maximum_value": "109",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_hybrid155_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "4.8",
-      "maximum_value": "4.8",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_essential_ecog120_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "455",
       "maximum_value": "487",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_essential_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "122",
-      "maximum_value": "122",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_essential_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_essential_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_essential_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
       "lower_inclusive": true,
       "upper_inclusive": true,
       "source_code": "src_pl_duster_price_my26_20260703",
@@ -118,50 +41,6 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_expression_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "122",
-      "maximum_value": "122",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_extreme_ecog120_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
@@ -173,99 +52,11 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_extreme_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "122",
-      "maximum_value": "122",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_journey_ecog120_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "455",
       "maximum_value": "487",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "122",
-      "maximum_value": "122",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
       "lower_inclusive": true,
       "upper_inclusive": true,
       "source_code": "src_pl_duster_price_my26_20260703",
@@ -283,99 +74,11 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "123",
-      "maximum_value": "123",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "7.6",
-      "maximum_value": "7.6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "123",
-      "maximum_value": "123",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.6",
-      "maximum_value": "7.6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "454",
       "maximum_value": "477",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "123",
-      "maximum_value": "123",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "7.6",
-      "maximum_value": "7.6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "123",
-      "maximum_value": "123",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.6",
-      "maximum_value": "7.6",
       "lower_inclusive": true,
       "upper_inclusive": true,
       "source_code": "src_pl_duster_price_my26_20260703",
@@ -393,77 +96,11 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "123",
-      "maximum_value": "123",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "7.6",
-      "maximum_value": "7.6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "123",
-      "maximum_value": "123",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.6",
-      "maximum_value": "7.6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_expression_mildhybrid140_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "454",
       "maximum_value": "528",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_mildhybrid140_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "125",
-      "maximum_value": "125",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_mildhybrid140_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "5.5",
-      "maximum_value": "5.5",
       "lower_inclusive": true,
       "upper_inclusive": true,
       "source_code": "src_pl_duster_price_my26_20260703",
@@ -481,28 +118,6 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_extreme_mildhybrid140_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "125",
-      "maximum_value": "125",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_mildhybrid140_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "5.5",
-      "maximum_value": "5.5",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_journey_mildhybrid140_manual",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
@@ -514,77 +129,11 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_journey_mildhybrid140_manual",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "125",
-      "maximum_value": "125",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_mildhybrid140_manual",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "5.5",
-      "maximum_value": "5.5",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "460",
       "maximum_value": "481",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "135",
-      "maximum_value": "135",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
       "lower_inclusive": true,
       "upper_inclusive": true,
       "source_code": "src_pl_duster_price_my26_20260703",
@@ -602,50 +151,6 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "135",
-      "maximum_value": "135",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
       "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
@@ -657,51 +162,7 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "135",
-      "maximum_value": "135",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "6",
-      "maximum_value": "6",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg",
-      "minimum_value": "118",
-      "maximum_value": "118",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg",
-      "minimum_value": "7.3",
-      "maximum_value": "7.3",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_hybrid155_automatic",
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "451",
@@ -712,44 +173,11 @@
       "source_text": "Official July 2026 price list, technical table, page 5"
     },
     {
-      "configuration_code": "duster_iii_expression_hybrid155_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "109",
-      "maximum_value": "109",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_expression_hybrid155_automatic",
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol",
-      "minimum_value": "4.8",
-      "maximum_value": "4.8",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_hybrid155_automatic",
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
       "attribute_code": "maximum_payload",
       "fuel_type_code": "",
       "minimum_value": "451",
       "maximum_value": "525",
-      "lower_inclusive": true,
-      "upper_inclusive": true,
-      "source_code": "src_pl_duster_price_my26_20260703",
-      "source_text": "Official July 2026 price list, technical table, page 5"
-    },
-    {
-      "configuration_code": "duster_iii_extreme_hybrid155_automatic",
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol",
-      "minimum_value": "109",
-      "maximum_value": "109",
       "lower_inclusive": true,
       "upper_inclusive": true,
       "source_code": "src_pl_duster_price_my26_20260703",
