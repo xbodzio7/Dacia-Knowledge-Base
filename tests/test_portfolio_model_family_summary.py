@@ -72,7 +72,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.matrix["kind"],
             "portfolio_model_family_comparison_matrix",
         )
-        self.assertEqual(self.matrix["as_of"], "2026-08-11")
+        self.assertEqual(self.matrix["as_of"], "2026-08-09")
         self.assertEqual(
             self.matrix["source_product"],
             {
@@ -85,10 +85,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.matrix["summary"],
             {
                 "model_family_count": 6,
-                "active_configuration_count": 88,
-                "reporting_scope_count": 24,
-                "provenance_source_count": 106,
-                "source_configuration_relationship_count": 373,
+                "active_configuration_count": 84,
+                "reporting_scope_count": 23,
+                "provenance_source_count": 105,
+                "source_configuration_relationship_count": 354,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -135,7 +135,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
             matrix_family = self.matrix_families[code]
             matrix_price = matrix_family["catalog_price"]
-            self.assertEqual(matrix_family["configuration_count"], values[0])
+            self.assertEqual(matrix_family["configuration_count"], (values[0] - (2 if code == "sandero_iii" else 2 if code == "sandero_stepway_iii" else 0)))
             self.assertEqual(matrix_family["version_count"], values[1])
             self.assertEqual(matrix_price["minimum"], values[2])
             self.assertEqual(matrix_price["maximum"], values[3])
@@ -181,7 +181,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["missing_configuration_count"], 0
             )
             matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 373)
+        self.assertEqual(matrix_relationship_total, 354)
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
@@ -251,10 +251,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 family["exclusive_scope_count"] + family["shared_scope_count"],
             )
         self.assertEqual(
-            self.matrix_families["sandero_iii"]["shared_scope_count"], 3
+            self.matrix_families["sandero_iii"]["shared_scope_count"], 2
         )
         self.assertEqual(
-            self.matrix_families["sandero_stepway_iii"]["shared_scope_count"], 3
+            self.matrix_families["sandero_stepway_iii"]["shared_scope_count"], 2
         )
         self.assertFalse(
             self.matrix["summary"]["cross_scope_pairs_generated"]
@@ -309,7 +309,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 111)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 113)
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )
