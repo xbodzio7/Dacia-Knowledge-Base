@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "observation_date": "2026-07-03",
+  "source_page": 5,
+  "source_section": "SILNIKI/OSIĄGI/MASY/BAGAŻNIK",
+  "source_code": "src_pl_duster_price_my26_20260703",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
+      "fuel_type_code": "",
+      "value": "439",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Source page 6, section POJEMNOŚĆ BAGAŻNIKA: Bez koła zapasowego 439"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
+      "fuel_type_code": "",
+      "value": "439",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Source page 6, section POJEMNOŚĆ BAGAŻNIKA: Bez koła zapasowego 439"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
+      "fuel_type_code": "",
+      "value": "439",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Source page 6, section POJEMNOŚĆ BAGAŻNIKA: Bez koła zapasowego 439"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": "",
+      "value": "1373",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Source page 6, section POJEMNOŚĆ BAGAŻNIKA: Maksymalna pojemność bagażnika 1373"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": "",
+      "value": "1373",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Source page 6, section POJEMNOŚĆ BAGAŻNIKA: Maksymalna pojemność bagażnika 1373"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": "",
+      "value": "1373",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Source page 6, section POJEMNOŚĆ BAGAŻNIKA: Maksymalna pojemność bagażnika 1373"
+    }
+  ]
+}

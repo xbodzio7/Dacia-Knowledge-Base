@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "observation_date": "2026-07-03",
+  "source_page": 5,
+  "source_section": "SILNIKI/OSIĄGI/MASY/BAGAŻNIK",
+  "source_code": "src_pl_duster_price_my26_20260703",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": []
+}
