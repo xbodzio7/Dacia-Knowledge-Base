@@ -167,14 +167,10 @@ def existing_import_semantics(
         return result
     for path in sorted(root.glob("*.json")):
         payload = read_json(path, f"import specification {path.name}")
-        top_level_attribute = payload.get("attribute_code")
-        if top_level_attribute is None:
-            attribute_code = ""
-        else:
-            attribute_code = require_string(
-                top_level_attribute,
-                f"{path.name}.attribute_code",
-            )
+        attribute_code = require_string(
+            payload.get("attribute_code"),
+            f"{path.name}.attribute_code",
+        )
         observation_date = require_string(
             payload.get("observation_date"),
             f"{path.name}.observation_date",
@@ -195,11 +191,6 @@ def existing_import_semantics(
                 item.get("configuration_code"),
                 f"{path.name}.configuration_code",
             )
-            row_attribute = item.get("attribute_code", attribute_code)
-            row_attribute = require_string(
-                row_attribute,
-                f"{path.name}.row.attribute_code",
-            )
             fuel_type_code = require_string(
                 item.get("fuel_type_code", default_fuel),
                 f"{path.name}.row.fuel_type_code",
@@ -212,7 +203,7 @@ def existing_import_semantics(
             )
             semantic = (
                 configuration_code,
-                row_attribute,
+                attribute_code,
                 fuel_type_code,
                 gear_number,
                 observation_date,
