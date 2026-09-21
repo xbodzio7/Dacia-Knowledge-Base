@@ -59,7 +59,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "within_scope_pair_count": 139,
                 "provenance_source_count": 106,
                 "source_configuration_relationship_count": 373,
-                "configurations_with_provenance_count": 84,
+                "configurations_with_provenance_count": 88,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
