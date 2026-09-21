@@ -19,9 +19,9 @@
 - Tests: 1930
 - Master CSV files: 47
 - Master rows: 18325
-- Configuration values: 7612
+- Configuration values: 7664
 - Configuration import specifications: 143
-- Configuration value ranges: 477
+- Configuration value ranges: 425
 - Configuration range import specifications: 26
 - Availability records: 7567
 - Canonical attributes: 416
@@ -35,7 +35,7 @@ Materialize the remaining Duster and Jogger July 2026 technical source matrices 
 
 ## Next package
 
-**Bigster Documentary Technical Reconciliation** — `pending`
+**Bigster Documentary Technical Reconciliation** — `planned`
 
 Continue source-first reconciliation of the remaining Bigster July 2026 technical and equipment documentary matrices, then remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.
 
