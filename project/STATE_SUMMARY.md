@@ -36,13 +36,13 @@
 
 ## Current package
 
-**Duster/Jogger July Technical Documentary Reconciliation** — `active`"
+**Duster/Jogger July Technical Documentary Reconciliation** — `active`
 
 Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.
 
 ## Next package
 
-**Bigster Documentary Technical Reconciliation** — `planned`,"
+**Bigster Documentary Technical Reconciliation** — `planned`
 Prepare Bigster documentary technical and equipment reconciliation after Duster/Jogger technical package 007 is merged; remain source-first and do not use configurator evidence until documentary pass is closed.
 
 ## Autonomy
