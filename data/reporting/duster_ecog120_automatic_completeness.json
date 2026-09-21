@@ -4,18 +4,22 @@
   "configurations": [
     {
       "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
-      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724"
+      "source_code": "src_pl_duster_price_my26_20260703"
     },
     {
       "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
-      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724"
+      "source_code": "src_pl_duster_price_my26_20260703"
     },
     {
       "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
-      "source_code": "src_pl_duster_ecog120_automatic_stock_20260724"
+      "source_code": "src_pl_duster_price_my26_20260703"
     }
   ],
   "technical_slots": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": ""
+    },
     {
       "attribute_code": "acceleration_0_100",
       "fuel_type_code": "lpg"
@@ -41,6 +45,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "drive_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "emission_standard",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "engine_displacement",
       "fuel_type_code": ""
     },
@@ -61,6 +73,10 @@
       "fuel_type_code": "petrol"
     },
     {
+      "attribute_code": "engine_type",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": "lpg"
     },
@@ -73,7 +89,15 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol"
+    },
+    {
       "attribute_code": "gear_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gearbox_type",
       "fuel_type_code": ""
     },
     {
@@ -83,6 +107,14 @@
     {
       "attribute_code": "gross_vehicle_weight",
       "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "kerb_weight",
@@ -110,6 +142,10 @@
     },
     {
       "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "minimum_kerb_weight",
       "fuel_type_code": ""
     },
     {
