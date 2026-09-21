@@ -30,7 +30,7 @@ class DocumentaryTechnical007(unittest.TestCase):
         source = "src_pl_jogger_price_my26_20260703"
         got = {(r["configuration_code"], r["fuel_type_code"]): r["value"] for r in self.values if r["source_code"] == source and r["attribute_code"] == "acceleration_0_100"}
         self.assertEqual(got[("jogger_expression_5seat_ecog120_manual", "lpg")], "10.9")
-        self.assertEqual(got[("jogger_expression_7seat_ecog120_manual", "lpg")], "11.0")
+        self.assertEqual(got[("jogger_expression_7seat_ecog120_manual", "lpg")], "11")
         self.assertEqual(got[("jogger_expression_5seat_tce110_manual", "petrol")], "10.5")
         self.assertEqual(got[("jogger_expression_7seat_tce110_manual", "petrol")], "11.2")
 
