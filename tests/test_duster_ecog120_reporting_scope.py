@@ -13,7 +13,7 @@ import configuration_completeness as completeness  # noqa: E402
 import configuration_comparison as comparison  # noqa: E402
 import source_coverage  # noqa: E402
 
-AS_OF = "2026-02-06"
+AS_OF = "2026-07-03"
 SCOPES = {
     "ecog100": {
         "spec": REPOSITORY / "data" / "reporting" / "duster_ecog100_completeness.json",
