@@ -12,7 +12,7 @@
       "journey": 4,
       "total": 26
     },
-    "direct_source_observations_added": 23,
+    "direct_source_observations_added": 0,
     "unresolved": 3,
     "unresolved_items": [
       {
@@ -30,7 +30,9 @@
         "attribute_code": "passenger_seat_adjustment",
         "reason": "July matrix exposes passenger-seat height adjustment, not generic passenger_seat_adjustment semantics."
       }
-    ]
+    ],
+    "source_mapped_but_not_materialized": 23,
+    "materialization_status": "pending_safe_large_csv_write"
   },
   "policy": {
     "source_first": true,
@@ -157,5 +159,9 @@
       "availability_status": "not_available"
     }
   ],
-  "next_step": "Continue July documentary reconciliation with Jogger and Bigster; do not use configurator observations to fill documentary gaps."
+  "next_step": "Use a safe repository-side large-file update path to materialize the 23 mapped rows; until then they remain documented source mappings only.",
+  "verification": {
+    "master_availability_restored_to_base": true,
+    "materialized_rows_added": 0
+  }
 }
