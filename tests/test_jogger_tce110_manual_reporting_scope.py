@@ -12,7 +12,7 @@ import configuration_completeness as completeness  # noqa: E402
 import configuration_comparison as comparison  # noqa: E402
 import source_coverage  # noqa: E402
 
-AS_OF = "2026-04-01"
+AS_OF = "2026-07-03"
 SPEC = REPOSITORY / "data/reporting/jogger_tce110_manual_completeness.json"
 EVIDENCE = REPOSITORY / "data/reporting/jogger_tce110_manual_gap_evidence.spec"
 CONFIGURATIONS = {
