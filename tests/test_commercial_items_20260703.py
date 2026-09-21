@@ -42,7 +42,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
-            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09"},
+            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20"},
         )
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
