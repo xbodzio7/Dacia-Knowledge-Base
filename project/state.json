@@ -30,7 +30,7 @@
     "package_id": "duster_jogger_documentary_technical_reconciliation_007",
     "kind": "documentary_source_assimilation",
     "name": "Duster/Jogger July Technical Documentary Reconciliation",
-    "status": "complete",
+    "status": "active",
     "goal": "Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.",
     "pull_request": 686,
     "merge_sha": null,
@@ -53,9 +53,9 @@
   "next_package": {
     "id": "bigster_documentary_technical_reconciliation_008",
     "package_id": "bigster_documentary_technical_reconciliation_008",
-    "status": "active",
+    "status": "pending",
     "name": "Bigster Documentary Technical Reconciliation",
-    "goal": "Continue source-first reconciliation of the remaining Bigster July 2026 technical and equipment documentary matrices, then remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.",
+    "goal": "Prepare Bigster documentary technical and equipment reconciliation after Duster/Jogger technical package 007 is merged; remain source-first and do not use configurator evidence until documentary pass is closed.",
     "progress": {
       "bigster_commercial_matrix_reconciled": true,
       "bigster_technical_matrix_open": true,
