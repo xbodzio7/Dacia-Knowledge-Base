@@ -26,18 +26,18 @@ jobs:
       - name: Generate reporting artifacts
         run: |
           python tools/dkb.py configuration-completeness \
-            --spec data/reporting/jogger_hybrid155_automatic_completeness.json \
+            --spec data/reporting/historical/jogger_hybrid155_automatic_completeness.json \
             --as-of 2026-04-01 \
             --json "${RUNNER_TEMP}/jogger-hybrid155-automatic-completeness.json" \
             --markdown "${RUNNER_TEMP}/jogger-hybrid155-automatic-completeness.md"
           python tools/dkb.py source-coverage \
-            --spec data/reporting/jogger_hybrid155_automatic_completeness.json \
+            --spec data/reporting/historical/jogger_hybrid155_automatic_completeness.json \
             --as-of 2026-04-01 \
             --json "${RUNNER_TEMP}/jogger-hybrid155-automatic-source-coverage.json" \
             --markdown "${RUNNER_TEMP}/jogger-hybrid155-automatic-source-coverage.md"
           python tools/dkb.py configuration-comparison \
-            --completeness-spec data/reporting/jogger_hybrid155_automatic_completeness.json \
-            --evidence-spec data/reporting/jogger_hybrid155_automatic_gap_evidence.spec \
+            --completeness-spec data/reporting/historical/jogger_hybrid155_automatic_completeness.json \
+            --evidence-spec data/reporting/historical/jogger_hybrid155_automatic_gap_evidence.spec \
             --as-of 2026-04-01 \
             --json "${RUNNER_TEMP}/jogger-hybrid155-automatic-comparison.json" \
             --markdown "${RUNNER_TEMP}/jogger-hybrid155-automatic-comparison.md" \

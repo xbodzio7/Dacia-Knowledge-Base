@@ -13,7 +13,7 @@ import configuration_comparison as comparison  # noqa: E402
 import source_coverage  # noqa: E402
 
 AS_OF = "2026-07-03"
-SPEC = REPOSITORY / "data/reporting/jogger_hybrid155_automatic_completeness_20260703.json"
+SPEC = REPOSITORY / "data/reporting/jogger_hybrid155_automatic_completeness.json"
 EVIDENCE = REPOSITORY / "data/reporting/jogger_hybrid155_automatic_gap_evidence_20260703.spec"
 CONFIGURATIONS = {
     "jogger_expression_5seat_hybrid155_automatic",

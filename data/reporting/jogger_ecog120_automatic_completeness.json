@@ -4,19 +4,19 @@
   "configurations": [
     {
       "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "source_code": "src_pl_jogger_price_my26_20260703"
     },
     {
       "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "source_code": "src_pl_jogger_price_my26_20260703"
     },
     {
       "configuration_code": "jogger_journey_5seat_ecog120_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "source_code": "src_pl_jogger_price_my26_20260703"
     },
     {
       "configuration_code": "jogger_journey_7seat_ecog120_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "source_code": "src_pl_jogger_price_my26_20260703"
     }
   ],
   "technical_slots": [
@@ -57,6 +57,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "drive_type",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "elasticity_80_120",
       "fuel_type_code": "lpg",
       "gear_number": "4"
@@ -89,6 +93,10 @@
     {
       "attribute_code": "engine_torque",
       "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "engine_type",
+      "fuel_type_code": ""
     },
     {
       "attribute_code": "front_overhang",
@@ -183,11 +191,11 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width",
+      "attribute_code": "overall_width_with_mirrors",
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width_with_mirrors",
+      "attribute_code": "overall_width",
       "fuel_type_code": ""
     },
     {
