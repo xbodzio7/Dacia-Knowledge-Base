@@ -44,7 +44,7 @@ Complete source-first assimilation of the remaining cenniki and brochures into m
 
 **Duster/Jogger/Bigster Documentary Master Reconciliation** — `active`
 
-Continue the source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.
+Continue the source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; the Jogger/Bigster commercial option/package matrix checkpoint is now reconciled, while equipment and technical source-to-master reconciliation remains open. Do not use configurator evidence until the documentary source-to-master pass is closed.
 
 ## Autonomy
 
