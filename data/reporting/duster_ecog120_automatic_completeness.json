@@ -41,6 +41,10 @@
       "fuel_type_code": "lpg"
     },
     {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol"
+    },
+    {
       "attribute_code": "cylinder_count",
       "fuel_type_code": ""
     },
