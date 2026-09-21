@@ -1,0 +1,4123 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "observation_date": "2026-07-03",
+  "source_page": 5,
+  "source_section": "SILNIKI/OSIĄGI/MASY/BAGAŻNIK",
+  "source_code": "src_pl_jogger_price_my26_20260703",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1292",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1765",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1292",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1765",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1292",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1765",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1321",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1940",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "11",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1321",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1940",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "11",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1321",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1940",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "11",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "dct",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1326",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1785",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "dct",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1326",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1785",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "dct",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1354",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1960",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.7",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.7",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "dct",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1199",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1354",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1960",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "84",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "190",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.7",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "lpg",
+      "value": "90",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg",
+      "value": "197",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg",
+      "value": "port_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "lpg",
+      "value": "10.7",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "999",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1193",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1685",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "81",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "10.5",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "999",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1193",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1685",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "81",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "10.5",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "999",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1193",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1685",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "81",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "10.5",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "999",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1221",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1855",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "81",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.2",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "999",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1221",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1855",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "81",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.2",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "manual",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "6",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "ice",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "999",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "3",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "12",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1221",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1855",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "81",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "direct_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "11.2",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "hybrid",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "hev",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1789",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "16",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1359",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1830",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "80",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "172",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "multipoint_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "8.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": "",
+      "value": "116",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": "",
+      "value": "36",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": "",
+      "value": "15",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_torque",
+      "fuel_type_code": "",
+      "value": "205",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_voltage",
+      "fuel_type_code": "",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "hybrid",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "hev",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1789",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "16",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1359",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1830",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "80",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "172",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "multipoint_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "8.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": "",
+      "value": "116",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": "",
+      "value": "36",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": "",
+      "value": "15",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_torque",
+      "fuel_type_code": "",
+      "value": "205",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_voltage",
+      "fuel_type_code": "",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "hybrid",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "hev",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1789",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "16",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1359",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "1830",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "708",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "607",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "80",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "172",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "multipoint_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "8.9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": "",
+      "value": "116",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": "",
+      "value": "36",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": "",
+      "value": "15",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_torque",
+      "fuel_type_code": "",
+      "value": "205",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_voltage",
+      "fuel_type_code": "",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "hybrid",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "hev",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1789",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "16",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1388",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "2000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "80",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "172",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "multipoint_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": "",
+      "value": "116",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": "",
+      "value": "36",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": "",
+      "value": "15",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_torque",
+      "fuel_type_code": "",
+      "value": "205",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_voltage",
+      "fuel_type_code": "",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "hybrid",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "hev",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1789",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "16",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1388",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "2000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "80",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "172",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "multipoint_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": "",
+      "value": "116",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": "",
+      "value": "36",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": "",
+      "value": "15",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_torque",
+      "fuel_type_code": "",
+      "value": "205",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_voltage",
+      "fuel_type_code": "",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "drive_type",
+      "fuel_type_code": "",
+      "value": "fwd",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": "",
+      "value": "hybrid",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "gear_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "engine_type",
+      "fuel_type_code": "",
+      "value": "hev",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "emission_standard",
+      "fuel_type_code": "",
+      "value": "euro_6e_bis",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": "",
+      "value": "1789",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": "",
+      "value": "4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": "",
+      "value": "16",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "top_speed",
+      "fuel_type_code": "",
+      "value": "180",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol",
+      "value": "50",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": "",
+      "value": "1388",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": "",
+      "value": "2000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": "",
+      "value": "1000",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_luggage_cover",
+      "fuel_type_code": "",
+      "value": "160",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "cargo_volume_vda_to_seatback",
+      "fuel_type_code": "",
+      "value": "506",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol",
+      "value": "80",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol",
+      "value": "172",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol",
+      "value": "multipoint_injection",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol",
+      "value": "9",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "fuel_type_code": "",
+      "value": "116",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_power",
+      "fuel_type_code": "",
+      "value": "36",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "starter_generator_power",
+      "fuel_type_code": "",
+      "value": "15",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "traction_motor_torque",
+      "fuel_type_code": "",
+      "value": "205",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_voltage",
+      "fuel_type_code": "",
+      "value": "200",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": "",
+      "value": "1.4",
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    }
+  ]
+}
