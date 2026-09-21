@@ -120,7 +120,11 @@ class ProjectStateContractTests(unittest.TestCase):
     def test_repository_baseline_matches_canonical_state(self) -> None:
         state = project_state.read_state(REPOSITORY / "project" / "state.json")
         live = documentation_baseline.collect_baseline(REPOSITORY)
-        self.assertEqual(project_state.baseline_drift(state, live), [])
+        self.assertEqual(
+            project_state.baseline_drift(state, live),
+            [],
+            f"baseline drift: state={state['baseline']!r}; live={live!r}",
+        )
         self.assertEqual(
             documentation_baseline.check_documents(REPOSITORY, live),
             [],
