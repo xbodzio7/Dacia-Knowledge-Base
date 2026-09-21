@@ -3,34 +3,30 @@
   "configuration_status": "active",
   "configurations": [
     {
-      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260703"
     },
     {
-      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260703"
     },
     {
-      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260703"
     },
     {
-      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
-    },
-    {
-      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
-    },
-    {
-      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
-      "source_code": "src_pl_jogger_price_my26_20260401"
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260703"
     }
   ],
   "technical_slots": [
     {
       "attribute_code": "acceleration_0_100",
-      "fuel_type_code": ""
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "boot_capacity",
@@ -50,11 +46,24 @@
     },
     {
       "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "co2_emissions",
       "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "cylinder_count",
       "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "drive_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "elasticity_80_120",
+      "fuel_type_code": "lpg",
+      "gear_number": "4"
     },
     {
       "attribute_code": "elasticity_80_120",
@@ -71,10 +80,22 @@
     },
     {
       "attribute_code": "engine_power",
-      "fuel_type_code": ""
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "engine_torque",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "engine_type",
       "fuel_type_code": ""
     },
     {
@@ -91,10 +112,18 @@
     },
     {
       "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "gear_count",
       "fuel_type_code": ""
     },
     {
@@ -110,32 +139,36 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "hybrid_battery_capacity_source_stated",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "hybrid_battery_type",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "hybrid_battery_voltage",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "hybrid_system_power_total",
-      "fuel_type_code": ""
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg"
     },
     {
       "attribute_code": "injection_type",
-      "fuel_type_code": ""
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "lpg_vessel_capacity_total",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "lpg_vessel_filling_capacity",
+      "fuel_type_code": "lpg"
     },
     {
       "attribute_code": "max_power_rpm",
-      "fuel_type_code": ""
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "max_torque_rpm",
-      "fuel_type_code": ""
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "maximum_payload",
@@ -158,11 +191,11 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width",
+      "attribute_code": "overall_width_with_mirrors",
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width_with_mirrors",
+      "attribute_code": "overall_width",
       "fuel_type_code": ""
     },
     {
@@ -186,7 +219,7 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "starter_generator_power",
+      "attribute_code": "start_stop_system",
       "fuel_type_code": ""
     },
     {
@@ -195,14 +228,6 @@
     },
     {
       "attribute_code": "total_valve_count",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "traction_motor_power",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "traction_motor_torque",
       "fuel_type_code": ""
     },
     {

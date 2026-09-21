@@ -4,27 +4,27 @@
   "configurations": [
     {
       "configuration_code": "jogger_expression_5seat_tce110_manual",
-      "source_code": "src_pl_jogger_price_my26_20260703"
+      "source_code": "src_pl_jogger_price_my26_20260401"
     },
     {
       "configuration_code": "jogger_extreme_5seat_tce110_manual",
-      "source_code": "src_pl_jogger_price_my26_20260703"
+      "source_code": "src_pl_jogger_price_my26_20260401"
     },
     {
       "configuration_code": "jogger_journey_5seat_tce110_manual",
-      "source_code": "src_pl_jogger_price_my26_20260703"
+      "source_code": "src_pl_jogger_price_my26_20260401"
     },
     {
       "configuration_code": "jogger_expression_7seat_tce110_manual",
-      "source_code": "src_pl_jogger_price_my26_20260703"
+      "source_code": "src_pl_jogger_price_my26_20260401"
     },
     {
       "configuration_code": "jogger_extreme_7seat_tce110_manual",
-      "source_code": "src_pl_jogger_price_my26_20260703"
+      "source_code": "src_pl_jogger_price_my26_20260401"
     },
     {
       "configuration_code": "jogger_journey_7seat_tce110_manual",
-      "source_code": "src_pl_jogger_price_my26_20260703"
+      "source_code": "src_pl_jogger_price_my26_20260401"
     }
   ],
   "technical_slots": [
@@ -61,10 +61,6 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "drive_type",
-      "fuel_type_code": ""
-    },
-    {
       "attribute_code": "elasticity_80_120",
       "fuel_type_code": "petrol",
       "gear_number": "4"
@@ -82,19 +78,7 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "engine_power",
-      "fuel_type_code": "petrol"
-    },
-    {
       "attribute_code": "engine_torque",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "engine_torque",
-      "fuel_type_code": "petrol"
-    },
-    {
-      "attribute_code": "engine_type",
       "fuel_type_code": ""
     },
     {
@@ -118,10 +102,6 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol"
-    },
-    {
       "attribute_code": "gear_count",
       "fuel_type_code": ""
     },
@@ -140,10 +120,6 @@
     {
       "attribute_code": "injection_type",
       "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "injection_type",
-      "fuel_type_code": "petrol"
     },
     {
       "attribute_code": "max_power_rpm",
@@ -174,11 +150,11 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width_with_mirrors",
+      "attribute_code": "overall_width",
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width",
+      "attribute_code": "overall_width_with_mirrors",
       "fuel_type_code": ""
     },
     {
