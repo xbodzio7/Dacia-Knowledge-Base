@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-09-20",
+  "updated_on": "2026-09-21",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -68,11 +68,11 @@
     }
   },
   "next_package": {
-    "id": "duster_automatic_option_applicability_reconciliation_005",
+    "id": "full_documentary_option_matrix_reconciliation_005",
     "status": "active",
-    "goal": "Resolve remaining Duster automatic option/package applicability only where direct documentary or exact current official configurator/NCI evidence provides an unambiguous package identity or explicit mapping.",
-    "name": "Duster Automatic Option Applicability Reconciliation",
-    "package_id": "duster_automatic_option_applicability_reconciliation_005"
+    "goal": "Complete source-first assimilation of the remaining price lists and brochures before configurator gap-filling, starting with Spring MY25 stock FlexiCharger evidence and then Duster, Jogger and Bigster July 2026-07-03 documentary matrices plus the remaining brochure sources.",
+    "name": "Full Documentary Option-Matrix Reconciliation",
+    "package_id": "full_documentary_option_matrix_reconciliation_005"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
