@@ -68,7 +68,8 @@
       ],
       "duster_july_automatic_matrix_gap_reconciliation_added": 23,
       "duster_july_automatic_matrix_gap_reconciliation_unresolved": 3,
-      "duster_july_automatic_matrix_gap_reconciliation_verified_mapping_count": 23
+      "duster_july_automatic_matrix_gap_reconciliation_verified_mapping_count": 23,
+      "duster_jogger_bigster_commercial_matrix_reconciled": true
     }
   },
   "next_package": {
@@ -76,7 +77,18 @@
     "status": "active",
     "goal": "Continue source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.",
     "name": "Duster/Jogger/Bigster Documentary Master Reconciliation",
-    "package_id": "duster_jogger_bigster_documentary_master_reconciliation_006"
+    "package_id": "duster_jogger_bigster_documentary_master_reconciliation_006",
+    "progress": {
+      "duster_jogger_bigster_commercial_matrix_reconciled": true,
+      "jogger_commercial_items_verified": 6,
+      "jogger_commercial_item_configuration_rows_verified": 42,
+      "bigster_commercial_items_verified": 7,
+      "bigster_commercial_item_configuration_rows_verified": 48
+    },
+    "manifest_paths": [
+      "data/reporting/duster_jogger_bigster_commercial_matrix_reconciliation_20260921.json"
+    ],
+    "current_boundary": "Commercial option/package matrices for Jogger and Bigster are reconciled against the existing master commercial registries; equipment and technical source-to-master reconciliation remains open."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
