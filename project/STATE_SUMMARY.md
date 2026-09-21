@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Full Price-List Option Matrix Reconciliation** — `complete`
+**Full Documentary Option-Matrix Reconciliation** — `active`
 
-Reconcile the verified current MY26 price-list portfolio and directly evidenced Duster automatic configuration/package observations without overwriting historical documentary values or inferring negative availability.
+Complete source-first assimilation of the remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.
 
 ## Next package
 
-**Full Documentary Option-Matrix Reconciliation** — `active`
+**Duster/Jogger/Bigster Documentary Master Reconciliation** — `planned`
 
-Complete source-first assimilation of the remaining price lists and brochures before configurator gap-filling, starting with Spring MY25 stock FlexiCharger evidence and then Duster, Jogger and Bigster July 2026-07-03 documentary matrices plus the remaining brochure sources.
+Reconcile the remaining July 2026 documentary matrix sections after package 005 closes the source-first documentary pass.
 
 ## Autonomy
 
