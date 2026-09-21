@@ -72,7 +72,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.matrix["kind"],
             "portfolio_model_family_comparison_matrix",
         )
-        self.assertEqual(self.matrix["as_of"], "2026-08-11")
+        self.assertEqual(self.matrix["as_of"], "2026-08-09")
         self.assertEqual(
             self.matrix["source_product"],
             {
@@ -85,10 +85,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.matrix["summary"],
             {
                 "model_family_count": 6,
-                "active_configuration_count": 88,
-                "reporting_scope_count": 24,
-                "provenance_source_count": 106,
-                "source_configuration_relationship_count": 373,
+                "active_configuration_count": 84,
+                "reporting_scope_count": 23,
+                "provenance_source_count": 105,
+                "source_configuration_relationship_count": 354,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -181,7 +181,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["missing_configuration_count"], 0
             )
             matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 373)
+        self.assertEqual(matrix_relationship_total, 354)
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
@@ -309,7 +309,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 111)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 113)
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )
