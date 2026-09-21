@@ -86,7 +86,8 @@
       "bigster_commercial_item_configuration_rows_verified": 48
     },
     "manifest_paths": [
-      "data/reporting/duster_jogger_bigster_commercial_matrix_reconciliation_20260921.json"
+      "data/reporting/duster_jogger_bigster_commercial_matrix_reconciliation_20260921.json",
+      "tests/test_duster_jogger_bigster_documentary_source_counts_20260703.py"
     ],
     "current_boundary": "Commercial option/package matrices for Jogger and Bigster are reconciled against the existing master commercial registries; equipment and technical source-to-master reconciliation remains open."
   },
