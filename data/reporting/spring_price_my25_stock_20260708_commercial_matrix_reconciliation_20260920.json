@@ -99,7 +99,7 @@
       "spring_city_package"
     ],
     "dated_brochure_commercial_mappings_exist": "2026-02-19",
-    "dated_july_price_mappings_missing_for_exact_option_prices": true
+    "dated_july_price_mappings_missing_for_exact_option_prices": false
   },
   "reconciliation_result": {
     "exact_july_prices_ready_for_mapping": [
@@ -142,8 +142,8 @@
     "master_commercial_observations_materialized": true,
     "historical_brochure_data_overwritten": false,
     "promotional_price_inference": false,
-    "master_rows_added": 8,
+    "master_rows_added": 10,
     "source_page": 4,
-    "next_action": "Continue the same documentary option-matrix reconciliation for any remaining non-Spring master gaps; Spring July stock commercial matrix is materially closed."
+    "next_action": "Spring July stock commercial matrix is materially closed; continue documentary master reconciliation for Duster, Jogger and Bigster and the remaining brochure sources."
   }
 }
