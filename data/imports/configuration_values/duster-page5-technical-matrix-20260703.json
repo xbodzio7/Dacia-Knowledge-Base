@@ -2870,6 +2870,422 @@
       "value": "35",
       "source_code": "src_pl_duster_price_my26_20260703",
       "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "4.8",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid155_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "109",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid155_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "4.8",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "122",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "122",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "122",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "122",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "123",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "7.6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "123",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "123",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "7.6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "123",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "123",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "7.6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "123",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid140_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "125",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid140_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "5.5",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid140_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "125",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid140_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "5.5",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid140_manual",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "125",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid140_manual",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "5.5",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "135",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "135",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "135",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "6",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg",
+      "value": "118",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg",
+      "value": "7.3",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "109",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol",
+      "value": "4.8",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol",
+      "value": "109",
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "source_text": "Official July 2026 price list, technical table, page 5"
     }
   ]
 }
