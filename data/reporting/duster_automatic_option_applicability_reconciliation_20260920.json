@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "kind": "duster_automatic_option_applicability_reconciliation",
+  "reviewed_on": "2026-09-20",
+  "status": "evidence_collected_ready_for_master",
+  "primary_document": {
+    "source_code": "src_pl_duster_price_my26_20260703",
+    "option_matrix": "grade-level",
+    "explicit_constraints": [
+      "ACC is only with automatic gearbox",
+      "Extreme/Journey parking package and winter packages are explicitly priced in the grade matrix"
+    ]
+  },
+  "exact_configuration_evidence": [
+    {
+      "configuration": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING",
+        "Pakiet ZIMOWY PLUS"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/decar/dacia/duster/2026/122830",
+      "interpretation": "Exact current stock vehicle evidence confirms both packages selected on a Hybrid-G 150 4x4 Extreme vehicle."
+    },
+    {
+      "configuration": "duster_iii_journey_hybridg150_4x4_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING",
+        "Pakiet ZIMOWY PLUS",
+        "Media Nav Live",
+        "ładowarka indukcyjna"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/dacia/duster/2026/124693",
+      "interpretation": "Exact current stock vehicle evidence confirms package selection on a Hybrid-G 150 4x4 Journey vehicle."
+    },
+    {
+      "configuration": "duster_iii_journey_hybridg150_4x4_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/pietrzak/dacia/duster/2026/128308",
+      "interpretation": "Independent current dealer listing corroborates PARKING on Journey Hybrid-G 150 4x4."
+    },
+    {
+      "configuration": "duster_iii_journey_ecog120_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet PARKING",
+        "Pakiet ZIMOWY PLUS"
+      ],
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/auto-spektrum/dacia/duster/2026/129094",
+      "interpretation": "Exact current dealer listing for Journey Eco-G 120 auto explicitly lists PARKING and ZIMOWY PLUS as additional options."
+    },
+    {
+      "configuration": "duster_iii_extreme_ecog120_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia Poland dealer stock page",
+      "evidence": [
+        "Pakiet ZIMOWY",
+        "Pakiet ZIMOWY PLUS in equipment summary"
+      ],
+      "url": "https://kup.dacia.pl/wyszukiwarkaszczegoly/dacia/duster/2026/127567",
+      "interpretation": "Exact current dealer listing establishes a winter package on Extreme Eco-G 120 auto, but the package naming is internally inconsistent, so it is not promoted to a specific Winter/Winter Plus master row."
+    },
+    {
+      "configuration": "duster_iii_expression_ecog120_automatic",
+      "trim": "Expression",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet ZIMOWY I"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01277655755",
+      "interpretation": "Exact current Dacia catalog page binds the winter package to an Expression Eco-G 120 automatic vehicle."
+    },
+    {
+      "configuration": "duster_iii_extreme_ecog120_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet TECHNO 1",
+        "Pakiet PARKINGOWY",
+        "Pakiet ZIMOWY III"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01277657828",
+      "interpretation": "Exact current Dacia catalog page binds TECHNO 1 and PARKINGOWY to Extreme Eco-G 120 automatic. ZIMOWY III is retained as evidence but not normalized because it does not map unambiguously to the current master winter package naming."
+    },
+    {
+      "configuration": "duster_iii_expression_hybridg150_4x4_automatic",
+      "trim": "Expression",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet ZIMOWY I"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01176968740",
+      "interpretation": "Exact current Dacia catalog page binds ZIMOWY I to an Expression hybrid-G 150 4x4 vehicle; the label is retained verbatim and is not collapsed into a generic winter package."
+    },
+    {
+      "configuration": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "trim": "Extreme",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet TECHNO 2",
+        "Pakiet PARKINGOWY",
+        "Pakiet ZIMOWY III"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01177553556",
+      "interpretation": "Exact current Dacia catalog page binds TECHNO 2 and PARKINGOWY to an Extreme hybrid-G 150 4x4 vehicle. ZIMOWY III is retained as evidence only because the current master winter naming is not equivalent."
+    },
+    {
+      "configuration": "duster_iii_journey_hybridg150_4x4_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet PARKINGOWY",
+        "Pakiet ZIMOWY II"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01X76611329",
+      "interpretation": "Current official Dacia NCI exact-vehicle evidence corroborates PARKING and adds the verbatim winter label ZIMOWY II for Journey hybrid-G 150 4x4."
+    },
+    {
+      "configuration": "duster_iii_journey_ecog120_automatic",
+      "trim": "Journey",
+      "evidence_type": "Dacia official NCI exact-vehicle page",
+      "evidence": [
+        "Pakiet PARKINGOWY",
+        "Pakiet ZIMOWY II"
+      ],
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01177668206",
+      "interpretation": "Current official Dacia NCI exact-vehicle evidence corroborates PARKING and provides the verbatim winter label ZIMOWY II for Journey Eco-G 120 auto."
+    }
+  ],
+  "master_gap": {
+    "hybridg150_extreme": [
+      "duster_parking_package",
+      "duster_techno_2_package",
+      "duster_winter_plus_extreme_package"
+    ],
+    "hybridg150_journey": [
+      "duster_parking_package",
+      "duster_winter_plus_journey_package"
+    ],
+    "limitation": "Exact current Dacia NCI pages now provide direct configuration-level evidence for tribrid Expression and Extreme. Current package labels ZIMOWY I and ZIMOWY III are preserved verbatim where they do not map unambiguously to the July price-list master naming.",
+    "decision": "Configuration-level PARKING is evidenced across the tribrid Journey and Extreme states; TECHNO 2 is directly evidenced for Extreme tribrid. Winter-package labels ZIMOWY I and ZIMOWY III remain evidence-only until an explicit documentary mapping to the canonical July package names is established.",
+    "limitations": "The exact configurator evidence is directly registered as a current web-configurator source. The Extreme Hybrid-G 150 4x4 dealer page used for corroboration is also registered. Other dealer pages remain reporting evidence only until separately registered. One additional Journey Eco-G 120 auto dealer source is now registered and its PARKING observation is materialized. Extreme Eco-G 120 auto winter evidence remains deferred because the source uses conflicting package labels. The official Dacia NCI catalog now supplies exact configuration evidence for Expression Eco-G 120 auto (ZIMOWY I) and Extreme Eco-G 120 auto (TECHNO 1, PARKINGOWY). The Extreme winter package remains deliberately unnormalized because its current label is ZIMOWY III. Two additional current official Dacia NCI exact-vehicle sources now corroborate tribrid Expression (ZIMOWY I) and Extreme (TECHNO 2, PARKINGOWY, ZIMOWY III). TECHNO 2 is materialized as a distinct current commercial item; ZIMOWY I/III remain unnormalized. A further official Dacia NCI Journey tribrid exact vehicle now supplies ZIMOWY II evidence; the numbered winter labels I/II/III are deliberately preserved as source evidence rather than mapped to the July generic package names. Official Dacia NCI also independently corroborates Journey Eco-G 120 auto with PARKINGOWY and ZIMOWY II.",
+    "materialized": [
+      "duster_parking_package / duster_iii_journey_hybridg150_4x4_automatic — current configurator, 2200 PLN",
+      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — dealer-stock selected state; no amount inferred",
+      "duster_parking_package / duster_iii_journey_ecog120_automatic — dealer-stock exact configuration, no amount inferred",
+      "duster_winter_expression_journey_package / duster_iii_expression_ecog120_automatic — Dacia catalog exact configuration",
+      "duster_parking_package / duster_iii_extreme_ecog120_automatic — Dacia catalog exact configuration",
+      "duster_techno_1_package / duster_iii_extreme_ecog120_automatic — Dacia catalog exact configuration",
+      "duster_parking_package / duster_iii_extreme_hybridg150_4x4_automatic — official Dacia NCI exact configuration, no amount inferred",
+      "duster_techno_2_package / duster_iii_extreme_hybridg150_4x4_automatic — official Dacia NCI exact configuration, no amount inferred"
+    ],
+    "deferred": [
+      "duster_winter_plus_journey_package / duster_iii_journey_hybridg150_4x4_automatic",
+      "duster_iii_extreme_ecog120_automatic winter package naming conflict",
+      "duster_iii_extreme_ecog120_automatic ZIMOWY III — package-name normalization conflict",
+      "duster_iii_journey_hybridg150_4x4_automatic numbered winter label ZIMOWY II — package-name normalization conflict",
+      "duster_iii_journey_ecog120_automatic numbered winter label ZIMOWY II — package-name normalization conflict"
+    ]
+  },
+  "decision": "Register exact current official Dacia NCI pages as configuration-specific evidence and materialize only unambiguous package identities. Preserve ZIMOWY I and ZIMOWY III verbatim as evidence-only until a documentary mapping to canonical winter package codes is established.",
+  "next_package": "duster_automatic_option_applicability_reconciliation_005",
+  "configurator_evidence": {
+    "source": "Dacia Poland current interactive configurator",
+    "accessed": "2026-09-20",
+    "configuration": {
+      "model": "DUSTER",
+      "version": "journey hybrid-G 150 4x4",
+      "current_label": "tribrid 150 4x4",
+      "price_pln": 126100,
+      "power_kw": 113,
+      "power_hp": 153,
+      "co2_lpg_g_km": 118,
+      "consumption_lpg_l_100km": 7.3,
+      "transmission": "automatyczna",
+      "fuel": "LPG",
+      "colour": "biel alpejska",
+      "wheels": "18\" felgi aluminiowe, TAGASAN 225 diamentowane",
+      "upholstery": "tapicerka materiałowa journey"
+    },
+    "option_evidence": [
+      {
+        "item": "Pakiet PARKING",
+        "price_pln": 2200,
+        "status": "available_in_current_configuration"
+      },
+      {
+        "item": "Winter Plus",
+        "status": "not_visible_in_current_option_list_excerpt",
+        "note": "Absence from the excerpt is not converted to not_available."
+      }
+    ],
+    "interpretation": "The configurator directly binds the selected Journey Hybrid-G 150 4x4 configuration to the current 126100 PLN price and exposes the PARKING package at 2200 PLN. This is stronger configuration-level evidence than the grade-only price-list matrix."
+  },
+  "documentary_mapping_review": {
+    "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/73baf27ec0.pdf",
+    "source_effective_date": "2026-09-01",
+    "observations": [
+      "Current September Duster price list explicitly retains generic Pakiet ZIMOWY and Pakiet ZIMOWY PLUS names and separates their grade-level applicability.",
+      "Expression has only the generic ZIMOWY 1200 PLN row among the current winter package rows; therefore exact NCI label ZIMOWY I is safely associated with the Expression winter-package family, without renaming the source label.",
+      "Extreme has both generic ZIMOWY 1200 PLN and ZIMOWY PLUS 2300 PLN rows; exact NCI label ZIMOWY III alone does not identify which generic package was selected.",
+      "Journey has both generic ZIMOWY 1200 PLN and ZIMOWY PLUS 2300 PLN rows; exact NCI label ZIMOWY II alone does not identify which generic package was selected.",
+      "Accordingly, ZIMOWY I is reconciled only to the existing Expression winter-package family; ZIMOWY II and ZIMOWY III remain verbatim evidence-only."
+    ],
+    "decision": "Do not infer the generic ZIMOWY versus ZIMOWY PLUS selection from numbered NCI labels II/III. The July/current price-list matrix supplies grade-level availability and price, but not a one-to-one mapping from numbered NCI labels to the two winter package variants."
+  }
+}

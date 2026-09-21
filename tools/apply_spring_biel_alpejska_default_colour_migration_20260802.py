@@ -127,8 +127,16 @@ def build(root: Path = ROOT) -> dict[str, Any]:
         row = index[code]
         if row["availability_status"] != "optional" or row["amount"] or row["price_date"]:
             raise AssertionError(f"unapproved white mapping changed: {code}")
-    type2 = [row for row in mappings if row["commercial_item_code"] == TYPE2_ITEM]
-    domestic = [row for row in mappings if row["commercial_item_code"] == DOMESTIC_ITEM]
+    type2 = [
+        row for row in mappings
+        if row["commercial_item_code"] == TYPE2_ITEM
+        and row["source_code"] == "src_pl_spring_brochure_20260219"
+    ]
+    domestic = [
+        row for row in mappings
+        if row["commercial_item_code"] == DOMESTIC_ITEM
+        and row["source_code"] == SOURCE
+    ]
     if len(type2) != 3 or len(domestic) not in {2, 3}:
         raise AssertionError("completed charging-cable mappings were not preserved")
     if len(domestic) == 3 and {row["configuration_code"] for row in domestic} != {

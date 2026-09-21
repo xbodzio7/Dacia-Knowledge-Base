@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "kind": "spring_price_my25_stock_20260708_commercial_matrix_reconciliation",
+  "reviewed_on": "2026-09-20",
+  "source_code": "src_pl_spring_price_my25_stock_20260708",
+  "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
+  "effective_date": "2026-07-08",
+  "scope": "MY25 dealer-stock Spring; Expression Electric 70 and Extreme Electric 100 catalogue/option matrix. The commercial matrix itself is grade-level and therefore recorded independently from the selected current configuration prices.",
+  "documentary_matrix": {
+    "flexicharger_home_cable": {
+      "essential": 1500,
+      "expression": 1500,
+      "extreme": 1500
+    },
+    "type2_cable": {
+      "essential": "standard",
+      "expression": "standard",
+      "extreme": "standard"
+    },
+    "dc_40kw_socket": {
+      "essential": "not_available",
+      "expression": 2750,
+      "extreme": "package"
+    },
+    "v2l_adapter": {
+      "essential": "not_available",
+      "expression": "not_available",
+      "extreme": "package"
+    },
+    "techno_package": {
+      "essential": "not_available",
+      "expression": 3500,
+      "extreme": "not_available"
+    },
+    "city_package": {
+      "essential": "not_available",
+      "expression": "not_available",
+      "extreme": 1800
+    },
+    "power_package": {
+      "essential": "not_available",
+      "expression": "not_available",
+      "extreme": 3000
+    }
+  },
+  "package_contents": {
+    "techno_package": [
+      "media_nav_live_10",
+      "rear_view_camera",
+      "second_usb_c"
+    ],
+    "city_package": [
+      "media_nav_live_10",
+      "front_parking_sensors"
+    ],
+    "power_package": [
+      "dc_40kw_socket",
+      "v2l_adapter"
+    ]
+  },
+  "grade_equipment_states": {
+    "media_control_system": {
+      "essential": "standard",
+      "expression": "standard",
+      "extreme": "not_available"
+    },
+    "media_display_10": {
+      "essential": "not_available",
+      "expression": "package",
+      "extreme": "standard"
+    },
+    "media_nav_live_10": {
+      "essential": "not_available",
+      "expression": "not_available",
+      "extreme": "package"
+    },
+    "second_usb_c": {
+      "essential": "standard",
+      "expression": "package",
+      "extreme": "standard"
+    },
+    "front_parking_sensors": {
+      "essential": "not_available",
+      "expression": "package",
+      "extreme": "not_available"
+    },
+    "rear_view_camera": {
+      "essential": "package",
+      "expression": "package",
+      "extreme": "standard"
+    }
+  },
+  "existing_repository_representation": {
+    "commercial_items_already_exist": [
+      "spring_type2_charging_cable_option",
+      "spring_techno_package",
+      "spring_dc40_charging_option",
+      "spring_power_package",
+      "spring_city_package"
+    ],
+    "dated_brochure_commercial_mappings_exist": "2026-02-19",
+    "dated_july_price_mappings_missing_for_exact_option_prices": true
+  },
+  "reconciliation_result": {
+    "exact_july_prices_ready_for_mapping": [
+      [
+        "spring_domestic_socket_charging_cable_option__spring_essential_electric70_automatic__price_list_20260708",
+        1500
+      ],
+      [
+        "spring_domestic_socket_charging_cable_option__spring_expression_electric70_automatic",
+        1500
+      ],
+      [
+        "spring_domestic_socket_charging_cable_option__spring_extreme_electric100_automatic__price_list_20260708",
+        1500
+      ],
+      [
+        "spring_dc40_charging_option__spring_expression_electric70_automatic__price_list_20260708",
+        2750
+      ],
+      [
+        "spring_techno_package__spring_expression_electric70_automatic__price_list_20260708",
+        3500
+      ],
+      [
+        "spring_city_package__spring_extreme_electric100_automatic__price_list_20260708",
+        1800
+      ],
+      [
+        "spring_power_package__spring_extreme_electric100_automatic__price_list_20260708",
+        3000
+      ]
+    ],
+    "type2_cable_boundary": "The July price list explicitly marks the Type 2 cable as standard for Essential, Expression and Extreme. This is recorded as a dated standard commercial observation while the earlier February brochure optional observations remain historical.",
+    "package_marker_boundary": "Package-qualified equipment remains represented through commercial-item mappings; no package marker is flattened into a standalone standard equipment row.",
+    "promotional_price_boundary": "The 17000 PLN stock discount is not converted into configuration prices because the source does not state exact discounted prices per configuration."
+  },
+  "acceptance": {
+    "source_matrix_extracted": true,
+    "exact_option_prices_captured": true,
+    "master_commercial_observations_materialized": true,
+    "historical_brochure_data_overwritten": false,
+    "promotional_price_inference": false,
+    "master_rows_added": 8,
+    "source_page": 4,
+    "next_action": "Continue the same documentary option-matrix reconciliation for any remaining non-Spring master gaps; Spring July stock commercial matrix is materially closed."
+  }
+}

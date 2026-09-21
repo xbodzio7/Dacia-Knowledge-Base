@@ -24,6 +24,7 @@ class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
             item
             for item in rows("data/master/commercial_item_configurations.csv")
             if item["commercial_item_code"] == "spring_type2_charging_cable_option"
+            and item["source_code"] == "src_pl_spring_brochure_20260219"
         ]
         self.assertEqual(len(mappings), 3)
         self.assertTrue(
@@ -64,13 +65,21 @@ class SpringChargingCableCommercialSemanticsMigrationTests(unittest.TestCase):
             "spring_essential_electric70_automatic",
             "spring_extreme_electric100_automatic",
         ):
-            item = by_configuration[configuration]
+            item = next(
+                item for item in mappings
+                if item["configuration_code"] == configuration
+                and item["source_code"] == "src_pl_spring_commercial_context_20260802"
+            )
             self.assertEqual(item["availability_status"], "optional")
             self.assertEqual(item["amount"], "1500")
             self.assertEqual(item["currency_code"], "PLN")
             self.assertEqual(item["price_date"], "2026-08-02")
             self.assertEqual(item["source_code"], "src_pl_spring_commercial_context_20260802")
-        expression = by_configuration["spring_expression_electric70_automatic"]
+        expression = next(
+            item for item in mappings
+            if item["configuration_code"] == "spring_expression_electric70_automatic"
+            and item["source_code"] == "src_pl_spring_price_my25_stock_20260708"
+        )
         self.assertEqual(expression["availability_status"], "optional")
         self.assertEqual(expression["amount"], "1500")
         self.assertEqual(expression["currency_code"], "PLN")

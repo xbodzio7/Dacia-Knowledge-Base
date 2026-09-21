@@ -66,6 +66,10 @@ def verify(root: Path = ROOT) -> None:
     historical_mappings = [
         row for row in mappings if row["commercial_item_code"] == TYPE2_ITEM
     ]
+    historical_mappings = [
+        row for row in historical_mappings
+        if row["source_code"] == "src_pl_spring_brochure_20260219"
+    ]
     if len(historical_mappings) != 3:
         raise AssertionError("historical Type 2 mapping count drifted")
     if {row["configuration_code"] for row in historical_mappings} != {
@@ -80,7 +84,11 @@ def verify(root: Path = ROOT) -> None:
         raise AssertionError("historical Type 2 mapping source drifted")
 
     domestic_memberships = [row for row in memberships if row["commercial_item_code"] == DOMESTIC_ITEM]
-    domestic_mappings = [row for row in mappings if row["commercial_item_code"] == DOMESTIC_ITEM]
+    domestic_mappings = [
+        row for row in mappings
+        if row["commercial_item_code"] == DOMESTIC_ITEM
+        and row["source_code"] == "src_pl_spring_commercial_context_20260802"
+    ]
     if migration_complete:
         if len(domestic_memberships) != 1 or len(domestic_mappings) not in {2, 3}:
             raise AssertionError("materialized domestic-cable representation is incomplete")

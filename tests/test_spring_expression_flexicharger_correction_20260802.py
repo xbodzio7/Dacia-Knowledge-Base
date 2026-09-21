@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SpringExpressionFlexiChargerCorrectionTests(unittest.TestCase):
+    # Re-run the historical correction contract after current documentary reconciliation.
     def test_expression_mapping_is_exact_and_priced(self) -> None:
         path = ROOT / "data/master/commercial_item_configurations.csv"
         with path.open(encoding="utf-8", newline="") as handle:

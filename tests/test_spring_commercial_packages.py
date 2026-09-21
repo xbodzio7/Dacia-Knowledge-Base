@@ -67,7 +67,7 @@ class SpringCommercialPackagesTests(unittest.TestCase):
         spring = [
             row
             for row in self.mappings
-            if row["commercial_item_code"] in importer.EXPECTED_ITEMS
+            if row["code"] in importer.EXPECTED_MAPPING_CODES
         ]
         self.assertEqual(
             Counter(row["commercial_item_code"] for row in spring),
@@ -123,7 +123,7 @@ class SpringCommercialPackagesTests(unittest.TestCase):
             },
             {
                 "spring_essential_electric70_automatic": 0,
-                "spring_expression_electric70_automatic": 3,
+                "spring_expression_electric70_automatic": 1,
                 "spring_extreme_electric100_automatic": 1,
             },
         )

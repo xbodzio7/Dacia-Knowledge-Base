@@ -33,6 +33,10 @@ LATER_CONFIGURATION_CODES = frozenset(
         "spring_expression_electric70_automatic",
         "spring_extreme_electric100_automatic",
         *DUSTER_HYBRIDG150_CONFIGURATION_CODES,
+        "sandero_iii_expression_hybrid155_automatic",
+        "sandero_iii_journey_hybrid155_automatic",
+        "sandero_stepway_iii_expression_hybrid155_automatic",
+        "sandero_stepway_iii_extreme_hybrid155_automatic",
     }
 )
 LATER_SCOPE_SLUGS = frozenset(
