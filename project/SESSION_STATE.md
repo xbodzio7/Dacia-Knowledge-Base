@@ -27,7 +27,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 - 26 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 7664 obserwacji w `configuration_attribute_values.csv`,
-- 140 wersjonowanych specyfikacji w `data/imports/configuration_values`,
+- 141 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 425 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 24 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 7567 rekordów w `configuration_attribute_availability.csv`,
