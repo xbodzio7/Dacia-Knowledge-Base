@@ -47,19 +47,19 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
     def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
         self.assertEqual(self.summary["version"], 1)
         self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
-        self.assertEqual(self.summary["as_of"], "2026-08-11")
+        self.assertEqual(self.summary["as_of"], "2026-08-09")
         self.assertEqual(
             self.summary["summary"],
             {
                 "model_family_count": 6,
-                "reporting_scope_count": 24,
+                "reporting_scope_count": 23,
                 "single_model_scope_count": 21,
-                "mixed_model_scope_count": 3,
-                "active_configuration_count": 88,
-                "within_scope_pair_count": 139,
-                "provenance_source_count": 106,
-                "source_configuration_relationship_count": 373,
-                "configurations_with_provenance_count": 88,
+                "mixed_model_scope_count": 2,
+                "active_configuration_count": 84,
+                "within_scope_pair_count": 133,
+                "provenance_source_count": 105,
+                "source_configuration_relationship_count": 354,
+                "configurations_with_provenance_count": 84,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -116,8 +116,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             expected_order,
         )
         expected = {
-            "sandero_iii": (9, 3, 63900, 90200, "recorded", [5], 9, 0),
-            "sandero_stepway_iii": (10, 3, 71700, 96800, "recorded", [5], 10, 0),
+            "sandero_iii": (7, 3, 63900, 80500, "recorded", [5], 7, 0),
+            "sandero_stepway_iii": (8, 3, 71700, 89400, "recorded", [5], 8, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
             "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
             "bigster": (14, 4, 101400, 137600, "recorded", [5], 14, 0),
@@ -144,8 +144,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
     def test_exact_provenance_counts_and_date_ranges_are_preserved(self) -> None:
         expected = {
-            "sandero_iii": (18, 59, "2026-02-02", "2026-08-11"),
-            "sandero_stepway_iii": (22, 70, "2026-02-02", "2026-08-11"),
+            "sandero_iii": (17, 50, "2026-02-02", "2026-08-09"),
+            "sandero_stepway_iii": (21, 60, "2026-02-02", "2026-08-09"),
             "jogger": (26, 110, "2025-12-17", "2026-08-09"),
             "duster_iii": (24, 81, "2025-10-20", "2026-08-09"),
             "bigster": (16, 42, "2025-12-10", "2026-08-09"),
@@ -203,8 +203,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 373)
-        self.assertEqual(len(used_sources), 106)
+        self.assertEqual(relation_total, 354)
+        self.assertEqual(len(used_sources), 105)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -228,9 +228,9 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         )
 
     def test_reporting_scope_membership_is_reused_without_pair_expansion(self) -> None:
-        self.assertEqual(self.families["sandero_iii"]["shared_scope_count"], 3)
+        self.assertEqual(self.families["sandero_iii"]["shared_scope_count"], 2)
         self.assertEqual(
-            self.families["sandero_stepway_iii"]["shared_scope_count"], 3
+            self.families["sandero_stepway_iii"]["shared_scope_count"], 2
         )
         self.assertEqual(self.families["jogger"]["shared_scope_count"], 0)
         self.assertIn(
@@ -251,10 +251,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 family["exclusive_scope_count"] + family["shared_scope_count"],
             )
         self.assertEqual(
-            self.matrix_families["sandero_iii"]["shared_scope_count"], 3
+            self.matrix_families["sandero_iii"]["shared_scope_count"], 2
         )
         self.assertEqual(
-            self.matrix_families["sandero_stepway_iii"]["shared_scope_count"], 3
+            self.matrix_families["sandero_stepway_iii"]["shared_scope_count"], 2
         )
         self.assertFalse(
             self.matrix["summary"]["cross_scope_pairs_generated"]
