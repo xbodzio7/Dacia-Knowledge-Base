@@ -22,7 +22,7 @@
     "configuration_import_specs": 139,
     "configuration_value_ranges": 345,
     "configuration_range_import_specs": 24,
-    "availability_records": 7544,
+    "availability_records": 7567,
     "attributes": 416,
     "attribute_categories": 30
   },
@@ -54,7 +54,7 @@
         "bigster"
       ],
       "spring_july_stock_option_matrix_materialized": true,
-      "remaining_master_gap": "Duster July automatic matrix: 23 of 26 documentary gap attributes are now source-mapped and documented; materialization into the large availability CSV remains pending because the GitHub file-write path cannot safely preserve the full file in this environment. Continue with source mapping and use a safe repository-side update path before claiming master assimilation.",
+      "remaining_master_gap": "Duster July automatic matrix: 23 of 26 documentary gap attributes are now materialized from the July cennik; 3 canonical mappings remain explicitly unresolved and are not forced.",
       "duster_journey_tribrid_configurator_verified": true,
       "duster_parking_configuration_observation_added": true,
       "duster_journey_ecog120_auto_parking_evidence_added": true,
@@ -66,7 +66,7 @@
         "duster_2026-02-06_my26_py25",
         "jogger_2026-04-01"
       ],
-      "duster_july_automatic_matrix_gap_reconciliation_added": 0,
+      "duster_july_automatic_matrix_gap_reconciliation_added": 23,
       "duster_july_automatic_matrix_gap_reconciliation_unresolved": 3,
       "duster_july_automatic_matrix_gap_reconciliation_verified_mapping_count": 23
     }

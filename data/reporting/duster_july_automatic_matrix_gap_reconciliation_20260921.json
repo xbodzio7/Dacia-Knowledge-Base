@@ -12,7 +12,7 @@
       "journey": 4,
       "total": 26
     },
-    "direct_source_observations_added": 0,
+    "direct_source_observations_added": 23,
     "unresolved": 3,
     "unresolved_items": [
       {
@@ -31,8 +31,8 @@
         "reason": "July matrix exposes passenger-seat height adjustment, not generic passenger_seat_adjustment semantics."
       }
     ],
-    "source_mapped_but_not_materialized": 23,
-    "materialization_status": "pending_safe_large_csv_write"
+    "source_mapped_but_not_materialized": 0,
+    "materialization_status": "materialized"
   },
   "policy": {
     "source_first": true,
@@ -159,9 +159,9 @@
       "availability_status": "not_available"
     }
   ],
-  "next_step": "Use a safe repository-side large-file update path to materialize the 23 mapped rows; until then they remain documented source mappings only.",
+  "next_step": "Proceed to the remaining documentary matrix reconciliations; the three explicitly unresolved canonical mappings remain unforced.",
   "verification": {
     "master_availability_restored_to_base": true,
-    "materialized_rows_added": 0
+    "materialized_rows_added": 23
   }
 }
