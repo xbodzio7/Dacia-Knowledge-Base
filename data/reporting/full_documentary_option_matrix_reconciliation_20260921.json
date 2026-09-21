@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "kind": "full_documentary_option_matrix_reconciliation",
+  "reviewed_on": "2026-09-21",
+  "package_id": "full_documentary_option_matrix_reconciliation_005",
+  "policy": {
+    "source_first": true,
+    "configurator_used_only_for_gaps": true,
+    "historical_data_overwrite_forbidden": true,
+    "negative_state_inference_forbidden": true,
+    "cross_powertrain_projection_forbidden": true
+  },
+  "spring_2026_07_08": {
+    "commercial_matrix_status": "closed",
+    "flexicharger_pln": {"essential": 1500, "expression": 1500, "extreme": 1500},
+    "materialized_configuration_mappings": 10,
+    "remaining_documentary_master_work": "full equipment/technical source-to-master reconciliation remains separate from the closed commercial FlexiCharger/package matrix"
+  },
+  "remaining_july_price_list_sources": {
+    "duster": {"source_configurations": 16, "availability_rows": 61, "commercial_mapping_rows": 29, "audit_status": "documentary_audit_complete_master_schema_reconciliation_open"},
+    "jogger": {"source_configurations": 22, "availability_rows": 90, "commercial_mapping_rows": 42, "audit_status": "documentary_audit_complete_master_schema_reconciliation_open"},
+    "bigster": {"source_configurations": 14, "availability_rows": 1316, "commercial_mapping_rows": 48, "audit_status": "documentary_audit_complete_master_schema_reconciliation_open"}
+  },
+  "remaining_brochure_sources": [
+    "src_pl_bigster_brochure_20251210",
+    "src_pl_jogger_brochure_20251217",
+    "src_pl_sandero_brochure_20260202",
+    "src_pl_sandero_stepway_brochure_20260202",
+    "src_pl_duster_mini_brochure_20251020",
+    "src_pl_spring_brochure_20260219"
+  ],
+  "decision_boundary": "Do not use current configurator observations to fill documentary gaps until the remaining cennik and brochure source-to-master reconciliation is completed."
+}
