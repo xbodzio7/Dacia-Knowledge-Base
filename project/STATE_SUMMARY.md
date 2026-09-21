@@ -14,37 +14,30 @@
 
 **Dacia Current Configurator PDF Portfolio Assimilation**
 
-## Reference delivery
-
-- Package: Sandero Stepway Full Modal Evidence Boundary
-- Pull Request: #638
-- Verified head: `1ec4ae2c85cf01ca7a0b6e6dad73482ae031f2c8`
-- Quality run: #34656057381
-
 ## Verified baseline
 
-- Tests: 1929
+- Tests: 1930
 - Master CSV files: 47
-- Master rows: 17327
-- Configuration values: 6746
-- Configuration import specifications: 139
-- Configuration value ranges: 345
-- Configuration range import specifications: 24
+- Master rows: 18325
+- Configuration values: 7612
+- Configuration import specifications: 143
+- Configuration value ranges: 477
+- Configuration range import specifications: 26
 - Availability records: 7567
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**Full Documentary Option-Matrix Reconciliation** — `complete`
+**Duster/Jogger July Technical Documentary Reconciliation** — `complete`
 
-Complete source-first assimilation of remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.
+Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.
 
 ## Next package
 
-**Duster/Jogger/Bigster Documentary Master Reconciliation** — `active`
+**Bigster Documentary Technical Reconciliation** — `active`
 
-Continue source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.
+Continue source-first reconciliation of the remaining Bigster July 2026 technical and equipment documentary matrices, then remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.
 
 ## Autonomy
 
