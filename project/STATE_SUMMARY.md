@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-20
+- State updated: 2026-09-21
 
 ## Phase
 
@@ -42,9 +42,9 @@ Reconcile the verified current MY26 price-list portfolio and directly evidenced 
 
 ## Next package
 
-**Duster Automatic Option Applicability Reconciliation** — `active`
+**Full Documentary Option-Matrix Reconciliation** — `active`
 
-Resolve remaining Duster automatic option/package applicability only where direct documentary or exact current official configurator/NCI evidence provides an unambiguous package identity or explicit mapping.
+Complete source-first assimilation of the remaining price lists and brochures before configurator gap-filling, starting with Spring MY25 stock FlexiCharger evidence and then Duster, Jogger and Bigster July 2026-07-03 documentary matrices plus the remaining brochure sources.
 
 ## Autonomy
 
