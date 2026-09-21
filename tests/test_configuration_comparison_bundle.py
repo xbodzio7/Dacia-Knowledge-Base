@@ -238,7 +238,7 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
         self.assertEqual(manifest["selected_configuration_count"], 5)
         self.assertEqual(manifest["scope_group_count"], 3)
         self.assertEqual(manifest["comparable_scope_count"], 2)
-        self.assertEqual(manifest["singleton_scope_count"], 0)
+        self.assertEqual(manifest["singleton_scope_count"], 1)
         self.assertFalse(manifest["cross_scope_pairs_generated"])
         statuses = [group["status"] for group in manifest["groups"]]
         self.assertEqual(statuses.count("comparable"), 2)
@@ -275,8 +275,8 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
                 direct_codes=(DUSTER_SINGLETON, DUSTER_SINGLETON),
             )
             names = sorted(path.name for path in output.iterdir())
-        self.assertEqual(manifest["selected_configuration_count"], 2)
-        self.assertEqual(manifest["comparable_scope_count"], 1)
+        self.assertEqual(manifest["selected_configuration_count"], 1)
+        self.assertEqual(manifest["comparable_scope_count"], 0)
         self.assertEqual(manifest["singleton_scope_count"], 1)
         self.assertEqual(
             names,
