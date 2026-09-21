@@ -36,7 +36,7 @@
 
 ## Current package
 
-**Duster/Jogger July Technical Documentary Reconciliation** — `active`
+**Duster/Jogger July Technical Documentary Reconciliation** — `complete`
 
 Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.
 
