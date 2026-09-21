@@ -45,7 +45,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
                 "reporting_scope_count": 24,
                 "single_model_scope_count": 21,
                 "mixed_model_scope_count": 3,
-                "active_configuration_count": 84,
+                "active_configuration_count": 88,
                 "within_scope_pair_count": 139,
                 "catalog_price_recorded_count": 88,
                 "cross_scope_pairs_generated": False,
