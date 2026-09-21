@@ -35,7 +35,8 @@
     "pull_request": null,
     "merge_sha": null,
     "manifest_paths": [
-      "data/reporting/current_price_list_documentary_extraction_checkpoint_20260920.json"
+      "data/reporting/current_price_list_documentary_extraction_checkpoint_20260920.json",
+      "data/reporting/duster_july_automatic_matrix_gap_reconciliation_20260921.json"
     ],
     "id": "full_documentary_option_matrix_reconciliation_005",
     "progress": {
@@ -53,7 +54,7 @@
         "bigster"
       ],
       "spring_july_stock_option_matrix_materialized": true,
-      "remaining_master_gap": "Duster, Jogger and Bigster July documentary matrix sections still require source-to-master reconciliation; numbered Duster winter labels remain evidence-only where no unambiguous mapping exists.",
+      "remaining_master_gap": "Duster July automatic matrix: 23 of 26 documentary gap attributes materialized directly from the July cennik; 3 canonical mappings remain deliberately unresolved. Continue Jogger and Bigster July documentary reconciliation.",
       "duster_journey_tribrid_configurator_verified": true,
       "duster_parking_configuration_observation_added": true,
       "duster_journey_ecog120_auto_parking_evidence_added": true,
@@ -64,7 +65,9 @@
       "documentary_audits_extended": [
         "duster_2026-02-06_my26_py25",
         "jogger_2026-04-01"
-      ]
+      ],
+      "duster_july_automatic_matrix_gap_reconciliation_added": 23,
+      "duster_july_automatic_matrix_gap_reconciliation_unresolved": 3
     }
   },
   "next_package": {

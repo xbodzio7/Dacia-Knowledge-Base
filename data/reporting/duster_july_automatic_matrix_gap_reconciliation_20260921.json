@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "kind": "duster_july_automatic_matrix_gap_reconciliation",
+  "package_id": "full_documentary_option_matrix_reconciliation_005",
+  "reviewed_on": "2026-09-21",
+  "source_code": "src_pl_duster_price_my26_20260703",
+  "source_effective_date": "2026-07-03",
+  "gap_reconciliation": {
+    "identified_by_grade": {
+      "expression": 17,
+      "extreme": 5,
+      "journey": 4,
+      "total": 26
+    },
+    "direct_source_observations_added": 23,
+    "unresolved": 3,
+    "unresolved_items": [
+      {
+        "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+        "attribute_code": "adjustable_boot_floor",
+        "reason": "July matrix does not expose this canonical attribute explicitly."
+      },
+      {
+        "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+        "attribute_code": "passenger_seat_adjustment",
+        "reason": "July matrix exposes passenger-seat height adjustment, not generic passenger_seat_adjustment semantics."
+      },
+      {
+        "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+        "attribute_code": "passenger_seat_adjustment",
+        "reason": "July matrix exposes passenger-seat height adjustment, not generic passenger_seat_adjustment semantics."
+      }
+    ]
+  },
+  "policy": {
+    "source_first": true,
+    "direct_matrix_observation_only": true,
+    "manual_to_automatic_copy_forbidden": true,
+    "cross_powertrain_projection_forbidden": true,
+    "negative_state_inference_forbidden": true,
+    "unresolved_items_not_forced": true
+  },
+  "added_observations": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "automatic_climate_control",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "blind_spot_monitoring",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "driver_seat_lumbar_adjustment",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "electronic_parking_brake",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "fog_lights",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "front_parking_sensors",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "heated_steering_wheel",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "heated_windscreen",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "high_beam_assist",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "keyless_entry",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "media_control_system",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "navigation_system",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "tyre_repair_kit",
+      "availability_status": "standard"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "attribute_code": "wireless_charging",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "electronic_parking_brake",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "manual_air_conditioning",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "media_control_system",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "navigation_system",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "attribute_code": "wireless_charging",
+      "availability_status": "optional"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "manual_air_conditioning",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "media_control_system",
+      "availability_status": "not_available"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "attribute_code": "media_display_system",
+      "availability_status": "not_available"
+    }
+  ],
+  "next_step": "Continue July documentary reconciliation with Jogger and Bigster; do not use configurator observations to fill documentary gaps."
+}
