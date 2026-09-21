@@ -30,7 +30,7 @@ class DocumentarySource20260703MasterCountsTests(unittest.TestCase):
             source,
             Counter(
                 {
-                    "src_pl_duster_price_my26_20260703": 61,
+                    "src_pl_duster_price_my26_20260703": 84,
                     "src_pl_jogger_price_my26_20260703": 90,
                     "src_pl_bigster_price_my26_20260703": 1316,
                 }
