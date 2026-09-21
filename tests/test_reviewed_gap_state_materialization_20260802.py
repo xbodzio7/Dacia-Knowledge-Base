@@ -91,7 +91,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
                 writer.writerows(current)
             self.assertEqual(module.materialize(root), 2)
             self.assertEqual(module.materialize(root), 0)
-            self.assertEqual(len(rows(path)), 322)
+            self.assertEqual(len(rows(path)), 339)
 
     def test_all_technical_review_states_are_visible(self) -> None:
         review_states = [
