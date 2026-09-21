@@ -401,7 +401,7 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
         actual_growth = {
             path: (committed, current) for path, committed, current in differences
         }
-        self.assertTrue(set(actual_growth) <= set(expected_growth))
+        self.assertTrue(set(actual_growth) <= set(expected_growth), f"unexpected reconciliation growth: {actual_growth!r}")
         for path, values in actual_growth.items():
             self.assertEqual(values, expected_growth[path])
 
