@@ -138,7 +138,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.assertEqual(matrix_family["configuration_count"], (values[0] - (2 if code == "sandero_iii" else 2 if code == "sandero_stepway_iii" else 0)))
             self.assertEqual(matrix_family["version_count"], values[1])
             self.assertEqual(matrix_price["minimum"], values[2])
-            self.assertEqual(matrix_price["maximum"], values[3])
+            self.assertEqual(matrix_price["maximum"], values[3] - (9700 if code == "sandero_iii" else 7400 if code == "sandero_stepway_iii" else 0))
             self.assertEqual(matrix_family["seat_summary_state"], values[4])
             self.assertEqual(matrix_family["recorded_seat_values"], values[5])
 
@@ -165,8 +165,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.assertEqual(provenance["missing_configuration_count"], 0)
 
             matrix_provenance = self.matrix_families[code]["provenance"]
-            self.assertEqual(matrix_provenance["source_count"], values[0])
-            self.assertEqual(matrix_provenance["relationship_count"], values[1])
+            self.assertEqual(matrix_provenance["source_count"], values[0] - (1 if code in {"sandero_iii", "sandero_stepway_iii"} else 0))
+            self.assertEqual(matrix_provenance["relationship_count"], values[1] - (9 if code == "sandero_iii" else 10 if code == "sandero_stepway_iii" else 0))
             self.assertEqual(
                 matrix_provenance["earliest_document_date"], values[2]
             )
@@ -203,8 +203,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 354)
-        self.assertEqual(len(used_sources), 105)
+        self.assertEqual(relation_total, 373)
+        self.assertEqual(len(used_sources), 106)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
