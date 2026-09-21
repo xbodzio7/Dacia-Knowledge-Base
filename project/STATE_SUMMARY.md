@@ -38,7 +38,7 @@
 
 **Full Documentary Option-Matrix Reconciliation** — `complete`
 
-Complete source-first assimilation of the remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.
+Complete source-first assimilation of remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.
 
 ## Next package
 
