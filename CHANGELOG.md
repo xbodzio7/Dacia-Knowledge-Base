@@ -322,8 +322,8 @@ All notable changes to this project will be documented in this file.
 * The verified master-data baseline now contains 47 CSV files and 18325 rows.
 * SQLite verification now covers 47 tables and 18325 rows.
 * Configuration attribute values now contain 7664 dated records.
-* Declarative scalar configuration-value imports now contain 143 versioned JSON specifications.
-* Configuration value ranges now contain 425 dated records from 26 range specifications.
+* Declarative scalar configuration-value imports now contain 141 versioned JSON specifications.
+* Configuration value ranges now contain 425 dated records from 25 range specifications.
 * The canonical catalogue now contains 416 attributes in 30 categories.
 * Equipment availability now contains 7567 records: 6178 `standard`, 523 `optional`, 866 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
