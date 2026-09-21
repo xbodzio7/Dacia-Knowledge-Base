@@ -20,14 +20,14 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1930 testów automatycznych zakończonych powodzeniem,
+- 1933 testów automatycznych zakończonych powodzeniem,
 - 47 pliki CSV w `data/master`,
 - 18325 rekordów danych,
 - 51 relacje między tabelami,
 - 26 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 7664 obserwacji w `configuration_attribute_values.csv`,
-- 141 wersjonowanych specyfikacji w `data/imports/configuration_values`,
+- 139 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 425 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 24 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 7567 rekordów w `configuration_attribute_availability.csv`,
