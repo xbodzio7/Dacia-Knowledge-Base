@@ -26,7 +26,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 - 51 relacje między tabelami,
 - 26 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 7664 obserwacje w `configuration_attribute_values.csv`,
+- 7664 obserwacji w `configuration_attribute_values.csv`,
 - 143 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 425 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 26 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
