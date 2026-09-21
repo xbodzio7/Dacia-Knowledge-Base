@@ -28,6 +28,7 @@ def read(name: str) -> list[dict[str, str]]:
 
 class CommercialItems20260703Tests(unittest.TestCase):
     # Current package CI touch: assertions track the reconciled source registry.
+    # Source-first documentary reconciliation remains the next package.
     @classmethod
     def setUpClass(cls) -> None:
         cls.items = read("commercial_items.csv")
