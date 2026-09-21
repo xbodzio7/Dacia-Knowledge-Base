@@ -27,9 +27,9 @@
 - Master CSV files: 47
 - Master rows: 18325
 - Configuration values: 7664
-- Configuration import specifications: 141
+- Configuration import specifications: 140
 - Configuration value ranges: 425
-- Configuration range import specifications: 25
+- Configuration range import specifications: 24
 - Availability records: 7567
 - Canonical attributes: 416
 - Attribute categories: 30
