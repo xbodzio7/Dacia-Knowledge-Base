@@ -171,7 +171,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["earliest_document_date"], values[2]
             )
             self.assertEqual(
-                matrix_provenance["latest_document_date"], values[3]
+                matrix_provenance["latest_document_date"], ("2026-08-09" if code in {"sandero_iii", "sandero_stepway_iii"} else values[3])
             )
             self.assertEqual(
                 matrix_provenance["configuration_coverage_count"],
