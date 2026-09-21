@@ -30,9 +30,9 @@
     "package_id": "full_documentary_option_matrix_reconciliation_005",
     "kind": "documentary_source_assimilation",
     "name": "Full Documentary Option-Matrix Reconciliation",
-    "status": "active",
+    "status": "complete",
     "goal": "Complete source-first assimilation of remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.",
-    "pull_request": null,
+    "pull_request": 684,
     "merge_sha": null,
     "manifest_paths": [
       "data/reporting/current_price_list_documentary_extraction_checkpoint_20260920.json",
@@ -73,8 +73,8 @@
   },
   "next_package": {
     "id": "duster_jogger_bigster_documentary_master_reconciliation_006",
-    "status": "planned",
-    "goal": "Complete source-first assimilation of the remaining price lists and brochures before configurator gap-filling, starting with Spring MY25 stock FlexiCharger evidence and then Duster, Jogger and Bigster July 2026-07-03 documentary matrices plus the remaining brochure sources.",
+    "status": "active",
+    "goal": "Continue source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.",
     "name": "Duster/Jogger/Bigster Documentary Master Reconciliation",
     "package_id": "duster_jogger_bigster_documentary_master_reconciliation_006"
   },
