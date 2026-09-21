@@ -15,29 +15,30 @@
     "quality_run": 34656057381
   },
   "baseline": {
-    "tests": 1926,
+    "tests": 1929,
     "csv_files": 47,
-    "rows": 17304,
+    "rows": 17327,
     "configuration_values": 6746,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 345,
     "configuration_range_import_specs": 24,
-    "availability_records": 7544,
+    "availability_records": 7567,
     "attributes": 416,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "full_price_list_option_matrix_reconciliation_004",
+    "package_id": "full_documentary_option_matrix_reconciliation_005",
     "kind": "documentary_source_assimilation",
-    "name": "Full Price-List Option Matrix Reconciliation",
+    "name": "Full Documentary Option-Matrix Reconciliation",
     "status": "complete",
-    "goal": "Reconcile the verified current MY26 price-list portfolio and directly evidenced Duster automatic configuration/package observations without overwriting historical documentary values or inferring negative availability.",
-    "pull_request": 683,
+    "goal": "Complete source-first assimilation of remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.",
+    "pull_request": 684,
     "merge_sha": null,
     "manifest_paths": [
-      "data/reporting/current_price_list_documentary_extraction_checkpoint_20260920.json"
+      "data/reporting/current_price_list_documentary_extraction_checkpoint_20260920.json",
+      "data/reporting/duster_july_automatic_matrix_gap_reconciliation_20260921.json"
     ],
-    "id": "full_price_list_option_matrix_reconciliation_004",
+    "id": "full_documentary_option_matrix_reconciliation_005",
     "progress": {
       "documentary_audits_complete": [
         "sandero_stepway",
@@ -53,7 +54,7 @@
         "bigster"
       ],
       "spring_july_stock_option_matrix_materialized": true,
-      "remaining_master_gap": "Duster numbered winter package labels remain evidence-only where no unambiguous mapping to the July canonical package names exists.",
+      "remaining_master_gap": "Duster July automatic matrix: 23 of 26 documentary gap attributes are now materialized from the July cennik; 3 canonical mappings remain explicitly unresolved and are not forced.",
       "duster_journey_tribrid_configurator_verified": true,
       "duster_parking_configuration_observation_added": true,
       "duster_journey_ecog120_auto_parking_evidence_added": true,
@@ -64,15 +65,31 @@
       "documentary_audits_extended": [
         "duster_2026-02-06_my26_py25",
         "jogger_2026-04-01"
-      ]
+      ],
+      "duster_july_automatic_matrix_gap_reconciliation_added": 23,
+      "duster_july_automatic_matrix_gap_reconciliation_unresolved": 3,
+      "duster_july_automatic_matrix_gap_reconciliation_verified_mapping_count": 23,
+      "duster_jogger_bigster_commercial_matrix_reconciled": true
     }
   },
   "next_package": {
-    "id": "full_documentary_option_matrix_reconciliation_005",
+    "id": "duster_jogger_bigster_documentary_master_reconciliation_006",
     "status": "active",
-    "goal": "Complete source-first assimilation of the remaining price lists and brochures before configurator gap-filling, starting with Spring MY25 stock FlexiCharger evidence and then Duster, Jogger and Bigster July 2026-07-03 documentary matrices plus the remaining brochure sources.",
-    "name": "Full Documentary Option-Matrix Reconciliation",
-    "package_id": "full_documentary_option_matrix_reconciliation_005"
+    "goal": "Continue source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.",
+    "name": "Duster/Jogger/Bigster Documentary Master Reconciliation",
+    "package_id": "duster_jogger_bigster_documentary_master_reconciliation_006",
+    "progress": {
+      "duster_jogger_bigster_commercial_matrix_reconciled": true,
+      "jogger_commercial_items_verified": 6,
+      "jogger_commercial_item_configuration_rows_verified": 42,
+      "bigster_commercial_items_verified": 7,
+      "bigster_commercial_item_configuration_rows_verified": 48
+    },
+    "manifest_paths": [
+      "data/reporting/duster_jogger_bigster_commercial_matrix_reconciliation_20260921.json",
+      "tests/test_duster_jogger_bigster_documentary_source_counts_20260703.py"
+    ],
+    "current_boundary": "Commercial option/package matrices for Jogger and Bigster are reconciled against the existing master commercial registries; equipment and technical source-to-master reconciliation remains open."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

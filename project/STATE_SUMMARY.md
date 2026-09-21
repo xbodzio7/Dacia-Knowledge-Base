@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1926
+- Tests: 1929
 - Master CSV files: 47
-- Master rows: 17304
+- Master rows: 17327
 - Configuration values: 6746
 - Configuration import specifications: 139
 - Configuration value ranges: 345
 - Configuration range import specifications: 24
-- Availability records: 7544
+- Availability records: 7567
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**Full Price-List Option Matrix Reconciliation** — `complete`
+**Full Documentary Option-Matrix Reconciliation** — `complete`
 
-Reconcile the verified current MY26 price-list portfolio and directly evidenced Duster automatic configuration/package observations without overwriting historical documentary values or inferring negative availability.
+Complete source-first assimilation of remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.
 
 ## Next package
 
-**Full Documentary Option-Matrix Reconciliation** — `active`
+**Duster/Jogger/Bigster Documentary Master Reconciliation** — `active`
 
-Complete source-first assimilation of the remaining price lists and brochures before configurator gap-filling, starting with Spring MY25 stock FlexiCharger evidence and then Duster, Jogger and Bigster July 2026-07-03 documentary matrices plus the remaining brochure sources.
+Continue source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.
 
 ## Autonomy
 

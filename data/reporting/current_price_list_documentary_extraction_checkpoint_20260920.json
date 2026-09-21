@@ -100,8 +100,8 @@
   "spring": {
     "source_code": "src_pl_spring_price_my25_stock_20260708",
     "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
-    "status": "priority_full_audit_pending",
-    "known_gap": "The source-audit inventory explicitly records missed FlexiCharger evidence in the full matrix."
+    "status": "commercial_matrix_reconciled; full documentary master assimilation still open",
+    "known_gap": "The previously missed Expression FlexiCharger row is now materialized; remaining Spring work is full source-to-master equipment/technical reconciliation, not the FlexiCharger commercial gap."
   },
   "completion_assessment": {
     "fully_assimilated_sources_in_this_checkpoint": 0,
@@ -123,6 +123,6 @@
       "src_pl_duster_mini_brochure_20251020",
       "src_pl_spring_brochure_20260219"
     ],
-    "next_package": "Full documentary option-matrix reconciliation, starting with Spring priority gap and then Duster/Jogger/Bigster 2026-07-03."
+    "next_package": "Duster/Jogger/Bigster documentary master reconciliation after the Spring commercial FlexiCharger gap closure."
   }
 }
