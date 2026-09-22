@@ -1,15 +1,16 @@
 name: _tmp_regenerate_existing_analysis_686
 
 on:
-  push:
-    branches:
-      - agent/duster-jogger-july-technical-reconciliation-007
+  pull_request:
+    types: [synchronize, opened, reopened]
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   regenerate:
+    if: github.event.pull_request.head.ref == 'agent/duster-jogger-july-technical-reconciliation-007'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,11 +21,12 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import json
           from tools import existing_configuration_missing_data_analysis as analysis
           root = Path(".")
           payload = analysis.collect(root)
           (root/"data/reporting/existing_configuration_missing_data_analysis.json").write_text(
-              __import__("json").dumps(payload, ensure_ascii=False, indent=2)+"\n", encoding="utf-8"
+              json.dumps(payload, ensure_ascii=False, indent=2)+"\n", encoding="utf-8"
           )
           (root/"data/reporting/existing_configuration_missing_data_analysis.md").write_text(
               analysis.render_markdown(payload), encoding="utf-8"
