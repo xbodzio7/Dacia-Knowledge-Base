@@ -113,7 +113,7 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
             {"attribute_code": "co2_emissions", "fuel_type_code": "lpg"},
             {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "lpg"},
             {"attribute_code": "maximum_payload", "fuel_type_code": ""},
-        ]
+        ])
         self.assertEqual(spec["equipment_attributes"], [])
         self.assertEqual(evidence, {"as_of": "2026-07-03", "decisions": [], "version": 1})
 
