@@ -112,6 +112,7 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
             {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "petrol"},
             {"attribute_code": "co2_emissions", "fuel_type_code": "lpg"},
             {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "lpg"},
+            {"attribute_code": "maximum_payload", "fuel_type_code": ""},
         ]
         self.assertEqual(spec["equipment_attributes"], [])
         self.assertEqual(evidence, {"as_of": "2026-07-03", "decisions": [], "version": 1})
@@ -146,16 +147,16 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
         )
 
         self.assertEqual(completeness["scope"]["reporting_configurations"], 3)
-        self.assertEqual(completeness["technical"]["denominator"], 87)
+        self.assertEqual(completeness["technical"]["denominator"], 90)
         self.assertEqual(completeness["equipment"]["denominator"], 0)
         self.assertEqual(coverage["source_registration"]["registered"], 1)
         self.assertEqual(coverage["source_registration"]["missing"], 0)
         self.assertEqual(coverage["records"]["identity_links"]["missing"], 0)
         self.assertEqual(coverage["records"]["prices"]["missing"], 0)
-        self.assertEqual(coverage["records"]["technical"]["present"], 87)
+        self.assertEqual(coverage["records"]["technical"]["present"], 90)
         self.assertEqual(comparison["scope"]["pair_count"], 3)
         self.assertEqual(comparison["summary"]["prices"]["different"], 3)
-        self.assertEqual(comparison["summary"]["technical"]["comparisons"], 87)
+        self.assertEqual(comparison["summary"]["technical"]["comparisons"], 90)
         self.assertEqual(comparison["summary"]["technical"]["not_comparable"], 0)
 
     def test_reconciliation_receipt_preserves_existing_rows_and_prices(self) -> None:
