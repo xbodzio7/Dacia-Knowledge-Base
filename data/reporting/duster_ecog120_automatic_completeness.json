@@ -179,62 +179,6 @@
     {
       "attribute_code": "unbraked_trailer_weight",
       "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "lpg"
-    },
-    {
-      "attribute_code": "co2_emissions",
-      "fuel_type_code": "petrol"
-    },
-    {
-      "attribute_code": "drive_type",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "engine_type",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "lpg"
-    },
-    {
-      "attribute_code": "fuel_consumption_combined",
-      "fuel_type_code": "petrol"
-    },
-    {
-      "attribute_code": "gear_count",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "gearbox_type",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "injection_type",
-      "fuel_type_code": "lpg"
-    },
-    {
-      "attribute_code": "injection_type",
-      "fuel_type_code": "petrol"
-    },
-    {
-      "attribute_code": "maximum_cargo_volume_iso3832",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "maximum_payload",
-      "fuel_type_code": ""
-    },
-    {
-      "attribute_code": "minimum_kerb_weight",
-      "fuel_type_code": ""
     }
   ],
   "equipment_attributes": [],
