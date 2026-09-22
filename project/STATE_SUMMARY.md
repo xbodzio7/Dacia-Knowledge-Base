@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1933
+- Tests: 1935
 - Master CSV files: 47
 - Master rows: 18325
 - Configuration values: 7664
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster/Jogger July Technical Documentary Reconciliation** — `complete`
+**Bigster Documentary Technical Reconciliation** — `complete`
 
-Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.
+The fully assimilated Bigster technical source-to-master reconciliation is closed. The three previously identified import-ready technical facts were already source-bound in master, and the 30 brochure page-20 technical ranges were already materialized. Existing documentary conflicts remain preserved.
 
 ## Next package
 
-**Bigster Documentary Technical Reconciliation** — `planned`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `residual_gap_052`
 
-Prepare Bigster documentary technical and equipment reconciliation after Duster/Jogger technical package 007 is merged; remain source-first and do not use configurator evidence until documentary pass is closed.
+Review the remaining unresolved Sandero brochure page-19 equipment candidates against preserved evidence without inferring availability or creating unsupported master-data rows.
 
 ## Autonomy
 
@@ -52,7 +52,7 @@ Mode: `autonomous_until_action_required`
 
 Standing authorization covers package branches, manifest-scoped edits, tests and quality, package commits, pushes, Pull Requests, in-scope CI repairs, green merges, state updates and generated documentation.
 
-Work stops only for a real source, access, authentication, policy, architecture, scope, destructive-operation or unresolved-evidence boundary. The stop message must begin with `ACTION_REQUIRED`.
+Work stops only for a real source, access, authentication, policy, architecture, scope, destructive-operation or unresolved-evidence boundary.
 
 ## Review policy
 
