@@ -46,7 +46,23 @@
     "manifest_paths": [
       "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.json",
       "data/reporting/sandero_equipment_page19_unresolved_review_chunk2.md"
-    ]
+    ],
+    "review_bundle": {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "model_code": "sandero",
+      "domain": "equipment_matrix",
+      "page": 19,
+      "candidate_count": 25,
+      "group_candidate_count": 65,
+      "chunk_index": 2,
+      "chunk_count": 2,
+      "evidence_signature_count": 0,
+      "evidence_record_count": 0,
+      "source_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+      "source_sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+      "prioritization_path": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+      "source_receipt_path": "project/sources/official-dacia-brochures-20260725.json"
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
