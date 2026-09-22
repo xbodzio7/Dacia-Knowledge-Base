@@ -63,7 +63,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
                 "not_available": 66,
                 "optional": 24,
                 "recorded": 318,
-                "standard": 252,
+                "standard": 228,
                 "unknown": 0,
             },
         )

@@ -16,7 +16,6 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
         cls.payload = analysis.collect(ROOT)
 
     def test_report_has_stable_contract(self) -> None:
-        print("CURRENT_ANALYSIS_PAYLOAD=" + json.dumps(self.payload, ensure_ascii=False, sort_keys=True))
         self.assertEqual(self.payload["version"], 2)
         self.assertEqual(self.payload["as_of"], "2026-08-01")
         self.assertEqual(
