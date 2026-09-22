@@ -19,7 +19,7 @@
 - Package: Sandero Stepway Full Modal Evidence Boundary
 - Pull Request: #638
 - Verified head: `1ec4ae2c85cf01ca7a0b6e6dad73482ae031f2c8`
-- Quality run: #34656057381
+- Quality run: #35794419607
 
 ## Verified baseline
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 009** — `complete`
+**CAT-GAP-002 Exact Colour Surface Capture Batch 010** — `complete`
 
-Capture three previously unresolved exact colour surfaces from currently open saved official Polish Dacia configurator states without projection, availability inference or master-data mutation.
+Capture one previously unresolved exact colour surface from a currently open saved official Polish Dacia configurator state without projection, availability inference or master-data mutation.
 
 ## Next package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 010** — `planned`
+**CAT-GAP-002 Exact Colour Surface Capture Batch 011** — `planned`
 
-Continue exact-state capture for the remaining 45 active CAT-GAP-002 colour surfaces using reproducible official Polish Dacia configurator states; record only directly observed colour choices and stop at any selector or source ambiguity.
+Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; use official Polish Dacia configurator saved states only for genuinely missing evidence and stop at selector or source ambiguity.
 
 ## Autonomy
 
