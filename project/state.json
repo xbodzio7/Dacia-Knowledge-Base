@@ -27,23 +27,24 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "post_residual_review_milestone_closure_001",
-    "kind": "milestone_review",
-    "name": "Post-Residual Review Milestone Closure",
-    "status": "complete",
-    "goal": "Close the completed residual-review queue, reconcile milestone-level documentation and establish the next bounded source-first work package.",
-    "manifest_paths": [
-      "project/reviews/post-residual-review-milestone-closure-20260922.md"
-    ]
-  },
-  "next_package": {
     "package_id": "duster_automatic_option_applicability_reconciliation_005",
     "kind": "data_reconciliation",
     "name": "Duster Automatic Option Applicability Reconciliation",
-    "status": "planned",
-    "goal": "Materialize only source-backed configuration-level Duster automatic option identities already evidenced by exact Dacia configuration pages and reconcile them against the July/current documentary package matrix; preserve ZIMOWY II/III as evidence-only where mapping remains ambiguous.",
+    "status": "complete",
+    "goal": "Reconcile exact current Duster automatic package evidence already present in the repository against commercial master data without normalizing ambiguous numbered winter labels.",
     "manifest_paths": [
-      "data/reporting/duster_automatic_option_applicability_reconciliation_20260920.json"
+      "data/reporting/duster_automatic_option_applicability_reconciliation_20260920.json",
+      "tests/test_duster_automatic_option_applicability_reconciliation_20260922.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "official_configurator_exact_state_capture_001",
+    "kind": "bounded_source_capture",
+    "name": "Official Configurator Exact-State Capture",
+    "status": "planned",
+    "goal": "Capture and normalize exact saved configurator states for active model, grade, powertrain and transmission surfaces, beginning with the unresolved Spring saved Expression state; do not promote dynamic choices until exact-state evidence is captured.",
+    "manifest_paths": [
+      "data/reporting/official_configurator_coverage_reconciliation.json"
     ]
   },
   "autonomy": {
