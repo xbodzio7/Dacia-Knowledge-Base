@@ -8,13 +8,13 @@ from pathlib import Path
 REPOSITORY = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPOSITORY / "tools"))
 
-import configuration_completeness as completeness  # noqa: E402
-import configuration_comparison as comparison  # noqa: E402
-import source_coverage  # noqa: E402
+import configuration_completeness as completeness
+import configuration_comparison as comparison
+import source_coverage
 
 AS_OF = "2026-07-03"
 SPEC = REPOSITORY / "data/reporting/jogger_tce110_manual_completeness.json"
-EVIDENCE = REPOSITORY / "data/reporting/jogger_tce110_manual_gap_evidence_20260703.spec"
+EVIDENCE = REPOSITORY / "data/reporting/jogger_tce110_manual_gap_evidence.spec"
 CONFIGURATIONS = {
     "jogger_expression_5seat_tce110_manual",
     "jogger_expression_7seat_tce110_manual",
@@ -23,7 +23,6 @@ CONFIGURATIONS = {
     "jogger_journey_5seat_tce110_manual",
     "jogger_journey_7seat_tce110_manual",
 }
-
 
 class JoggerTce110ManualReportingScopeTests(unittest.TestCase):
     @classmethod
@@ -41,39 +40,12 @@ class JoggerTce110ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual(scope["sources"], 1)
 
     def test_completeness_is_exact_and_gap_free(self) -> None:
-        self.assertEqual(
-            self.completeness["technical"],
-            {
-                "applicable": 252,
-                "coverage_percent": "100.00",
-                "denominator": 252,
-                "missing": 0,
-                "not_applicable": 0,
-                "present": 252,
-            },
-        )
-        self.assertEqual(
-            self.completeness["equipment"],
-            {
-                "applicable": 318,
-                "coverage_percent": "100.00",
-                "denominator": 318,
-                "missing": 0,
-                "not_applicable": 0,
-                "not_available": 40,
-                "optional": 24,
-                "recorded": 318,
-                "standard": 254,
-                "unknown": 0,
-            },
-        )
+        self.assertEqual(self.completeness["technical"], {"applicable": 252, "coverage_percent": "100.00", "denominator": 252, "missing": 0, "not_applicable": 0, "present": 252})
+        self.assertEqual(self.completeness["equipment"], {"applicable": 318, "coverage_percent": "100.00", "denominator": 318, "missing": 0, "not_applicable": 0, "not_available": 40, "optional": 24, "recorded": 318, "standard": 254, "unknown": 0})
         self.assertEqual(self.completeness["gaps"], {"equipment": [], "technical": []})
 
     def test_source_coverage_is_complete_for_technical_equipment_and_prices(self) -> None:
-        self.assertEqual(
-            self.coverage["source_registration"],
-            {"expected": 1, "future": 0, "inactive": 0, "metadata_complete": 1, "missing": 0, "registered": 1},
-        )
+        self.assertEqual(self.coverage["source_registration"], {"expected": 1, "future": 0, "inactive": 0, "metadata_complete": 1, "missing": 0, "registered": 1})
         self.assertEqual(self.coverage["areas"], {"covered": 24, "denominator": 24, "missing": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["sections"], {"covered": 180, "denominator": 180, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["records"]["technical"]["present"], 252)
@@ -84,32 +56,16 @@ class JoggerTce110ManualReportingScopeTests(unittest.TestCase):
     def test_fifteen_pairs_have_expected_types_and_are_comparable(self) -> None:
         pairs = self.comparison["pairs"]
         self.assertEqual(len(pairs), 15)
-        self.assertEqual(
-            Counter(pair["pair_type"] for pair in pairs),
-            Counter({"different_version_same_transmission": 12, "same_version_same_transmission": 3}),
-        )
+        self.assertEqual(Counter(pair["pair_type"] for pair in pairs), Counter({"different_version_same_transmission": 12, "same_version_same_transmission": 3}))
         self.assertEqual({pair["summary"]["technical"]["not_comparable"] for pair in pairs}, {0, 10})
         self.assertEqual({pair["summary"]["equipment"]["not_comparable"] for pair in pairs}, {0})
         self.assertEqual({pair["summary"]["prices"]["not_comparable"] for pair in pairs}, {0})
 
     def test_comparison_summary_is_stable(self) -> None:
-        self.assertEqual(
-            self.comparison["summary"],
-            {
-                "prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0},
-                "technical": {"comparisons": 735, "equal": 564, "different": 81, "not_comparable": 90},
-                "equipment": {"comparisons": 795, "equal": 663, "different": 132, "not_comparable": 0},
-                "total_differences": 228,
-            },
-        )
+        self.assertEqual(self.comparison["summary"], {"prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0}, "technical": {"comparisons": 735, "equal": 564, "different": 81, "not_comparable": 90}, "equipment": {"comparisons": 795, "equal": 663, "different": 132, "not_comparable": 0}, "total_differences": 228})
 
     def test_all_seventy_five_range_comparisons_preserve_interval_semantics(self) -> None:
-        ranged = [
-            item
-            for pair in self.comparison["pairs"]
-            for item in pair["technical"]
-            if "minimum_value" in item["left"] or "minimum_value" in item["right"]
-        ]
+        ranged = [item for pair in self.comparison["pairs"] for item in pair["technical"] if "minimum_value" in item["left"] or "minimum_value" in item["right"]]
         self.assertEqual(len(ranged), 75)
         self.assertEqual(Counter(item["comparison"] for item in ranged), Counter({"equal": 66, "different": 9}))
         self.assertEqual(Counter(item.get("range_relation") for item in ranged), Counter({"identical": 66, "disjoint": 9}))
@@ -122,7 +78,6 @@ class JoggerTce110ManualReportingScopeTests(unittest.TestCase):
     def test_empty_gap_evidence_remains_valid_and_all_prices_differ(self) -> None:
         self.assertEqual(self.comparison["evidence_summary"], {"total": 0, "ambiguous": 0, "found": 0, "not_stated": 0, "out_of_scope": 0})
         self.assertEqual(self.comparison["summary"]["prices"], {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0})
-
 
 if __name__ == "__main__":
     unittest.main()
