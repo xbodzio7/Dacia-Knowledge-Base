@@ -13,7 +13,7 @@ import configuration_completeness as completeness  # noqa: E402
 import configuration_comparison as comparison  # noqa: E402
 import source_coverage  # noqa: E402
 
-AS_OF = "2026-07-03"
+AS_OF = "2026-02-06"
 SCOPES = {
     "ecog100": {
         "spec": REPOSITORY / "data" / "reporting" / "duster_ecog100_completeness.json",
@@ -35,8 +35,8 @@ SCOPES = {
         "total_differences": 86,
     },
     "ecog120": {
-        "spec": REPOSITORY / "data" / "reporting" / "duster_ecog120_completeness.json",
-        "evidence": REPOSITORY / "data" / "reporting" / "duster_ecog120_gap_evidence.spec",
+        "spec": REPOSITORY / "data" / "reporting" / "historical" / "duster_ecog120_completeness_20260206.json",
+        "evidence": REPOSITORY / "data" / "reporting" / "historical" / "duster_ecog120_gap_evidence_20260206.spec",
         "configurations": {
             "duster_iii_essential_ecog120_4x2_manual",
             "duster_iii_expression_ecog120_4x2_manual",
