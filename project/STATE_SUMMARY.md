@@ -52,7 +52,7 @@ Mode: `autonomous_until_action_required`
 
 Standing authorization covers package branches, manifest-scoped edits, tests and quality, package commits, pushes, Pull Requests, in-scope CI repairs, green merges, state updates and generated documentation.
 
-Work stops only for a real source, access, authentication, policy, architecture, scope, destructive-operation or unresolved-evidence boundary.
+Work stops only for a real source, access, authentication, policy, architecture, scope, destructive-operation or unresolved-evidence boundary. The stop message must begin with `ACTION_REQUIRED`.
 
 ## Review policy
 
