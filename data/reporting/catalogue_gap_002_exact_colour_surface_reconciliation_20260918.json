@@ -81,6 +81,16 @@
         "spring_essential_electric70_automatic",
         "spring_expression_electric70_automatic"
       ]
+    },
+    {
+      "pull_request": 693,
+      "merge_sha": "c1c979d2ae85c229d11eebbbdd68feb1e0da03c7",
+      "new_exact_surface_count": 3,
+      "configuration_codes": [
+        "duster_iii_journey_hybridg150_4x4_automatic",
+        "sandero_iii_journey_tce100_manual",
+        "sandero_stepway_extreme_hybrid155_automatic"
+      ]
     }
   ],
   "selector_limitations_retained": [
@@ -108,19 +118,8 @@
     "All 19 newly reconciled observations are distinct from those 14 pre-existing Jogger surfaces.",
     "No master-data, availability or configuration records are changed by this reconciliation.",
     "Batch 009 adds three distinct exact surfaces observed from currently open saved official Polish Dacia configurator states: Duster Journey hybrid-G 150 4x4 automatic, Sandero Journey TCe 100 manual and Sandero Stepway Extreme hybrid 155 automatic.",
-    "Batch 009 is prepared on branch agent/catalogue-gap-002-exact-colour-capture-009; its three surfaces are not included in the merged-evidence count until the package is merged.",
     "The remaining gap is 45 active exact colour surfaces after the batch-009 observations. Per-colour surcharges were not exposed by the accessibility tree for this batch and were not inferred.",
-    "No master-data, availability or configuration records are changed by batch 009."
-  ],
-  "latest_capture_batch": {
-    "batch_id": "catalogue_gap_002_exact_colour_capture_20260922_batch_009",
-    "branch": "agent/catalogue-gap-002-exact-colour-capture-009",
-    "observation_count": 3,
-    "configuration_codes": [
-      "duster_iii_journey_hybridg150_4x4_automatic",
-      "sandero_iii_journey_tce100_manual",
-      "sandero_stepway_extreme_hybrid155_automatic"
-    ],
-    "status": "prepared_pending_merge"
-  }
+    "No master-data, availability or configuration records are changed by batch 009.",
+    "Batch 009 was merged in PR #693 with merge commit c1c979d2ae85c229d11eebbbdd68feb1e0da03c7."
+  ]
 }
