@@ -981,7 +981,7 @@
     {
       "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_automatic_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -994,7 +994,7 @@
     {
       "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_automatic_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1007,7 +1007,7 @@
     {
       "configuration_code": "jogger_journey_5seat_ecog120_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_automatic_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1020,7 +1020,7 @@
     {
       "configuration_code": "jogger_journey_7seat_ecog120_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_automatic_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1033,7 +1033,7 @@
     {
       "configuration_code": "jogger_essential_5seat_ecog120_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_manual_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1046,7 +1046,7 @@
     {
       "configuration_code": "jogger_essential_7seat_ecog120_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_manual_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1059,7 +1059,7 @@
     {
       "configuration_code": "jogger_expression_5seat_ecog120_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_manual_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1072,7 +1072,7 @@
     {
       "configuration_code": "jogger_expression_7seat_ecog120_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_manual_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1085,7 +1085,7 @@
     {
       "configuration_code": "jogger_extreme_5seat_ecog120_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_manual_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1098,7 +1098,7 @@
     {
       "configuration_code": "jogger_extreme_7seat_ecog120_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_ecog120_manual_completeness.json",
       "expected_technical": 52,
       "missing_technical": 0,
@@ -1111,7 +1111,7 @@
     {
       "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_hybrid155_automatic_completeness.json",
       "expected_technical": 46,
       "missing_technical": 0,
@@ -1124,7 +1124,7 @@
     {
       "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_hybrid155_automatic_completeness.json",
       "expected_technical": 46,
       "missing_technical": 0,
@@ -1137,7 +1137,7 @@
     {
       "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_hybrid155_automatic_completeness.json",
       "expected_technical": 46,
       "missing_technical": 0,
@@ -1150,7 +1150,7 @@
     {
       "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_hybrid155_automatic_completeness.json",
       "expected_technical": 46,
       "missing_technical": 0,
@@ -1163,7 +1163,7 @@
     {
       "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_hybrid155_automatic_completeness.json",
       "expected_technical": 46,
       "missing_technical": 0,
@@ -1176,7 +1176,7 @@
     {
       "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_hybrid155_automatic_completeness.json",
       "expected_technical": 46,
       "missing_technical": 0,
@@ -1189,7 +1189,7 @@
     {
       "configuration_code": "jogger_expression_5seat_tce110_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_tce110_manual_completeness.json",
       "expected_technical": 42,
       "missing_technical": 0,
@@ -1202,7 +1202,7 @@
     {
       "configuration_code": "jogger_extreme_5seat_tce110_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_tce110_manual_completeness.json",
       "expected_technical": 42,
       "missing_technical": 0,
@@ -1215,7 +1215,7 @@
     {
       "configuration_code": "jogger_journey_5seat_tce110_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_tce110_manual_completeness.json",
       "expected_technical": 42,
       "missing_technical": 0,
@@ -1228,7 +1228,7 @@
     {
       "configuration_code": "jogger_expression_7seat_tce110_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_tce110_manual_completeness.json",
       "expected_technical": 42,
       "missing_technical": 0,
@@ -1241,7 +1241,7 @@
     {
       "configuration_code": "jogger_extreme_7seat_tce110_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_tce110_manual_completeness.json",
       "expected_technical": 42,
       "missing_technical": 0,
@@ -1254,7 +1254,7 @@
     {
       "configuration_code": "jogger_journey_7seat_tce110_manual",
       "model_code": "jogger",
-      "source_code": "src_pl_jogger_price_my26_20260401",
+      "source_code": "src_pl_jogger_price_my26_20260703",
       "scope_file": "jogger_tce110_manual_completeness.json",
       "expected_technical": 42,
       "missing_technical": 0,
