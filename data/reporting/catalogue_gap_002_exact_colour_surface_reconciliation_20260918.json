@@ -1,15 +1,15 @@
 {
   "version": 1,
   "kind": "catalogue_gap_002_exact_colour_surface_reconciliation",
-  "reconciled_on": "2026-09-18",
+  "reconciled_on": "2026-09-22",
   "market": "PL",
   "gap_id": "CAT-GAP-002",
   "scope": {
     "active_exact_colour_surfaces": 81,
     "exact_surfaces_captured_before_this_reconciliation": 14,
-    "new_exact_surfaces_from_merged_batches": 19,
-    "unique_exact_surfaces_captured_after_reconciliation": 33,
-    "remaining_unresolved_exact_surfaces": 48
+    "new_exact_surfaces_from_merged_batches": 22,
+    "unique_exact_surfaces_captured_after_reconciliation": 36,
+    "remaining_unresolved_exact_surfaces": 45
   },
   "method": "Repository-only reconciliation of merged live official configurator evidence. Counts are derived from unique exact configuration codes and are not inferred from colour palettes or grade-level lists.",
   "policy": {
@@ -21,48 +21,106 @@
     "master_data_mutated": false
   },
   "merged_evidence_batches": [
-    {"pull_request": 659, "merge_sha": "63f4455f548f1705b977ce5fce42dee25cd377b9", "new_exact_surface_count": 2, "configuration_codes": [
-      "jogger_extreme_7seat_ecog120_automatic",
-      "jogger_journey_7seat_ecog120_automatic"
-    ]},
-    {"pull_request": 660, "merge_sha": "60a032cd06c20ab0209d7f18fc19591cb7237aab", "new_exact_surface_count": 2, "configuration_codes": [
-      "jogger_expression_7seat_tce110_manual",
-      "jogger_extreme_7seat_tce110_manual"
-    ]},
-    {"pull_request": 661, "merge_sha": "c84f155c0c437846bdf1b0e4ab43977088446426", "new_exact_surface_count": 6, "configuration_codes": [
-      "sandero_iii_expression_ecog120_manual",
-      "sandero_iii_journey_ecog120_manual",
-      "sandero_iii_expression_ecog120_automatic",
-      "sandero_iii_journey_ecog120_automatic",
-      "sandero_iii_essential_tce100_manual",
-      "sandero_iii_expression_tce100_manual"
-    ]},
-    {"pull_request": 662, "merge_sha": "3b76cc8e3c1cecd897393044379f99b77006d0f7", "new_exact_surface_count": 4, "configuration_codes": [
-      "sandero_stepway_essential_ecog120_manual",
-      "sandero_stepway_expression_ecog120_manual",
-      "sandero_stepway_expression_ecog120_automatic",
-      "sandero_stepway_extreme_ecog120_manual"
-    ]},
-    {"pull_request": 663, "merge_sha": "7c2badd6f409d51b52d8f36b1ae5db70e58f7a2b", "new_exact_surface_count": 3, "configuration_codes": [
-      "sandero_stepway_iii_essential_tce110_manual",
-      "sandero_stepway_iii_expression_tce110_manual",
-      "sandero_stepway_iii_extreme_tce110_manual"
-    ]},
-    {"pull_request": 664, "merge_sha": "d346cbd4df67b0ad1e1b51fc365ccdbec0107239", "new_exact_surface_count": 2, "configuration_codes": [
-      "spring_essential_electric70_automatic",
-      "spring_expression_electric70_automatic"
-    ]}
+    {
+      "pull_request": 659,
+      "merge_sha": "63f4455f548f1705b977ce5fce42dee25cd377b9",
+      "new_exact_surface_count": 2,
+      "configuration_codes": [
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic"
+      ]
+    },
+    {
+      "pull_request": 660,
+      "merge_sha": "60a032cd06c20ab0209d7f18fc19591cb7237aab",
+      "new_exact_surface_count": 2,
+      "configuration_codes": [
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_7seat_tce110_manual"
+      ]
+    },
+    {
+      "pull_request": 661,
+      "merge_sha": "c84f155c0c437846bdf1b0e4ab43977088446426",
+      "new_exact_surface_count": 6,
+      "configuration_codes": [
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_journey_ecog120_automatic",
+        "sandero_iii_essential_tce100_manual",
+        "sandero_iii_expression_tce100_manual"
+      ]
+    },
+    {
+      "pull_request": 662,
+      "merge_sha": "3b76cc8e3c1cecd897393044379f99b77006d0f7",
+      "new_exact_surface_count": 4,
+      "configuration_codes": [
+        "sandero_stepway_essential_ecog120_manual",
+        "sandero_stepway_expression_ecog120_manual",
+        "sandero_stepway_expression_ecog120_automatic",
+        "sandero_stepway_extreme_ecog120_manual"
+      ]
+    },
+    {
+      "pull_request": 663,
+      "merge_sha": "7c2badd6f409d51b52d8f36b1ae5db70e58f7a2b",
+      "new_exact_surface_count": 3,
+      "configuration_codes": [
+        "sandero_stepway_iii_essential_tce110_manual",
+        "sandero_stepway_iii_expression_tce110_manual",
+        "sandero_stepway_iii_extreme_tce110_manual"
+      ]
+    },
+    {
+      "pull_request": 664,
+      "merge_sha": "d346cbd4df67b0ad1e1b51fc365ccdbec0107239",
+      "new_exact_surface_count": 2,
+      "configuration_codes": [
+        "spring_essential_electric70_automatic",
+        "spring_expression_electric70_automatic"
+      ]
+    }
   ],
   "selector_limitations_retained": [
-    {"pull_request": 659, "configuration_code": "jogger_expression_7seat_ecog120_automatic", "status": "not_settable", "treatment": "negative_selector_observation_only; not counted as captured surface"},
-    {"pull_request": 661, "configuration_code": "sandero_iii_journey_tce100_manual", "status": "not_settable", "treatment": "selector limitation only; not counted as captured surface"},
-    {"pull_request": 664, "configuration_code": "spring_extreme_electric100_automatic", "status": "not_settable", "treatment": "selector limitation only; not counted as captured surface"}
+    {
+      "pull_request": 659,
+      "configuration_code": "jogger_expression_7seat_ecog120_automatic",
+      "status": "not_settable",
+      "treatment": "negative_selector_observation_only; not counted as captured surface"
+    },
+    {
+      "pull_request": 661,
+      "configuration_code": "sandero_iii_journey_tce100_manual",
+      "status": "not_settable",
+      "treatment": "selector limitation only; not counted as captured surface"
+    },
+    {
+      "pull_request": 664,
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "status": "not_settable",
+      "treatment": "selector limitation only; not counted as captured surface"
+    }
   ],
   "notes": [
     "The pre-existing count of 14 comes from the canonical CAT-GAP-002 progress overlay already present on main.",
     "All 19 newly reconciled observations are distinct from those 14 pre-existing Jogger surfaces.",
-    "This reconciliation supersedes the stale Jogger-only progress overlay for portfolio-level counting but does not delete or rewrite that historical overlay.",
-    "The gap remains blocked because 48 active exact colour surfaces still lack reproducible exact-state evidence.",
-    "No master-data, availability or configuration records are changed by this reconciliation."
-  ]
+    "No master-data, availability or configuration records are changed by this reconciliation.",
+    "Batch 009 adds three distinct exact surfaces observed from currently open saved official Polish Dacia configurator states: Duster Journey hybrid-G 150 4x4 automatic, Sandero Journey TCe 100 manual and Sandero Stepway Extreme hybrid 155 automatic.",
+    "Batch 009 is prepared on branch agent/catalogue-gap-002-exact-colour-capture-009; its three surfaces are not included in the merged-evidence count until the package is merged.",
+    "The remaining gap is 45 active exact colour surfaces after the batch-009 observations. Per-colour surcharges were not exposed by the accessibility tree for this batch and were not inferred.",
+    "No master-data, availability or configuration records are changed by batch 009."
+  ],
+  "latest_capture_batch": {
+    "batch_id": "catalogue_gap_002_exact_colour_capture_20260922_batch_009",
+    "branch": "agent/catalogue-gap-002-exact-colour-capture-009",
+    "observation_count": 3,
+    "configuration_codes": [
+      "duster_iii_journey_hybridg150_4x4_automatic",
+      "sandero_iii_journey_tce100_manual",
+      "sandero_stepway_extreme_hybrid155_automatic"
+    ],
+    "status": "prepared_pending_merge"
+  }
 }
