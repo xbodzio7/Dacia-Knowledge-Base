@@ -74,7 +74,7 @@ class JoggerEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         )
         self.assertEqual(self.coverage["areas"], {"covered": 16, "denominator": 16, "missing": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["sections"], {"covered": 124, "denominator": 124, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 208)
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 216)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 212)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 4)
         self.assertEqual(self.coverage["gaps"], [])

@@ -60,10 +60,10 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
                 "denominator": 318,
                 "missing": 0,
                 "not_applicable": 0,
-                "not_available": 38,
+                "not_available": 40,
                 "optional": 22,
                 "recorded": 318,
-                "standard": 258,
+                "standard": 256,
                 "unknown": 0,
             },
         )
@@ -76,7 +76,7 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
         )
         self.assertEqual(self.coverage["areas"], {"covered": 24, "denominator": 24, "missing": 0, "partial": 0, "source_missing": 0})
         self.assertEqual(self.coverage["sections"], {"covered": 192, "denominator": 192, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 276)
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 324)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 318)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 6)
         self.assertEqual(self.coverage["gaps"], [])
@@ -98,7 +98,7 @@ class JoggerHybrid155AutomaticReportingScopeTests(unittest.TestCase):
             {
                 "prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0},
                 "technical": {"comparisons": 915, "equal": 753, "different": 72, "not_comparable": 90},
-                "equipment": {"comparisons": 795, "equal": 679, "different": 116, "not_comparable": 0},
+                "equipment": {"comparisons": 795, "equal": 671, "different": 124, "not_comparable": 0},
                 "total_differences": 211,
             },
         )
