@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1938
+- Tests: 1939
 - Master CSV files: 47
 - Master rows: 18325
 - Configuration values: 7664
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Automatic Option Applicability Reconciliation** — `complete`
+**CAT-GAP-002 Exact Colour Surface Capture Batch 009** — `complete`
 
-Reconcile exact current Duster automatic package evidence already present in the repository against commercial master data without normalizing ambiguous numbered winter labels.
+Capture three previously unresolved exact colour surfaces from currently open saved official Polish Dacia configurator states without projection, availability inference or master-data mutation.
 
 ## Next package
 
-**Official Configurator Exact-State Capture** — `planned`
+**CAT-GAP-002 Exact Colour Surface Capture Batch 010** — `planned`
 
-Capture and normalize exact saved configurator states for active model, grade, powertrain and transmission surfaces, beginning with the unresolved Spring saved Expression state; do not promote dynamic choices until exact-state evidence is captured.
+Continue exact-state capture for the remaining 45 active CAT-GAP-002 colour surfaces using reproducible official Polish Dacia configurator states; record only directly observed colour choices and stop at any selector or source ambiguity.
 
 ## Autonomy
 
