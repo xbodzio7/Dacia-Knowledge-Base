@@ -82,7 +82,38 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
             {item["source_code"] for item in spec["configurations"]},
             {SOURCE_CODE},
         )
-        self.assertEqual(spec["technical_slots"], [])
+        self.assertEqual(spec["technical_slots"], [
+            {"attribute_code": "drive_type", "fuel_type_code": ""},
+            {"attribute_code": "gearbox_type", "fuel_type_code": ""},
+            {"attribute_code": "gear_count", "fuel_type_code": ""},
+            {"attribute_code": "engine_type", "fuel_type_code": ""},
+            {"attribute_code": "emission_standard", "fuel_type_code": ""},
+            {"attribute_code": "engine_displacement", "fuel_type_code": ""},
+            {"attribute_code": "cylinder_count", "fuel_type_code": ""},
+            {"attribute_code": "total_valve_count", "fuel_type_code": ""},
+            {"attribute_code": "top_speed", "fuel_type_code": ""},
+            {"attribute_code": "acceleration_0_100", "fuel_type_code": ""},
+            {"attribute_code": "fuel_tank_capacity", "fuel_type_code": "petrol"},
+            {"attribute_code": "minimum_kerb_weight", "fuel_type_code": ""},
+            {"attribute_code": "gross_vehicle_weight", "fuel_type_code": ""},
+            {"attribute_code": "braked_trailer_weight", "fuel_type_code": ""},
+            {"attribute_code": "cargo_volume_without_spare_wheel_iso3832", "fuel_type_code": ""},
+            {"attribute_code": "maximum_cargo_volume_iso3832", "fuel_type_code": ""},
+            {"attribute_code": "engine_power", "fuel_type_code": "petrol"},
+            {"attribute_code": "engine_torque", "fuel_type_code": "petrol"},
+            {"attribute_code": "injection_type", "fuel_type_code": "petrol"},
+            {"attribute_code": "engine_power", "fuel_type_code": "lpg"},
+            {"attribute_code": "engine_torque", "fuel_type_code": "lpg"},
+            {"attribute_code": "injection_type", "fuel_type_code": "lpg"},
+            {"attribute_code": "hybrid_system_voltage", "fuel_type_code": ""},
+            {"attribute_code": "traction_motor_power", "fuel_type_code": ""},
+            {"attribute_code": "starter_generator_power", "fuel_type_code": ""},
+            {"attribute_code": "co2_emissions", "fuel_type_code": "petrol"},
+            {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "petrol"},
+            {"attribute_code": "co2_emissions", "fuel_type_code": "lpg"},
+            {"attribute_code": "fuel_consumption_combined", "fuel_type_code": "lpg"},
+            {"attribute_code": "maximum_payload", "fuel_type_code": ""},
+        ])
         self.assertEqual(spec["equipment_attributes"], [])
         self.assertEqual(evidence, {"as_of": "2026-07-03", "decisions": [], "version": 1})
 
@@ -116,15 +147,17 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
         )
 
         self.assertEqual(completeness["scope"]["reporting_configurations"], 3)
-        self.assertEqual(completeness["technical"]["denominator"], 0)
+        self.assertEqual(completeness["technical"]["denominator"], 90)
         self.assertEqual(completeness["equipment"]["denominator"], 0)
         self.assertEqual(coverage["source_registration"]["registered"], 1)
         self.assertEqual(coverage["source_registration"]["missing"], 0)
         self.assertEqual(coverage["records"]["identity_links"]["missing"], 0)
         self.assertEqual(coverage["records"]["prices"]["missing"], 0)
+        self.assertEqual(coverage["records"]["technical"]["present"], 90)
         self.assertEqual(comparison["scope"]["pair_count"], 3)
         self.assertEqual(comparison["summary"]["prices"]["different"], 3)
-        self.assertEqual(comparison["summary"]["total_differences"], 3)
+        self.assertEqual(comparison["summary"]["technical"]["comparisons"], 90)
+        self.assertEqual(comparison["summary"]["technical"]["not_comparable"], 0)
 
     def test_reconciliation_receipt_preserves_existing_rows_and_prices(self) -> None:
         report = json.loads(RECONCILIATION.read_text(encoding="utf-8"))

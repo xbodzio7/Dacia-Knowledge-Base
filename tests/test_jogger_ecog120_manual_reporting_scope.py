@@ -12,7 +12,7 @@ import configuration_completeness as completeness  # noqa: E402
 import configuration_comparison as comparison  # noqa: E402
 import source_coverage  # noqa: E402
 
-AS_OF = "2026-04-01"
+AS_OF = "2026-07-03"
 SPEC = REPOSITORY / "data/reporting/jogger_ecog120_manual_completeness.json"
 EVIDENCE = REPOSITORY / "data/reporting/jogger_ecog120_manual_gap_evidence.spec"
 CONFIGURATIONS = {
@@ -36,7 +36,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 6)
-        self.assertEqual(scope["technical_slots"], 52)
+        self.assertEqual(scope["technical_slots"], 54)
         self.assertEqual(scope["equipment_attributes"], 53)
         self.assertEqual(scope["sources"], 1)
 
@@ -44,12 +44,12 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
         self.assertEqual(
             self.completeness["technical"],
             {
-                "applicable": 312,
+                "applicable": 324,
                 "coverage_percent": "100.00",
-                "denominator": 312,
+                "denominator": 324,
                 "missing": 0,
                 "not_applicable": 0,
-                "present": 312,
+                "present": 324,
             },
         )
         self.assertEqual(
@@ -60,10 +60,10 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
                 "denominator": 318,
                 "missing": 0,
                 "not_applicable": 0,
-                "not_available": 64,
+                "not_available": 66,
                 "optional": 24,
                 "recorded": 318,
-                "standard": 230,
+                "standard": 228,
                 "unknown": 0,
             },
         )
@@ -75,8 +75,8 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
             {"expected": 1, "future": 0, "inactive": 0, "metadata_complete": 1, "missing": 0, "registered": 1},
         )
         self.assertEqual(self.coverage["areas"], {"covered": 24, "denominator": 24, "missing": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["sections"], {"covered": 180, "denominator": 180, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
-        self.assertEqual(self.coverage["records"]["technical"]["present"], 312)
+        self.assertEqual(self.coverage["sections"], {"covered": 186, "denominator": 186, "missing": 0, "not_applicable": 0, "partial": 0, "source_missing": 0})
+        self.assertEqual(self.coverage["records"]["technical"]["present"], 324)
         self.assertEqual(self.coverage["records"]["equipment"]["present"], 318)
         self.assertEqual(self.coverage["records"]["prices"]["present"], 6)
         self.assertEqual(self.coverage["gaps"], [])
@@ -97,7 +97,7 @@ class JoggerEcoG120ManualReportingScopeTests(unittest.TestCase):
             self.comparison["summary"],
             {
                 "prices": {"comparisons": 15, "equal": 0, "different": 15, "not_comparable": 0},
-                "technical": {"comparisons": 885, "equal": 705, "different": 90, "not_comparable": 90},
+                "technical": {"comparisons": 915, "equal": 735, "different": 90, "not_comparable": 90},
                 "equipment": {"comparisons": 795, "equal": 607, "different": 188, "not_comparable": 0},
                 "total_differences": 293,
             },

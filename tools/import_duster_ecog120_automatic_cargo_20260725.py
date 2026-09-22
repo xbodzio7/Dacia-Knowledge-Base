@@ -255,8 +255,8 @@ def _load_specs() -> tuple[value_importer.ImportSpec, ...]:
     return specs
 
 
-def _verify_no_petrol_co2() -> None:
-    forbidden = [
+def _verify_petrol_co2_from_july_table() -> None:
+    rows = [
         row
         for row in _read_rows(MASTER / "configuration_attribute_values.csv")
         if row.get("configuration_code") in CONFIGURATION_CODES
@@ -264,10 +264,9 @@ def _verify_no_petrol_co2() -> None:
         and row.get("attribute_code") == "co2_emissions"
         and row.get("fuel_type_code") == "petrol"
     ]
-    _ensure(
-        not forbidden,
-        "petrol CO2 must remain unimported because the catalogue does not split 123 g/km by fuel",
-    )
+    _ensure(len(rows) == len(CONFIGURATION_CODES), "July technical table petrol CO2 coverage mismatch")
+    _ensure({row.get("value") for row in rows} == {"123"}, "July technical table petrol CO2 value mismatch")
+    _ensure({row.get("observation_date") for row in rows} == {SOURCE_DATE}, "July technical table petrol CO2 date mismatch")
 
 
 def check() -> None:
@@ -278,7 +277,7 @@ def check() -> None:
     for spec in _load_specs():
         value_importer.verify_registered_sources(ROOT, spec, verify_text=False)
         value_importer.verify_import(ROOT, spec)
-    _verify_no_petrol_co2()
+    _verify_petrol_co2_from_july_table()
 
 
 def apply() -> None:

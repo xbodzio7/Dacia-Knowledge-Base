@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-21
+- State updated: 2026-09-22
 
 ## Phase
 
@@ -23,12 +23,12 @@
 
 ## Verified baseline
 
-- Tests: 1929
+- Tests: 1933
 - Master CSV files: 47
-- Master rows: 17327
-- Configuration values: 6746
+- Master rows: 18325
+- Configuration values: 7664
 - Configuration import specifications: 139
-- Configuration value ranges: 345
+- Configuration value ranges: 425
 - Configuration range import specifications: 24
 - Availability records: 7567
 - Canonical attributes: 416
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Full Documentary Option-Matrix Reconciliation** — `complete`
+**Duster/Jogger July Technical Documentary Reconciliation** — `complete`
 
-Complete source-first assimilation of remaining cenniki and brochures into master data, preserving documentary context and avoiding cross-powertrain inference.
+Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.
 
 ## Next package
 
-**Duster/Jogger/Bigster Documentary Master Reconciliation** — `active`
+**Bigster Documentary Technical Reconciliation** — `planned`
 
-Continue source-first reconciliation of the remaining Duster, Jogger and Bigster July 2026 documentary matrices, then the remaining brochure sources; do not use configurator evidence until the documentary source-to-master pass is closed.
+Prepare Bigster documentary technical and equipment reconciliation after Duster/Jogger technical package 007 is merged; remain source-first and do not use configurator evidence until documentary pass is closed.
 
 ## Autonomy
 

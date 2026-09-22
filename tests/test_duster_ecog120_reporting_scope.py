@@ -35,8 +35,8 @@ SCOPES = {
         "total_differences": 86,
     },
     "ecog120": {
-        "spec": REPOSITORY / "data" / "reporting" / "duster_ecog120_completeness.json",
-        "evidence": REPOSITORY / "data" / "reporting" / "duster_ecog120_gap_evidence.spec",
+        "spec": REPOSITORY / "data" / "reporting" / "historical" / "duster_ecog120_completeness_20260206.json",
+        "evidence": REPOSITORY / "data" / "reporting" / "historical" / "duster_ecog120_gap_evidence_20260206.spec",
         "configurations": {
             "duster_iii_essential_ecog120_4x2_manual",
             "duster_iii_expression_ecog120_4x2_manual",
