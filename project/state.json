@@ -12,7 +12,7 @@
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
     "head_sha": "1ec4ae2c85cf01ca7a0b6e6dad73482ae031f2c8",
-    "quality_run": 34656057381
+    "quality_run": 35794419607
   },
   "baseline": {
     "tests": 1940,
@@ -27,24 +27,24 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_colour_capture_009",
-    "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 009",
-    "status": "complete",
-    "goal": "Capture three previously unresolved exact colour surfaces from currently open saved official Polish Dacia configurator states without projection, availability inference or master-data mutation.",
-    "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_colour_capture_20260922_batch_009.json",
-      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_exact_colour_capture_20260922_batch_009.py",
-      "project/reviews/catalogue-gap-002-exact-colour-capture-009-20260922.md"
-    ]
-  },
-  "next_package": {
     "package_id": "catalogue_gap_002_exact_colour_capture_010",
     "kind": "bounded_source_capture",
     "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 010",
+    "status": "complete",
+    "goal": "Capture one previously unresolved exact colour surface from a currently open saved official Polish Dacia configurator state without projection, availability inference or master-data mutation.",
+    "manifest_paths": [
+      "data/reporting/catalogue_gap_002_exact_colour_capture_20260923_batch_010.json",
+      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
+      "tests/test_catalogue_gap_002_exact_colour_capture_20260923_batch_010.py",
+      "project/reviews/catalogue-gap-002-exact-colour-capture-010-20260923.md"
+    ]
+  },
+  "next_package": {
+    "package_id": "catalogue_gap_002_exact_colour_capture_011",
+    "kind": "bounded_source_capture",
+    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 011",
     "status": "planned",
-    "goal": "Continue exact-state capture for the remaining 45 active CAT-GAP-002 colour surfaces using reproducible official Polish Dacia configurator states; record only directly observed colour choices and stop at any selector or source ambiguity.",
+    "goal": "Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; use official Polish Dacia configurator saved states only for genuinely missing evidence and stop at selector or source ambiguity.",
     "manifest_paths": [
       "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json"
     ]
