@@ -132,6 +132,10 @@
     {
       "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
     }
   ],
   "equipment_attributes": [],
