@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Documentary Technical Reconciliation** — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `residual_gap_052` — `complete`
 
-The fully assimilated Bigster technical source-to-master reconciliation is closed. The three previously identified import-ready technical facts were already source-bound in master, and the 30 brochure page-20 technical ranges were already materialized. Existing documentary conflicts remain preserved.
+The final canonical residual-review package is already complete; its unresolved evidence remains source-bound and no unsupported availability is inferred.
 
 ## Next package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `residual_gap_052`
+**Post-Residual Review Milestone Closure** — `post_residual_review_milestone_closure_001`
 
-Review the remaining unresolved Sandero brochure page-19 equipment candidates against preserved evidence without inferring availability or creating unsupported master-data rows.
+Close the completed residual-review queue, reconcile milestone-level documentation and establish the next bounded source-first work package.
 
 ## Autonomy
 
