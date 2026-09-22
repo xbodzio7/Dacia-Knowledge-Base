@@ -1,0 +1,61 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-23",
+  "market": "PL",
+  "capture_method": "live_official_dacia_configurator_saved_exact_state_read",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "model": "jogger",
+      "grade": "journey",
+      "seats": 7,
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {
+          "name": "biel alpejska",
+          "price_pln": null
+        },
+        {
+          "name": "szary schiste",
+          "price_pln": null
+        },
+        {
+          "name": "sandstone",
+          "price_pln": null
+        },
+        {
+          "name": "zielony cedar",
+          "price_pln": null
+        },
+        {
+          "name": "szary urban",
+          "price_pln": null
+        },
+        {
+          "name": "czarna perła",
+          "price_pln": null
+        },
+        {
+          "name": "brązowy terracotta",
+          "price_pln": null
+        }
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 98550,
+      "exact_state_url": "https://www.dacia.pl/samochody/jogger-ri1-ph2-7seats/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ30AhhAhAw%2FAkvyac%23this",
+      "note": "The saved state summary identifies Journey TCe 110 7-miejsc. The configurator accessibility tree exposes seven colour choices and shows biel alpejska as the selected colour. The exact saved state was read without changing the configuration. Per-colour surcharges are not exposed in the accessibility tree and were not inferred."
+    }
+  ],
+  "selector_limitations": [],
+  "note": "One previously unresolved CAT-GAP-002 exact colour surface was directly verified from a currently open saved official Polish Dacia configurator state. Only colours visibly exposed for the exact selected state are recorded. No cross-state projection, grade-level projection, availability inference or master-data mutation was performed."
+}
