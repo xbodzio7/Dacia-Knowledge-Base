@@ -38,7 +38,7 @@
     ],
     "review_bundle": {
       "source_code": "src_pl_sandero_brochure_20260202",
-      "model_code": "sandero",
+      "model_code": "sandero_iii",
       "domain": "equipment_matrix",
       "page": 19,
       "candidate_count": 25,
