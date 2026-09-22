@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "kind": "bigster_documentary_technical_reconciliation",
+  "reviewed_on": "2026-09-22",
+  "package_id": "bigster-documentary-technical-reconciliation-001",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 20,
+    "coverage": "fully_assimilated"
+  },
+  "secondary_source": {
+    "source_code": "src_pl_bigster_price_my26_20260703",
+    "effective_date": "2026-07-03",
+    "role": "cross-check; later exact scalar values retained"
+  },
+  "scope": {
+    "configurations": 14,
+    "range_observations_added": 30,
+    "attributes": [
+      "co2_emissions",
+      "fuel_consumption_combined"
+    ],
+    "fuel_contexts": [
+      "petrol",
+      "lpg"
+    ]
+  },
+  "accepted_facts": [
+    "Brochure page 20 provides inclusive combined-cycle CO2 ranges for mild hybrid 140, mild hybrid-G 140 and hybrid 155.",
+    "Brochure page 20 provides inclusive combined-cycle fuel-consumption ranges for the same powertrains.",
+    "Hybrid-G 150 4x4 is excluded because the July price-list scalar values are already exact and the reviewed reconciliation identifies no approved range import for that powertrain."
+  ],
+  "preserved_conflicts": [
+    "Hybrid 155 brochure states 280 V while later July price-list data records 200 V; no voltage overwrite.",
+    "Mild hybrid-G 140 payload brochure range conflicts with later exact price-list range; no payload change.",
+    "Hybrid-G 150 4x4 technical naming/equipment conflicts remain deferred."
+  ],
+  "not_imported": [
+    "Eco mode, hybrid battery type and hybrid-system power total were already represented in master data.",
+    "Current configurator observations were not used for this documentary import."
+  ]
+}
