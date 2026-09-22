@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1933
+- Tests: 1935
 - Master CSV files: 47
 - Master rows: 18325
 - Configuration values: 7664
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster/Jogger July Technical Documentary Reconciliation** — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
 
-Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.
+Review the remaining 25 unresolved Sandero brochure page-19 equipment candidates against preserved source evidence without inferring availability or creating unsupported master-data rows.
 
 ## Next package
 
-**Bigster Documentary Technical Reconciliation** — `planned`
+**Post-Residual Review Milestone Closure** — `planned`
 
-Prepare Bigster documentary technical and equipment reconciliation after Duster/Jogger technical package 007 is merged; remain source-first and do not use configurator evidence until documentary pass is closed.
+Close the completed residual-review queue, reconcile milestone-level documentation and establish the next bounded source-first work package.
 
 ## Autonomy
 
