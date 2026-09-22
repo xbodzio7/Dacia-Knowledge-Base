@@ -2,7 +2,7 @@
   "version": 1,
   "kind": "duster_automatic_option_applicability_reconciliation",
   "reviewed_on": "2026-09-20",
-  "status": "evidence_collected_ready_for_master",
+  "status": "complete",
   "primary_document": {
     "source_code": "src_pl_duster_price_my26_20260703",
     "option_matrix": "grade-level",
@@ -166,8 +166,8 @@
       "duster_iii_journey_ecog120_automatic numbered winter label ZIMOWY II — package-name normalization conflict"
     ]
   },
-  "decision": "Register exact current official Dacia NCI pages as configuration-specific evidence and materialize only unambiguous package identities. Preserve ZIMOWY I and ZIMOWY III verbatim as evidence-only until a documentary mapping to canonical winter package codes is established.",
-  "next_package": "duster_automatic_option_applicability_reconciliation_005",
+  "decision": "Master reconciliation complete: the previously collected Duster automatic option evidence is already materialized for every unambiguous package identity. No duplicate commercial rows are added. ZIMOWY II/III remain unresolved source labels.",
+  "next_package": "official_configurator_exact_state_capture_001",
   "configurator_evidence": {
     "source": "Dacia Poland current interactive configurator",
     "accessed": "2026-09-20",
@@ -211,5 +211,27 @@
       "Accordingly, ZIMOWY I is reconciled only to the existing Expression winter-package family; ZIMOWY II and ZIMOWY III remain verbatim evidence-only."
     ],
     "decision": "Do not infer the generic ZIMOWY versus ZIMOWY PLUS selection from numbered NCI labels II/III. The July/current price-list matrix supplies grade-level availability and price, but not a one-to-one mapping from numbered NCI labels to the two winter package variants."
+  },
+  "master_reconciliation": {
+    "checked_on": "2026-09-22",
+    "commercial_item_configuration_source": "data/master/commercial_item_configurations.csv",
+    "resolved_exact_configuration_items": [
+      "duster_parking_package__duster_iii_journey_hybridg150_4x4_automatic__configurator_20260920",
+      "duster_parking_package__duster_iii_extreme_hybridg150_4x4_automatic__dealer_20260920",
+      "duster_parking_package__duster_iii_journey_ecog120_4x2_automatic__dealer_20260920",
+      "duster_winter_expression_journey_package__duster_iii_expression_ecog120_4x2_automatic__catalog_20260920",
+      "duster_parking_package__duster_iii_extreme_ecog120_4x2_automatic__catalog_20260920",
+      "duster_techno_1_package__duster_iii_extreme_ecog120_4x2_automatic__catalog_20260920",
+      "duster_parking_package__duster_iii_extreme_hybridg150_4x4_automatic__catalog_20260920",
+      "duster_techno_2_package__duster_iii_extreme_hybridg150_4x4_automatic__catalog_20260920"
+    ],
+    "unresolved_source_bound_items": [
+      "duster_winter_plus_journey_package__duster_iii_journey_hybridg150_4x4_automatic",
+      "duster_iii_extreme_ecog120_4x2_automatic winter package naming conflict",
+      "duster_iii_extreme_ecog120_4x2_automatic ZIMOWY III",
+      "duster_iii_journey_hybridg150_4x4_automatic ZIMOWY II",
+      "duster_iii_journey_ecog120_4x2_automatic ZIMOWY II"
+    ],
+    "result": "All unambiguous configuration-level package identities from the existing evidence report are already present in the commercial master. No additional master mutation is required in this reconciliation package. Numbered winter labels remain evidence-only."
   }
 }

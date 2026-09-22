@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1935
+- Tests: 1938
 - Master CSV files: 47
 - Master rows: 18325
 - Configuration values: 7664
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Post-Residual Review Milestone Closure** — `complete`
+**Duster Automatic Option Applicability Reconciliation** — `complete`
 
-Close the completed residual-review queue, reconcile milestone-level documentation and establish the next bounded source-first work package.
+Reconcile exact current Duster automatic package evidence already present in the repository against commercial master data without normalizing ambiguous numbered winter labels.
 
 ## Next package
 
-**Duster Automatic Option Applicability Reconciliation** — `planned`
+**Official Configurator Exact-State Capture** — `planned`
 
-Materialize only source-backed configuration-level Duster automatic option identities already evidenced by exact Dacia configuration pages and reconcile them against the July/current documentary package matrix; preserve ZIMOWY II/III as evidence-only where mapping remains ambiguous.
+Capture and normalize exact saved configurator states for active model, grade, powertrain and transmission surfaces, beginning with the unresolved Spring saved Expression state; do not promote dynamic choices until exact-state evidence is captured.
 
 ## Autonomy
 
