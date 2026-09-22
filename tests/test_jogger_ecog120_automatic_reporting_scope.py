@@ -14,7 +14,7 @@ import source_coverage  # noqa: E402
 
 AS_OF = "2026-07-03"
 SPEC = REPOSITORY / "data/reporting/jogger_ecog120_automatic_completeness.json"
-EVIDENCE = REPOSITORY / "data/reporting/jogger_ecog120_automatic_gap_evidence_20260703.spec"
+EVIDENCE = REPOSITORY / "data/reporting/jogger_ecog120_automatic_gap_evidence.spec"
 CONFIGURATIONS = {
     "jogger_extreme_5seat_ecog120_automatic",
     "jogger_extreme_7seat_ecog120_automatic",
