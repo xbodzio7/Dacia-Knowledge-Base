@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Dacia Current Configurator PDF Portfolio Assimilation",
+  "phase": "Post-Jogger Context Completeness Reanalysis",
   "reference_delivery": {
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
@@ -27,40 +27,28 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "duster_jogger_documentary_technical_reconciliation_007",
-    "kind": "documentary_source_assimilation",
-    "name": "Duster/Jogger July Technical Documentary Reconciliation",
+    "package_id": "post_jogger_context_completeness_reanalysis_001",
+    "kind": "data_quality_review",
+    "name": "Post-Jogger Context Completeness Reanalysis",
     "status": "complete",
-    "goal": "Materialize the remaining Duster and Jogger July 2026 technical source matrices from official price-list technical tables, preserving source-scoped context and conflicts.",
-    "pull_request": 686,
-    "merge_sha": null,
+    "goal": "Recompute genuine remaining gaps after the Jogger slot-identity correction and prevent exhausted sources from being selected again.",
     "manifest_paths": [
-      "data/reporting/duster_jogger_documentary_technical_reconciliation_20260921.json",
-      "tests/test_duster_jogger_documentary_technical_reconciliation_20260703.py"
-    ],
-    "progress": {
-      "duster_configurations": 16,
-      "duster_added_scalar_values": 352,
-      "duster_added_ranges": 68,
-      "jogger_configurations": 22,
-      "jogger_added_scalar_values": 514,
-      "jogger_added_ranges": 64,
-      "configurator_evidence_used": false,
-      "duster_hybrid155_voltage_conflict_preserved": true,
-      "jogger_seat_contexts_preserved": true
-    }
+      "data/reporting/existing_configuration_missing_data_analysis.json",
+      "data/reporting/existing_configuration_missing_data_analysis.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/post-jogger-context-completeness-reanalysis-20260801.md",
+      "project/state.json",
+      "tests/test_existing_configuration_missing_data_analysis.py",
+      "tools/existing_configuration_missing_data_analysis.py"
+    ]
   },
   "next_package": {
-    "id": "bigster_documentary_technical_reconciliation_008",
-    "package_id": "bigster_documentary_technical_reconciliation_008",
+    "package_id": "completeness_scope_expansion_review_001",
+    "kind": "data_quality_review",
+    "name": "Completeness Scope Expansion Review",
     "status": "planned",
-    "name": "Bigster Documentary Technical Reconciliation",
-    "goal": "Prepare Bigster documentary technical and equipment reconciliation after Duster/Jogger technical package 007 is merged; remain source-first and do not use configurator evidence until documentary pass is closed.",
-    "progress": {
-      "bigster_commercial_matrix_reconciled": true,
-      "bigster_technical_matrix_open": true,
-      "bigster_equipment_matrix_open": true
-    }
+    "goal": "Review active configurations not represented by registered completeness scopes without inferring required attributes.",
+    "manifest_paths": []
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
