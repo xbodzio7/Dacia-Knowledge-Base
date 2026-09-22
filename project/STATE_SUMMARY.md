@@ -36,13 +36,13 @@
 
 ## Current package
 
-**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `residual_gap_052` — `complete`
+**Sandero Equipment Page 19 Unresolved Review — Chunk 2** — `complete`
 
-The final canonical residual-review package is already complete; its unresolved evidence remains source-bound and no unsupported availability is inferred.
+Review the remaining 25 unresolved Sandero brochure page-19 equipment candidates against preserved source evidence without inferring availability or creating unsupported master-data rows.
 
 ## Next package
 
-**Post-Residual Review Milestone Closure** — `post_residual_review_milestone_closure_001`
+**Post-Residual Review Milestone Closure** — `planned`
 
 Close the completed residual-review queue, reconcile milestone-level documentation and establish the next bounded source-first work package.
 
