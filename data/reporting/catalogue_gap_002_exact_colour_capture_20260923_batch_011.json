@@ -1,0 +1,37 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-23",
+  "market": "PL",
+  "capture_method": "official_dacia_configurator_current_exact_state_read",
+  "source_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "duster_iii_essential_ecog120_manual",
+      "model": "duster",
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "visible_colour_count": 3,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 82000,
+      "exact_state_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+      "note": "The current official Polish Dacia configurator page exposes the exact selected default state Duster essential Eco-G 120, with 4x2 drive and manual transmission, and reports three available colours. Per-colour surcharges are not exposed in the retrieved page and were not inferred."
+    }
+  ],
+  "selector_limitations": [],
+  "note": "One previously unresolved CAT-GAP-002 exact colour surface was verified from the current official Polish Dacia configurator exact selected state. The static page is used only for this exact observed state; no colour compatibility is projected to any other configuration."
+}
