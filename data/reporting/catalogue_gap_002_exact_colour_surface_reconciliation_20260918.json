@@ -7,9 +7,9 @@
   "scope": {
     "active_exact_colour_surfaces": 81,
     "exact_surfaces_captured_before_this_reconciliation": 14,
-    "new_exact_surfaces_from_merged_batches": 25,
-    "unique_exact_surfaces_captured_after_reconciliation": 39,
-    "remaining_unresolved_exact_surfaces": 42
+    "new_exact_surfaces_from_merged_batches": 27,
+    "unique_exact_surfaces_captured_after_reconciliation": 41,
+    "remaining_unresolved_exact_surfaces": 40
   },
   "method": "Repository-only reconciliation of merged official Dacia configurator exact-state evidence. Counts are derived from unique exact configuration codes and are not inferred from colour palettes or grade-level lists.",
   "policy": {
@@ -115,6 +115,15 @@
       "configuration_codes": [
         "duster_iii_expression_ecog120_manual"
       ]
+    },
+    {
+      "pull_request": 703,
+      "merge_sha": "b24f5dfb9b8099a005819538c9a2a2fa9a0dde12",
+      "new_exact_surface_count": 2,
+      "configuration_codes": [
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_expression_5seat_ecog120_manual"
+      ]
     }
   ],
   "selector_limitations_retained": [
@@ -139,9 +148,10 @@
   ],
   "notes": [
     "The pre-existing count of 14 comes from the canonical CAT-GAP-002 progress overlay already present on main.",
-    "Batch 009 added three distinct exact surfaces; batch 010 added one; batch 011 added one; batch 012 adds one. The cumulative unique captured count is now 39.",
+    "Batch 009 added three distinct exact surfaces; batch 010 added one; batch 011 added one; batch 012 added one; batch 013 adds two. The cumulative unique captured count is now 41.",
     "Batch 011 verifies Duster Essential Eco-G 120 4x2 manual from the current official Polish Dacia configurator exact selected state. Three visible colours were recorded with source-stated prices: biel alpejska 0 PLN, szary schiste +2700 PLN, and khaki lichen +2700 PLN.",
     "Batch 012 verifies Duster Expression Eco-G 120 4x2 manual from the exact current official Polish Dacia configurator state opened by the user. Seven visible colours and their displayed surcharges were recorded.",
+    "Batch 013 verifies Jogger Expression TCe 110 5-seat manual and Jogger Expression Eco-G 120 5-seat manual. Seven visible colours were recorded for each exact state; per-colour surcharges were not exposed in the accessibility tree and remain null.",
     "No master-data, availability or configuration records are changed by this reconciliation."
   ]
 }

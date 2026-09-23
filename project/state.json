@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1940,
+    "tests": 1943,
     "csv_files": 47,
     "rows": 18325,
     "configuration_values": 7664,
@@ -27,23 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_colour_capture_012",
-    "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 012",
-    "status": "complete",
-    "goal": "Capture one previously unresolved exact colour surface from the current official Polish Dacia configurator exact selected state without projection, availability inference or master-data mutation.",
-    "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_colour_capture_20260923_batch_012.json",
-      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_exact_colour_capture_20260923_batch_012.py"
-    ]
-  },
-  "next_package": {
     "package_id": "catalogue_gap_002_exact_colour_capture_013",
     "kind": "bounded_source_capture",
     "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 013",
+    "status": "complete",
+    "goal": "Capture two previously unresolved exact colour surfaces from current official Polish Dacia configurator exact selected states without projection, availability inference or master-data mutation.",
+    "manifest_paths": [
+      "data/reporting/catalogue_gap_002_exact_colour_capture_20260923_batch_013.json",
+      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
+      "tests/test_catalogue_gap_002_exact_colour_capture_20260923_batch_013.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "catalogue_gap_002_exact_colour_capture_014",
+    "kind": "bounded_source_capture",
+    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 014",
     "status": "planned",
-    "goal": "Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.",
+    "goal": "Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 colour surfaces; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.",
     "manifest_paths": [
       "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json"
     ]
