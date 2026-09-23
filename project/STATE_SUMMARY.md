@@ -38,22 +38,13 @@
 
 **CAT-GAP-002 Exact Colour Surface Capture Batch 013** — `complete`
 
-Captured two previously unresolved exact Jogger 5-seat Expression surfaces from the current official Polish Dacia configurator: TCe 110 manual and Eco-G 120 manual. Seven visible colours were recorded for each exact state; per-colour surcharges were not exposed in the accessibility tree.
-
-## CAT-GAP-002 progress
-
-- Active exact colour surfaces: **81**
-- Unique exact surfaces captured: **41**
-- Remaining unresolved exact surfaces: **40**
-- No cross-configuration or grade-level projection.
-- Absence is not interpreted as unavailability.
-- No master-data or availability mutation.
+Capture two previously unresolved exact colour surfaces from current official Polish Dacia configurator exact selected states without projection, availability inference or master-data mutation.
 
 ## Next package
 
 **CAT-GAP-002 Exact Colour Surface Capture Batch 014** — `planned`
 
-Continue only with a source-confirmed unresolved exact surface. Official price lists remain authoritative for version enumeration; the configurator is used only to capture genuinely missing exact-state colour evidence.
+Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 colour surfaces; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.
 
 ## Autonomy
 
