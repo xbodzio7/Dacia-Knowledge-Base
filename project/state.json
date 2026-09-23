@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1946,
+    "tests": 1947,
     "csv_files": 47,
     "rows": 18325,
     "configuration_values": 7664,
@@ -27,23 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_colour_capture_016",
+    "package_id": "catalogue_gap_002_exact_state_capture_017",
     "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 016",
+    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 017",
     "status": "complete",
-    "goal": "Capture one previously unresolved exact colour surface from the current official Polish Dacia configurator exact selected state without projection, availability inference or master-data mutation.",
+    "goal": "Read all seven currently open official Polish Dacia configurator exact states in one pass. Record only genuinely missing exact-state data, enrich already-captured exact states without recounting them, and keep official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.",
     "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_colour_capture_20260923_batch_016.json",
+      "data/reporting/catalogue_gap_002_exact_state_capture_20260923_batch_017.json",
       "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_exact_colour_capture_20260923_batch_016.py"
+      "tests/test_catalogue_gap_002_exact_state_capture_20260923_batch_017.py"
     ]
   },
   "next_package": {
-    "package_id": "catalogue_gap_002_exact_colour_capture_017",
+    "package_id": "catalogue_gap_002_exact_state_capture_018",
     "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 017",
+    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 018",
     "status": "planned",
-    "goal": "Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.",
+    "goal": "Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.",
     "manifest_paths": [
       "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json"
     ]
