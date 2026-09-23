@@ -156,11 +156,11 @@
   ],
   "notes": [
     "The pre-existing count of 14 comes from the canonical CAT-GAP-002 progress overlay already present on main.",
-    "Batch 009 added three distinct exact surfaces; batch 010 added one; batch 011 added one; batch 012 added one; batch 013 adds two. The cumulative unique captured count is now 41.",
+    "Batch 009 added three distinct exact surfaces; batch 010 added one; batch 011 added one; batch 012 added one; batch 013 adds two. The cumulative unique captured count is now 42.",
     "Batch 011 verifies Duster Essential Eco-G 120 4x2 manual from the current official Polish Dacia configurator exact selected state. Three visible colours were recorded with source-stated prices: biel alpejska 0 PLN, szary schiste +2700 PLN, and khaki lichen +2700 PLN.",
     "Batch 012 verifies Duster Expression Eco-G 120 4x2 manual from the exact current official Polish Dacia configurator state opened by the user. Seven visible colours and their displayed surcharges were recorded.",
     "Batch 013 verifies Jogger Expression TCe 110 5-seat manual and Jogger Expression Eco-G 120 5-seat manual. Seven visible colours were recorded for each exact state; per-colour surcharges were not exposed in the accessibility tree and remain null.",
     "No master-data, availability or configuration records are changed by this reconciliation.",
-    "Batch 014 verifies Jogger Essential Eco-G 120 7-seat manual. Three visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null."
+    "Batch 014 verifies Jogger Essential Eco-G 120 7-seat manual. Three visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null. The cumulative unique captured count after Batch 014 is 42, with 39 exact surfaces still unresolved."
   ]
 }
