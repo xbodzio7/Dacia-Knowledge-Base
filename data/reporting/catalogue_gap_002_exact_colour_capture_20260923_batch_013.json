@@ -1,0 +1,110 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-23",
+  "market": "PL",
+  "capture_method": "official_dacia_configurator_current_exact_state_read_via_connected_browser",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "model": "jogger",
+      "grade": "expression",
+      "seat_count": 5,
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "visible_colour_count": 7,
+      "colours": [
+        {
+          "name": "biel alpejska",
+          "price_pln": null
+        },
+        {
+          "name": "szary schiste",
+          "price_pln": null
+        },
+        {
+          "name": "sandstone",
+          "price_pln": null
+        },
+        {
+          "name": "zielony cedar",
+          "price_pln": null
+        },
+        {
+          "name": "szary urban",
+          "price_pln": null
+        },
+        {
+          "name": "czarna perła",
+          "price_pln": null
+        },
+        {
+          "name": "brązowy terracotta",
+          "price_pln": null
+        }
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 84050,
+      "wheel_observation": "16\" felgi stalowe",
+      "upholstery_observation": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "exact_state_url": "https://www.dacia.pl/samochody/jogger-hybrydowy/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ30AhhAhAv%2FAksyaA",
+      "source_state_note": "Connected Opera accessibility tree showed NOWY JOGGER expression TCe 110 5-miejsc, biel alpejska, 84,050 PLN, 16-inch steel wheels and black fabric upholstery with denim inserts. Seven colour choices were directly visible. The current official Jogger price-list matrix confirms 5-seat Expression TCe 110 manual at 84,050 PLN."
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "model": "jogger",
+      "grade": "expression",
+      "seat_count": 5,
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "visible_colour_count": 7,
+      "colours": [
+        {
+          "name": "biel alpejska",
+          "price_pln": null
+        },
+        {
+          "name": "szary schiste",
+          "price_pln": null
+        },
+        {
+          "name": "sandstone",
+          "price_pln": null
+        },
+        {
+          "name": "zielony cedar",
+          "price_pln": null
+        },
+        {
+          "name": "szary urban",
+          "price_pln": null
+        },
+        {
+          "name": "czarna perła",
+          "price_pln": null
+        },
+        {
+          "name": "brązowy terracotta",
+          "price_pln": null
+        }
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 82050,
+      "wheel_observation": "16\" felgi stalowe",
+      "upholstery_observation": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "exact_state_url": "https://www.dacia.pl/samochody/jogger-hybrydowy/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ30AhhAhAv%2FAksg",
+      "source_state_note": "Connected Opera accessibility tree showed NOWY JOGGER expression Eco-G 120 5-miejsc, biel alpejska, 82,050 PLN, 16-inch steel wheels and black fabric upholstery with denim inserts. Seven colour choices were directly visible. The current official Jogger price-list matrix confirms 5-seat Expression Eco-G 120 manual at 82,050 PLN."
+    }
+  ],
+  "selector_limitations": [],
+  "note": "Two previously unresolved CAT-GAP-002 exact colour surfaces were captured from exact current official Polish Dacia configurator states already open in the connected browser. Seven visible colour choices were recorded for each state. Per-colour surcharges were not exposed in the accessibility tree and are intentionally null. No colour compatibility was projected to another configuration."
+}
