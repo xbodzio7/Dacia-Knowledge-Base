@@ -36,15 +36,24 @@
 
 ## Current package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 010** — `complete`
+**CAT-GAP-002 Exact Colour Surface Capture Batch 011** — `complete`
 
-Capture one previously unresolved exact colour surface from a currently open saved official Polish Dacia configurator state without projection, availability inference or master-data mutation.
+Captured the previously unresolved exact Duster Essential Eco-G 120 4x2 manual colour surface from the current official Polish Dacia configurator exact selected state. Three visible colours were recorded; per-colour surcharges were not exposed and were not inferred.
+
+## CAT-GAP-002 progress
+
+- Active exact colour surfaces: **81**
+- Unique exact surfaces captured: **38**
+- Remaining unresolved exact surfaces: **43**
+- No cross-configuration or grade-level projection.
+- Absence is not interpreted as unavailability.
+- No master-data or availability mutation.
 
 ## Next package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 011** — `planned`
+**CAT-GAP-002 Exact Colour Surface Capture Batch 012** — `planned`
 
-Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; use official Polish Dacia configurator saved states only for genuinely missing evidence and stop at selector or source ambiguity.
+Continue only with a source-confirmed unresolved exact surface. Official price lists remain authoritative for version enumeration; the configurator is used only to capture genuinely missing exact-state colour evidence.
 
 ## Autonomy
 
