@@ -27,21 +27,21 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_colour_capture_011",
-    "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 011",
-    "status": "complete",
-    "goal": "Capture one previously unresolved exact colour surface from the current official Polish Dacia configurator exact selected state without projection, availability inference or master-data mutation.",
-    "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_colour_capture_20260923_batch_011.json",
-      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_exact_colour_capture_20260923_batch_011.py"
-    ]
-  },
-  "next_package": {
     "package_id": "catalogue_gap_002_exact_colour_capture_012",
     "kind": "bounded_source_capture",
     "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 012",
+    "status": "complete",
+    "goal": "Capture one previously unresolved exact colour surface from the current official Polish Dacia configurator exact selected state without projection, availability inference or master-data mutation.",
+    "manifest_paths": [
+      "data/reporting/catalogue_gap_002_exact_colour_capture_20260923_batch_012.json",
+      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
+      "tests/test_catalogue_gap_002_exact_colour_capture_20260923_batch_012.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "catalogue_gap_002_exact_colour_capture_013",
+    "kind": "bounded_source_capture",
+    "name": "CAT-GAP-002 Exact Colour Surface Capture Batch 013",
     "status": "planned",
     "goal": "Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.",
     "manifest_paths": [
@@ -50,9 +50,33 @@
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
-    "allowed_operations": ["create_package_branch","modify_manifest_paths","run_tests_and_quality","create_package_commit","push_package_branch","create_and_update_pull_request","repair_in_scope_ci_failures","merge_green_pull_request","update_project_state_and_generated_documentation"],
-    "stop_conditions": ["missing_source_file_or_local_access","authentication_mfa_secret_or_new_permission","ambiguous_source_evidence","new_domain_or_architecture_decision","scope_expansion_beyond_current_milestone","destructive_costly_or_irreversible_operation","manual_github_policy_block","conflict_not_resolvable_from_repository_evidence"],
-    "action_required_fields": ["reason","required_action","options_and_consequences","resume_stage"]
+    "allowed_operations": [
+      "create_package_branch",
+      "modify_manifest_paths",
+      "run_tests_and_quality",
+      "create_package_commit",
+      "push_package_branch",
+      "create_and_update_pull_request",
+      "repair_in_scope_ci_failures",
+      "merge_green_pull_request",
+      "update_project_state_and_generated_documentation"
+    ],
+    "stop_conditions": [
+      "missing_source_file_or_local_access",
+      "authentication_mfa_secret_or_new_permission",
+      "ambiguous_source_evidence",
+      "new_domain_or_architecture_decision",
+      "scope_expansion_beyond_current_milestone",
+      "destructive_costly_or_irreversible_operation",
+      "manual_github_policy_block",
+      "conflict_not_resolvable_from_repository_evidence"
+    ],
+    "action_required_fields": [
+      "reason",
+      "required_action",
+      "options_and_consequences",
+      "resume_stage"
+    ]
   },
   "review_policy": {
     "review_only_pull_requests": "exception_only",
