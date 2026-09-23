@@ -7,9 +7,9 @@
   "scope": {
     "active_exact_colour_surfaces": 81,
     "exact_surfaces_captured_before_this_reconciliation": 14,
-    "new_exact_surfaces_from_merged_batches": 29,
-    "unique_exact_surfaces_captured_after_reconciliation": 43,
-    "remaining_unresolved_exact_surfaces": 38
+    "new_exact_surfaces_from_merged_batches": 30,
+    "unique_exact_surfaces_captured_after_reconciliation": 44,
+    "remaining_unresolved_exact_surfaces": 37
   },
   "method": "Repository-only reconciliation of merged official Dacia configurator exact-state evidence. Counts are derived from unique exact configuration codes and are not inferred from colour palettes or grade-level lists.",
   "policy": {
@@ -140,6 +140,14 @@
       "configuration_codes": [
         "duster_iii_extreme_ecog120_manual"
       ]
+    },
+    {
+      "pull_request": 711,
+      "merge_sha": null,
+      "new_exact_surface_count": 1,
+      "configuration_codes": [
+        "duster_iii_journey_ecog120_manual"
+      ]
     }
   ],
   "selector_limitations_retained": [
@@ -169,6 +177,7 @@
     "Batch 012 verifies Duster Expression Eco-G 120 4x2 manual from the exact current official Polish Dacia configurator state opened by the user. Seven visible colours and their displayed surcharges were recorded.",
     "Batch 013 verifies Jogger Expression TCe 110 5-seat manual and Jogger Expression Eco-G 120 5-seat manual. Seven visible colours were recorded for each exact state; per-colour surcharges were not exposed in the accessibility tree and remain null.",
     "No master-data, availability or configuration records are changed by this reconciliation.",
-    "Batch 014 verifies Jogger Essential Eco-G 120 7-seat manual. Three visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null. Batch 015 verifies Duster Extreme Eco-G 120 4x2 manual at 96,000 PLN. Seven visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null."
+    "Batch 014 verifies Jogger Essential Eco-G 120 7-seat manual. Three visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null. Batch 015 verifies Duster Extreme Eco-G 120 4x2 manual at 96,000 PLN. Seven visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null.",
+    "Batch 016 verifies Duster Journey Eco-G 120 4x2 manual at 96,200 PLN. Seven visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null."
   ]
 }
