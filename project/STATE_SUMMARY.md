@@ -38,13 +38,13 @@
 
 **CAT-GAP-002 Exact Configurator State Capture Batch 021** — `complete`
 
-Two exact states were re-opened, but both duplicated states already captured in batch 020. The batch is retained as a duplicate-capture regression boundary and adds no new canonical exact surface.
+Capture source-confirmed unresolved CAT-GAP-002 exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.
 
 ## Next package
 
 **CAT-GAP-002 Exact Configurator State Capture Batch 022** — `planned`
 
-Continue only for source-confirmed unresolved CAT-GAP-002 exact surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.
+Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.
 
 ## Autonomy
 
@@ -60,7 +60,3 @@ Work stops only for a real source, access, authentication, policy, architecture,
 - Milestone review interval: 5 logical packages
 - One logical package per Pull Request: yes
 - Automatic remote-branch deletion: no
-
-## Cross-chat continuity
-
-This summary is derived from `project/state.json`. In a new chat, `state.json` is read first and this file is checked for freshness. A mismatch is a recovery condition, not a reason to resume from the older narrative. Recently merged package manifests and the CAT-GAP-002 reconciliation must also be checked so that a merged package cannot be repeated accidentally.
