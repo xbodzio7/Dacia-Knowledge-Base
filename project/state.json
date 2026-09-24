@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1948,
+    "tests": 1949,
     "csv_files": 47,
     "rows": 18325,
     "configuration_values": 7664,
@@ -27,21 +27,21 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_state_capture_018",
-    "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 018",
-    "status": "complete",
-    "goal": "Capture source-confirmed unresolved Duster exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.",
-    "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_state_capture_20260924_batch_018.json",
-      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_exact_state_capture_20260924_batch_018.py"
-    ]
-  },
-  "next_package": {
     "package_id": "catalogue_gap_002_exact_state_capture_019",
     "kind": "bounded_source_capture",
     "name": "CAT-GAP-002 Exact Configurator State Capture Batch 019",
+    "status": "complete",
+    "goal": "Capture source-confirmed unresolved CAT-GAP-002 exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.",
+    "manifest_paths": [
+      "data/reporting/catalogue_gap_002_exact_state_capture_20260924_batch_019.json",
+      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
+      "tests/test_catalogue_gap_002_exact_state_capture_20260924_batch_019.py"
+    ]
+  },
+  "next_package": {
+    "package_id": "catalogue_gap_002_exact_state_capture_020",
+    "kind": "bounded_source_capture",
+    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 020",
     "status": "planned",
     "goal": "Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.",
     "manifest_paths": [
