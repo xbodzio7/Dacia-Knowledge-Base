@@ -1,15 +1,15 @@
 {
   "version": 1,
   "kind": "catalogue_gap_002_exact_colour_surface_reconciliation",
-  "reconciled_on": "2026-09-24",
+  "reconciled_on": "2026-09-25",
   "market": "PL",
   "gap_id": "CAT-GAP-002",
   "scope": {
     "active_exact_colour_surfaces": 81,
     "exact_surfaces_captured_before_this_reconciliation": 54,
-    "new_exact_surfaces_from_merged_batches": 46,
-    "unique_exact_surfaces_captured_after_reconciliation": 66,
-    "remaining_unresolved_exact_surfaces": 15
+    "new_exact_surfaces_from_merged_batches": 51,
+    "unique_exact_surfaces_captured_after_reconciliation": 71,
+    "remaining_unresolved_exact_surfaces": 10
   },
   "method": "Repository-only reconciliation of merged official Dacia configurator exact-state evidence. Counts are derived from unique exact configuration codes and are not inferred from colour palettes or grade-level lists.",
   "policy": {
@@ -202,6 +202,18 @@
       "merge_sha": "5ba7ef1798b8ef12bcb8ed60b010c9ed43751752",
       "new_exact_surface_count": 0,
       "configuration_codes": []
+    },
+    {
+      "pull_request": 722,
+      "merge_sha": "15414067172cbcd89eb90d1e3c70d2818d82b164",
+      "new_exact_surface_count": 5,
+      "configuration_codes": [
+        "bigster_expression_hybrid155_automatic",
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybrid155_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ]
     }
   ],
   "selector_limitations_retained": [
@@ -230,8 +242,9 @@
     "Batch 019 added six new exact surfaces and one duplicate enrichment.",
     "Batch 020 added four new exact surfaces and two duplicate enrichments.",
     "Batch 021 repeated two exact states already captured by batch 020. It therefore adds zero new canonical surfaces and is retained only as a duplicate-capture regression boundary.",
-    "After reconciliation through merged PR #720, 66 unique exact surfaces are captured and 15 remain unresolved.",
     "Official price lists / official Dacia version pages remain authoritative for version enumeration and catalogue prices. No cross-configuration projection or availability inference is permitted.",
-    "No master-data, availability or configuration records are changed by this reconciliation."
+    "No master-data, availability or configuration records are changed by this reconciliation.",
+    "Batch 022 captured five new Bigster exact surfaces and was merged as PR #722.",
+    "After reconciliation through merged PR #722, 71 unique exact surfaces are captured and 10 remain unresolved."
   ]
 }
