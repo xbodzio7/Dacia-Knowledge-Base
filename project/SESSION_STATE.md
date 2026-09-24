@@ -20,7 +20,22 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-The quantitative baseline is canonical in `project/state.json` and must not be maintained as an independent hand-edited counter block here. In a new session, load `state.json` first and use its current baseline.
+- 1944 testów automatycznych zakończonych powodzeniem,
+- 47 pliki CSV w `data/master`,
+- 18325 rekordów danych,
+- 51 relacje między tabelami,
+- 26 reguł statusów,
+- walidator repozytorium w wersji 0.10,
+- 7664 obserwacji w `configuration_attribute_values.csv`,
+- 139 wersjonowanych specyfikacji w `data/imports/configuration_values`,
+- 425 obserwacji w `configuration_attribute_value_ranges.csv`,
+- 24 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
+- 7567 rekordów w `configuration_attribute_availability.csv`,
+- 6178 rekordów `standard`, 523 `optional`, 866 `not_available` i 0 `unknown`,
+- 416 kanonicznych atrybutów w 30 kategoriach,
+- baza SQLite obejmująca 47 tabele i 18325 rekordów,
+- zgodność schematu i zawartości SQLite z plikami CSV,
+- wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
 
 Dodatkowe kontrakty stanu projektu i autonomii są uruchamiane jawnie w CI poza historycznym licznikiem discovery `test_*.py`.
