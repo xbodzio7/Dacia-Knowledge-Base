@@ -36,9 +36,9 @@
 
 ## Current package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 014** — `complete`
+**CAT-GAP-002 Exact Configurator State Capture Batch 021** — `complete`
 
-Capture one previously unresolved exact colour surface from the current official Polish Dacia configurator exact selected state without projection, availability inference or master-data mutation.
+Two exact states were re-opened, but both duplicated states already captured in batch 020. The batch is retained as a duplicate-capture regression boundary and adds no new canonical exact surface.
 
 ## Next package
 
