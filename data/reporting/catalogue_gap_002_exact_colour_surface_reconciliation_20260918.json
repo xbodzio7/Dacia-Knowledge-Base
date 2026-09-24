@@ -1,15 +1,15 @@
 {
   "version": 1,
   "kind": "catalogue_gap_002_exact_colour_surface_reconciliation",
-  "reconciled_on": "2026-09-23",
+  "reconciled_on": "2026-09-24",
   "market": "PL",
   "gap_id": "CAT-GAP-002",
   "scope": {
     "active_exact_colour_surfaces": 81,
-    "exact_surfaces_captured_before_this_reconciliation": 14,
-    "new_exact_surfaces_from_merged_batches": 33,
-    "unique_exact_surfaces_captured_after_reconciliation": 47,
-    "remaining_unresolved_exact_surfaces": 34
+    "exact_surfaces_captured_before_this_reconciliation": 47,
+    "new_exact_surfaces_from_merged_batches": 40,
+    "unique_exact_surfaces_captured_after_reconciliation": 54,
+    "remaining_unresolved_exact_surfaces": 27
   },
   "method": "Repository-only reconciliation of merged official Dacia configurator exact-state evidence. Counts are derived from unique exact configuration codes and are not inferred from colour palettes or grade-level lists.",
   "policy": {
@@ -158,6 +158,20 @@
         "bigster_extreme_mildhybridg140_manual",
         "bigster_journey_mildhybridg140_manual"
       ]
+    },
+    {
+      "pull_request": 715,
+      "merge_sha": "d20f46d6836a8c040666e23db1834d7bd4c02b10",
+      "new_exact_surface_count": 7,
+      "configuration_codes": [
+        "duster_expression_mild_hybrid_140_manual",
+        "duster_extreme_ecog120_automatic",
+        "duster_journey_ecog120_automatic",
+        "duster_expression_hybrid155_automatic",
+        "duster_extreme_hybrid155_automatic",
+        "duster_journey_hybrid155_automatic",
+        "duster_expression_hybridg150_4x4_automatic"
+      ]
     }
   ],
   "selector_limitations_retained": [
@@ -190,6 +204,7 @@
     "Batch 014 verifies Jogger Essential Eco-G 120 7-seat manual. Three visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null. Batch 015 verifies Duster Extreme Eco-G 120 4x2 manual at 96,000 PLN. Seven visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null.",
     "Batch 016 verifies Duster Journey Eco-G 120 4x2 manual at 96,200 PLN. Seven visible colours were recorded; per-colour surcharges were not exposed in the accessibility tree and remain null.",
     "Batch 017 re-read all seven currently open official Polish Dacia configurator tabs in one pass. Three exact surfaces were new and added to the canonical count: Duster Expression Eco-G 120 automatic, Bigster Extreme mild hybrid-G 140, and Bigster Journey mild hybrid-G 140. Four tabs duplicated already-captured exact surfaces and were recorded only for configurator-only enrichment; they do not increase the canonical exact-surface count.",
-    "Batch 017 keeps official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices. Per-colour surcharges not exposed in the accessibility tree remain null; no cross-configuration projection or availability inference was made."
+    "Batch 017 keeps official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices. Per-colour surcharges not exposed in the accessibility tree remain null; no cross-configuration projection or availability inference was made.",
+    "Batch 018 captured seven user-opened exact Duster states in one pass. Seven distinct exact surfaces were new. Each records seven visible colours plus wheel, upholstery and technical values. Per-colour surcharges were not promoted where extraction was not reliable. Official price lists remain authoritative for version enumeration and catalogue prices. The 4x4 configurator nomenclature 'hybrid-G 150 4x4' is preserved as observed and is not silently renamed to the current price-list 'tribrid 150 4X4'."
   ]
 }
