@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-23
+- State updated: 2026-09-24
 
 ## Phase
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1944
+- Tests: 1949
 - Master CSV files: 47
 - Master rows: 18325
 - Configuration values: 7664
@@ -42,9 +42,9 @@ Capture one previously unresolved exact colour surface from the current official
 
 ## Next package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 015** — `planned`
+**CAT-GAP-002 Exact Configurator State Capture Batch 022** — `planned`
 
-Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.
+Continue only for source-confirmed unresolved CAT-GAP-002 exact surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.
 
 ## Autonomy
 
@@ -60,3 +60,7 @@ Work stops only for a real source, access, authentication, policy, architecture,
 - Milestone review interval: 5 logical packages
 - One logical package per Pull Request: yes
 - Automatic remote-branch deletion: no
+
+## Cross-chat continuity
+
+This summary is derived from `project/state.json`. In a new chat, `state.json` is read first and this file is checked for freshness. A mismatch is a recovery condition, not a reason to resume from the older narrative. Recently merged package manifests and the CAT-GAP-002 reconciliation must also be checked so that a merged package cannot be repeated accidentally.
