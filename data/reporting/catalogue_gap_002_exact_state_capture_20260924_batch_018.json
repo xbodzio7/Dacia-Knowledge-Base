@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "kind": "catalogue_gap_002_exact_state_capture",
+  "captured_on": "2026-09-24",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "capture_method": "live_official_dacia_configurator_saved_states",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "duster_expression_mild_hybrid_140_manual",
+      "model": "duster",
+      "grade": "expression",
+      "powertrain": "mild hybrid 140",
+      "transmission": "manual",
+      "drive": "4x2",
+      "price_pln": 97600,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe, TERGAN 215",
+      "upholstery": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical": {
+        "power": "103 (140)",
+        "co2_wltp_mixed_g_km": 123,
+        "fuel_wltp_mixed_l_100km": 5.4
+      }
+    },
+    {
+      "configuration_code": "duster_extreme_ecog120_automatic",
+      "model": "duster",
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 102900,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe TERGAN BLACK 215",
+      "upholstery": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "technical": {
+        "power": "90 przy 4500-5000(LPG)/84 przy 4500-5750(benzyna)",
+        "co2_wltp_mixed_g_km": 140,
+        "fuel_wltp_mixed_l_100km": 6.2
+      }
+    },
+    {
+      "configuration_code": "duster_journey_ecog120_automatic",
+      "model": "duster",
+      "grade": "journey",
+      "powertrain": "Eco-G 120",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 103100,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "18\" felgi aluminiowe, TAGASAN 215 diamentowane",
+      "upholstery": "tapicerka materiałowa journey",
+      "technical": {
+        "power": "90 przy 4500-5000(LPG)/84 przy 4500-5750(benzyna)",
+        "co2_wltp_mixed_g_km": 140,
+        "fuel_wltp_mixed_l_100km": 6.2
+      }
+    },
+    {
+      "configuration_code": "duster_expression_hybrid155_automatic",
+      "model": "duster",
+      "grade": "expression",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 112100,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe, TERGAN 215",
+      "upholstery": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical": {
+        "power": "115 (156)",
+        "co2_wltp_mixed_g_km": 107,
+        "fuel_wltp_mixed_l_100km": 4.7
+      }
+    },
+    {
+      "configuration_code": "duster_extreme_hybrid155_automatic",
+      "model": "duster",
+      "grade": "extreme",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 118100,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe TERGAN BLACK 215",
+      "upholstery": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "technical": {
+        "power": "115 (156)",
+        "co2_wltp_mixed_g_km": 107,
+        "fuel_wltp_mixed_l_100km": 4.7
+      }
+    },
+    {
+      "configuration_code": "duster_journey_hybrid155_automatic",
+      "model": "duster",
+      "grade": "journey",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 118300,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "18\" felgi aluminiowe, TAGASAN 215 diamentowane",
+      "upholstery": "tapicerka materiałowa journey",
+      "technical": {
+        "power": "115 (156)",
+        "co2_wltp_mixed_g_km": 105,
+        "fuel_wltp_mixed_l_100km": 4.6
+      }
+    },
+    {
+      "configuration_code": "duster_expression_hybridg150_4x4_automatic",
+      "model": "duster",
+      "grade": "expression",
+      "powertrain": "hybrid-G 150 4x4",
+      "transmission": "automatic",
+      "drive": "4x4",
+      "price_pln": 119900,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe, TERGAN 225",
+      "upholstery": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical": {
+        "power": "113 (153)",
+        "co2_wltp_mixed_g_km": 134,
+        "fuel_wltp_mixed_l_100km": 5.9
+      }
+    }
+  ],
+  "notes": [
+    "Version enumeration remains governed by the official price list; these exact states were user-opened configurator states.",
+    "Per-colour surcharges were not promoted to this batch because the current accessibility extraction did not reliably expose them for every state; no inference is made.",
+    "The configurator currently labels the 4x4 state 'hybrid-G 150 4x4'; this observed nomenclature is preserved separately from the current price-list nomenclature 'tribrid 150 4X4'."
+  ]
+}
