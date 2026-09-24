@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-24
+- State updated: 2026-09-25
 
 ## Phase
 
@@ -36,13 +36,13 @@
 
 ## Current package
 
-**CAT-GAP-002 Exact Configurator State Capture Batch 021** — `complete`
+**CAT-GAP-002 Exact Configurator State Capture Batch 022** — `complete`
 
 Capture source-confirmed unresolved CAT-GAP-002 exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.
 
 ## Next package
 
-**CAT-GAP-002 Exact Configurator State Capture Batch 022** — `planned`
+**CAT-GAP-002 Exact Configurator State Capture Batch 023** — `planned`
 
 Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.
 
