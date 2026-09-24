@@ -38,6 +38,17 @@ When narrative documents disagree about the current phase or package, the canoni
 
 **Do not start project work from conversation memory alone.** A new chat, new session, application/browser switch, tool-limit change, recovery event, or handoff must not cause the AI to reconstruct the workflow from memory.
 
+Before any project action, the AI shall also perform a **continuity freshness check**:
+
+- treat `project/state.json` as the only current package selector;
+- verify that `project/STATE_SUMMARY.md` and any session-state counters agree with `state.json`;
+- if generated state documentation is stale, repair/regenerate it before selecting or describing the next package;
+- verify that every recently merged package affecting the current milestone is reflected in the canonical state and its reconciliation/manifest before requesting or repeating any user action;
+- never treat a conversation handoff, remembered package number, tab list or previous assistant statement as evidence that a package is still open;
+- when duplicate work is suspected, reconcile by exact configuration/source identifiers and merged commit/PR evidence before doing new extraction.
+
+If this check finds a state/documentation mismatch, enter recovery/diagnostic handling first; do not continue from the stale narrative.
+
 Before any project action, the AI shall:
 
 - load `project/state.json` and identify the current package, next package, autonomy policy and execution policy;
