@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-23
+- State updated: 2026-09-24
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 014** — `complete`
+**CAT-GAP-002 Exact Configurator State Capture Batch 021** — `complete`
 
-Capture one previously unresolved exact colour surface from the current official Polish Dacia configurator exact selected state without projection, availability inference or master-data mutation.
+Capture source-confirmed unresolved CAT-GAP-002 exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.
 
 ## Next package
 
-**CAT-GAP-002 Exact Colour Surface Capture Batch 015** — `planned`
+**CAT-GAP-002 Exact Configurator State Capture Batch 022** — `planned`
 
-Continue exact-state capture only for a source-confirmed unresolved CAT-GAP-002 colour surface; official price lists remain authoritative for version enumeration and configurator evidence is used only for genuinely missing exact-state colour data.
+Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.
 
 ## Autonomy
 
