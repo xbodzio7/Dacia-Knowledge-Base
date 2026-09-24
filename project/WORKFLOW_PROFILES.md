@@ -38,6 +38,20 @@ At session start the AI shall be able to state, internally or in the session rec
 
 `project/state.json` remains canonical for project state. The active profile is an execution decision derived from the current environment; it must not be treated as a permanent project-state value.
 
+## Cross-chat continuity guard
+
+A new chat must be treated as a clean recovery boundary, even when the model has a summary of the previous conversation. The summary is contextual only.
+
+Before selecting work, the maintainer must reconcile three layers:
+
+1. **Canonical state** — `project/state.json`;
+2. **Durable package evidence** — manifests/reconciliation files plus merged PR/commit history;
+3. **Human-readable state** — `STATE_SUMMARY.md` and `SESSION_STATE.md`.
+
+The layers must agree on the current package, completed package boundary, baseline and unresolved queue. If they do not, the maintainer repairs the durable state before continuing. In particular, a merged package must never remain selectable as the next task merely because `state.json` or a handoff narrative was not advanced.
+
+A continuity check must also reject duplicate capture when the same exact configuration/source identity is already present in a merged manifest. Duplicate enrichment may be retained only when the manifest explicitly marks it as enrichment rather than a new surface.
+
 ## Workflow Check
 
 Before implementation, all of the following must be true:
