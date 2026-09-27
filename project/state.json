@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-09-25",
+  "updated_on": "2026-09-27",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,23 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_exact_state_capture_022",
+    "package_id": "catalogue_gap_002_selector_boundary_023",
     "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 022",
+    "name": "CAT-GAP-002 Selector Boundary Batch 023",
     "status": "complete",
-    "goal": "Capture source-confirmed unresolved CAT-GAP-002 exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.",
+    "goal": "Record current official Duster selector-boundary evidence for the ten unresolved historical CAT-GAP-002 exact surfaces without treating current powertrain exposure as exact historical-state evidence or projecting current colours.",
     "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_state_capture_20260925_batch_022.json",
+      "data/reporting/catalogue_gap_002_selector_boundary_20260927_batch_023.json",
       "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_exact_state_capture_20260925_batch_022.py"
+      "tests/test_catalogue_gap_002_selector_boundary_20260927_batch_023.py"
     ]
   },
   "next_package": {
-    "package_id": "catalogue_gap_002_exact_state_capture_023",
+    "package_id": "catalogue_gap_002_exact_state_capture_024",
     "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 023",
+    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 024",
     "status": "planned",
-    "goal": "Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.",
+    "goal": "Continue exact-state capture only when a source-confirmed unresolved CAT-GAP-002 surface is directly opened and captured. Do not infer historical colour or availability from the current selector; official price lists and official Dacia version pages remain authoritative for version enumeration and catalogue prices.",
     "manifest_paths": [
       "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json"
     ]
