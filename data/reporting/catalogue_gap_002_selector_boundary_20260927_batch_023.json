@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "kind": "catalogue_gap_002_selector_boundary_capture",
+  "captured_on": "2026-09-27",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "capture_method": "official_dacia_current_web_selector_boundary_plus_historical_source_reconciliation",
+  "source_urls": [
+    "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+    "https://www.dacia.pl/swiat-mydacia/now-oferta-zespolow-napedowych.html"
+  ],
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": false,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "current_selector_boundary": {
+    "model": "duster",
+    "current_powertrain_families_exposed": [
+      "Eco-G 120",
+      "mild hybrid 140",
+      "hybrid 155",
+      "tribrid 150 4x4"
+    ],
+    "historical_replacement_statement": {
+      "Eco-G 100": "replaced by Eco-G 120",
+      "mild hybrid 130": "replaced by mild hybrid 140",
+      "hybrid 140": "replaced by hybrid 155"
+    },
+    "interpretation": "selector_boundary_only"
+  },
+  "unresolved_exact_surfaces": [
+    "duster_iii_essential_ecog100_4x2_manual",
+    "duster_iii_expression_ecog100_4x2_manual",
+    "duster_iii_extreme_ecog100_4x2_manual",
+    "duster_iii_journey_ecog100_4x2_manual",
+    "duster_expression_mild_hybrid_130_manual",
+    "duster_extreme_mild_hybrid_130_manual",
+    "duster_journey_mild_hybrid_130_manual",
+    "duster_expression_mild_hybrid_130_4x4_manual",
+    "duster_extreme_mild_hybrid_130_4x4_manual",
+    "duster_journey_mild_hybrid_130_4x4_manual"
+  ],
+  "result": {
+    "new_exact_surfaces": 0,
+    "remaining_unresolved_exact_surfaces": 10,
+    "master_data_mutated": false,
+    "colour_values_promoted": false
+  },
+  "notes": [
+    "The current official Duster configurator exposes the four current powertrain families listed above; this is selector-boundary evidence, not selected-state evidence for the historical targets.",
+    "Official Dacia documents explicitly state that Eco-G 120 replaced Eco-G 100 and mild hybrid 140 replaced mild hybrid 130.",
+    "Historical Duster catalogue evidence remains necessary for version existence and dated catalogue facts; this batch does not overwrite those historical facts.",
+    "No current colour palette is projected to any historical configuration.",
+    "The ten exact CAT-GAP-002 surfaces remain unresolved because the selected historical states have not been reproduced in the current configurator."
+  ]
+}

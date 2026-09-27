@@ -245,6 +245,17 @@
     "Official price lists / official Dacia version pages remain authoritative for version enumeration and catalogue prices. No cross-configuration projection or availability inference is permitted.",
     "No master-data, availability or configuration records are changed by this reconciliation.",
     "Batch 022 captured five new Bigster exact surfaces and was merged as PR #722.",
-    "After reconciliation through merged PR #722, 71 unique exact surfaces are captured and 10 remain unresolved."
+    "After reconciliation through merged PR #722, 71 unique exact surfaces are captured and 10 remain unresolved.",
+    "Batch 023 records a fresh current-selector boundary for the ten historical Duster exact surfaces; it adds zero canonical surfaces and deliberately leaves all ten unresolved."
+  ],
+  "selector_boundary_batches": [
+    {
+      "batch_id": "catalogue_gap_002_selector_boundary_20260927_batch_023",
+      "capture_date": "2026-09-27",
+      "new_exact_surface_count": 0,
+      "unresolved_exact_surface_count": 10,
+      "source_boundary": "Current official Dacia Duster configurator exposes Eco-G 120, mild hybrid 140, hybrid 155 and tribrid 150 4x4; official Dacia transition article states Eco-G 120 replaced Eco-G 100 and mild hybrid 140 replaced mild hybrid 130.",
+      "treatment": "selector_boundary_only; no exact historical colour surface is closed or projected"
+    }
   ]
 }
