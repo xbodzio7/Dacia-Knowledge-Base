@@ -20,11 +20,17 @@ class CatalogueGap002ExactColourCapture011Tests(unittest.TestCase):
         self.assertEqual(item["drive_type"], "4x2")
         self.assertEqual(item["visible_colour_count"], 3)
         self.assertEqual(item["visible_colour_count"], len(item["colours"]))
-        self.assertTrue(item["selected_colour"])
-        self.assertIn(item["selected_colour"], {c["name"] for c in item["colours"]})
+        self.assertEqual(
+            [(c["name"], c["price_pln"]) for c in item["colours"]],
+            [
+                ("biel alpejska", 0),
+                ("szary schiste", 2700),
+                ("khaki lichen", 2700),
+            ],
+        )
+        self.assertEqual(item["selected_colour"], "biel alpejska")
         self.assertEqual(item["observed_total_price_pln"], 82000)
         self.assertEqual(item["exact_state_url"], capture["source_url"])
-        self.assertTrue(all(c["price_pln"] is None for c in item["colours"]))
         self.assertFalse(capture["policy"]["cross_configuration_projection"])
         self.assertFalse(capture["policy"]["grade_level_projection"])
         self.assertFalse(capture["policy"]["absence_interpreted_as_unavailability"])
