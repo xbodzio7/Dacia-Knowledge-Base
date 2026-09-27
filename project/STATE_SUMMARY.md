@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-09-25
+- State updated: 2026-09-27
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**CAT-GAP-002 Exact Configurator State Capture Batch 022** — `complete`
+**CAT-GAP-002 Selector Boundary Batch 023** — `complete`
 
-Capture source-confirmed unresolved CAT-GAP-002 exact states opened by the user in one pass, recording genuinely missing exact-state data while keeping official price lists / official Dacia version pages authoritative for version enumeration and catalogue prices.
+Record current official Duster selector-boundary evidence for the ten unresolved historical CAT-GAP-002 exact surfaces without treating current powertrain exposure as exact historical-state evidence or projecting current colours.
 
 ## Next package
 
-**CAT-GAP-002 Exact Configurator State Capture Batch 023** — `planned`
+**CAT-GAP-002 Exact Configurator State Capture Batch 024** — `planned`
 
-Continue exact-state capture only for source-confirmed unresolved CAT-GAP-002 surfaces or explicitly missing configurator-only data. Official price lists / official Dacia version pages remain authoritative for version enumeration.
+Continue exact-state capture only when a source-confirmed unresolved CAT-GAP-002 surface is directly opened and captured. Do not infer historical colour or availability from the current selector; official price lists and official Dacia version pages remain authoritative for version enumeration and catalogue prices.
 
 ## Autonomy
 
@@ -56,7 +56,7 @@ Work stops only for a real source, access, authentication, policy, architecture,
 
 ## Review policy
 
-- Review-only Pull Requests: exception only
+- Review-only Pull Requests: exception_only
 - Milestone review interval: 5 logical packages
 - One logical package per Pull Request: yes
 - Automatic remote-branch deletion: no
