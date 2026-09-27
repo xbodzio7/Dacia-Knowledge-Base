@@ -56,7 +56,7 @@ Work stops only for a real source, access, authentication, policy, architecture,
 
 ## Review policy
 
-- Review-only Pull Requests: exception_only
+- Review-only Pull Requests: description only
 - Milestone review interval: 5 logical packages
 - One logical package per Pull Request: yes
 - Automatic remote-branch deletion: no
