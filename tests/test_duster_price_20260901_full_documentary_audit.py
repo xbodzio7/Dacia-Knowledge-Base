@@ -19,10 +19,13 @@ assert len({(r["configuration_code"], r["attribute_code"]) for r in availability
 values = [r for r in rows("data/master/configuration_attribute_values.csv") if r["source_code"] == SRC]
 conflict = [
     r for r in values
-    if r["attribute_code"] == "hybrid_battery_voltage"
-    and r["configuration_code"] == "duster_iii_expression_hybrid155_4x2_automatic"
+    if r["configuration_code"] == "duster_iii_expression_hybrid155_4x2_automatic"
+    and r["attribute_code"] in {"hybrid_battery_voltage", "hybrid_system_voltage"}
 ]
-assert {r["value"] for r in conflict} == {"260", "230"}
+assert {(r["attribute_code"], r["value"]) for r in conflict} == {
+    ("hybrid_battery_voltage", "260"),
+    ("hybrid_system_voltage", "230"),
+}
 assert len(conflict) == 2
 
 ranges = [r for r in rows("data/master/configuration_attribute_value_ranges.csv") if r["source_code"] == SRC]
