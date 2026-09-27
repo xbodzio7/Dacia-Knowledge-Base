@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "package_id": "jogger_price_list_equipment_matrix_025",
+  "reviewed_on": "2026-09-27",
+  "source_code": "src_pl_jogger_price_my26_20260703",
+  "source_effective_date": "2026-07-03",
+  "scope": "Direct grade-column equipment matrix for all 22 Jogger catalogue configurations; 5-seat and 7-seat retained.",
+  "policy": {
+    "price_list_first": true,
+    "grade_matrix_authoritative": true,
+    "cross_seat_projection": false,
+    "cross_powertrain_inference": false,
+    "configurator_used": false
+  },
+  "result": {
+    "new_rows": 520,
+    "configurations": 22
+  },
+  "deferred": [
+    "Attributes absent from the master attribute catalogue are not invented; wheel/design and raw textual-only fields remain in documentary audit scope."
+  ]
+}
