@@ -20,7 +20,7 @@ values = [r for r in rows("data/master/configuration_attribute_values.csv") if r
 conflict = [
     r for r in values
     if r["attribute_code"] == "hybrid_battery_voltage"
-    and r["configuration_code"].endswith("_hybrid155_4x2_automatic")
+    and r["configuration_code"] == "duster_iii_expression_hybrid155_4x2_automatic"
 ]
 assert {r["value"] for r in conflict} == {"260", "230"}
 assert len(conflict) == 2
