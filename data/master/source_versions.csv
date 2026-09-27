@@ -68,3 +68,7 @@ id,source_code,version_code,relationship,notes
 67,src_pl_spring_official_configurator_20260731,spring_expression,documents,Exact current official version state observed 2026-07-31; grade-specific current catalogue price unresolved.
 68,src_pl_spring_brochure_20260219,spring_extreme,documents,Official brochure grade column and equipment matrix; technical and equipment observation imports remain separate.
 69,src_pl_spring_official_configurator_20260731,spring_extreme,documents,Exact current official version state observed 2026-07-31.
+70,src_pl_duster_price_my26_20260901,duster_iii_essential,documents,Version column in the 2026-09-01 price matrix.
+71,src_pl_duster_price_my26_20260901,duster_iii_expression,documents,Version column in the 2026-09-01 price matrix.
+72,src_pl_duster_price_my26_20260901,duster_iii_extreme,documents,Version column in the 2026-09-01 price matrix.
+73,src_pl_duster_price_my26_20260901,duster_iii_journey,documents,Version column in the 2026-09-01 price matrix.
