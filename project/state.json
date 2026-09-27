@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1945,
+    "tests": 1944,
     "csv_files": 47,
     "rows": 19921,
     "configuration_values": 8055,
@@ -41,7 +41,7 @@
     "package_id": "sandero_stepway_price_list_matrix_reconciliation_20260811",
     "kind": "full_documentary_matrix_reconciliation",
     "name": "Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation",
-    "status": "next",
+    "status": "planned",
     "goal": "Replace the partial 11.08.2026 equipment coverage (currently limited to four Hybrid 155 configurations) with direct cennik observations for all 19 catalogue configurations before any configurator use.",
     "manifest_paths": [
       "data/reporting/sandero_stepway_price_20260811_full_documentary_matrix_reconciliation.json"
