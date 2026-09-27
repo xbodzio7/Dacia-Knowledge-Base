@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "kind": "official_price_list_delta_extract",
+  "extract_code": "src_pl_bigster_price_my26_20260901_delta_extract",
+  "source": {
+    "source_code": "src_pl_bigster_price_my26_20260901",
+    "title": "DACIA BIGSTER cennik MY26",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-09-01",
+    "effective_from": "2026-09-01",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/6586f250ae.pdf",
+    "pages": 8
+  },
+  "coverage": {
+    "status": "delta_reviewed_against_previous_full_documentary_audit",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "inference_policy": "No cross-grade or cross-powertrain inference beyond the explicit grade-level matrix already audited for 2026-07-03."
+  },
+  "catalogue_prices_pln": {
+    "mild hybrid-G 140": {
+      "essential": 101400,
+      "expression": 110400,
+      "extreme": 118900,
+      "journey": 118500
+    },
+    "mild hybrid-G 140 auto": {
+      "essential": null,
+      "expression": 115600,
+      "extreme": 124100,
+      "journey": 123700
+    },
+    "hybrid 155": {
+      "essential": null,
+      "expression": 124900,
+      "extreme": 133400,
+      "journey": 133000
+    },
+    "tribrid 150 4x4": {
+      "essential": null,
+      "expression": 128900,
+      "extreme": 137600,
+      "journey": 137200
+    }
+  },
+  "equipment_matrix_basis": {
+    "unchanged_grade_matrix_source": "src_pl_bigster_price_my26_20260703",
+    "new_configurations": [
+      "bigster_expression_mildhybridg140_4x2_automatic",
+      "bigster_extreme_mildhybridg140_4x2_automatic",
+      "bigster_journey_mildhybridg140_4x2_automatic"
+    ],
+    "grade_mapping": "The 2026-09-01 matrix is grade-based; the three newly listed automatic mild hybrid-G 140 configurations inherit only their explicitly matching grade column."
+  },
+  "options_and_packages": {
+    "panoramic_roof": 4300,
+    "nineteen_inch_rims": 1200,
+    "metallic_paint": 3000,
+    "two_tone_body": 1400,
+    "power_tailgate": 1300,
+    "media_nav_live": 2400,
+    "easy_p1": 2700,
+    "parking_p2": 2200,
+    "winter_p3": 1200,
+    "winter_plus_p4": 2300
+  },
+  "technical_data": {
+    "mild hybrid-G 140 auto": {
+      "drive": "4x2",
+      "transmission": "6-speed dual-clutch automatic",
+      "fuel": "petrol + LPG",
+      "displacement_cm3": 1199,
+      "cylinders_valves": "3 / 12",
+      "power_kw_hp": "103 (140)",
+      "torque_nm": 230,
+      "battery_kwh": 0.839,
+      "electrification": "48V mild-hybrid",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s": 10,
+      "fuel_tank_l": "50 petrol / 50 LPG",
+      "co2_g_km": "132 petrol / 116 LPG",
+      "combined_consumption_l_100km": "5.9 petrol / 7.3 LPG",
+      "boot_max_without_spare_dm3": 609,
+      "boot_max_dm3": 1877,
+      "min_kerb_weight_kg": 1350,
+      "gross_vehicle_weight_kg": 1890,
+      "braked_trailer_max_kg": 1500
+    }
+  },
+  "documentary_boundaries": [
+    "The price list cancels previous editions.",
+    "Offer state is 16.09.2026.",
+    "Spare-wheel wording contains legacy powertrain naming; it is preserved rather than normalized.",
+    "Options may require additional equipment or exclude one another.",
+    "Bigster is documented as a five-seat vehicle."
+  ]
+}
