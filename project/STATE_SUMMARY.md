@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Duster 01.09.2026 Official Price List** — `complete`
+**Duster 01.09.2026 Official Price List** — `action_required`
 
-Assimilate the official Polish Duster price list effective 2026-09-01: 16 catalogue configurations, prices, full canonical equipment matrix, technical observations and source-preserved hybrid-155 voltage conflict.
+Duster 01.09.2026 import is prepared in Draft PR #729, but completion is blocked because the 01.09.2026 PDF binary is not available in the repository or Library and the official URL currently resolves to the 03.07.2026 document. Do not merge or compute a false SHA-256. Required source: the actual 01.09.2026 PDF file.
 
 ## Next package
 
