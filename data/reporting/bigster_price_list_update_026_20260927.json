@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "package_id": "bigster_price_list_update_026",
+  "kind": "official_price_list_assimilation",
+  "prepared_on": "2026-09-27",
+  "source_code": "src_pl_bigster_price_my26_20260901",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/6586f250ae.pdf",
+  "effective_date": "2026-09-01",
+  "source_state_date": "2026-09-16",
+  "scope": {
+    "new_configurations": 3,
+    "new_catalogue_price_observations": 13,
+    "new_equipment_availability_observations": 282,
+    "new_technical_scalar_observations": 123,
+    "new_sources": 1,
+    "new_source_configuration_links": 3
+  },
+  "new_configurations": [
+    "bigster_expression_mildhybridg140_4x2_automatic",
+    "bigster_extreme_mildhybridg140_4x2_automatic",
+    "bigster_journey_mildhybridg140_4x2_automatic"
+  ],
+  "price_matrix": {
+    "mild hybrid-G 140": [
+      101400,
+      110400,
+      118900,
+      118500
+    ],
+    "mild hybrid-G 140 auto": [
+      null,
+      115600,
+      124100,
+      123700
+    ],
+    "hybrid 155": [
+      null,
+      124900,
+      133400,
+      133000
+    ],
+    "tribrid 150 4x4": [
+      null,
+      128900,
+      137600,
+      137200
+    ]
+  },
+  "equipment_policy": "New automatic configurations receive only the corresponding grade column from the fully audited 2026-07-03 Bigster documentary matrix. No configurator inference.",
+  "technical_delta": "Automatic mild hybrid-G 140: 6-speed dual-clutch automatic; 5.9 l/100 km petrol, 7.3 l/100 km LPG; 132/116 g CO2; 10.0 s 0-100 km/h.",
+  "files": [
+    "data/master/configurations.csv",
+    "data/master/configuration_prices.csv",
+    "data/master/configuration_attribute_availability.csv",
+    "data/master/configuration_attribute_values.csv",
+    "data/master/source_configurations.csv",
+    "data/master/sources.csv",
+    "project/sources/bigster_price_my26_20260901_delta_extract.json",
+    "data/reporting/bigster_price_list_update_026_20260927.json",
+    "tests/test_bigster_price_list_update_026.py"
+  ],
+  "verification": {
+    "focused_test_added": true,
+    "ci_status": "pending",
+    "project_state_updated": false
+  }
+}
