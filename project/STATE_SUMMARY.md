@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1945
+- Tests: 1944
 - Master CSV files: 47
 - Master rows: 19921
 - Configuration values: 8055
@@ -42,7 +42,7 @@ Assimilate the official Polish Duster price list effective 2026-09-01: 16 catalo
 
 ## Next package
 
-**Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation** — `next`
+**Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation** — `planned`
 
 Replace the partial 11.08.2026 equipment coverage (currently limited to four Hybrid 155 configurations) with direct cennik observations for all 19 catalogue configurations before any configurator use.
 
