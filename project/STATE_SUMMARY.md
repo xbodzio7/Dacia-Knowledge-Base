@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1944
+- Tests: 1945
 - Master CSV files: 47
-- Master rows: 18325
-- Configuration values: 7664
+- Master rows: 19921
+- Configuration values: 8055
 - Configuration import specifications: 139
-- Configuration value ranges: 425
+- Configuration value ranges: 441
 - Configuration range import specifications: 24
-- Availability records: 7567
+- Availability records: 8719
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**CAT-GAP-002 Selector Boundary Batch 023** — `complete`
+**Duster 01.09.2026 Official Price List** — `complete`
 
-Record current official Duster selector-boundary evidence for the ten unresolved historical CAT-GAP-002 exact surfaces without treating current powertrain exposure as exact historical-state evidence or projecting current colours.
+Assimilate the official Polish Duster price list effective 2026-09-01: 16 catalogue configurations, prices, full canonical equipment matrix, technical observations and source-preserved hybrid-155 voltage conflict.
 
 ## Next package
 
-**CAT-GAP-002 Exact Configurator State Capture Batch 024** — `planned`
+**Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation** — `next`
 
-Continue exact-state capture only when a source-confirmed unresolved CAT-GAP-002 surface is directly opened and captured. Do not infer historical colour or availability from the current selector; official price lists and official Dacia version pages remain authoritative for version enumeration and catalogue prices.
+Replace the partial 11.08.2026 equipment coverage (currently limited to four Hybrid 155 configurations) with direct cennik observations for all 19 catalogue configurations before any configurator use.
 
 ## Autonomy
 
@@ -56,7 +56,7 @@ Work stops only for a real source, access, authentication, policy, architecture,
 
 ## Review policy
 
-- Review-only Pull Requests: description only
+- Review-only Pull Requests: exception only
 - Milestone review interval: 5 logical packages
 - One logical package per Pull Request: yes
 - Automatic remote-branch deletion: no
