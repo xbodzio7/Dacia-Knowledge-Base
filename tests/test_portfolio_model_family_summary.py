@@ -47,7 +47,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
     def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
         self.assertEqual(self.summary["version"], 1)
         self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
-        self.assertEqual(self.summary["as_of"], "2026-08-11")
+        self.assertEqual(self.summary["as_of"], "2026-09-01")
         self.assertEqual(
             self.summary["summary"],
             {
@@ -57,8 +57,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "mixed_model_scope_count": 3,
                 "active_configuration_count": 88,
                 "within_scope_pair_count": 139,
-                "provenance_source_count": 106,
-                "source_configuration_relationship_count": 373,
+                "provenance_source_count": 107,
+                "source_configuration_relationship_count": 389,
                 "configurations_with_provenance_count": 88,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
@@ -147,7 +147,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_iii": (18, 59, "2026-02-02", "2026-08-11"),
             "sandero_stepway_iii": (22, 70, "2026-02-02", "2026-08-11"),
             "jogger": (26, 110, "2025-12-17", "2026-08-09"),
-            "duster_iii": (24, 81, "2025-10-20", "2026-08-09"),
+            "duster_iii": (25, 97, "2025-10-20", "2026-09-01"),
             "bigster": (16, 42, "2025-12-10", "2026-08-09"),
             "spring": (7, 11, "2026-02-19", "2026-08-09"),
         }
@@ -165,13 +165,27 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.assertEqual(provenance["missing_configuration_count"], 0)
 
             matrix_provenance = self.matrix_families[code]["provenance"]
-            self.assertEqual(matrix_provenance["source_count"], values[0] - (1 if code in {"sandero_iii", "sandero_stepway_iii"} else 0))
-            self.assertEqual(matrix_provenance["relationship_count"], values[1] - (9 if code == "sandero_iii" else 10 if code == "sandero_stepway_iii" else 0))
+            matrix_source_count = values[0] - (
+                1 if code in {"sandero_iii", "sandero_stepway_iii"}
+                else 1 if code == "duster_iii"
+                else 0
+            )
+            matrix_relationship_count = values[1] - (
+                9 if code == "sandero_iii"
+                else 10 if code == "sandero_stepway_iii"
+                else 16 if code == "duster_iii"
+                else 0
+            )
+            self.assertEqual(matrix_provenance["source_count"], matrix_source_count)
+            self.assertEqual(matrix_provenance["relationship_count"], matrix_relationship_count)
             self.assertEqual(
                 matrix_provenance["earliest_document_date"], values[2]
             )
             self.assertEqual(
-                matrix_provenance["latest_document_date"], ("2026-08-09" if code in {"sandero_iii", "sandero_stepway_iii"} else values[3])
+                matrix_provenance["latest_document_date"],
+                ("2026-08-09"
+                 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii"}
+                 else values[3])
             )
             self.assertEqual(
                 matrix_provenance["configuration_coverage_count"],
@@ -203,8 +217,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 373)
-        self.assertEqual(len(used_sources), 106)
+        self.assertEqual(relation_total, 389)
+        self.assertEqual(len(used_sources), 107)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -309,7 +323,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 113)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 114)
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )

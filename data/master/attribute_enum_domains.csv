@@ -11,3 +11,4 @@ hybrid_battery_type,battery_chemistries.csv,active
 injection_type,injection_types.csv,active
 recommended_fuel,recommended_fuels.csv,active
 traction_battery_type,battery_chemistries.csv,active
+hybrid_system_type,hybrid_system_types.csv,active
