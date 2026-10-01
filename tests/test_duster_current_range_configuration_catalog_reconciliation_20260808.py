@@ -122,6 +122,8 @@ class DusterCurrentRangeConfigurationCatalogReconciliationTests(unittest.TestCas
             row["configuration_code"]: row
             for row in rows(MASTER / "configuration_prices.csv")
             if row["configuration_code"] in CONFIGURATION_CODES
+            and row["source_code"] == SOURCE_CODE
+            and row["price_date"] == "2026-07-03"
         }
         self.assertEqual(
             {code: int(row["amount"]) for code, row in prices.items()},

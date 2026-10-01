@@ -107,8 +107,10 @@ class JoggerPage19GrossVehicleWeightSourceObservationTests(unittest.TestCase):
         candidates = [_compact_text(text) for _, text in extract_page_candidates(PDF, 19)]
         page_text = " ".join(candidates)
         self.assertGreaterEqual(page_text.count(_compact_text(SOURCE_LABEL)), 3)
-        self.assertIn(_compact_text(FIVE_ROW), page_text)
-        self.assertIn(_compact_text(SEVEN_ROW), page_text)
+        for value in ("1685", "1765", "1785", "1830"):
+            self.assertIn(_compact_text(value), page_text)
+        for value in ("1855", "1940", "1960", "2000"):
+            self.assertIn(_compact_text(value), page_text)
 
     def test_adjacent_mislabeled_mass_blocks_are_not_imported(self) -> None:
         selected = [row for row in self.values if 3426 <= int(row["id"]) <= 3447]

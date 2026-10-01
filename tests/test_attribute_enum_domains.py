@@ -53,6 +53,7 @@ class AttributeEnumDomainTests(unittest.TestCase):
                 "fuel_type": "fuel_types.csv",
                 "gearbox_type": "transmission_type.csv",
                 "hybrid_battery_type": "battery_chemistries.csv",
+                "hybrid_system_type": "hybrid_system_types.csv",
                 "injection_type": "injection_types.csv",
                 "traction_battery_type": "battery_chemistries.csv",
                 "recommended_fuel": "recommended_fuels.csv",
