@@ -29,6 +29,8 @@ ROW_MAP = {
     "LKA": ["lane_keep_assist"],
     "DDAM": ["driver_attention_monitoring"],
     "My Safety": ["my_safety_button"],
+    "ISA": ["speed_limiter_intelligent"],
+    "Isofix tylne boczne": ["isofix_rear"],
     "eCall": ["emergency_call_ecall"],
     "Regulator i ogranicznik prędkości": ["cruise_control", "speed_limiter"],
     "Wspomaganie parkowania tyłem": ["rear_parking_sensors"],
@@ -55,6 +57,7 @@ ROW_MAP = {
     "Media Control": ["media_control_system"],
     "Media Display 10\"": ["media_display_system"],
     "Media Nav Live": ["media_nav_live"],
+    "USB 1x / 2x": ["usb_ports_count"],
     "Automatyczne światła / wycieraczki": ["automatic_headlights", "rain_sensing_wipers"],
     "Koło zapasowe + podnośnik (nie dotyczy LPG)": ["spare_wheel_type"],
 }
@@ -67,7 +70,7 @@ COMPOSITE = {
     "Kierownica regulowana wysokość / głębokość": {"●": "standard", "-": "not_available"},
     "Fotel kierowcy wysokość / podłokietnik": {"●": "standard", "-": "not_available"},
     "Automatyczne światła / wycieraczki": {"●": "standard"},
-    "USB 1x / 2x": {},
+    "USB 1x / 2x": {"1": "1", "2": "2"},
 }
 
 CONFIGS = {
@@ -203,7 +206,12 @@ def main():
                     if attr not in known_attrs:
                         unresolved.append((config, label, raw, f"unknown_attribute:{attr}"))
                         continue
-                    status = status_for(part_value)
+                    if attr == "usb_ports_count" and re.fullmatch(r"\d+", part_value):
+                        status = "standard"
+                        note_value = part_value
+                    else:
+                        status = status_for(part_value)
+                        note_value = None
                     if status is None:
                         # Text/colour/design values are retained as unresolved
                         # source evidence rather than projected into a boolean status.
@@ -228,7 +236,7 @@ def main():
                         "availability_status": status,
                         "observation_date": DATE,
                         "source_code": SOURCE_CODE,
-                        "notes": note,
+                        "notes": note + (f" Canonical value: {note_value}." if note_value else ""),
                     })
                     existing.add(key)
                     added += 1
