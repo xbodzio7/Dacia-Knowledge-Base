@@ -223,9 +223,39 @@ def main():
             for row in rows:
                 label, cells = row
                 raw = str(cells[column_index])
+                value_attr = {
+                    'Stalowe obręcze 15" ELMA': 'wheel_design',
+                    'Flexwheel 16" ATARA': 'wheel_design',
+                    'Flexwheel 16" ATARA DARK': 'wheel_design',
+                    'Aluminiowe 16" TAMIA': 'wheel_design',
+                    'Aluminiowe 16" TAMIA czarne': 'wheel_design',
+                    'Tapicerka czarna ze wstawkami denim': 'upholstery_variant',
+                    'Tapicerka denim': 'upholstery_variant',
+                    'Tapicerka czarna z geometrycznymi wzorami i pomarańczowymi przeszyciami': 'upholstery_variant',
+                    'Specjalna tapicerka extreme': 'upholstery_variant',
+                }.get(label)
+                if value_attr:
+                    if raw == '●' and value_attr in known_attrs:
+                        key = (config, value_attr, label, DATE, SOURCE_CODE)
+                        if key not in existing_value_keys:
+                            values.append({
+                                'id': str(next_id(values)),
+                                'code': f'{config}_{value_attr}_20260811',
+                                'configuration_code': config,
+                                'attribute_code': value_attr,
+                                'fuel_type_code': '',
+                                'gear_number': '',
+                                'value': label,
+                                'observation_date': DATE,
+                                'source_code': SOURCE_CODE,
+                                'notes': 'Official Polish MY26 2026-08-11 price-list equipment matrix.',
+                            })
+                            existing_value_keys.add(key)
+                    continue
+
                 mapped_attrs = ROW_MAP.get(label, [])
                 if not mapped_attrs:
-                    unresolved.append((config, label, raw, "no_canonical_mapping"))
+                    unresolved.append((config, label, raw, 'no_canonical_mapping'))
                     continue
 
                 parts = cell_parts(label, raw)
