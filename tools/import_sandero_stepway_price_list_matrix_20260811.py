@@ -56,7 +56,7 @@ ROW_MAP = {
     "Keyless Entry": ["keyless_entry"],
     "Media Control": ["media_control_system"],
     "Media Display 10\"": ["media_display_system"],
-    "Media Nav Live": ["media_nav_live"],
+    "Media Nav Live": ["navigation_system"],
     "Automatyczne światła / wycieraczki": ["automatic_headlights", "rain_sensing_wipers"],
     "USB 1x / 2x": [],
     "Koło zapasowe + podnośnik (nie dotyczy LPG)": ["spare_wheel_type"],
@@ -226,6 +226,7 @@ def main():
                 label, cells = row
                 raw = str(cells[column_index])
                 value_attr = {
+                    'USB 1x / 2x': 'usb_ports_count',
                     'Stalowe obręcze 15" ELMA': 'wheel_design',
                     'Flexwheel 16" ATARA': 'wheel_design',
                     'Flexwheel 16" ATARA DARK': 'wheel_design',
@@ -237,22 +238,34 @@ def main():
                     'Specjalna tapicerka extreme': 'upholstery_variant',
                 }.get(label)
                 if value_attr:
-                    if raw == '●' and value_attr in known_attrs:
-                        key = (config, value_attr, label, DATE, SOURCE_CODE)
-                        if key not in existing_value_keys:
-                            values.append({
-                                'id': str(next_id(values)),
-                                'code': f'{config}_{value_attr}_20260811',
-                                'configuration_code': config,
-                                'attribute_code': value_attr,
-                                'fuel_type_code': '',
-                                'gear_number': '',
-                                'value': label,
-                                'observation_date': DATE,
-                                'source_code': SOURCE_CODE,
-                                'notes': 'Official Polish MY26 2026-08-11 price-list equipment matrix.',
-                            })
-                            existing_value_keys.add(key)
+                    if value_attr in known_attrs:
+                        if label == 'USB 1x / 2x':
+                            # The matrix cell describes the base count (1x) and,
+                            # for richer trims, a package-provided second port.
+                            # The canonical integer attribute represents the base
+                            # vehicle value; the package marker remains source evidence.
+                            base_value = '1' if raw.split(' / ')[0].strip() == '●' else None
+                        else:
+                            base_value = label if raw == '●' else None
+                        if base_value is not None:
+                            key = (config, value_attr, base_value, DATE, SOURCE_CODE)
+                            if key not in existing_value_keys:
+                                values.append({
+                                    'id': str(next_id(values)),
+                                    'code': f'{config}_{value_attr}_20260811',
+                                    'configuration_code': config,
+                                    'attribute_code': value_attr,
+                                    'fuel_type_code': '',
+                                    'gear_number': '',
+                                    'value': base_value,
+                                    'observation_date': DATE,
+                                    'source_code': SOURCE_CODE,
+                                    'notes': (
+                                        'Official Polish MY26 2026-08-11 price-list equipment matrix. '
+                                        f"Source row: {label!r}; source cell: {raw!r}; canonical base value: {base_value!r}."
+                                    ),
+                                })
+                                existing_value_keys.add(key)
                     continue
 
                 mapped_attrs = ROW_MAP.get(label, [])
