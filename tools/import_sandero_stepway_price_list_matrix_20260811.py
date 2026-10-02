@@ -216,6 +216,8 @@ def main():
     skipped_existing = 0
     unresolved = []
     processed_configs = set()
+    option_item_map = {'Kamera cofania': 'sandero_rear_view_camera_option', 'Media Nav Live': 'sandero_media_nav_live_option', 'Szklany dach elektrycznie otwierany': 'sandero_glass_sunroof_option'}
+    item_cfg_keys = {(r['commercial_item_code'], r['configuration_code'], r['price_date'], r['source_code']) for r in commercial_item_configurations}
 
     for column_index, column in enumerate(columns):
         for config in configs_by_column[column]:
@@ -300,6 +302,12 @@ def main():
                     })
                     existing.add(key)
                     added += 1
+                    if part_value not in {'●', '-', 'P'} and label in option_item_map:
+                        item_code = option_item_map[label]
+                        item_key = (item_code, config, DATE, SOURCE_CODE)
+                        if item_key not in item_cfg_keys:
+                            commercial_item_configurations.append({'id': str(next_id(commercial_item_configurations)), 'code': item_code + '__' + config + '_20260811', 'commercial_item_code': item_code, 'configuration_code': config, 'availability_status': 'optional', 'amount': part_value.split(' / ')[0], 'currency_code': 'PLN', 'price_date': DATE, 'source_code': SOURCE_CODE, 'notes': 'Exact option price from official Polish MY26 2026-08-11 price-list equipment matrix.'})
+                            item_cfg_keys.add(item_key)
 
     # Register the documentary source and one relationship per catalogue configuration.
     if not any(r["code"] == SOURCE_CODE for r in sources):
@@ -360,6 +368,7 @@ def main():
         write_csv("source_configurations.csv", rel_fields, relations)
         write_csv("configuration_attribute_availability.csv", av_fields, availability)
         write_csv("configuration_attribute_values.csv", value_fields, values)
+        write_csv("commercial_item_configurations.csv", item_cfg_fields, commercial_item_configurations)
         REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(json.dumps(report, ensure_ascii=False, indent=2))
