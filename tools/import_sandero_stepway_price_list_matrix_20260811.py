@@ -62,6 +62,14 @@ ROW_MAP = {
     "Koło zapasowe + podnośnik (nie dotyczy LPG)": ["spare_wheel_type"],
 }
 
+INVERTED_BOOLEAN_ROWS = {
+    "Lusterka ręczne": ("side_mirrors_electric_adjustment", {"●": "not_available", "-": "standard"}),
+}
+
+POWERTRAIN_SPLIT_ROWS = {
+    "Automatyczny hamulec postojowy": ("electronic_parking_brake", {"manual": "not_available", "automatic": "standard"}),
+}
+
 VALUE_ROWS = {
     "Stalowe obręcze 15\" ELMA": "wheel_design",
     "Flexwheel 16\" ATARA": "wheel_design",
@@ -266,6 +274,60 @@ def main():
                                     ),
                                 })
                                 existing_value_keys.add(key)
+                    continue
+
+                inverted = INVERTED_BOOLEAN_ROWS.get(label)
+                if inverted:
+                    attr, statuses = inverted
+                    if attr not in known_attrs:
+                        unresolved.append((config, label, raw, f"unknown_attribute:{attr}"))
+                        continue
+                    status = statuses.get(raw)
+                    if status is None:
+                        unresolved.append((config, label, raw, "literal_value_requires_value_schema"))
+                        continue
+                    key = (config, attr, DATE, SOURCE_CODE)
+                    if key in existing:
+                        skipped_existing += 1
+                        continue
+                    availability.append({
+                        "id": str(next_id(availability)),
+                        "code": f"{config}_{attr}_20260811",
+                        "configuration_code": config,
+                        "attribute_code": attr,
+                        "availability_status": status,
+                        "observation_date": DATE,
+                        "source_code": SOURCE_CODE,
+                        "notes": f"Official Polish MY26 2026-08-11 price-list equipment matrix. Source row: {label!r}; source cell: {raw!r}; manual mirror distinction resolved to {status}.",
+                    })
+                    existing.add(key)
+                    added += 1
+                    continue
+
+                split = POWERTRAIN_SPLIT_ROWS.get(label)
+                if split and raw == "- / ●":
+                    attr, statuses = split
+                    if attr not in known_attrs:
+                        unresolved.append((config, label, raw, f"unknown_attribute:{attr}"))
+                        continue
+                    transmission = "automatic" if config.endswith("_automatic") else "manual"
+                    status = statuses[transmission]
+                    key = (config, attr, DATE, SOURCE_CODE)
+                    if key in existing:
+                        skipped_existing += 1
+                        continue
+                    availability.append({
+                        "id": str(next_id(availability)),
+                        "code": f"{config}_{attr}_20260811",
+                        "configuration_code": config,
+                        "attribute_code": attr,
+                        "availability_status": status,
+                        "observation_date": DATE,
+                        "source_code": SOURCE_CODE,
+                        "notes": f"Official Polish MY26 2026-08-11 price-list equipment matrix. Source row: {label!r}; source cell: {raw!r}; manual/automatic split resolved for {transmission} configuration to {status}.",
+                    })
+                    existing.add(key)
+                    added += 1
                     continue
 
                 mapped_attrs = ROW_MAP.get(label, [])
