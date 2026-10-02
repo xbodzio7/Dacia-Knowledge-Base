@@ -57,7 +57,6 @@ ROW_MAP = {
     "Media Control": ["media_control_system"],
     "Media Display 10\"": ["media_display_system"],
     "Media Nav Live": ["media_nav_live"],
-    "USB 1x / 2x": ["usb_ports_count"],
     "Automatyczne światła / wycieraczki": ["automatic_headlights", "rain_sensing_wipers"],
     "Koło zapasowe + podnośnik (nie dotyczy LPG)": ["spare_wheel_type"],
 }
@@ -70,7 +69,7 @@ COMPOSITE = {
     "Kierownica regulowana wysokość / głębokość": {"●": "standard", "-": "not_available"},
     "Fotel kierowcy wysokość / podłokietnik": {"●": "standard", "-": "not_available"},
     "Automatyczne światła / wycieraczki": {"●": "standard"},
-    "USB 1x / 2x": {"1": "1", "2": "2"},
+    "USB 1x / 2x": {},
 }
 
 CONFIGS = {
@@ -206,12 +205,7 @@ def main():
                     if attr not in known_attrs:
                         unresolved.append((config, label, raw, f"unknown_attribute:{attr}"))
                         continue
-                    if attr == "usb_ports_count" and re.fullmatch(r"\d+", part_value):
-                        status = "standard"
-                        note_value = part_value
-                    else:
-                        status = status_for(part_value)
-                        note_value = None
+                    status = status_for(part_value)
                     if status is None:
                         # Text/colour/design values are retained as unresolved
                         # source evidence rather than projected into a boolean status.
@@ -236,7 +230,7 @@ def main():
                         "availability_status": status,
                         "observation_date": DATE,
                         "source_code": SOURCE_CODE,
-                        "notes": note + (f" Canonical value: {note_value}." if note_value else ""),
+                        "notes": note,
                     })
                     existing.add(key)
                     added += 1
