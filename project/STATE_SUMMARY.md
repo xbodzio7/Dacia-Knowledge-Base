@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster 01.09.2026 Official Price List** — `complete`
+**Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation** — `complete`
 
-Assimilate the official Polish Duster price list effective 2026-09-01: 16 catalogue configurations, prices, full canonical equipment matrix, technical observations and source-preserved hybrid-155 voltage conflict.
+Replace the partial 11.08.2026 equipment coverage with direct cennik observations for all 19 catalogue configurations before any configurator use.
 
 ## Next package
 
-**Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation** — `planned`
+**CAT-GAP-002 Exact-State Configurator Interaction** — `blocked`
 
-Replace the partial 11.08.2026 equipment coverage (currently limited to four Hybrid 155 configurations) with direct cennik observations for all 19 catalogue configurations before any configurator use.
+Capture reproducible exact current configurator states for unresolved colour and related option compatibility surfaces, beginning with Sandero Stepway Expression and Extreme; do not infer compatibility from static or grade-level lists.
 
 ## Autonomy
 
