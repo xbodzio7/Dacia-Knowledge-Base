@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-09-27",
+  "updated_on": "2026-10-02",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -16,36 +16,36 @@
   },
   "baseline": {
     "tests": 1944,
-    "csv_files": 47,
-    "rows": 18325,
-    "configuration_values": 7664,
+    "csv_files": 48,
+    "rows": 19925,
+    "configuration_values": 8055,
     "configuration_import_specs": 139,
-    "configuration_value_ranges": 425,
+    "configuration_value_ranges": 441,
     "configuration_range_import_specs": 24,
-    "availability_records": 7567,
+    "availability_records": 8719,
     "attributes": 416,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "catalogue_gap_002_selector_boundary_023",
-    "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Selector Boundary Batch 023",
+    "package_id": "duster_price_list_update_20260901",
+    "kind": "full_documentary_import",
+    "name": "Duster 01.09.2026 Official Price List",
     "status": "complete",
-    "goal": "Record current official Duster selector-boundary evidence for the ten unresolved historical CAT-GAP-002 exact surfaces without treating current powertrain exposure as exact historical-state evidence or projecting current colours.",
+    "goal": "Assimilate the official Polish Duster price list effective 2026-09-01: 16 catalogue configurations, prices, full canonical equipment matrix, technical observations and source-preserved hybrid-155 voltage conflict.",
     "manifest_paths": [
-      "data/reporting/catalogue_gap_002_selector_boundary_20260927_batch_023.json",
-      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json",
-      "tests/test_catalogue_gap_002_selector_boundary_20260927_batch_023.py"
+      "data/reporting/duster_price_20260901_full_documentary_audit.json",
+      "tests/test_duster_price_20260901_full_documentary_audit.py",
+      "PR #729"
     ]
   },
   "next_package": {
-    "package_id": "catalogue_gap_002_exact_state_capture_024",
-    "kind": "bounded_source_capture",
-    "name": "CAT-GAP-002 Exact Configurator State Capture Batch 024",
+    "package_id": "sandero_stepway_price_list_matrix_reconciliation_20260811",
+    "kind": "full_documentary_matrix_reconciliation",
+    "name": "Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation",
     "status": "planned",
-    "goal": "Continue exact-state capture only when a source-confirmed unresolved CAT-GAP-002 surface is directly opened and captured. Do not infer historical colour or availability from the current selector; official price lists and official Dacia version pages remain authoritative for version enumeration and catalogue prices.",
+    "goal": "Replace the partial 11.08.2026 equipment coverage (currently limited to four Hybrid 155 configurations) with direct cennik observations for all 19 catalogue configurations before any configurator use.",
     "manifest_paths": [
-      "data/reporting/catalogue_gap_002_exact_colour_surface_reconciliation_20260918.json"
+      "data/reporting/sandero_stepway_price_20260811_full_documentary_matrix_reconciliation.json"
     ]
   },
   "autonomy": {

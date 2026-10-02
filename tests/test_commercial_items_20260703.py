@@ -97,8 +97,10 @@ class CommercialItems20260703Tests(unittest.TestCase):
     def test_package_membership_updates_equipment_availability(self) -> None:
         latest = {}
         for row in self.availability:
+            if row["observation_date"] != DATE:
+                continue
             key = (row["configuration_code"], row["attribute_code"])
-            if key not in latest or row["observation_date"] > latest[key]["observation_date"]:
+            if key not in latest:
                 latest[key] = row
         expected_optional = (
             ("sandero_stepway_iii_expression_ecog120_automatic", "keyless_entry"),

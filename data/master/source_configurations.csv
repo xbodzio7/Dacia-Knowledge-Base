@@ -372,3 +372,19 @@ id,source_code,configuration_code,relationship,notes
 371,src_pl_sandero_stepway_price_my26_20260811,sandero_iii_journey_hybrid155_automatic,documents,Explicit non-empty catalogue price cell in the 2026-08-11 Sandero/Sandero Stepway price matrix; observations are imported separately.
 372,src_pl_sandero_stepway_price_my26_20260811,sandero_stepway_iii_expression_hybrid155_automatic,documents,Explicit non-empty catalogue price cell in the 2026-08-11 Sandero/Sandero Stepway price matrix; observations are imported separately.
 373,src_pl_sandero_stepway_price_my26_20260811,sandero_stepway_iii_extreme_hybrid155_automatic,documents,Explicit non-empty catalogue price cell in the 2026-08-11 Sandero/Sandero Stepway price matrix; observations are imported separately.
+374,src_pl_duster_price_my26_20260901,duster_iii_essential_ecog120_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+375,src_pl_duster_price_my26_20260901,duster_iii_expression_ecog120_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+376,src_pl_duster_price_my26_20260901,duster_iii_extreme_ecog120_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+377,src_pl_duster_price_my26_20260901,duster_iii_journey_ecog120_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+378,src_pl_duster_price_my26_20260901,duster_iii_expression_ecog120_4x2_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+379,src_pl_duster_price_my26_20260901,duster_iii_extreme_ecog120_4x2_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+380,src_pl_duster_price_my26_20260901,duster_iii_journey_ecog120_4x2_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+381,src_pl_duster_price_my26_20260901,duster_iii_expression_mildhybrid140_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+382,src_pl_duster_price_my26_20260901,duster_iii_extreme_mildhybrid140_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+383,src_pl_duster_price_my26_20260901,duster_iii_journey_mildhybrid140_4x2_manual,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+384,src_pl_duster_price_my26_20260901,duster_iii_expression_hybrid155_4x2_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+385,src_pl_duster_price_my26_20260901,duster_iii_extreme_hybrid155_4x2_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+386,src_pl_duster_price_my26_20260901,duster_iii_journey_hybrid155_4x2_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+387,src_pl_duster_price_my26_20260901,duster_iii_expression_hybridg150_4x4_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+388,src_pl_duster_price_my26_20260901,duster_iii_extreme_hybridg150_4x4_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
+389,src_pl_duster_price_my26_20260901,duster_iii_journey_hybridg150_4x4_automatic,documents,Explicit catalogue configuration covered by the 2026-09-01 price matrix.
