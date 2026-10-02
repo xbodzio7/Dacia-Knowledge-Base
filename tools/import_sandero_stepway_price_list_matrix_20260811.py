@@ -193,6 +193,8 @@ def main():
                 parts = cell_parts(label, raw)
                 if len(mapped_attrs) == len(parts):
                     pairs = zip(mapped_attrs, parts)
+                elif len(mapped_attrs) > 1 and len(parts) == 1 and raw in {'●', '-', 'P'}:
+                    pairs = ((attr, (label, raw)) for attr in mapped_attrs)
                 else:
                     # Single-valued rows, including prices and package markers.
                     pairs = ((mapped_attrs[0], (label, raw)),)
@@ -261,7 +263,8 @@ def main():
     summary = {
         "source_code": SOURCE_CODE,
         "source_date": DATE,
-        "source_sha256": source_sha,
+        "source_extract_sha256": source_sha,
+        "source_document_sha256": capture["source"]["supplied_file_sha256"],
         "matrix_columns": len(columns),
         "matrix_rows": len(rows),
         "catalogue_configurations": len(processed_configs),
