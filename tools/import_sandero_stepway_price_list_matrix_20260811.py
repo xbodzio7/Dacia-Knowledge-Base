@@ -309,6 +309,16 @@ def main():
                             commercial_item_configurations.append({'id': str(next_id(commercial_item_configurations)), 'code': item_code + '__' + config + '_20260811', 'commercial_item_code': item_code, 'configuration_code': config, 'availability_status': 'optional', 'amount': part_value.split(' / ')[0], 'currency_code': 'PLN', 'price_date': DATE, 'source_code': SOURCE_CODE, 'notes': 'Exact option price from official Polish MY26 2026-08-11 price-list equipment matrix.'})
                             item_cfg_keys.add(item_key)
 
+    package_prices = {'sandero_comfort_auto_package': 2000, 'sandero_thermo_package': 1900, 'sandero_winter_package': 1200, 'sandero_media_nav_live_package': 1600, 'sandero_easy_package': 1600}
+    for row in list(commercial_item_configurations):
+        item_code = row['commercial_item_code']
+        if item_code not in package_prices:
+            continue
+        item_key = (item_code, row['configuration_code'], DATE, SOURCE_CODE)
+        if item_key not in item_cfg_keys:
+            commercial_item_configurations.append({'id': str(next_id(commercial_item_configurations)), 'code': item_code + '__' + row['configuration_code'] + '_20260811', 'commercial_item_code': item_code, 'configuration_code': row['configuration_code'], 'availability_status': row['availability_status'], 'amount': str(package_prices[item_code]), 'currency_code': 'PLN', 'price_date': DATE, 'source_code': SOURCE_CODE, 'notes': 'Current package price from official Polish MY26 2026-08-11 price list; applicability reused from existing documented membership.'})
+            item_cfg_keys.add(item_key)
+
     # Register the documentary source and one relationship per catalogue configuration.
     if not any(r["code"] == SOURCE_CODE for r in sources):
         sources.append({
