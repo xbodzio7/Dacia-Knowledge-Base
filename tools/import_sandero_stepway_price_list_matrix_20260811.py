@@ -359,6 +359,7 @@ def main():
         write_csv("sources.csv", source_fields, sources)
         write_csv("source_configurations.csv", rel_fields, relations)
         write_csv("configuration_attribute_availability.csv", av_fields, availability)
+        write_csv("configuration_attribute_values.csv", value_fields, values)
         REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(json.dumps(report, ensure_ascii=False, indent=2))
