@@ -58,6 +58,7 @@ ROW_MAP = {
     "Media Display 10\"": ["media_display_system"],
     "Media Nav Live": ["media_nav_live"],
     "Automatyczne światła / wycieraczki": ["automatic_headlights", "rain_sensing_wipers"],
+    "USB 1x / 2x": [],
     "Koło zapasowe + podnośnik (nie dotyczy LPG)": ["spare_wheel_type"],
 }
 
