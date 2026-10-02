@@ -61,6 +61,33 @@ ROW_MAP = {
     "Koło zapasowe + podnośnik (nie dotyczy LPG)": ["spare_wheel_type"],
 }
 
+VALUE_ROWS = {
+    "Stalowe obręcze 15\" ELMA": "wheel_design",
+    "Flexwheel 16\" ATARA": "wheel_design",
+    "Flexwheel 16\" ATARA DARK": "wheel_design",
+    "Aluminiowe 16\" TAMIA": "wheel_design",
+    "Aluminiowe 16\" TAMIA czarne": "wheel_design",
+    "Tapicerka czarna ze wstawkami denim": "upholstery_variant",
+    "Tapicerka denim": "upholstery_variant",
+    "Tapicerka czarna z geometrycznymi wzorami i pomarańczowymi przeszyciami": "upholstery_variant",
+    "Specjalna tapicerka extreme": "upholstery_variant",
+}
+
+OPTION_ITEMS = {
+    "Kamera cofania": ("sandero_rear_view_camera_option", "rear_view_camera"),
+    "Koło zapasowe + podnośnik (nie dotyczy LPG)": ("sandero_spare_wheel_option", "spare_wheel_type"),
+    "Szklany dach elektrycznie otwierany": ("sandero_glass_sunroof_option", "glass_sunroof"),
+    "Media Nav Live": ("sandero_media_nav_live_option", "navigation_system"),
+}
+
+PACKAGE_PRICES = {
+    "sandero_comfort_auto_package": 2000,
+    "sandero_thermo_package": 1900,
+    "sandero_winter_package": 1200,
+    "sandero_media_nav_live_package": 1600,
+    "sandero_easy_package": 1600,
+}
+
 # Literal components whose source cell is explicitly composite.  A component is
 # materialized only when the source cell explicitly contains that component.
 COMPOSITE = {
@@ -161,8 +188,16 @@ def main():
     attr_fields, attributes = read_csv("attributes.csv")
     source_fields, sources = read_csv("sources.csv")
     rel_fields, relations = read_csv("source_configurations.csv")
+    value_fields, values = read_csv("configuration_attribute_values.csv")
+    item_fields, commercial_items = read_csv("commercial_items.csv")
+    item_attr_fields, commercial_item_attributes = read_csv("commercial_item_attributes.csv")
+    item_cfg_fields, commercial_item_configurations = read_csv("commercial_item_configurations.csv")
 
     known_attrs = {r["code"] for r in attributes}
+    existing_value_keys = {(r["configuration_code"], r["attribute_code"], r["value"], r["observation_date"], r["source_code"]) for r in values}
+    item_codes = {r["code"] for r in commercial_items}
+    item_attr_keys = {(r["commercial_item_code"], r["attribute_code"]) for r in commercial_item_attributes}
+    item_cfg_keys = {(r["commercial_item_code"], r["configuration_code"], r["price_date"], r["source_code"]) for r in commercial_item_configurations}
     existing = {
         (r["configuration_code"], r["attribute_code"], r["observation_date"], r["source_code"])
         for r in availability
