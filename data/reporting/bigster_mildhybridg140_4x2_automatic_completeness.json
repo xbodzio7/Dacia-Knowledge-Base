@@ -102,6 +102,10 @@
       "fuel_type_code": "petrol"
     },
     {
+      "attribute_code": "gear_count",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "gearbox_type",
       "fuel_type_code": ""
     },
