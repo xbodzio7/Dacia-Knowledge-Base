@@ -54,36 +54,36 @@ jobs:
         current_with_historical_count = copy.deepcopy(self.payload)
         target: Any = current_with_historical_count
         for key in path[:-1]:
-            target = target[int(key)] if isinstance(target, list) else target[key]
+             target = target[int(key)] if isinstance(target, list) else target[key]
         final_key = path[-1]
         if isinstance(target, list):
-            target[int(final_key)] = committed_value
+             target[int(final_key)] = committed_value
         else:
-            target[final_key] = committed_value
+             target[final_key] = committed_value
         self.assertEqual(current_with_historical_count, committed_payload)'''
-          new_pdf = '''        differences = json_differences(committed_payload, self.payload)
+           new_pdf = '''        differences = json_differences(committed_payload, self.payload)
         self.assertEqual(len(differences), 2)
         recognized = {
-            "configuration_attribute_availability": (5906, 5911),
-            "configuration_attribute_values": (3490, 3491),
+             "configuration_attribute_availability": (5906, 5911),
+             "configuration_attribute_values": (3490, 3491),
         }
         current_with_historical_counts = copy.deepcopy(self.payload)
         seen: set[str] = set()
         for path, committed_value, current_value in differences:
-            joined = ".".join(path)
-            matched = next((name for name in recognized if name in joined), None)
-            self.assertIsNotNone(matched, joined)
-            assert matched is not None
-            self.assertEqual((committed_value, current_value), recognized[matched])
-            seen.add(matched)
-            target: Any = current_with_historical_counts
-            for key in path[:-1]:
-                target = target[int(key)] if isinstance(target, list) else target[key]
-            final_key = path[-1]
-            if isinstance(target, list):
-                target[int(final_key)] = committed_value
-            else:
-                target[final_key] = committed_value
+             joined = ".".join(path)
+             matched = next((name for name in recognized if name in joined), None)
+             self.assertIsNotNone(matched, joined)
+             assert matched is not None
+             self.assertEqual((committed_value, current_value), recognized[matched])
+             seen.add(matched)
+             target: Any = current_with_historical_counts
+             for key in path[:-1]:
+                 target = target[int(key)] if isinstance(target, list) else target[key]
+             final_key = path[-1]
+             if isinstance(target, list):
+                 target[int(final_key)] = committed_value
+             else:
+                 target[final_key] = committed_value
         self.assertEqual(seen, set(recognized))
         self.assertEqual(current_with_historical_counts, committed_payload)'''
           transition('tests/test_verified_pdf_candidate_coverage_reconciliation.py', old_pdf, new_pdf)
