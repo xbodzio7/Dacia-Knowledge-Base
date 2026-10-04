@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "configuration_scope": "explicit_subset",
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260901"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260901"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260901"
+    }
+  ],
+  "technical_slots": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "boot_capacity",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "braked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "cargo_volume_without_spare_wheel_iso3832",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "drive_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "eco_mode",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "emission_standard",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_power",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_torque",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "engine_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_brake_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "front_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "gearbox_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_train_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "gross_vehicle_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "ground_clearance",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "hybrid_battery_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "hybrid_system_voltage",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "injection_type",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_cargo_volume_iso3832",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "minimum_kerb_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_height",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_length",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "particulate_filter",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_brake_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_track",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standard_tyre_specification",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "standing_km",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "steering_type",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "top_speed",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "turning_circle_between_kerbs",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "unbraked_trailer_weight",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "wheelbase",
+      "fuel_type_code": ""
+    }
+  ],
+  "equipment_attributes": [
+    "roof_rails",
+    "modular_roof_rails",
+    "glass_sunroof",
+    "shark_fin_antenna",
+    "privacy_glass",
+    "driver_seat_height_adjustment",
+    "driver_seat_electric_adjustment",
+    "driver_seat_lumbar_adjustment",
+    "passenger_seat_height_adjustment",
+    "heated_front_seats",
+    "front_centre_armrest",
+    "cooling_glovebox",
+    "rear_usb_c_ports",
+    "automatic_emergency_braking",
+    "anti_lock_braking_system",
+    "electronic_stability_control",
+    "hill_start_assist",
+    "safe_distance_warning",
+    "lane_departure_warning",
+    "lane_keep_assist",
+    "driver_attention_monitoring",
+    "traffic_sign_recognition",
+    "speed_limiter_intelligent",
+    "my_safety_button",
+    "rescue_code",
+    "driver_front_airbag",
+    "passenger_front_airbag",
+    "front_side_airbags",
+    "curtain_airbags",
+    "front_seat_belt_pretensioners",
+    "rear_seat_belt_pretensioners",
+    "rear_three_point_seat_belts",
+    "isofix_rear",
+    "emergency_call_ecall",
+    "gear_shift_indicator",
+    "tyre_pressure_monitoring_system",
+    "tyre_repair_kit",
+    "hill_descent_control",
+    "blind_spot_monitoring",
+    "led_daytime_running_lights",
+    "automatic_headlights",
+    "led_headlights",
+    "side_mirrors_electric_adjustment",
+    "side_mirrors_heated",
+    "rain_sensing_wipers",
+    "high_beam_assist",
+    "fog_lights_front",
+    "side_mirrors_folding",
+    "onboard_computer",
+    "speed_limiter",
+    "cruise_control",
+    "rear_parking_sensors",
+    "rear_view_camera",
+    "seat_belt_reminder",
+    "door_open_warning",
+    "eco_mode",
+    "adaptive_cruise_control",
+    "front_parking_sensors",
+    "360_camera_system",
+    "electronic_parking_brake",
+    "manual_air_conditioning",
+    "automatic_climate_control",
+    "dual_zone_climate_control",
+    "rear_air_vents",
+    "central_locking",
+    "keyless_entry",
+    "keyless_start",
+    "front_windows_power",
+    "rear_windows_power",
+    "one_touch_windows",
+    "heated_windscreen",
+    "eco_leather_steering_wheel",
+    "steering_wheel_height_adjustment",
+    "steering_wheel_reach_adjustment",
+    "heated_steering_wheel",
+    "youclip_phone_holder",
+    "wireless_charging",
+    "rear_seat_folding",
+    "rear_seat_easy_fold",
+    "adjustable_boot_floor",
+    "power_tailgate",
+    "boot_12v_socket",
+    "led_cabin_lighting",
+    "touchscreen",
+    "media_display_system",
+    "navigation_system",
+    "live_traffic_information",
+    "bluetooth_connectivity",
+    "wireless_smartphone_replication",
+    "connected_services",
+    "remote_firmware_updates",
+    "digital_instrument_cluster",
+    "instrument_cluster_colour_7",
+    "instrument_cluster_colour_10_1"
+  ],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  }
+}
