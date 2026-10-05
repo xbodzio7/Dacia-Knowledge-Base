@@ -123,7 +123,6 @@ class SpringLegacyPdfAssimilationClosureTest(unittest.TestCase):
 
     def test_state_manifest_tracks_all_closure_outputs_while_current(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        manifest = set(state["current_package"]["manifest_paths"])
         required = {
             "tools/review_spring_legacy_pdf_assimilation_closure_20260802.py",
             "data/reporting/spring_legacy_pdf_assimilation_closure.json",
@@ -136,6 +135,7 @@ class SpringLegacyPdfAssimilationClosureTest(unittest.TestCase):
         for relative in required - {"project/state.json", "project/STATE_SUMMARY.md"}:
             self.assertTrue((ROOT / relative).is_file(), relative)
         if state["current_package"]["package_id"] == HISTORICAL_PACKAGE_ID:
+            manifest = set(state["current_package"]["manifest_paths"])
             self.assertTrue(required.issubset(manifest))
         else:
             self.assertEqual(state["current_package"]["status"], "complete")
