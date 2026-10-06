@@ -38,13 +38,13 @@
 
 **Jogger 01.10.2026 Price List Matrix Reconciliation** — `complete`
 
-Replace the partial 11.08.2026 equipment coverage with direct cennik observations for all 19 catalogue configurations before any configurator use.
+Assimilate the complete 01.10.2026 Jogger price list and append current documentary catalogue prices, option/package mappings and technical reconciliation without configurator use.
 
 ## Next package
 
-**Bigster 01.10.2026 Price List Matrix Reconciliation** — `blocked`
+**Bigster 01.10.2026 Price List Matrix Reconciliation** — `planned`
 
-Capture reproducible exact current configurator states for unresolved colour and related option compatibility surfaces, beginning with Sandero Stepway Expression and Extreme; do not infer compatibility from static or grade-level lists.
+Assimilate the complete 01.10.2026 Bigster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
 
 ## Autonomy
 
