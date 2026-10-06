@@ -199,17 +199,11 @@ def signature_key(signature: Mapping[str, str]) -> str:
 
 def load_evidence(repository: Path) -> list[dict[str, Any]]:
     configuration_models, active_configurations = model_lookup(repository)
-    source_rows = read_csv_rows(repository / "data/master/sources.csv", "sources")
-    source_dates = {row.get("code", ""): row.get("document_date", "") for row in source_rows}
     evidence: list[dict[str, Any]] = []
     for table, filename in EVIDENCE_TABLES:
         for row in read_csv_rows(repository / "data/master" / filename, table):
             observation_date = row.get("observation_date", "").strip()
             if observation_date and observation_date > RECONCILED_ON:
-                continue
-            source_code = row.get("source_code", "")
-            source_date = source_dates.get(source_code, "")
-            if source_date and source_date > RECONCILED_ON:
                 continue
             configuration_code = row.get("configuration_code", "")
             if configuration_code not in active_configurations:
