@@ -47,7 +47,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
     def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
         self.assertEqual(self.summary["version"], 1)
         self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
-        self.assertEqual(self.summary["as_of"], "2026-09-01")
+        self.assertEqual(self.summary["as_of"], "2026-10-01")
         self.assertEqual(
             self.summary["summary"],
             {
