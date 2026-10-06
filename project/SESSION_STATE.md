@@ -31,7 +31,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 - 441 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 24 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 9283 rekordów w `configuration_attribute_availability.csv`,
-- 7046 rekordów `standard`, 630 `optional`, 1043 `not_available` i 0 `unknown`,
+- 7511 rekordów `standard`, 676 `optional`, 1096 `not_available` i 0 `unknown`,
 - 416 kanonicznych atrybutów w 30 kategoriach,
 - baza SQLite obejmująca 48 tabele i 20536 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
