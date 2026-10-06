@@ -81,19 +81,19 @@ def collect(
 ) -> dict[str, object]:
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
-    source_dates = {
-        row["code"]: str(row.get("document_date", ""))
-        for row in rows(master / "sources.csv")
-    }
-    historical_source_codes = {
-        row["configuration_code"]
-        for row in rows(master / "source_configurations.csv")
-        if source_dates.get(row.get("source_code", ""), "") <= "2026-09-20"
+    source_relationships = rows(master / "source_configurations.csv")
+    excluded_source = "src_pl_bigster_price_my26_20261001"
+    relationships_by_configuration = {}
+    for relation in source_relationships:
+        relationships_by_configuration.setdefault(relation["configuration_code"], set()).add(relation["source_code"])
+    excluded_configurations = {
+        code for code, sources in relationships_by_configuration.items()
+        if sources and sources == {excluded_source}
     }
     configurations = {
         row["code"]: row
         for row in rows(master / "configurations.csv")
-        if row.get("status") == "active" and row["code"] in historical_source_codes
+        if row.get("status") == "active" and row["code"] not in excluded_configurations
     }
     scalar = {
         (
