@@ -37,10 +37,18 @@ class BigsterPage20DeferredImportGapTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.specs = {code: json.loads(path.read_text(encoding="utf-8")) for code, path in SPECS.items()}
         cls.values = rows(MASTER / "configuration_attribute_values.csv")
+        linked = {
+            row["configuration_code"]
+            for row in rows(MASTER / "source_configurations.csv")
+            if row["source_code"] == "src_pl_bigster_brochure_20251210"
+            and row["relationship"] == "brochure_technical_data_for"
+        }
         cls.active_bigster = {
             row["code"]
             for row in rows(MASTER / "configurations.csv")
-            if row["status"] == "active" and row["code"].startswith("bigster_")
+            if row["status"] == "active"
+            and row["code"].startswith("bigster_")
+            and row["code"] in linked
         }
         cls.imported = [
             row
