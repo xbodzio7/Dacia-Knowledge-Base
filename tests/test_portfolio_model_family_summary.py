@@ -120,7 +120,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_stepway_iii": (10, 3, 71700, 96800, "recorded", [5], 10, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
             "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
-            "bigster": (20, 4, 101400, 137600, "recorded", [5], 20, 0),
+            "bigster": (14, 4, 101400, 137600, "recorded", [5], 14, 0),
             "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
         }
         for code, values in expected.items():
@@ -148,7 +148,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_stepway_iii": (22, 70, "2026-02-02", "2026-08-11"),
             "jogger": (26, 110, "2025-12-17", "2026-08-09"),
             "duster_iii": (25, 97, "2025-10-20", "2026-09-01"),
-            "bigster": (17, 55, "2025-12-10", "2026-10-01"),
+            "bigster": (16, 42, "2025-12-10", "2026-08-09"),
             "spring": (7, 11, "2026-02-19", "2026-08-09"),
         }
         matrix_relationship_total = 0
