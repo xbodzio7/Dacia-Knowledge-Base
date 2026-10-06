@@ -92,11 +92,21 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def active_configuration_models() -> dict[str, str]:
     versions = {row["code"]: row for row in rows(MASTER / "versions.csv")}
-    return {
-        row["code"]: versions.get(row.get("version_code", ""), {}).get("model_code", "")
-        for row in rows(MASTER / "configurations.csv")
-        if row.get("status") == "active"
+    historical_bigster = {
+        row["configuration_code"]
+        for row in rows(MASTER / "source_configurations.csv")
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("relationship") == "brochure_technical_data_for"
     }
+    result: dict[str, str] = {}
+    for row in rows(MASTER / "configurations.csv"):
+        if row.get("status") != "active":
+            continue
+        model_code = versions.get(row.get("version_code", ""), {}).get("model_code", "")
+        if model_code == "bigster" and row["code"] not in historical_bigster:
+            continue
+        result[row["code"]] = model_code
+    return result
 
 
 def verify_report(payload: Mapping[str, Any]) -> None:
