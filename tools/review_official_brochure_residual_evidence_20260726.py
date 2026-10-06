@@ -92,17 +92,10 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def active_configuration_models() -> dict[str, str]:
     versions = {row["code"]: row for row in rows(MASTER / "versions.csv")}
-    july_bigster = {
-        row.get("configuration_code", "")
-        for row in rows(MASTER / "source_configurations.csv")
-        if row.get("source_code") == "src_pl_bigster_price_my26_20260703"
-        and row.get("relationship") == "documents"
-    }
     return {
         row["code"]: versions.get(row.get("version_code", ""), {}).get("model_code", "")
         for row in rows(MASTER / "configurations.csv")
         if row.get("status") == "active"
-        and (not row["code"].startswith("bigster_") or row["code"] in july_bigster)
     }
 
 
