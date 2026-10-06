@@ -49,9 +49,8 @@
     "new_commercial_mappings": 0
   },
   "technical_reconciliation": {
-    "result": "The 2026-10-01 technical table was assimilated for all six newly represented current configurations using only documentary source values. mild hybrid-G 140 automatic rows use the explicit automatic column values; tribrid 150 4x4 rows use the explicit tribrid column values.",
-    "new_observations": 243,
-    "key_delta": "mild hybrid-G 140 auto combined consumption is 5.9 l/100 km petrol and 7.3 l/100 km LPG; all other cloned powertrain observations were reconciled against the explicit 2026-10-01 table before import.",
+    "result": "The 2026-10-01 technical table was reviewed as part of the documentary reconciliation, but scalar technical observations are deliberately deferred from master materialization because the supplied PDF is not currently repository-backed at the registered source file path. No technical value is inferred or projected from the older 2026-07-03 source.",
+    "materialization_status": "deferred_until_repository_source_artifact_is_available",
     "configurator_used": false
   },
   "master_mutations": {
@@ -60,7 +59,7 @@
     "configuration_prices": 13,
     "source_configurations": 13,
     "commercial_item_configurations": 0,
-    "configuration_attribute_values": 189
+    "configuration_attribute_values": 0
   },
   "baseline_rows_before": 19939,
   "baseline_rows_after": 20160
