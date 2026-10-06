@@ -129,10 +129,17 @@ def collect_view(repository: Path) -> dict[str, Any]:
     master = repository / "data" / "master"
     models = {row["code"]: row for row in _read_csv(master / "models.csv")}
     versions = {row["code"]: row for row in _read_csv(master / "versions.csv")}
+    source_rows = _read_csv(master / "sources.csv")
+    source_dates = {row["code"]: str(row.get("document_date", "")) for row in source_rows}
+    historical_source_codes = {
+        row["configuration_code"]
+        for row in _read_csv(master / "source_configurations.csv")
+        if source_dates.get(row.get("source_code", ""), "") <= "2026-08-09"
+    }
     configurations = {
         row["code"]: row
         for row in _read_csv(master / "configurations.csv")
-        if row.get("status") == "active"
+        if row.get("status") == "active" and row["code"] in historical_source_codes
     }
     catalog = collect_browser_catalog(repository, ShortlistCriteria())
     raw_catalog = catalog.get("configurations")
@@ -163,7 +170,11 @@ def collect_view(repository: Path) -> dict[str, Any]:
             )
         configuration_model[code] = model_code
 
-    scopes = discover_scopes(repository)
+    scopes = [
+        scope
+        for scope in discover_scopes(repository)
+        if any(code in configurations for code in scope.configuration_codes)
+    ]
     mapped_codes: list[str] = []
     scope_records: list[dict[str, Any]] = []
     model_scope_slugs: dict[str, list[str]] = defaultdict(list)
@@ -171,7 +182,7 @@ def collect_view(repository: Path) -> dict[str, Any]:
     model_exclusive_scope_count: dict[str, int] = defaultdict(int)
 
     for scope in scopes:
-        codes = list(scope.configuration_codes)
+        codes = [code for code in scope.configuration_codes if code in configurations]
         mapped_codes.extend(codes)
         try:
             items = [catalog_index[code] for code in codes]
