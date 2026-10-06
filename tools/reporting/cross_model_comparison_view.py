@@ -129,18 +129,10 @@ def collect_view(repository: Path) -> dict[str, Any]:
     master = repository / "data" / "master"
     models = {row["code"]: row for row in _read_csv(master / "models.csv")}
     versions = {row["code"]: row for row in _read_csv(master / "versions.csv")}
-    excluded_configurations = {
-        "bigster_expression_mildhybridg140_4x2_automatic",
-        "bigster_extreme_mildhybridg140_4x2_automatic",
-        "bigster_journey_mildhybridg140_4x2_automatic",
-        "bigster_expression_tribrid150_4x4_automatic",
-        "bigster_extreme_tribrid150_4x4_automatic",
-        "bigster_journey_tribrid150_4x4_automatic",
-    }
     configurations = {
         row["code"]: row
         for row in _read_csv(master / "configurations.csv")
-        if row.get("status") == "active" and row["code"] not in excluded_configurations
+        if row.get("status") == "active"
     }
     catalog = collect_browser_catalog(repository, ShortlistCriteria())
     raw_catalog = catalog.get("configurations")
