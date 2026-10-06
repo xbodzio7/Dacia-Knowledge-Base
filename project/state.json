@@ -17,12 +17,12 @@
   "baseline": {
     "tests": 1944,
     "csv_files": 48,
-    "rows": 19995,
-    "configuration_values": 8055,
+    "rows": 20802,
+    "configuration_values": 8298,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 441,
     "configuration_range_import_specs": 24,
-    "availability_records": 8719,
+    "availability_records": 9283,
     "attributes": 416,
     "attribute_categories": 30
   },
