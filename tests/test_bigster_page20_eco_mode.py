@@ -32,10 +32,18 @@ class BigsterPage20EcoModeTests(unittest.TestCase):
             for row in read_csv(MASTER / "configuration_attribute_values.csv")
             if row["attribute_code"] == "eco_mode" and row["source_code"] == SOURCE
         }
+        linked = {
+            row["configuration_code"]
+            for row in rows(MASTER / "source_configurations.csv")
+            if row["source_code"] == "src_pl_bigster_brochure_20251210"
+            and row["relationship"] == "brochure_technical_data_for"
+        }
         cls.active_bigster = {
             row["code"]
             for row in read_csv(MASTER / "configurations.csv")
-            if row["status"] == "active" and row["code"].startswith("bigster_")
+            if row["status"] == "active"
+            and row["code"].startswith("bigster_")
+            and row["code"] in linked
         }
 
     def test_spec_preserves_the_verified_source_receipt(self) -> None:
