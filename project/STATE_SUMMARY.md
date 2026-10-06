@@ -25,7 +25,7 @@
 
 - Tests: 1944
 - Master CSV files: 48
-- Master rows: 19926
+- Master rows: 19965
 - Configuration values: 8055
 - Configuration import specifications: 139
 - Configuration value ranges: 441
@@ -36,13 +36,13 @@
 
 ## Current package
 
-**Sandero / Sandero Stepway 11.08.2026 Price List Matrix Reconciliation** — `complete`
+**Jogger 01.10.2026 Price List Matrix Reconciliation** — `complete`
 
 Replace the partial 11.08.2026 equipment coverage with direct cennik observations for all 19 catalogue configurations before any configurator use.
 
 ## Next package
 
-**CAT-GAP-002 Exact-State Configurator Interaction** — `blocked`
+**Bigster 01.10.2026 Price List Matrix Reconciliation** — `blocked`
 
 Capture reproducible exact current configurator states for unresolved colour and related option compatibility surfaces, beginning with Sandero Stepway Expression and Extreme; do not infer compatibility from static or grade-level lists.
 
