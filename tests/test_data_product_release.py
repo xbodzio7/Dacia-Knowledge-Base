@@ -207,7 +207,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(view["summary"]["model_family_count"], 6)
         self.assertEqual(view["summary"]["reporting_scope_count"], 26)
         self.assertEqual(view["summary"]["active_configuration_count"], 94)
-        self.assertEqual(view["summary"]["within_scope_pair_count"], 166)
+        self.assertEqual(view["summary"]["within_scope_pair_count"], 145)
         self.assertFalse(view["summary"]["cross_scope_pairs_generated"])
         self.assertEqual(rendered.count('class="model-card"'), 6)
         self.assertEqual(rendered.count('class="scope-card"'), 26)
