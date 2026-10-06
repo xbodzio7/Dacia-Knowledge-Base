@@ -52,14 +52,14 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.summary["summary"],
             {
                 "model_family_count": 6,
-                "reporting_scope_count": 24,
-                "single_model_scope_count": 21,
+                "reporting_scope_count": 26,
+                "single_model_scope_count": 23,
                 "mixed_model_scope_count": 3,
-                "active_configuration_count": 88,
-                "within_scope_pair_count": 139,
-                "provenance_source_count": 107,
-                "source_configuration_relationship_count": 389,
-                "configurations_with_provenance_count": 88,
+                "active_configuration_count": 94,
+                "within_scope_pair_count": 145,
+                "provenance_source_count": 108,
+                "source_configuration_relationship_count": 402,
+                "configurations_with_provenance_count": 94,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
@@ -120,7 +120,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_stepway_iii": (10, 3, 71700, 96800, "recorded", [5], 10, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
             "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
-            "bigster": (14, 4, 101400, 137600, "recorded", [5], 14, 0),
+            "bigster": (20, 4, 101400, 137600, "recorded", [5], 20, 0),
             "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
         }
         for code, values in expected.items():
@@ -148,7 +148,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_stepway_iii": (22, 70, "2026-02-02", "2026-08-11"),
             "jogger": (26, 110, "2025-12-17", "2026-08-09"),
             "duster_iii": (25, 97, "2025-10-20", "2026-09-01"),
-            "bigster": (16, 42, "2025-12-10", "2026-08-09"),
+            "bigster": (17, 55, "2025-12-10", "2026-10-01"),
             "spring": (7, 11, "2026-02-19", "2026-08-09"),
         }
         matrix_relationship_total = 0
@@ -217,8 +217,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 389)
-        self.assertEqual(len(used_sources), 107)
+        self.assertEqual(relation_total, 402)
+        self.assertEqual(len(used_sources), 108)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -323,7 +323,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 114)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 115)
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )
