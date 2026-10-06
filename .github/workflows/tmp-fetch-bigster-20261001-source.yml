@@ -1,0 +1,31 @@
+name: temporary fetch Bigster 2026-10-01 source
+
+on:
+  push:
+    branches:
+      - agent/bigster-price-list-20261001-reconciliation-001
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    if: ${{ !startsWith(github.event.head_commit.message, 'chore(source): fetch Bigster 2026-10-01 PDF') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify source PDF
+        run: |
+          set -euo pipefail
+          mkdir -p owner_supplied/2026-10-01
+          curl -fsSL --retry 3 'https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/d477c604e8.pdf' -o owner_supplied/2026-10-01/d477c604e8.pdf
+          echo '0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97  owner_supplied/2026-10-01/d477c604e8.pdf' | sha256sum -c -
+      - name: Commit source and remove temporary workflow
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .github/workflows/tmp-fetch-bigster-20261001-source.yml
+          git add owner_supplied/2026-10-01/d477c604e8.pdf .github/workflows/tmp-fetch-bigster-20261001-source.yml
+          git commit -m 'chore(source): fetch Bigster 2026-10-01 PDF'
+          git push origin HEAD:${GITHUB_REF_NAME}
