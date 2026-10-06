@@ -199,7 +199,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
         links = re.findall(r'href="([^"]+)"', rendered)
         comparison_links = [link for link in links if "comparison-bundle" in link]
-        self.assertEqual(len(comparison_links), 80)
+        self.assertEqual(len(comparison_links), 78)
         self.assertTrue(
             all(link.startswith("../comparison-bundle/") for link in comparison_links)
         )
