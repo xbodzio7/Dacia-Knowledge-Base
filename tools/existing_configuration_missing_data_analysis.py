@@ -121,11 +121,14 @@ def collect(
     config_results: list[dict[str, object]] = []
     candidates: dict[tuple[str, str], Counter[str]] = defaultdict(Counter)
     scope_files: list[Path] = []
-    historical_scope_as_of = scope_as_of_value or "2026-08-01"
     for path in sorted(reporting.glob("*_completeness.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         effective_from = payload.get("effective_from")
-        if effective_from and str(effective_from) > historical_scope_as_of:
+        if (
+            scope_as_of_value
+            and effective_from
+            and str(effective_from) > scope_as_of_value
+        ):
             continue
         if path.name in {
             "bigster_mildhybridg140_4x2_automatic_completeness.json",
@@ -138,9 +141,10 @@ def collect(
         technical = [
             slot_key(item)
             for item in payload.get("technical_slots", [])
-            if not isinstance(item, dict)
+            if not scope_as_of_value
+            or not isinstance(item, dict)
             or not item.get("effective_from")
-            or str(item.get("effective_from")) <= historical_scope_as_of
+            or str(item.get("effective_from")) <= scope_as_of_value
         ]
         equipment = [str(item) for item in payload.get("equipment_attributes", [])]
         not_applicable = payload.get("not_applicable", {})
