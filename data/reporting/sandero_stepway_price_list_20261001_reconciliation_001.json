@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "kind": "official_price_list_reconciliation",
+  "package_id": "sandero_stepway_price_list_20261001_reconciliation_001",
+  "source": {
+    "source_code": "src_pl_sandero_stepway_price_my26_20261001",
+    "title": "DACIA SANDERO I SANDERO STEPWAY cennik MY26",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-10-01",
+    "effective_from": "2026-10-01",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/691228b661.pdf",
+    "supplied_file_name": "691228b661.pdf",
+    "supplied_file_sha256": "c980c55e273e1db40c8f4e84df5fc849697a36f50afc76988596741bb467a86c",
+    "pages": 9
+  },
+  "review": {
+    "status": "full_document_reviewed",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "document_effective_date": "2026-10-01"
+  },
+  "catalogue_prices_pln": {
+    "columns": [
+      "sandero_essential",
+      "sandero_expression",
+      "sandero_journey",
+      "stepway_essential",
+      "stepway_expression",
+      "stepway_extreme"
+    ],
+    "rows": [
+      [
+        "TCe 100",
+        63900,
+        68000,
+        73600,
+        null,
+        null
+      ],
+      [
+        "TCe 110",
+        null,
+        null,
+        null,
+        71700,
+        76400,
+        82500
+      ],
+      [
+        "Eco-G 120",
+        null,
+        68000,
+        73600,
+        71700,
+        76400,
+        82500
+      ],
+      [
+        "Eco-G 120 auto",
+        null,
+        74900,
+        80500,
+        null,
+        83300,
+        89400
+      ],
+      [
+        "hybrid 155",
+        null,
+        84600,
+        90200,
+        null,
+        90700,
+        96800
+      ]
+    ]
+  },
+  "packages": [
+    [
+      "COMFORT (Eco-G 120 auto)",
+      2000
+    ],
+    [
+      "THERMO",
+      1900
+    ],
+    [
+      "ZIMOWY",
+      1200
+    ],
+    [
+      "MEDIA NAV LIVE",
+      1600
+    ],
+    [
+      "EASY",
+      1600
+    ]
+  ],
+  "technical_data": {
+    "fuel_type": [
+      "petrol",
+      "petrol",
+      "benzyna + LPG",
+      "benzyna + LPG",
+      "benzyna | elektryczny"
+    ],
+    "gearbox": [
+      "manualna 6-biegowa",
+      "manualna 6-biegowa",
+      "manualna 6-biegowa",
+      "automatyczna 6-biegowa",
+      "automatyczna Multimode"
+    ],
+    "displacement_cm3": [
+      999,
+      999,
+      1199,
+      1199,
+      1789
+    ],
+    "max_speed_kmh": [
+      180,
+      180,
+      180,
+      180,
+      180
+    ],
+    "fuel_tank_l": [
+      "50",
+      "50",
+      "LPG 40 / petrol 50",
+      "LPG 40 / petrol 50",
+      "50"
+    ],
+    "boot_capacity_vda_dm3": 328
+  },
+  "comparison_with_previous": {
+    "previous_source_code": "src_pl_sandero_stepway_price_my26_20260811",
+    "previous_sha256": "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+    "result": "no_changes_identified_in_catalogue_prices_equipment_packages_technical_data_or_dimensions_from_reviewed_content",
+    "master_mutation_required": false,
+    "notes": [
+      "The 01.10.2026 price matrix contains the same 19 explicit catalogue combinations and prices as the 11.08.2026 source.",
+      "The equipment matrix and package prices visible in the reviewed pages are unchanged from the 11.08.2026 full extract.",
+      "The document explicitly states that it cancels all previous editions.",
+      "Historical 11.08.2026 master values are therefore not overwritten by duplicate observations; this package registers the newer source and the no-delta reconciliation."
+    ]
+  },
+  "next_action": "Continue documentary-first assimilation with the 01.10.2026 Bigster and Jogger price lists; only after those sources are reconciled reassess remaining configurator gaps."
+}

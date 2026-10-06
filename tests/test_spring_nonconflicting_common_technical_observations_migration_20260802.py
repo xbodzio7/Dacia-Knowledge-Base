@@ -122,7 +122,6 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
 
     def test_state_manifest_tracks_every_durable_output(self) -> None:
         state = json.loads((ROOT / "project/state.json").read_text(encoding="utf-8"))
-        manifest = set(state["current_package"]["manifest_paths"])
         required = {
             "data/master/attribute_enum_domains.csv",
             "data/master/enums/battery_chemistries.csv",
@@ -146,6 +145,7 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
         for relative in required - {"project/state.json", "project/STATE_SUMMARY.md"}:
             self.assertTrue((ROOT / relative).is_file(), relative)
         if state["current_package"]["package_id"] == "spring_nonconflicting_common_technical_observations_migration_001":
+            manifest = set(state["current_package"]["manifest_paths"])
             self.assertTrue(required.issubset(manifest))
         else:
             self.assertEqual(state["current_package"]["status"], "complete")
