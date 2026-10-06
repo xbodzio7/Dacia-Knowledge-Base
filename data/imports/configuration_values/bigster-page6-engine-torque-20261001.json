@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "configuration_attribute_values",
-  "id_start": 0,
+  "id_start": 9060,
   "attribute_code": "engine_torque",
   "attribute_contract": {
     "data_type": "integer",
