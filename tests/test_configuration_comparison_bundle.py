@@ -87,7 +87,7 @@ class ConfigurationComparisonBundleTests(unittest.TestCase):
         )
         self.assertEqual(
             sum(scope.slug.startswith("bigster_") for scope in scopes),
-            4,
+            6,
         )
         self.assertEqual(
             sum(scope.slug.startswith("spring_") for scope in scopes),
