@@ -55,12 +55,13 @@
   },
   "master_mutations": {
     "sources": 1,
-    "configurations": 5,
+    "configurations": 6,
     "configuration_prices": 13,
     "source_configurations": 13,
     "commercial_item_configurations": 0,
-    "configuration_attribute_values": 0
+    "configuration_attribute_values": 0,
+    "configuration_attribute_availability": 564
   },
   "baseline_rows_before": 19939,
-  "baseline_rows_after": 20160
+  "baseline_rows_after": 20536
 }
