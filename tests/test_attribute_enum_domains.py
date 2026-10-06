@@ -144,9 +144,10 @@ class AttributeEnumDomainTests(unittest.TestCase):
         )
 
         active_bigster = {
-            row["code"]
-            for row in csv_rows(MASTER / "configurations.csv")
-            if row["status"] == "active" and row["code"].startswith("bigster_")
+            row["configuration_code"]
+            for row in csv_rows(MASTER / "source_configurations.csv")
+            if row["source_code"] == BIGSTER_SOURCE
+            and row["relationship"] == "brochure_technical_data_for"
         }
         bigster_rows = [row for row in rows if row["source_code"] == BIGSTER_SOURCE]
         self.assertEqual({int(row["id"]) for row in bigster_rows}, set(range(3288, 3302)))
