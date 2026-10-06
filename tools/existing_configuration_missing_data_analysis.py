@@ -81,14 +81,13 @@ def collect(
 ) -> dict[str, object]:
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
-    source_relationships = rows(master / "source_configurations.csv")
-    excluded_source = "src_pl_bigster_price_my26_20261001"
-    relationships_by_configuration = {}
-    for relation in source_relationships:
-        relationships_by_configuration.setdefault(relation["configuration_code"], set()).add(relation["source_code"])
     excluded_configurations = {
-        code for code, sources in relationships_by_configuration.items()
-        if sources and sources == {excluded_source}
+        "bigster_expression_mildhybridg140_4x2_automatic",
+        "bigster_extreme_mildhybridg140_4x2_automatic",
+        "bigster_journey_mildhybridg140_4x2_automatic",
+        "bigster_expression_tribrid150_4x4_automatic",
+        "bigster_extreme_tribrid150_4x4_automatic",
+        "bigster_journey_tribrid150_4x4_automatic",
     }
     configurations = {
         row["code"]: row
