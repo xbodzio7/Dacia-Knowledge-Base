@@ -45,9 +45,9 @@ class CrossModelComparisonViewTests(unittest.TestCase):
                 "reporting_scope_count": 24,
                 "single_model_scope_count": 21,
                 "mixed_model_scope_count": 3,
-                "active_configuration_count": 93,
-                "within_scope_pair_count": 219,
-                "catalog_price_recorded_count": 93,
+                "active_configuration_count": 88,
+                "within_scope_pair_count": 139,
+                "catalog_price_recorded_count": 88,
                 "cross_scope_pairs_generated": False,
                 "ranking_generated": False,
                 "recommendations_generated": False,
@@ -72,7 +72,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             "sandero_stepway_iii": (10, 3, 71700, 96800, 10, 0),
             "jogger": (22, 4, 77900, 118050, 22, 0),
             "duster_iii": (30, 5, 82000, 126100, 30, 0),
-            "bigster": (19, 4, 101400, 137600, 19, 0),
+            "bigster": (14, 4, 101400, 137600, 14, 0),
             "spring": (3, 3, 73500, 85900, 3, 0),
         }
         for code, values in expected.items():
@@ -129,11 +129,11 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             for scope in self.view["scopes"]
             for code in scope["configuration_codes"]
         ]
-        self.assertEqual(len(codes), 93)
+        self.assertEqual(len(codes), 88)
         self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
             sum(scope["pair_count"] for scope in self.view["scopes"]),
-            219,
+            139,
         )
         self.assertTrue(
             all(
