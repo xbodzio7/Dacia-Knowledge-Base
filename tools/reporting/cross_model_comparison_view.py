@@ -129,17 +129,19 @@ def collect_view(repository: Path) -> dict[str, Any]:
     master = repository / "data" / "master"
     models = {row["code"]: row for row in _read_csv(master / "models.csv")}
     versions = {row["code"]: row for row in _read_csv(master / "versions.csv")}
-    source_rows = _read_csv(master / "sources.csv")
-    source_dates = {row["code"]: str(row.get("document_date", "")) for row in source_rows}
-    historical_source_codes = {
-        row["configuration_code"]
-        for row in _read_csv(master / "source_configurations.csv")
-        if source_dates.get(row.get("source_code", ""), "") <= "2026-08-09"
+    source_relationships = _read_csv(master / "source_configurations.csv")
+    excluded_source = "src_pl_bigster_price_my26_20261001"
+    relationships_by_configuration = {}
+    for relation in source_relationships:
+        relationships_by_configuration.setdefault(relation["configuration_code"], set()).add(relation["source_code"])
+    excluded_configurations = {
+        code for code, sources in relationships_by_configuration.items()
+        if sources and sources == {excluded_source}
     }
     configurations = {
         row["code"]: row
         for row in _read_csv(master / "configurations.csv")
-        if row.get("status") == "active" and row["code"] in historical_source_codes
+        if row.get("status") == "active" and row["code"] not in excluded_configurations
     }
     catalog = collect_browser_catalog(repository, ShortlistCriteria())
     raw_catalog = catalog.get("configurations")
