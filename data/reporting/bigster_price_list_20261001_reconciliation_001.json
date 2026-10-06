@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "package_id": "bigster_price_list_20261001_reconciliation_001",
+  "status": "complete",
+  "source": {
+    "code": "src_pl_bigster_price_my26_20261001",
+    "document_date": "2026-10-01",
+    "effective_date": "2026-10-01",
+    "filename": "d477c604e8.pdf",
+    "pages": 8,
+    "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+    "configurator_used": false
+  },
+  "documentary_reconciliation": {
+    "current_price_matrix": {
+      "count": 13,
+      "explicit_catalogue_configurations": true
+    },
+    "current_equipment_matrix": "reviewed in full",
+    "package_prices": {
+      "easy": 2700,
+      "parking": 2200,
+      "zimowy": 1200,
+      "zimowy_plus": 2300
+    },
+    "technical_table": "reviewed in full; no scalar technical observations imported because the supplied PDF is not repository-backed as a binary source artifact",
+    "prior_source_date": "2026-07-03"
+  },
+  "canonical_mapping": {
+    "resolved_existing_configurations": 10,
+    "unresolved_current_configurations": 6,
+    "unresolved_codes": [
+      "bigster_expression_mildhybridg140_4x2_automatic",
+      "bigster_extreme_mildhybridg140_4x2_automatic",
+      "bigster_journey_mildhybridg140_4x2_automatic",
+      "bigster_expression_tribrid150_4x4_automatic",
+      "bigster_extreme_tribrid150_4x4_automatic",
+      "bigster_journey_tribrid150_4x4_automatic"
+    ],
+    "reason": "The 2026-10-01 price matrix explicitly introduces these combinations, but the current master has no canonical configuration IDs for them. No inferred ID was created."
+  },
+  "master_mutations": {
+    "sources": 1,
+    "configurations": 0,
+    "configuration_prices": 10,
+    "source_configurations": 10,
+    "commercial_item_configurations": 0,
+    "configuration_attribute_values": 0,
+    "configuration_attribute_availability": 0
+  },
+  "note": "The documentary source reconciliation is complete. The six unresolved current automatic catalogue combinations remain source evidence only until an explicit canonical mapping is established; configurator data was not used to invent or backfill them."
+}
