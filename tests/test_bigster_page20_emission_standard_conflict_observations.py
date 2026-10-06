@@ -29,9 +29,9 @@ class BigsterPage20EmissionStandardConflictObservationTests(unittest.TestCase):
         cls.spec = json.loads(SPEC.read_text(encoding="utf-8"))
         cls.values = rows(MASTER / "configuration_attribute_values.csv")
         cls.active_bigster = {
-            row["code"]
-            for row in rows(MASTER / "configurations.csv")
-            if row["status"] == "active" and row["code"].startswith("bigster_")
+            row["configuration_code"]
+            for row in rows(MASTER / "source_configurations.csv")
+            if row["source_code"] == SOURCE and row["relationship"] == "brochure_technical_data_for"
         }
 
     def test_spec_preserves_source_and_enum_contract(self) -> None:
