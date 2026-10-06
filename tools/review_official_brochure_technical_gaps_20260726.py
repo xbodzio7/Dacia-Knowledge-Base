@@ -227,10 +227,17 @@ def verify_current_coverage() -> None:
 
 
 def active_configurations() -> dict[str, dict[str, str]]:
+    july_bigster = {
+        row.get("configuration_code", "")
+        for row in read_rows(MASTER / "source_configurations.csv")
+        if row.get("source_code") == "src_pl_bigster_price_my26_20260703"
+        and row.get("relationship") == "documents"
+    }
     return {
         row.get("code", ""): row
         for row in read_rows(MASTER / "configurations.csv")
         if row.get("status") == "active"
+        and (not row.get("code", "").startswith("bigster_") or row.get("code") in july_bigster)
     }
 
 
