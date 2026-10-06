@@ -224,7 +224,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
         reporting = {item["configuration_code"] for item in spec["configurations"]}
         active = {row["code"] for row in rows("configurations.csv") if row["status"] == "active"}
         self.assertEqual(len(reporting), 7)
-        self.assertEqual(len(active), 93)
+        self.assertEqual(len(active), 94)
         self.assertEqual(len(active - reporting), 86)
 
     def test_repository_totals_match_technical_package(self) -> None:
