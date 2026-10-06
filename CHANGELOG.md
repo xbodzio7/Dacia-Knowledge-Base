@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Added the complete documentary reconciliation of the official Bigster MY26 price list effective 2026-10-01: 13 current catalogue configurations, six new canonical configuration records for the new automatic and tribrid nomenclature, 13 dated catalogue prices, 24 explicit option/package mappings, source registration with verified SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`, and no configurator use.
+* Added the complete documentary reconciliation of the official Bigster MY26 price list effective 2026-10-01: 13 current catalogue configurations, five new canonical configuration records for the new automatic and tribrid nomenclature, 13 dated catalogue prices, 24 explicit option/package mappings, source registration with verified SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`, and no configurator use.
 
 * Captured the complete official standard-equipment and technical-specification accordions for all 15 exact current Sandero and Sandero Stepway states, preserving 1,029 equipment rows and 679 technical rows without importing ambiguous or model-qualified values.
 
@@ -321,8 +321,8 @@ All notable changes to this project will be documented in this file.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
 * The automated test suite now contains 1944 tests.
-* The verified master-data baseline now contains 48 CSV files and 19996 rows.
-* SQLite verification now covers 48 tables and 19996 rows.
+* The verified master-data baseline now contains 48 CSV files and 19995 rows.
+* SQLite verification now covers 48 tables and 19995 rows.
 * Configuration attribute values now contain 8055 dated records.
 * Declarative scalar configuration-value imports now contain 139 versioned JSON specifications.
 * Configuration value ranges now contain 441 dated records from 24 range specifications.
