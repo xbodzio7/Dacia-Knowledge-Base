@@ -1,9 +1,8 @@
 name: temporary fetch Bigster 2026-10-01 source
 
 on:
-  push:
-    branches:
-      - agent/bigster-price-list-20261001-reconciliation-001
+  pull_request:
+    types: [synchronize]
 
 permissions:
   contents: write
@@ -14,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - name: Download and verify source PDF
         run: |
           set -euo pipefail
