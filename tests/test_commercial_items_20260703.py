@@ -40,7 +40,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
     def test_complete_source_backed_registration_counts(self) -> None:
         self.assertEqual(len(self.items), 51)
         self.assertEqual(len(self.members), 103)
-        self.assertEqual(len(self.mappings), 339)
+        self.assertEqual(len(self.mappings), 363)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
@@ -76,7 +76,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
             if row["commercial_item_code"].startswith("bigster_")
         ]
         self.assertEqual(len(bigster), 7)
-        self.assertEqual(len(mappings), 48)
+        self.assertEqual(len(mappings), 72)
         self.assertEqual({row["commercial_item_code"] for row in mappings}, bigster)
         self.assertTrue(all(row["configuration_code"].startswith("bigster_") for row in mappings))
         self.assertEqual({row["source_code"] for row in mappings}, {"src_pl_bigster_price_my26_20260703"})
