@@ -113,14 +113,11 @@ def collect(
     config_results: list[dict[str, object]] = []
     candidates: dict[tuple[str, str], Counter[str]] = defaultdict(Counter)
     scope_files: list[Path] = []
+    historical_scope_as_of = scope_as_of_value or "2026-08-01"
     for path in sorted(reporting.glob("*_completeness.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         effective_from = payload.get("effective_from")
-        if (
-            scope_as_of_value
-            and effective_from
-            and str(effective_from) > scope_as_of_value
-        ):
+        if effective_from and str(effective_from) > historical_scope_as_of:
             continue
         scope_files.append(path)
     for path in scope_files:
