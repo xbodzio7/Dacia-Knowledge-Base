@@ -14,18 +14,6 @@
     {
       "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
       "source_code": "src_pl_bigster_price_my26_20260703"
-    },
-    {
-      "configuration_code": "bigster_expression_tribrid150_4x4_automatic",
-      "source_code": "src_pl_bigster_price_my26_20261001"
-    },
-    {
-      "configuration_code": "bigster_extreme_tribrid150_4x4_automatic",
-      "source_code": "src_pl_bigster_price_my26_20261001"
-    },
-    {
-      "configuration_code": "bigster_journey_tribrid150_4x4_automatic",
-      "source_code": "src_pl_bigster_price_my26_20261001"
     }
   ],
   "technical_slots": [
