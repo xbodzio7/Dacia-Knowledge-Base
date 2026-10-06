@@ -125,10 +125,9 @@ def collect(
         technical = [
             slot_key(item)
             for item in payload.get("technical_slots", [])
-            if not scope_as_of_value
-            or not isinstance(item, dict)
+            if not isinstance(item, dict)
             or not item.get("effective_from")
-            or str(item.get("effective_from")) <= scope_as_of_value
+            or str(item.get("effective_from")) <= historical_scope_as_of
         ]
         equipment = [str(item) for item in payload.get("equipment_attributes", [])]
         not_applicable = payload.get("not_applicable", {})
