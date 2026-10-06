@@ -81,10 +81,19 @@ def collect(
 ) -> dict[str, object]:
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
+    source_dates = {
+        row["code"]: str(row.get("document_date", ""))
+        for row in rows(master / "sources.csv")
+    }
+    historical_source_codes = {
+        row["configuration_code"]
+        for row in rows(master / "source_configurations.csv")
+        if source_dates.get(row.get("source_code", ""), "") <= "2026-09-20"
+    }
     configurations = {
         row["code"]: row
         for row in rows(master / "configurations.csv")
-        if row.get("status") == "active"
+        if row.get("status") == "active" and row["code"] in historical_source_codes
     }
     scalar = {
         (
