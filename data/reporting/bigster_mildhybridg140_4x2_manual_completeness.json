@@ -18,18 +18,6 @@
     {
       "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
       "source_code": "src_pl_bigster_price_my26_20260703"
-    },
-    {
-      "configuration_code": "bigster_expression_mildhybridg140_4x2_automatic",
-      "source_code": "src_pl_bigster_price_my26_20261001"
-    },
-    {
-      "configuration_code": "bigster_extreme_mildhybridg140_4x2_automatic",
-      "source_code": "src_pl_bigster_price_my26_20261001"
-    },
-    {
-      "configuration_code": "bigster_journey_mildhybridg140_4x2_automatic",
-      "source_code": "src_pl_bigster_price_my26_20261001"
     }
   ],
   "technical_slots": [
