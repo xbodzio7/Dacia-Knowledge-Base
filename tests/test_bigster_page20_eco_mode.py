@@ -34,7 +34,7 @@ class BigsterPage20EcoModeTests(unittest.TestCase):
         }
         linked = {
             row["configuration_code"]
-            for row in rows(MASTER / "source_configurations.csv")
+            for row in read_csv(MASTER / "source_configurations.csv")
             if row["source_code"] == "src_pl_bigster_brochure_20251210"
             and row["relationship"] == "brochure_technical_data_for"
         }
