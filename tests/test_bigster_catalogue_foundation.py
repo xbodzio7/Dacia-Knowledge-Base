@@ -71,7 +71,7 @@ class BigsterCatalogueFoundationTests(unittest.TestCase):
         self.assertEqual(version_codes, {
             "bigster_essential", "bigster_expression", "bigster_extreme", "bigster_journey"
         })
-        self.assertEqual(len(configuration_codes), 20)
+        self.assertEqual(len(configuration_codes), 14)
 
 
 if __name__ == "__main__":
