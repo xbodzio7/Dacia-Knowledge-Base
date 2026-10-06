@@ -31,7 +31,7 @@ class BigsterPage20EmissionStandardConflictObservationTests(unittest.TestCase):
         cls.active_bigster = {
             row["configuration_code"]
             for row in rows(MASTER / "source_configurations.csv")
-            if row["source_code"] == SOURCE and row["relationship"] == "brochure_technical_data_for"
+            if row["source_code"] == BROCHURE_SOURCE and row["relationship"] == "brochure_technical_data_for"
         }
 
     def test_spec_preserves_source_and_enum_contract(self) -> None:
