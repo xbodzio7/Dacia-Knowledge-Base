@@ -87,7 +87,6 @@ id,code,version_code,powertrain_label,transmission_type,status,notes
 86,sandero_iii_journey_hybrid155_automatic,sandero_iii_journey,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
 87,sandero_stepway_iii_expression_hybrid155_automatic,sandero_stepway_iii_expression,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
 88,sandero_stepway_iii_extreme_hybrid155_automatic,sandero_stepway_iii_extreme,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
-89,bigster_essential_mildhybridg140_4x2_automatic,bigster_essential,mild hybrid-G 140 auto 4x2,automatic,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
 90,bigster_expression_mildhybridg140_4x2_automatic,bigster_expression,mild hybrid-G 140 auto 4x2,automatic,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
 91,bigster_extreme_mildhybridg140_4x2_automatic,bigster_extreme,mild hybrid-G 140 auto 4x2,automatic,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
 92,bigster_journey_mildhybridg140_4x2_automatic,bigster_journey,mild hybrid-G 140 auto 4x2,automatic,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
