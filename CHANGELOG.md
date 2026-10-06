@@ -1,3 +1,11 @@
+## 2026-10-06 — Bigster 01.10.2026 price-list reconciliation
+
+- registered the official/owner-supplied Bigster MY26 price list effective 2026-10-01 (PDF `d477c604e8.pdf`, SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`);
+- assimilated the current catalogue prices for the 10 explicitly mappable existing canonical configurations;
+- reconciled the complete current equipment/package matrix and documented the six new automatic catalogue combinations without inventing canonical configuration IDs;
+- recorded package prices: EASY 2700 PLN, PARKING 2200 PLN, ZIMOWY 1200 PLN, ZIMOWY PLUS 2300 PLN;
+- reviewed the technical table without configurator use; scalar technical materialization remains deferred because the supplied PDF is not yet repository-backed as a binary source artifact.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
