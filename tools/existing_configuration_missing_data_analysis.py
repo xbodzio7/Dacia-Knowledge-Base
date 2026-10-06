@@ -127,6 +127,11 @@ def collect(
         effective_from = payload.get("effective_from")
         if effective_from and str(effective_from) > historical_scope_as_of:
             continue
+        if path.name in {
+            "bigster_mildhybridg140_4x2_automatic_completeness.json",
+            "bigster_tribrid150_4x4_automatic_completeness.json",
+        }:
+            continue
         scope_files.append(path)
     for path in scope_files:
         payload = json.loads(path.read_text(encoding="utf-8"))
