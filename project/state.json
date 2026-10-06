@@ -17,7 +17,7 @@
   "baseline": {
     "tests": 1944,
     "csv_files": 48,
-    "rows": 19939,
+    "rows": 19996,
     "configuration_values": 8055,
     "configuration_import_specs": 139,
     "configuration_value_ranges": 441,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_price_list_20261001_reconciliation_001",
-    "kind": "full_documentary_matrix_reconciliation",
-    "name": "Jogger 01.10.2026 Price List Matrix Reconciliation",
-    "status": "complete",
-    "goal": "Assimilate the complete 01.10.2026 Jogger price list and append current documentary catalogue prices, option/package mappings and technical reconciliation without configurator use."
-  },
-  "next_package": {
     "package_id": "bigster_price_list_20261001_reconciliation_001",
     "kind": "full_documentary_matrix_reconciliation",
     "name": "Bigster 01.10.2026 Price List Matrix Reconciliation",
-    "status": "planned",
+    "status": "complete",
     "goal": "Assimilate the complete 01.10.2026 Bigster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use."
+  },
+  "next_package": {
+    "package_id": "duster_price_list_20261001_reconciliation_001",
+    "kind": "full_documentary_matrix_reconciliation",
+    "name": "Duster 01.10.2026 Price List Matrix Reconciliation",
+    "status": "planned",
+    "goal": "Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
