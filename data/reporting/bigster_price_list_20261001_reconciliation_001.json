@@ -43,20 +43,25 @@
     "winter_plus_pln": 2300
   },
   "equipment_reconciliation": {
-    "result": "The 2026-10-01 source explicitly documents the trim equipment matrix and package applicability. New automatic and tribrid commercial mappings were added only where the current source has an explicit cell.",
-    "new_commercial_mappings": 24
+    "result": "The complete trim-level equipment matrix was assimilated for the six newly represented configurations from the documentary 2026-10-01 source boundary; no configurator data was used.",
+    "new_observations": 564,
+    "new_import_spec": "data/imports/bigster_equipment_availability_20261001.csv"
   },
   "technical_reconciliation": {
-    "result": "The 2026-10-01 technical table was reviewed in full. Powertrain, transmission, fuel, electrification, battery, performance, WLTP, cargo, wheel and mass data are source-backed. No configurator data was used.",
-    "note": "Existing historical technical observations were not overwritten solely because the current document changes powertrain naming."
+    "result": "The 2026-10-01 technical table was assimilated for all six newly represented current configurations using only documentary source values. mild hybrid-G 140 automatic rows use the explicit automatic column values; tribrid 150 4x4 rows use the explicit tribrid column values.",
+    "new_observations": 243,
+    "key_delta": "mild hybrid-G 140 auto combined consumption is 5.9 l/100 km petrol and 7.3 l/100 km LPG; all other cloned powertrain observations were reconciled against the explicit 2026-10-01 table before import.",
+    "configurator_used": false
   },
   "master_mutations": {
     "sources": 1,
     "configurations": 5,
     "configuration_prices": 13,
     "source_configurations": 12,
-    "commercial_item_configurations": 24
+    "commercial_item_configurations": 24,
+    "configuration_attribute_values": 243,
+    "configuration_attribute_availability": 564
   },
   "baseline_rows_before": 19939,
-  "baseline_rows_after": 19995
+  "baseline_rows_after": 20802
 }
