@@ -57,11 +57,11 @@
   "master_mutations": {
     "sources": 1,
     "configurations": 5,
-    "configuration_prices": 12,
+    "configuration_prices": 13,
     "source_configurations": 12,
     "commercial_item_configurations": 0,
     "configuration_attribute_values": 183
   },
   "baseline_rows_before": 19939,
-  "baseline_rows_after": 20152
+  "baseline_rows_after": 20153
 }
