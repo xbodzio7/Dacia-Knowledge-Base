@@ -43,7 +43,7 @@
     "winter_plus_pln": 2300
   },
   "equipment_reconciliation": {
-    "result": "The 2026-10-01 source equipment matrix was reviewed in full. Existing Bigster commercial mappings remain source-backed and unchanged; no duplicate commercial mapping rows were introduced. Direct technical observations explicitly stated on page 6 were imported for the six newly represented automatic/tribrid configurations.",
+    "result": "The 2026-10-01 source equipment matrix was reviewed in full. Existing Bigster commercial mappings remain source-backed and unchanged; no duplicate commercial mapping rows were introduced. Direct equipment-availability observations from pages 4-5 were imported for the six newly represented automatic/tribrid configurations.",
     "new_observations": 564,
     "new_import_spec": "data/imports/bigster_equipment_availability_20261001.csv",
     "new_commercial_mappings": 0
