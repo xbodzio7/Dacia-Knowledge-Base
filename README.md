@@ -1296,7 +1296,7 @@ Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. 
 
 <!-- dkb:documentation-baseline:readme:start -->
 Zweryfikowany model obejmuje 1944 testów, 48 pliki CSV, 20536 rekordów
-danych, 51 relacje między tabelami, 8238 wartości konfiguracji, 166 skalarnych specyfikacji importu, 441 zakresów konfiguracji i 24
+danych, 51 relacje między tabelami, 8055 wartości konfiguracji, 139 skalarnych specyfikacji importu, 441 zakresów konfiguracji i 24
 specyfikacji zakresów oraz 9283 rekordów dostępności wyposażenia.
 Katalog zawiera 416 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
 SQLite obejmuje 48 tabele i 20536 rekordów, pozostaje zgodna z CSV, a wszystkie
