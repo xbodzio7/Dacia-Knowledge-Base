@@ -17,9 +17,9 @@
   "baseline": {
     "tests": 1944,
     "csv_files": 48,
-    "rows": 20719,
-    "configuration_values": 8238,
-    "configuration_import_specs": 166,
+    "rows": 20536,
+    "configuration_values": 8055,
+    "configuration_import_specs": 139,
     "configuration_value_ranges": 441,
     "configuration_range_import_specs": 24,
     "availability_records": 9283,
