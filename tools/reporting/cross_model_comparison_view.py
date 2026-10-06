@@ -149,6 +149,7 @@ def collect_view(repository: Path) -> dict[str, Any]:
         str(item.get("configuration_code", "")): item
         for item in raw_catalog
         if isinstance(item, Mapping)
+        and str(item.get("configuration_code", "")) in configurations
     }
     if set(catalog_index) != set(configurations):
         raise CrossModelViewError(
