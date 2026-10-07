@@ -166,8 +166,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
             matrix_provenance = self.matrix_families[code]["provenance"]
             matrix_source_count = values[0] - (
-                1 if code in {"sandero_iii", "sandero_stepway_iii"}
-                else 1 if code == "duster_iii"
+                1 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii", "bigster"}
                 else 0
             )
             matrix_relationship_count = values[1] - (
