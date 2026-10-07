@@ -43,7 +43,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             {
                 "model_family_count": 6,
                 "reporting_scope_count": 26,
-                "single_model_scope_count": 21,
+                "single_model_scope_count": 23,
                 "mixed_model_scope_count": 3,
                 "active_configuration_count": 94,
                 "within_scope_pair_count": 145,
