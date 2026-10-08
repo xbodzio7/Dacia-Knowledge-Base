@@ -173,6 +173,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 9 if code == "sandero_iii"
                 else 10 if code == "sandero_stepway_iii"
                 else 16 if code == "duster_iii"
+                else 13 if code == "bigster"
                 else 0
             )
             self.assertEqual(matrix_provenance["source_count"], matrix_source_count)
