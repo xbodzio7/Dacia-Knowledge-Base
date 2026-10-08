@@ -184,7 +184,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.assertEqual(
                 matrix_provenance["latest_document_date"],
                 ("2026-08-09"
-                 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii"}
+                 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii", "bigster"}
                  else values[3])
             )
             self.assertEqual(
