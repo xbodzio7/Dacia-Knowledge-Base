@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "kind": "duster_price_list_full_documentary_audit",
+  "package_id": "duster_price_list_20261001_reconciliation_001",
+  "source_code": "src_pl_duster_price_my26_20261001",
+  "effective_date": "2026-10-01",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf",
+  "pages": 10,
+  "configurations": 16,
+  "price_observations": 16,
+  "equipment_observations": 1152,
+  "technical_range_observations": 16,
+  "equipment_attributes": 70,
+  "reconciliation": {
+    "baseline_source_code": "src_pl_duster_price_my26_20260901",
+    "configuration_count_delta": 0,
+    "price_delta_count": 0,
+    "equipment_delta_count": 0,
+    "package_price_delta_count": 0,
+    "technical_delta_count": 0,
+    "master_value_delta_count": 0,
+    "result": "no_material_master_value_delta"
+  },
+  "documentary_changes": [
+    "effective date changed from 2026-09-01 to 2026-10-01",
+    "promotional headline changed to 'Rabat do 9 000 zł od ceny katalogowej'",
+    "monthly rental promotional text changed",
+    "final legal/promotion notes are dated to the 2026-10-01 edition"
+  ],
+  "source_conflict": {
+    "attribute_code": "hybrid_battery_voltage",
+    "narrative_value": "260 V",
+    "technical_table_value": "230V full hybrid",
+    "resolution": "both literal observations retained; no interpretation"
+  },
+  "policy": "Cennik is authoritative for versions, prices and equipment. No configurator data used.",
+  "sha256_status": "not_available_from_web_only_source_access",
+  "notes": "The complete 10-page PDF was reviewed through the official Dacia URL. The 2026-10-01 catalogue/equipment/package/technical matrices match the 2026-09-01 documentary source for the covered master surfaces; this package therefore adds dated documentary evidence without duplicating unchanged master values."
+}
