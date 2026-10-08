@@ -142,6 +142,7 @@ def collect_view(repository: Path) -> dict[str, Any]:
         str(item.get("configuration_code", "")): item
         for item in raw_catalog
         if isinstance(item, Mapping)
+        and str(item.get("configuration_code", "")) in configurations
     }
     if set(catalog_index) != set(configurations):
         raise CrossModelViewError(
@@ -163,7 +164,11 @@ def collect_view(repository: Path) -> dict[str, Any]:
             )
         configuration_model[code] = model_code
 
-    scopes = discover_scopes(repository)
+    scopes = [
+        scope
+        for scope in discover_scopes(repository)
+        if any(code in configurations for code in scope.configuration_codes)
+    ]
     mapped_codes: list[str] = []
     scope_records: list[dict[str, Any]] = []
     model_scope_slugs: dict[str, list[str]] = defaultdict(list)
@@ -171,7 +176,7 @@ def collect_view(repository: Path) -> dict[str, Any]:
     model_exclusive_scope_count: dict[str, int] = defaultdict(int)
 
     for scope in scopes:
-        codes = list(scope.configuration_codes)
+        codes = [code for code in scope.configuration_codes if code in configurations]
         mapped_codes.extend(codes)
         try:
             items = [catalog_index[code] for code in codes]

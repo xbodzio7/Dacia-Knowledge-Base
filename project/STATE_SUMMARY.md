@@ -25,26 +25,26 @@
 
 - Tests: 1944
 - Master CSV files: 48
-- Master rows: 19939
+- Master rows: 20536
 - Configuration values: 8055
 - Configuration import specifications: 139
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
-- Availability records: 8719
+- Availability records: 9283
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger 01.10.2026 Price List Matrix Reconciliation** — `complete`
+**Bigster 01.10.2026 Price List Matrix Reconciliation** — `complete`
 
-Assimilate the complete 01.10.2026 Jogger price list and append current documentary catalogue prices, option/package mappings and technical reconciliation without configurator use.
+Assimilate the complete 01.10.2026 Bigster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
 
 ## Next package
 
-**Bigster 01.10.2026 Price List Matrix Reconciliation** — `planned`
+**Duster 01.10.2026 Price List Matrix Reconciliation** — `planned`
 
-Assimilate the complete 01.10.2026 Bigster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
+Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
 
 ## Autonomy
 

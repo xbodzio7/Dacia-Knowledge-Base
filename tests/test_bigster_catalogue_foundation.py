@@ -36,11 +36,11 @@ class BigsterCatalogueFoundationTests(unittest.TestCase):
             },
         )
 
-    def test_fourteen_non_empty_price_matrix_configurations(self) -> None:
+    def test_twenty_non_empty_price_matrix_configurations(self) -> None:
         rows = [row for row in self.configurations if row["version_code"].startswith("bigster_")]
-        self.assertEqual(len(rows), 14)
+        self.assertEqual(len(rows), 20)
         self.assertEqual(sum(row["transmission_type"] == "manual" for row in rows), 8)
-        self.assertEqual(sum(row["transmission_type"] == "automatic" for row in rows), 6)
+        self.assertEqual(sum(row["transmission_type"] == "automatic" for row in rows), 12)
 
     def test_unavailable_essential_hybrid_cells_are_not_modeled(self) -> None:
         codes = {row["code"] for row in self.configurations}

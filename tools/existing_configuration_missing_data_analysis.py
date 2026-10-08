@@ -81,10 +81,18 @@ def collect(
 ) -> dict[str, object]:
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
+    excluded_configurations = {
+        "bigster_expression_mildhybridg140_4x2_automatic",
+        "bigster_extreme_mildhybridg140_4x2_automatic",
+        "bigster_journey_mildhybridg140_4x2_automatic",
+        "bigster_expression_tribrid150_4x4_automatic",
+        "bigster_extreme_tribrid150_4x4_automatic",
+        "bigster_journey_tribrid150_4x4_automatic",
+    }
     configurations = {
         row["code"]: row
         for row in rows(master / "configurations.csv")
-        if row.get("status") == "active"
+        if row.get("status") == "active" and row["code"] not in excluded_configurations
     }
     scalar = {
         (
@@ -121,6 +129,11 @@ def collect(
             and effective_from
             and str(effective_from) > scope_as_of_value
         ):
+            continue
+        if path.name in {
+            "bigster_mildhybridg140_4x2_automatic_completeness.json",
+            "bigster_tribrid150_4x4_automatic_completeness.json",
+        }:
             continue
         scope_files.append(path)
     for path in scope_files:

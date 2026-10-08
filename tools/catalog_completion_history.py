@@ -37,6 +37,12 @@ LATER_CONFIGURATION_CODES = frozenset(
         "sandero_iii_journey_hybrid155_automatic",
         "sandero_stepway_iii_expression_hybrid155_automatic",
         "sandero_stepway_iii_extreme_hybrid155_automatic",
+        "bigster_expression_mildhybridg140_4x2_automatic",
+        "bigster_extreme_mildhybridg140_4x2_automatic",
+        "bigster_journey_mildhybridg140_4x2_automatic",
+        "bigster_expression_tribrid150_4x4_automatic",
+        "bigster_extreme_tribrid150_4x4_automatic",
+        "bigster_journey_tribrid150_4x4_automatic",
     }
 )
 LATER_SCOPE_SLUGS = frozenset(

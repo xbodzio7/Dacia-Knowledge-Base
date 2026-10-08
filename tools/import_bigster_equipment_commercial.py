@@ -135,14 +135,21 @@ def semantic_payload(
 
 
 def bigster_configurations() -> list[dict[str, str]]:
+    source_configurations = {
+        row["configuration_code"]
+        for row in read_rows(MASTER / "source_configurations.csv")
+        if row["source_code"] == "src_pl_bigster_price_my26_20260703"
+        and row["relationship"] == "documents"
+    }
     result = [
         row
         for row in read_rows(MASTER / "configurations.csv")
-        if row.get("status") == "active"
-        and row.get("code", "").startswith("bigster_")
+        if row.get("status") == "active" and row.get("code") in source_configurations
     ]
     if len(result) != 14:
-        raise ContractError(f"expected 14 active Bigster configurations, found {len(result)}")
+        raise ContractError(
+            f"expected 14 July-2026 Bigster configurations, found {len(result)}"
+        )
     return result
 
 

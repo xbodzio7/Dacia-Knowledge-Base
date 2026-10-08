@@ -259,8 +259,17 @@ def verify_priority_candidates(by_code: dict[str, dict[str, Any]]) -> None:
     ensure(by_code["sandero_ecog120_automatic_exact_candidate"]["configuration_count"] == 2, "automatic Sandero candidate count differs")
     ensure(set(by_code["sandero_ecog120_automatic_exact_candidate"]["attributes"]) == SANDERO_AUTOMATIC_CANDIDATE_ATTRIBUTES, "automatic Sandero candidate attributes differ")
 
-    bigster = {code for code in configurations if code.startswith("bigster_")}
-    ensure(len(bigster) == 14, "active Bigster scope differs")
+    bigster_source_linked = {
+        row["configuration_code"]
+        for row in read_rows(MASTER / "source_configurations.csv")
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("relationship") == "brochure_technical_data_for"
+    }
+    bigster = {
+        code for code in configurations
+        if code.startswith("bigster_") and code in bigster_source_linked
+    }
+    ensure(len(bigster) == 14, "historical Bigster scope differs")
 
     jogger_hybrid = {
         code

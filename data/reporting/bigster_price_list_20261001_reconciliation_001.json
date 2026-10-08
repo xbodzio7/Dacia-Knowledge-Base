@@ -1,0 +1,67 @@
+{
+  "package_id": "bigster_price_list_20261001_reconciliation_001",
+  "status": "complete",
+  "source": {
+    "code": "src_pl_bigster_price_my26_20261001",
+    "document_date": "2026-10-01",
+    "effective_date": "2026-10-01",
+    "filename": "d477c604e8.pdf",
+    "pages": 8,
+    "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+    "configurator_used": false
+  },
+  "scope": {
+    "price_matrix": "complete",
+    "equipment_matrix": "complete",
+    "option_package_matrix": "complete",
+    "technical_table": "complete",
+    "prior_reference_date": "2026-07-03"
+  },
+  "price_matrix": {
+    "current_configuration_count": 13,
+    "unchanged_price_configurations": 7,
+    "new_automatic_configurations": 3,
+    "renamed_powertrain_configurations": 3,
+    "discontinued_prior_configuration_family": "mild hybrid 140 4x2"
+  },
+  "naming_reconciliation": [
+    {
+      "old": "mild hybrid 140",
+      "new": "mild hybrid-G 140",
+      "effect": "Current catalogue uses the G suffix; existing mild hybrid-G manual configurations are retained and current-dated prices are added."
+    },
+    {
+      "old": "hybrid-G 150 4x4",
+      "new": "tribrid 150 4x4",
+      "effect": "Current catalogue naming is represented by new canonical tribrid configurations; prior records remain historical."
+    }
+  ],
+  "packages": {
+    "easy_pln": 2700,
+    "parking_pln": 2200,
+    "winter_pln": 1200,
+    "winter_plus_pln": 2300
+  },
+  "equipment_reconciliation": {
+    "result": "The 2026-10-01 source equipment matrix was reviewed in full. Existing Bigster commercial mappings remain source-backed and unchanged; no duplicate commercial mapping rows were introduced. Direct equipment-availability observations from pages 4-5 were imported for the six newly represented automatic/tribrid configurations.",
+    "new_observations": 564,
+    "new_import_spec": "data/imports/bigster_equipment_availability_20261001.csv",
+    "new_commercial_mappings": 0
+  },
+  "technical_reconciliation": {
+    "result": "The 2026-10-01 technical table was reviewed as part of the documentary reconciliation, but scalar technical observations are deliberately deferred from master materialization because the supplied PDF is not currently repository-backed at the registered source file path. No technical value is inferred or projected from the older 2026-07-03 source.",
+    "materialization_status": "deferred_until_repository_source_artifact_is_available",
+    "configurator_used": false
+  },
+  "master_mutations": {
+    "sources": 1,
+    "configurations": 6,
+    "configuration_prices": 13,
+    "source_configurations": 13,
+    "commercial_item_configurations": 0,
+    "configuration_attribute_values": 0,
+    "configuration_attribute_availability": 564
+  },
+  "baseline_rows_before": 19939,
+  "baseline_rows_after": 20536
+}
