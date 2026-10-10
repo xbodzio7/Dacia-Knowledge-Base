@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster 01.10.2026 Price List Matrix Reconciliation** — `complete`
+**Workflow Maintainability Review** — `complete`
 
-Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
+Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls.
 
 ## Next package
 
-**Workflow Maintainability Review** — `planned`
+**Verified PDF Candidate Ledger Review** — `planned`
 
-Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls.
+Review deterministic official brochure PDF candidate spans using candidate_id and exact source text; preserve candidate-only evidence and do not promote values to master data without a separately controlled import package.
 
 ## Autonomy
 

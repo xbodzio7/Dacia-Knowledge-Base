@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "duster_price_list_20261001_reconciliation_001",
-    "kind": "full_documentary_matrix_reconciliation",
-    "name": "Duster 01.10.2026 Price List Matrix Reconciliation",
-    "status": "complete",
-    "goal": "Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use."
-  },
-  "next_package": {
     "package_id": "workflow_maintainability_review_20261010_001",
     "kind": "workflow_maintainability_review",
     "name": "Workflow Maintainability Review",
-    "status": "planned",
+    "status": "complete",
     "goal": "Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls."
+  },
+  "next_package": {
+    "package_id": "verified_pdf_candidate_ledger_review_20260728_001",
+    "kind": "verified_pdf_candidate_ledger_review",
+    "name": "Verified PDF Candidate Ledger Review",
+    "status": "planned",
+    "goal": "Review deterministic official brochure PDF candidate spans using candidate_id and exact source text; preserve candidate-only evidence and do not promote values to master data without a separately controlled import package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
