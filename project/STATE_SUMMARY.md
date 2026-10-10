@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster 01.10.2026 Price List Matrix Reconciliation** — `complete`
+**Duster 01.10.2026 Price List Matrix Reconciliation** — `complete`
 
-Assimilate the complete 01.10.2026 Bigster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
+Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
 
 ## Next package
 
-**Duster 01.10.2026 Price List Matrix Reconciliation** — `planned`
+**Workflow Maintainability Review** — `planned`
 
-Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
+Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls.
 
 ## Autonomy
 
