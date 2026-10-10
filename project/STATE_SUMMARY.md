@@ -44,7 +44,7 @@ Review standard workflow duplication, runtime and failure diagnostics using curr
 
 **Verified PDF Candidate Ledger Review** — `planned`
 
-Review deterministic official brochure PDF candidate spans using `candidate_id` and exact source text; preserve candidate-only evidence and do not promote values to master data without a separately controlled import package.
+Review deterministic official brochure PDF candidate spans using candidate_id and exact source text; preserve candidate-only evidence and do not promote values to master data without a separately controlled import package.
 
 ## Autonomy
 
