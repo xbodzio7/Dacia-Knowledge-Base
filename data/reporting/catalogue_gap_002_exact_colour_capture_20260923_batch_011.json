@@ -22,14 +22,14 @@
       "drive_type": "4x2",
       "visible_colour_count": 3,
       "colours": [
-        {"name": "biel alpejska", "price_pln": null},
-        {"name": "szary schiste", "price_pln": null},
-        {"name": "czarna perła", "price_pln": null}
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2700},
+        {"name": "khaki lichen", "price_pln": 2700}
       ],
       "selected_colour": "biel alpejska",
       "observed_total_price_pln": 82000,
       "exact_state_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
-      "note": "The current official Polish Dacia configurator page exposes the exact selected default state Duster essential Eco-G 120, with 4x2 drive and manual transmission, and reports three available colours. Per-colour surcharges are not exposed in the retrieved page and were not inferred."
+      "note": "The current official Polish Dacia configurator page exposes the exact selected default state Duster essential Eco-G 120, with 4x2 drive and manual transmission. It lists three visible colours: biel alpejska included, szary schiste +2700 PLN, and khaki lichen +2700 PLN. No surcharge was inferred."
     }
   ],
   "selector_limitations": [],
