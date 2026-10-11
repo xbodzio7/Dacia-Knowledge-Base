@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-10-10",
+  "updated_on": "2026-10-11",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -34,11 +34,11 @@
     "goal": "Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls."
   },
   "next_package": {
-    "package_id": "verified_pdf_candidate_ledger_review_20260728_001",
-    "kind": "verified_pdf_candidate_ledger_review",
-    "name": "Verified PDF Candidate Ledger Review",
+    "package_id": "bigster_price_list_20261001_technical_scalar_source_artifact_completion",
+    "kind": "official_price_list_source_artifact_recovery",
+    "name": "Bigster 01.10.2026 Technical Source Artifact Recovery",
     "status": "planned",
-    "goal": "Review deterministic official brochure PDF candidate spans using candidate_id and exact source text; preserve candidate-only evidence and do not promote values to master data without a separately controlled import package."
+    "goal": "Make the official Bigster MY26 price list effective 2026-10-01 repository-backed at its registered source path, verify the PDF bytes against the registered SHA-256, then reconcile the deferred technical scalar observations without inferring values from the older July source."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

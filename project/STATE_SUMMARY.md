@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-10-10
+- State updated: 2026-10-11
 
 ## Phase
 
@@ -42,9 +42,9 @@ Review standard workflow duplication, runtime and failure diagnostics using curr
 
 ## Next package
 
-**Verified PDF Candidate Ledger Review** — `planned`
+**Bigster 01.10.2026 Technical Source Artifact Recovery** — `planned`
 
-Review deterministic official brochure PDF candidate spans using candidate_id and exact source text; preserve candidate-only evidence and do not promote values to master data without a separately controlled import package.
+Make the official Bigster MY26 price list effective 2026-10-01 repository-backed at its registered source path, verify the PDF bytes against the registered SHA-256, then reconcile the deferred technical scalar observations without inferring values from the older July source.
 
 ## Autonomy
 
