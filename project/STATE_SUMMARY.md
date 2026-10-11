@@ -42,9 +42,9 @@ Review standard workflow duplication, runtime and failure diagnostics using curr
 
 ## Next package
 
-**Bigster 01.09.2026 Price List Assimilation** — `planned`
+**Bigster 01.10.2026 Technical Source Artifact Recovery** — `planned`
 
-Assimilate the official Polish Bigster MY26 price list effective 2026-09-01, including explicit catalogue combinations, dated catalogue prices, technical observations and grade-matrix availability, preserving source boundaries and avoiding configurator inference.
+Make the official Bigster MY26 price list effective 2026-10-01 repository-backed at its registered source path, verify the PDF bytes against the registered SHA-256, then reconcile the deferred technical scalar observations without inferring values from the older July source.
 
 ## Autonomy
 
