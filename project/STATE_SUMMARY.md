@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster 01.09.2026 Price List Assimilation** — `active`
+**Workflow Maintainability Review** — `complete`
 
-Assimilate the official Polish Bigster MY26 price list effective 2026-09-01, including explicit catalogue combinations, dated catalogue prices, technical observations and grade-matrix availability, preserving source boundaries and avoiding configurator inference.
+Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls.
 
 ## Next package
 
-**Duster, Jogger and Bigster July 2026 Option Matrix Reconciliation** — `planned`
+**Bigster 01.09.2026 Price List Assimilation** — `planned`
 
-Materialize remaining documentary option/package mappings from audited 03.07.2026 Duster, Jogger and Bigster price lists without configurator inference or cross-powertrain projection.
+Assimilate the official Polish Bigster MY26 price list effective 2026-09-01, including explicit catalogue combinations, dated catalogue prices, technical observations and grade-matrix availability, preserving source boundaries and avoiding configurator inference.
 
 ## Autonomy
 
