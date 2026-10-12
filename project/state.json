@@ -15,14 +15,14 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1944,
+    "tests": 1945,
     "csv_files": 48,
-    "rows": 20684,
-    "configuration_values": 8202,
+    "rows": 21106,
+    "configuration_values": 8325,
     "configuration_import_specs": 161,
     "configuration_value_ranges": 441,
     "configuration_range_import_specs": 24,
-    "availability_records": 9283,
+    "availability_records": 9565,
     "attributes": 416,
     "attribute_categories": 30
   },

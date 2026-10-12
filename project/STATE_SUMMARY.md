@@ -23,14 +23,14 @@
 
 ## Verified baseline
 
-- Tests: 1944
+- Tests: 1945
 - Master CSV files: 48
-- Master rows: 20684
-- Configuration values: 8202
+- Master rows: 21106
+- Configuration values: 8325
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
-- Availability records: 9283
+- Availability records: 9565
 - Canonical attributes: 416
 - Attribute categories: 30
 
