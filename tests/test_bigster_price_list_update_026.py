@@ -24,9 +24,10 @@ class BigsterSeptemberPriceListDeltaTests(unittest.TestCase):
             "bigster_journey_mildhybridg140_4x2_automatic": 123700,
         }
 
+        # configurations.csv identifies each configuration by code, not configuration_code.
+        # Observation tables use configuration_code.
         self.assertEqual(
-            {row["configuration_code"] for row in cfg
-             if row["configuration_code"] in expected_prices},
+            {row["code"] for row in cfg if row["code"] in expected_prices},
             set(expected_prices),
         )
         source_prices = {
