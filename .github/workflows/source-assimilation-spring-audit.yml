@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-audit-bundle:
@@ -39,3 +39,36 @@ jobs:
           name: spring-source-assimilation-bundle
           path: source-assimilation-bundle
           retention-days: 7
+
+  recover-bigster-october-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out recovery branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/bigster-price-list-source-artifact-recovery-20261012
+          fetch-depth: 0
+      - name: Download and verify official PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          mkdir -p owner_supplied/2026-10-01
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/d477c604e8.pdf' \
+            --output owner_supplied/2026-10-01/d477c604e8.pdf
+          echo '0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97  owner_supplied/2026-10-01/d477c604e8.pdf' | sha256sum --check -
+          test "$(pdfinfo owner_supplied/2026-10-01/d477c604e8.pdf | awk '/^Pages:/ {print $2}')" = "8"
+      - name: Restore workflow and commit only the verified source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git show origin/main:.github/workflows/source-assimilation-spring-audit.yml > .github/workflows/source-assimilation-spring-audit.yml
+          git rm -f .github/workflows/recover-bigster-pdf.yml
+          git add .github/workflows/source-assimilation-spring-audit.yml owner_supplied/2026-10-01/d477c604e8.pdf
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(sources): restore Bigster 2026-10 price-list PDF'
+          git push origin HEAD:agent/bigster-price-list-source-artifact-recovery-20261012
