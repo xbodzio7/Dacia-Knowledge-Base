@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added 147 page-6 technical scalar observations for six Bigster automatic configurations from the official MY26 price list effective 2026-10-01, using 22 declarative import specifications with dated source provenance. The tribrid power wording `103 (140) + 10 (13)` remains unnormalized; no combined system-power value, prices, equipment, colours or configurator facts were introduced.
+
 * Added the complete documentary reconciliation of the official Bigster MY26 price list effective 2026-10-01: 13 current catalogue configurations, six new canonical configuration records for the new automatic and tribrid nomenclature, 13 dated catalogue prices, 564 equipment-availability observations, and 0 new commercial mappings (existing matrix retained), source registration with verified SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`, and no configurator use.
 
 * Captured the complete official standard-equipment and technical-specification accordions for all 15 exact current Sandero and Sandero Stepway states, preserving 1,029 equipment rows and 679 technical rows without importing ambiguous or model-qualified values.
