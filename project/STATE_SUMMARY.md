@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1944
+- Tests: 1945
 - Master CSV files: 48
 - Master rows: 20684
 - Configuration values: 8202
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster 01.10.2026 Technical Source Artifact Recovery** — `complete`
+**Bigster 01.10.2026 Technical Scalar Reconciliation** — `complete`
 
-Restore the official Bigster MY26 price list effective 2026-10-01 at its registered source path and verify the PDF bytes against the registered SHA-256.
+Reconcile and materialize the page-6 technical scalar observations explicitly stated in the official Bigster MY26 price list effective 2026-10-01 for six newly represented automatic configurations, preserving source provenance and the unresolved tribrid power wording.
 
 ## Next package
 
-**Bigster 01.10.2026 Technical Scalar Reconciliation** — `planned`
+**Bigster 01.09.2026 Official Price List Assimilation** — `planned`
 
-Reconcile and materialize the technical scalar observations explicitly stated in the repository-backed 2026-10-01 Bigster price list for the newly represented mild hybrid-G 140 automatic and tribrid 150 4x4 configurations, preserving page-level provenance and avoiding inference from the July source.
+Reconcile the official Polish Bigster MY26 price list effective 2026-09-01, including its dated catalogue prices, exact automatic mild hybrid-G 140 configurations, equipment availability and technical observations, preserving exact source provenance and avoiding configurator-derived substitutions.
 
 ## Autonomy
 
