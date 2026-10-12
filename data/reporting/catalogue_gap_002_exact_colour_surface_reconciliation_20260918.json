@@ -246,7 +246,8 @@
     "No master-data, availability or configuration records are changed by this reconciliation.",
     "Batch 022 captured five new Bigster exact surfaces and was merged as PR #722.",
     "After reconciliation through merged PR #722, 71 unique exact surfaces are captured and 10 remain unresolved.",
-    "Batch 023 records a fresh current-selector boundary for the ten historical Duster exact surfaces; it adds zero canonical surfaces and deliberately leaves all ten unresolved."
+    "Batch 023 records a fresh current-selector boundary for the ten historical Duster exact surfaces; it adds zero canonical surfaces and deliberately leaves all ten unresolved.",
+    "The Batch 011 colour-surcharge correction concerns the Duster Essential Eco-G 120 manual exact state already counted in merged PR #697; treat it as duplicate enrichment, not a new exact surface."
   ],
   "selector_boundary_batches": [
     {
