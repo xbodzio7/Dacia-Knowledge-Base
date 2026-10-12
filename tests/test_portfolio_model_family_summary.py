@@ -57,8 +57,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "mixed_model_scope_count": 3,
                 "active_configuration_count": 94,
                 "within_scope_pair_count": 145,
-                "provenance_source_count": 108,
-                "source_configuration_relationship_count": 402,
+                "provenance_source_count": 109,
+                "source_configuration_relationship_count": 405,
                 "configurations_with_provenance_count": 94,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
@@ -148,7 +148,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             "sandero_stepway_iii": (22, 70, "2026-02-02", "2026-08-11"),
             "jogger": (26, 110, "2025-12-17", "2026-08-09"),
             "duster_iii": (25, 97, "2025-10-20", "2026-09-01"),
-            "bigster": (17, 55, "2025-12-10", "2026-10-01"),
+            "bigster": (18, 58, "2025-12-10", "2026-10-01"),
             "spring": (7, 11, "2026-02-19", "2026-08-09"),
         }
         matrix_relationship_total = 0
@@ -217,8 +217,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 402)
-        self.assertEqual(len(used_sources), 108)
+        self.assertEqual(relation_total, 405)
+        self.assertEqual(len(used_sources), 109)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -323,7 +323,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 115)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 116)
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )
