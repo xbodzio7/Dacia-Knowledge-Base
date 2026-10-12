@@ -56,6 +56,8 @@ jobs:
           sudo apt-get install -y poppler-utils
           mkdir -p owner_supplied/2026-10-01
           curl --fail --location --retry 3 --retry-delay 2 \
+            --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/155.0.0.0 Safari/537.36' \
+            --referer 'https://www.dacia.pl/' \
             'https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/d477c604e8.pdf' \
             --output owner_supplied/2026-10-01/d477c604e8.pdf
           echo '0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97  owner_supplied/2026-10-01/d477c604e8.pdf' | sha256sum --check -
