@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1944,
+    "tests": 1945,
     "csv_files": 48,
     "rows": 20684,
     "configuration_values": 8202,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "bigster_price_list_20261001_source_artifact_recovery_001",
-    "kind": "official_price_list_source_artifact_recovery",
-    "name": "Bigster 01.10.2026 Technical Source Artifact Recovery",
-    "status": "complete",
-    "goal": "Restore the official Bigster MY26 price list effective 2026-10-01 at its registered source path and verify the PDF bytes against the registered SHA-256."
-  },
-  "next_package": {
     "package_id": "bigster_price_list_20261001_technical_scalar_reconciliation_001",
     "kind": "official_price_list_technical_scalar_reconciliation",
     "name": "Bigster 01.10.2026 Technical Scalar Reconciliation",
+    "status": "complete",
+    "goal": "Reconcile and materialize the page-6 technical scalar observations explicitly stated in the official Bigster MY26 price list effective 2026-10-01 for six newly represented automatic configurations, preserving source provenance and the unresolved tribrid power wording."
+  },
+  "next_package": {
+    "package_id": "bigster_price_list_20260901_assimilation_001",
+    "kind": "official_price_list_assimilation",
+    "name": "Bigster 01.09.2026 Official Price List Assimilation",
     "status": "planned",
-    "goal": "Reconcile and materialize the technical scalar observations explicitly stated in the repository-backed 2026-10-01 Bigster price list for the newly represented mild hybrid-G 140 automatic and tribrid 150 4x4 configurations, preserving page-level provenance and avoiding inference from the July source."
+    "goal": "Reconcile the official Polish Bigster MY26 price list effective 2026-09-01, including its dated catalogue prices, exact automatic mild hybrid-G 140 configurations, equipment availability and technical observations, preserving exact source provenance and avoiding configurator-derived substitutions."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
