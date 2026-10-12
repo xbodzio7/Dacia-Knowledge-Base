@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-10-11",
+  "updated_on": "2026-10-12",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "workflow_maintainability_review_20261010_001",
-    "kind": "workflow_maintainability_review",
-    "name": "Workflow Maintainability Review",
-    "status": "complete",
-    "goal": "Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls."
-  },
-  "next_package": {
-    "package_id": "bigster_price_list_20261001_technical_scalar_source_artifact_completion",
+    "package_id": "bigster_price_list_20261001_source_artifact_recovery_001",
     "kind": "official_price_list_source_artifact_recovery",
     "name": "Bigster 01.10.2026 Technical Source Artifact Recovery",
+    "status": "complete",
+    "goal": "Restore the official Bigster MY26 price list effective 2026-10-01 at its registered source path and verify the PDF bytes against the registered SHA-256."
+  },
+  "next_package": {
+    "package_id": "bigster_price_list_20261001_technical_scalar_reconciliation_001",
+    "kind": "official_price_list_technical_scalar_reconciliation",
+    "name": "Bigster 01.10.2026 Technical Scalar Reconciliation",
     "status": "planned",
-    "goal": "Make the official Bigster MY26 price list effective 2026-10-01 repository-backed at its registered source path, verify the PDF bytes against the registered SHA-256, then reconcile the deferred technical scalar observations without inferring values from the older July source."
+    "goal": "Reconcile and materialize the technical scalar observations explicitly stated in the repository-backed 2026-10-01 Bigster price list for the newly represented mild hybrid-G 140 automatic and tribrid 150 4x4 configurations, preserving page-level provenance and avoiding inference from the July source."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
