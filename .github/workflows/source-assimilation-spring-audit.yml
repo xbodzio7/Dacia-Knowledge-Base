@@ -68,7 +68,6 @@ jobs:
           set -euo pipefail
           git fetch origin main
           git show origin/main:.github/workflows/source-assimilation-spring-audit.yml > .github/workflows/source-assimilation-spring-audit.yml
-          git rm -f .github/workflows/recover-bigster-pdf.yml
           git add .github/workflows/source-assimilation-spring-audit.yml owner_supplied/2026-10-01/d477c604e8.pdf
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
