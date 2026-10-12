@@ -1,0 +1,38 @@
+name: Recover Bigster October 2026 source artifact
+on:
+  push:
+    branches:
+      - agent/bigster-price-list-source-artifact-recovery-20261012
+    paths:
+      - .github/workflows/recover-bigster-pdf.yml
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out recovery branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/bigster-price-list-source-artifact-recovery-20261012
+          fetch-depth: 0
+      - name: Download and verify official source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p owner_supplied/2026-10-01
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/d477c604e8.pdf' \
+            --output owner_supplied/2026-10-01/d477c604e8.pdf
+          echo '0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97  owner_supplied/2026-10-01/d477c604e8.pdf' | sha256sum --check -
+          test "$(pdfinfo owner_supplied/2026-10-01/d477c604e8.pdf | awk '/^Pages:/ {print $2}')" = "8"
+      - name: Commit verified source and remove temporary recovery workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/recover-bigster-pdf.yml
+          git add owner_supplied/2026-10-01/d477c604e8.pdf
+          git commit -m 'data(sources): restore Bigster 2026-10 price-list PDF'
+          git push origin HEAD:agent/bigster-price-list-source-artifact-recovery-20261012
