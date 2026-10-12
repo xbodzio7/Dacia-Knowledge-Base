@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-10-11
+- State updated: 2026-10-12
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Workflow Maintainability Review** — `complete`
+**Bigster 01.10.2026 Technical Source Artifact Recovery** — `complete`
 
-Review standard workflow duplication, runtime and failure diagnostics using current CI evidence. Identify safe, bounded efficiency improvements without weakening required checks or source-integrity controls.
+Restore the official Bigster MY26 price list effective 2026-10-01 at its registered source path and verify the PDF bytes against the registered SHA-256.
 
 ## Next package
 
-**Bigster 01.10.2026 Technical Source Artifact Recovery** — `planned`
+**Bigster 01.10.2026 Technical Scalar Reconciliation** — `planned`
 
-Make the official Bigster MY26 price list effective 2026-10-01 repository-backed at its registered source path, verify the PDF bytes against the registered SHA-256, then reconcile the deferred technical scalar observations without inferring values from the older July source.
+Reconcile and materialize the technical scalar observations explicitly stated in the repository-backed 2026-10-01 Bigster price list for the newly represented mild hybrid-G 140 automatic and tribrid 150 4x4 configurations, preserving page-level provenance and avoiding inference from the July source.
 
 ## Autonomy
 
