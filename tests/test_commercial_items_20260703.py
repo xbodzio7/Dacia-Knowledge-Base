@@ -38,9 +38,9 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 51)
+        self.assertEqual(len(self.items), 56)
         self.assertEqual(len(self.members), 103)
-        self.assertEqual(len(self.mappings), 339)
+        self.assertEqual(len(self.mappings), 395)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
