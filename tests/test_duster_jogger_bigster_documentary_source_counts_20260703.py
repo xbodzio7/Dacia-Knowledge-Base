@@ -52,8 +52,8 @@ class DocumentarySource20260703MasterCountsTests(unittest.TestCase):
             source,
             Counter(
                 {
-                    "src_pl_duster_price_my26_20260703": 29,
-                    "src_pl_jogger_price_my26_20260703": 42,
+                    "src_pl_duster_price_my26_20260703": 66,
+                    "src_pl_jogger_price_my26_20260703": 48,
                     "src_pl_bigster_price_my26_20260703": 48,
                 }
             ),
@@ -73,7 +73,7 @@ class DocumentarySource20260703MasterCountsTests(unittest.TestCase):
             source,
             Counter(
                 {
-                    "src_pl_jogger_price_my26_20260703": 6,
+                    "src_pl_jogger_price_my26_20260703": 7,
                     "src_pl_bigster_price_my26_20260703": 7,
                 }
             ),
