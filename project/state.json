@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-10-12",
+  "updated_on": "2026-10-13",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1944,
+    "tests": 1945,
     "csv_files": 48,
     "rows": 20684,
     "configuration_values": 8202,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "bigster_price_list_20261001_technical_scalar_reconciliation_001",
-    "kind": "official_price_list_technical_scalar_reconciliation",
-    "name": "Bigster 01.10.2026 Technical Scalar Reconciliation",
+    "package_id": "configurator_pdf_source_stated_technical_fields_20261013_001",
+    "kind": "configurator_pdf_technical_scalar_reconciliation",
+    "name": "Configurator PDF Source-Stated Technical Field Deferral Reconciliation",
     "status": "complete",
-    "goal": "Reconcile and materialize the page-6 technical scalar observations explicitly stated in the official Bigster MY26 price list effective 2026-10-01 for six newly represented automatic configurations, preserving source provenance and the unresolved tribrid power wording."
+    "goal": "Close 210 previously deferred body-style, technical-type-code and gearbox-description observations by verifying exact existing source/configuration/value matches across all 70 saved Polish configurator PDFs; update the importer so future runs recognize these canonical mappings without duplicate imports."
   },
   "next_package": {
-    "package_id": "bigster_price_list_20260901_assimilation_001",
-    "kind": "official_price_list_assimilation",
-    "name": "Bigster 01.09.2026 Official Price List Assimilation",
+    "package_id": "jogger_price_list_equipment_matrix_025",
+    "kind": "official_price_list_equipment_matrix_reconciliation",
+    "name": "Jogger 03.07.2026 Official Price List Equipment Matrix Reconciliation",
     "status": "planned",
-    "goal": "Reconcile the official Polish Bigster MY26 price list effective 2026-09-01, including its dated catalogue prices, exact automatic mild hybrid-G 140 configurations, equipment availability and technical observations, preserving exact source provenance and avoiding configurator-derived substitutions."
+    "goal": "Reconcile the full standard-equipment matrix for all 22 Jogger 5-seat and 7-seat catalogue configurations against the official price list effective 2026-07-03, preserving grade, seat-count and powertrain boundaries without configurator-derived inference."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
