@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1945
+- Tests: 1946
 - Master CSV files: 48
-- Master rows: 20684
+- Master rows: 21204
 - Configuration values: 8202
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
-- Availability records: 9283
+- Availability records: 9803
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**Configurator PDF Source-Stated Technical Field Deferral Reconciliation** — `complete`
+**Jogger 03.07.2026 Official Price List Equipment Matrix Reconciliation** — `complete`
 
-Close 210 previously deferred body-style, technical-type-code and gearbox-description observations by verifying exact existing source/configuration/value matches across all 70 saved Polish configurator PDFs; update the importer so future runs recognize these canonical mappings without duplicate imports.
+Reconcile the full standard-equipment matrix for all 22 Jogger 5-seat and 7-seat catalogue configurations against the official price list effective 2026-07-03, preserving grade, seat-count and powertrain boundaries without configurator-derived inference.
 
 ## Next package
 
-**Jogger 03.07.2026 Official Price List Equipment Matrix Reconciliation** — `planned`
+**Duster 01.10.2026 Price List Matrix Reconciliation** — `planned`
 
-Reconcile the full standard-equipment matrix for all 22 Jogger 5-seat and 7-seat catalogue configurations against the official price list effective 2026-07-03, preserving grade, seat-count and powertrain boundaries without configurator-derived inference.
+Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
 
 ## Autonomy
 
