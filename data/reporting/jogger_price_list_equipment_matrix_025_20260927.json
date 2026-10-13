@@ -19,5 +19,9 @@
   "deferred": [
     "Attributes absent from the master attribute catalogue are not invented; wheel/design and raw textual-only fields remain in documentary audit scope.",
     "Existing master records were retained without modification while porting the package onto current main."
-  ]
+  ],
+  "master_record_id_range": {
+    "first": 9284,
+    "last": 9803
+  }
 }
