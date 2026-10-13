@@ -20,9 +20,9 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1945 testów automatycznych zakończonych powodzeniem,
+- 1946 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 20684 rekordów danych,
+- 21204 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -30,10 +30,10 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 - 161 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 441 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 24 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
-- 9283 rekordów w `configuration_attribute_availability.csv`,
-- 7511 rekordów `standard`, 676 `optional`, 1096 `not_available` i 0 `unknown`,
+- 9803 rekordów w `configuration_attribute_availability.csv`,
+- 7907 rekordów `standard`, 676 `optional`, 1220 `not_available` i 0 `unknown`,
 - 416 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 20684 rekordów,
+- baza SQLite obejmująca 48 tabele i 21204 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
