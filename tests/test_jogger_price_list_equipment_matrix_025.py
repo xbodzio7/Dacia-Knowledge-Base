@@ -23,11 +23,12 @@ class JoggerPriceListEquipmentMatrix025Tests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertEqual(len(codes), len(set(codes)))
 
+        id_range = manifest["master_record_id_range"]
         matrix_rows = [
             row
             for row in rows
             if row["source_code"] == "src_pl_jogger_price_my26_20260703"
-            and 9284 <= int(row["id"]) <= 9803
+            and id_range["first"] <= int(row["id"]) <= id_range["last"]
         ]
         self.assertEqual(len(matrix_rows), 520)
         self.assertEqual(len({row["configuration_code"] for row in matrix_rows}), 22)
