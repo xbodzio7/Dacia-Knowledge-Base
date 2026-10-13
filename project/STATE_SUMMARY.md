@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-10-12
+- State updated: 2026-10-13
 
 ## Phase
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1944
+- Tests: 1945
 - Master CSV files: 48
 - Master rows: 20684
 - Configuration values: 8202
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster 01.10.2026 Technical Scalar Reconciliation** — `complete`
+**Configurator PDF Source-Stated Technical Field Deferral Reconciliation** — `complete`
 
-Reconcile and materialize the page-6 technical scalar observations explicitly stated in the official Bigster MY26 price list effective 2026-10-01 for six newly represented automatic configurations, preserving source provenance and the unresolved tribrid power wording.
+Close 210 previously deferred body-style, technical-type-code and gearbox-description observations by verifying exact existing source/configuration/value matches across all 70 saved Polish configurator PDFs; update the importer so future runs recognize these canonical mappings without duplicate imports.
 
 ## Next package
 
-**Bigster 01.09.2026 Official Price List Assimilation** — `planned`
+**Jogger 03.07.2026 Official Price List Equipment Matrix Reconciliation** — `planned`
 
-Reconcile the official Polish Bigster MY26 price list effective 2026-09-01, including its dated catalogue prices, exact automatic mild hybrid-G 140 configurations, equipment availability and technical observations, preserving exact source provenance and avoiding configurator-derived substitutions.
+Reconcile the full standard-equipment matrix for all 22 Jogger 5-seat and 7-seat catalogue configurations against the official price list effective 2026-07-03, preserving grade, seat-count and powertrain boundaries without configurator-derived inference.
 
 ## Autonomy
 

@@ -440,8 +440,12 @@ def build(apply=False):
                     m=re.search(r"\d+(?:[.,]\d+)?",val)
                     if m: add_value(config,"onboard_charger_power",m.group().replace(',','.'),source,page,raw)
                     continue
-                if label in ("Rodzaj nadwozia","Rodzaj skrzyni biegów","Typ techniczny"):
-                    record_defer("technical",raw,"no_safe_existing_canonical_mapping"); continue
+                if label=="Rodzaj nadwozia":
+                    add_value(config,"body_style_source_stated",val,source,page,raw); continue
+                if label=="Rodzaj skrzyni biegów":
+                    add_value(config,"gearbox_source_description",val,source,page,raw); continue
+                if label=="Typ techniczny":
+                    add_value(config,"technical_type_code",val,source,page,raw); continue
                 record_defer("technical",raw,"unhandled_label")
 
     summary=dict(counters)

@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Reconciled 210 source-stated body-style, technical-type-code and gearbox-description observations across 70 saved configurator PDFs against exact existing master rows; no duplicate data was added, the importer now recognizes these mappings, and the remaining 170 technical deferrals stay explicit.
+
 * Added 147 page-6 technical scalar observations for six Bigster automatic configurations from the official MY26 price list effective 2026-10-01, using 22 declarative import specifications with dated source provenance. The tribrid power wording `103 (140) + 10 (13)` remains unnormalized; no combined system-power value, prices, equipment, colours or configurator facts were introduced.
 
 * Added the complete documentary reconciliation of the official Bigster MY26 price list effective 2026-10-01: 13 current catalogue configurations, six new canonical configuration records for the new automatic and tribrid nomenclature, 13 dated catalogue prices, 564 equipment-availability observations, and 0 new commercial mappings (existing matrix retained), source registration with verified SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`, and no configurator use.
@@ -322,7 +324,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1944 tests.
+* The automated test suite now contains 1945 tests.
 * The verified master-data baseline now contains 48 CSV files and 20684 rows.
 * SQLite verification now covers 48 tables and 20684 rows.
 * Configuration attribute values now contain 8202 dated records.
