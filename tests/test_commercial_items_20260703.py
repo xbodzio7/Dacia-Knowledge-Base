@@ -75,7 +75,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
             row for row in self.mappings
             if row["commercial_item_code"].startswith("bigster_")
         ]
-        self.assertEqual(len(bigster), 7)
+        self.assertEqual(len(bigster), 9)
         self.assertEqual(len(mappings), 48)
         self.assertEqual({row["commercial_item_code"] for row in mappings}, bigster)
         self.assertTrue(all(row["configuration_code"].startswith("bigster_") for row in mappings))
