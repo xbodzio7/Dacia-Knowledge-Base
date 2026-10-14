@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Reconciled 52 layout-dependent height candidates from saved configurator PDFs: confirmed 22 exact Jogger 5-seat/7-seat values, removed 16 ambiguous Duster `2092` scalar projections while preserving the source-stated literals, and kept 14 Bigster paired heights contextual because roof-rail state is not selected by the exact configuration. No new master rows were added; the master lost 16 unsafe scalar rows.
+
 * Reconciled 40 source-stated 400 m standing-start candidates across 70 saved configurator PDFs: confirmed all 40 numeric candidates were already covered, normalized seven equivalent `17.0`/`17,0` representations, and imported zero new master rows, and preserved three `nd` markers as non-observations.
 
 * Reconciled 210 source-stated body-style, technical-type-code and gearbox-description observations across 70 saved configurator PDFs against exact existing master rows; no duplicate data was added, the importer now recognizes these mappings, and the remaining 170 technical deferrals stay explicit.
@@ -326,10 +328,10 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1947 tests.
-* The verified master-data baseline now contains 48 CSV files and 21265 rows.
-* SQLite verification now covers 48 tables and 21265 rows.
-* Configuration attribute values now contain 8202 dated records.
+* The automated test suite now contains 1948 tests.
+* The verified master-data baseline now contains 48 CSV files and 21249 rows.
+* SQLite verification now covers 48 tables and 21249 rows.
+* Configuration attribute values now contain 8186 dated records.
 * Declarative scalar configuration-value imports now contain 161 versioned JSON specifications.
 * Configuration value ranges now contain 441 dated records from 24 range specifications.
 * The canonical catalogue now contains 416 attributes in 30 categories.

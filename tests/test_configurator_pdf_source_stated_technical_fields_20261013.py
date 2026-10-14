@@ -79,5 +79,44 @@ class ConfiguratorPdfSourceStatedTechnicalFieldsTest(unittest.TestCase):
             ]
             self.assertEqual(matches, [], (doc["configuration_code"], raw))
 
+    def test_layout_dependent_height_candidates_are_reconciled_without_ambiguous_scalar_projection(self):
+        ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
+        with MASTER.open(encoding="utf-8-sig", newline="") as handle:
+            values = list(csv.DictReader(handle))
+        candidates = []
+        for doc in ledger["documents"]:
+            for page in doc["pages_ledger"]:
+                if "technical" not in page["sections"]:
+                    continue
+                for line in page["text"].splitlines():
+                    raw = " ".join(line.split())
+                    if raw.startswith("Wysokość całkowita ") and doc["configuration_code"].startswith(("duster_iii_", "bigster_", "jogger_")):
+                        candidates.append((doc, raw))
+        self.assertEqual(len(candidates), 52)
+        by_family = {
+            "duster": [x for x in candidates if x[0]["configuration_code"].startswith("duster_iii_")],
+            "bigster": [x for x in candidates if x[0]["configuration_code"].startswith("bigster_")],
+            "jogger": [x for x in candidates if x[0]["configuration_code"].startswith("jogger_")],
+        }
+        self.assertEqual({k: len(v) for k, v in by_family.items()}, {"duster": 16, "bigster": 14, "jogger": 22})
+        for family, family_candidates in by_family.items():
+            for doc, raw in family_candidates:
+                config, source = doc["configuration_code"], doc["source_code"]
+                literal = [row for row in values if row["configuration_code"] == config
+                    and row["attribute_code"] == "overall_height_source_stated"
+                    and row["observation_date"] == "2026-08-09" and row["source_code"] == source
+                    and raw in row["notes"]]
+                self.assertEqual(len(literal), 1, (config, raw))
+                numeric = [row for row in values if row["configuration_code"] == config
+                    and row["attribute_code"] == "overall_height"
+                    and row["observation_date"] == "2026-08-09" and row["source_code"] == source]
+                if family == "jogger":
+                    expected = "1689" if "_5seat_" in config else "1684"
+                    self.assertEqual(len(numeric), 1, (config, raw))
+                    self.assertEqual(numeric[0]["value"], expected, (config, raw))
+                    self.assertIn(raw, numeric[0]["notes"])
+                else:
+                    self.assertEqual(numeric, [], (config, raw))
+
 if __name__ == "__main__":
     unittest.main()
