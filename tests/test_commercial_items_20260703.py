@@ -76,7 +76,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
             if row["commercial_item_code"].startswith("bigster_")
         ]
         self.assertEqual(len(bigster), 9)
-        self.assertEqual(len(mappings), 48)
+        self.assertEqual(len(mappings), 66)
         self.assertEqual({row["commercial_item_code"] for row in mappings}, bigster)
         self.assertTrue(all(row["configuration_code"].startswith("bigster_") for row in mappings))
         self.assertEqual({row["source_code"] for row in mappings}, {"src_pl_bigster_price_my26_20260703"})
