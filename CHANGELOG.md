@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.
+
 * Closed the 43-line configurator-PDF `400 m ze startu zatrzymanego` residual: 40 numeric candidates match existing exact observations, seven `17.0`/`17,0` displays are equivalent, and three `nd` markers remain non-observations. The deferred-observation count is corrected from 170 to 130; no master rows were added.
 
 * Classified all 10 remaining configurator-PDF roof-height-with-rails deferrals: kept seven base Sandero configurations separate from the explicit `1586 (Stepway)` statement, and preserved three Spring `b.d.` markers as non-observations. No master rows were added.
