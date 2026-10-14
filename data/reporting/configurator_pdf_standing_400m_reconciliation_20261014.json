@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "kind": "configurator_pdf_standing_400m_reconciliation",
+  "package_id": "configurator_pdf_standing_400m_reconciliation_001",
+  "reviewed_on": "2026-10-14",
+  "source_ledger": "project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json",
+  "source_importer": "tools/import_current_configurator_pdfs_20260809.py",
+  "source_observation_date": "2026-08-09",
+  "attribute_code": "standing_400m",
+  "source_label": "400 m ze startu zatrzymanego (s)",
+  "source_page": 5,
+  "counts": {
+    "source_documents": 70,
+    "candidate_observations": 43,
+    "numeric_candidates": 40,
+    "exact_existing_source_observations": 31,
+    "new_master_rows": 9,
+    "non_numeric_markers": 3,
+    "remaining_deferred_before": 170,
+    "remaining_deferred_after": 130
+  },
+  "new_master_record_ids": [
+    8203,
+    8204,
+    8205,
+    8206,
+    8207,
+    8208,
+    8209,
+    8210,
+    8211
+  ],
+  "non_numeric_decisions": [
+    {
+      "marker": "nd",
+      "count": 3,
+      "decision": "preserve as explicit non-observation; do not coerce to zero"
+    }
+  ],
+  "policy": {
+    "exact_configuration_required": true,
+    "exact_source_date_required": true,
+    "source_text_preserved": true,
+    "no_cross_configuration_projection": true,
+    "no_inference_from_nd": true,
+    "no_duplicate_exact_observations": true
+  },
+  "acceptance": [
+    "All 40 numeric source candidates resolve through exact existing observations or a single exact master row.",
+    "Nine previously missing numeric observations are added with source, date, configuration, page and literal text.",
+    "Three nd markers remain non-observations.",
+    "The importer handles the source label on reruns without duplicate rows."
+  ]
+}

@@ -339,8 +339,8 @@ def build(apply=False):
                         if mrange: add_range(config,attr,mrange.group(1).replace(',','.'),mrange.group(2).replace(',','.'),source,page,raw,"lpg")
                         else: record_defer("technical",raw,"non_scalar")
                     continue
-                if label in ("Przyspieszenie 0-100 km/h (s)","1000 m ze startu zatrzymanego (s)"):
-                    attr="acceleration_0_100" if label.startswith("Przyspieszenie") else "standing_km"
+                if label in ("Przyspieszenie 0-100 km/h (s)","1000 m ze startu zatrzymanego (s)","400 m ze startu zatrzymanego (s)"):
+                    attr = "acceleration_0_100" if label.startswith("Przyspieszenie") else "standing_400m" if label.startswith("400 m") else "standing_km"
                     x=scalar(val)
                     if x is not None: add_value(config,attr,x,source,page,raw)
                     else:

@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-10-13
+- State updated: 2026-10-14
 
 ## Phase
 
@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 1946
+- Tests: 1947
 - Master CSV files: 48
-- Master rows: 21265
-- Configuration values: 8202
+- Master rows: 21274
+- Configuration values: 8211
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger 03.07.2026 Official Price List Equipment Matrix Reconciliation** — `complete`
+**Configurator PDF Standing 400 m Technical Reconciliation** — `complete`
 
-Reconcile the full standard-equipment matrix for all 22 Jogger 5-seat and 7-seat catalogue configurations against the official price list effective 2026-07-03, preserving grade, seat-count and powertrain boundaries without configurator-derived inference.
+Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 31 existing exact observations, import only nine missing numeric values, and preserve three explicit `nd` markers as non-observations.
 
 ## Next package
 
-**Duster 01.10.2026 Price List Matrix Reconciliation** — `planned`
+**Configurator PDF Seat-Layout-Dependent Height Reconciliation** — `planned`
 
-Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use.
+Resolve the 52 source-stated overall-height candidates only where the exact 5-seat/7-seat configuration determines the printed value; preserve source context and never project a value across seat layouts.
 
 ## Autonomy
 
