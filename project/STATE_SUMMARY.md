@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1948
+- Tests: 1949
 - Master CSV files: 48
 - Master rows: 21249
 - Configuration values: 8186
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configurator PDF Seat-Layout-Dependent Height Reconciliation** — `complete`
+**Configurator PDF Roof-Height With Rails Context Reconciliation** — `complete`
 
-Reconcile all 52 source-stated overall-height candidates: retain exact numeric values for 22 Jogger 5-seat/7-seat configurations, remove 16 ambiguous Duster 2092 scalar projections while preserving their literal source observations, and preserve 14 Bigster rail-dependent height pairs without projecting a scalar.
+Classify all 10 remaining roof-height-with-rails deferrals: do not project the explicit Stepway-only 1586 value onto seven base Sandero configurations, and preserve three Spring b.d. markers as non-observations.
 
 ## Next package
 
-**Configurator PDF Roof-Height With Rails Context Reconciliation** — `planned`
+**Configurator PDF Unhandled Technical Label Residual Audit** — `planned`
 
-Reconcile the 10 remaining roof-height-with-rails deferrals against exact configuration and dated documentary coverage; preserve ambiguous or inapplicable source context and do not project values.
+Review the 43 remaining unhandled technical labels against current official Dacia price lists and brochures first; import only exact, source-backed mappings and preserve ambiguous or non-scalar text.
 
 ## Autonomy
 

@@ -118,5 +118,40 @@ class ConfiguratorPdfSourceStatedTechnicalFieldsTest(unittest.TestCase):
                 else:
                     self.assertEqual(numeric, [], (config, raw))
 
+    def test_roof_height_with_rails_context_is_not_projected_to_inapplicable_configurations(self):
+        ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
+        with MASTER.open(encoding="utf-8-sig", newline="") as handle:
+            values = list(csv.DictReader(handle))
+        candidates = []
+        for doc in ledger["documents"]:
+            for page in doc["pages_ledger"]:
+                if "technical" not in page["sections"]:
+                    continue
+                for line in page["text"].splitlines():
+                    raw = " ".join(line.split())
+                    if not raw.startswith("Wysokość pojazdu nieobciążonego z relingami (mm) "):
+                        continue
+                    config = doc["configuration_code"]
+                    if (config.startswith("sandero_iii_") and not config.startswith("sandero_stepway_")) or config.startswith("spring_"):
+                        candidates.append((doc, raw))
+        self.assertEqual(len(candidates), 10)
+        base_sandero = [x for x in candidates if x[0]["configuration_code"].startswith("sandero_iii_")]
+        spring = [x for x in candidates if x[0]["configuration_code"].startswith("spring_")]
+        self.assertEqual(len(base_sandero), 7)
+        self.assertEqual(len(spring), 3)
+        for doc, raw in base_sandero:
+            self.assertTrue(raw.endswith("1586 (Stepway)"), (doc["configuration_code"], raw))
+        for doc, raw in spring:
+            self.assertTrue(raw.endswith("b.d."), (doc["configuration_code"], raw))
+        for doc, raw in candidates:
+            numeric = [
+                row for row in values
+                if row["configuration_code"] == doc["configuration_code"]
+                and row["attribute_code"] == "roof_height_with_rails"
+                and row["observation_date"] == "2026-08-09"
+                and row["source_code"] == doc["source_code"]
+            ]
+            self.assertEqual(numeric, [], (doc["configuration_code"], raw))
+
 if __name__ == "__main__":
     unittest.main()
