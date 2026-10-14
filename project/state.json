@@ -34,11 +34,11 @@
     "goal": "Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 33 exact existing observations (including numerically equivalent 17.0/17,0 formatting), import only seven missing numeric values, and preserve three explicit nd markers as non-observations."
   },
   "next_package": {
-    "package_id": "duster_price_list_20261001_reconciliation_001",
-    "kind": "full_documentary_matrix_reconciliation",
-    "name": "Duster 01.10.2026 Price List Matrix Reconciliation",
+    "package_id": "configurator_pdf_layout_dependent_height_reconciliation_001",
+    "kind": "configurator_pdf_technical_value_reconciliation",
+    "name": "Configurator PDF Seat-Layout-Dependent Height Reconciliation",
     "status": "planned",
-    "goal": "Assimilate the complete official Duster price list effective 2026-10-01 and reconcile current catalogue prices, standard/optional/unavailable equipment, packages and technical data before any configurator use."
+    "goal": "Resolve the 52 source-stated overall-height candidates only where the exact 5-seat/7-seat configuration determines the printed value; preserve source context and never project a value across seat layouts."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
