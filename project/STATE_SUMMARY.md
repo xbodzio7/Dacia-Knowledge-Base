@@ -42,9 +42,10 @@ Reconcile source-stated 400 m standing-start times across the 70 exact official 
 
 ## Next package
 
-**Configurator PDF Seat-Layout-Dependent Height Reconciliation** — `planned`
+**Duster 01.10.2026 Price List Matrix Reconciliation** — `planned`
 
-Resolve the 52 source-stated overall-height candidates only where the exact 5-seat/7-seat configuration determines the printed value; preserve source context and never project a value across seat layouts.
+Assimilate the complete official Duster price list effective 2026-10-01 and reconcile current catalogue prices, standard/optional/unavailable equipment, packages and technical data before any configurator use.
+
 
 ## Autonomy
 
