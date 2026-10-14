@@ -404,6 +404,11 @@ def build(apply=False):
                     v=norm(val); nums=re.findall(r"\d+",v)
                     if family=="spring" and len(nums)==1: add_value(config,"overall_height",nums[0],source,page,raw)
                     elif family in ("sandero","sandero_stepway") and len(nums)>=2: add_value(config,"overall_height",nums[1] if family=="sandero_stepway" else nums[0],source,page,raw)
+                    elif ("_5seat_" in config or "_7seat_" in config):
+                        mheight=re.fullmatch(r"(\d+)\s*\(5m\.\)\s*/\s*(\d+)\s*\(7m\.\)",v)
+                        if mheight:
+                            add_value(config,"overall_height",mheight.group(1) if "_5seat_" in config else mheight.group(2),source,page,raw)
+                        else: record_defer("technical",raw,"height_layout_dependent")
                     else: record_defer("technical",raw,"height_layout_dependent")
                     continue
                 if label=="Wysokość pojazdu nieobciążonego z relingami (mm)":

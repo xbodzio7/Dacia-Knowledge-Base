@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 1947
+- Tests: 1948
 - Master CSV files: 48
-- Master rows: 21265
-- Configuration values: 8202
+- Master rows: 21249
+- Configuration values: 8186
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configurator PDF Standing 400 m Technical Reconciliation** — `complete`
+**Configurator PDF Seat-Layout-Dependent Height Reconciliation** — `complete`
 
-Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse all 40 existing observations (including seven numerically equivalent 17.0/17,0 displays), add zero master rows, and preserve three explicit nd markers as non-observations.
+Reconcile all 52 source-stated overall-height candidates: retain exact numeric values for 22 Jogger 5-seat/7-seat configurations, remove 16 ambiguous Duster 2092 scalar projections while preserving their literal source observations, and preserve 14 Bigster rail-dependent height pairs without projecting a scalar.
 
 ## Next package
 
-**Configurator PDF Seat-Layout-Dependent Height Reconciliation** — `planned`
+**Configurator PDF Roof-Height With Rails Context Reconciliation** — `planned`
 
-Resolve the 52 source-stated overall-height candidates only where the exact 5-seat/7-seat configuration determines the printed value; preserve source context and never project a value across seat layouts.
+Reconcile the 10 remaining roof-height-with-rails deferrals against exact configuration and dated documentary coverage; preserve ambiguous or inapplicable source context and do not project values.
 
 ## Autonomy
 
