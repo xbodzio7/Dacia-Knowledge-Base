@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Reconciled 40 source-stated 400 m standing-start candidates across 70 saved configurator PDFs: retained 32 exact observations, imported only 8 missing numeric values, normalized equivalent `17.0`/`17,0` representations without duplicating the semantic key, and preserved three `nd` markers as non-observations.
+
 * Reconciled 210 source-stated body-style, technical-type-code and gearbox-description observations across 70 saved configurator PDFs against exact existing master rows; no duplicate data was added, the importer now recognizes these mappings, and the remaining 170 technical deferrals stay explicit.
 
 * Added 147 page-6 technical scalar observations for six Bigster automatic configurations from the official MY26 price list effective 2026-10-01, using 22 declarative import specifications with dated source provenance. The tribrid power wording `103 (140) + 10 (13)` remains unnormalized; no combined system-power value, prices, equipment, colours or configurator facts were introduced.

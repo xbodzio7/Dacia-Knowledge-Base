@@ -13,11 +13,13 @@
     "source_documents": 70,
     "candidate_observations": 43,
     "numeric_candidates": 40,
-    "exact_existing_source_observations": 31,
-    "new_master_rows": 9,
+    "exact_existing_source_observations": 32,
+    "new_master_rows": 8,
     "non_numeric_markers": 3,
     "remaining_deferred_before": 170,
-    "remaining_deferred_after": 130
+    "remaining_deferred_after": 130,
+    "master_configuration_value_rows_after": 8210,
+    "master_total_rows_after": 21273
   },
   "new_master_record_ids": [
     8203,
@@ -27,8 +29,7 @@
     8207,
     8208,
     8209,
-    8210,
-    8211
+    8210
   ],
   "non_numeric_decisions": [
     {
@@ -50,5 +51,11 @@
     "Nine previously missing numeric observations are added with source, date, configuration, page and literal text.",
     "Three nd markers remain non-observations.",
     "The importer handles the source label on reruns without duplicate rows."
+  ],
+  "decisions": [
+    {
+      "decision": "Numeric display normalization",
+      "detail": "The source prints 17,0 while the existing exact row stores 17.0. These are the same source value; retain the existing row and compare numeric text after decimal normalization to avoid a duplicate semantic key."
+    }
   ]
 }

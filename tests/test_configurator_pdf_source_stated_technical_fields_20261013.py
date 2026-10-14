@@ -30,7 +30,7 @@ class ConfiguratorPdfSourceStatedTechnicalFieldsTest(unittest.TestCase):
                         and row["attribute_code"] == attribute
                         and row["observation_date"] == "2026-08-09"
                         and row["source_code"] == doc["source_code"]
-                        and row["value"] == expected_value
+                        and (row["value"].strip().replace(",", ".").rstrip("0").rstrip(".") if "." in row["value"].strip().replace(",", ".") else row["value"].strip()) == expected_value
                     ]
                     self.assertEqual(len(matches), 1, (doc["configuration_code"], attribute, raw))
                     self.assertIn(raw, matches[0]["notes"])
