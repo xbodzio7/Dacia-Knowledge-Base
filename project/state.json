@@ -17,8 +17,8 @@
   "baseline": {
     "tests": 1947,
     "csv_files": 48,
-    "rows": 21273,
-    "configuration_values": 8210,
+    "rows": 21272,
+    "configuration_values": 8209,
     "configuration_import_specs": 161,
     "configuration_value_ranges": 441,
     "configuration_range_import_specs": 24,
@@ -31,7 +31,7 @@
     "kind": "configurator_pdf_technical_value_reconciliation",
     "name": "Configurator PDF Standing 400 m Technical Reconciliation",
     "status": "complete",
-    "goal": "Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 32 exact existing observations (including numerically equivalent 17.0/17,0 formatting), import only eight missing numeric values, and preserve three explicit nd markers as non-observations."
+    "goal": "Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 33 exact existing observations (including numerically equivalent 17.0/17,0 formatting), import only seven missing numeric values, and preserve three explicit nd markers as non-observations."
   },
   "next_package": {
     "package_id": "configurator_pdf_layout_dependent_height_reconciliation_001",
