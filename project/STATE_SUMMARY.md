@@ -46,7 +46,6 @@ Reconcile source-stated 400 m standing-start times across the 70 exact official 
 
 Assimilate the complete official Duster price list effective 2026-10-01 and reconcile current catalogue prices, standard/optional/unavailable equipment, packages and technical data before any configurator use.
 
-
 ## Autonomy
 
 Mode: `autonomous_until_action_required`
