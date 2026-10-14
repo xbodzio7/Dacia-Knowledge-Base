@@ -5,7 +5,7 @@
 **Market:** Poland  
 **Official URL:** https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/cf001ec254.pdf  
 **Observed document length:** 24 PDF pages  
-**Source text review:** completed from the official PDF endpoint on 2026-10-14. Selected visual page renders were inspected for the colour page, accessories, technical table, both equipment-matrix pages, dimensions and legal page.  
+**Source text review:** completed from the official PDF endpoint on 2026-10-14. **Rendered visual review:** completed for all 24 pages of the current official endpoint on 2026-10-14; the registered endpoint was also visually checked on the technical table, equipment matrices, dimensions, colours, accessories and legal page. This confirms coverage of the current endpoint, not byte identity between endpoints.  
 **Identity boundary:** exact binary SHA-256 and byte-for-byte equivalence with the repository-registered PDF have not yet been verified. This draft is not evidence that the registered source hash is unchanged.
 
 ## Page-by-page inventory
@@ -49,12 +49,25 @@
 ## Remaining work before closure
 
 - Verify the exact downloaded binary SHA-256 and compare with the registered source record; the endpoint filename token is not a SHA-256 substitute.
-- Complete visual review of every page, especially table cells and footnotes.
+- Compare all page-level facts against the dated price-list PDF and repository imports; rendered review is now complete for all 24 current-endpoint pages, but source-to-master reconciliation remains open.
 - Compare each candidate fact against the official 2026-10-01 Bigster price list, source registry, existing import specs, master observations, availability records and attribute definitions.
 - Record existing/duplicate, superseded, conflict, non-importable and exact-gap outcomes separately.
 - Import only exact unsuperseded gaps with source pages, applicability and import/check tests.
 - Update canonical state, reports and generated documentation only after the package gates pass.
 
+## Rendered review log — 2026-10-14
+
+All 24 pages of the current official endpoint were inspected as rendered pages, in addition to the full extracted text. The rendered review confirms the page sequence and major visual structure: marketing narrative (PDF pages 1–12), navigation/paint catalogue (13–14), four trim descriptions (15–18), accessory catalogue (19), technical specification table with footnotes (20), two equipment matrices and legend (21–22), dimension drawing and generic luggage figures (23), and legal/publication statement (24).
+
+Specific evidence boundaries reaffirmed from the rendered pages:
+
+- Pages 15–18 are trim summaries, not substitutes for the complete matrix on pages 21–22. In particular, equipment and optional packages are trim-specific and some applicability is powertrain-specific.
+- Page 20 combines four different powertrains and includes mixed petrol/LPG consumption/emissions, different battery voltage/capacity, towing limits, payload and cargo values. Column mapping and footnotes must remain attached to every observation.
+- Page 21 distinguishes standard, optional and unavailable states; its footnotes qualify spare-wheel availability and configurable driver-assistance systems.
+- Page 22 separately distinguishes standard, optional and unavailable states, and qualifies the spare-wheel option and package rows.
+- Page 23 gives generic dimensions and luggage values explicitly without a double floor and without a spare wheel; these values must not be projected to powertrains by numerical matching alone.
+- Page 24 states that availability/specifications can change by market and that the brochure is not a sales offer.
+
 ## Completion statement
 
-This is a preliminary inventory based on the currently linked official PDF's text and selected rendered pages. It does **not** claim complete rendered-page review, source-hash verification, source-to-master reconciliation, import completion or quality-gate success.
+The current official endpoint has now had full extracted-text and rendered-page coverage. This still does **not** claim binary identity with the registered source, complete source-to-master reconciliation against the 2026-10-01 price list, import completion or quality-gate success.
