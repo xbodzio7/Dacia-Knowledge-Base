@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "kind": "bigster_20261001_price_list_artifact_availability",
+  "reviewed_on": "2026-10-15",
+  "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+  "status": "artifact_present_binary_verification_pending",
+  "repository": {
+    "default_branch": "main",
+    "verified_main_sha": "b7a2c7ce34e61b8e81c595df0941d23b38e9dae2",
+    "uploaded_artifact_path": "PDF/Cenniki/bigster-price.pdf",
+    "uploaded_artifact_size_bytes": 2015910,
+    "uploaded_artifact_git_blob_sha": "fbdd72191b02db3cbd741d17d7c92e6d6d7ec28c",
+    "uploaded_in_commit": "b7a2c7ce34e61b8e81c595df0941d23b38e9dae2",
+    "registered_canonical_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
+    "canonical_path_present": false,
+    "binary_content_access": "GitHub connector confirms the uploaded file and metadata but does not expose its PDF bytes/text; raw download through the connector failed as unsupported/too large."
+  },
+  "registered_20261001_source": {
+    "source_code": "src_pl_bigster_price_my26_20261001",
+    "document_date": "2026-10-01",
+    "pages": 8,
+    "expected_sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+    "equipment_observations_imported": 564,
+    "technical_values_status": "deferred_until_repository_source_artifact_is_available_and_verified"
+  },
+  "verification": {
+    "repository_presence": "confirmed",
+    "pdf_page_count": "not independently checked from uploaded bytes in this session",
+    "sha256_match": "not verified",
+    "equivalence_to_registered_source": "not established by Git blob SHA; Git blob SHA is not a SHA-256 checksum of the raw PDF",
+    "content_reconciliation": "not performed from uploaded PDF bytes"
+  },
+  "decision": {
+    "do_not_substitute_20260703_for_20261001": true,
+    "do_not_treat_git_blob_sha_as_sha256": true,
+    "do_not_infer_newer_technical_values_from_older_brochure": true,
+    "do_not_mutate_master_data": true,
+    "do_not_mark_bigster_brochure_fully_assimilated": true
+  },
+  "resume_stage": "Obtain a readable copy of the uploaded PDF from a supported byte-reading path or provide a local SHA-256/page-count check; verify the expected checksum; then reconcile the eight-page October price list and all supported brochure facts against existing import specifications and master data.",
+  "evidence_boundary": "The repository now contains an uploaded file named bigster-price.pdf at PDF/Cenniki/bigster-price.pdf. Presence is confirmed from GitHub tree and commit metadata. The expected canonical filename and registered SHA-256 have not been verified, so the file is not yet accepted as the exact registered source artifact."
+}
