@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "kind": "configurator_pdf_unhandled_technical_label_residual_audit",
+  "package_id": "configurator_pdf_unhandled_technical_label_residual_audit_001",
+  "reviewed_on": "2026-10-14",
+  "source_ledger": "project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json",
+  "prior_import_report": "data/reporting/dacia_configurator_pdf_canonical_import_20260809.json",
+  "technical_deferral_report": "data/reporting/configurator_pdf_source_stated_technical_field_deferral_reconciliation_20261013.json",
+  "standing_400m_reconciliation": "data/reporting/configurator_pdf_standing_400m_reconciliation_20261014.json",
+  "source_scope": {
+    "documents": 70,
+    "label": "400 m ze startu zatrzymanego (s)",
+    "page": 5,
+    "candidate_lines": 43,
+    "numeric_candidates": 40,
+    "explicit_non_numeric_markers": 3
+  },
+  "documentary_cross_check": {
+    "bigster_current_price_list": {
+      "source_code": "src_pl_bigster_price_my26_20261001",
+      "document_date": "2026-10-01",
+      "report": "data/reporting/bigster_price_list_20261001_reconciliation_001.json",
+      "technical_page": 6,
+      "observed_performance_field": "1000 m ze startu zatrzymanego (s)",
+      "decision": "Do not substitute 1000 m data for the separate 400 m field; no 400 m value is inferred from this cennik."
+    },
+    "general_policy": "Official dated price lists and brochures remain primary for historical product facts. Configurator-PDF 400 m observations are retained only where exact configuration/source/date matching confirms existing data; no cross-source or cross-configuration projection is allowed."
+  },
+  "counts": {
+    "candidate_lines": 43,
+    "numeric_candidates": 40,
+    "exact_existing_observations": 40,
+    "numerically_equivalent_display_variants": 7,
+    "new_master_rows": 0,
+    "nd_non_observations": 3,
+    "remaining_deferred_before": 170,
+    "remaining_deferred_after": 130,
+    "unhandled_label_deferrals_after": 0,
+    "configuration_value_rows_after": 8186,
+    "total_master_rows_after": 21249
+  },
+  "decisions": [
+    {
+      "decision": "Exact coverage",
+      "detail": "Each of the 40 numeric 400 m candidates matches exactly one existing master observation for its configuration, source and 2026-08-09 observation date."
+    },
+    {
+      "decision": "Numeric display normalization",
+      "detail": "Seven values stored as 17.0 are equivalent to source text 17,0; do not create duplicate semantic keys."
+    },
+    {
+      "decision": "Explicit nd markers",
+      "detail": "Three nd markers remain non-observations and are not coerced to zero or imported as numeric values."
+    },
+    {
+      "decision": "Residual counter correction",
+      "detail": "The 43-line technical:unhandled_label category is closed. Only the 40 numeric candidates reduce the 170 deferred-observation count to 130; the three nd markers remain documented non-observations."
+    }
+  ],
+  "acceptance": [
+    "All 43 original unhandled-label candidate lines are accounted for.",
+    "All 40 numeric candidates have one exact existing master match.",
+    "All three nd markers remain non-observations.",
+    "No master rows are added and current master counters remain unchanged.",
+    "The source-priority rule is preserved; the Bigster 1000 m field is not substituted for 400 m."
+  ]
+}

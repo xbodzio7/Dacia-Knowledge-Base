@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Closed the 43-line configurator-PDF `400 m ze startu zatrzymanego` residual: 40 numeric candidates match existing exact observations, seven `17.0`/`17,0` displays are equivalent, and three `nd` markers remain non-observations. The deferred-observation count is corrected from 170 to 130; no master rows were added.
+
 * Classified all 10 remaining configurator-PDF roof-height-with-rails deferrals: kept seven base Sandero configurations separate from the explicit `1586 (Stepway)` statement, and preserved three Spring `b.d.` markers as non-observations. No master rows were added.
 
 * Reconciled 52 layout-dependent height candidates from saved configurator PDFs: confirmed 22 exact Jogger 5-seat/7-seat values, removed 16 ambiguous Duster `2092` scalar projections while preserving the source-stated literals, and kept 14 Bigster paired heights contextual because roof-rail state is not selected by the exact configuration. No new master rows were added; the master lost 16 unsafe scalar rows.
