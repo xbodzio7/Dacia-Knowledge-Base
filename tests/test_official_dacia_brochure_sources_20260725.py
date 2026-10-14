@@ -179,6 +179,28 @@ class OfficialDaciaBrochureSources20260725Tests(unittest.TestCase):
         self.assertGreaterEqual(state["baseline"]["configuration_import_specs"], 114)
         self.assertEqual(state["current_package"]["status"], "complete")
         self.assertTrue(state["next_package"]["name"])
+        portfolio = json.loads(
+            (REPOSITORY / "data" / "reporting" / "official_dacia_brochure_portfolio_coverage_reconciliation_20261014.json").read_text(encoding="utf-8")
+        )
+        portfolio_sources = portfolio["source_records"]
+        self.assertEqual(len(portfolio_sources), 6)
+        self.assertEqual(portfolio["coverage_summary"]["fully_assimilated"], 0)
+        self.assertEqual(portfolio["coverage_summary"]["partial_review"], 6)
+        self.assertEqual(portfolio["coverage_summary"]["master_rows_added"], 0)
+        current_sources = {row["code"]: row for row in rows("sources.csv")}
+        for item in portfolio_sources:
+            with self.subTest(portfolio_source=item["source_code"]):
+                source = current_sources[item["source_code"]]
+                self.assertEqual(item["file_path"], source["file_path"])
+                self.assertEqual(item["sha256"], source["sha256"])
+                self.assertEqual(item["official_download_url"], source["external_reference"])
+                self.assertEqual(item["coverage_status"], "partial_review")
+                path = REPOSITORY / source["file_path"]
+                self.assertTrue(path.is_file())
+                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), source["sha256"])
+        self.assertEqual(portfolio["legacy_receipt_scope"]["source_count"], 5)
+        self.assertEqual(portfolio["future_source_candidates"][0]["model_name"], "Striker")
+        self.assertEqual(portfolio["next_package"]["package_id"], "official_bigster_brochure_full_assimilation_20261014_001")
 
 
 if __name__ == "__main__":
