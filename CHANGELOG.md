@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Reconciled 40 source-stated 400 m standing-start candidates across 70 saved configurator PDFs: retained 33 exact observations, imported only 7 missing numeric values, normalized equivalent `17.0`/`17,0` representations without duplicating the semantic key, and preserved three `nd` markers as non-observations.
+* Reconciled 40 source-stated 400 m standing-start candidates across 70 saved configurator PDFs: confirmed all 40 numeric candidates were already covered, normalized seven equivalent `17.0`/`17,0` representations, and imported zero new master rows, and preserved three `nd` markers as non-observations.
 
 * Reconciled 210 source-stated body-style, technical-type-code and gearbox-description observations across 70 saved configurator PDFs against exact existing master rows; no duplicate data was added, the importer now recognizes these mappings, and the remaining 170 technical deferrals stay explicit.
 
@@ -327,9 +327,9 @@ All notable changes to this project will be documented in this file.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
 * The automated test suite now contains 1947 tests.
-* The verified master-data baseline now contains 48 CSV files and 21272 rows.
-* SQLite verification now covers 48 tables and 21272 rows.
-* Configuration attribute values now contain 8209 dated records.
+* The verified master-data baseline now contains 48 CSV files and 21265 rows.
+* SQLite verification now covers 48 tables and 21265 rows.
+* Configuration attribute values now contain 8202 dated records.
 * Declarative scalar configuration-value imports now contain 161 versioned JSON specifications.
 * Configuration value ranges now contain 441 dated records from 24 range specifications.
 * The canonical catalogue now contains 416 attributes in 30 categories.

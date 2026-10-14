@@ -13,23 +13,15 @@
     "source_documents": 70,
     "candidate_observations": 43,
     "numeric_candidates": 40,
-    "exact_existing_source_observations": 33,
-    "new_master_rows": 7,
+    "exact_existing_source_observations": 40,
+    "new_master_rows": 0,
     "non_numeric_markers": 3,
     "remaining_deferred_before": 170,
     "remaining_deferred_after": 130,
-    "master_configuration_value_rows_after": 8209,
-    "master_total_rows_after": 21272
+    "master_configuration_value_rows_after": 8202,
+    "master_total_rows_after": 21265
   },
-  "new_master_record_ids": [
-    8203,
-    8204,
-    8205,
-    8206,
-    8207,
-    8208,
-    8209
-  ],
+  "new_master_record_ids": [],
   "non_numeric_decisions": [
     {
       "marker": "nd",
@@ -46,15 +38,15 @@
     "no_duplicate_exact_observations": true
   },
   "acceptance": [
-    "All 40 numeric source candidates resolve through exact existing observations or a single exact master row.",
-    "Seven previously missing numeric observations are added with source, date, configuration, page and literal text.",
-    "Three nd markers remain non-observations.",
-    "The importer handles the source label on reruns without duplicate rows."
+    "All 40 numeric source candidates resolve to exactly one existing master observation for the exact configuration, source and date, normalizing equivalent numeric displays.",
+    "No new master rows are required; no duplicate semantic keys are introduced.",
+    "Three nd markers remain explicit non-observations.",
+    "The importer recognizes the source label and rerun validation does not create duplicate observations."
   ],
   "decisions": [
     {
       "decision": "Numeric display normalization",
-      "detail": "The source prints 17,0 while an existing exact row stores 17.0. These are the same source value; retain the existing row and compare normalized numeric text to avoid duplicate semantic keys."
+      "detail": "All 40 numeric candidates already exist with exact configuration, source and date. Seven Bigster values are stored as 17.0 while the source prints 17,0; they are semantically equivalent and must not be duplicated."
     }
   ]
 }

@@ -25,8 +25,8 @@
 
 - Tests: 1947
 - Master CSV files: 48
-- Master rows: 21272
-- Configuration values: 8209
+- Master rows: 21265
+- Configuration values: 8202
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
@@ -38,7 +38,7 @@
 
 **Configurator PDF Standing 400 m Technical Reconciliation** — `complete`
 
-Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 33 exact existing observations (including numerically equivalent 17.0/17,0 formatting), import only seven missing numeric values, and preserve three explicit nd markers as non-observations.
+Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse all 40 existing observations (including seven numerically equivalent 17.0/17,0 displays), add zero master rows, and preserve three explicit nd markers as non-observations.
 
 ## Next package
 
