@@ -31,7 +31,7 @@
     "kind": "configurator_pdf_technical_value_reconciliation",
     "name": "Configurator PDF Standing 400 m Technical Reconciliation",
     "status": "complete",
-    "goal": "Reconcile source-stated 400 m standing-start times across 70 exact official configurator PDF records: all 40 numeric candidates already have exact configuration/source/date observations, including seven numerically equivalent 17.0/17,0 displays; add zero master rows and preserve three explicit nd markers as non-observations."
+    "goal": "Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse all 40 existing observations (including seven numerically equivalent 17.0/17,0 displays), add zero master rows, and preserve three explicit nd markers as non-observations."
   },
   "next_package": {
     "package_id": "configurator_pdf_layout_dependent_height_reconciliation_001",
