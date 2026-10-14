@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-10-13",
+  "updated_on": "2026-10-14",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1946,
+    "tests": 1947,
     "csv_files": 48,
     "rows": 21265,
     "configuration_values": 8202,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_price_list_equipment_matrix_025",
-    "kind": "official_price_list_equipment_matrix_reconciliation",
-    "name": "Jogger 03.07.2026 Official Price List Equipment Matrix Reconciliation",
+    "package_id": "configurator_pdf_standing_400m_reconciliation_001",
+    "kind": "configurator_pdf_technical_value_reconciliation",
+    "name": "Configurator PDF Standing 400 m Technical Reconciliation",
     "status": "complete",
-    "goal": "Reconcile the full standard-equipment matrix for all 22 Jogger 5-seat and 7-seat catalogue configurations against the official price list effective 2026-07-03, preserving grade, seat-count and powertrain boundaries without configurator-derived inference."
+    "goal": "Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse all 40 existing observations (including seven numerically equivalent 17.0/17,0 displays), add zero master rows, and preserve three explicit nd markers as non-observations."
   },
   "next_package": {
-    "package_id": "duster_price_list_20261001_reconciliation_001",
-    "kind": "full_documentary_matrix_reconciliation",
-    "name": "Duster 01.10.2026 Price List Matrix Reconciliation",
+    "package_id": "configurator_pdf_layout_dependent_height_reconciliation_001",
+    "kind": "configurator_pdf_technical_value_reconciliation",
+    "name": "Configurator PDF Seat-Layout-Dependent Height Reconciliation",
     "status": "planned",
-    "goal": "Assimilate the complete 01.10.2026 Duster price list and reconcile current catalogue prices, equipment, packages and technical data before any configurator use."
+    "goal": "Resolve the 52 source-stated overall-height candidates only where the exact 5-seat/7-seat configuration determines the printed value; preserve source context and never project a value across seat layouts."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

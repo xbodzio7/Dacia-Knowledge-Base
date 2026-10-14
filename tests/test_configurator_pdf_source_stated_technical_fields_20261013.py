@@ -30,10 +30,54 @@ class ConfiguratorPdfSourceStatedTechnicalFieldsTest(unittest.TestCase):
                         and row["attribute_code"] == attribute
                         and row["observation_date"] == "2026-08-09"
                         and row["source_code"] == doc["source_code"]
-                        and row["value"] == expected_value
+                        and (row["value"].strip().replace(",", ".").rstrip("0").rstrip(".") if "." in row["value"].strip().replace(",", ".") else row["value"].strip()) == expected_value
                     ]
                     self.assertEqual(len(matches), 1, (doc["configuration_code"], attribute, raw))
                     self.assertIn(raw, matches[0]["notes"])
+
+    def test_standing_400m_values_are_exact_and_non_numeric_markers_are_not_imported(self):
+        ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
+        with MASTER.open(encoding="utf-8-sig", newline="") as handle:
+            values = list(csv.DictReader(handle))
+        candidates = []
+        non_numeric = []
+        for doc in ledger["documents"]:
+            for page in doc["pages_ledger"]:
+                if "technical" not in page["sections"]:
+                    continue
+                for line in page["text"].splitlines():
+                    raw = " ".join(line.split())
+                    if not raw.startswith("400 m ze startu zatrzymanego (s) "):
+                        continue
+                    value = raw[len("400 m ze startu zatrzymanego (s) "):].strip().replace(",", ".")
+                    if value.replace(".", "", 1).isdigit():
+                        normalized = value.rstrip("0").rstrip(".") if "." in value else value
+                        candidates.append((doc, raw, normalized))
+                    else:
+                        non_numeric.append((doc, raw, value))
+        self.assertEqual(len(candidates), 40)
+        self.assertEqual(len(non_numeric), 3)
+        for doc, raw, expected_value in candidates:
+            matches = [
+                row for row in values
+                if row["configuration_code"] == doc["configuration_code"]
+                and row["attribute_code"] == "standing_400m"
+                and row["observation_date"] == "2026-08-09"
+                and row["source_code"] == doc["source_code"]
+                and (row["value"].strip().replace(",", ".").rstrip("0").rstrip(".") if "." in row["value"].strip().replace(",", ".") else row["value"].strip()) == expected_value
+            ]
+            self.assertEqual(len(matches), 1, (doc["configuration_code"], raw))
+            self.assertIn(raw, matches[0]["notes"])
+        for doc, raw, marker in non_numeric:
+            self.assertEqual(marker.casefold(), "nd")
+            matches = [
+                row for row in values
+                if row["configuration_code"] == doc["configuration_code"]
+                and row["attribute_code"] == "standing_400m"
+                and row["observation_date"] == "2026-08-09"
+                and row["source_code"] == doc["source_code"]
+            ]
+            self.assertEqual(matches, [], (doc["configuration_code"], raw))
 
 if __name__ == "__main__":
     unittest.main()
