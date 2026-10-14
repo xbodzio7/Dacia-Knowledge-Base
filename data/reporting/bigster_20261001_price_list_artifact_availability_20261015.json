@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "kind": "bigster_20261001_price_list_artifact_availability",
+  "reviewed_on": "2026-10-15",
+  "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+  "status": "blocked_missing_repository_backed_price_list_bytes",
+  "repository": {
+    "default_branch": "main",
+    "verified_main_sha": "681b512190cabb9dcf6eaa673c12c05306bc65ab",
+    "checked_directory": "PDF/Cenniki",
+    "checked_exact_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
+    "exact_path_lookup": "404_not_found",
+    "present_comparison_artifact": {
+      "path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20260703.pdf",
+      "size_bytes": 1952163,
+      "git_blob_sha": "5bb7f0017817b680683469703dc01cffd0a25cc2"
+    }
+  },
+  "registered_20261001_source": {
+    "source_code": "src_pl_bigster_price_my26_20261001",
+    "document_date": "2026-10-01",
+    "pages": 8,
+    "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+    "equipment_observations_imported": 564,
+    "technical_values_status": "deferred_until_repository_source_artifact_is_available"
+  },
+  "decision": {
+    "do_not_substitute_20260703_for_20261001": true,
+    "do_not_infer_newer_technical_values_from_older_brochure": true,
+    "do_not_mutate_master_data": true,
+    "do_not_mark_bigster_brochure_fully_assimilated": true
+  },
+  "required_resume_condition": "Make the exact 2026-10-01 price-list PDF bytes available at a repository-backed path matching the registered source receipt, then verify SHA-256 and reconcile all candidate brochure facts against that dated source, import specifications and master data.",
+  "evidence_boundary": "This report verifies that the exact expected repository path is absent from main and that the repository currently contains the 2026-07-03 Bigster price-list PDF. It does not claim that the user-uploaded PDF is incorrect or that its bytes are unavailable outside the repository."
+}
