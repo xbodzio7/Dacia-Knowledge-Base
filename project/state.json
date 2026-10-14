@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_pdf_roof_height_with_rails_context_reconciliation_001",
-    "kind": "configurator_pdf_technical_value_reconciliation",
-    "name": "Configurator PDF Roof-Height With Rails Context Reconciliation",
-    "status": "complete",
-    "goal": "Classify all 10 remaining roof-height-with-rails deferrals: do not project the explicit Stepway-only 1586 value onto seven base Sandero configurations, and preserve three Spring b.d. markers as non-observations."
-  },
-  "next_package": {
     "package_id": "configurator_pdf_unhandled_technical_label_residual_audit_001",
     "kind": "configurator_pdf_technical_residual_audit",
     "name": "Configurator PDF Unhandled Technical Label Residual Audit",
+    "status": "complete",
+    "goal": "Close all 43 original technical:unhandled_label candidates: 40 numeric 400 m observations match exact existing configuration/source/date records (including seven equivalent 17.0/17,0 displays), three nd markers remain non-observations, and no master rows are added."
+  },
+  "next_package": {
+    "package_id": "official_dacia_brochure_portfolio_coverage_reconciliation_20261014_001",
+    "kind": "official_brochure_source_coverage_reconciliation",
+    "name": "Official Dacia Brochure Portfolio Coverage Reconciliation",
     "status": "planned",
-    "goal": "Review the 43 remaining unhandled technical labels against current official Dacia price lists and brochures first; import only exact, source-backed mappings and preserve ambiguous or non-scalar text."
+    "goal": "Reconcile coverage states for the six registered official Polish-market brochures against current master data and existing import specifications before resuming configurator gap work; classify every supported fact as imported, already represented, deferred with reason, contradictory, superseded, or out of scope."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

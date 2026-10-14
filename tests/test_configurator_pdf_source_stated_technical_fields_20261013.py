@@ -6,6 +6,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json"
 MASTER = ROOT / "data/master/configuration_attribute_values.csv"
+RECONCILIATION = ROOT / "data/reporting/configurator_pdf_standing_400m_reconciliation_20261014.json"
+DEFERRAL_REPORT = ROOT / "data/reporting/configurator_pdf_source_stated_technical_field_deferral_reconciliation_20261013.json"
+RESIDUAL_AUDIT = ROOT / "data/reporting/configurator_pdf_unhandled_technical_label_residual_audit_20261014.json"
 
 class ConfiguratorPdfSourceStatedTechnicalFieldsTest(unittest.TestCase):
     def test_all_210_observations_are_already_exactly_covered(self):
@@ -78,6 +81,18 @@ class ConfiguratorPdfSourceStatedTechnicalFieldsTest(unittest.TestCase):
                 and row["source_code"] == doc["source_code"]
             ]
             self.assertEqual(matches, [], (doc["configuration_code"], raw))
+        receipt = json.loads(RECONCILIATION.read_text(encoding="utf-8"))
+        audit = json.loads(RESIDUAL_AUDIT.read_text(encoding="utf-8"))
+        deferrals = json.loads(DEFERRAL_REPORT.read_text(encoding="utf-8"))
+        self.assertEqual(receipt["counts"]["numeric_candidates"], 40)
+        self.assertEqual(receipt["counts"]["exact_existing_source_observations"], 40)
+        self.assertEqual(receipt["counts"]["new_master_rows"], 0)
+        self.assertEqual(receipt["counts"]["non_numeric_markers"], 3)
+        self.assertEqual(audit["counts"]["candidate_lines"], 43)
+        self.assertEqual(audit["counts"]["remaining_deferred_after"], 130)
+        self.assertEqual(audit["counts"]["unhandled_label_deferrals_after"], 0)
+        self.assertEqual(deferrals["summary"]["remaining_deferred_observations"], 130)
+        self.assertEqual(deferrals["remaining_deferred_by_reason"]["technical:unhandled_label"], 0)
 
     def test_layout_dependent_height_candidates_are_reconciled_without_ambiguous_scalar_projection(self):
         ledger = json.loads(LEDGER.read_text(encoding="utf-8"))

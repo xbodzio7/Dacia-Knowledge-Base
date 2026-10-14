@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configurator PDF Roof-Height With Rails Context Reconciliation** — `complete`
+**Configurator PDF Unhandled Technical Label Residual Audit** — `complete`
 
-Classify all 10 remaining roof-height-with-rails deferrals: do not project the explicit Stepway-only 1586 value onto seven base Sandero configurations, and preserve three Spring b.d. markers as non-observations.
+Close all 43 original technical:unhandled_label candidates: 40 numeric 400 m observations match exact existing configuration/source/date records (including seven equivalent 17.0/17,0 displays), three nd markers remain non-observations, and no master rows are added.
 
 ## Next package
 
-**Configurator PDF Unhandled Technical Label Residual Audit** — `planned`
+**Official Dacia Brochure Portfolio Coverage Reconciliation** — `planned`
 
-Review the 43 remaining unhandled technical labels against current official Dacia price lists and brochures first; import only exact, source-backed mappings and preserve ambiguous or non-scalar text.
+Reconcile coverage states for the six registered official Polish-market brochures against current master data and existing import specifications before resuming configurator gap work; classify every supported fact as imported, already represented, deferred with reason, contradictory, superseded, or out of scope.
 
 ## Autonomy
 

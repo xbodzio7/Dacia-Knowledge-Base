@@ -10,7 +10,7 @@
     "exact_existing_master_observations": 210,
     "new_master_rows": 0,
     "former_deferrals_closed": 210,
-    "remaining_deferred_observations": 170
+    "remaining_deferred_observations": 130
   },
   "policy": {
     "exact_source_text_required": true,
@@ -57,6 +57,6 @@
     "technical:power_complex": 9,
     "technical:torque_multicomponent": 32,
     "technical:traction_battery_capacity_unqualified": 3,
-    "technical:unhandled_label": 43
+    "technical:unhandled_label": 0
   }
 }
