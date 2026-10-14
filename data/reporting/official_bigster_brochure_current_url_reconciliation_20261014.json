@@ -25,7 +25,24 @@
     "extracted_text_line_count_each": 1113,
     "extracted_text_matches_at_reviewed_lines_and_sections": true,
     "rendered_pages_visually_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
       14,
+      15,
+      16,
+      17,
+      18,
       19,
       20,
       21,
@@ -35,7 +52,17 @@
     ],
     "binary_sha256_comparison": "not_performed",
     "binary_byte_identity": "not_claimed",
-    "conclusion": "The current official endpoint exposes the same 24-page document content as the registered endpoint at text-extraction level. Do not register a second source or mutate master data solely because the URL token changed. Exact binary identity remains unverified."
+    "conclusion": "The current official endpoint has full 24-page extracted-text and rendered-page review. The registered endpoint has matching extracted text at the reviewed sections and selected visual cross-checks, but byte identity remains unverified. Do not register a second source or mutate master data solely because the URL token changed. Source-to-master reconciliation against the 2026-10-01 price list remains open.",
+    "current_endpoint_rendered_review": "all 24 pages visually reviewed on 2026-10-14",
+    "registered_endpoint_visual_cross_check_pages": [
+      14,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
   },
   "existing_assimilation_evidence": {
     "technical_source_to_master_reconciliation": "data/reporting/bigster_documentary_technical_reconciliation_001.json",
@@ -62,10 +89,10 @@
     "reason": "The current brochure URL content is not shown to introduce a new source document; prior technical, cargo and equipment-matrix work already covers the registered brochure. Binary identity and any genuinely new source content must be established before further import."
   },
   "remaining_work": [
-    "Obtain or compute the current endpoint PDF's exact SHA-256 and compare it to the registered 2025 brochure hash.",
-    "Finish full visual review of any pages not already covered by archived page-level reviews; selected renders in this review do not constitute an all-pages visual audit.",
-    "If binary/text content differs, isolate only the changed pages and compare exact facts against the 2026-10-01 price list and existing master records.",
-    "Do not duplicate prior imports or resolve historical source conflicts by overwriting observations.",
-    "Keep the canonical package planned/in progress until the identity and full-coverage gates are met."
+    "Verify exact binary SHA-256 of the current official endpoint and compare it with the registered repository PDF hash.",
+    "Reconcile each candidate fact on pages 14–23 against the 2026-10-01 official price-list source artifact, current source registry, exact import specifications, master observations, availability records and attribute definitions.",
+    "Record existing/duplicate, superseded, conflict, non-importable and exact-gap outcomes separately.",
+    "Import only exact unsuperseded gaps with source pages, applicability and import/check tests.",
+    "Update canonical state, reports and generated documentation only after source identity, source-to-master reconciliation and quality gates pass."
   ]
 }
