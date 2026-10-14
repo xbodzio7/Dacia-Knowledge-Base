@@ -50,3 +50,8 @@ id,code,name,item_type,observation_date,source_code,status,notes
 49,sandero_stepway_colour_zolty_amber,żółty amber,option,2026-08-09,src_pl_sandero_stepway_exact_configurator_states_20260809,active,Exact current selectable exterior colour; applicability is recorded per configuration without cross-grade projection.
 50,sandero_media_display_package,Pakiet MEDIA DISPLAY,package,2026-08-09,src_pl_sandero_stepway_exact_configurator_states_20260809,active,Exact current Stepway Essential factory package (source code PCU20).
 51,duster_techno_2_package,Pakiet TECHNO 2,package,2026-09-20,dacia_catalog_20260920_duster_extreme_tribrid150_4x4,active,"Current official Dacia NCI exact-vehicle evidence names Pakiet TECHNO 2 on an Extreme tribrid 150 4x4; no price inferred from the exact-vehicle page."
+52,duster_spare_wheel_option,Koło zapasowe dojazdowe,option,2026-07-03,src_pl_duster_price_my26_20260703,active,"Space saver 135/80 R17; unavailable with LPG; 800 PLN in Expression/Extreme/Journey."
+53,duster_18inch_wheel_option,Felgi aluminiowe 18 TAGASAN,option,2026-07-03,src_pl_duster_price_my26_20260703,active,"Optional for Duster Extreme at 1000 PLN; Journey standard."
+54,jogger_spare_wheel_option,Koło zapasowe,option,2026-07-03,src_pl_jogger_price_my26_20260703,active,"700 PLN where offered; unavailable for Eco-G and hybrid 155; Journey has no spare-wheel price entry."
+55,bigster_19inch_wheel_option,Felgi aluminiowe 19 RASAN,option,2026-07-03,src_pl_bigster_price_my26_20260703,active,"Optional for Bigster Journey at 1200 PLN."
+56,bigster_spare_wheel_option,Koło zapasowe dojazdowe,option,2026-07-03,src_pl_bigster_price_my26_20260703,active,"800 PLN across grade columns; printed powertrain applicability wording preserved in source audit."
