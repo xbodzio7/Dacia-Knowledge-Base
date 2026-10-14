@@ -38,7 +38,7 @@
 
 **Configurator PDF Standing 400 m Technical Reconciliation** — `complete`
 
-Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 32 exact existing observations (including numerically equivalent 17.0/17,0 formatting), import only eight missing numeric values, and preserve three explicit nd markers as non-observations.
+Reconcile source-stated 400 m standing-start times across the 70 exact official configurator PDF records, reuse 33 exact existing observations (including numerically equivalent 17.0/17,0 formatting), import only seven missing numeric values, and preserve three explicit nd markers as non-observations.
 
 ## Next package
 
