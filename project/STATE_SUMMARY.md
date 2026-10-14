@@ -38,14 +38,13 @@
 
 **Configurator PDF Seat-Layout-Dependent Height Reconciliation** — `complete`
 
-Reconciled 52 source-stated height candidates: retained 22 exact Jogger seat-layout values, removed 16 ambiguous Duster 2092 scalar projections while preserving literal source statements, and retained 14 Bigster rail-dependent height pairs without scalar projection.
+Reconcile all 52 source-stated overall-height candidates: retain exact numeric values for 22 Jogger 5-seat/7-seat configurations, remove 16 ambiguous Duster 2092 scalar projections while preserving their literal source observations, and preserve 14 Bigster rail-dependent height pairs without projecting a scalar.
 
 ## Next package
 
 **Configurator PDF Roof-Height With Rails Context Reconciliation** — `planned`
 
 Reconcile the 10 remaining roof-height-with-rails deferrals against exact configuration and dated documentary coverage; preserve ambiguous or inapplicable source context and do not project values.
-
 
 ## Autonomy
 
