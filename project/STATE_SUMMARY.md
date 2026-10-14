@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Dacia Current Configurator PDF Portfolio Assimilation**
+**Dacia Current Official Documentary Source Assimilation**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Configurator PDF Unhandled Technical Label Residual Audit** — `complete`
+**Official Dacia Brochure Portfolio Coverage Reconciliation** — `complete`
 
-Close all 43 original technical:unhandled_label candidates: 40 numeric 400 m observations match exact existing configuration/source/date records (including seven equivalent 17.0/17,0 displays), three nd markers remain non-observations, and no master rows are added.
+Reconcile all six registered Polish-market brochure sources against current official download links, repository hashes, existing imports and current master data. Keep all six in partial_review until full page-by-page and source-to-master reconciliation is demonstrated; no master rows are added.
 
 ## Next package
 
-**Official Dacia Brochure Portfolio Coverage Reconciliation** — `planned`
+**Official Bigster Brochure Full Assimilation** — `planned`
 
-Reconcile coverage states for the six registered official Polish-market brochures against current master data and existing import specifications before resuming configurator gap work; classify every supported fact as imported, already represented, deferred with reason, contradictory, superseded, or out of scope.
+Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 
 ## Autonomy
 

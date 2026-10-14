@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Dacia Current Configurator PDF Portfolio Assimilation",
+  "phase": "Dacia Current Official Documentary Source Assimilation",
   "reference_delivery": {
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "configurator_pdf_unhandled_technical_label_residual_audit_001",
-    "kind": "configurator_pdf_technical_residual_audit",
-    "name": "Configurator PDF Unhandled Technical Label Residual Audit",
-    "status": "complete",
-    "goal": "Close all 43 original technical:unhandled_label candidates: 40 numeric 400 m observations match exact existing configuration/source/date records (including seven equivalent 17.0/17,0 displays), three nd markers remain non-observations, and no master rows are added."
-  },
-  "next_package": {
     "package_id": "official_dacia_brochure_portfolio_coverage_reconciliation_20261014_001",
     "kind": "official_brochure_source_coverage_reconciliation",
     "name": "Official Dacia Brochure Portfolio Coverage Reconciliation",
+    "status": "complete",
+    "goal": "Reconcile all six registered Polish-market brochure sources against current official download links, repository hashes, existing imports and current master data. Keep all six in partial_review until full page-by-page and source-to-master reconciliation is demonstrated; no master rows are added."
+  },
+  "next_package": {
+    "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+    "kind": "official_brochure_full_source_assimilation",
+    "name": "Official Bigster Brochure Full Assimilation",
     "status": "planned",
-    "goal": "Reconcile coverage states for the six registered official Polish-market brochures against current master data and existing import specifications before resuming configurator gap work; classify every supported fact as imported, already represented, deferred with reason, contradictory, superseded, or out of scope."
+    "goal": "Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
