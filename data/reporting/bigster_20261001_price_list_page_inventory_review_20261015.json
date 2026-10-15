@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "kind": "bigster_20261001_price_list_page_inventory_review",
+  "reviewed_on": "2026-10-15",
+  "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+  "status": "partial_review_text_extracted_all_pages",
+  "source": {
+    "source_code": "src_pl_bigster_price_my26_20261001",
+    "document_date": "2026-10-01",
+    "pages": 8,
+    "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+    "attachment_name": "DACIA BIGSTER cennik MY26 20261001(1).pdf",
+    "size_bytes": 2015910
+  },
+  "pages": [
+    {
+      "page": 1,
+      "content": [
+        "catalogue prices by powertrain and trim",
+        "commercial financing/discount statements",
+        "effective date 2026-10-01"
+      ],
+      "status": "text_reviewed",
+      "notes": [
+        "Prices visible: mild hybrid-G 140 essential 101400, expression 110400, extreme 118900, journey 118500 PLN; auto expression 115600, extreme 124100, journey 123700 PLN; hybrid 155 expression 124900, extreme 133400, journey 133000 PLN; tribrid 150 4x4 expression 128900, extreme 137600, journey 137200 PLN."
+      ]
+    },
+    {
+      "page": 2,
+      "content": [
+        "technology and ergonomics",
+        "comfort",
+        "functionality and luggage capacity",
+        "space"
+      ],
+      "status": "text_reviewed",
+      "notes": [
+        "Narrative includes screen sizes, selected seat features, cargo capacity up to 702 litres (667 dm3 VDA), powered tailgate. These claims require applicability/scope matching before import."
+      ]
+    },
+    {
+      "page": 3,
+      "content": [
+        "equipment summaries for essential, expression, extreme and journey"
+      ],
+      "status": "text_reviewed",
+      "notes": [
+        "Marketing summary; detailed equipment matrix on pages 4-5 remains authoritative for exact trim/package coding."
+      ]
+    },
+    {
+      "page": 4,
+      "content": [
+        "exterior appearance",
+        "seats and interior trim",
+        "active and passive safety",
+        "visibility"
+      ],
+      "status": "text_reviewed_layout_review_pending",
+      "notes": [
+        "Matrix uses ●, -, option/package codes P1-P4 and explicit powertrain scope; exact interpretation needs rendered visual/layout validation and comparison with 564 existing observations."
+      ]
+    },
+    {
+      "page": 5,
+      "content": [
+        "driving and control systems",
+        "comfort",
+        "remaining equipment matrix"
+      ],
+      "status": "text_reviewed_layout_review_pending",
+      "notes": [
+        "Adaptive cruise, front/side parking sensors, Multiview camera, heated equipment and powered tailgate include powertrain/trim-scoped values and P codes."
+      ]
+    },
+    {
+      "page": 6,
+      "content": [
+        "powertrain specifications",
+        "performance",
+        "fuel consumption and CO2",
+        "boot capacity",
+        "wheels and tyres",
+        "weights"
+      ],
+      "status": "text_reviewed_conflict_check_required",
+      "notes": [
+        "Contains 48V mild-hybrid and 200V full-hybrid labels; WLTP values, dimensions/tyres and weights. Compare every field against existing brochure observations and July source without overwriting conflicts."
+      ]
+    },
+    {
+      "page": 7,
+      "content": [
+        "Confidential C only in extracted text"
+      ],
+      "status": "text_reviewed_no_data_text_detected",
+      "notes": [
+        "No substantive extracted text beyond confidentiality marking; visual page check unavailable."
+      ]
+    },
+    {
+      "page": 8,
+      "content": [
+        "legal/commercial terms",
+        "discount and finance conditions",
+        "Dacia Zen conditions",
+        "offer date 2026-10-01"
+      ],
+      "status": "text_reviewed",
+      "notes": [
+        "Conditions are context-bound and should not be imported as vehicle configuration values."
+      ]
+    }
+  ],
+  "cross_checks": {
+    "existing_equipment_observations": 564,
+    "source_to_master_reconciliation": "not yet completed",
+    "technical_import_spec_generation": "not yet approved",
+    "rendered_page_images": "unavailable via current file reader",
+    "tests_and_quality": "not run; GitHub-only connector has no local execution in this session"
+  },
+  "decisions": {
+    "no_master_mutation": true,
+    "no_older_price_list_substitution": true,
+    "preserve_source_bound_conflicts": true,
+    "do_not_mark_source_fully_assimilated": true
+  },
+  "next_actions": [
+    "Read existing source import specs and all Bigster master rows to establish exact overlap/gaps.",
+    "Compare page 1 price rows and page 6 technical values against existing source-bound records.",
+    "Compare pages 4-5 matrix values against the 564 imported equipment observations and classify each exact row as covered, duplicate, gap, conflict or deferred.",
+    "Obtain rendered page images or equivalent trusted visual extraction for page 4-5 matrix alignment and page 7.",
+    "Run repository quality checks before considering a pull request."
+  ]
+}
