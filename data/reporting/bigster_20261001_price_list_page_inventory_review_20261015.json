@@ -117,19 +117,33 @@
     "source_to_master_reconciliation": "not yet completed",
     "technical_import_spec_generation": "not yet approved",
     "rendered_page_images": "unavailable via current file reader",
-    "tests_and_quality": "not run; GitHub-only connector has no local execution in this session"
+    "tests_and_quality": "GitHub Actions Quality workflow completed successfully for PR head 8e0559f132d362d009a7b6a7e55ab3bc22e85e78 (run 38748936123); repository-local checks not executed in this session.",
+    "pull_request": {
+      "number": 753,
+      "url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/753",
+      "state": "open",
+      "merged": false,
+      "head_sha": "8e0559f132d362d009a7b6a7e55ab3bc22e85e78",
+      "mergeable": true
+    },
+    "price_master_correction": {
+      "commit": "8e0559f132d362d009a7b6a7e55ab3bc22e85e78",
+      "status": "verified_against_page_1",
+      "details": "Automatic mild hybrid-G 140 prices corrected: Expression 115600 PLN, Extreme 124100 PLN, Journey 123700 PLN. Unsupported Essential automatic price remains absent."
+    }
   },
   "decisions": {
-    "no_master_mutation": true,
+    "no_master_mutation": false,
     "no_older_price_list_substitution": true,
     "preserve_source_bound_conflicts": true,
-    "do_not_mark_source_fully_assimilated": true
+    "do_not_mark_source_fully_assimilated": true,
+    "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
-    "Read existing source import specs and all Bigster master rows to establish exact overlap/gaps.",
-    "Compare page 1 price rows and page 6 technical values against existing source-bound records.",
-    "Compare pages 4-5 matrix values against the 564 imported equipment observations and classify each exact row as covered, duplicate, gap, conflict or deferred.",
-    "Obtain rendered page images or equivalent trusted visual extraction for page 4-5 matrix alignment and page 7.",
-    "Run repository quality checks before considering a pull request."
+    "Compare all existing source-bound page 6 technical records against page 6, including unit/scope and overlap checks; add no duplicates.",
+    "Compare pages 4-5 matrix values against the 564 existing equipment observations and classify exact row as covered, duplicate, gap, conflict or deferred.",
+    "Resolve glass_sunroof and P1-P4 normalization notes only after rendered page images or equivalent trusted visual extraction confirms column alignment.",
+    "Inspect page 7 visually; extracted text alone only found a confidentiality marker.",
+    "After source reconciliation, update canonical project state and run/check repository quality workflows before marking assimilation complete."
   ]
 }
