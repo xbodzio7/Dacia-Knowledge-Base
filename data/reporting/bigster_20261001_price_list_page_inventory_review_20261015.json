@@ -183,7 +183,50 @@
         "not_available": 53,
         "optional": 46
       },
-      "interpretation": "Counts confirmed from CSV. Rendered pages 4-5 have been visually inspected; row-by-row alignment and P1-P4 normalization are still pending."
+      "interpretation": "CSV audit confirms 564 rows = 6 configurations × 94 attributes, with no duplicate configuration_code + attribute_code keys; status counts are 465 standard, 53 not_available and 46 optional. 144 rows have non-direct normalization notes. Specific review flags are recorded below; they are deferred pending source-matrix comparison, and no equipment statuses were changed.",
+      "duplicate_configuration_attribute_keys": 0,
+      "rows_with_non_direct_normalization_notes": 144,
+      "normalization_note_pattern_counts": {
+        "printed Journey price normalized to optional.": 6,
+        "manual or electric height-adjustment capability.": 6,
+        "P3/P4 package marker normalized to optional.": 12,
+        "source explicitly limits availability to Hybrid 155.": 6,
+        "source text: wyłącznie dla wersji Extreme oraz 4x4.": 6,
+        "P2 package marker normalized to optional.": 6,
+        "second component of combined source row.": 6,
+        "source powertrain qualifier.": 6,
+        "P1/P2 package marker normalized to optional.": 12,
+        "automatic climate-control component.": 6,
+        "dual-zone component.": 6,
+        "rear-vent component.": 6,
+        "P1 marker normalized to optional for Expression.": 6,
+        "engine-start capability from combined row.": 6,
+        "P4 package marker normalized to optional.": 6,
+        "height component.": 6,
+        "reach component.": 6,
+        "60/40 or 40/20/40 capability.": 6,
+        "printed Extreme price normalized to optional.": 6,
+        "Media Display or Media Nav Live.": 6,
+        "printed Expression price normalized to optional.": 6,
+        "Media Nav Live component.": 6
+      },
+      "review_flags": [
+        {
+          "attribute_code": "glass_sunroof",
+          "finding": "All six records carry the same note 'printed Journey price normalized to optional', including Expression and Extreme rows whose stored statuses differ (not_available / standard / optional). The note does not explain the row-specific normalization and requires source-column review.",
+          "disposition": "defer; no status changes"
+        },
+        {
+          "attribute_code": "keyless_entry",
+          "finding": "All six records carry 'P1 marker normalized to optional for Expression', including Extreme and Journey records marked standard. The note is broader than the affected trim and requires clarification.",
+          "disposition": "defer; no status changes"
+        },
+        {
+          "attribute_code": "package_markers_P1_P4",
+          "finding": "144 rows have non-'direct row.' normalization notes, including package markers, combined rows and powertrain/trim qualifiers. These are not automatically errors; each note needs to remain traceable to the source matrix.",
+          "disposition": "row-by-row source reconciliation pending"
+        }
+      ]
     }
   },
   "decisions": {
