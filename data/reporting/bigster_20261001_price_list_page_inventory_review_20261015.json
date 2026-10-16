@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "bigster_20261001_price_list_page_inventory_review",
-  "reviewed_on": "2026-10-15",
+  "reviewed_on": "2026-10-16",
   "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
   "status": "partial_review_text_extracted_all_pages",
   "source": {
@@ -114,22 +114,70 @@
   ],
   "cross_checks": {
     "existing_equipment_observations": 564,
-    "source_to_master_reconciliation": "not yet completed",
+    "source_to_master_reconciliation": "partial_inventory_verified_2026-10-16",
     "technical_import_spec_generation": "not yet approved",
     "rendered_page_images": "unavailable via current file reader",
-    "tests_and_quality": "GitHub Actions Quality workflow completed successfully for PR head 8e0559f132d362d009a7b6a7e55ab3bc22e85e78 (run 38748936123); repository-local checks not executed in this session.",
+    "tests_and_quality": "The prior Quality workflow succeeded on earlier PR head 8e0559f132d362d009a7b6a7e55ab3bc22e85e78 (run 38748936123). Current PR head is 3c731efe041971d799005387a9d9320b2e3b22db; current-head checks must be checked separately. Repository-local checks were not executed in this session.",
     "pull_request": {
       "number": 753,
       "url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/753",
       "state": "open",
       "merged": false,
-      "head_sha": "8e0559f132d362d009a7b6a7e55ab3bc22e85e78",
+      "head_sha": "3c731efe041971d799005387a9d9320b2e3b22db",
       "mergeable": true
     },
     "price_master_correction": {
       "commit": "8e0559f132d362d009a7b6a7e55ab3bc22e85e78",
       "status": "verified_against_page_1",
       "details": "Automatic mild hybrid-G 140 prices corrected: Expression 115600 PLN, Extreme 124100 PLN, Journey 123700 PLN. Unsupported Essential automatic price remains absent."
+    },
+    "master_inventory_audit": {
+      "method": "Read data/master/configuration_attribute_values.csv through GitHub Contents API on the PR branch; filtered source_code=src_pl_bigster_price_my26_20261001.",
+      "master_configuration_value_rows": 8186,
+      "october_bigster_source_rows": 147,
+      "per_configuration_rows": {
+        "bigster_expression_mildhybridg140_4x2_automatic": 25,
+        "bigster_extreme_mildhybridg140_4x2_automatic": 25,
+        "bigster_journey_mildhybridg140_4x2_automatic": 25,
+        "bigster_expression_tribrid150_4x4_automatic": 24,
+        "bigster_extreme_tribrid150_4x4_automatic": 24,
+        "bigster_journey_tribrid150_4x4_automatic": 24
+      },
+      "attributes_present": {
+        "engine_displacement": 6,
+        "cylinder_count": 6,
+        "total_valve_count": 6,
+        "engine_power": 3,
+        "engine_torque": 6,
+        "max_power_rpm": 6,
+        "max_torque_rpm": 6,
+        "hybrid_battery_capacity_source_stated": 6,
+        "hybrid_system_voltage": 6,
+        "gear_count": 6,
+        "gearbox_type": 6,
+        "top_speed": 6,
+        "acceleration_0_100": 6,
+        "standing_km": 6,
+        "cargo_volume_without_spare_wheel_iso3832": 6,
+        "maximum_cargo_volume_iso3832": 6,
+        "minimum_kerb_weight": 6,
+        "gross_vehicle_weight": 6,
+        "braked_trailer_weight": 6,
+        "co2_emissions": 12,
+        "fuel_consumption_combined": 12,
+        "fuel_tank_capacity": 12
+      },
+      "interpretation": "Page-6-related source rows are already present in the master under the October 1 source code. This is an inventory/presence audit only, not a complete value-by-value reconciliation against the PDF or all pre-existing brochure records; it does not authorize duplicate inserts or conflict overwrites."
+    },
+    "equipment_inventory_audit": {
+      "file": "data/imports/bigster_equipment_availability_20261001.csv",
+      "rows": 564,
+      "status_counts": {
+        "standard": 465,
+        "not_available": 53,
+        "optional": 46
+      },
+      "interpretation": "Counts confirmed from CSV. Exact row/column alignment and P1-P4 normalization remain visually unverified."
     }
   },
   "decisions": {
@@ -140,10 +188,10 @@
     "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
-    "Compare all existing source-bound page 6 technical records against page 6, including unit/scope and overlap checks; add no duplicates.",
+    "Complete a value-by-value comparison of the 147 October 1 master observations with the source PDF page 6 and check overlap against earlier Bigster brochure observations; preserve conflicts and avoid duplicate inserts.",
     "Compare pages 4-5 matrix values against the 564 existing equipment observations and classify exact row as covered, duplicate, gap, conflict or deferred.",
     "Resolve glass_sunroof and P1-P4 normalization notes only after rendered page images or equivalent trusted visual extraction confirms column alignment.",
     "Inspect page 7 visually; extracted text alone only found a confidentiality marker.",
-    "After source reconciliation, update canonical project state and run/check repository quality workflows before marking assimilation complete."
+    "Check CI for the current PR head and update canonical project state only after source reconciliation and quality validation."
   ]
 }
