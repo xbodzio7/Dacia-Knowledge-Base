@@ -56,9 +56,9 @@
         "active and passive safety",
         "visibility"
       ],
-      "status": "text_reviewed_layout_review_pending",
+      "status": "visual_layout_reviewed_value_comparison_pending",
       "notes": [
-        "Matrix uses ●, -, option/package codes P1-P4 and explicit powertrain scope; exact interpretation needs rendered visual/layout validation and comparison with 564 existing observations."
+        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. The matrix column order and symbol/package legend are legible. Row-by-row comparison against 564 existing equipment observations remains pending."
       ]
     },
     {
@@ -68,9 +68,9 @@
         "comfort",
         "remaining equipment matrix"
       ],
-      "status": "text_reviewed_layout_review_pending",
+      "status": "visual_layout_reviewed_value_comparison_pending",
       "notes": [
-        "Adaptive cruise, front/side parking sensors, Multiview camera, heated equipment and powered tailgate include powertrain/trim-scoped values and P codes."
+        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. Package codes and trim markers are legible. Row-by-row comparison against 564 existing equipment observations remains pending."
       ]
     },
     {
@@ -83,19 +83,19 @@
         "wheels and tyres",
         "weights"
       ],
-      "status": "text_reviewed_conflict_check_required",
+      "status": "visual_reviewed_value_conflict_check_required",
       "notes": [
-        "Contains 48V mild-hybrid and 200V full-hybrid labels; WLTP values, dimensions/tyres and weights. Compare every field against existing brochure observations and July source without overwriting conflicts."
+        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. Powertrain-specific table and fuel/gearbox labels are legible. Every field still requires value-by-value comparison with existing observations and the July source; do not overwrite conflicts."
       ]
     },
     {
       "page": 7,
       "content": [
-        "Confidential C only in extracted text"
+        "vehicle dimension diagrams and measurements"
       ],
-      "status": "text_reviewed_no_data_text_detected",
+      "status": "visual_reviewed_dimensions_extraction_pending",
       "notes": [
-        "No substantive extracted text beyond confidentiality marking; visual page check unavailable."
+        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. It contains front/rear, top and side vehicle diagrams; structured attribute mapping and source-to-master comparison remain pending."
       ]
     },
     {
@@ -116,7 +116,7 @@
     "existing_equipment_observations": 564,
     "source_to_master_reconciliation": "partial_inventory_verified_2026-10-16",
     "technical_import_spec_generation": "not yet approved",
-    "rendered_page_images": "unavailable via current file reader",
+    "rendered_page_images": "uploaded_pdf_rendered_and_visually_inspected_pages_4_5_6_7_2026-10-16",
     "tests_and_quality": "Quality workflow succeeded on current PR head 0ca0a6a27f52ca1bead48166ed1a1801fbd4c71c (run 38870282555, 2026-10-16). On the same head, Configuration Comparison Workbook, Configuration Comparison HTML, Configuration Comparison Bundle, Configuration Shortlist, Configuration Shortlist HTML, Configuration Selection Export, Versioned Data Product Release, Verified Data Product Release Download, and multiple model reporting workflows also succeeded. Temporary Bigster Repository Snapshot was skipped. Repository-local checks were not executed in this session.",
     "pull_request": {
       "number": 753,
@@ -183,7 +183,7 @@
         "not_available": 53,
         "optional": 46
       },
-      "interpretation": "Counts confirmed from CSV. Exact row/column alignment and P1-P4 normalization remain visually unverified."
+      "interpretation": "Counts confirmed from CSV. Rendered pages 4-5 have been visually inspected; row-by-row alignment and P1-P4 normalization are still pending."
     }
   },
   "decisions": {
@@ -194,10 +194,10 @@
     "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
-    "Complete a value-by-value comparison of the 147 October 1 master observations with the source PDF page 6, including units, scope and all existing Bigster brochure observations.",
+    "Complete a value-by-value comparison of the 147 October 1 master observations with source PDF page 6, including units, scope and all existing Bigster brochure observations.",
     "Compare pages 4-5 matrix values against the 564 existing equipment observations and classify each as covered, duplicate, gap, conflict or deferred.",
-    "Resolve glass_sunroof and P1-P4 normalization notes only after rendered page images or equivalent trusted visual extraction confirms column alignment.",
-    "Inspect page 7 visually; extracted text alone only found a confidentiality marker.",
-    "After those source checks, decide whether canonical project state can be advanced and close the package."
+    "Resolve glass_sunroof and P1-P4 normalization notes by row-by-row comparison of visually inspected pages 4-5 with existing equipment observations; preserve ambiguous cases as deferred conflicts.",
+    "Extract page-7 dimensions into structured candidates and reconcile them against existing brochure observations.",
+    "After source checks, decide whether canonical project state can be advanced and close the package."
   ]
 }
