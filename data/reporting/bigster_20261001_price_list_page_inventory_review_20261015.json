@@ -226,6 +226,11 @@
           "attribute_code": "package_markers_P1_P4",
           "finding": "Package markers are visible on page 5 with named package rows and prices. Optional status can hide the required package identity/price, so row-by-row normalization review remains necessary.",
           "disposition": "continue review; do not flatten package details into unsupported claims"
+        },
+        {
+          "attribute_code": "blind_spot_monitoring",
+          "finding": "A consistency audit found the Expression rows for both tracked powertrains have availability_status=not_available while normalization_notes say 'P2 package marker normalized to optional.' This is an internal status/note contradiction; the note alone does not prove that the item is available for Expression. The page-4/5 matrix must be checked before changing either field.",
+          "disposition": "flagged as unresolved source-to-normalization conflict; no status changed"
         }
       ]
     },
@@ -240,6 +245,17 @@
       ],
       "visual_review_scope": "column headings, equipment symbols and package codes on pages 4-5; technical table labels on page 6; diagram labels and measurement annotations on page 7",
       "limitations": "This is a visual review, not yet a complete row-by-row reconciliation or approved import."
+    },
+    "workflow_status_current_head": {
+      "head_sha": "bec35b011d1f7091f03632a0d3795b3b0ba8d1ac",
+      "checked_on": "2026-10-16",
+      "quality": "in_progress_at_check",
+      "verified_data_product_release_download": {
+        "overall": "failure",
+        "windows": "failure at 'Download immutable public v1.8.1'; prior downloader/workspace checks passed",
+        "linux": "success, including download, asset verification and offline workspace checks"
+      },
+      "note": "These workflow results were observed for the current PR head; investigate the Windows-only download failure before treating release verification as complete."
     }
   },
   "decisions": {
@@ -250,6 +266,7 @@
     "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
+    "Resolve the blind_spot_monitoring Expression inconsistency: availability_status is not_available while normalization_notes describe a P2 package marker normalized to optional; verify the actual matrix symbol/package semantics before any correction.",
     "Complete value-by-value comparison of all 147 October 1 source observations with page 6 and existing Bigster brochure observations; preserve unit and powertrain scope.",
     "Compare the 564 equipment rows with pages 4-5, checking each package marker against package names/prices and classify covered, duplicate, gap, conflict or deferred.",
     "Extract page-7 dimensions as candidate records, resolve paired 4x2/4x4 measurements and map only confirmed attributes; do not insert candidates before mapping is explicit.",
