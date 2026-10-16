@@ -95,7 +95,8 @@
       ],
       "status": "visual_reviewed_dimensions_extraction_pending",
       "notes": [
-        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. It contains front/rear, top and side vehicle diagrams; structured attribute mapping and source-to-master comparison remain pending."
+        "Rendered page visually inspected from the uploaded 8-page PDF matching the registered SHA-256. Visible candidate measurements (mm unless degrees): overall length 4570; width 1812 without mirrors and 2069 with mirrors; front/rear track 1573/1547; front width 1812; ground clearance 220/219*; wheelbase 2702/2704*; front/rear overhang 854 and 1015/1012*; height 1711/1706*; roof/interior transverse measurements 1443 and 1432; seatback angles 14°; seat-height/clearance annotations 931/935. Footnote states *4x2/4x4, but the diagram's exact pairing of each paired number must be verified before mapping into canonical attributes.",
+        "Values are source-derived candidates only; no master mutation or import spec approved. Confirm labels, paired 4x2/4x4 mapping and units before import."
       ]
     },
     {
@@ -213,20 +214,32 @@
       "review_flags": [
         {
           "attribute_code": "glass_sunroof",
-          "finding": "All six records carry the same note 'printed Journey price normalized to optional', including Expression and Extreme rows whose stored statuses differ (not_available / standard / optional). The note does not explain the row-specific normalization and requires source-column review.",
-          "disposition": "defer; no status changes"
+          "finding": "Page 4 directly shows Expression – (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Six import notes were corrected to reflect trim-specific evidence.",
+          "disposition": "source note corrected; statuses unchanged"
         },
         {
           "attribute_code": "keyless_entry",
-          "finding": "All six records carry 'P1 marker normalized to optional for Expression', including Extreme and Journey records marked standard. The note is broader than the affected trim and requires clarification.",
-          "disposition": "defer; no status changes"
+          "finding": "Page 5 shows Expression P1, Extreme ●, Journey ●. Six import notes were corrected so the P1 qualifier is limited to Expression.",
+          "disposition": "source note corrected; statuses unchanged"
         },
         {
           "attribute_code": "package_markers_P1_P4",
-          "finding": "144 rows have non-'direct row.' normalization notes, including package markers, combined rows and powertrain/trim qualifiers. These are not automatically errors; each note needs to remain traceable to the source matrix.",
-          "disposition": "row-by-row source reconciliation pending"
+          "finding": "Package markers are visible on page 5 with named package rows and prices. Optional status can hide the required package identity/price, so row-by-row normalization review remains necessary.",
+          "disposition": "continue review; do not flatten package details into unsupported claims"
         }
       ]
+    },
+    "rendering_verification": {
+      "method": "Rendered uploaded PDF pages 4-7 locally from the conversation attachment with PyMuPDF and visually inspected the page images on 2026-10-16.",
+      "source_sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+      "pages_rendered": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "visual_review_scope": "column headings, equipment symbols and package codes on pages 4-5; technical table labels on page 6; diagram labels and measurement annotations on page 7",
+      "limitations": "This is a visual review, not yet a complete row-by-row reconciliation or approved import."
     }
   },
   "decisions": {
@@ -237,10 +250,10 @@
     "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
-    "Complete a value-by-value comparison of the 147 October 1 master observations with source PDF page 6, including units, scope and all existing Bigster brochure observations.",
-    "Compare pages 4-5 matrix values against the 564 existing equipment observations and classify each as covered, duplicate, gap, conflict or deferred.",
-    "Resolve glass_sunroof and P1-P4 normalization notes by row-by-row comparison of visually inspected pages 4-5 with existing equipment observations; preserve ambiguous cases as deferred conflicts.",
-    "Extract page-7 dimensions into structured candidates and reconcile them against existing brochure observations.",
-    "After source checks, decide whether canonical project state can be advanced and close the package."
+    "Complete value-by-value comparison of all 147 October 1 source observations with page 6 and existing Bigster brochure observations; preserve unit and powertrain scope.",
+    "Compare the 564 equipment rows with pages 4-5, checking each package marker against package names/prices and classify covered, duplicate, gap, conflict or deferred.",
+    "Extract page-7 dimensions as candidate records, resolve paired 4x2/4x4 measurements and map only confirmed attributes; do not insert candidates before mapping is explicit.",
+    "Recheck the PR head against main because the branch is 6 commits behind main; inspect conflicts before any synchronization.",
+    "Run and inspect Quality, versioned release and verified download workflows on the final head before considering package closure."
   ]
 }
