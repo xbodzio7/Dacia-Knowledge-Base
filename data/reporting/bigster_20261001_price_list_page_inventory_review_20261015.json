@@ -117,13 +117,13 @@
     "source_to_master_reconciliation": "partial_inventory_verified_2026-10-16",
     "technical_import_spec_generation": "not yet approved",
     "rendered_page_images": "unavailable via current file reader",
-    "tests_and_quality": "Quality workflow succeeded on current PR head 52c5908b511a72f0035c0b0d5976387e8195006d (run 38869196376, 2026-10-16). Other PR workflows observed at the same head include successful Configuration Shortlist, Comparison HTML/Bundle/Workbook, Selection Export, Verified Data Product Release Download, and model reporting jobs. Temporary Bigster Repository Snapshot was skipped. Repository-local checks were not executed in this session.",
+    "tests_and_quality": "Quality workflow succeeded on current PR head 0ca0a6a27f52ca1bead48166ed1a1801fbd4c71c (run 38870282555, 2026-10-16). On the same head, Configuration Comparison Workbook, Configuration Comparison HTML, Configuration Comparison Bundle, Configuration Shortlist, Configuration Shortlist HTML, Configuration Selection Export, Versioned Data Product Release, Verified Data Product Release Download, and multiple model reporting workflows also succeeded. Temporary Bigster Repository Snapshot was skipped. Repository-local checks were not executed in this session.",
     "pull_request": {
       "number": 753,
       "url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/753",
       "state": "open",
       "merged": false,
-      "head_sha": "52c5908b511a72f0035c0b0d5976387e8195006d",
+      "head_sha": "0ca0a6a27f52ca1bead48166ed1a1801fbd4c71c",
       "mergeable": true
     },
     "price_master_correction": {
