@@ -1,7 +1,7 @@
 configuration_code,attribute_code,availability_status,source_page,source_label,normalization_notes
 bigster_expression_mildhybridg140_4x2_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
-bigster_expression_mildhybridg140_4x2_automatic,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_expression_mildhybridg140_4x2_automatic,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,"Page 4 matrix: Expression - (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Price and symbols mapped by trim; no extrapolation."
 bigster_expression_mildhybridg140_4x2_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
@@ -64,7 +64,7 @@ bigster_expression_mildhybridg140_4x2_automatic,automatic_climate_control,standa
 bigster_expression_mildhybridg140_4x2_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
 bigster_expression_mildhybridg140_4x2_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
 bigster_expression_mildhybridg140_4x2_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
-bigster_expression_mildhybridg140_4x2_automatic,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_expression_mildhybridg140_4x2_automatic,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,Page 5 matrix: Expression P1 (included in optional package; normalized to optional).
 bigster_expression_mildhybridg140_4x2_automatic,keyless_start,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
 bigster_expression_mildhybridg140_4x2_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
@@ -95,7 +95,7 @@ bigster_expression_mildhybridg140_4x2_automatic,instrument_cluster_colour_7,stan
 bigster_expression_mildhybridg140_4x2_automatic,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
 bigster_extreme_mildhybridg140_4x2_automatic,roof_rails,not_available,4,Relingi dachowe,direct row.
 bigster_extreme_mildhybridg140_4x2_automatic,modular_roof_rails,standard,4,Modułowe relingi dachowe,direct row.
-bigster_extreme_mildhybridg140_4x2_automatic,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_extreme_mildhybridg140_4x2_automatic,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,"Page 4 matrix: Expression - (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Price and symbols mapped by trim; no extrapolation."
 bigster_extreme_mildhybridg140_4x2_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
 bigster_extreme_mildhybridg140_4x2_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
 bigster_extreme_mildhybridg140_4x2_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
@@ -158,7 +158,7 @@ bigster_extreme_mildhybridg140_4x2_automatic,automatic_climate_control,standard,
 bigster_extreme_mildhybridg140_4x2_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
 bigster_extreme_mildhybridg140_4x2_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
 bigster_extreme_mildhybridg140_4x2_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
-bigster_extreme_mildhybridg140_4x2_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_extreme_mildhybridg140_4x2_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,Page 5 matrix: Extreme/Journey ● (standard); P1 marker applies to Expression only.
 bigster_extreme_mildhybridg140_4x2_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
 bigster_extreme_mildhybridg140_4x2_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
 bigster_extreme_mildhybridg140_4x2_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
@@ -189,7 +189,7 @@ bigster_extreme_mildhybridg140_4x2_automatic,instrument_cluster_colour_7,not_ava
 bigster_extreme_mildhybridg140_4x2_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
 bigster_journey_mildhybridg140_4x2_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
 bigster_journey_mildhybridg140_4x2_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
-bigster_journey_mildhybridg140_4x2_automatic,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_journey_mildhybridg140_4x2_automatic,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,"Page 4 matrix: Expression - (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Price and symbols mapped by trim; no extrapolation."
 bigster_journey_mildhybridg140_4x2_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
 bigster_journey_mildhybridg140_4x2_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
 bigster_journey_mildhybridg140_4x2_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
@@ -252,7 +252,7 @@ bigster_journey_mildhybridg140_4x2_automatic,automatic_climate_control,standard,
 bigster_journey_mildhybridg140_4x2_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
 bigster_journey_mildhybridg140_4x2_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
 bigster_journey_mildhybridg140_4x2_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
-bigster_journey_mildhybridg140_4x2_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_journey_mildhybridg140_4x2_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,Page 5 matrix: Extreme/Journey ● (standard); P1 marker applies to Expression only.
 bigster_journey_mildhybridg140_4x2_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
 bigster_journey_mildhybridg140_4x2_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
 bigster_journey_mildhybridg140_4x2_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
@@ -283,7 +283,7 @@ bigster_journey_mildhybridg140_4x2_automatic,instrument_cluster_colour_7,not_ava
 bigster_journey_mildhybridg140_4x2_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
 bigster_expression_tribrid150_4x4_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
 bigster_expression_tribrid150_4x4_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
-bigster_expression_tribrid150_4x4_automatic,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_expression_tribrid150_4x4_automatic,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,"Page 4 matrix: Expression - (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Price and symbols mapped by trim; no extrapolation."
 bigster_expression_tribrid150_4x4_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
 bigster_expression_tribrid150_4x4_automatic,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
 bigster_expression_tribrid150_4x4_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
@@ -346,7 +346,7 @@ bigster_expression_tribrid150_4x4_automatic,automatic_climate_control,standard,5
 bigster_expression_tribrid150_4x4_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
 bigster_expression_tribrid150_4x4_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
 bigster_expression_tribrid150_4x4_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
-bigster_expression_tribrid150_4x4_automatic,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_expression_tribrid150_4x4_automatic,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,Page 5 matrix: Expression P1 (included in optional package; normalized to optional).
 bigster_expression_tribrid150_4x4_automatic,keyless_start,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
 bigster_expression_tribrid150_4x4_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
 bigster_expression_tribrid150_4x4_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
@@ -377,7 +377,7 @@ bigster_expression_tribrid150_4x4_automatic,instrument_cluster_colour_7,standard
 bigster_expression_tribrid150_4x4_automatic,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
 bigster_extreme_tribrid150_4x4_automatic,roof_rails,not_available,4,Relingi dachowe,direct row.
 bigster_extreme_tribrid150_4x4_automatic,modular_roof_rails,standard,4,Modułowe relingi dachowe,direct row.
-bigster_extreme_tribrid150_4x4_automatic,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_extreme_tribrid150_4x4_automatic,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,"Page 4 matrix: Expression - (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Price and symbols mapped by trim; no extrapolation."
 bigster_extreme_tribrid150_4x4_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
 bigster_extreme_tribrid150_4x4_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
 bigster_extreme_tribrid150_4x4_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
@@ -440,7 +440,7 @@ bigster_extreme_tribrid150_4x4_automatic,automatic_climate_control,standard,5,Kl
 bigster_extreme_tribrid150_4x4_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
 bigster_extreme_tribrid150_4x4_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
 bigster_extreme_tribrid150_4x4_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
-bigster_extreme_tribrid150_4x4_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_extreme_tribrid150_4x4_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,Page 5 matrix: Extreme/Journey ● (standard); P1 marker applies to Expression only.
 bigster_extreme_tribrid150_4x4_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
 bigster_extreme_tribrid150_4x4_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
 bigster_extreme_tribrid150_4x4_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
@@ -471,7 +471,7 @@ bigster_extreme_tribrid150_4x4_automatic,instrument_cluster_colour_7,not_availab
 bigster_extreme_tribrid150_4x4_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
 bigster_journey_tribrid150_4x4_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
 bigster_journey_tribrid150_4x4_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
-bigster_journey_tribrid150_4x4_automatic,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_journey_tribrid150_4x4_automatic,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,"Page 4 matrix: Expression - (not available), Extreme ● (standard), Journey 4 300 PLN (optional). Price and symbols mapped by trim; no extrapolation."
 bigster_journey_tribrid150_4x4_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
 bigster_journey_tribrid150_4x4_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
 bigster_journey_tribrid150_4x4_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
@@ -534,7 +534,7 @@ bigster_journey_tribrid150_4x4_automatic,automatic_climate_control,standard,5,Kl
 bigster_journey_tribrid150_4x4_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
 bigster_journey_tribrid150_4x4_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
 bigster_journey_tribrid150_4x4_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
-bigster_journey_tribrid150_4x4_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_journey_tribrid150_4x4_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,Page 5 matrix: Extreme/Journey ● (standard); P1 marker applies to Expression only.
 bigster_journey_tribrid150_4x4_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
 bigster_journey_tribrid150_4x4_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
 bigster_journey_tribrid150_4x4_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
