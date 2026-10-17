@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "bigster_20261001_price_list_page_inventory_review",
-  "reviewed_on": "2026-10-16",
+  "reviewed_on": "2026-10-17",
   "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
   "status": "partial_review_text_extracted_all_pages",
   "source": {
@@ -119,7 +119,15 @@
     "package_marker_audit_20261017": {
       "equipment_rows_reviewed": 564,
       "rows_with_package_marker_or_package_normalization_note": 42,
-      "attributes_flagged": ["heated_front_seats", "blind_spot_monitoring", "front_parking_sensors", "360_camera_system", "keyless_entry", "heated_windscreen", "heated_steering_wheel"],
+      "attributes_flagged": [
+        "heated_front_seats",
+        "blind_spot_monitoring",
+        "front_parking_sensors",
+        "360_camera_system",
+        "keyless_entry",
+        "heated_windscreen",
+        "heated_steering_wheel"
+      ],
       "confirmed_source_scoped_findings": [
         "blind_spot_monitoring: Expression is not_available for both powertrains; Extreme/Journey optional through P2. Existing statuses are consistent with the page 4/5 matrix after the note correction.",
         "keyless_entry: Expression is optional via P1; Extreme/Journey are standard. Notes explicitly retain this trim-specific distinction.",
@@ -274,15 +282,27 @@
       "limitations": "This is a visual review, not yet a complete row-by-row reconciliation or approved import."
     },
     "workflow_status_current_head": {
-      "head_sha": "bec35b011d1f7091f03632a0d3795b3b0ba8d1ac",
-      "checked_on": "2026-10-16",
-      "quality": "in_progress_at_check",
-      "verified_data_product_release_download": {
-        "overall": "failure",
-        "windows": "failure at 'Download immutable public v1.8.1'; prior downloader/workspace checks passed",
-        "linux": "success, including download, asset verification and offline workspace checks"
+      "head_sha": "ff0052d1ec435f127fa54bb13ac1306c63802eec",
+      "run_id": 39031833211,
+      "checked_on": "2026-10-17",
+      "quality": "success",
+      "jobs": {
+        "Python 3.10": "success",
+        "Package workflow / Windows": "success",
+        "Python 3.13": "success",
+        "Python 3.14": "success"
       },
-      "note": "These workflow results were observed for the current PR head; investigate the Windows-only download failure before treating release verification as complete."
+      "note": "GitHub Actions run 39031833211 completed successfully for the current PR head. This updates the prior in-progress snapshot; separate release/download workflows must be checked at the current head before package closure."
+    },
+    "source_file_path_divergence_20261017": {
+      "main_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
+      "main_blob_sha": "fbdd72191b02db3cbd741d17d7c92e6d6d7ec28c",
+      "main_size_bytes": 2015910,
+      "pr_branch_path": "PDF/Cenniki/bigster-price.pdf",
+      "pr_branch_blob_sha": "fbdd72191b02db3cbd741d17d7c92e6d6d7ec28c",
+      "pr_branch_size_bytes": 2015910,
+      "finding": "The exact October 1 PDF blob is present on both main and the PR branch, but under different paths. Main uses the canonical descriptive filename; the PR branch retains the older bigster-price.pdf name. Blob SHA and size match, so this is a path/integration discrepancy rather than different PDF bytes.",
+      "disposition": "Do not synchronize the branch automatically. Review the six main-only commits and rename/delete sequence, then align the branch path in a controlled follow-up."
     }
   },
   "decisions": {
@@ -293,11 +313,10 @@
     "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
-    "Blind-spot Expression note was resolved in commit d20996e9a81432efc6bbb2fcbf2aa507955dbfcd and documented in commit f42b81fdb156d6b05858ddf60e9a32bb8eaf9ed0; continue the broader page 4-5 package-marker audit without changing statuses absent source confirmation.",
-    "Complete value-by-value comparison of all 147 October 1 source observations with page 6 and existing Bigster brochure observations; preserve unit and powertrain scope.",
-    "Compare the 564 equipment rows with pages 4-5, checking each package marker against package names/prices and classify covered, duplicate, gap, conflict or deferred.",
-    "Extract page-7 dimensions as candidate records, resolve paired 4x2/4x4 measurements and map only confirmed attributes; do not insert candidates before mapping is explicit.",
-    "Recheck the PR head against main because the branch is 6 commits behind main; inspect conflicts before any synchronization.",
-    "Run and inspect Quality, versioned release and verified download workflows on the final head before considering package closure."
+    "Compare all 147 October 1 source observations value-by-value against the visually reviewed page-6 technical table; resolve the three missing tribrid engine_power observations only from explicit source evidence.",
+    "Compare the 564 equipment rows against pages 4-5 and preserve P1-P4 package identity where normalization currently records only optional status.",
+    "Extract page-7 dimensions as candidates and resolve paired 4x2/4x4 measurements before canonical mapping.",
+    "Review the six commits on main absent from this branch, including the October PDF rename/delete sequence; the same PDF blob exists on both refs but at different paths. Do not merge or sync automatically.",
+    "Check release and verified-download workflows at head ff0052d1ec435f127fa54bb13ac1306c63802eec before declaring the package closed."
   ]
 }
