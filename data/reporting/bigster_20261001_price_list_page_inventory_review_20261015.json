@@ -282,7 +282,7 @@
       "limitations": "This is a visual review, not yet a complete row-by-row reconciliation or approved import."
     },
     "workflow_status_current_head": {
-      "head_sha": "fa0ad361e57ade8894d5db4d09909444ce172696",
+      "head_sha": "128fe3db460e4d13bf9963631e7acaa6276d0bfe",
       "checked_on": "2026-10-17",
       "quality": "success",
       "release": "success",
@@ -290,20 +290,17 @@
       "reporting_and_exports": "success",
       "temporary_bigster_repository_snapshot": "skipped",
       "evidence": {
-        "quality_run": 39032803299,
-        "release_run": 39032803341,
-        "verified_download_run": 39032803251,
-        "example_comparison_workbook_run": 39032803255,
-        "example_model_reporting_run": 39032803367
+        "quality_run": 39033488325,
+        "release_run": 39033488244,
+        "verified_download_run": 39033488444,
+        "comparison_workbook_run": 39033488216,
+        "comparison_html_run": 39033488449,
+        "comparison_bundle_run": 39033488258,
+        "shortlist_run": 39033488249,
+        "shortlist_html_run": 39033488331,
+        "selection_export_run": 39033488230
       },
-      "separate_workflow_failure": {
-        "workflow": ".github/workflows/ai-repair-pr465-contracts.yml",
-        "run_id": 39032799028,
-        "conclusion": "failure",
-        "jobs_api_returned": 0,
-        "interpretation": "Failure is recorded, but GitHub API returned no jobs for this run, so its cause cannot be diagnosed from the available run/job data. Do not treat it as a Bigster data-validation failure without evidence."
-      },
-      "note": "Quality, release and verified-download workflows succeeded on this exact PR head. This does not close the assimilation because source-to-master reconciliation remains incomplete."
+      "note": "The current commit's Quality, release, verified-download, and listed reporting/export workflows all completed successfully. Temporary Bigster Repository Snapshot was skipped. This does not establish source assimilation closure."
     },
     "source_file_path_divergence_20261017": {
       "main_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
@@ -312,7 +309,7 @@
       "pr_branch_path": "PDF/Cenniki/bigster-price.pdf",
       "pr_branch_blob_sha": "fbdd72191b02db3cbd741d17d7c92e6d6d7ec28c",
       "pr_branch_size_bytes": 2015910,
-      "finding": "The exact October 1 PDF blob is present on both main and the PR branch, but under different paths. Main uses the canonical descriptive filename; the PR branch retains the older bigster-price.pdf name. Blob SHA and size match, so this is a path/integration discrepancy rather than different PDF bytes.",
+      "finding": "The main-only sequence includes an upload, deletion of bigster-price.pdf, another upload, an explicit October price-list addition, deletion of the canonical-name path, and a rename commit. The PR branch and main have the same PDF Git blob SHA and size at different paths. The repeated add/delete/rename sequence explains the path history, but branches still diverge (6 main-only and 20 PR-only commits). Do not merge or synchronize automatically.",
       "disposition": "Do not synchronize the branch automatically. Review the six main-only commits and rename/delete sequence, then align the branch path in a controlled follow-up.",
       "main_ref": "main",
       "main_sha": "048623b6610567d83e514d5cd693b4163ab91c62",
@@ -323,7 +320,39 @@
         "merge_base": "b7a2c7ce34e61b8e81c595df0941d23b38e9dae2",
         "changed_file_reported": "PDF/Cenniki/bigster-price.pdf -> PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
         "finding": "The compare endpoint reports the PDF path rename as the file-level difference; the branches have diverged by 6 main-only and 20 PR-only commits. Do not rebase or merge automatically."
-      }
+      },
+      "commit_sequence": [
+        {
+          "sha": "49138e5e337a74cedbfc629d236b34504f982e2b",
+          "message": "Add files via upload",
+          "date": "2026-10-14T22:47:52Z"
+        },
+        {
+          "sha": "252e41a75c",
+          "message": "Delete PDF/Cenniki/bigster-price.pdf",
+          "date": "2026-10-14T22:56:56Z"
+        },
+        {
+          "sha": "e241551879",
+          "message": "Add files via upload",
+          "date": "2026-10-14T22:57:16Z"
+        },
+        {
+          "sha": "4afc445952",
+          "message": "Add Bigster October 2026 price list",
+          "date": "2026-10-15T07:49:37Z"
+        },
+        {
+          "sha": "aceb5935cf",
+          "message": "Delete PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
+          "date": "2026-10-15T07:53:27Z"
+        },
+        {
+          "sha": "048623b6610567d83e514d5cd693b4163ab91c62",
+          "message": "Rename bigster-price.pdf to DACIA BIGSTER cennik MY26 20261001.pdf",
+          "date": "2026-10-15T07:54:11Z"
+        }
+      ]
     }
   },
   "decisions": {
@@ -337,7 +366,7 @@
     "Compare all 147 October 1 source observations value-by-value against the visually reviewed page-6 technical table; resolve the three missing tribrid engine_power observations only from explicit source evidence.",
     "Compare the 564 equipment rows against pages 4-5 and preserve P1-P4 package identity where normalization currently records only optional status.",
     "Extract page-7 dimensions as candidates and resolve paired 4x2/4x4 measurements before canonical mapping.",
-    "Inspect the six main-only and 20 PR-only commits before any integration; the October PDF bytes match but the branch histories diverge. Do not merge or sync automatically.",
+    "Review the full 6 main-only / 20 PR-only commit difference before any integration; main's PDF history includes multiple add/delete/rename operations. Do not merge or sync automatically.",
     "Investigate failed ai-repair-pr465-contracts workflow run 39032799028; the Jobs API returned zero jobs, so the failure cause remains unknown."
   ]
 }
