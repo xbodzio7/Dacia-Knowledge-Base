@@ -116,6 +116,19 @@
   "cross_checks": {
     "existing_equipment_observations": 564,
     "source_to_master_reconciliation": "partial_inventory_verified_2026-10-16",
+    "package_marker_audit_20261017": {
+      "equipment_rows_reviewed": 564,
+      "rows_with_package_marker_or_package_normalization_note": 42,
+      "attributes_flagged": ["heated_front_seats", "blind_spot_monitoring", "front_parking_sensors", "360_camera_system", "keyless_entry", "heated_windscreen", "heated_steering_wheel"],
+      "confirmed_source_scoped_findings": [
+        "blind_spot_monitoring: Expression is not_available for both powertrains; Extreme/Journey optional through P2. Existing statuses are consistent with the page 4/5 matrix after the note correction.",
+        "keyless_entry: Expression is optional via P1; Extreme/Journey are standard. Notes explicitly retain this trim-specific distinction.",
+        "heated_front_seats and heated_steering_wheel are currently normalized as optional where P3/P4 markers occur; the normalized status does not retain which package satisfies the feature.",
+        "front_parking_sensors and 360_camera_system are normalized as optional where P1/P2 markers occur; the normalized status does not retain which package satisfies the feature.",
+        "heated_windscreen is normalized as optional where P4 occurs; package identity is retained in the note but not in availability_status."
+      ],
+      "decision": "No equipment availability statuses changed. Preserve P1-P4 package identity in source notes and do not infer package-specific fitment beyond the visually reviewed matrix."
+    },
     "technical_import_spec_generation": "not yet approved",
     "technical_audit_findings_20261017": [
       "Inventory check of the 147 observations grouped by configuration found 25 observations for each of the three mild hybrid-G 140 automatic configurations, but only 24 for each of the three tribrid 150 4x4 automatic configurations.",
