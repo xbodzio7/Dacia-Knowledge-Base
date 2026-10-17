@@ -455,6 +455,149 @@
       },
       "footnote": "*4x2/4x4",
       "do_not_import_until": "Each paired value is visually matched to its exact diagram label and drivetrain; interior transverse values and seatback angles must not be misclassified as exterior dimensions or approach/departure angles."
+    },
+    "dimension_schema_mapping_check_20261017": {
+      "status": "schema_checked_candidates_not_imported",
+      "reference_template": "data/imports/brochure_technical_values/generic-dimensions-20251020-20260202.json",
+      "master_attribute_registry": "data/master/attributes.csv",
+      "registry_matches": [
+        {
+          "code": "overall_length",
+          "name": "Overall length",
+          "unit": "mm"
+        },
+        {
+          "code": "overall_width",
+          "name": "Overall width",
+          "unit": "mm"
+        },
+        {
+          "code": "overall_width_with_mirrors",
+          "name": "Overall width with mirrors",
+          "unit": "mm"
+        },
+        {
+          "code": "front_track",
+          "name": "Front track width",
+          "unit": "mm"
+        },
+        {
+          "code": "rear_track",
+          "name": "Rear track width",
+          "unit": "mm"
+        },
+        {
+          "code": "ground_clearance",
+          "name": "Ground clearance",
+          "unit": "mm"
+        },
+        {
+          "code": "wheelbase",
+          "name": "Wheelbase",
+          "unit": "mm"
+        },
+        {
+          "code": "front_overhang",
+          "name": "Front overhang",
+          "unit": "mm"
+        },
+        {
+          "code": "rear_overhang",
+          "name": "Rear overhang",
+          "unit": "mm"
+        },
+        {
+          "code": "overall_height",
+          "name": "Overall height",
+          "unit": "mm"
+        }
+      ],
+      "unambiguous_page7_candidates": [
+        {
+          "attribute_code": "overall_length",
+          "value": 4570,
+          "unit": "mm",
+          "source_page": 7,
+          "source_text": "DŁUGOŚĆ CAŁKOWITA 4570 mm",
+          "scope": "Bigster model-wide; no drivetrain footnote recorded for this value"
+        },
+        {
+          "attribute_code": "overall_width",
+          "value": 1812,
+          "unit": "mm",
+          "source_page": 7,
+          "source_text": "SZEROKOŚĆ BEZ LUSTEREK 1812 mm",
+          "scope": "Bigster model-wide; no drivetrain footnote recorded for this value"
+        },
+        {
+          "attribute_code": "overall_width_with_mirrors",
+          "value": 2069,
+          "unit": "mm",
+          "source_page": 7,
+          "source_text": "SZEROKOŚĆ Z LUSTERKAMI 2069 mm",
+          "scope": "Bigster model-wide; no drivetrain footnote recorded for this value"
+        },
+        {
+          "attribute_code": "front_track",
+          "value": 1573,
+          "unit": "mm",
+          "source_page": 7,
+          "source_text": "ROZSTAW KÓŁ PRZEDNICH 1573 mm",
+          "scope": "Candidate only; check footnote scope in the rendered diagram before import"
+        },
+        {
+          "attribute_code": "rear_track",
+          "value": 1547,
+          "unit": "mm",
+          "source_page": 7,
+          "source_text": "ROZSTAW KÓŁ TYLNYCH 1547 mm",
+          "scope": "Candidate only; check footnote scope in the rendered diagram before import"
+        }
+      ],
+      "excluded_for_now": [
+        {
+          "attribute_code": "ground_clearance",
+          "values": [
+            220,
+            219
+          ],
+          "reason": "paired values footnoted 4x2/4x4; mapping not yet confirmed"
+        },
+        {
+          "attribute_code": "wheelbase",
+          "values": [
+            2702,
+            2704
+          ],
+          "reason": "paired values footnoted 4x2/4x4; mapping not yet confirmed"
+        },
+        {
+          "attribute_code": "front_overhang",
+          "value": 854,
+          "reason": "confirm exact diagram label and drivetrain scope"
+        },
+        {
+          "attribute_code": "rear_overhang",
+          "values": [
+            1015,
+            1012
+          ],
+          "reason": "paired values footnoted 4x2/4x4; mapping not yet confirmed"
+        },
+        {
+          "attribute_code": "overall_height",
+          "values": [
+            1711,
+            1706
+          ],
+          "reason": "paired values footnoted 4x2/4x4; mapping not yet confirmed"
+        },
+        {
+          "attribute_code": "interior_widths_and_seatback_angles",
+          "reason": "not equivalent to exterior dimension attributes"
+        }
+      ],
+      "import_decision": "No new master values or import specs created in this step. Registry and precedent schema are identified; source-specific scope still needs a final visual check before any observations are appended."
     }
   },
   "decisions": {
