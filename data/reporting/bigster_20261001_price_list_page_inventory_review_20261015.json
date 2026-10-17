@@ -282,25 +282,32 @@
       "limitations": "This is a visual review, not yet a complete row-by-row reconciliation or approved import."
     },
     "workflow_status_current_head": {
-      "head_sha": "128fe3db460e4d13bf9963631e7acaa6276d0bfe",
+      "head_sha": "813fb948ed7fba2bf92984fe3a0bcac28319a5dd",
       "checked_on": "2026-10-17",
       "quality": "success",
       "release": "success",
       "verified_download": "success",
-      "reporting_and_exports": "success",
+      "reporting_and_exports": "all listed PR-triggered reporting/export workflows completed successfully",
       "temporary_bigster_repository_snapshot": "skipped",
       "evidence": {
-        "quality_run": 39033488325,
-        "release_run": 39033488244,
-        "verified_download_run": 39033488444,
-        "comparison_workbook_run": 39033488216,
-        "comparison_html_run": 39033488449,
-        "comparison_bundle_run": 39033488258,
-        "shortlist_run": 39033488249,
-        "shortlist_html_run": 39033488331,
-        "selection_export_run": 39033488230
+        "Quality": 39035485522,
+        "Temporary Bigster Repository Snapshot": 39035485563,
+        "Jogger Hybrid 155 Automatic Reporting": 39035485544,
+        "Configuration Shortlist": 39035485481,
+        "Jogger Eco-G 120 Automatic Reporting": 39035485701,
+        "Configuration Comparison HTML": 39035485645,
+        "Jogger Eco-G 120 Manual Reporting": 39035485640,
+        "Configuration Selection Export": 39035485772,
+        "Configuration Shortlist HTML": 39035485492,
+        "Jogger TCe 110 Manual Reporting": 39035485535,
+        "Sandero Eco-G 120 Manual Reporting": 39035485562,
+        "Sandero Stepway Eco-G 120 Automatic Reporting": 39035485634,
+        "Configuration Comparison Bundle": 39035485631,
+        "Versioned Data Product Release": 39035485530,
+        "Configuration Comparison Workbook": 39035485672,
+        "Verified Data Product Release Download": 39035485633
       },
-      "note": "The current commit's Quality, release, verified-download, and listed reporting/export workflows all completed successfully. Temporary Bigster Repository Snapshot was skipped. This does not establish source assimilation closure."
+      "note": "Workflow runs queried for the exact current PR head commit 813fb948ed7fba2bf92984fe3a0bcac28319a5dd. Quality, release, verified-download, and all returned model reporting/export workflows succeeded; Temporary Bigster Repository Snapshot was skipped. This does not establish source assimilation closure."
     },
     "source_file_path_divergence_20261017": {
       "main_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
@@ -353,7 +360,8 @@
           "date": "2026-10-15T07:54:11Z"
         }
       ]
-    }
+    },
+    "pull_request_head_status_checked_on": "2026-10-17"
   },
   "decisions": {
     "no_master_mutation": false,
