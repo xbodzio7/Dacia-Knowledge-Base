@@ -361,7 +361,101 @@
         }
       ]
     },
-    "pull_request_head_status_checked_on": "2026-10-17"
+    "pull_request_head_status_checked_on": "2026-10-17",
+    "technical_reconciliation_workplan_20261017": {
+      "status": "review_plan_recorded_not_a_value_reconciliation",
+      "source_page": 6,
+      "source_code": "src_pl_bigster_price_my26_20261001",
+      "configuration_groups": [
+        {
+          "label": "mild hybrid-G 140 manual",
+          "expected_configurations": 4,
+          "source_rows": "catalogue page 1 and technical page 6"
+        },
+        {
+          "label": "mild hybrid-G 140 automatic",
+          "expected_configurations": 3,
+          "source_rows": "catalogue page 1 and technical page 6"
+        },
+        {
+          "label": "tribrid 150 4x4 automatic",
+          "expected_configurations": 3,
+          "source_rows": "catalogue page 1 and technical page 6"
+        },
+        {
+          "label": "hybrid 155 automatic",
+          "expected_configurations": 3,
+          "source_rows": "catalogue page 1 and technical page 6"
+        }
+      ],
+      "reconcile_fields_in_order": [
+        "engine_displacement",
+        "cylinder_count",
+        "total_valve_count",
+        "engine_power",
+        "engine_torque",
+        "max_power_rpm",
+        "max_torque_rpm",
+        "hybrid_battery_capacity_source_stated",
+        "hybrid_system_voltage",
+        "gear_count",
+        "gearbox_type",
+        "top_speed",
+        "acceleration_0_100",
+        "standing_km",
+        "co2_emissions",
+        "fuel_consumption_combined",
+        "cargo_volume_without_spare_wheel_iso3832",
+        "maximum_cargo_volume_iso3832",
+        "minimum_kerb_weight",
+        "gross_vehicle_weight",
+        "braked_trailer_weight",
+        "fuel_tank_capacity"
+      ],
+      "comparison_rules": [
+        "Keep source wording and units in the audit evidence before normalizing values.",
+        "Do not copy values between powertrains, gearboxes, drive layouts, or differently named configuration codes.",
+        "Compare October 1 values with the same-source rows first, then with older brochure observations; retain source-specific differences instead of overwriting them.",
+        "Treat missing values as gaps only after checking the exact printed table cell and whether the attribute is applicable to that powertrain.",
+        "Do not create master rows until each candidate value has a source-page reference and the repository import/validation contract is confirmed."
+      ],
+      "confirmed_gap": "engine_power is absent for the three tribrid 150 4x4 automatic configurations in the October 1 source rows; value remains unresolved.",
+      "current_limit": "The GitHub text-file interface can retrieve the master CSV only in limited slices and the existing report confirms inventory presence, not full value-by-value PDF reconciliation. No new technical values were inferred or written to canonical master data."
+    },
+    "dimensions_follow_up_20261017": {
+      "status": "candidates_only",
+      "source_page": 7,
+      "candidates_mm": {
+        "overall_length": 4570,
+        "overall_width_without_mirrors": 1812,
+        "overall_width_with_mirrors": 2069,
+        "front_track": 1573,
+        "rear_track": 1547,
+        "ground_clearance": [
+          "220",
+          "219*"
+        ],
+        "wheelbase": [
+          "2702",
+          "2704*"
+        ],
+        "front_overhang": 854,
+        "rear_overhang": [
+          "1015",
+          "1012*"
+        ],
+        "overall_height": [
+          "1711",
+          "1706*"
+        ],
+        "other_transverse_measurements": [
+          1443,
+          1432
+        ]
+      },
+      "footnote": "*4x2/4x4",
+      "do_not_import_until": "Each paired value is visually matched to its exact diagram label and drivetrain; interior transverse values and seatback angles must not be misclassified as exterior dimensions or approach/departure angles."
+    }
   },
   "decisions": {
     "no_master_mutation": false,
