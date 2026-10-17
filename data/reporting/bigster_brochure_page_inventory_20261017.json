@@ -339,7 +339,7 @@
     "master_mutations": 0,
     "reason": "The uploaded current master CSV enabled a full presence/uniqueness audit for the registered Bigster brochure observations and a focused comparison against the July and October 2026 price-list source records. The page-23 brochure dimensions are not yet stored as source-bound observations; the 1813 mm versus 1812 mm width discrepancy remains explicit. Exact value-by-value reconciliation of all equipment rows and every brochure marketing/accessory claim is still incomplete.",
     "next_actions": [
-      "Confirm the exact October page-6 engine_power label/value for the three Tribrid 150 4x4 configurations before any import; no cross-configuration inference.",
+      "Apply the verified three-row Tribrid engine_power import to the master CSV through the repository's supported import/build path; current GitHub text Contents connector cannot return the 2.4 MB master CSV for direct safe replacement.",
       "Complete page-23 dimension-label and 4x2/4x4 pairing review; keep the 1813 mm brochure width separate from the 1812 mm July/October catalogue value.",
       "Review cargo measurement context against configuration_cargo_volume_contexts.csv; do not flatten VDA/ISO values or seat/spare-wheel states.",
       "Complete exact package-row reconciliation for pages 21-22 against the 564 current equipment rows and preserve P1-P4 identity.",
@@ -398,12 +398,20 @@
         "source_code": "src_pl_bigster_price_my26_20261001",
         "row_count": 147,
         "configuration_count": 6,
-        "missing_engine_power": [
-          "bigster_expression_tribrid150_4x4_automatic",
-          "bigster_extreme_tribrid150_4x4_automatic",
-          "bigster_journey_tribrid150_4x4_automatic"
-        ],
-        "decision": "Do not infer engine_power from differently named July configurations or copy a value across powertrains. Confirm the exact October page-6 engine-power label/value before preparing an import."
+        "missing_engine_power": [],
+        "decision": "Do not infer engine_power from differently named July configurations or copy a value across powertrains. Confirm the exact October page-6 engine-power label/value before preparing an import.",
+        "source_confirmation": {
+          "source_page": 6,
+          "source_section": "SILNIKI",
+          "exact_row_label": "Moc maksymalna kW (kM)",
+          "tribrid_column_value": "103 (140)",
+          "engine_power_value_kW": 103,
+          "rendered_source_text_verified_through": "Library PDF text extraction, page 6, lines 342-343",
+          "action": "Prepare a three-row import specification for the exact October source value; do not infer the value from another configuration."
+        },
+        "import_spec_status": "prepared_in_this_branch",
+        "import_spec_path": "data/imports/configuration_values/bigster-page6-engine-power-tribrid150-20261001.json",
+        "master_application_status": "not_yet_applied_to_master_csv"
       },
       "validation": {
         "csv_rows_equal_project_state_baseline": true,
