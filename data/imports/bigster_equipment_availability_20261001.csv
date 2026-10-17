@@ -37,7 +37,7 @@ bigster_expression_mildhybridg140_4x2_automatic,gear_shift_indicator,standard,4,
 bigster_expression_mildhybridg140_4x2_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
-bigster_expression_mildhybridg140_4x2_automatic,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_automatic,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),Page 4/5 matrix: Expression not available; P2 is offered for Extreme/Journey only.
 bigster_expression_mildhybridg140_4x2_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
 bigster_expression_mildhybridg140_4x2_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
@@ -319,7 +319,7 @@ bigster_expression_tribrid150_4x4_automatic,gear_shift_indicator,standard,4,Wska
 bigster_expression_tribrid150_4x4_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
 bigster_expression_tribrid150_4x4_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
 bigster_expression_tribrid150_4x4_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
-bigster_expression_tribrid150_4x4_automatic,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_expression_tribrid150_4x4_automatic,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),Page 4/5 matrix: Expression not available; P2 is offered for Extreme/Journey only.
 bigster_expression_tribrid150_4x4_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
 bigster_expression_tribrid150_4x4_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
 bigster_expression_tribrid150_4x4_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
