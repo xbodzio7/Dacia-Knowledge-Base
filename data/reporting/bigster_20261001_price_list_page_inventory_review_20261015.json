@@ -280,7 +280,7 @@
     "no_master_mutation_note": "One narrowly scoped correction to data/master/configuration_prices.csv was made and verified: rows 190-191 aligned with the October 1 page 1 prices; no equipment or technical master changes made."
   },
   "next_actions": [
-    "Resolve the blind_spot_monitoring Expression inconsistency: availability_status is not_available while normalization_notes describe a P2 package marker normalized to optional; verify the actual matrix symbol/package semantics before any correction.",
+    "Blind-spot Expression note was resolved in commit d20996e9a81432efc6bbb2fcbf2aa507955dbfcd and documented in commit f42b81fdb156d6b05858ddf60e9a32bb8eaf9ed0; continue the broader page 4-5 package-marker audit without changing statuses absent source confirmation.",
     "Complete value-by-value comparison of all 147 October 1 source observations with page 6 and existing Bigster brochure observations; preserve unit and powertrain scope.",
     "Compare the 564 equipment rows with pages 4-5, checking each package marker against package names/prices and classify covered, duplicate, gap, conflict or deferred.",
     "Extract page-7 dimensions as candidate records, resolve paired 4x2/4x4 measurements and map only confirmed attributes; do not insert candidates before mapping is explicit.",
