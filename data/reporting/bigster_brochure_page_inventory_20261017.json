@@ -407,7 +407,7 @@
           "tribrid_column_value": "103 (140)",
           "engine_power_value_kW": 103,
           "rendered_source_text_verified_through": "Library PDF text extraction, page 6, lines 342-343",
-          "action": "Prepare a three-row import specification for the exact October source value; do not infer the value from another configuration."
+          "action": "Completed: a three-row import specification was prepared for the exact October source value; no cross-configuration inference was used."
         },
         "import_spec_status": "prepared_in_this_branch",
         "import_spec_path": "data/imports/configuration_values/bigster-page6-engine-power-tribrid150-20261001.json",
