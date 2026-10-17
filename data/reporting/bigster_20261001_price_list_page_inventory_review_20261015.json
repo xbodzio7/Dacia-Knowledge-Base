@@ -117,6 +117,11 @@
     "existing_equipment_observations": 564,
     "source_to_master_reconciliation": "partial_inventory_verified_2026-10-16",
     "technical_import_spec_generation": "not yet approved",
+    "technical_audit_findings_20261017": [
+      "Inventory check of the 147 observations grouped by configuration found 25 observations for each of the three mild hybrid-G 140 automatic configurations, but only 24 for each of the three tribrid 150 4x4 automatic configurations.",
+      "All three tribrid 150 4x4 automatic configurations lack an engine_power observation in source_code src_pl_bigster_price_my26_20261001; the mild hybrid-G 140 automatic configurations each contain engine_power=103 with source note 103 (140). Treat this as a source-to-master coverage gap requiring source-label/value confirmation before adding records; do not infer or copy a power value.",
+      "No canonical master data was changed by this audit."
+    ],
     "rendered_page_images": "uploaded_pdf_rendered_and_visually_inspected_pages_4_5_6_7_2026-10-16",
     "tests_and_quality": "Quality workflow succeeded on current PR head 0ca0a6a27f52ca1bead48166ed1a1801fbd4c71c (run 38870282555, 2026-10-16). On the same head, Configuration Comparison Workbook, Configuration Comparison HTML, Configuration Comparison Bundle, Configuration Shortlist, Configuration Shortlist HTML, Configuration Selection Export, Versioned Data Product Release, Verified Data Product Release Download, and multiple model reporting workflows also succeeded. Temporary Bigster Repository Snapshot was skipped. Repository-local checks were not executed in this session.",
     "pull_request": {
