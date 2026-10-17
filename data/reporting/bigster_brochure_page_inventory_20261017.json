@@ -3,7 +3,7 @@
   "kind": "bigster_brochure_full_page_inventory",
   "reviewed_on": "2026-10-17",
   "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
-  "status": "all_24_pages_text_and_rendered_visuals_reviewed_source_to_master_reconciliation_partial",
+  "status": "full_24_page_inventory_complete_source_to_master_reconciliation_partial",
   "source": {
     "source_code": "src_pl_bigster_brochure_20251210",
     "title": "DACIA BIGSTER broszura",
@@ -337,14 +337,83 @@
   "master_reconciliation": {
     "status": "partial",
     "master_mutations": 0,
-    "reason": "Page-by-page text and rendered review is complete, but a complete value-by-value comparison of every candidate against the full 2.4 MB data/master/configuration_attribute_values.csv and accessory master/import records has not been completed through the current GitHub connector. The connector returned empty content for the large master CSV; no source fact has been inferred from that limitation.",
+    "reason": "The uploaded current master CSV enabled a full presence/uniqueness audit for the registered Bigster brochure observations and a focused comparison against the July and October 2026 price-list source records. The page-23 brochure dimensions are not yet stored as source-bound observations; the 1813 mm versus 1812 mm width discrepancy remains explicit. Exact value-by-value reconciliation of all equipment rows and every brochure marketing/accessory claim is still incomplete.",
     "next_actions": [
-      "Page-19 accessory name/part-number crosswalk is recorded; only the explicit roof-rack/panoramic-roof incompatibility was added. Do not add product capacity/dimension fields without an approved product-attribute contract.",
-      "Reconcile the complete page-20 technical table against all exact configuration_attribute_values and the October 2026 price-list observations.",
-      "Compare every equipment/package row from pages 21-22 against current October equipment data and record only historical differences not already represented.",
-      "Resolve page-23 dimensions and cargo contexts against existing master values, preserving the 1813 mm versus 1812 mm width difference.",
-      "Only after exact duplicate/conflict checks, generate source import specifications and run the repository quality gate."
-    ]
+      "Confirm the exact October page-6 engine_power label/value for the three Tribrid 150 4x4 configurations before any import; no cross-configuration inference.",
+      "Complete page-23 dimension-label and 4x2/4x4 pairing review; keep the 1813 mm brochure width separate from the 1812 mm July/October catalogue value.",
+      "Review cargo measurement context against configuration_cargo_volume_contexts.csv; do not flatten VDA/ISO values or seat/spare-wheel states.",
+      "Complete exact package-row reconciliation for pages 21-22 against the 564 current equipment rows and preserve P1-P4 identity.",
+      "Review product dimensions/capacities from page 19 only if the existing product data model supports those fields; do not invent attribute schema.",
+      "After the remaining source checks, create only exact, non-duplicate source import specs and run the repository quality gate."
+    ],
+    "uploaded_master_snapshot_audit": {
+      "file": "data/master/configuration_attribute_values.csv",
+      "supplied_artifact": "/mnt/data/configuration_attribute_values.csv",
+      "supplied_file_size_bytes": 2398549,
+      "row_count": 8186,
+      "unique_ids": 8186,
+      "duplicate_ids": 0,
+      "unique_codes": 8186,
+      "duplicate_codes": 0,
+      "bigster_row_count": 1553,
+      "bigster_configuration_count": 20,
+      "bigster_attribute_count": 88,
+      "brochure_source_code": "src_pl_bigster_brochure_20251210",
+      "brochure_source_row_count": 248,
+      "brochure_configuration_count": 14,
+      "brochure_attributes": {
+        "boot_capacity": 68,
+        "gross_train_weight": 14,
+        "unbraked_trailer_weight": 14,
+        "turning_circle_between_kerbs": 14,
+        "maximum_kerb_weight": 14,
+        "steering_type": 14,
+        "front_brake_type": 14,
+        "rear_brake_type": 14,
+        "standard_tyre_specification": 14,
+        "eco_mode": 14,
+        "hybrid_battery_type": 14,
+        "emission_standard": 14,
+        "hybrid_battery_capacity_source_stated": 11,
+        "hybrid_system_power_total": 3,
+        "max_power_rpm": 3,
+        "traction_motor_torque": 3,
+        "max_torque_rpm": 3,
+        "hybrid_system_voltage": 3
+      },
+      "interpretation": "All 248 existing Bigster brochure observations are present in the uploaded master snapshot; this establishes presence, not that every claim from all 24 brochure pages is represented.",
+      "page_23_dimensions": {
+        "brochure_source_bound_dimension_rows_in_master": 0,
+        "comparison_source_code": "src_pl_bigster_price_my26_20260703",
+        "comparison_source_dimension_rows_for_14_configurations": 14,
+        "width_without_mirrors": {
+          "brochure_page": 23,
+          "brochure_value_mm": 1813,
+          "july_price_list_value_mm": 1812,
+          "decision": "Preserve as a source-bound discrepancy; no overwrite and no assumption that the values are equivalent."
+        },
+        "paired_dimensions": "The current master contains July 2026 price-list dimensions, but no source-bound dimension observations from the December 2025 brochure. The 4x2/4x4 pairing of height, ground clearance, wheelbase and rear overhang must remain deferred until labels are unambiguous."
+      },
+      "october_price_list_audit": {
+        "source_code": "src_pl_bigster_price_my26_20261001",
+        "row_count": 147,
+        "configuration_count": 6,
+        "missing_engine_power": [
+          "bigster_expression_tribrid150_4x4_automatic",
+          "bigster_extreme_tribrid150_4x4_automatic",
+          "bigster_journey_tribrid150_4x4_automatic"
+        ],
+        "decision": "Do not infer engine_power from differently named July configurations or copy a value across powertrains. Confirm the exact October page-6 engine-power label/value before preparing an import."
+      },
+      "validation": {
+        "csv_rows_equal_project_state_baseline": true,
+        "ids_unique": true,
+        "codes_unique": true,
+        "duplicate_ids": 0,
+        "duplicate_codes": 0,
+        "master_mutations": 0
+      }
+    }
   },
   "source_policy": {
     "no_configurator_used": true,
