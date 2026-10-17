@@ -230,7 +230,16 @@
         {
           "attribute_code": "blind_spot_monitoring",
           "finding": "A consistency audit found the Expression rows for both tracked powertrains have availability_status=not_available while normalization_notes say 'P2 package marker normalized to optional.' This is an internal status/note contradiction; the note alone does not prove that the item is available for Expression. The page-4/5 matrix must be checked before changing either field.",
-          "disposition": "flagged as unresolved source-to-normalization conflict; no status changed"
+          "disposition": "resolved in import notes: Expression is not available; P2 applies to Extreme/Journey only. Status values unchanged.",
+          "resolution_commit": "d20996e9a81432efc6bbb2fcbf2aa507955dbfcd"
+        }
+      ],
+      "resolved_findings": [
+        {
+          "attribute_code": "blind_spot_monitoring",
+          "finding": "Expression rows had not_available status but a generic note incorrectly said P2 normalized to optional.",
+          "resolution": "Corrected both Expression powertrain notes to state Expression is not available and P2 applies to Extreme/Journey only; availability statuses left unchanged.",
+          "commit": "d20996e9a81432efc6bbb2fcbf2aa507955dbfcd"
         }
       ]
     },
