@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "kind": "bigster_brochure_full_page_inventory",
+  "reviewed_on": "2026-10-17",
+  "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+  "status": "all_24_pages_text_and_rendered_visuals_reviewed_source_to_master_reconciliation_partial",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "title": "DACIA BIGSTER broszura",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2025-12-10",
+    "pages": 24,
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "repository_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "official_download_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+    "text_review": "all 24 pages reviewed through the official PDF text extraction",
+    "rendered_review": "all 24 pages inspected as rendered page images; table layouts and dimension diagram reviewed visually"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "title": "Cover",
+      "content": [
+        "Bigster model cover and promotional imagery"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "No source-backed configuration fact."
+    },
+    {
+      "page": 2,
+      "title": "Model overview",
+      "content": [
+        "Five-seat positioning",
+        "Electrified powertrain families",
+        "Promotional claims about space and suitability"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "General marketing summary; no exact configuration-to-fact mapping."
+    },
+    {
+      "page": 3,
+      "title": "Interactive contents",
+      "content": [
+        "Seven brochure sections"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "Navigation only."
+    },
+    {
+      "page": 4,
+      "title": "Exterior styling",
+      "content": [
+        "Starkle exterior protection",
+        "Panoramic glass roof",
+        "Two-tone body and Indigo colour claims"
+      ],
+      "disposition": "covered_or_date_scoped_check",
+      "reason": "Equipment, colours and applicability must follow the exact dated price list; do not duplicate current October 2026 commercial evidence."
+    },
+    {
+      "page": 5,
+      "title": "Interior design",
+      "content": [
+        "10-inch digital instrument cluster",
+        "10.1-inch central touchscreen",
+        "MicroCloud and trim-specific interior details"
+      ],
+      "disposition": "covered_or_date_scoped_check",
+      "reason": "Compare against current configuration and equipment data; marketing prose is not a separate observation."
+    },
+    {
+      "page": 6,
+      "title": "Hybrid-G 150 4x4 narrative",
+      "content": [
+        "Petrol/LPG dual-fuel claim",
+        "Six-speed dual-clutch automatic gearbox",
+        "Up to 1480 km range",
+        "Rear electric motor peak 31 hp and 140 hp petrol engine narrative",
+        "Up to 60% electric city-driving claim"
+      ],
+      "disposition": "deferred_source_conflict",
+      "reason": "Narrative performance claims and combined/system power must not be normalized as independent engine values; use the technical table and later dated official price list for exact current facts."
+    },
+    {
+      "page": 7,
+      "title": "Hybrid powertrain overview",
+      "content": [
+        "Hybrid 155 marketing claims",
+        "Mild hybrid 140 and mild hybrid-G 140 summaries",
+        "Fuel-saving and electric-driving percentages"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "Comparative promotional claims do not constitute configuration-specific homologated observations."
+    },
+    {
+      "page": 8,
+      "title": "Cabin and cargo overview",
+      "content": [
+        "38.8 litres of in-cabin storage claim",
+        "40/20/40 rear bench with Easy Fold",
+        "Dual-zone climate with rear vents",
+        "Boot capacity up to 702 litres",
+        "Powered tailgate"
+      ],
+      "disposition": "covered_or_deferred_by_context",
+      "reason": "Cargo facts require the existing measurement-standard, floor, spare-wheel and seat-state context; do not import generic marketing capacity over the contextual cargo model."
+    },
+    {
+      "page": 9,
+      "title": "YouClip and InNature",
+      "content": [
+        "Five standard YouClip attachment points and two optional points",
+        "Sleep Pack sleeping surface 1.90 m by 1.30 m",
+        "InNature modular roof-rack compatibility",
+        "Picnic table/storage use conditional on version"
+      ],
+      "disposition": "covered_or_deferred_by_catalog_scope",
+      "reason": "Accessory and compatibility facts must be compared with the existing official accessory catalogue before creating any new product or configuration records."
+    },
+    {
+      "page": 10,
+      "title": "Multimedia",
+      "content": [
+        "10-inch cluster and 10.1-inch display",
+        "Media Nav Live",
+        "Eight-year map-update claim",
+        "Arkamys 3D six-speaker system",
+        "My Dacia application"
+      ],
+      "disposition": "covered_or_date_scoped_check",
+      "reason": "Equipment and service-period claims are grade- and product-date-sensitive; reconcile against the dated equipment matrix before any import."
+    },
+    {
+      "page": 11,
+      "title": "Driver assistance",
+      "content": [
+        "Narrative overview of 13 assistance systems",
+        "Adaptive cruise control",
+        "Driver-attention monitoring",
+        "Traffic-sign recognition",
+        "Lane assistance",
+        "Blind-spot monitoring and Multiview camera"
+      ],
+      "disposition": "covered_or_date_scoped_check",
+      "reason": "Descriptions are not an exact trim availability matrix; the dated equipment matrix governs current availability."
+    },
+    {
+      "page": 12,
+      "title": "Business use",
+      "content": [
+        "Total cost of ownership and fleet-management marketing",
+        "Dealer support and financing claims"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "Commercial marketing claims are not vehicle configuration attributes."
+    },
+    {
+      "page": 13,
+      "title": "Equipment-section contents",
+      "content": [
+        "Body colours",
+        "Equipment grades",
+        "Accessories",
+        "Technical data",
+        "Equipment/options",
+        "Dimensions"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "Navigation only."
+    },
+    {
+      "page": 14,
+      "title": "Body colours",
+      "content": [
+        "Alpine White",
+        "Pearl Black",
+        "Shiste Grey",
+        "Indigo Blue",
+        "Cedar Green",
+        "Terracotta Brown",
+        "Metallic/non-metallic and two-tone notes"
+      ],
+      "disposition": "covered_or_date_scoped_check",
+      "reason": "Colour names and two-tone availability are dated catalogue facts; prices and exact compatibility must not be copied from marketing imagery."
+    },
+    {
+      "page": 15,
+      "title": "Essential grade summary",
+      "content": [
+        "Grade-specific styling, cabin, safety, multimedia and optional equipment"
+      ],
+      "disposition": "covered_by_detailed_matrix",
+      "reason": "Summary is superseded for exact fitment by the detailed equipment matrix on pages 21-22 and the newer 2026-10-01 price list."
+    },
+    {
+      "page": 16,
+      "title": "Expression grade summary",
+      "content": [
+        "Expression = Essential plus",
+        "Media Nav Live and Winter/Easy package options",
+        "Spare-wheel applicability note"
+      ],
+      "disposition": "covered_by_detailed_matrix",
+      "reason": "Use exact grade/package markers and dated price-list evidence; do not flatten packages into generic optional availability."
+    },
+    {
+      "page": 17,
+      "title": "Journey grade summary",
+      "content": [
+        "Journey = Expression plus",
+        "Keyless Entry, 10-inch cluster, Media Nav Live and electric tailgate",
+        "Hybrid 155-specific cooled storage and adaptive cruise notes"
+      ],
+      "disposition": "covered_by_detailed_matrix",
+      "reason": "Grade summary is not sufficient to infer applicability across powertrains; the dated matrix is more exact."
+    },
+    {
+      "page": 18,
+      "title": "Extreme grade summary",
+      "content": [
+        "Extreme-specific exterior/interior design",
+        "Modular roof rails, panoramic roof, Keyless Entry, 10-inch cluster and optional packages"
+      ],
+      "disposition": "covered_by_detailed_matrix",
+      "reason": "Use detailed matrix and current dated price list for availability; images and narrative do not override source cells."
+    },
+    {
+      "page": 19,
+      "title": "Accessory catalogue",
+      "content": [
+        "Portable rear armrest",
+        "310-litre Aero Cargo Box",
+        "Illuminated sill plates and floor mats",
+        "Front-seat organizer",
+        "Roof rack load up to 60 kg",
+        "YouClip tablet holder up to 11 inches",
+        "Roof-rack incompatibility with panoramic glass roof"
+      ],
+      "disposition": "source_gap_recorded_in_accessory_compatibility_notes; product capacity attributes deferred",
+      "reason": "Exact item-level cross-check found the rear armrest, front-seat organizer, YouClip tablet holder, roof rack, Sleep variants and Aero Cargo Box references already represented in the 2026-08-06 accessory dataset. The brochure's explicit panoramic-roof incompatibility for the roof rack was missing from the trim-only compatibility row and is now recorded in its notes. The 310-litre box volume, 60 kg roof-rack load and 1.90 x 1.30 m Sleep Pack surface remain brochure facts not represented as structured product attributes."
+    },
+    {
+      "page": 20,
+      "title": "Technical table",
+      "content": [
+        "Four powertrain columns",
+        "Power, torque, injection, displacement, cylinders and emissions standard",
+        "48 V mild-hybrid batteries and 280 V Hybrid 155 battery",
+        "Performance, gearbox and tyre data"
+      ],
+      "disposition": "partially_covered_conflict_preserved",
+      "reason": "Existing Bigster page-20 technical and chassis imports cover selected fields. Compare every value by exact powertrain/configuration with the 2026-10-01 price list; preserve source-specific conflicts and never project between powertrains."
+    },
+    {
+      "page": 21,
+      "title": "Equipment/options matrix, part 1",
+      "content": [
+        "Exterior design",
+        "Seats/interior",
+        "Safety and driver assistance",
+        "Standard/optional/unavailable legend and footnotes"
+      ],
+      "disposition": "covered_by_detailed_matrix_with_historical_scope",
+      "reason": "The newer 2026-10-01 official price list has its own equipment matrix; preserve the brochure as dated historical evidence and do not duplicate the current matrix."
+    },
+    {
+      "page": 22,
+      "title": "Equipment/options matrix, part 2",
+      "content": [
+        "Driving/control systems",
+        "Comfort",
+        "Multimedia",
+        "Online services",
+        "EASY, PARKING, WINTER and WINTER PLUS package markers"
+      ],
+      "disposition": "covered_by_detailed_matrix_with_historical_scope",
+      "reason": "Package markers and grade-specific availability are source-sensitive. Current price-list observations and their exact package notes take precedence for the October 2026 state."
+    },
+    {
+      "page": 23,
+      "title": "Dimensions and cargo",
+      "content": [
+        "Overall length 4570 mm",
+        "Body width without mirrors 1813 mm; width with mirrors 2069 mm",
+        "Front/rear track annotations 1580/1565 mm",
+        "Wheelbase 2702 mm; front/rear overhang 854/1014 mm",
+        "Ground clearance 220/219 mm and height 1712/1706 mm with 4x2/4x4 footnote",
+        "Seat geometry labels 931/935 and 14 degrees",
+        "Cargo 667 dm³ VDA / 702 litres under shelf and 1937 dm³ VDA / 2002 litres with rear bench folded, without double floor and spare wheel"
+      ],
+      "disposition": "deferred_source_conflict_and_context",
+      "reason": "The October 2026 price-list page-7 review records a different body-width value (1812 mm) and additional drivetrain-paired candidates. Preserve the 2025 brochure observation as historical evidence; do not overwrite or map paired dimensions until exact diagram labels and configuration applicability are confirmed. Cargo values require the existing measurement/seat-state context; seat angles and interior measurements must not be mapped to unrelated attributes."
+    },
+    {
+      "page": 24,
+      "title": "Legal and publication notes",
+      "content": [
+        "Country/grade availability caveat",
+        "Prototype and ongoing-change caveat",
+        "Option incompatibility caveat",
+        "Publication date 2025-12-10"
+      ],
+      "disposition": "context_only_non_import",
+      "reason": "Legal applicability caveats govern interpretation; no vehicle master observation."
+    }
+  ],
+  "existing_coverage": {
+    "cargo": "data/reporting/bigster_brochure_cargo_import.json: 68 cargo-context values across 11 configurations; Hybrid-G 150 4x4 repair-kit boundary remains explicitly deferred.",
+    "chassis": "data/imports/brochure_technical_values/bigster-chassis-20251210.json: selected page-20 steering, brakes, tyres and mass observations.",
+    "technical_reconciliation": "data/reporting/bigster_documentary_technical_reconciliation_001.json: selected page-20 technical fields and ranges reconciled; this is not a full 24-page reconciliation.",
+    "accessory_catalog": "data/reporting/official_bigster_accessory_catalog_reconciliation_20260806.json plus data/reporting/official_bigster_accessory_catalog_compatibility_20260806.csv and data/reporting/official_bigster_accessory_price_list_20260806.csv. Page-19 item crosswalk completed for the named products; roof-rack incompatibility with the panoramic glass roof is recorded in the compatibility row. Accessory product dimensions/capacity remain unmodeled.",
+    "current_price_list": "data/reporting/bigster_price_list_20261001_reconciliation_001.json; current dated source takes precedence for equivalent current MY26 fields."
+  },
+  "cross_source_findings": [
+    {
+      "finding": "Brochure page 23 gives body width without mirrors as 1813 mm; the October 2026 price-list page-7 inventory records 1812 mm.",
+      "decision": "Preserve both source-bound observations; do not overwrite or collapse the discrepancy."
+    },
+    {
+      "finding": "Brochure page 20 cargo figures distinguish repair kit/spare wheel and measurement basis; page 23 gives generic capacity without double floor and spare wheel.",
+      "decision": "Do not infer applicability from numerical similarity; retain the existing cargo context model and explicit deferrals."
+    },
+    {
+      "finding": "The brochure uses Hybrid-G 150 4x4 naming and the October 2026 catalogue uses Tribrid 150 4x4 naming.",
+      "decision": "Use explicit source/configuration relationships and dated naming reconciliation; do not duplicate or rename historical source observations by inference."
+    },
+    {
+      "finding": "Equipment summaries on pages 15-18 and detailed matrix pages 21-22 describe the 2025 brochure state, while the 2026-10-01 price list is the current MY26 commercial source.",
+      "decision": "Use the October price list for current availability/prices and retain the brochure for historical/contextual evidence."
+    },
+    {
+      "finding": "The Bigster brochure page 19 explicitly says the roof rack is incompatible with the panoramic glass roof; the existing accessory compatibility table only carried trim-level compatibility.",
+      "decision": "Add the exact source-backed incompatibility as a row note; retain product capacities and dimensions as unmodeled rather than inventing new attribute schema."
+    }
+  ],
+  "master_reconciliation": {
+    "status": "partial",
+    "master_mutations": 0,
+    "reason": "Page-by-page text and rendered review is complete, but a complete value-by-value comparison of every candidate against the full 2.4 MB data/master/configuration_attribute_values.csv and accessory master/import records has not been completed through the current GitHub connector. The connector returned empty content for the large master CSV; no source fact has been inferred from that limitation.",
+    "next_actions": [
+      "Page-19 accessory name/part-number crosswalk is recorded; only the explicit roof-rack/panoramic-roof incompatibility was added. Do not add product capacity/dimension fields without an approved product-attribute contract.",
+      "Reconcile the complete page-20 technical table against all exact configuration_attribute_values and the October 2026 price-list observations.",
+      "Compare every equipment/package row from pages 21-22 against current October equipment data and record only historical differences not already represented.",
+      "Resolve page-23 dimensions and cargo contexts against existing master values, preserving the 1813 mm versus 1812 mm width difference.",
+      "Only after exact duplicate/conflict checks, generate source import specifications and run the repository quality gate."
+    ]
+  },
+  "source_policy": {
+    "no_configurator_used": true,
+    "no_cross_powertrain_projection": true,
+    "no_negative_inference_from_missing_text": true,
+    "no_master_rows_added": true,
+    "older_brochure_does_not_override_october_2026_price_list": true
+  }
+}
