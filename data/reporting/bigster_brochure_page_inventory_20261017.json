@@ -339,7 +339,7 @@
     "master_mutations": 3,
     "reason": "The uploaded current master CSV enabled a full presence/uniqueness audit for the registered Bigster brochure observations and a focused comparison against the July and October 2026 price-list source records. The page-23 brochure dimensions are not yet stored as source-bound observations; the 1813 mm versus 1812 mm width discrepancy remains explicit. Exact value-by-value reconciliation of all equipment rows and every brochure marketing/accessory claim is still incomplete.",
     "next_actions": [
-      "Apply the verified three-row Tribrid engine_power import to the master CSV through the repository's supported import/build path; current GitHub text Contents connector cannot return the 2.4 MB master CSV for direct safe replacement.",
+      "The verified three-row Tribrid engine_power import has been appended to the master CSV on this PR branch; after canonical project-state synchronization, rerun the repository quality gate and verify the generated documentation.",
       "Complete page-23 dimension-label and 4x2/4x4 pairing review; keep the 1813 mm brochure width separate from the 1812 mm July/October catalogue value.",
       "Review cargo measurement context against configuration_cargo_volume_contexts.csv; do not flatten VDA/ISO values or seat/spare-wheel states.",
       "Complete exact package-row reconciliation for pages 21-22 against the 564 current equipment rows and preserve P1-P4 identity.",
