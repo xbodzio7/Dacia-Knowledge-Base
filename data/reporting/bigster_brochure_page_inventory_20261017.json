@@ -341,7 +341,7 @@
     "next_actions": [
       "The verified three-row Tribrid engine_power import has been appended to the master CSV on this PR branch; after canonical project-state synchronization, rerun the repository quality gate and verify the generated documentation.",
       "Complete page-23 dimension-label and 4x2/4x4 pairing review; keep the 1813 mm brochure width separate from the 1812 mm July/October catalogue value.",
-      "Review cargo measurement context against configuration_cargo_volume_contexts.csv; do not flatten VDA/ISO values or seat/spare-wheel states.",
+      "Cargo-context audit completed against configuration_cargo_volume_contexts.csv: the existing 68 imported brochure observations retain separate VDA/ISO 3832 and ordinary-litre bases, upright/folded seat states, and repair-kit/spare-wheel states. The generic page-23 figures (667/702 and 1937/2002) remain deferred because that page does not identify a powertrain/configuration; do not project them by numeric similarity.",
       "Complete exact package-row reconciliation for pages 21-22 against the 564 current equipment rows and preserve P1-P4 identity.",
       "Review product dimensions/capacities from page 19 only if the existing product data model supports those fields; do not invent attribute schema.",
       "After the remaining source checks, create only exact, non-duplicate source import specs and run the repository quality gate."
