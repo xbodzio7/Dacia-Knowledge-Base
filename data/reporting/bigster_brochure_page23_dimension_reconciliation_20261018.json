@@ -3,7 +3,7 @@
   "kind": "bigster_brochure_page23_dimension_reconciliation",
   "reviewed_on": "2026-10-18",
   "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
-  "status": "source_values_transcribed_mapping_and_import_deferred",
+  "status": "source_and_attribute_registry_audited_mapping_still_deferred",
   "source": {
     "source_code": "src_pl_bigster_brochure_20251210",
     "source_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
@@ -117,9 +117,60 @@
     "reason": "This is a reconciliation workpaper, not an approved import. The source values are transcribed, but exact configuration projection and paired-label interpretation are not yet sufficiently established for master materialization."
   },
   "next_actions": [
-    "Confirm source registration and configuration relationships for the historical brochure against repository source records.",
     "Inspect the rendered page-23 diagram and footnotes at full resolution to establish whether front/rear track and overhang values are model-wide or drivetrain-specific.",
-    "If configuration scope is proven, prepare a dated historical observation spec without replacing the current July/October 2026 observations.",
-    "Keep cargo and interior/seat geometry excluded from scalar dimension imports."
-  ]
+    "Use the existing page-20 brochure configuration relationships only as supporting scope evidence, not as automatic permission to project page-23 dimensions.",
+    "If the diagram establishes an exact model-wide scope, create a dated historical observation spec for only the proven dimensions and configurations.",
+    "Keep cargo and interior/seat geometry excluded from scalar dimension imports.",
+    "Preserve the 1813 mm December 2025 brochure width separately from the 1812 mm July/October 2026 price-list observations."
+  ],
+  "registry_audit": {
+    "reviewed_on": "2026-10-18",
+    "source_registration": {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "registered_in": "data/master/sources.csv",
+      "document_date": "2025-12-10",
+      "status": "active",
+      "result": "Source identity is confirmed; registration alone does not authorize projection of each page-23 measurement onto every configuration."
+    },
+    "source_configuration_relationships": {
+      "registered_brochure_configurations": 14,
+      "source_relationship_type": "brochure_technical_data_for",
+      "configuration_groups": [
+        {
+          "group": "mildhybrid140_4x2_manual",
+          "count": 4
+        },
+        {
+          "group": "mildhybridg140_4x2_manual",
+          "count": 4
+        },
+        {
+          "group": "hybrid155_4x2_automatic",
+          "count": 3
+        },
+        {
+          "group": "hybridg150_4x4_automatic",
+          "count": 3
+        }
+      ],
+      "evidence_boundary": "These relationships are grounded in the page-20 technical-table and cargo imports; they do not independently establish page-23 dimension applicability. The December 2025 source does not document the October 2026 tribrid150 configuration names."
+    },
+    "attribute_registry": {
+      "file": "data/master/attributes.csv",
+      "matching_active_attributes": [
+        "overall_length",
+        "overall_width",
+        "overall_width_with_mirrors",
+        "front_track",
+        "rear_track",
+        "wheelbase",
+        "front_overhang",
+        "rear_overhang",
+        "ground_clearance",
+        "overall_height"
+      ],
+      "result": "All ten candidate attributes exist in the registry with millimetre units. Semantic attribute availability does not resolve configuration scope or paired 4x2/4x4 footnotes."
+    },
+    "decision": "No master mutation and no import specification. Continue to defer projection until page-23 diagram/footnotes establish the applicable drivetrain/configuration scope. Preserve 1813 mm brochure width separately from 1812 mm later price-list observations."
+  }
 }
