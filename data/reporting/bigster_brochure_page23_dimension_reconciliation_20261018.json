@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "kind": "bigster_brochure_page23_dimension_reconciliation",
+  "reviewed_on": "2026-10-18",
+  "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+  "status": "source_values_transcribed_mapping_and_import_deferred",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "source_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "document_date": "2025-12-10",
+    "page": 23,
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74"
+  },
+  "observations_transcribed": [
+    {
+      "attribute_candidate": "overall_length",
+      "value": 4570,
+      "unit": "mm",
+      "source_text": "Długość całkowita 4570 mm",
+      "configuration_scope": "Bigster model diagram; exact source-related configuration projection not yet authorized"
+    },
+    {
+      "attribute_candidate": "overall_width",
+      "value": 1813,
+      "unit": "mm",
+      "source_text": "Szerokość nadwozia bez lusterek 1813 mm",
+      "configuration_scope": "Bigster model diagram; preserve as historical brochure observation"
+    },
+    {
+      "attribute_candidate": "overall_width_with_mirrors",
+      "value": 2069,
+      "unit": "mm",
+      "source_text": "Szerokość z lusterkami 2069 mm",
+      "configuration_scope": "Bigster model diagram; exact source-related configuration projection not yet authorized"
+    },
+    {
+      "attribute_candidate": "front_track",
+      "value": 1580,
+      "unit": "mm",
+      "source_text": "Rozstaw kół przednich 1580 mm",
+      "configuration_scope": "Model diagram; validate exact diagram label and drivetrain applicability"
+    },
+    {
+      "attribute_candidate": "rear_track",
+      "value": 1565,
+      "unit": "mm",
+      "source_text": "Rozstaw kół tylnych 1565 mm",
+      "configuration_scope": "Model diagram; validate exact diagram label and drivetrain applicability"
+    },
+    {
+      "attribute_candidate": "wheelbase",
+      "value": 2702,
+      "unit": "mm",
+      "source_text": "Rozstaw osi 2702 mm",
+      "configuration_scope": "Bigster model diagram; exact source-related configuration projection not yet authorized"
+    },
+    {
+      "attribute_candidate": "front_overhang",
+      "value": 854,
+      "unit": "mm",
+      "source_text": "Zwis przedni 854 mm",
+      "configuration_scope": "Bigster model diagram; exact source-related configuration projection not yet authorized"
+    },
+    {
+      "attribute_candidate": "rear_overhang",
+      "value": 1014,
+      "unit": "mm",
+      "source_text": "Zwis tylny 1014 mm",
+      "configuration_scope": "Model diagram; validate exact diagram label and drivetrain applicability"
+    },
+    {
+      "attribute_candidate": "ground_clearance",
+      "value": "220/219",
+      "unit": "mm",
+      "source_text": "Prześwit 220/219 mm with 4x2/4x4 footnote",
+      "configuration_scope": "Do not split values across configurations until footnote and exact active configuration relationship are verified"
+    },
+    {
+      "attribute_candidate": "overall_height",
+      "value": "1712/1706",
+      "unit": "mm",
+      "source_text": "Wysokość 1712/1706 mm with 4x2/4x4 footnote",
+      "configuration_scope": "Do not split values across configurations until footnote and exact active configuration relationship are verified"
+    }
+  ],
+  "cross_source_reconciliation": {
+    "width_without_mirrors": {
+      "brochure_2025_12_10_mm": 1813,
+      "price_list_2026_07_03_mm": 1812,
+      "price_list_2026_10_01_mm": 1812,
+      "disposition": "Preserve separate source-bound values and observation dates; do not overwrite, average, or declare equivalence."
+    },
+    "existing_coverage": {
+      "july_2026_price_list_dimension_values": 140,
+      "july_2026_exact_configurations": 14,
+      "brochure_source_bound_page23_dimension_rows_in_audited_master_snapshot": 0,
+      "interpretation": "Later price-list dimensions are not a substitute for a historical observation tied to the December 2025 brochure source."
+    }
+  },
+  "exclusions": [
+    {
+      "item": "Cargo 667 dm³ VDA / 702 litres and 1937 dm³ VDA / 2002 litres",
+      "reason": "The page does not identify exact powertrain/configuration or enough context to assign these values safely; retain the existing cargo-context model."
+    },
+    {
+      "item": "Seat geometry labels 931/935 and 14 degrees",
+      "reason": "Interior measurements and seatback angles must not be mapped to unrelated exterior attributes."
+    },
+    {
+      "item": "4x2/4x4 paired height and ground-clearance values",
+      "reason": "Keep paired strings unexpanded until exact footnote-to-configuration relationships are independently verified."
+    }
+  ],
+  "import_decision": {
+    "master_mutations": 0,
+    "import_spec_created": false,
+    "reason": "This is a reconciliation workpaper, not an approved import. The source values are transcribed, but exact configuration projection and paired-label interpretation are not yet sufficiently established for master materialization."
+  },
+  "next_actions": [
+    "Confirm source registration and configuration relationships for the historical brochure against repository source records.",
+    "Inspect the rendered page-23 diagram and footnotes at full resolution to establish whether front/rear track and overhang values are model-wide or drivetrain-specific.",
+    "If configuration scope is proven, prepare a dated historical observation spec without replacing the current July/October 2026 observations.",
+    "Keep cargo and interior/seat geometry excluded from scalar dimension imports."
+  ]
+}
