@@ -350,7 +350,7 @@
       "file": "data/master/configuration_attribute_values.csv",
       "supplied_artifact": "/mnt/data/configuration_attribute_values.csv",
       "supplied_file_size_bytes": 2398549,
-      "row_count": 8189,
+      "row_count": 8186,
       "unique_ids": 8186,
       "duplicate_ids": 0,
       "unique_codes": 8186,
