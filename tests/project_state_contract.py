@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import difflib
 import sys
 import tempfile
 import unittest
@@ -121,10 +122,25 @@ class ProjectStateContractTests(unittest.TestCase):
         state = project_state.read_state(REPOSITORY / "project" / "state.json")
         live = documentation_baseline.collect_baseline(REPOSITORY)
         self.assertEqual(project_state.baseline_drift(state, live), [])
-        self.assertEqual(
-            documentation_baseline.check_documents(REPOSITORY, live),
-            [],
-        )
+        drift = documentation_baseline.check_documents(REPOSITORY, live)
+        if drift:
+            path = REPOSITORY / "project" / "SESSION_STATE.md"
+            expected = documentation_baseline.expected_documents(
+                REPOSITORY,
+                live,
+            )[path]
+            actual = path.read_text(encoding="utf-8")
+            difference = "".join(
+                difflib.unified_diff(
+                    actual.splitlines(keepends=True),
+                    expected.splitlines(keepends=True),
+                    fromfile="SESSION_STATE.md (actual)",
+                    tofile="SESSION_STATE.md (expected)",
+                )
+            )
+        else:
+            difference = ""
+        self.assertEqual(drift, [], msg=difference)
 
     def test_summary_is_deterministic(self) -> None:
         state = self.fixture()
