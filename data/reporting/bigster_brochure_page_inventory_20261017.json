@@ -261,8 +261,8 @@
         "Safety and driver assistance",
         "Standard/optional/unavailable legend and footnotes"
       ],
-      "disposition": "covered_by_detailed_matrix_with_historical_scope",
-      "reason": "The newer 2026-10-01 official price list has its own equipment matrix; preserve the brochure as dated historical evidence and do not duplicate the current matrix."
+      "disposition": "current_matrix_exists_historical_row_reconciliation_open",
+      "reason": "The newer 2026-10-01 official price list has its own current equipment matrix, but this does not complete row-by-row reconciliation of the December 2025 brochure. Historical grade markers, footnotes and source-period availability remain unresolved; do not duplicate the current matrix or infer historical states from later records."
     },
     {
       "page": 22,
@@ -274,8 +274,8 @@
         "Online services",
         "EASY, PARKING, WINTER and WINTER PLUS package markers"
       ],
-      "disposition": "covered_by_detailed_matrix_with_historical_scope",
-      "reason": "Package markers and grade-specific availability are source-sensitive. Current price-list observations and their exact package notes take precedence for the October 2026 state."
+      "disposition": "current_matrix_exists_historical_row_reconciliation_open",
+      "reason": "Package markers and grade-specific availability are source-sensitive. The October 2026 price list governs the current state, but does not prove the December 2025 brochure state; historical row-level matches, package identity and source-period boundaries remain open."
     },
     {
       "page": 23,
