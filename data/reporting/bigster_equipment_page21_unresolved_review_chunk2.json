@@ -67,5 +67,27 @@
     "group_candidate_count": 107,
     "chunk_index": 3,
     "chunk_count": 3
+  },
+  "historical_source_boundary": {
+    "reviewed_on": "2026-10-21",
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "brochure_document_date": "2025-12-10",
+    "page": 21,
+    "evidence_period_warning": {
+      "attached_master_evidence_source_code": "src_pl_bigster_price_my26_20260703",
+      "attached_master_evidence_document_date": "2026-07-03",
+      "interpretation": "Any July 2026 price-list records inspected during related ambiguity review describe the later price-list state. Similar text or trim names do not independently prove that the same equipment state was present in the December 2025 brochure."
+    },
+    "disposition": "historical_row_reconciliation_open",
+    "candidate_counts_unchanged": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "rules": [
+      "Candidate/group counts are review workload counts, not counts of missing master records.",
+      "Context-only fragments must not be imported as equipment rows.",
+      "An unresolved signature mismatch must not be converted to standard, optional or unavailable without row-level visual evidence.",
+      "Never relabel later-source observations as observations from the December 2025 brochure.",
+      "Require source-period evidence or a separately justified continuity decision before closing historical reconciliation."
+    ]
   }
 }
