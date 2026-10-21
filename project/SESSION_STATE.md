@@ -24,7 +24,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 - 48 pliki CSV w `data/master`,
 - 21252 rekordów danych,
 - 51 relacje między tabelami,
-- 27 reguł statusów,
+- 28 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 8189 obserwacji w `configuration_attribute_values.csv`,
 - 162 wersjonowane specyfikacje w `data/imports/configuration_values`,
