@@ -33,7 +33,7 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 - 9803 rekordów w `configuration_attribute_availability.csv`,
 - 7907 rekordów `standard`, 676 `optional`, 1220 `not_available` i 0 `unknown`,
 - 416 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 21252 rekordy,
+- baza SQLite obejmująca 48 tabele i 21252 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
