@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "kind": "bigster_brochure_equipment_review_crosswalk",
+  "reviewed_on": "2026-10-22",
+  "status": "crosswalk_required",
+  "pull_request": 754,
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "document_date": "2025-12-10",
+    "pages": [21, 22]
+  },
+  "review_artifacts": [
+    {
+      "path": "data/reporting/bigster_equipment_page21_ambiguity_review.json",
+      "scope_candidate_count": 1,
+      "decisions": {
+        "covered": 1,
+        "partially_covered": 0
+      },
+      "selected_evidence_signature_count": 3,
+      "selected_evidence_record_count": 14,
+      "evidence_period": "The listed records originate from the 2026-07-03 Bigster price list, not the 2025-12-10 brochure."
+    },
+    {
+      "path": "data/reporting/bigster_equipment_page22_ambiguity_review.json",
+      "scope_candidate_count": 7,
+      "decisions": {
+        "covered": 3,
+        "partially_covered": 4
+      },
+      "selected_evidence_signature_count": 18,
+      "selected_evidence_record_count": 126,
+      "evidence_period": "The listed records originate from the 2026-07-03 Bigster price list, not the 2025-12-10 brochure."
+    }
+  ],
+  "unresolved_candidate_chunks": [
+    {
+      "page": 21,
+      "paths": [
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk1.json",
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk2.json",
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk3.json"
+      ],
+      "candidate_count": 107,
+      "context_only_non_import": 51,
+      "unresolved_signature_mismatch": 56,
+      "attached_evidence_signature_count": 0,
+      "attached_evidence_record_count": 0
+    },
+    {
+      "page": 22,
+      "paths": [
+        "data/reporting/bigster_equipment_page22_unresolved_review_chunk1.json",
+        "data/reporting/bigster_equipment_page22_unresolved_review_chunk2.json"
+      ],
+      "candidate_count": 69,
+      "context_only_non_import": 35,
+      "unresolved_signature_mismatch": 34,
+      "attached_evidence_signature_count": 0,
+      "attached_evidence_record_count": 0
+    }
+  ],
+  "interpretation": {
+    "candidate_count_semantics": "The 176 candidates in unresolved chunks are review-workload fragments, not 176 missing master records. The 1- and 7-candidate authored ambiguity reports are separate review scopes; do not add or subtract their counts until candidate IDs are explicitly crosswalked.",
+    "historical_source_boundary": "Evidence from the 2026-07-03 price list does not by itself prove the equipment state of the 2025-12-10 brochure. Do not relabel later-source observations as brochure observations.",
+    "marker_legend": {
+      "•": "standard",
+      "¤": "optional",
+      "-": "not_available"
+    },
+    "grade_columns": ["Essential", "Expression", "Journey", "Extreme"],
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_actions": [
+    "Crosswalk the candidate IDs and exact source text in the unresolved chunk Markdown files against the decisions in the two authored ambiguity reports.",
+    "Separate already-reviewed rows from truly unmatched rows; do not infer that a signature mismatch means a master record is missing.",
+    "For any proposed import, require a source-period proof or a separately justified continuity decision and exact configuration/attribute contract mapping.",
+    "Keep all master/import files unchanged until those checks pass."
+  ]
+}
