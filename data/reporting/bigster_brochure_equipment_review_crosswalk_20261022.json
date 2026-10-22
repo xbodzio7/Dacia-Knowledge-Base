@@ -90,7 +90,7 @@
     "Preserve master and import files unchanged until source-period proof and exact configuration/attribute mapping are established."
   ],
   "crosswalk_result": {
-    "reviewed_on": "2026-10-22",
+    "reviewed_on": "2026-10-23",
     "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted.",
     "unresolved_chunks": {
       "candidate_count": 176,
@@ -245,7 +245,7 @@
           "topic": "wireless charging"
         }
       ],
-      "note": "Potential visual-row links are investigative leads, not approved deduplication or evidence equivalence. Rendered-page coordinates or a source line inventory are still required before treating them as a formal crosswalk.",
+      "note": "The four links are confirmed textual row-fragment relationships based on the official PDF text and aligned grade markers. Pixel-coordinate geometry has not been independently checked. Do not infer duplicate candidate identity, master-record duplication, historical-to-master continuity, or import approval from these links.",
       "source_verification": {
         "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
         "source_code": "src_pl_bigster_brochure_20251210",
