@@ -42,9 +42,9 @@
     {
       "page": 21,
       "paths": [
-        "data/reporting/bigster_equipment_page21_unresolved_review_chunk1.json",
-        "data/reporting/bigster_equipment_page21_unresolved_review_chunk2.json",
-        "data/reporting/bigster_equipment_page21_unresolved_review_chunk3.json"
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk1.md",
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk2.md",
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk3.md"
       ],
       "candidate_count": 107,
       "context_only_non_import": 51,
@@ -55,8 +55,8 @@
     {
       "page": 22,
       "paths": [
-        "data/reporting/bigster_equipment_page22_unresolved_review_chunk1.json",
-        "data/reporting/bigster_equipment_page22_unresolved_review_chunk2.json"
+        "data/reporting/bigster_equipment_page22_unresolved_review_chunk1.md",
+        "data/reporting/bigster_equipment_page22_unresolved_review_chunk2.md"
       ],
       "candidate_count": 69,
       "context_only_non_import": 35,
@@ -84,10 +84,10 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Create a visual-row-level mapping from each authored ambiguity decision to the corresponding candidate fragment IDs only when rendered page coordinates or a source line inventory establish the relationship.",
-    "Preserve separate review scopes until that mapping exists; do not infer missing master records from signature mismatch.",
-    "For any proposed import, require source-period proof or an independently justified continuity decision and exact configuration/attribute contract mapping.",
-    "Keep all master/import files unchanged until those checks pass."
+    "Verify the four possible page-22 row-fragment links against rendered page coordinates or a structured PDF text-line inventory.",
+    "Keep covered decisions with no direct candidate row separate; absence from the unresolved chunks may mean they were not included in that review workload.",
+    "Resolve the four partial decisions using complete row text and grade markers, not the July 2026 price-list evidence alone.",
+    "Preserve master and import files unchanged until source-period proof and exact configuration/attribute mapping are established."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-22",
@@ -120,6 +120,107 @@
       "The 2026-07-03 price-list evidence attached to authored decisions still does not independently prove the 2025-12-10 brochure state."
     ],
     "master_data_changes": false,
-    "approved_import_spec_generation": false
+    "approved_import_spec_generation": false,
+    "line_number_review": {
+      "method": "Compared the source line_start/line_end fields in all eight ambiguity decisions with the Line column of all 176 unresolved Markdown candidates. No candidate falls directly on any authored decision line. Neighboring line numbers were reviewed only to identify possible visual-row fragments, not to assert equivalence.",
+      "exact_source_line_candidate_matches": 0,
+      "possible_visual_row_fragment_links": [
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "1aad4a730531585a37da9d3c73eb9115f9cca5a2eddd495d54e7a01e83f679a8",
+          "authored_decision_line": 24,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "47f2b824d251f1c71c2c147edb149f4c02a2c6ba12bdfe29db305cb5f7921394",
+            "090b4158f01b1b969e0bbc14e3c91f195157c07b4b30caf2d11d801dfd7ccf7e"
+          ],
+          "group": "automatic_dual_zone_hvac",
+          "chunk_lines": [
+            25,
+            26
+          ],
+          "relationship": "possible_same_visual_row_fragments",
+          "confidence": "high_textual_context_but_not_visual-coordinate-verified"
+        },
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "ad2df36a0dce4c4d725438894b52fd307695f3bd0cab142a509be8aa67859473",
+          "authored_decision_line": 40,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "1bed4aef4b58fe9e0b7f065f681a0f4742d18fb6b0c14d881edb39412dbae694",
+            "659b2146444a2b691042807d95fa7b8ab142483d45b4c38052f0f42ddf36b8cc"
+          ],
+          "group": "central_console_armrest_storage",
+          "chunk_lines": [
+            41,
+            42
+          ],
+          "relationship": "possible_same_visual_row_fragments",
+          "confidence": "high_textual_context_but_not_visual-coordinate-verified"
+        },
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "e114af3d6918ae90c0ad19482028be640e718e50f989a1c282e0473f16759684",
+          "authored_decision_line": 97,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "51d53bd074a97dbd6479b2fdce7f528b530eb385deed469b3b1142c9df89fbc6",
+            "27ab3f3d1829eeeaa46e94538b8d038554f84a66a119029806251c425ff246d0"
+          ],
+          "group": "winter_package",
+          "chunk_lines": [
+            95,
+            96
+          ],
+          "relationship": "possible_same_visual_row_context",
+          "confidence": "moderate_textual_context_but_not_visual-coordinate-verified"
+        },
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "be9a3c17edaa4a791a8cbec07a987499acd8691f37c0712c06f5434d9f519437",
+          "authored_decision_line": 100,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "ce66092ee93423b09a67bd007fdbadee2a541d6e4c2923697949644f9276a092",
+            "092808e32c81cb350d17549232d734014d210441ad0f863f4bb5a80c78439363"
+          ],
+          "group": "winter_plus_package",
+          "chunk_lines": [
+            98,
+            99
+          ],
+          "relationship": "possible_same_visual_row_context",
+          "confidence": "moderate_textual_context_but_not_visual-coordinate-verified"
+        }
+      ],
+      "no_direct_candidate_rows_for_covered_decisions": [
+        {
+          "page": 21,
+          "line": 39,
+          "decision": "covered",
+          "topic": "opening panoramic glass roof"
+        },
+        {
+          "page": 22,
+          "line": 22,
+          "decision": "covered",
+          "topic": "manual air conditioning"
+        },
+        {
+          "page": 22,
+          "line": 29,
+          "decision": "covered",
+          "topic": "electrically folding mirrors"
+        },
+        {
+          "page": 22,
+          "line": 48,
+          "decision": "covered",
+          "topic": "wireless charging"
+        }
+      ],
+      "note": "Potential visual-row links are investigative leads, not approved deduplication or evidence equivalence. Rendered-page coordinates or a source line inventory are still required before treating them as a formal crosswalk."
+    }
   }
 }
