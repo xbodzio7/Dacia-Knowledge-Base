@@ -1,8 +1,8 @@
 {
   "version": 1,
   "kind": "bigster_brochure_equipment_review_crosswalk",
-  "reviewed_on": "2026-10-22",
-  "status": "crosswalk_complete_scope_ids_disjoint",
+  "reviewed_on": "2026-10-23",
+  "status": "crosswalk_complete_source_text_links_verified",
   "pull_request": 754,
   "source_receipt": {
     "source_code": "src_pl_bigster_brochure_20251210",
@@ -84,9 +84,9 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Verify the four possible page-22 row-fragment links against rendered page coordinates or a structured PDF text-line inventory.",
-    "Keep covered decisions with no direct candidate row separate; absence from the unresolved chunks may mean they were not included in that review workload.",
-    "Resolve the four partial decisions using complete row text and grade markers, not the July 2026 price-list evidence alone.",
+    "Treat the four page-22 links as source-text-confirmed row fragments, but retain candidate-scope separation until candidate records are formally joined in a dedicated reconciliation.",
+    "Keep covered decisions with no direct candidate row separate; absence from unresolved chunks may mean they were not included in that review workload.",
+    "Resolve the four partial decisions using complete row text and grade markers; July 2026 price-list evidence alone does not prove December 2025 historical state.",
     "Preserve master and import files unchanged until source-period proof and exact configuration/attribute mapping are established."
   ],
   "crosswalk_result": {
@@ -112,17 +112,18 @@
       "candidate_id_matches": 0,
       "exact_text_matches": 0,
       "result": "disjoint_scopes_in_available_artifacts",
-      "interpretation": "The 176 chunk candidates and 8 authored ambiguity decisions are separate candidate sets in the available artifacts. The current files do not provide an ID or exact-text crosswalk between them. Do not infer that the reviewed decisions resolve any chunk candidate, and do not add/subtract the two scopes as though they were one candidate inventory."
+      "interpretation": "The 176 chunk candidates and 8 authored ambiguity decisions remain separate candidate sets by ID and exact-text matching. Independent source-PDF text verification now confirms four page-22 row-fragment links (8 chunk candidate fragments) to the same printed rows as four authored decisions. This is a row-context crosswalk only; do not deduplicate candidate scopes or treat July 2026 evidence as proof of December 2025 state."
     },
     "limitations": [
-      "Exact-text matching was performed against the Markdown table text as authored; wrapped row fragments can be related visually without being exact-text duplicates.",
-      "This result proves only that the available candidate IDs and exact text strings do not overlap; it does not prove the underlying visual equipment rows are unrelated.",
-      "The 2026-07-03 price-list evidence attached to authored decisions still does not independently prove the 2025-12-10 brochure state."
+      "Exact-text matching of Markdown candidate text against authored ambiguity decisions found no direct ID or exact-text overlap.",
+      "The four page-22 relationships are confirmed from the official source PDF's extracted row text and marker sequences; pixel coordinates were not independently measured.",
+      "Confirmed visual row context does not establish that two candidate records are duplicate master observations or import approval.",
+      "The 2026-07-03 price-list evidence attached to ambiguity decisions still does not independently prove the 2025-12-10 brochure state."
     ],
     "master_data_changes": false,
     "approved_import_spec_generation": false,
     "line_number_review": {
-      "method": "Compared the source line_start/line_end fields in all eight ambiguity decisions with the Line column of all 176 unresolved Markdown candidates. No candidate falls directly on any authored decision line. Neighboring line numbers were reviewed only to identify possible visual-row fragments, not to assert equivalence.",
+      "method": "Compared authored decision source lines with candidate Markdown line numbers, then checked all four neighboring page-22 candidate groups against the official archived brochure's extracted text for the same source receipt (2025-12-10, SHA-256 76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74). Exact row labels, continuations and aligned grade markers appear together in the official PDF text extraction. This confirms textual row-fragment relationships, not pixel-coordinate geometry or candidate identity equivalence.",
       "exact_source_line_candidate_matches": 0,
       "possible_visual_row_fragment_links": [
         {
@@ -139,8 +140,14 @@
             25,
             26
           ],
-          "relationship": "possible_same_visual_row_fragments",
-          "confidence": "high_textual_context_but_not_visual-coordinate-verified"
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            994,
+            995
+          ],
+          "source_row": "Klimatyzacja automatyczna dwustrefowa z nawiewami dla tylnych pasażerów - • • •",
+          "result": "confirmed_source_text_row_fragments"
         },
         {
           "page": 22,
@@ -156,8 +163,14 @@
             41,
             42
           ],
-          "relationship": "possible_same_visual_row_fragments",
-          "confidence": "high_textual_context_but_not_visual-coordinate-verified"
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            1002,
+            1004
+          ],
+          "source_row": "Konsola centralna niska • - - -; Konsola centralna z podłokietnikiem i schowkiem - • - -; Konsola centralna wysoka ... (dla silnika hybrid 155) - - • •",
+          "result": "confirmed_source_text_row_fragments"
         },
         {
           "page": 22,
@@ -173,8 +186,14 @@
             95,
             96
           ],
-          "relationship": "possible_same_visual_row_context",
-          "confidence": "moderate_textual_context_but_not_visual-coordinate-verified"
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            1062,
+            1063
+          ],
+          "source_row": "Pakiet ZIMOWY: przednie fotele podgrzewane, kierownica podgrzewana - ¤ ¤ ¤",
+          "result": "confirmed_source_text_row_fragments"
         },
         {
           "page": 22,
@@ -190,8 +209,14 @@
             98,
             99
           ],
-          "relationship": "possible_same_visual_row_context",
-          "confidence": "moderate_textual_context_but_not_visual-coordinate-verified"
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            1064,
+            1067
+          ],
+          "source_row": "Pakiet ZIMOWY PLUS: przednie fotele podgrzewane, kierownica podgrzewana, podgrzewana przednia szyba - ¤ ¤ ¤",
+          "result": "confirmed_source_text_row_fragments"
         }
       ],
       "no_direct_candidate_rows_for_covered_decisions": [
@@ -220,7 +245,17 @@
           "topic": "wireless charging"
         }
       ],
-      "note": "Potential visual-row links are investigative leads, not approved deduplication or evidence equivalence. Rendered-page coordinates or a source line inventory are still required before treating them as a formal crosswalk."
+      "note": "Potential visual-row links are investigative leads, not approved deduplication or evidence equivalence. Rendered-page coordinates or a source line inventory are still required before treating them as a formal crosswalk.",
+      "source_verification": {
+        "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "document_date": "2025-12-10",
+        "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+        "method": "Official PDF text extraction, printed brochure page 22 (PDF page 21 in zero-indexed extraction)",
+        "verified_groups": 4,
+        "confirmed_candidate_ids": 8,
+        "caveat": "Textual row linkage confirms that the candidate fragments belong to the same printed equipment rows. It does not prove that the candidate fragments are duplicates of the separately authored ambiguity decisions, nor does it establish historical-to-master continuity."
+      }
     }
   }
 }
