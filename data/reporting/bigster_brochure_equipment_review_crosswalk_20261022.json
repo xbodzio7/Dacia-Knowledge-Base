@@ -2,14 +2,17 @@
   "version": 1,
   "kind": "bigster_brochure_equipment_review_crosswalk",
   "reviewed_on": "2026-10-22",
-  "status": "crosswalk_required",
+  "status": "crosswalk_complete_scope_ids_disjoint",
   "pull_request": 754,
   "source_receipt": {
     "source_code": "src_pl_bigster_brochure_20251210",
     "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
     "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
     "document_date": "2025-12-10",
-    "pages": [21, 22]
+    "pages": [
+      21,
+      22
+    ]
   },
   "review_artifacts": [
     {
@@ -70,15 +73,53 @@
       "¤": "optional",
       "-": "not_available"
     },
-    "grade_columns": ["Essential", "Expression", "Journey", "Extreme"],
+    "grade_columns": [
+      "Essential",
+      "Expression",
+      "Journey",
+      "Extreme"
+    ],
     "master_data_changes": false,
     "approved_import_spec_generation": false,
     "automatic_promotion": false
   },
   "next_actions": [
-    "Crosswalk the candidate IDs and exact source text in the unresolved chunk Markdown files against the decisions in the two authored ambiguity reports.",
-    "Separate already-reviewed rows from truly unmatched rows; do not infer that a signature mismatch means a master record is missing.",
-    "For any proposed import, require a source-period proof or a separately justified continuity decision and exact configuration/attribute contract mapping.",
+    "Create a visual-row-level mapping from each authored ambiguity decision to the corresponding candidate fragment IDs only when rendered page coordinates or a source line inventory establish the relationship.",
+    "Preserve separate review scopes until that mapping exists; do not infer missing master records from signature mismatch.",
+    "For any proposed import, require source-period proof or an independently justified continuity decision and exact configuration/attribute contract mapping.",
     "Keep all master/import files unchanged until those checks pass."
-  ]
+  ],
+  "crosswalk_result": {
+    "reviewed_on": "2026-10-22",
+    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted.",
+    "unresolved_chunks": {
+      "candidate_count": 176,
+      "page21_count": 107,
+      "page22_count": 69,
+      "unique_candidate_id_count": 176,
+      "authored_decision_counts": {
+        "context_only_non_import": 86,
+        "unresolved_signature_mismatch": 90
+      }
+    },
+    "authored_ambiguity_reviews": {
+      "decision_count": 8,
+      "unique_candidate_id_count": 8,
+      "page21_count": 1,
+      "page22_count": 7
+    },
+    "overlap": {
+      "candidate_id_matches": 0,
+      "exact_text_matches": 0,
+      "result": "disjoint_scopes_in_available_artifacts",
+      "interpretation": "The 176 chunk candidates and 8 authored ambiguity decisions are separate candidate sets in the available artifacts. The current files do not provide an ID or exact-text crosswalk between them. Do not infer that the reviewed decisions resolve any chunk candidate, and do not add/subtract the two scopes as though they were one candidate inventory."
+    },
+    "limitations": [
+      "Exact-text matching was performed against the Markdown table text as authored; wrapped row fragments can be related visually without being exact-text duplicates.",
+      "This result proves only that the available candidate IDs and exact text strings do not overlap; it does not prove the underlying visual equipment rows are unrelated.",
+      "The 2026-07-03 price-list evidence attached to authored decisions still does not independently prove the 2025-12-10 brochure state."
+    ],
+    "master_data_changes": false,
+    "approved_import_spec_generation": false
+  }
 }
