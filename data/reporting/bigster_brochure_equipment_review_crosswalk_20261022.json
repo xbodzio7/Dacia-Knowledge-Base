@@ -84,13 +84,13 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Continue source-text and grade-marker reconciliation for page-21 interior-design, seating and safety groups.",
+    "Continue source-text and grade-marker reconciliation for remaining page-21 interior controls and safety groups.",
     "Keep source-period-specific evidence separate; July 2026 price-list evidence does not independently prove December 2025 brochure state.",
     "Do not deduplicate candidate records or modify data/master and data/imports until exact attribute/configuration mapping is established."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
-    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted.",
+    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted. Added seven source-row/grade-marker reconciliations from the page-21 seats and interior section using candidate IDs and exact fragment labels from unresolved review chunk 2; master mappings remain unapproved.",
     "unresolved_chunks": {
       "candidate_count": 176,
       "page21_count": 107,
@@ -264,13 +264,14 @@
         "source-text confirmation of four page-22 row-fragment relationships covering eight chunk candidate IDs",
         "source-text and grade-marker reconciliation for EASY, PARKING, ZIMOWY and ZIMOWY PLUS package rows",
         "visual confirmation of Hill Descent Control grade-column alignment and 4×2/4×4 qualifiers on brochure page 21",
-        "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows"
+        "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows",
+        "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged."
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
         "independent source-period proof for any proposed master-data or import-spec changes",
         "visually confirm Hill Descent Control grade-column alignment on brochure page 21 before treating extracted qualifiers as a grade matrix",
-        "continue page-21 interior-design, seating and safety rows; preserve colour-text continuation fragments separately until candidate-level mapping is established"
+        "Continue page-21 remaining interior controls and safety rows; candidate-to-master mapping remains unapproved."
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -1151,6 +1152,145 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "Source page 21 shows diamond-cut 18-inch Tagasan wheels standard on Journey only."
+        },
+        {
+          "attribute_candidate_group": "rear_bench_1_3_2_3",
+          "printed_row_label": "Kanapa tylna dzielona i składana 1/3–2/3",
+          "source_text_lines": [
+            909
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "41d1099bffd5ab0f2e916371ed7bad1947df6b90e7c4d1daa2070bd8716cd26e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Row text and four aligned grade markers are present in the archived brochure extraction. Candidate identity and exact master attribute mapping are not established; no promotion."
+        },
+        {
+          "attribute_candidate_group": "rear_bench_easy_fold",
+          "printed_row_label": "Kanapa tylna dzielona 40/20/40 z funkcją Easy Fold 60/40",
+          "source_text_lines": [
+            910,
+            911
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "e9976961eff87c9d0df439b23dd29a097c549aae0a494fb9b842941e2e811d2c",
+            "2cff5507638aed0bdbe57497ed19e1bbba3853f6038a8ee570b2f5e666e3651a",
+            "f5ee7a3778fa023eb2f712fa4a3d18a6f642cc05d8ff352d5226e0272728f15a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Label, continuation and marker line are preserved as separate candidate fragments. Their row relationship is supported by source text, but records are not deduplicated or promoted."
+        },
+        {
+          "attribute_candidate_group": "driver_seat_height",
+          "printed_row_label": "Fotel kierowcy regulowany na wysokość",
+          "source_text_lines": [
+            924
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "d173512d134f441a20a9e6d2f3cd57108c89da4fd7f32991c7ab692009e734de"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row and all four standard markers are confirmed in the extracted brochure text; exact master mapping remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "driver_lumbar_adjustment",
+          "printed_row_label": "Regulacja lędźwiowa kierowcy",
+          "source_text_lines": [
+            925
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "1fffd8b9b046c91dc987dc923fc9de0d8c7a780894e7558286f22dc0a8996b5d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row and grade-marker sequence are confirmed; no master or import-spec changes are authorized."
+        },
+        {
+          "attribute_candidate_group": "passenger_seat_height",
+          "printed_row_label": "Fotel pasażera regulowany na wysokość",
+          "source_text_lines": [
+            926
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "2d2e916ea8403b95067f8f369f74c1fbc690d2e401e323de79ffbc388690fc8d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row and grade-marker sequence are confirmed; exact master attribute/configuration mapping is still open."
+        },
+        {
+          "attribute_candidate_group": "driver_passenger_lumbar",
+          "printed_row_label": "Regulacja lędźwiowa foteli kierowcy i pasażera",
+          "source_text_lines": [
+            928
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "bc610425b9fb2c1e452c06c617d1c7095f62519cd77fbb9259a81dd656a5bef5"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure row indicates the feature only for Journey; source-row confirmation does not establish a master mapping."
+        },
+        {
+          "attribute_candidate_group": "soft_feel_steering_wheel",
+          "printed_row_label": "Kierownica ze skóry ekologicznej soft feel",
+          "source_text_lines": [
+            929,
+            930
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a5f3c488ec02463ad08c075e451b7b4a9320e103161dc5119d778b434f5755ba",
+            "a95e2002f510fd109b9d81ef9e218fa507d4c2dd863a5850c7b46335a72a1abe",
+            "8ddf17bd70e0d39a92816d67d978bcba6c534c39d24014cb3fdbf7c8ad447f5f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The label, marker sequence and continuation text are retained as separate source fragments. No fragment merging or import promotion."
         }
       ],
       "semantic_boundaries": {
@@ -1160,7 +1300,8 @@
         "master_data_changes": false,
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
-      }
+      },
+      "row_count": 31
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
