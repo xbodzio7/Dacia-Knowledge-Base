@@ -269,7 +269,8 @@
         "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled.",
         "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers.",
         "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved.",
-        "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved."
+        "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved.",
+        "Page-22 YouClip smartphone holder, impulse windows, luggage cover, low console and power tailgate reconciled; master mappings remain unapproved."
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
@@ -592,7 +593,7 @@
     },
     "source_row_reconciliation": {
       "reviewed_on": "2026-10-24",
-      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved. On 2026-10-24, extended page-22 row reconciliation to electric power steering, YouClip mounting-point counts and remote central locking using exact candidate IDs and source lines 984-986; values are source-specific and master mappings remain unapproved. On 2026-10-24, reconciled page-22 folding key, Keyless Entry card, 7-inch/10-inch instrument clusters, heated electric mirrors and steering-wheel adjustment from exact candidate rows; master mappings remain unapproved.",
+      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved. On 2026-10-24, extended page-22 row reconciliation to electric power steering, YouClip mounting-point counts and remote central locking using exact candidate IDs and source lines 984-986; values are source-specific and master mappings remain unapproved. On 2026-10-24, reconciled page-22 folding key, Keyless Entry card, 7-inch/10-inch instrument clusters, heated electric mirrors and steering-wheel adjustment from exact candidate rows; master mappings remain unapproved. On 2026-10-24, reconciled page-22 YouClip smartphone holder, front/rear impulse electric windows, luggage-compartment cover, low central console and power tailgate to source lines and grade values; master mappings remain unapproved.",
       "source_receipt": {
         "source_code": "src_pl_bigster_brochure_20251210",
         "document_date": "2025-12-10",
@@ -1905,6 +1906,103 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "The brochure marks vertical and horizontal steering-wheel adjustment as standard across all grades."
+        },
+        {
+          "attribute_candidate_group": "youclip_phone_holder",
+          "printed_row_label": "Uchwyt YouClip na smartfon",
+          "source_text_lines": [
+            991
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "c1a94feb8c7abaa6fea934d803cf63e5c03118e893b47bd8313796531f3cbfcd"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the YouClip smartphone holder unavailable on Essential and Expression, standard on Journey and Extreme."
+        },
+        {
+          "attribute_candidate_group": "front_rear_impulse_windows",
+          "printed_row_label": "Elektryczne szyby z przodu i z tyłu z funkcją impulsową",
+          "source_text_lines": [
+            998
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "5504649f300ace2147721b88c9213ca6eb13f10f051cb68d0a07465c0e08ef82",
+            "901037523e70e18a3ed92b7fbc3cbbeed90f31bfedaaf81474ed8110aefd68e1",
+            "e6a1efb3b466aef3d1c6f5cd6dbe38bbe04e820adcae89b59330b36424bb3cf3"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source line and its continuation together identify front and rear electric windows with impulse function, standard across all four grades. Candidate fragments are retained without merging their underlying records."
+        },
+        {
+          "attribute_candidate_group": "boot_cover",
+          "printed_row_label": "Roleta bagażnika",
+          "source_text_lines": [
+            1001
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "9a34ef5f212fbfea0aacf05c50cbeee2ac5315dc8d6a666a291f645703e00b9a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the luggage-compartment cover as standard across all four grades."
+        },
+        {
+          "attribute_candidate_group": "low_central_console",
+          "printed_row_label": "Konsola centralna niska",
+          "source_text_lines": [
+            1002
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "58f5bde3e0593d5299145f50acc8d6431038b8d8a4329037fc119d1aaf8e54e8"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source matrix marks the low central console standard only on Essential and unavailable on the other three grades."
+        },
+        {
+          "attribute_candidate_group": "power_tailgate",
+          "printed_row_label": "Elektryczna klapa bagażnika",
+          "source_text_lines": [
+            1009
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "optional"
+          },
+          "candidate_ids": [
+            "736d43d00586fbe1a501306798eb212228535826c991267e1da36937bb60e371"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the power tailgate unavailable on Essential and Expression, standard on Journey, and optional on Extreme."
         }
       ],
       "semantic_boundaries": {
@@ -1915,7 +2013,7 @@
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
       },
-      "row_count": 62
+      "row_count": 67
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
