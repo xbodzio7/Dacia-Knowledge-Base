@@ -84,11 +84,11 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Completed in this review: preserve the four source-text-confirmed page-22 row-fragment links (8 chunk candidate fragments) without collapsing candidate identities or authorizing imports.",
-    "Next: inspect the complete official brochure page-21 and page-22 row text and aligned grade markers against the remaining unresolved candidate groups; prioritize complete labelled rows before extraction tails and explanatory fragments.",
+    "Use the candidate-group priority queue in crosswalk_result.candidate_group_inventory to reconcile complete source rows first: 12 V sockets, USB-C ports, Media Display/Media Nav Live and remote-service/FOTA rows.",
+    "Then reconcile package rows and center-console/climate-control fragments against the complete 2025-12-10 brochure row text and grade markers.",
+    "Keep drivetrain-qualified Hill Descent Control and spare-wheel/repair-kit footnote boundaries literal; do not infer applicability from a fragment alone.",
     "Keep the four covered ambiguity decisions with no direct candidate row in the five unresolved chunks separate; absence from these chunks does not prove source absence.",
-    "Reconcile brochure dated 2025-12-10 independently from the 2026-07-03 and 2026-10-01 price lists; do not use later price-list evidence to backfill brochure-era states.",
-    "Preserve data/master and data/imports unchanged until each source-period row is linked to an exact configuration and attribute mapping with defensible evidence."
+    "Preserve data/master and data/imports unchanged until source-period proof and exact configuration/attribute mapping are established."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
@@ -272,6 +272,315 @@
       "counts_unchanged": true,
       "master_data_changes": false,
       "approved_import_spec_generation": false
+    },
+    "candidate_group_inventory": {
+      "reviewed_on": "2026-10-23",
+      "method": "Parsed candidate tables in all five existing unresolved-review Markdown chunks; grouped by their authored group key and retained source line numbers, candidate IDs and decisions. This is a review-queue diagnostic only; no source text or candidate state was changed.",
+      "counts": {
+        "unique_candidate_ids": 176,
+        "group_keys": 97,
+        "multi_fragment_groups": 38,
+        "groups_mixing_unresolved_and_context": 35,
+        "groups_with_all_candidates_unresolved": 51
+      },
+      "priority_queue": [
+        {
+          "group": "12v_sockets",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            56,
+            57,
+            58
+          ],
+          "candidate_ids": [
+            "e7d6b02a51e87578b4bdaf32db1b9b4006082f5d5716e9a183e4f3e7fa33217c",
+            "2feee8d06620a8c1199b9005e3295e3640fc109bc634e3d2dc82c1b94daf3056",
+            "b65c7cc2ec9b87f51bf9ea81281493fa8c7e83a26afb8d8bf6442a6c1c5e8cbe"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Three source-aligned extraction fragments need a complete row-level reconciliation; all three candidate records remain unresolved."
+        },
+        {
+          "group": "usb_c_ports",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            60,
+            61,
+            62
+          ],
+          "candidate_ids": [
+            "3beb3a745c8fa0d7eeda03a81a6336d9bc097725699900e434d027675280926b",
+            "f8a3f49781d16618e4e4b319718aab7ece75f897d1b2d68898b2bb98e08e5940",
+            "391c54b60427afea0b2eabf9f1e0cea9b9270f8e5a3427e101f16c4a3fd4e4f8"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Three source-aligned extraction fragments need a complete row-level reconciliation; all three candidate records remain unresolved."
+        },
+        {
+          "group": "media_display",
+          "page": 22,
+          "candidate_count": 7,
+          "chunk_lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71
+          ],
+          "candidate_ids": [
+            "479c98d76ce6ddf9cfe2639d774dad18d025af33aab52f320d7971609021d1f1",
+            "969ea9c0482a755d2a951f7ca6b1f5b855fcfb8139c05e77f45739ac25ab145a",
+            "354c9b08a63003f1745b481a7702ef70165a6bc2a6cf4271bf2307ea4f6f2925",
+            "d3123a3dcc4a515387704a1097e79cb6523cabfbce716e27b278ac3e4a33380e",
+            "4f3b85d5b612d1c18cf46141b2292eed810e3e6e0b1a5f1cf8a438c70a3be4ab",
+            "54bb31f9448d9428c44eec011f826595ec09e6905f16b0b0aa31f4b7b513cf9e",
+            "4de666b3aa2dd0a80492d2e36548b0333469eae2378db9525e259cc5c0759229"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "media_nav_live",
+          "page": 22,
+          "candidate_count": 7,
+          "chunk_lines": [
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78
+          ],
+          "candidate_ids": [
+            "999c86a7ab32beba542eb38ad668b2658d08ea97a5e959dcefc00e3313fc238c",
+            "4172ae8f69ceeca019ada28c7f2dbff1b8656e0ad02973a55d4b73725ce5c7f0",
+            "9b5f920d2a46864629ee212c5403b0f325cc5c6d5dc28f878713d872a3140fff",
+            "62a74acf3b600cb96849308c8c3924856882dbaab2c8a17d2f152ca8723ce701",
+            "b915bd1bdf9ccb99099d9e7217da6dc73414ad570ad54f0d0ffc02a12049f72e",
+            "42a35e63a41ad4f79f66db3cfa8d753c46048d005ef877686307a23388fd0d34",
+            "548d499c2d828b4cc3f68c6a76580fabcbb24ad6599cbc161f993f702b07b178"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "remote_services",
+          "page": 22,
+          "candidate_count": 5,
+          "chunk_lines": [
+            80,
+            81,
+            82,
+            83,
+            84
+          ],
+          "candidate_ids": [
+            "af6045886d72fba85e3dd0ac8c325cbd971dcdbdbb274f6a002de2f721fa4b53",
+            "687eea1cd19a5a6be39337f2a7cb5e3addb96faf0ffe0a9a2f78eb6707e95f8b",
+            "76c514bb35ec9f9e707661b280fbd286274aee1d9bfb0bc8d4b8c690f2333d17",
+            "cc766c97bd82b913e129b97d1f2306bed8384c67bdba675e951c8e3e23bc1258",
+            "6acb9115ec92739038eabbe976d0dd7cd7f072f07a2fc7f79c710fad3905571c"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "fota",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            85,
+            86,
+            87
+          ],
+          "candidate_ids": [
+            "80d78e7fc36c06db30cb50948f394de5241e63e21ec13b22bd947fb7f9ef2e20",
+            "5cf63661fc2b54239eb8dc6967a335cd33777abc3127d390ef9b6d04fb2bafbd",
+            "401f8fe64c6342819181d433beb1749180ea390a83fcc9de0374eecb0ebe931f"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "winter_package",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            95,
+            96
+          ],
+          "candidate_ids": [
+            "51d53bd074a97dbd6479b2fdce7f528b530eb385deed469b3b1142c9df89fbc6",
+            "27ab3f3d1829eeeaa46e94538b8d038554f84a66a119029806251c425ff246d0"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "winter_plus_package",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            98,
+            99
+          ],
+          "candidate_ids": [
+            "ce66092ee93423b09a67bd007fdbadee2a541d6e4c2923697949644f9276a092",
+            "092808e32c81cb350d17549232d734014d210441ad0f863f4bb5a80c78439363"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "automatic_dual_zone_hvac",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            25,
+            26
+          ],
+          "candidate_ids": [
+            "47f2b824d251f1c71c2c147edb149f4c02a2c6ba12bdfe29db305cb5f7921394",
+            "090b4158f01b1b969e0bbc14e3c91f195157c07b4b30caf2d11d801dfd7ccf7e"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "central_console_armrest_storage",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            41,
+            42
+          ],
+          "candidate_ids": [
+            "1bed4aef4b58fe9e0b7f065f681a0f4742d18fb6b0c14d881edb39412dbae694",
+            "659b2146444a2b691042807d95fa7b8ab142483d45b4c38052f0f42ddf36b8cc"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "high_central_console_cooled_storage",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            43,
+            44,
+            45
+          ],
+          "candidate_ids": [
+            "e8a8b9222f58b11557db17a29a301b08a93218a1064429ecbcdfc13c3fc3fff1",
+            "c29f92ab5c3bdca7a08d9ce462b503535e81821318781c32a7cf0e35e9eedd8b",
+            "f53de531d0449d388bb98eb1500d51114567b68cec2c2454f773078437cc62c1"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "hill_descent_control",
+          "page": 21,
+          "candidate_count": 3,
+          "chunk_lines": [
+            146,
+            147,
+            148
+          ],
+          "candidate_ids": [
+            "0b293e783cce770befeb12bb5a04bcc5ee21ddf9fc9f4fa99904d54c97ad694b",
+            "fd6e5db9ec6e44959862b13bf877f6e32a252b8b9fd44f5d4c6bd98da228af50",
+            "03d9a241b2a24b27b3af44371471dd2bf14c1f6398ceb45636c81df3619f0f70"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Applicability contains explicit drivetrain qualifiers; do not generalize across 4x2/4x4."
+        },
+        {
+          "group": "temporary_spare_wheel",
+          "page": 21,
+          "candidate_count": 3,
+          "chunk_lines": [
+            162,
+            163,
+            164
+          ],
+          "candidate_ids": [
+            "d0758e4e27daa79b2ecf866e97a8ae24869252a753157719dc65c1a4e2ff1b21",
+            "9ab6ae8a3128a34237e2afdaac45977e11491e0fbaa2ecf4b66417ef4449f75e",
+            "4cd7190b9cbbd7bd9d0f7c3bc878c4edd17ae09f5054b05acdccdd6e233a4367"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Preserve literal spare-wheel markers and footnote constraints; do not create extra availability states from extraction tails."
+        }
+      ],
+      "limitations": [
+        "Group keys are authored review labels, not independently proven database attribute identifiers.",
+        "Source-text row linkage does not prove duplicate identity, historical-to-master continuity or import authorization.",
+        "No data/master or data/imports files were changed."
+      ]
     }
   }
 }
