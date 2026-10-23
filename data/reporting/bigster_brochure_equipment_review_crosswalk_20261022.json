@@ -84,7 +84,7 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Continue full row-by-row source-text and grade-marker reconciliation for remaining unresolved groups on pages 21–22.",
+    "Continue source-text and grade-marker reconciliation for page-21 interior-design, seating and safety groups.",
     "Keep source-period-specific evidence separate; July 2026 price-list evidence does not independently prove December 2025 brochure state.",
     "Do not deduplicate candidate records or modify data/master and data/imports until exact attribute/configuration mapping is established."
   ],
@@ -263,12 +263,14 @@
         "ID and exact-text comparison against all eight authored ambiguity decisions",
         "source-text confirmation of four page-22 row-fragment relationships covering eight chunk candidate IDs",
         "source-text and grade-marker reconciliation for EASY, PARKING, ZIMOWY and ZIMOWY PLUS package rows",
-        "visual confirmation of Hill Descent Control grade-column alignment and 4×2/4×4 qualifiers on brochure page 21"
+        "visual confirmation of Hill Descent Control grade-column alignment and 4×2/4×4 qualifiers on brochure page 21",
+        "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows"
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
         "independent source-period proof for any proposed master-data or import-spec changes",
-        "visually confirm Hill Descent Control grade-column alignment on brochure page 21 before treating extracted qualifiers as a grade matrix"
+        "visually confirm Hill Descent Control grade-column alignment on brochure page 21 before treating extracted qualifiers as a grade matrix",
+        "continue page-21 interior-design, seating and safety rows; preserve colour-text continuation fragments separately until candidate-level mapping is established"
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -585,7 +587,7 @@
     },
     "source_row_reconciliation": {
       "reviewed_on": "2026-10-23",
-      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed.",
+      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved.",
       "source_receipt": {
         "source_code": "src_pl_bigster_brochure_20251210",
         "document_date": "2025-12-10",
@@ -887,6 +889,268 @@
           "reconciliation": "source_row_text_grade_markers_and_visual_column_alignment_confirmed",
           "master_mapping": "not_approved",
           "rationale": "Wizualna kontrola oficjalnego PDF, strona broszury 21 (PDF page index 20), potwierdza wyrównanie kolumn: Essential '-' (niedostępne), Expression i Journey 'w wersjach 4×4', Extreme 'w wersjach 4×4 i 4×2'. Zachować kwalifikatory napędu literalnie; mapowanie do master nadal niezatwierdzone."
+        },
+        {
+          "attribute_candidate_group": "fixed_roof_rails",
+          "printed_row_label": "Relingi dachowe stałe w kolorze Szary Mégalithe",
+          "source_text_lines": [
+            879
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "919a22fcf13ca5f5b40fe96b28a731cceaad06559feb5eea379ba81921b7b53d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows standard for Essential, Expression and Journey, unavailable for Extreme."
+        },
+        {
+          "attribute_candidate_group": "modular_roof_rails",
+          "printed_row_label": "Relingi dachowe modułowe",
+          "source_text_lines": [
+            880
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "14d7a636eab9a3504352392d818d912c61c34ee3049679528163aed2821da8a6"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows modular roof rails unavailable on the first three grades and standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "tinted_rear_windows",
+          "printed_row_label": "Przyciemniane szyby tylne",
+          "source_text_lines": [
+            881
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "ae840ef24eb966f561f97265fdbf7a88256425dd1f9e722352cc408cae923381"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows unavailable on Essential/Expression and standard on Journey/Extreme."
+        },
+        {
+          "attribute_candidate_group": "eco_led_lights",
+          "printed_row_label": "Światła mijania i światła tylne ECO-LED",
+          "source_text_lines": [
+            882
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "61bf2f393a54fe607d52dba4b625579cf1d4c20b97ddcfe22a3ebf04ec708b2a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows ECO-LED dipped-beam and rear lights standard on all four grades."
+        },
+        {
+          "attribute_candidate_group": "starkle_lower_protection",
+          "printed_row_label": "Ochrona dolnych części drzwi, zderzaków i nadkoli Starkle®",
+          "source_text_lines": [
+            884,
+            885
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a7f507ea91f4b20b0c3522149c76fa4bce68ecf2af432b99f81feb3fb6bb9006",
+            "cb7a43550891e9f7829ffa3d8e94fe4df116d69349e750aadfb22511aed7e692",
+            "c850e5c73e22719c6d4e844fe29f04c52d8c1a877bf65d1d66f6535d397544d7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The label is wrapped across source lines 884–885; one four-grade marker sequence follows the full Starkle protection label. Descriptive continuation fragments remain separate."
+        },
+        {
+          "attribute_candidate_group": "lower_bumper_covers",
+          "printed_row_label": "Osłony dolne zderzaków (przód/tył), kolor Szary Mégalithe",
+          "source_text_lines": [
+            886,
+            887
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "6f6e5cbb9b3c8f50257c58e7b1ce6690be400e4523cc674e8ef0f0b531aed13b",
+            "44a9189c0f0c8d863e305e72dc627da0c093b821f2178951e190f54e34ee066d",
+            "f92e4baa066e29a4b6cee0b0afd9f28d1c5ad23fd5869840527890a3bbb47a38"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 marks the lower front/rear bumper covers unavailable on Essential and standard on Expression, Journey and Extreme; colour text is a continuation."
+        },
+        {
+          "attribute_candidate_group": "shark_fin_antenna",
+          "printed_row_label": "Antena typu „płetwa rekina”",
+          "source_text_lines": [
+            888
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "abb89f544562274aac91ffff87168567982b0f54ba1589608532ad337f2beb4d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows the shark-fin antenna unavailable on Essential and standard on the other three grades."
+        },
+        {
+          "attribute_candidate_group": "copper_grille_and_wheel_caps",
+          "printed_row_label": "Osłona chłodnicy i dekielki felg z detalami brązowomiedzianymi",
+          "source_text_lines": [
+            890,
+            893
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "f3e16d4b6482cbf5ad950dcf3eb9a6fbd070d976827edc3fd309b74f6992b710",
+            "a45ed715b39c906316f6072189aa9d8d7348d0f0a925efc89045d339146178ad",
+            "d3af09a7001711f8fb329738cdd8e45602fd1eea040c645fc5b0f26cc5e5958f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped label and continuation identify copper-coloured grille details and wheel caps; unavailable on the first three grades, standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "two_tone_black_roof_copper_mirrors",
+          "printed_row_label": "Dwukolorowy lakier: czarny dach i brązowomiedziane lusterka",
+          "source_text_lines": [
+            896,
+            897
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "opcja"
+          },
+          "candidate_ids": [
+            "fd3b6cb18e3a3a96e5e7b906f3f96a8deee46cd46183fd93a10868f80765d2e6",
+            "0f863b4427cd0196405794916a69af618a630df3785a9f69b11caefec6d345a2",
+            "92b24b93be5f658c09645b4bc20724496d27b3d5ea9f9e6ce9e55d8b66c3bac1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The black-roof/copper-mirror two-tone metallic paint is optional only on Extreme; other grades unavailable."
+        },
+        {
+          "attribute_candidate_group": "wheel_17_tergan",
+          "printed_row_label": "Felgi aluminiowe 17” Tergan",
+          "source_text_lines": [
+            898
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "bd2714de5abc0882628437374108c5c30fdc0464a335ec3b7b884eb94355aa08"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows 17-inch Tergan wheels standard on Essential only."
+        },
+        {
+          "attribute_candidate_group": "wheel_17_diamond_tergan",
+          "printed_row_label": "Felgi aluminiowe 17” diamentowane Tergan",
+          "source_text_lines": [
+            899
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "standard",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "82c338c9bd04d8c3f84c768ae6ea9532fd8b2eb01c8976a1fc0564487bbb68d4"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows diamond-cut 17-inch Tergan wheels standard on Expression only."
+        },
+        {
+          "attribute_candidate_group": "wheel_18_half_diamond_tagasan",
+          "printed_row_label": "Felgi aluminiowe 18” pół-diamentowane Tagasan",
+          "source_text_lines": [
+            900,
+            901
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "cf54d84b55cbb78f92a6b5d8d4b7172c032320019743ee3a0566c82007e45e04",
+            "ede8952e26c6b6a262102b1860b646a1132dbd838e15fe372e144730a281c87a",
+            "2e03dad90bbcda0f6c679a1f7c8af9b2b675485e5d4b45cc34daf0a024a4c2aa"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows half-diamond 18-inch Tagasan wheels standard on Extreme only."
+        },
+        {
+          "attribute_candidate_group": "wheel_18_diamond_tagasan",
+          "printed_row_label": "Felgi aluminiowe 18” diamentowane Tagasan",
+          "source_text_lines": [
+            902
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "standard",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "0c0eb7aadbefa6100fb32717070693981fe4853e05dfb481abc3cc6ac85fddb8"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows diamond-cut 18-inch Tagasan wheels standard on Journey only."
         }
       ],
       "semantic_boundaries": {
@@ -898,6 +1162,6 @@
         "hill_descent_control_grade_mapping_approved": true
       }
     },
-    "next_step_after_source_reconciliation": "Continue source-row reconciliation of remaining page-21/page-22 candidate groups, preserving drivetrain qualifiers, source periods and candidate identities. Do not promote any candidate to master/import without exact mapping and source-period proof."
+    "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
 }
