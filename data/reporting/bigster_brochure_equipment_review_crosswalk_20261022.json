@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "bigster_brochure_equipment_review_crosswalk",
-  "reviewed_on": "2026-10-23",
+  "reviewed_on": "2026-10-24",
   "status": "crosswalk_complete_source_text_links_verified",
   "pull_request": 754,
   "source_receipt": {
@@ -257,7 +257,7 @@
       }
     },
     "next_actions_status": {
-      "reviewed_on": "2026-10-23",
+      "reviewed_on": "2026-10-24",
       "completed": [
         "candidate inventory across all five unresolved Markdown chunks (176 unique candidate IDs)",
         "ID and exact-text comparison against all eight authored ambiguity decisions",
@@ -267,7 +267,8 @@
         "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows",
         "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged.",
         "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled.",
-        "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers."
+        "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers.",
+        "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved."
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
@@ -589,8 +590,8 @@
       ]
     },
     "source_row_reconciliation": {
-      "reviewed_on": "2026-10-23",
-      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved.",
+      "reviewed_on": "2026-10-24",
+      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved. On 2026-10-24, extended page-22 row reconciliation to electric power steering, YouClip mounting-point counts and remote central locking using exact candidate IDs and source lines 984-986; values are source-specific and master mappings remain unapproved.",
       "source_receipt": {
         "source_code": "src_pl_bigster_brochure_20251210",
         "document_date": "2025-12-10",
@@ -1732,6 +1733,63 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "Source row and four standard markers recorded; no candidate deduplication or import approval."
+        },
+        {
+          "attribute_candidate_group": "electric_power_steering",
+          "printed_row_label": "Elektryczne wspomaganie kierownicy",
+          "source_text_lines": [
+            984
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "c43557e4cbc8c54f4caf60cb25dcab7c27ac656386e5d1adda64edf256331fe2"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The exact page-22 candidate row shows four standard markers. Source row is recorded without asserting candidate-to-master identity or approving import."
+        },
+        {
+          "attribute_candidate_group": "youclip_mounting_points",
+          "printed_row_label": "Punkty mocowania YouClip",
+          "source_text_lines": [
+            985
+          ],
+          "source_values_by_grade": {
+            "essential": 4,
+            "expression": 5,
+            "journey": 5,
+            "extreme": 5
+          },
+          "candidate_ids": [
+            "70336206b610a44ffbea4d1449fe7b3f1cc4eba9ba28ff5054ff578a1da4729e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row explicitly gives counts 4/5/5/5 in Essential, Expression, Journey and Extreme order. Counts remain source-period-specific; no master mapping or import approval."
+        },
+        {
+          "attribute_candidate_group": "remote_central_lock",
+          "printed_row_label": "Centralny zamek sterowany zdalnie",
+          "source_text_lines": [
+            986
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "4f8c81c5da1d978dfc3f94ad5779ec2cbf5684cea0ac0ce6a3564cf251565827"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The exact source row shows standard availability for all four grades. Candidate remains separate and unapproved for master mapping."
         }
       ],
       "semantic_boundaries": {
@@ -1742,7 +1800,7 @@
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
       },
-      "row_count": 53
+      "row_count": 56
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
