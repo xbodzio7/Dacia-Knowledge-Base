@@ -84,9 +84,9 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Continue remaining page-21 interior controls and remaining safety-row fragments using exact candidate IDs and aligned markers.",
-    "Keep source-period-specific evidence separate; July 2026 price-list evidence does not independently prove December 2025 brochure state.",
-    "Do not deduplicate candidate records or modify data/master and data/imports until exact attribute/configuration mapping is established."
+    "Audit candidate evidence signatures and exact candidate identity for the 72 reconciled page-21/page-22 source rows; do not treat source-text alignment as approval.",
+    "Validate source-period compatibility separately: the 2026-07-03 price-list evidence does not independently establish the 2025-12-10 brochure state.",
+    "Confirm canonical attribute and configuration mappings against current repository data before any import-spec or master-data changes; keep all unproven mappings not approved."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
@@ -271,12 +271,13 @@
         "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved.",
         "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved.",
         "Page-22 YouClip smartphone holder, impulse windows, luggage cover, low console and power tailgate reconciled; master mappings remain unapproved.",
-        "Page-22 center-console armrest/storage, Hybrid 155 high console, YouClip 3-in-1, reversible boot mat and rubber floor mats reconciled to source rows and grade values; candidate fragments retained and master mappings remain unapproved."
+        "Page-22 center-console armrest/storage, Hybrid 155 high console, YouClip 3-in-1, reversible boot mat and rubber floor mats reconciled to source rows and grade values; candidate fragments retained and master mappings remain unapproved.",
+        "Reconciled all 72 currently recorded source-row groups across printed pages 21–22 against the archived brochure text and aligned grade values; this is row-level source reconciliation only, not candidate-signature resolution or master mapping approval."
       ],
       "remaining": [
-        "Candidate evidence-signature mismatches remain unresolved; source text and grade-marker alignment alone does not approve candidates or imports.",
-        "Verify source-period evidence and exact canonical attribute mapping before any master-data or import-spec changes.",
-        "Visually confirm remaining matrix alignments where text extraction alone is insufficient."
+        "Resolve candidate evidence-signature mismatches only where repository evidence can establish exact candidate identity; source-row and grade-marker agreement alone is insufficient.",
+        "Verify each proposed canonical attribute/configuration mapping against current master data and source-period boundaries before any master-data or import-spec changes.",
+        "Perform visual page-image confirmation for any remaining matrix rows whose column alignment cannot be established from extracted text; retain explicit uncertainty otherwise."
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -2118,6 +2119,6 @@
       "row_count": 72,
       "method": "undefined Added five page-22 interior/accessory rows after checking exact candidate IDs, wrapped labels and aligned grade markers in unresolved review chunk 1 against the archived brochure's printed source lines; no candidate records merged and master mappings remain unapproved. Existing Media Display, Media Nav Live, remote services, FOTA and package rows were re-audited against page-22 chunks 1–2; stored grade values remain source-aligned, while candidate signature mismatches remain unresolved."
     },
-    "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
+    "next_step_after_source_reconciliation": "Proceed with exact candidate-to-master mapping audit for the 72 reconciled page-21/page-22 source rows, starting with repository-backed evidence signatures and source-period validation. Do not modify data/master or data/imports while any mapping or candidate identity remains ambiguous."
   }
 }
