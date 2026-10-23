@@ -268,7 +268,8 @@
         "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged.",
         "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled.",
         "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers.",
-        "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved."
+        "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved.",
+        "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved."
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
@@ -591,7 +592,7 @@
     },
     "source_row_reconciliation": {
       "reviewed_on": "2026-10-24",
-      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved. On 2026-10-24, extended page-22 row reconciliation to electric power steering, YouClip mounting-point counts and remote central locking using exact candidate IDs and source lines 984-986; values are source-specific and master mappings remain unapproved.",
+      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved. On 2026-10-24, extended page-22 row reconciliation to electric power steering, YouClip mounting-point counts and remote central locking using exact candidate IDs and source lines 984-986; values are source-specific and master mappings remain unapproved. On 2026-10-24, reconciled page-22 folding key, Keyless Entry card, 7-inch/10-inch instrument clusters, heated electric mirrors and steering-wheel adjustment from exact candidate rows; master mappings remain unapproved.",
       "source_receipt": {
         "source_code": "src_pl_bigster_brochure_20251210",
         "document_date": "2025-12-10",
@@ -1790,6 +1791,120 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "The exact source row shows standard availability for all four grades. Candidate remains separate and unapproved for master mapping."
+        },
+        {
+          "attribute_candidate_group": "folding_key",
+          "printed_row_label": "Składany kluczyk",
+          "source_text_lines": [
+            987
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "524e5967dd7f40bca44a0354dff7d503532fbc06b8ab2abdee6e39d0fed0809a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the folding key as standard on Essential and Expression, and unavailable on Journey and Extreme. This is limited to the December 2025 brochure."
+        },
+        {
+          "attribute_candidate_group": "keyless_entry_card",
+          "printed_row_label": "Karta Keyless Entry",
+          "source_text_lines": [
+            988
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "4a4c8af29d0ba66987c78a6dc9e32ad7e32491de75df1af839c1466f3acc79a7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks Keyless Entry as unavailable on Essential and Expression, and standard on Journey and Extreme. No master mapping is approved."
+        },
+        {
+          "attribute_candidate_group": "digital_instrument_cluster_7",
+          "printed_row_label": "Cyfrowy zestaw wskaźników 7″",
+          "source_text_lines": [
+            989
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "c6cc0d2dec8be5fedfbc4259e9c98c87875f90be230385bd4b8eb95ae5a9cd57"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The 7-inch cluster is marked standard on Essential and Expression, unavailable on Journey and Extreme in this brochure."
+        },
+        {
+          "attribute_candidate_group": "digital_instrument_cluster_10",
+          "printed_row_label": "Cyfrowy zestaw wskaźników 10″",
+          "source_text_lines": [
+            990
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "ff44882ec1f67c7c28bcd88a563d684c9235355dde5a4df1f8b82add175f1882"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The 10-inch cluster is marked unavailable on Essential and Expression, standard on Journey and Extreme in this brochure."
+        },
+        {
+          "attribute_candidate_group": "heated_power_side_mirrors",
+          "printed_row_label": "Lusterka zewnętrzne elektryczne i podgrzewane",
+          "source_text_lines": [
+            996
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "238ccc4a14556569503a14119a8bf823bcff88b53db94463c433d3315f802aa6"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row shows standard electric heated mirrors across all four grades. Master attribute identity remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "adjustable_steering_wheel",
+          "printed_row_label": "Kierownica regulowana w pionie i w poziomie",
+          "source_text_lines": [
+            1000
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "46bd5d2dea9c92a0470b1ba34ae3ad2abe20a74aa400be61e713892d9a65b30f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks vertical and horizontal steering-wheel adjustment as standard across all grades."
         }
       ],
       "semantic_boundaries": {
@@ -1800,7 +1915,7 @@
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
       },
-      "row_count": 56
+      "row_count": 62
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
