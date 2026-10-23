@@ -584,7 +584,7 @@
     },
     "source_row_reconciliation": {
       "reviewed_on": "2026-10-23",
-      "source_method": "Read the official archived brochure PDF text for printed page 22 (PDF page index 21), lines 1014-1025 in the extracted source text; compared wording and the four grade-column order with the six preserved candidate fragments in page-22 chunk 1. This confirms row text and grade values, not pixel geometry or candidate identity.",
+      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity.",
       "source_receipt": {
         "source_code": "src_pl_bigster_brochure_20251210",
         "document_date": "2025-12-10",
@@ -651,6 +651,121 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "The official source shows two front USB-C ports for Essential and Expression, and two front plus two rear ports for Journey and Extreme. Candidate fragments remain separate records because visual geometry, candidate identity and exact master attribute mapping have not been independently established."
+        },
+        {
+          "attribute_candidate_group": "media_display",
+          "printed_row_label": "Nowy Media Display",
+          "source_text_lines": [
+            1027,
+            1028,
+            1029,
+            1030,
+            1031,
+            1032,
+            1033
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "479c98d76ce6ddf9cfe2639d774dad18d025af33aab52f320d7971609021d1f1",
+            "969ea9c0482a755d2a951f7ca6b1f5b855fcfb8139c05e77f45739ac25ab145a",
+            "354c9b08a63003f1745b481a7702ef70165a6bc2a6cf4271bf2307ea4f6f2925",
+            "d3123a3dcc4a515387704a1097e79cb6523cabfbce716e27b278ac3e4a33380e",
+            "4f3b85d5b612d1c18cf46141b2292eed810e3e6e0b1a5f1cf8a438c70a3be4ab",
+            "54bb31f9448d9428c44eec011f826595ec09e6905f16b0b0aa31f4b7b513cf9e",
+            "4de666b3aa2dd0a80492d2e36548b0333469eae2378db9525e259cc5c0759229"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The full source row continues through the feature description and ends with markers standard, standard, unavailable, unavailable. The prose fragments are context belonging to the same multimedia row, not independent equipment attributes."
+        },
+        {
+          "attribute_candidate_group": "media_nav_live",
+          "printed_row_label": "Nowy Media Nav Live",
+          "source_text_lines": [
+            1034,
+            1035,
+            1036,
+            1037,
+            1038,
+            1039,
+            1040,
+            1041
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "opcja",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "999c86a7ab32beba542eb38ad668b2658d08ea97a5e959dcefc00e3313fc238c",
+            "4172ae8f69ceeca019ada28c7f2dbff1b8656e0ad02973a55d4b73725ce5c7f0",
+            "9b5f920d2a46864629ee212c5403b0f325cc5c6d5dc28f878713d872a3140fff",
+            "62a74acf3b600cb96849308c8c3924856882dbaab2c8a17d2f152ca8723ce701",
+            "b915bd1bdf9ccb99099d9e7217da6dc73414ad570ad54f0d0ffc02a12049f72e",
+            "42a35e63a41ad4f79f66db3cfa8d753c46048d005ef877686307a23388fd0d34",
+            "548d499c2d828b4cc3f68c6a76580fabcbb24ad6599cbc161f993f702b07b178"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The full source row ends with markers unavailable, optional, standard, standard. All wrapped description fragments are contextual parts of this multimedia row; they are not independent records."
+        },
+        {
+          "attribute_candidate_group": "remote_services",
+          "printed_row_label": "Pakiet usług zdalnych (aplikacja MY Dacia) w cenie przez 8 lat",
+          "source_text_lines": [
+            1043,
+            1044,
+            1045,
+            1046,
+            1047,
+            1048
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "af6045886d72fba85e3dd0ac8c325cbd971dcdbdbb274f6a002de2f721fa4b53",
+            "687eea1cd19a5a6be39337f2a7cb5e3addb96faf0ffe0a9a2f78eb6707e95f8b",
+            "76c514bb35ec9f9e707661b280fbd286274aee1d9bfb0bc8d4b8c690f2333d17",
+            "cc766c97bd82b913e129b97d1f2306bed8384c67bdba675e951c8e3e23bc1258",
+            "6acb9115ec92739038eabbe976d0dd7cd7f072f07a2fc7f79c710fad3905571c"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source marks the service package standard across all four grades; the eight-year inclusion period and the two listed functions are descriptive scope, not separate trim markers."
+        },
+        {
+          "attribute_candidate_group": "fota",
+          "printed_row_label": "FOTA (Firmware Over-The-Air)",
+          "source_text_lines": [
+            1049,
+            1050,
+            1051,
+            1052
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "80d78e7fc36c06db30cb50948f394de5241e63e21ec13b22bd947fb7f9ef2e20",
+            "5cf63661fc2b54239eb8dc6967a335cd33777abc3127d390ef9b6d04fb2bafbd",
+            "401f8fe64c6342819181d433beb1749180ea390a83fcc9de0374eecb0ebe931f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source marks FOTA standard across all four grades. The phrase 'do 5 lat' is a service/software-update duration qualifier and must not be treated as a trim availability marker."
         }
       ],
       "semantic_boundaries": {
@@ -660,6 +775,7 @@
         "master_data_changes": false,
         "approved_import_spec_generation": false
       }
-    }
+    },
+    "next_step_after_source_reconciliation": "Reconcile package rows (EASY, PARKING, WINTER, WINTER PLUS) and drivetrain-qualified Hill Descent Control; only then determine whether source-period-specific master mappings are supportable."
   }
 }
