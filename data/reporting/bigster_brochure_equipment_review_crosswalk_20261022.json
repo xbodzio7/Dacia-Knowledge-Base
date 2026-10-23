@@ -84,13 +84,13 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Continue source-text and grade-marker reconciliation for remaining page-21 interior controls and safety groups.",
+    "Continue remaining page-21 safety rows and interior controls using exact candidate fragments and aligned markers.",
     "Keep source-period-specific evidence separate; July 2026 price-list evidence does not independently prove December 2025 brochure state.",
     "Do not deduplicate candidate records or modify data/master and data/imports until exact attribute/configuration mapping is established."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
-    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted. Added seven source-row/grade-marker reconciliations from the page-21 seats and interior section using candidate IDs and exact fragment labels from unresolved review chunk 2; master mappings remain unapproved.",
+    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted. Added seven source-row/grade-marker reconciliations from the page-21 seats and interior section using candidate IDs and exact fragment labels from unresolved review chunk 2; master mappings remain unapproved. Added seven page-21 safety/driver-assistance rows from unresolved review chunks 2–3, retaining powertrain qualifiers and separate wrapped-label/marker fragments; master mappings remain unapproved.",
     "unresolved_chunks": {
       "candidate_count": 176,
       "page21_count": 107,
@@ -265,13 +265,14 @@
         "source-text and grade-marker reconciliation for EASY, PARKING, ZIMOWY and ZIMOWY PLUS package rows",
         "visual confirmation of Hill Descent Control grade-column alignment and 4×2/4×4 qualifiers on brochure page 21",
         "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows",
-        "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged."
+        "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged.",
+        "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled."
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
         "independent source-period proof for any proposed master-data or import-spec changes",
         "visually confirm Hill Descent Control grade-column alignment on brochure page 21 before treating extracted qualifiers as a grade matrix",
-        "Continue page-21 remaining interior controls and safety rows; candidate-to-master mapping remains unapproved."
+        "Continue remaining page-21 safety rows and page-21 interior controls; master mappings remain unapproved."
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -1291,6 +1292,145 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "The label, marker sequence and continuation text are retained as separate source fragments. No fragment merging or import promotion."
+        },
+        {
+          "attribute_candidate_group": "rain_sensor",
+          "printed_row_label": "Czujnik deszczu",
+          "source_text_lines": [
+            968
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "ec95e819e526531116a7862766dfb1db3d7cd2c2e3602a83986d7b28343b5321"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Archived brochure extraction preserves the complete row and aligned grade markers. Candidate remains unresolved for master mapping."
+        },
+        {
+          "attribute_candidate_group": "fog_lights",
+          "printed_row_label": "Światła przeciwmgielne",
+          "source_text_lines": [
+            969
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "1171aec3184562dc9291c4a807f5550e6939a24807aa75b2b06cba275e04cbe4"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Archived brochure extraction preserves the complete row and aligned grade markers. No import approval."
+        },
+        {
+          "attribute_candidate_group": "automatic_high_low_beam",
+          "printed_row_label": "Automatyczne przełączanie świateł drogowych/mijania",
+          "source_text_lines": [
+            970,
+            971
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "44ed310fc3020e013d01e2f9c894deb5a75e623b5c2673760d5d8f760c945a35",
+            "bb821416d3cc205ebe1b95fa68f9b2fd93eb904332c49a533671c65e03c0007d",
+            "958c87deb4c23cc30e3b35a761b5ca54dabf3cdf54524e94e2d869cc2adee7d1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped label, grade markers and continuation are kept as distinct candidate fragments; source-row relationship is documented without merging."
+        },
+        {
+          "attribute_candidate_group": "adaptive_cruise_hybrid155",
+          "printed_row_label": "Adaptacyjny tempomat (tylko z silnikiem Hybrid 155)",
+          "source_text_lines": [
+            972,
+            973
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "738ac97ea2ded066fd635a457321131ab0e2302e75a1ab77c489fccf790ead46",
+            "6cc94015ede69c0898d4969158e81183a831f0b049dce4c03be086264517d346",
+            "582470bec83f88199f2a118b122cf3b12415e98fd2548e09777e103a067d899c"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Powertrain qualifier Hybrid 155 is retained. Grade states are recorded from the brochure row only; no extrapolation to other engines or master mapping."
+        },
+        {
+          "attribute_candidate_group": "electric_parking_brake",
+          "printed_row_label": "Hamulec postojowy elektryczny",
+          "source_text_lines": [
+            974
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "2851fdbb7f94d2fa612eed381d8829b0f90f2b539ffa910cdede803607ce11ba"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row and aligned markers are confirmed; mapping to master data remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "tyre_pressure_monitoring",
+          "printed_row_label": "Czujniki ciśnienia w oponach",
+          "source_text_lines": [
+            954
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "0c3285c5a991dc6c1f5fdd4e634adbc49f9b4f089deb456bb51c4619a974885d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete row and four standard markers are confirmed in the archived brochure extraction; no import approval."
+        },
+        {
+          "attribute_candidate_group": "isofix_rear_outer",
+          "printed_row_label": "Mocowania Isofix na tylnych bocznych miejscach",
+          "source_text_lines": [
+            957
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "baf6d2698208ca43d53c9a56abfd4725259b6e14832bbfb712157b09171df106"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row and four standard markers are confirmed; exact master attribute mapping remains open."
         }
       ],
       "semantic_boundaries": {
@@ -1301,7 +1441,7 @@
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
       },
-      "row_count": 31
+      "row_count": 38
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
