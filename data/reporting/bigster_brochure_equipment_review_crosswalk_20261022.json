@@ -84,10 +84,11 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Treat the four page-22 links as source-text-confirmed row fragments, but retain candidate-scope separation until candidate records are formally joined in a dedicated reconciliation.",
-    "Keep covered decisions with no direct candidate row separate; absence from unresolved chunks may mean they were not included in that review workload.",
-    "Resolve the four partial decisions using complete row text and grade markers; July 2026 price-list evidence alone does not prove December 2025 historical state.",
-    "Preserve master and import files unchanged until source-period proof and exact configuration/attribute mapping are established."
+    "Completed in this review: preserve the four source-text-confirmed page-22 row-fragment links (8 chunk candidate fragments) without collapsing candidate identities or authorizing imports.",
+    "Next: inspect the complete official brochure page-21 and page-22 row text and aligned grade markers against the remaining unresolved candidate groups; prioritize complete labelled rows before extraction tails and explanatory fragments.",
+    "Keep the four covered ambiguity decisions with no direct candidate row in the five unresolved chunks separate; absence from these chunks does not prove source absence.",
+    "Reconcile brochure dated 2025-12-10 independently from the 2026-07-03 and 2026-10-01 price lists; do not use later price-list evidence to backfill brochure-era states.",
+    "Preserve data/master and data/imports unchanged until each source-period row is linked to an exact configuration and attribute mapping with defensible evidence."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
@@ -256,6 +257,21 @@
         "confirmed_candidate_ids": 8,
         "caveat": "Textual row linkage confirms that the candidate fragments belong to the same printed equipment rows. It does not prove that the candidate fragments are duplicates of the separately authored ambiguity decisions, nor does it establish historical-to-master continuity."
       }
+    },
+    "next_actions_status": {
+      "reviewed_on": "2026-10-23",
+      "completed": [
+        "candidate inventory across all five unresolved Markdown chunks (176 unique candidate IDs)",
+        "ID and exact-text comparison against all eight authored ambiguity decisions",
+        "source-text confirmation of four page-22 row-fragment relationships covering eight chunk candidate IDs"
+      ],
+      "remaining": [
+        "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
+        "independent source-period proof for any proposed master-data or import-spec changes"
+      ],
+      "counts_unchanged": true,
+      "master_data_changes": false,
+      "approved_import_spec_generation": false
     }
   }
 }
