@@ -274,9 +274,9 @@
         "Page-22 center-console armrest/storage, Hybrid 155 high console, YouClip 3-in-1, reversible boot mat and rubber floor mats reconciled to source rows and grade values; candidate fragments retained and master mappings remain unapproved."
       ],
       "remaining": [
-        "Continue remaining page-21/page-22 unresolved groups, especially multimedia and remote-service/package rows, with exact candidate IDs and source-aligned markers.",
-        "Independently verify source-period proof for any proposed master-data or import-spec changes.",
-        "Visually confirm any remaining matrix alignments where text extraction alone is insufficient."
+        "Candidate evidence-signature mismatches remain unresolved; source text and grade-marker alignment alone does not approve candidates or imports.",
+        "Verify source-period evidence and exact canonical attribute mapping before any master-data or import-spec changes.",
+        "Visually confirm remaining matrix alignments where text extraction alone is insufficient."
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -2116,7 +2116,7 @@
         "hill_descent_control_grade_mapping_approved": true
       },
       "row_count": 72,
-      "method": "undefined Added five page-22 interior/accessory rows after checking exact candidate IDs, wrapped labels and aligned grade markers in unresolved review chunk 1 against the archived brochure's printed source lines; no candidate records merged and master mappings remain unapproved."
+      "method": "undefined Added five page-22 interior/accessory rows after checking exact candidate IDs, wrapped labels and aligned grade markers in unresolved review chunk 1 against the archived brochure's printed source lines; no candidate records merged and master mappings remain unapproved. Existing Media Display, Media Nav Live, remote services, FOTA and package rows were re-audited against page-22 chunks 1–2; stored grade values remain source-aligned, while candidate signature mismatches remain unresolved."
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
