@@ -84,13 +84,13 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Continue remaining page-21 safety rows and interior controls using exact candidate fragments and aligned markers.",
+    "Continue remaining page-21 interior controls and remaining safety-row fragments using exact candidate IDs and aligned markers.",
     "Keep source-period-specific evidence separate; July 2026 price-list evidence does not independently prove December 2025 brochure state.",
     "Do not deduplicate candidate records or modify data/master and data/imports until exact attribute/configuration mapping is established."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
-    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted. Added seven source-row/grade-marker reconciliations from the page-21 seats and interior section using candidate IDs and exact fragment labels from unresolved review chunk 2; master mappings remain unapproved. Added seven page-21 safety/driver-assistance rows from unresolved review chunks 2–3, retaining powertrain qualifiers and separate wrapped-label/marker fragments; master mappings remain unapproved.",
+    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted. Added seven source-row/grade-marker reconciliations from the page-21 seats and interior section using candidate IDs and exact fragment labels from unresolved review chunk 2; master mappings remain unapproved. Added seven page-21 safety/driver-assistance rows from unresolved review chunks 2–3, retaining powertrain qualifiers and separate wrapped-label/marker fragments; master mappings remain unapproved. Added fifteen additional page-21 safety, road-assistance and driving-control source rows using exact candidate IDs from unresolved review chunks 2–3; all master mappings remain unapproved.",
     "unresolved_chunks": {
       "candidate_count": 176,
       "page21_count": 107,
@@ -266,13 +266,14 @@
         "visual confirmation of Hill Descent Control grade-column alignment and 4×2/4×4 qualifiers on brochure page 21",
         "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows",
         "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged.",
-        "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled."
+        "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled.",
+        "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers."
       ],
       "remaining": [
         "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
         "independent source-period proof for any proposed master-data or import-spec changes",
         "visually confirm Hill Descent Control grade-column alignment on brochure page 21 before treating extracted qualifiers as a grade matrix",
-        "Continue remaining page-21 safety rows and page-21 interior controls; master mappings remain unapproved."
+        "Continue remaining page-21 interior controls and review the source-specific candidate-to-master mapping evidence; master mappings remain unapproved."
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -1431,6 +1432,306 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "Complete source row and four standard markers are confirmed; exact master attribute mapping remains open."
+        },
+        {
+          "attribute_candidate_group": "airbags",
+          "printed_row_label": "Poduszki powietrzne (6)",
+          "source_text_lines": [
+            932,
+            933
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "328359e651d57b42e35bdf43132974dba6f3b649b255a572724a7be8d22fdffd",
+            "41895632f47d9f1033e47f4c17ab44795d6f1e77205386d51339d425cac080fb"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Airbag row label and grade-wide standard markers are recorded from the archived brochure. Candidate fragments remain separate; no master mapping or import approval."
+        },
+        {
+          "attribute_candidate_group": "abs",
+          "printed_row_label": "ABS z układem wspomagania nagłego hamowania",
+          "source_text_lines": [
+            934
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "aabceb1c0164ed00831376a31640e057d9a9f10a666512170e37cee88e1bd5d5"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row and four standard markers are recorded; exact master attribute mapping remains open."
+        },
+        {
+          "attribute_candidate_group": "automatic_emergency_braking_pedestrians_cyclists",
+          "printed_row_label": "System awaryjnego hamowania (AEBS) z wykrywaniem pieszych i rowerzystów",
+          "source_text_lines": [
+            935,
+            936
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a962db1301b8c24efa5583ff2b1783d55ec09c33e7766d310927f99a004a8fbb",
+            "1763885c2d287f8dc65422fd3c0649011b81104fd7c24746d6fa2afd7a4f617b",
+            "b65e1ffe6d5ca1dad13bf7a79dd0c94c45b5c3d906539a8412c7410949608778"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped row label, marker-bearing fragment and continuation are preserved separately; all four grade markers indicate standard."
+        },
+        {
+          "attribute_candidate_group": "lane_departure_warning",
+          "printed_row_label": "System ostrzegania o niezamierzonej zmianie pasa ruchu",
+          "source_text_lines": [
+            937,
+            938
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "b8bbc587719b76950da81288798c44b66b7ee4eb2c9e667814905cd6b53fa181"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Brochure row and grade-wide standard state are recorded without promoting the candidate to master."
+        },
+        {
+          "attribute_candidate_group": "driver_attention_warning",
+          "printed_row_label": "Ostrzeganie o zmęczeniu kierowcy",
+          "source_text_lines": [
+            939
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "5c92cafb076acdbbfc7fba28b3cd356e0291b6ee0da784240c17d821a72eb3f1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row is recorded as standard for all grades; candidate-to-master mapping remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "intelligent_speed_assistance",
+          "printed_row_label": "Inteligentny asystent prędkości (ISA)",
+          "source_text_lines": [
+            940,
+            941
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "6944bf0e7eb4a1240a7946617c61fe3860575301f40cfc094d313fbf39e57e57",
+            "e6600a89702777af61e858722144aaa336f0250a0e8c9daa46586c8a9a7fef59",
+            "8b341337f61a5ac6485932080efad71b83ce069c8849fe8042762743bb637b5e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped label, markers and continuation are retained as separate source fragments; grade-wide standard state does not imply import approval."
+        },
+        {
+          "attribute_candidate_group": "emergency_brake_assist",
+          "printed_row_label": "System wspomagania nagłego hamowania",
+          "source_text_lines": [
+            942
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "fb23412e7f7c39ecb398ce33dc43cad3f15afe95e8f6a5935d2d2a9054134a39"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source row and four standard markers recorded; no semantic inference or master-data change."
+        },
+        {
+          "attribute_candidate_group": "esp",
+          "printed_row_label": "System kontroli toru jazdy (ESP)",
+          "source_text_lines": [
+            943
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a12e2cea029937f53983d5295ffcd3fda9b17debd907ba230c759f64e5f7236d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete row is recorded as standard across all four grades; candidate remains unapproved for master mapping."
+        },
+        {
+          "attribute_candidate_group": "automatic_lights",
+          "printed_row_label": "Automatyczne światła",
+          "source_text_lines": [
+            944
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "2ecbed78522e7e7940b25113f66ff9efe4e11ac018d14690c959a82d24601e76"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source row and grade-wide standard markers recorded without changing master data."
+        },
+        {
+          "attribute_candidate_group": "ecall",
+          "printed_row_label": "System połączeń alarmowych eCall",
+          "source_text_lines": [
+            945
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "d0d618ee3e6abd41b1156d36c8d3f3da5603e7c354663a71a7ef9913a23b379a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete brochure row is recorded as standard for every grade; exact master mapping remains open."
+        },
+        {
+          "attribute_candidate_group": "rescue_code",
+          "printed_row_label": "Kod ratunkowy QRescue",
+          "source_text_lines": [
+            951
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "9c24bbf45b5f708068b8cd41d54844956406347594a7fc7e9316b907162238e6"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete row and grade-wide standard state are recorded; no import promotion."
+        },
+        {
+          "attribute_candidate_group": "seat_belts",
+          "printed_row_label": "Pasy bezpieczeństwa",
+          "source_text_lines": [
+            952,
+            953
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "bdd9fb05da8f3a7ab549b4b31c77ad59c5c0ef17644cbfc15ffe285b04bcfc8e",
+            "c821b4d93ae74d995c99b901d4e208dcdc50ff02f8f3f71e30b1cd0bfd53bd1f",
+            "944288c7392e4276e16a11c48b79636e68dd4b8cf2fc673ff9929adb5c06815e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Label, marker sequence and continuation remain separate fragments linked to one source row; no merging of candidate records."
+        },
+        {
+          "attribute_candidate_group": "eco_stop_start_gear_indicator",
+          "printed_row_label": "Wskaźnik zmiany biegów / ECO / Stop & Start",
+          "source_text_lines": [
+            955,
+            956
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "765e2ab133029c38ac58f8596c6c055a00879c495045da7a6c3790dab398fddc",
+            "35d35bc4e8e2c1a6cc81f2fd2837bcf5c8ba6f97a85c9846167c5c38c7d815ed",
+            "5d9fe83238894767f8b1d6b4abfc70f3159739de09f9bccfcdfbfb1827c50bd7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The multi-line source row and its marker fragments are retained without merging; standard state is recorded for all grades."
+        },
+        {
+          "attribute_candidate_group": "cruise_limiter_controls",
+          "printed_row_label": "Regulator i ogranicznik prędkości",
+          "source_text_lines": [
+            959
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "3b98e962949c92710a3f8f0746900a85cc153421ece34992a08e1536cd02e1ea"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row recorded as standard across all grades; exact mapping remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "rear_parking_sensors_reversing_camera",
+          "printed_row_label": "Tylne czujniki parkowania i kamera cofania",
+          "source_text_lines": [
+            960
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "98ede153010af14b67997de525d1242c828fb8ff43c04c14a4d347b1c6e4dec7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source row and four standard markers recorded; no candidate deduplication or import approval."
         }
       ],
       "semantic_boundaries": {
@@ -1441,7 +1742,7 @@
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
       },
-      "row_count": 38
+      "row_count": 53
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
