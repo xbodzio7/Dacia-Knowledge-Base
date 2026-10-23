@@ -581,6 +581,85 @@
         "Source-text row linkage does not prove duplicate identity, historical-to-master continuity or import authorization.",
         "No data/master or data/imports files were changed."
       ]
+    },
+    "source_row_reconciliation": {
+      "reviewed_on": "2026-10-23",
+      "source_method": "Read the official archived brochure PDF text for printed page 22 (PDF page index 21), lines 1014-1025 in the extracted source text; compared wording and the four grade-column order with the six preserved candidate fragments in page-22 chunk 1. This confirms row text and grade values, not pixel geometry or candidate identity.",
+      "source_receipt": {
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "document_date": "2025-12-10",
+        "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+        "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+        "page": 22,
+        "official_pdf_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf"
+      },
+      "grade_order": [
+        "essential",
+        "expression",
+        "journey",
+        "extreme"
+      ],
+      "rows": [
+        {
+          "attribute_candidate_group": "12v_sockets",
+          "printed_row_label": "Gniazda 12 V",
+          "source_text_lines": [
+            1014,
+            1015,
+            1016,
+            1017,
+            1018,
+            1019
+          ],
+          "source_values_by_grade": {
+            "essential": "przód",
+            "expression": "przód i bagażnik",
+            "journey": "przód i bagażnik",
+            "extreme": "przód i bagażnik"
+          },
+          "candidate_ids": [
+            "e7d6b02a51e87578b4bdaf32db1b9b4006082f5d5716e9a183e4f3e7fa33217c",
+            "2feee8d06620a8c1199b9005e3295e3640fc109bc634e3d2dc82c1b94daf3056",
+            "b65c7cc2ec9b87f51bf9ea81281493fa8c7e83a26afb8d8bf6442a6c1c5e8cbe"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The official source shows the front-only value for Essential and front plus luggage-compartment sockets for Expression, Journey and Extreme. Candidate fragments remain separate records because visual geometry, candidate identity and exact master attribute mapping have not been independently established."
+        },
+        {
+          "attribute_candidate_group": "usb_c_ports",
+          "printed_row_label": "Porty USB-C",
+          "source_text_lines": [
+            1020,
+            1021,
+            1022,
+            1023,
+            1024,
+            1025
+          ],
+          "source_values_by_grade": {
+            "essential": "2 z przodu",
+            "expression": "2 z przodu",
+            "journey": "2 z przodu i 2 z tyłu",
+            "extreme": "2 z przodu i 2 z tyłu"
+          },
+          "candidate_ids": [
+            "3beb3a745c8fa0d7eeda03a81a6336d9bc097725699900e434d027675280926b",
+            "f8a3f49781d16618e4e4b319718aab7ece75f897d1b2d68898b2bb98e08e5940",
+            "391c54b60427afea0b2eabf9f1e0cea9b9270f8e5a3427e101f16c4a3fd4e4f8"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The official source shows two front USB-C ports for Essential and Expression, and two front plus two rear ports for Journey and Extreme. Candidate fragments remain separate records because visual geometry, candidate identity and exact master attribute mapping have not been independently established."
+        }
+      ],
+      "semantic_boundaries": {
+        "grade_values_are_source_period_specific": true,
+        "candidate_fragments_not_deduplicated": true,
+        "historical_source_not_retagged": true,
+        "master_data_changes": false,
+        "approved_import_spec_generation": false
+      }
     }
   }
 }
