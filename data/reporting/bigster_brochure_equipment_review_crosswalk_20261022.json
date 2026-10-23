@@ -270,13 +270,13 @@
         "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers.",
         "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved.",
         "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved.",
-        "Page-22 YouClip smartphone holder, impulse windows, luggage cover, low console and power tailgate reconciled; master mappings remain unapproved."
+        "Page-22 YouClip smartphone holder, impulse windows, luggage cover, low console and power tailgate reconciled; master mappings remain unapproved.",
+        "Page-22 center-console armrest/storage, Hybrid 155 high console, YouClip 3-in-1, reversible boot mat and rubber floor mats reconciled to source rows and grade values; candidate fragments retained and master mappings remain unapproved."
       ],
       "remaining": [
-        "full row-by-row source-text and grade-marker reconciliation for the remaining unresolved groups",
-        "independent source-period proof for any proposed master-data or import-spec changes",
-        "visually confirm Hill Descent Control grade-column alignment on brochure page 21 before treating extracted qualifiers as a grade matrix",
-        "Continue remaining page-21 interior controls and review the source-specific candidate-to-master mapping evidence; master mappings remain unapproved."
+        "Continue remaining page-21/page-22 unresolved groups, especially multimedia and remote-service/package rows, with exact candidate IDs and source-aligned markers.",
+        "Independently verify source-period proof for any proposed master-data or import-spec changes.",
+        "Visually confirm any remaining matrix alignments where text extraction alone is insufficient."
       ],
       "counts_unchanged": true,
       "master_data_changes": false,
@@ -2003,6 +2003,108 @@
           "reconciliation": "source_row_text_and_grade_values_confirmed",
           "master_mapping": "not_approved",
           "rationale": "The brochure marks the power tailgate unavailable on Essential and Expression, standard on Journey, and optional on Extreme."
+        },
+        {
+          "attribute_candidate_group": "central_console_armrest_storage",
+          "printed_row_label": "Konsola centralna z podłokietnikiem i schowkiem",
+          "source_text_lines": [
+            1003,
+            1004
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "1bed4aef4b58fe9e0b7f065f681a0f4742d18fb6b0c14d881edb39412dbae694",
+            "659b2146444a2b691042807d95fa7b8ab142483d45b4c38052f0f42ddf36b8cc"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure row and continuation identify the armrest/storage console; markers show unavailable on Essential, standard on Expression, and unavailable on Journey and Extreme. The continuation remains a separate candidate fragment."
+        },
+        {
+          "attribute_candidate_group": "high_central_console_cooled_storage",
+          "printed_row_label": "Konsola centralna wysoka z uchwytami na kubki, podłokietnikiem i chłodzonym schowkiem (dla silnika hybrid 155)",
+          "source_text_lines": [
+            1005,
+            1006,
+            1007,
+            1008
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "e8a8b9222f58b11557db17a29a301b08a93218a1064429ecbcdfc13c3fc3fff1",
+            "c29f92ab5c3bdca7a08d9ce462b503535e81821318781c32a7cf0e35e9eedd8b",
+            "f53de531d0449d388bb98eb1500d51114567b68cec2c2454f773078437cc62c1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The full wrapped label qualifies this high console as for Hybrid 155; grade markers show unavailable on Essential/Expression and standard on Journey/Extreme. Candidate fragments remain separate."
+        },
+        {
+          "attribute_candidate_group": "youclip_3_in_1",
+          "printed_row_label": "YouClip 3 w 1",
+          "source_text_lines": [
+            1011
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "863c9f241febd8cc08e9fcb6d0f387a0e19fedef2c0f1a2f9fa7dd6d769b12bb"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks YouClip 3-in-1 unavailable on Essential, Expression and Journey, and standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "reversible_boot_mat",
+          "printed_row_label": "Mata bagażnika dwustronna (tkanina/guma)",
+          "source_text_lines": [
+            1012
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "f06382d1b5e2326ef28288e63977f470aa8d24404b6963087bc9a37e93ce10ab"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The reversible textile/rubber boot mat is unavailable on Essential, Expression and Journey, and standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "rubber_floor_mats",
+          "printed_row_label": "Dywaniki gumowe przód i tył",
+          "source_text_lines": [
+            1013
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "171dbc7b10f63f65bd3b529e68c812def676dfebe1562ae4d7cbd278e9138a54"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks front and rear rubber floor mats unavailable on Essential, Expression and Journey, and standard on Extreme."
         }
       ],
       "semantic_boundaries": {
@@ -2013,7 +2115,8 @@
         "approved_import_spec_generation": false,
         "hill_descent_control_grade_mapping_approved": true
       },
-      "row_count": 67
+      "row_count": 72,
+      "method": "undefined Added five page-22 interior/accessory rows after checking exact candidate IDs, wrapped labels and aligned grade markers in unresolved review chunk 1 against the archived brochure's printed source lines; no candidate records merged and master mappings remain unapproved."
     },
     "next_step_after_source_reconciliation": "Continue source-row reconciliation for remaining page-21 interior-design, seating and safety groups, then verify candidate-to-master mappings without changing master/import data."
   }
