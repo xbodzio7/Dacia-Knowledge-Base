@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.14.1` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.19.1` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.14.1 \
-  --output-directory ../dkb-data-products-v1.14.1
+  --version 1.19.1 \
+  --output-directory ../dkb-data-products-v1.19.1
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.14.1
+  --workspace-directory ../dkb-data-products-v1.19.1
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
