@@ -84,9 +84,9 @@
     "automatic_promotion": false
   },
   "next_actions": [
-    "Audit candidate evidence signatures and exact candidate identity for the 72 reconciled page-21/page-22 source rows; do not treat source-text alignment as approval.",
-    "Validate source-period compatibility separately: the 2026-07-03 price-list evidence does not independently establish the 2025-12-10 brochure state.",
-    "Confirm canonical attribute and configuration mappings against current repository data before any import-spec or master-data changes; keep all unproven mappings not approved."
+    "Resolve candidate evidence signatures and exact candidate identity for the 72 reconciled page-21/page-22 rows.",
+    "Review the diagnostic canonical mapping audit, especially composite rows (multimedia, mirrors, windows and sockets) and grade/powertrain qualifiers.",
+    "Verify source-period and configuration-level evidence before changing master data or generating approved import specs; keep every unproven mapping not approved."
   ],
   "crosswalk_result": {
     "reviewed_on": "2026-10-23",
@@ -272,11 +272,12 @@
         "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved.",
         "Page-22 YouClip smartphone holder, impulse windows, luggage cover, low console and power tailgate reconciled; master mappings remain unapproved.",
         "Page-22 center-console armrest/storage, Hybrid 155 high console, YouClip 3-in-1, reversible boot mat and rubber floor mats reconciled to source rows and grade values; candidate fragments retained and master mappings remain unapproved.",
-        "Reconciled all 72 currently recorded source-row groups across printed pages 21–22 against the archived brochure text and aligned grade values; this is row-level source reconciliation only, not candidate-signature resolution or master mapping approval."
+        "Reconciled all 72 currently recorded source-row groups across printed pages 21–22 against the archived brochure text and aligned grade values; this is row-level source reconciliation only, not candidate-signature resolution or master mapping approval.",
+        "Screened 15 page-21/page-22 source-row groups against the current canonical attribute dictionary; recorded semantic matches and ambiguities as diagnostic-only findings without approving mappings or changing master/import data."
       ],
       "remaining": [
         "Resolve candidate evidence-signature mismatches only where repository evidence can establish exact candidate identity; source-row and grade-marker agreement alone is insufficient.",
-        "Verify each proposed canonical attribute/configuration mapping against current master data and source-period boundaries before any master-data or import-spec changes.",
+        "Investigate the diagnostic canonical mapping audit: distinguish exact attributes from composite features and ambiguous scope, then validate configuration coverage and source-period boundaries.",
         "Perform visual page-image confirmation for any remaining matrix rows whose column alignment cannot be established from extracted text; retain explicit uncertainty otherwise."
       ],
       "counts_unchanged": true,
@@ -2119,6 +2120,158 @@
       "row_count": 72,
       "method": "undefined Added five page-22 interior/accessory rows after checking exact candidate IDs, wrapped labels and aligned grade markers in unresolved review chunk 1 against the archived brochure's printed source lines; no candidate records merged and master mappings remain unapproved. Existing Media Display, Media Nav Live, remote services, FOTA and package rows were re-audited against page-22 chunks 1–2; stored grade values remain source-aligned, while candidate signature mismatches remain unresolved."
     },
-    "next_step_after_source_reconciliation": "Proceed with exact candidate-to-master mapping audit for the 72 reconciled page-21/page-22 source rows, starting with repository-backed evidence signatures and source-period validation. Do not modify data/master or data/imports while any mapping or candidate identity remains ambiguous."
+    "next_step_after_source_reconciliation": "Use the diagnostic canonical mapping audit to prioritize exact candidate identity and attribute semantics. Verify configuration coverage and source-period compatibility before any import-spec or master-data changes; do not approve mappings from name similarity alone.",
+    "canonical_mapping_audit": {
+      "reviewed_on": "2026-10-24",
+      "status": "diagnostic_only_mapping_not_approved",
+      "basis": {
+        "attributes_path": "data/master/attributes.csv",
+        "attributes_blob_sha": "b56f5d92a92e84fc457e518a05d18a07ed0e9f05",
+        "configurations_path": "data/master/configurations.csv",
+        "configurations_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
+        "method": "Read current attribute dictionary and configuration registry from the active review branch; compare likely canonical codes against source-row labels and recorded grade values. This is a semantic screening only, not proof of candidate identity, source-period continuity, configuration coverage or import eligibility."
+      },
+      "findings": [
+        {
+          "source_row_group": "electric_power_steering",
+          "candidate_attribute_codes": [
+            "steering_type"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary code describes steering type as a string; source row states electric power steering. Confirm stored values and canonical value vocabulary before mapping."
+        },
+        {
+          "source_row_group": "remote_central_lock",
+          "candidate_attribute_codes": [
+            "central_locking"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary has central_locking, but the brochure explicitly says remote-controlled central locking. Confirm whether remote operation is represented separately."
+        },
+        {
+          "source_row_group": "keyless_entry_card",
+          "candidate_attribute_codes": [
+            "keyless_entry",
+            "keyless_start"
+          ],
+          "status": "ambiguous_multi_attribute",
+          "reason": "Keyless Entry card may refer to entry, starting, or a combined access system; do not map to either boolean without canonical definition and evidence."
+        },
+        {
+          "source_row_group": "heated_power_side_mirrors",
+          "candidate_attribute_codes": [
+            "side_mirrors_heated",
+            "side_mirrors_electric_adjustment"
+          ],
+          "status": "two_attributes_may_apply",
+          "reason": "Source label combines heated and electrically adjustable mirrors; one source row may correspond to two canonical attributes. Do not collapse into a single boolean."
+        },
+        {
+          "source_row_group": "front_rear_impulse_windows",
+          "candidate_attribute_codes": [
+            "front_windows_power",
+            "rear_windows_power",
+            "one_touch_windows"
+          ],
+          "status": "ambiguous_scope",
+          "reason": "Impulse operation is not necessarily equivalent to power windows or one-touch operation; confirm row wording and canonical attribute semantics."
+        },
+        {
+          "source_row_group": "power_tailgate",
+          "candidate_attribute_codes": [
+            "power_tailgate",
+            "hands_free_tailgate"
+          ],
+          "status": "ambiguous_scope",
+          "reason": "Power-operated tailgate is distinct from hands-free operation; preserve the brochure's exact label and grade-specific markers."
+        },
+        {
+          "source_row_group": "media_display",
+          "candidate_attribute_codes": [
+            "media_display_system"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary contains a Media Display system attribute, but its boolean schema may not encode the brochure's grade-level availability state directly."
+        },
+        {
+          "source_row_group": "media_nav_live",
+          "candidate_attribute_codes": [
+            "navigation_system",
+            "live_traffic_information",
+            "infotainment_screen_size",
+            "touchscreen",
+            "connected_services"
+          ],
+          "status": "composite_feature_row",
+          "reason": "Media Nav Live is a bundled multimedia system with several functions; do not substitute one component attribute for the complete row."
+        },
+        {
+          "source_row_group": "usb_c_ports",
+          "candidate_attribute_codes": [
+            "usb_ports_count",
+            "rear_usb_c_ports"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary separates total USB count and rear USB-C availability; source also specifies front ports. Check data model granularity before mapping."
+        },
+        {
+          "source_row_group": "12v_sockets",
+          "candidate_attribute_codes": [
+            "boot_12v_socket"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary explicitly represents a boot 12 V socket but the source row also includes front-only/front-plus-boot states. Front socket presence may need separate representation."
+        },
+        {
+          "source_row_group": "central_console_armrest_storage",
+          "candidate_attribute_codes": [
+            "front_centre_armrest",
+            "centre_console_variant"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Armrest and storage are separate concepts; no exact single canonical code established for the complete row."
+        },
+        {
+          "source_row_group": "high_central_console_cooled_storage",
+          "candidate_attribute_codes": [
+            "cooled_centre_armrest",
+            "centre_console_variant"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary contains cooled centre-armrest storage, but brochure qualifies it for Hybrid 155; exact configuration applicability and source-period coverage remain unverified."
+        },
+        {
+          "source_row_group": "youclip_phone_holder",
+          "candidate_attribute_codes": [
+            "youclip_phone_holder"
+          ],
+          "status": "exact_code_candidate_unapproved",
+          "reason": "An exact-looking dictionary code exists; this does not resolve the candidate evidence-signature mismatch or prove configuration-level source mapping."
+        },
+        {
+          "source_row_group": "hill_descent_control",
+          "candidate_attribute_codes": [
+            "hill_descent_control"
+          ],
+          "status": "exact_code_candidate_unapproved",
+          "reason": "An exact-looking dictionary code exists, but 4x2/4x4 and powertrain applicability qualifiers must be checked per configuration."
+        },
+        {
+          "source_row_group": "tyre_pressure_monitoring",
+          "candidate_attribute_codes": [
+            "tyre_pressure_monitoring_system"
+          ],
+          "status": "exact_code_candidate_unapproved",
+          "reason": "An exact-looking dictionary code exists; source-row alignment does not resolve candidate identity or configuration mapping."
+        }
+      ],
+      "controls": {
+        "master_data_changes": false,
+        "import_spec_changes": false,
+        "candidate_records_merged": false,
+        "mapping_approved": false,
+        "note": "All findings are proposed semantic candidates for further review. No mapping is approved."
+      }
+    }
   }
 }
