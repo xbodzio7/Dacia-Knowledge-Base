@@ -85,6 +85,7 @@
   },
   "next_actions": [
     "Resolve candidate evidence signatures and exact candidate identity for the 72 reconciled page-21/page-22 rows.",
+    "Treat the 126 records attached to the older page-22 ambiguity review as later-period context only; establish direct 2025-12-10 brochure-period evidence before validating its grade states.",
     "Review the diagnostic canonical mapping audit, especially composite rows (multimedia, mirrors, windows and sockets) and grade/powertrain qualifiers.",
     "Verify source-period and configuration-level evidence before changing master data or generating approved import specs; keep every unproven mapping not approved."
   ],
@@ -277,6 +278,7 @@
       ],
       "remaining": [
         "Resolve candidate evidence-signature mismatches only where repository evidence can establish exact candidate identity; source-row and grade-marker agreement alone is insufficient.",
+        "For the 18 signatures/126 records attached to the page-22 ambiguity review, obtain direct evidence from the 2025-12-10 brochure period before using later 2026-07-03 price-list records to validate trim-level states.",
         "Investigate the diagnostic canonical mapping audit: distinguish exact attributes from composite features and ambiguous scope, then validate configuration coverage and source-period boundaries.",
         "Perform visual page-image confirmation for any remaining matrix rows whose column alignment cannot be established from extracted text; retain explicit uncertainty otherwise."
       ],
@@ -2129,7 +2131,19 @@
         "attributes_blob_sha": "b56f5d92a92e84fc457e518a05d18a07ed0e9f05",
         "configurations_path": "data/master/configurations.csv",
         "configurations_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
-        "method": "Read current attribute dictionary and configuration registry from the active review branch; compare likely canonical codes against source-row labels and recorded grade values. This is a semantic screening only, not proof of candidate identity, source-period continuity, configuration coverage or import eligibility."
+        "method": "Read current attribute dictionary and configuration registry from the active review branch; compare likely canonical codes against source-row labels and recorded grade values. This is a semantic screening only, not proof of candidate identity, source-period continuity, configuration coverage or import eligibility.",
+        "temporal_boundary_check": {
+          "source_brochure_code": "src_pl_bigster_brochure_20251210",
+          "source_brochure_date": "2025-12-10",
+          "linked_ambiguity_review_path": "data/reporting/bigster_equipment_page22_ambiguity_review.json",
+          "linked_ambiguity_review_blob_sha": "ce13aef4afaeae7c5b15342ffec498183f44153a",
+          "selected_evidence_signatures": 18,
+          "selected_evidence_records": 126,
+          "evidence_source_codes": [
+            "src_pl_bigster_price_my26_20260703"
+          ],
+          "decision": "later price-list evidence is context only for this earlier brochure; not sufficient for source-period validation"
+        }
       },
       "findings": [
         {
@@ -2263,6 +2277,12 @@
           ],
           "status": "exact_code_candidate_unapproved",
           "reason": "An exact-looking dictionary code exists; source-row alignment does not resolve candidate identity or configuration mapping."
+        },
+        {
+          "source_row_group": "cross_source_temporal_boundary",
+          "candidate_attribute_codes": [],
+          "status": "source_period_mismatch_blocker",
+          "reason": "The linked authored page-22 ambiguity review contains 18 selected evidence signatures and 126 records, all sourced from src_pl_bigster_price_my26_20260703. The reviewed brochure source is src_pl_bigster_brochure_20251210. These later price-list records may help with semantic discovery but cannot independently validate the earlier brochure's trim-level states; do not use them to resolve candidate identity or approve mapping without direct brochure-period evidence."
         }
       ],
       "controls": {
