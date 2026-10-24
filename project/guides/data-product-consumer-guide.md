@@ -31,15 +31,15 @@ Z katalogu repozytorium uruchom:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.14.1 \
-  --output-directory ../dkb-data-products-v1.14.1
+  --version 1.19.1 \
+  --output-directory ../dkb-data-products-v1.19.1
 ```
 
 Komenda wymaga dokładnej wersji `MAJOR.MINOR.PATCH`. Nie obsługuje mutowalnego aliasu `latest`.
 
 Przed opublikowaniem workspace komenda:
 
-- odczytuje publiczny GitHub Release dla tagu `data-products-v1.14.1`,
+- odczytuje publiczny GitHub Release dla tagu `data-products-v1.19.1`,
 - rozwiązuje tag do konkretnego commita,
 - wymaga dokładnie trzech kanonicznych assetów,
 - sprawdza `data-product-release-manifest.json` i `SHA256SUMS`,
@@ -55,7 +55,7 @@ Po sukcesie podsumowanie terminalowe pokazuje zweryfikowane punkty wejścia. Dla
 Po sukcesie otwórz:
 
 ```text
-../dkb-data-products-v1.14.1/index.html
+../dkb-data-products-v1.19.1/index.html
 ```
 
 Strona działa bez serwera, JavaScriptu, zewnętrznych stylów i fontów. Zawiera:
@@ -167,7 +167,7 @@ Po skopiowaniu, synchronizacji albo archiwizacji workspace uruchom kontrolę ca�
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.14.1
+  --workspace-directory ../dkb-data-products-v1.19.1
 ```
 
 Weryfikator tylko odczytuje pliki. Ponownie sprawdza:
@@ -184,7 +184,7 @@ Dla automatyzacji użyj stabilnego raportu JSON:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.14.1 \
+  --workspace-directory ../dkb-data-products-v1.19.1 \
   --json
 ```
 
@@ -206,8 +206,8 @@ Przykład ponownego pobrania:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.14.1 \
-  --output-directory ../dkb-data-products-v1.14.1-fresh
+  --version 1.19.1 \
+  --output-directory ../dkb-data-products-v1.19.1-fresh
 ```
 
 ## 7. Proweniencja i niezależna kontrola
@@ -220,7 +220,7 @@ assets/
 
 Katalog zawiera:
 
-- `data-products-v1.14.1.zip`,
+- `data-products-v1.19.1.zip`,
 - `data-product-release-manifest.json`,
 - `SHA256SUMS`.
 
@@ -243,7 +243,7 @@ Produkty zachowują następujące zasady:
 
 | Zadanie | Polecenie lub plik |
 |---|---|
-| Pobranie wydania | `data-product-release-download --version 1.14.1` |
+| Pobranie wydania | `data-product-release-download --version 1.19.1` |
 | Główna nawigacja | `index.html` |
 | Filtrowanie konfiguracji | `contents/shortlist/configuration-shortlist.html` |
 | Nawigacja modeli i zakresów | `contents/cross-model/cross-model-comparison-view.html` |
@@ -255,6 +255,6 @@ Produkty zachowują następujące zasady:
 
 ## 10. Kontrakt wersji
 
-Zawsze zapisuj używaną wersję w skryptach, instrukcjach i wynikach automatyzacji. Dla tego przewodnika wersją referencyjną jest `1.14.1`, tag `data-products-v1.14.1`.
+Zawsze zapisuj używaną wersję w skryptach, instrukcjach i wynikach automatyzacji. Dla tego przewodnika wersją referencyjną jest `1.19.1`, tag `data-products-v1.19.1`.
 
 Nowa wersja wydania jest osobnym, niezmiennym snapshotem. Nie zakładaj, że katalog wcześniejszej wersji można bezpiecznie aktualizować przez kopiowanie wybranych plików z nowszej wersji.
