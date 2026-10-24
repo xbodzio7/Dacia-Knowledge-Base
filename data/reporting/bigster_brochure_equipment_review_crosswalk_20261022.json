@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "bigster_brochure_equipment_review_crosswalk",
-  "reviewed_on": "2026-10-24",
+  "reviewed_on": "2026-10-25",
   "status": "crosswalk_complete_source_text_links_verified",
   "pull_request": 754,
   "source_receipt": {
@@ -2293,5 +2293,215 @@
         "note": "All findings are proposed semantic candidates for further review. No mapping is approved."
       }
     }
+  },
+  "diagnostic_followup_20261025": {
+    "reviewed_on": "2026-10-25",
+    "purpose": "Canonical attribute-dictionary screening for the highest-priority unresolved page-22 multimedia/power/comfort fragments. Diagnostic only; does not resolve candidate signatures.",
+    "source_receipt": {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "document_date": "2025-12-10",
+      "page": 22,
+      "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74"
+    },
+    "dictionary_source": {
+      "path": "data/master/attributes.csv",
+      "blob_sha": "b56f5d92a92e84fc457e518a05d18a07ed0e9f05",
+      "method": "Exact code lookup in current PR branch's canonical attribute dictionary"
+    },
+    "dictionary_candidates": [
+      {
+        "id": "379",
+        "code": "boot_12v_socket",
+        "category": "Electric System",
+        "name": "12 V boot socket",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "380",
+        "code": "rear_usb_c_ports",
+        "category": "Infotainment",
+        "name": "Rear USB-C ports",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "289",
+        "code": "usb_ports_count",
+        "category": "Infotainment",
+        "name": "USB ports count",
+        "data_type": "integer",
+        "status": "active"
+      },
+      {
+        "id": "311",
+        "code": "media_display_system",
+        "category": "Infotainment",
+        "name": "Media Display system",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "382",
+        "code": "remote_firmware_updates",
+        "category": "Infotainment",
+        "name": "Remote firmware updates",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "292",
+        "code": "connected_services",
+        "category": "Infotainment",
+        "name": "Connected services",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "295",
+        "code": "dual_zone_climate_control",
+        "category": "HVAC",
+        "name": "Dual zone climate control",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "414",
+        "code": "centre_console_variant",
+        "category": "Seats",
+        "name": "Centre console variant",
+        "data_type": "string",
+        "status": "active"
+      },
+      {
+        "id": "279",
+        "code": "infotainment_screen_size",
+        "category": "Infotainment",
+        "name": "Screen size",
+        "data_type": "decimal",
+        "status": "active"
+      },
+      {
+        "id": "280",
+        "code": "touchscreen",
+        "category": "Infotainment",
+        "name": "Touchscreen",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "283",
+        "code": "navigation_system",
+        "category": "Infotainment",
+        "name": "Navigation system",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "284",
+        "code": "live_traffic_information",
+        "category": "Infotainment",
+        "name": "Live traffic information",
+        "data_type": "boolean",
+        "status": "active"
+      },
+      {
+        "id": "421",
+        "code": "speaker_count",
+        "category": "Infotainment",
+        "name": "Speaker count",
+        "data_type": "integer",
+        "status": "active"
+      }
+    ],
+    "candidate_groups": [
+      {
+        "group": "12v_sockets",
+        "candidate_ids": [
+          "e7d6b02a51e87578b4bdaf32db1b9b4006082f5d5716e9a183e4f3e7fa33217c",
+          "2feee8d06620a8c1199b9005e3295e3640fc109bc634e3d2dc82c1b94daf3056",
+          "b65c7cc2ec9b87f51bf9ea81281493fa8c7e83a26afb8d8bf6442a6c1c5e8cbe"
+        ],
+        "source_row": "Gniazda 12 V; przód / i bagażnik",
+        "dictionary_candidate_codes": [
+          "boot_12v_socket"
+        ],
+        "assessment": "Existing boot-socket attribute is narrower than the full row: front sockets and count/location scope are not represented by this boolean alone."
+      },
+      {
+        "group": "usb_c_ports",
+        "candidate_ids": [
+          "3beb3a745c8fa0d7eeda03a81a6336d9bc097725699900e434d027675280926b",
+          "f8a3f49781d16618e4e4b319718aab7ece75f897d1b2d68898b2bb98e08e5940",
+          "391c54b60427afea0b2eabf9f1e0cea9b9270f8e5a3427e101f16c4a3fd4e4f8"
+        ],
+        "source_row": "Porty USB-C; 2 z przodu / i 2 z tyłu",
+        "dictionary_candidate_codes": [
+          "rear_usb_c_ports",
+          "usb_ports_count"
+        ],
+        "assessment": "Existing rear-port boolean and total-port count do not independently encode front/rear distribution or source-stated charging/data role."
+      },
+      {
+        "group": "media_display",
+        "candidate_ids": [
+          "479c98d76ce6ddf9cfe2639d774dad18d025af33aab52f320d7971609021d1f1",
+          "969ea9c0482a755d2a951f7ca6b1f5b855fcfb8139c05e77f45739ac25ab145a",
+          "354c9b08a63003f1745b481a7702ef70165a6bc2a6cf4271bf2307ea4f6f2925",
+          "d3123a3dcc4a515387704a1097e79cb6523cabfbce716e27b278ac3e4a33380e",
+          "4f3b85d5b612d1c18cf46141b2292eed810e3e6e0b1a5f1cf8a438c70a3be4ab",
+          "54bb31f9448d9428c44eec011f826595ec09e6905f16b0b0aa31f4b7b513cf9e",
+          "4de666b3aa2dd0a80492d2e36548b0333469eae2378db9525e259cc5c0759229"
+        ],
+        "source_row": "Media Display 10.1-inch, smartphone replication, Wi-Fi/Bluetooth, 4 speakers and remote services",
+        "dictionary_candidate_codes": [
+          "media_display_system",
+          "infotainment_screen_size",
+          "touchscreen",
+          "wireless_smartphone_replication",
+          "speaker_count",
+          "connected_services"
+        ],
+        "assessment": "Composite row; the dictionary separates system identity, screen, replication, speakers and connected services. Must not collapse into one equipment observation."
+      },
+      {
+        "group": "media_nav_live",
+        "candidate_ids": [
+          "999c86a7ab32beba542eb38ad668b2658d08ea97a5e959dcefc00e3313fc238c",
+          "4172ae8f69ceeca019ada28c7f2dbff1b8656e0ad02973a55d4b73725ce5c7f0",
+          "9b5f920d2a46864629ee212c5403b0f325cc5c6d5dc28f878713d872a3140fff",
+          "62a74acf3b600cb96849308c8c3924856882dbaab2c8a17d2f152ca8723ce701",
+          "b915bd1bdf9ccb99099d9e7217da6dc73414ad570ad54f0d0ffc02a12049f72e",
+          "42a35e63a41ad4f79f66db3cfa8d753c46048d005ef877686307a23388fd0d34",
+          "548d499c2d828b4cc3f68c6a76580fabcbb24ad6599cbc161f993f702b07b178"
+        ],
+        "source_row": "Media Nav Live with 10.1-inch display, online navigation/map updates, smartphone replication, 6 speakers, connected services",
+        "dictionary_candidate_codes": [
+          "infotainment_screen_size",
+          "touchscreen",
+          "navigation_system",
+          "live_traffic_information",
+          "wireless_smartphone_replication",
+          "speaker_count",
+          "connected_services"
+        ],
+        "assessment": "Multiple separate technical and service attributes; no single exact-code match represents full system or the eight-year update promise."
+      },
+      {
+        "group": "remote_services_fota",
+        "candidate_ids": [
+          "76c514bb35ec9f9e707661b280fbd286274aee1d9bfb0bc8d4b8c690f2333d17",
+          "6acb9115ec92739038eabbe976d0dd7cd7f072f07a2fc7f79c710fad3905571c"
+        ],
+        "source_row": "Vehicle location / instrument-cluster data; FOTA software updates",
+        "dictionary_candidate_codes": [
+          "connected_services",
+          "remote_firmware_updates"
+        ],
+        "assessment": "Candidate codes align conceptually but service duration and specific functions require separate source-backed attributes or clearly scoped values; current brochure evidence must govern."
+      }
+    ],
+    "temporal_boundary": "The seven ambiguity-review decisions and their 126 selected records are sourced from the 2026-07-03 price list, not the 2025-12-10 brochure. They are not used to validate these page-22 grade markers.",
+    "result": "No candidate signature resolved; no candidate IDs merged; no master mappings approved; no data/master or data/imports changes; no import spec generated."
   }
 }
