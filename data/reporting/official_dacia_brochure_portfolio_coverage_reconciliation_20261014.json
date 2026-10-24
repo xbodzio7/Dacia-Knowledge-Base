@@ -32,16 +32,21 @@
       "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
       "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
       "coverage_status": "partial_review",
-      "page_inventory_status": "targeted_page_reviews_only",
+      "page_inventory_status": "full_24_page_text_and_rendered_visual_inventory_complete_master_audit_partial",
       "review_evidence": [
         "data/reporting/official_brochure_technical_gap_review.json",
         "data/reporting/brochure_cargo_import_closure_review.json",
-        "data/reporting/brochure_chassis_modeling_closure_review.json"
+        "data/reporting/brochure_chassis_modeling_closure_review.json",
+        "data/reporting/bigster_brochure_page_inventory_20261017.json",
+        "Uploaded current master CSV audit: 8186 rows, unique ids/codes, 248 existing brochure-source observations across 14 configurations; page-23 dimensions are not source-bound to the brochure in master."
       ],
       "remaining_boundaries": [
-        "Cargo measurement bases and rear-seat states remain context-sensitive.",
-        "Hybrid-G 150 4x4 repair-kit boundary remains contradictory.",
-        "A source-wide page inventory is not recorded on main."
+        "Page-by-page text and rendered visual inventory is complete; exact source-to-master reconciliation across all technical, equipment, accessory and dimension candidates remains open.",
+        "The uploaded master has 248 existing observations for the December 2025 brochure, but no source-bound page-23 dimension observations; current dimensions are from the July 2026 price list.",
+        "Page 23 brochure width without mirrors is 1813 mm, while the July 2026 price-list value is 1812 mm; preserve both source-bound values.",
+        "Cargo capacity still depends on measurement basis, double-floor state, spare-wheel/repair-kit state and rear-seat state.",
+        "The Hybrid-G 150 4x4 repair-kit boundary remains contradictory in the older brochure.",
+        "Accessory page 19 item crosswalk is recorded and the roof-rack/panoramic-roof incompatibility is explicit; product capacity/dimension attributes remain unmodeled."
       ]
     },
     {
@@ -162,12 +167,12 @@
     "registered_brochures": 6,
     "fully_assimilated": 0,
     "partial_review": 6,
-    "full_rendered_page_inventory": 1,
+    "full_rendered_page_inventory": 2,
     "full_text_inventory_with_visual_gaps": 1,
-    "targeted_page_reviews_only": 4,
+    "targeted_page_reviews_only": 3,
     "master_rows_added": 0,
     "master_data_mutations": 0,
-    "notes": "Coverage counts describe review status, not whether individual facts have already been imported. Import/closure report counts overlap and are not additive."
+    "notes": "Coverage counts describe review status, not whether individual facts have already been imported. Bigster now has a complete 24-page text and rendered visual inventory, but source-to-master reconciliation remains partial. Import/closure report counts overlap and are not additive."
   },
   "existing_import_coverage": [
     {
@@ -244,7 +249,8 @@
     "Spring has a complete 22-page text and rendered-image inventory, but its source-to-master reconciliation remains partial.",
     "Sandero has a 21-page text inventory; rendered visual review was incomplete for some pages, so its status remains partial_review.",
     "Current official price lists take precedence over older brochure statements for exact matching configurations and attributes; brochures remain historical/corroborating evidence where superseded.",
-    "Do not project across grades, powertrains, transmission, fuel, passenger layout, cargo state, measurement basis, or absent exact configurations."
+    "Do not project across grades, powertrains, transmission, fuel, passenger layout, cargo state, measurement basis, or absent exact configurations.",
+    "Bigster has a complete 24-page text and rendered visual inventory; it remains partial_review until every material candidate is reconciled against current master data, accessory records and the 2026-10-01 price list."
   ],
   "future_source_candidates": [
     {

@@ -1,0 +1,2297 @@
+{
+  "version": 1,
+  "kind": "bigster_brochure_equipment_review_crosswalk",
+  "reviewed_on": "2026-10-24",
+  "status": "crosswalk_complete_source_text_links_verified",
+  "pull_request": 754,
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "document_date": "2025-12-10",
+    "pages": [
+      21,
+      22
+    ]
+  },
+  "review_artifacts": [
+    {
+      "path": "data/reporting/bigster_equipment_page21_ambiguity_review.json",
+      "scope_candidate_count": 1,
+      "decisions": {
+        "covered": 1,
+        "partially_covered": 0
+      },
+      "selected_evidence_signature_count": 3,
+      "selected_evidence_record_count": 14,
+      "evidence_period": "The listed records originate from the 2026-07-03 Bigster price list, not the 2025-12-10 brochure."
+    },
+    {
+      "path": "data/reporting/bigster_equipment_page22_ambiguity_review.json",
+      "scope_candidate_count": 7,
+      "decisions": {
+        "covered": 3,
+        "partially_covered": 4
+      },
+      "selected_evidence_signature_count": 18,
+      "selected_evidence_record_count": 126,
+      "evidence_period": "The listed records originate from the 2026-07-03 Bigster price list, not the 2025-12-10 brochure."
+    }
+  ],
+  "unresolved_candidate_chunks": [
+    {
+      "page": 21,
+      "paths": [
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk1.md",
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk2.md",
+        "data/reporting/bigster_equipment_page21_unresolved_review_chunk3.md"
+      ],
+      "candidate_count": 107,
+      "context_only_non_import": 51,
+      "unresolved_signature_mismatch": 56,
+      "attached_evidence_signature_count": 0,
+      "attached_evidence_record_count": 0
+    },
+    {
+      "page": 22,
+      "paths": [
+        "data/reporting/bigster_equipment_page22_unresolved_review_chunk1.md",
+        "data/reporting/bigster_equipment_page22_unresolved_review_chunk2.md"
+      ],
+      "candidate_count": 69,
+      "context_only_non_import": 35,
+      "unresolved_signature_mismatch": 34,
+      "attached_evidence_signature_count": 0,
+      "attached_evidence_record_count": 0
+    }
+  ],
+  "interpretation": {
+    "candidate_count_semantics": "The 176 candidates in unresolved chunks are review-workload fragments, not 176 missing master records. The 1- and 7-candidate authored ambiguity reports are separate review scopes; do not add or subtract their counts until candidate IDs are explicitly crosswalked.",
+    "historical_source_boundary": "Evidence from the 2026-07-03 price list does not by itself prove the equipment state of the 2025-12-10 brochure. Do not relabel later-source observations as brochure observations.",
+    "marker_legend": {
+      "•": "standard",
+      "¤": "optional",
+      "-": "not_available"
+    },
+    "grade_columns": [
+      "Essential",
+      "Expression",
+      "Journey",
+      "Extreme"
+    ],
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_actions": [
+    "Resolve candidate evidence signatures and exact candidate identity for the 72 reconciled page-21/page-22 rows.",
+    "Treat the 126 records attached to the older page-22 ambiguity review as later-period context only; establish direct 2025-12-10 brochure-period evidence before validating its grade states.",
+    "Review the diagnostic canonical mapping audit, especially composite rows (multimedia, mirrors, windows and sockets) and grade/powertrain qualifiers.",
+    "Verify source-period and configuration-level evidence before changing master data or generating approved import specs; keep every unproven mapping not approved."
+  ],
+  "crosswalk_result": {
+    "reviewed_on": "2026-10-23",
+    "method": "Compared all candidate_id values and exact source-text strings from five unresolved Markdown chunks against all decisions in the two authored ambiguity review JSON files. No attribute-name-only or semantic similarity matches were counted. Added seven source-row/grade-marker reconciliations from the page-21 seats and interior section using candidate IDs and exact fragment labels from unresolved review chunk 2; master mappings remain unapproved. Added seven page-21 safety/driver-assistance rows from unresolved review chunks 2–3, retaining powertrain qualifiers and separate wrapped-label/marker fragments; master mappings remain unapproved. Added fifteen additional page-21 safety, road-assistance and driving-control source rows using exact candidate IDs from unresolved review chunks 2–3; all master mappings remain unapproved.",
+    "unresolved_chunks": {
+      "candidate_count": 176,
+      "page21_count": 107,
+      "page22_count": 69,
+      "unique_candidate_id_count": 176,
+      "authored_decision_counts": {
+        "context_only_non_import": 86,
+        "unresolved_signature_mismatch": 90
+      }
+    },
+    "authored_ambiguity_reviews": {
+      "decision_count": 8,
+      "unique_candidate_id_count": 8,
+      "page21_count": 1,
+      "page22_count": 7
+    },
+    "overlap": {
+      "candidate_id_matches": 0,
+      "exact_text_matches": 0,
+      "result": "disjoint_scopes_in_available_artifacts",
+      "interpretation": "The 176 chunk candidates and 8 authored ambiguity decisions remain separate candidate sets by ID and exact-text matching. Independent source-PDF text verification now confirms four page-22 row-fragment links (8 chunk candidate fragments) to the same printed rows as four authored decisions. This is a row-context crosswalk only; do not deduplicate candidate scopes or treat July 2026 evidence as proof of December 2025 state."
+    },
+    "limitations": [
+      "Exact-text matching of Markdown candidate text against authored ambiguity decisions found no direct ID or exact-text overlap.",
+      "The four page-22 relationships are confirmed from the official source PDF's extracted row text and marker sequences; pixel coordinates were not independently measured.",
+      "Confirmed visual row context does not establish that two candidate records are duplicate master observations or import approval.",
+      "The 2026-07-03 price-list evidence attached to ambiguity decisions still does not independently prove the 2025-12-10 brochure state."
+    ],
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "line_number_review": {
+      "method": "Compared authored decision source lines with candidate Markdown line numbers, then checked all four neighboring page-22 candidate groups against the official archived brochure's extracted text for the same source receipt (2025-12-10, SHA-256 76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74). Exact row labels, continuations and aligned grade markers appear together in the official PDF text extraction. This confirms textual row-fragment relationships, not pixel-coordinate geometry or candidate identity equivalence.",
+      "exact_source_line_candidate_matches": 0,
+      "possible_visual_row_fragment_links": [
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "1aad4a730531585a37da9d3c73eb9115f9cca5a2eddd495d54e7a01e83f679a8",
+          "authored_decision_line": 24,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "47f2b824d251f1c71c2c147edb149f4c02a2c6ba12bdfe29db305cb5f7921394",
+            "090b4158f01b1b969e0bbc14e3c91f195157c07b4b30caf2d11d801dfd7ccf7e"
+          ],
+          "group": "automatic_dual_zone_hvac",
+          "chunk_lines": [
+            25,
+            26
+          ],
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            994,
+            995
+          ],
+          "source_row": "Klimatyzacja automatyczna dwustrefowa z nawiewami dla tylnych pasażerów - • • •",
+          "result": "confirmed_source_text_row_fragments"
+        },
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "ad2df36a0dce4c4d725438894b52fd307695f3bd0cab142a509be8aa67859473",
+          "authored_decision_line": 40,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "1bed4aef4b58fe9e0b7f065f681a0f4742d18fb6b0c14d881edb39412dbae694",
+            "659b2146444a2b691042807d95fa7b8ab142483d45b4c38052f0f42ddf36b8cc"
+          ],
+          "group": "central_console_armrest_storage",
+          "chunk_lines": [
+            41,
+            42
+          ],
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            1002,
+            1004
+          ],
+          "source_row": "Konsola centralna niska • - - -; Konsola centralna z podłokietnikiem i schowkiem - • - -; Konsola centralna wysoka ... (dla silnika hybrid 155) - - • •",
+          "result": "confirmed_source_text_row_fragments"
+        },
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "e114af3d6918ae90c0ad19482028be640e718e50f989a1c282e0473f16759684",
+          "authored_decision_line": 97,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "51d53bd074a97dbd6479b2fdce7f528b530eb385deed469b3b1142c9df89fbc6",
+            "27ab3f3d1829eeeaa46e94538b8d038554f84a66a119029806251c425ff246d0"
+          ],
+          "group": "winter_package",
+          "chunk_lines": [
+            95,
+            96
+          ],
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            1062,
+            1063
+          ],
+          "source_row": "Pakiet ZIMOWY: przednie fotele podgrzewane, kierownica podgrzewana - ¤ ¤ ¤",
+          "result": "confirmed_source_text_row_fragments"
+        },
+        {
+          "page": 22,
+          "authored_decision_candidate_id": "be9a3c17edaa4a791a8cbec07a987499acd8691f37c0712c06f5434d9f519437",
+          "authored_decision_line": 100,
+          "authored_decision": "partially_covered",
+          "related_chunk_candidate_ids": [
+            "ce66092ee93423b09a67bd007fdbadee2a541d6e4c2923697949644f9276a092",
+            "092808e32c81cb350d17549232d734014d210441ad0f863f4bb5a80c78439363"
+          ],
+          "group": "winter_plus_package",
+          "chunk_lines": [
+            98,
+            99
+          ],
+          "relationship": "source_text_row_fragment_link",
+          "confidence": "source-text-confirmed; visual-coordinate geometry not checked",
+          "source_pdf_lines": [
+            1064,
+            1067
+          ],
+          "source_row": "Pakiet ZIMOWY PLUS: przednie fotele podgrzewane, kierownica podgrzewana, podgrzewana przednia szyba - ¤ ¤ ¤",
+          "result": "confirmed_source_text_row_fragments"
+        }
+      ],
+      "no_direct_candidate_rows_for_covered_decisions": [
+        {
+          "page": 21,
+          "line": 39,
+          "decision": "covered",
+          "topic": "opening panoramic glass roof"
+        },
+        {
+          "page": 22,
+          "line": 22,
+          "decision": "covered",
+          "topic": "manual air conditioning"
+        },
+        {
+          "page": 22,
+          "line": 29,
+          "decision": "covered",
+          "topic": "electrically folding mirrors"
+        },
+        {
+          "page": 22,
+          "line": 48,
+          "decision": "covered",
+          "topic": "wireless charging"
+        }
+      ],
+      "note": "The four links are confirmed textual row-fragment relationships based on the official PDF text and aligned grade markers. Pixel-coordinate geometry has not been independently checked. Do not infer duplicate candidate identity, master-record duplication, historical-to-master continuity, or import approval from these links.",
+      "source_verification": {
+        "source_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "document_date": "2025-12-10",
+        "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+        "method": "Official PDF text extraction, printed brochure page 22 (PDF page 21 in zero-indexed extraction)",
+        "verified_groups": 4,
+        "confirmed_candidate_ids": 8,
+        "caveat": "Textual row linkage confirms that the candidate fragments belong to the same printed equipment rows. It does not prove that the candidate fragments are duplicates of the separately authored ambiguity decisions, nor does it establish historical-to-master continuity."
+      }
+    },
+    "next_actions_status": {
+      "reviewed_on": "2026-10-24",
+      "completed": [
+        "candidate inventory across all five unresolved Markdown chunks (176 unique candidate IDs)",
+        "ID and exact-text comparison against all eight authored ambiguity decisions",
+        "source-text confirmation of four page-22 row-fragment relationships covering eight chunk candidate IDs",
+        "source-text and grade-marker reconciliation for EASY, PARKING, ZIMOWY and ZIMOWY PLUS package rows",
+        "visual confirmation of Hill Descent Control grade-column alignment and 4×2/4×4 qualifiers on brochure page 21",
+        "source-text and grade-marker reconciliation of page-21 exterior-design and wheel rows",
+        "Page-21 rear-bench, seat-height, lumbar-adjustment and soft-feel steering-wheel source rows reconciled to exact candidate fragments; no candidate records merged.",
+        "Page-21 rain sensor, fog lights, automatic high/low beam, Hybrid 155 adaptive cruise, electric parking brake, tyre-pressure monitoring and rear ISOFIX source rows reconciled.",
+        "Page-21 airbags, ABS, AEBS pedestrian/cyclist detection, lane departure warning, driver attention, ISA, emergency brake assistance, ESP, automatic lights, eCall, Rescue Code, seat belts, ECO/Stop&Start, cruise/limiter and rear parking sensors/camera reconciled to source rows and grade markers.",
+        "Page-22 electric power steering, YouClip mounting-point counts and remote central locking reconciled to source rows and grade values; master mappings remain unapproved.",
+        "Page-22 folding key, Keyless Entry, digital clusters, heated electric mirrors and adjustable steering wheel reconciled to source grade values; master mappings remain unapproved.",
+        "Page-22 YouClip smartphone holder, impulse windows, luggage cover, low console and power tailgate reconciled; master mappings remain unapproved.",
+        "Page-22 center-console armrest/storage, Hybrid 155 high console, YouClip 3-in-1, reversible boot mat and rubber floor mats reconciled to source rows and grade values; candidate fragments retained and master mappings remain unapproved.",
+        "Reconciled all 72 currently recorded source-row groups across printed pages 21–22 against the archived brochure text and aligned grade values; this is row-level source reconciliation only, not candidate-signature resolution or master mapping approval.",
+        "Screened 15 page-21/page-22 source-row groups against the current canonical attribute dictionary; recorded semantic matches and ambiguities as diagnostic-only findings without approving mappings or changing master/import data."
+      ],
+      "remaining": [
+        "Resolve candidate evidence-signature mismatches only where repository evidence can establish exact candidate identity; source-row and grade-marker agreement alone is insufficient.",
+        "For the 18 signatures/126 records attached to the page-22 ambiguity review, obtain direct evidence from the 2025-12-10 brochure period before using later 2026-07-03 price-list records to validate trim-level states.",
+        "Investigate the diagnostic canonical mapping audit: distinguish exact attributes from composite features and ambiguous scope, then validate configuration coverage and source-period boundaries.",
+        "Perform visual page-image confirmation for any remaining matrix rows whose column alignment cannot be established from extracted text; retain explicit uncertainty otherwise."
+      ],
+      "counts_unchanged": true,
+      "master_data_changes": false,
+      "approved_import_spec_generation": false
+    },
+    "candidate_group_inventory": {
+      "reviewed_on": "2026-10-23",
+      "method": "Parsed candidate tables in all five existing unresolved-review Markdown chunks; grouped by their authored group key and retained source line numbers, candidate IDs and decisions. This is a review-queue diagnostic only; no source text or candidate state was changed.",
+      "counts": {
+        "unique_candidate_ids": 176,
+        "group_keys": 97,
+        "multi_fragment_groups": 38,
+        "groups_mixing_unresolved_and_context": 35,
+        "groups_with_all_candidates_unresolved": 51
+      },
+      "priority_queue": [
+        {
+          "group": "12v_sockets",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            56,
+            57,
+            58
+          ],
+          "candidate_ids": [
+            "e7d6b02a51e87578b4bdaf32db1b9b4006082f5d5716e9a183e4f3e7fa33217c",
+            "2feee8d06620a8c1199b9005e3295e3640fc109bc634e3d2dc82c1b94daf3056",
+            "b65c7cc2ec9b87f51bf9ea81281493fa8c7e83a26afb8d8bf6442a6c1c5e8cbe"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Three source-aligned extraction fragments need a complete row-level reconciliation; all three candidate records remain unresolved."
+        },
+        {
+          "group": "usb_c_ports",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            60,
+            61,
+            62
+          ],
+          "candidate_ids": [
+            "3beb3a745c8fa0d7eeda03a81a6336d9bc097725699900e434d027675280926b",
+            "f8a3f49781d16618e4e4b319718aab7ece75f897d1b2d68898b2bb98e08e5940",
+            "391c54b60427afea0b2eabf9f1e0cea9b9270f8e5a3427e101f16c4a3fd4e4f8"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Three source-aligned extraction fragments need a complete row-level reconciliation; all three candidate records remain unresolved."
+        },
+        {
+          "group": "media_display",
+          "page": 22,
+          "candidate_count": 7,
+          "chunk_lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71
+          ],
+          "candidate_ids": [
+            "479c98d76ce6ddf9cfe2639d774dad18d025af33aab52f320d7971609021d1f1",
+            "969ea9c0482a755d2a951f7ca6b1f5b855fcfb8139c05e77f45739ac25ab145a",
+            "354c9b08a63003f1745b481a7702ef70165a6bc2a6cf4271bf2307ea4f6f2925",
+            "d3123a3dcc4a515387704a1097e79cb6523cabfbce716e27b278ac3e4a33380e",
+            "4f3b85d5b612d1c18cf46141b2292eed810e3e6e0b1a5f1cf8a438c70a3be4ab",
+            "54bb31f9448d9428c44eec011f826595ec09e6905f16b0b0aa31f4b7b513cf9e",
+            "4de666b3aa2dd0a80492d2e36548b0333469eae2378db9525e259cc5c0759229"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "media_nav_live",
+          "page": 22,
+          "candidate_count": 7,
+          "chunk_lines": [
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78
+          ],
+          "candidate_ids": [
+            "999c86a7ab32beba542eb38ad668b2658d08ea97a5e959dcefc00e3313fc238c",
+            "4172ae8f69ceeca019ada28c7f2dbff1b8656e0ad02973a55d4b73725ce5c7f0",
+            "9b5f920d2a46864629ee212c5403b0f325cc5c6d5dc28f878713d872a3140fff",
+            "62a74acf3b600cb96849308c8c3924856882dbaab2c8a17d2f152ca8723ce701",
+            "b915bd1bdf9ccb99099d9e7217da6dc73414ad570ad54f0d0ffc02a12049f72e",
+            "42a35e63a41ad4f79f66db3cfa8d753c46048d005ef877686307a23388fd0d34",
+            "548d499c2d828b4cc3f68c6a76580fabcbb24ad6599cbc161f993f702b07b178"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "remote_services",
+          "page": 22,
+          "candidate_count": 5,
+          "chunk_lines": [
+            80,
+            81,
+            82,
+            83,
+            84
+          ],
+          "candidate_ids": [
+            "af6045886d72fba85e3dd0ac8c325cbd971dcdbdbb274f6a002de2f721fa4b53",
+            "687eea1cd19a5a6be39337f2a7cb5e3addb96faf0ffe0a9a2f78eb6707e95f8b",
+            "76c514bb35ec9f9e707661b280fbd286274aee1d9bfb0bc8d4b8c690f2333d17",
+            "cc766c97bd82b913e129b97d1f2306bed8384c67bdba675e951c8e3e23bc1258",
+            "6acb9115ec92739038eabbe976d0dd7cd7f072f07a2fc7f79c710fad3905571c"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "fota",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            85,
+            86,
+            87
+          ],
+          "candidate_ids": [
+            "80d78e7fc36c06db30cb50948f394de5241e63e21ec13b22bd947fb7f9ef2e20",
+            "5cf63661fc2b54239eb8dc6967a335cd33777abc3127d390ef9b6d04fb2bafbd",
+            "401f8fe64c6342819181d433beb1749180ea390a83fcc9de0374eecb0ebe931f"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Long multi-fragment equipment/service row: reconcile full label, state markers and continuations before mapping."
+        },
+        {
+          "group": "winter_package",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            95,
+            96
+          ],
+          "candidate_ids": [
+            "51d53bd074a97dbd6479b2fdce7f528b530eb385deed469b3b1142c9df89fbc6",
+            "27ab3f3d1829eeeaa46e94538b8d038554f84a66a119029806251c425ff246d0"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "winter_plus_package",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            98,
+            99
+          ],
+          "candidate_ids": [
+            "ce66092ee93423b09a67bd007fdbadee2a541d6e4c2923697949644f9276a092",
+            "092808e32c81cb350d17549232d734014d210441ad0f863f4bb5a80c78439363"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "automatic_dual_zone_hvac",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            25,
+            26
+          ],
+          "candidate_ids": [
+            "47f2b824d251f1c71c2c147edb149f4c02a2c6ba12bdfe29db305cb5f7921394",
+            "090b4158f01b1b969e0bbc14e3c91f195157c07b4b30caf2d11d801dfd7ccf7e"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "central_console_armrest_storage",
+          "page": 22,
+          "candidate_count": 2,
+          "chunk_lines": [
+            41,
+            42
+          ],
+          "candidate_ids": [
+            "1bed4aef4b58fe9e0b7f065f681a0f4742d18fb6b0c14d881edb39412dbae694",
+            "659b2146444a2b691042807d95fa7b8ab142483d45b4c38052f0f42ddf36b8cc"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "high_central_console_cooled_storage",
+          "page": 22,
+          "candidate_count": 3,
+          "chunk_lines": [
+            43,
+            44,
+            45
+          ],
+          "candidate_ids": [
+            "e8a8b9222f58b11557db17a29a301b08a93218a1064429ecbcdfc13c3fc3fff1",
+            "c29f92ab5c3bdca7a08d9ce462b503535e81821318781c32a7cf0e35e9eedd8b",
+            "f53de531d0449d388bb98eb1500d51114567b68cec2c2454f773078437cc62c1"
+          ],
+          "authored_decisions": [
+            "context_only_non_import",
+            "unresolved_signature_mismatch",
+            "context_only_non_import"
+          ],
+          "reason": "Already linked to a source row by text, but candidate identity and full row-to-master mapping remain unresolved."
+        },
+        {
+          "group": "hill_descent_control",
+          "page": 21,
+          "candidate_count": 3,
+          "chunk_lines": [
+            146,
+            147,
+            148
+          ],
+          "candidate_ids": [
+            "0b293e783cce770befeb12bb5a04bcc5ee21ddf9fc9f4fa99904d54c97ad694b",
+            "fd6e5db9ec6e44959862b13bf877f6e32a252b8b9fd44f5d4c6bd98da228af50",
+            "03d9a241b2a24b27b3af44371471dd2bf14c1f6398ceb45636c81df3619f0f70"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Applicability contains explicit drivetrain qualifiers; do not generalize across 4x2/4x4."
+        },
+        {
+          "group": "temporary_spare_wheel",
+          "page": 21,
+          "candidate_count": 3,
+          "chunk_lines": [
+            162,
+            163,
+            164
+          ],
+          "candidate_ids": [
+            "d0758e4e27daa79b2ecf866e97a8ae24869252a753157719dc65c1a4e2ff1b21",
+            "9ab6ae8a3128a34237e2afdaac45977e11491e0fbaa2ecf4b66417ef4449f75e",
+            "4cd7190b9cbbd7bd9d0f7c3bc878c4edd17ae09f5054b05acdccdd6e233a4367"
+          ],
+          "authored_decisions": [
+            "unresolved_signature_mismatch",
+            "context_only_non_import",
+            "context_only_non_import"
+          ],
+          "reason": "Preserve literal spare-wheel markers and footnote constraints; do not create extra availability states from extraction tails."
+        }
+      ],
+      "limitations": [
+        "Group keys are authored review labels, not independently proven database attribute identifiers.",
+        "Source-text row linkage does not prove duplicate identity, historical-to-master continuity or import authorization.",
+        "No data/master or data/imports files were changed."
+      ]
+    },
+    "source_row_reconciliation": {
+      "reviewed_on": "2026-10-24",
+      "source_method": "Read official archived brochure PDF text for printed page 22 (PDF page index 21), extracted source lines 1014-1052; compared wording, continuation fragments and the four grade-column order with candidate records. This confirms source text and grade states; it does not prove pixel geometry or candidate identity. Extended the textual review to package rows EASY, PARKING, ZIMOWY and ZIMOWY PLUS (source lines 1053-1067), plus a provisional Hill Descent Control extraction review (lines 961-967). HDC column assignment remains explicitly unapproved pending visual confirmation. Hill Descent Control grade-column alignment was then visually checked against the official PDF page image (printed page 21, zero-indexed PDF page 20); its four-column mapping is now confirmed. Extended printed page-21 review to exterior design and wheel rows using official PDF extracted lines 879-904 and candidate fragment text. Source row/grade values are recorded as brochure-specific; candidate identity and master mapping remain unapproved. On 2026-10-24, extended page-22 row reconciliation to electric power steering, YouClip mounting-point counts and remote central locking using exact candidate IDs and source lines 984-986; values are source-specific and master mappings remain unapproved. On 2026-10-24, reconciled page-22 folding key, Keyless Entry card, 7-inch/10-inch instrument clusters, heated electric mirrors and steering-wheel adjustment from exact candidate rows; master mappings remain unapproved. On 2026-10-24, reconciled page-22 YouClip smartphone holder, front/rear impulse electric windows, luggage-compartment cover, low central console and power tailgate to source lines and grade values; master mappings remain unapproved.",
+      "source_receipt": {
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "document_date": "2025-12-10",
+        "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+        "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+        "page": 22,
+        "official_pdf_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf"
+      },
+      "grade_order": [
+        "essential",
+        "expression",
+        "journey",
+        "extreme"
+      ],
+      "rows": [
+        {
+          "attribute_candidate_group": "12v_sockets",
+          "printed_row_label": "Gniazda 12 V",
+          "source_text_lines": [
+            1014,
+            1015,
+            1016,
+            1017,
+            1018,
+            1019
+          ],
+          "source_values_by_grade": {
+            "essential": "przód",
+            "expression": "przód i bagażnik",
+            "journey": "przód i bagażnik",
+            "extreme": "przód i bagażnik"
+          },
+          "candidate_ids": [
+            "e7d6b02a51e87578b4bdaf32db1b9b4006082f5d5716e9a183e4f3e7fa33217c",
+            "2feee8d06620a8c1199b9005e3295e3640fc109bc634e3d2dc82c1b94daf3056",
+            "b65c7cc2ec9b87f51bf9ea81281493fa8c7e83a26afb8d8bf6442a6c1c5e8cbe"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The official source shows the front-only value for Essential and front plus luggage-compartment sockets for Expression, Journey and Extreme. Candidate fragments remain separate records because visual geometry, candidate identity and exact master attribute mapping have not been independently established."
+        },
+        {
+          "attribute_candidate_group": "usb_c_ports",
+          "printed_row_label": "Porty USB-C",
+          "source_text_lines": [
+            1020,
+            1021,
+            1022,
+            1023,
+            1024,
+            1025
+          ],
+          "source_values_by_grade": {
+            "essential": "2 z przodu",
+            "expression": "2 z przodu",
+            "journey": "2 z przodu i 2 z tyłu",
+            "extreme": "2 z przodu i 2 z tyłu"
+          },
+          "candidate_ids": [
+            "3beb3a745c8fa0d7eeda03a81a6336d9bc097725699900e434d027675280926b",
+            "f8a3f49781d16618e4e4b319718aab7ece75f897d1b2d68898b2bb98e08e5940",
+            "391c54b60427afea0b2eabf9f1e0cea9b9270f8e5a3427e101f16c4a3fd4e4f8"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The official source shows two front USB-C ports for Essential and Expression, and two front plus two rear ports for Journey and Extreme. Candidate fragments remain separate records because visual geometry, candidate identity and exact master attribute mapping have not been independently established."
+        },
+        {
+          "attribute_candidate_group": "media_display",
+          "printed_row_label": "Nowy Media Display",
+          "source_text_lines": [
+            1027,
+            1028,
+            1029,
+            1030,
+            1031,
+            1032,
+            1033
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "479c98d76ce6ddf9cfe2639d774dad18d025af33aab52f320d7971609021d1f1",
+            "969ea9c0482a755d2a951f7ca6b1f5b855fcfb8139c05e77f45739ac25ab145a",
+            "354c9b08a63003f1745b481a7702ef70165a6bc2a6cf4271bf2307ea4f6f2925",
+            "d3123a3dcc4a515387704a1097e79cb6523cabfbce716e27b278ac3e4a33380e",
+            "4f3b85d5b612d1c18cf46141b2292eed810e3e6e0b1a5f1cf8a438c70a3be4ab",
+            "54bb31f9448d9428c44eec011f826595ec09e6905f16b0b0aa31f4b7b513cf9e",
+            "4de666b3aa2dd0a80492d2e36548b0333469eae2378db9525e259cc5c0759229"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The full source row continues through the feature description and ends with markers standard, standard, unavailable, unavailable. The prose fragments are context belonging to the same multimedia row, not independent equipment attributes."
+        },
+        {
+          "attribute_candidate_group": "media_nav_live",
+          "printed_row_label": "Nowy Media Nav Live",
+          "source_text_lines": [
+            1034,
+            1035,
+            1036,
+            1037,
+            1038,
+            1039,
+            1040,
+            1041
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "opcja",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "999c86a7ab32beba542eb38ad668b2658d08ea97a5e959dcefc00e3313fc238c",
+            "4172ae8f69ceeca019ada28c7f2dbff1b8656e0ad02973a55d4b73725ce5c7f0",
+            "9b5f920d2a46864629ee212c5403b0f325cc5c6d5dc28f878713d872a3140fff",
+            "62a74acf3b600cb96849308c8c3924856882dbaab2c8a17d2f152ca8723ce701",
+            "b915bd1bdf9ccb99099d9e7217da6dc73414ad570ad54f0d0ffc02a12049f72e",
+            "42a35e63a41ad4f79f66db3cfa8d753c46048d005ef877686307a23388fd0d34",
+            "548d499c2d828b4cc3f68c6a76580fabcbb24ad6599cbc161f993f702b07b178"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The full source row ends with markers unavailable, optional, standard, standard. All wrapped description fragments are contextual parts of this multimedia row; they are not independent records."
+        },
+        {
+          "attribute_candidate_group": "remote_services",
+          "printed_row_label": "Pakiet usług zdalnych (aplikacja MY Dacia) w cenie przez 8 lat",
+          "source_text_lines": [
+            1043,
+            1044,
+            1045,
+            1046,
+            1047,
+            1048
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "af6045886d72fba85e3dd0ac8c325cbd971dcdbdbb274f6a002de2f721fa4b53",
+            "687eea1cd19a5a6be39337f2a7cb5e3addb96faf0ffe0a9a2f78eb6707e95f8b",
+            "76c514bb35ec9f9e707661b280fbd286274aee1d9bfb0bc8d4b8c690f2333d17",
+            "cc766c97bd82b913e129b97d1f2306bed8384c67bdba675e951c8e3e23bc1258",
+            "6acb9115ec92739038eabbe976d0dd7cd7f072f07a2fc7f79c710fad3905571c"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source marks the service package standard across all four grades; the eight-year inclusion period and the two listed functions are descriptive scope, not separate trim markers."
+        },
+        {
+          "attribute_candidate_group": "fota",
+          "printed_row_label": "FOTA (Firmware Over-The-Air)",
+          "source_text_lines": [
+            1049,
+            1050,
+            1051,
+            1052
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "80d78e7fc36c06db30cb50948f394de5241e63e21ec13b22bd947fb7f9ef2e20",
+            "5cf63661fc2b54239eb8dc6967a335cd33777abc3127d390ef9b6d04fb2bafbd",
+            "401f8fe64c6342819181d433beb1749180ea390a83fcc9de0374eecb0ebe931f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source marks FOTA standard across all four grades. The phrase 'do 5 lat' is a service/software-update duration qualifier and must not be treated as a trim availability marker."
+        },
+        {
+          "attribute_candidate_group": "easy_package",
+          "printed_row_label": "Pakiet EASY",
+          "source_text_lines": [
+            1053,
+            1054,
+            1055,
+            1056,
+            1057
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "opcja",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "916e16fdaa8bd616ccb16abbffe5dd2e0540fde1866921a25facc630c939f909",
+            "380cf2ce426728d7d866ebfd71ced521373cc41d30db894a4bbc07e8ed8132fb",
+            "40cb968149fe14635653bd21296d440152233f87143fe27445183a4c15bf166e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Oficjalny wiersz pakietu obejmuje przednie/tylne/boczne czujniki parkowania, kamerę Multiview, monitorowanie martwego pola (BSW) i kartę Keyless Entry; znaczniki: Essential niedostępne, Expression opcja, Journey i Extreme niedostępne. Fragmenty zachowano oddzielnie; nie zatwierdzono mapowania do master."
+        },
+        {
+          "attribute_candidate_group": "parking_package",
+          "printed_row_label": "Pakiet PARKING",
+          "source_text_lines": [
+            1058,
+            1059,
+            1060,
+            1061
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "opcja",
+            "extreme": "opcja"
+          },
+          "candidate_ids": [
+            "d045b3f44690d907b30e730799dc5293c55ddf6109104e63c8c16e1b582ceafc",
+            "9064153961f7deafc9610934851b0a85bc39fc8210a569e7e8acb4d6675fea59",
+            "02694b43183abec28460327cb54dd380ed78d3c050b65c75e911d26fbd833a17"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Oficjalny wiersz opisuje czujniki parkowania z przodu, z tyłu i z boku, kamerę Multiview oraz BSW; znaczniki: niedostępne dla Essential/Expression, opcja dla Journey/Extreme. Nie zatwierdzono mapowania ani deduplikacji fragmentów."
+        },
+        {
+          "attribute_candidate_group": "winter_package",
+          "printed_row_label": "Pakiet ZIMOWY",
+          "source_text_lines": [
+            1062,
+            1063
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "opcja",
+            "journey": "opcja",
+            "extreme": "opcja"
+          },
+          "candidate_ids": [
+            "51d53bd074a97dbd6479b2fdce7f528b530eb385deed469b3b1142c9df89fbc6",
+            "27ab3f3d1829eeeaa46e94538b8d038554f84a66a119029806251c425ff246d0"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Pakiet obejmuje podgrzewane przednie fotele i podgrzewaną kierownicę; znaczniki: Essential niedostępne, pozostałe trzy wersje opcja. Kandydaci pozostają osobnymi rekordami."
+        },
+        {
+          "attribute_candidate_group": "winter_plus_package",
+          "printed_row_label": "Pakiet ZIMOWY PLUS",
+          "source_text_lines": [
+            1064,
+            1065,
+            1066,
+            1067
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "opcja",
+            "journey": "opcja",
+            "extreme": "opcja"
+          },
+          "candidate_ids": [
+            "ce66092ee93423b09a67bd007fdbadee2a541d6e4c2923697949644f9276a092",
+            "092808e32c81cb350d17549232d734014d210441ad0f863f4bb5a80c78439363"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Pakiet obejmuje podgrzewane przednie fotele, podgrzewaną kierownicę i podgrzewaną przednią szybę; znaczniki: Essential niedostępne, pozostałe trzy wersje opcja. Kandydaci pozostają osobnymi rekordami."
+        },
+        {
+          "attribute_candidate_group": "hill_descent_control",
+          "printed_row_label": "System kontroli zjazdu ze wzniesienia (Hill Descent Control)",
+          "source_text_lines": [
+            961,
+            962,
+            963,
+            964,
+            965,
+            966,
+            967
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "tylko wersje 4×4",
+            "journey": "tylko wersje 4×4",
+            "extreme": "wersje 4×4 i 4×2"
+          },
+          "candidate_ids": [
+            "0b293e783cce770befeb12bb5a04bcc5ee21ddf9fc9f4fa99904d54c97ad694b",
+            "fd6e5db9ec6e44959862b13bf877f6e32a252b8b9fd44f5d4c6bd98da228af50",
+            "03d9a241b2a24b27b3af44371471dd2bf14c1f6398ceb45636c81df3619f0f70"
+          ],
+          "reconciliation": "source_row_text_grade_markers_and_visual_column_alignment_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wizualna kontrola oficjalnego PDF, strona broszury 21 (PDF page index 20), potwierdza wyrównanie kolumn: Essential '-' (niedostępne), Expression i Journey 'w wersjach 4×4', Extreme 'w wersjach 4×4 i 4×2'. Zachować kwalifikatory napędu literalnie; mapowanie do master nadal niezatwierdzone."
+        },
+        {
+          "attribute_candidate_group": "fixed_roof_rails",
+          "printed_row_label": "Relingi dachowe stałe w kolorze Szary Mégalithe",
+          "source_text_lines": [
+            879
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "919a22fcf13ca5f5b40fe96b28a731cceaad06559feb5eea379ba81921b7b53d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows standard for Essential, Expression and Journey, unavailable for Extreme."
+        },
+        {
+          "attribute_candidate_group": "modular_roof_rails",
+          "printed_row_label": "Relingi dachowe modułowe",
+          "source_text_lines": [
+            880
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "14d7a636eab9a3504352392d818d912c61c34ee3049679528163aed2821da8a6"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows modular roof rails unavailable on the first three grades and standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "tinted_rear_windows",
+          "printed_row_label": "Przyciemniane szyby tylne",
+          "source_text_lines": [
+            881
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "ae840ef24eb966f561f97265fdbf7a88256425dd1f9e722352cc408cae923381"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows unavailable on Essential/Expression and standard on Journey/Extreme."
+        },
+        {
+          "attribute_candidate_group": "eco_led_lights",
+          "printed_row_label": "Światła mijania i światła tylne ECO-LED",
+          "source_text_lines": [
+            882
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "61bf2f393a54fe607d52dba4b625579cf1d4c20b97ddcfe22a3ebf04ec708b2a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows ECO-LED dipped-beam and rear lights standard on all four grades."
+        },
+        {
+          "attribute_candidate_group": "starkle_lower_protection",
+          "printed_row_label": "Ochrona dolnych części drzwi, zderzaków i nadkoli Starkle®",
+          "source_text_lines": [
+            884,
+            885
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a7f507ea91f4b20b0c3522149c76fa4bce68ecf2af432b99f81feb3fb6bb9006",
+            "cb7a43550891e9f7829ffa3d8e94fe4df116d69349e750aadfb22511aed7e692",
+            "c850e5c73e22719c6d4e844fe29f04c52d8c1a877bf65d1d66f6535d397544d7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The label is wrapped across source lines 884–885; one four-grade marker sequence follows the full Starkle protection label. Descriptive continuation fragments remain separate."
+        },
+        {
+          "attribute_candidate_group": "lower_bumper_covers",
+          "printed_row_label": "Osłony dolne zderzaków (przód/tył), kolor Szary Mégalithe",
+          "source_text_lines": [
+            886,
+            887
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "6f6e5cbb9b3c8f50257c58e7b1ce6690be400e4523cc674e8ef0f0b531aed13b",
+            "44a9189c0f0c8d863e305e72dc627da0c093b821f2178951e190f54e34ee066d",
+            "f92e4baa066e29a4b6cee0b0afd9f28d1c5ad23fd5869840527890a3bbb47a38"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 marks the lower front/rear bumper covers unavailable on Essential and standard on Expression, Journey and Extreme; colour text is a continuation."
+        },
+        {
+          "attribute_candidate_group": "shark_fin_antenna",
+          "printed_row_label": "Antena typu „płetwa rekina”",
+          "source_text_lines": [
+            888
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "abb89f544562274aac91ffff87168567982b0f54ba1589608532ad337f2beb4d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows the shark-fin antenna unavailable on Essential and standard on the other three grades."
+        },
+        {
+          "attribute_candidate_group": "copper_grille_and_wheel_caps",
+          "printed_row_label": "Osłona chłodnicy i dekielki felg z detalami brązowomiedzianymi",
+          "source_text_lines": [
+            890,
+            893
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "f3e16d4b6482cbf5ad950dcf3eb9a6fbd070d976827edc3fd309b74f6992b710",
+            "a45ed715b39c906316f6072189aa9d8d7348d0f0a925efc89045d339146178ad",
+            "d3af09a7001711f8fb329738cdd8e45602fd1eea040c645fc5b0f26cc5e5958f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped label and continuation identify copper-coloured grille details and wheel caps; unavailable on the first three grades, standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "two_tone_black_roof_copper_mirrors",
+          "printed_row_label": "Dwukolorowy lakier: czarny dach i brązowomiedziane lusterka",
+          "source_text_lines": [
+            896,
+            897
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "opcja"
+          },
+          "candidate_ids": [
+            "fd3b6cb18e3a3a96e5e7b906f3f96a8deee46cd46183fd93a10868f80765d2e6",
+            "0f863b4427cd0196405794916a69af618a630df3785a9f69b11caefec6d345a2",
+            "92b24b93be5f658c09645b4bc20724496d27b3d5ea9f9e6ce9e55d8b66c3bac1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The black-roof/copper-mirror two-tone metallic paint is optional only on Extreme; other grades unavailable."
+        },
+        {
+          "attribute_candidate_group": "wheel_17_tergan",
+          "printed_row_label": "Felgi aluminiowe 17” Tergan",
+          "source_text_lines": [
+            898
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "bd2714de5abc0882628437374108c5c30fdc0464a335ec3b7b884eb94355aa08"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows 17-inch Tergan wheels standard on Essential only."
+        },
+        {
+          "attribute_candidate_group": "wheel_17_diamond_tergan",
+          "printed_row_label": "Felgi aluminiowe 17” diamentowane Tergan",
+          "source_text_lines": [
+            899
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "standard",
+            "journey": "niedostępne",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "82c338c9bd04d8c3f84c768ae6ea9532fd8b2eb01c8976a1fc0564487bbb68d4"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows diamond-cut 17-inch Tergan wheels standard on Expression only."
+        },
+        {
+          "attribute_candidate_group": "wheel_18_half_diamond_tagasan",
+          "printed_row_label": "Felgi aluminiowe 18” pół-diamentowane Tagasan",
+          "source_text_lines": [
+            900,
+            901
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "niedostępne",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "cf54d84b55cbb78f92a6b5d8d4b7172c032320019743ee3a0566c82007e45e04",
+            "ede8952e26c6b6a262102b1860b646a1132dbd838e15fe372e144730a281c87a",
+            "2e03dad90bbcda0f6c679a1f7c8af9b2b675485e5d4b45cc34daf0a024a4c2aa"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows half-diamond 18-inch Tagasan wheels standard on Extreme only."
+        },
+        {
+          "attribute_candidate_group": "wheel_18_diamond_tagasan",
+          "printed_row_label": "Felgi aluminiowe 18” diamentowane Tagasan",
+          "source_text_lines": [
+            902
+          ],
+          "source_values_by_grade": {
+            "essential": "niedostępne",
+            "expression": "niedostępne",
+            "journey": "standard",
+            "extreme": "niedostępne"
+          },
+          "candidate_ids": [
+            "0c0eb7aadbefa6100fb32717070693981fe4853e05dfb481abc3cc6ac85fddb8"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source page 21 shows diamond-cut 18-inch Tagasan wheels standard on Journey only."
+        },
+        {
+          "attribute_candidate_group": "rear_bench_1_3_2_3",
+          "printed_row_label": "Kanapa tylna dzielona i składana 1/3–2/3",
+          "source_text_lines": [
+            909
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "41d1099bffd5ab0f2e916371ed7bad1947df6b90e7c4d1daa2070bd8716cd26e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Row text and four aligned grade markers are present in the archived brochure extraction. Candidate identity and exact master attribute mapping are not established; no promotion."
+        },
+        {
+          "attribute_candidate_group": "rear_bench_easy_fold",
+          "printed_row_label": "Kanapa tylna dzielona 40/20/40 z funkcją Easy Fold 60/40",
+          "source_text_lines": [
+            910,
+            911
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "e9976961eff87c9d0df439b23dd29a097c549aae0a494fb9b842941e2e811d2c",
+            "2cff5507638aed0bdbe57497ed19e1bbba3853f6038a8ee570b2f5e666e3651a",
+            "f5ee7a3778fa023eb2f712fa4a3d18a6f642cc05d8ff352d5226e0272728f15a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Label, continuation and marker line are preserved as separate candidate fragments. Their row relationship is supported by source text, but records are not deduplicated or promoted."
+        },
+        {
+          "attribute_candidate_group": "driver_seat_height",
+          "printed_row_label": "Fotel kierowcy regulowany na wysokość",
+          "source_text_lines": [
+            924
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "d173512d134f441a20a9e6d2f3cd57108c89da4fd7f32991c7ab692009e734de"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row and all four standard markers are confirmed in the extracted brochure text; exact master mapping remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "driver_lumbar_adjustment",
+          "printed_row_label": "Regulacja lędźwiowa kierowcy",
+          "source_text_lines": [
+            925
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "1fffd8b9b046c91dc987dc923fc9de0d8c7a780894e7558286f22dc0a8996b5d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row and grade-marker sequence are confirmed; no master or import-spec changes are authorized."
+        },
+        {
+          "attribute_candidate_group": "passenger_seat_height",
+          "printed_row_label": "Fotel pasażera regulowany na wysokość",
+          "source_text_lines": [
+            926
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "2d2e916ea8403b95067f8f369f74c1fbc690d2e401e323de79ffbc388690fc8d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row and grade-marker sequence are confirmed; exact master attribute/configuration mapping is still open."
+        },
+        {
+          "attribute_candidate_group": "driver_passenger_lumbar",
+          "printed_row_label": "Regulacja lędźwiowa foteli kierowcy i pasażera",
+          "source_text_lines": [
+            928
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "bc610425b9fb2c1e452c06c617d1c7095f62519cd77fbb9259a81dd656a5bef5"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure row indicates the feature only for Journey; source-row confirmation does not establish a master mapping."
+        },
+        {
+          "attribute_candidate_group": "soft_feel_steering_wheel",
+          "printed_row_label": "Kierownica ze skóry ekologicznej soft feel",
+          "source_text_lines": [
+            929,
+            930
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a5f3c488ec02463ad08c075e451b7b4a9320e103161dc5119d778b434f5755ba",
+            "a95e2002f510fd109b9d81ef9e218fa507d4c2dd863a5850c7b46335a72a1abe",
+            "8ddf17bd70e0d39a92816d67d978bcba6c534c39d24014cb3fdbf7c8ad447f5f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The label, marker sequence and continuation text are retained as separate source fragments. No fragment merging or import promotion."
+        },
+        {
+          "attribute_candidate_group": "rain_sensor",
+          "printed_row_label": "Czujnik deszczu",
+          "source_text_lines": [
+            968
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "ec95e819e526531116a7862766dfb1db3d7cd2c2e3602a83986d7b28343b5321"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Archived brochure extraction preserves the complete row and aligned grade markers. Candidate remains unresolved for master mapping."
+        },
+        {
+          "attribute_candidate_group": "fog_lights",
+          "printed_row_label": "Światła przeciwmgielne",
+          "source_text_lines": [
+            969
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "1171aec3184562dc9291c4a807f5550e6939a24807aa75b2b06cba275e04cbe4"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Archived brochure extraction preserves the complete row and aligned grade markers. No import approval."
+        },
+        {
+          "attribute_candidate_group": "automatic_high_low_beam",
+          "printed_row_label": "Automatyczne przełączanie świateł drogowych/mijania",
+          "source_text_lines": [
+            970,
+            971
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "44ed310fc3020e013d01e2f9c894deb5a75e623b5c2673760d5d8f760c945a35",
+            "bb821416d3cc205ebe1b95fa68f9b2fd93eb904332c49a533671c65e03c0007d",
+            "958c87deb4c23cc30e3b35a761b5ca54dabf3cdf54524e94e2d869cc2adee7d1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped label, grade markers and continuation are kept as distinct candidate fragments; source-row relationship is documented without merging."
+        },
+        {
+          "attribute_candidate_group": "adaptive_cruise_hybrid155",
+          "printed_row_label": "Adaptacyjny tempomat (tylko z silnikiem Hybrid 155)",
+          "source_text_lines": [
+            972,
+            973
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "738ac97ea2ded066fd635a457321131ab0e2302e75a1ab77c489fccf790ead46",
+            "6cc94015ede69c0898d4969158e81183a831f0b049dce4c03be086264517d346",
+            "582470bec83f88199f2a118b122cf3b12415e98fd2548e09777e103a067d899c"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Powertrain qualifier Hybrid 155 is retained. Grade states are recorded from the brochure row only; no extrapolation to other engines or master mapping."
+        },
+        {
+          "attribute_candidate_group": "electric_parking_brake",
+          "printed_row_label": "Hamulec postojowy elektryczny",
+          "source_text_lines": [
+            974
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "2851fdbb7f94d2fa612eed381d8829b0f90f2b539ffa910cdede803607ce11ba"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row and aligned markers are confirmed; mapping to master data remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "tyre_pressure_monitoring",
+          "printed_row_label": "Czujniki ciśnienia w oponach",
+          "source_text_lines": [
+            954
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "0c3285c5a991dc6c1f5fdd4e634adbc49f9b4f089deb456bb51c4619a974885d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete row and four standard markers are confirmed in the archived brochure extraction; no import approval."
+        },
+        {
+          "attribute_candidate_group": "isofix_rear_outer",
+          "printed_row_label": "Mocowania Isofix na tylnych bocznych miejscach",
+          "source_text_lines": [
+            957
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "baf6d2698208ca43d53c9a56abfd4725259b6e14832bbfb712157b09171df106"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row and four standard markers are confirmed; exact master attribute mapping remains open."
+        },
+        {
+          "attribute_candidate_group": "airbags",
+          "printed_row_label": "Poduszki powietrzne (6)",
+          "source_text_lines": [
+            932,
+            933
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "328359e651d57b42e35bdf43132974dba6f3b649b255a572724a7be8d22fdffd",
+            "41895632f47d9f1033e47f4c17ab44795d6f1e77205386d51339d425cac080fb"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Airbag row label and grade-wide standard markers are recorded from the archived brochure. Candidate fragments remain separate; no master mapping or import approval."
+        },
+        {
+          "attribute_candidate_group": "abs",
+          "printed_row_label": "ABS z układem wspomagania nagłego hamowania",
+          "source_text_lines": [
+            934
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "aabceb1c0164ed00831376a31640e057d9a9f10a666512170e37cee88e1bd5d5"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row and four standard markers are recorded; exact master attribute mapping remains open."
+        },
+        {
+          "attribute_candidate_group": "automatic_emergency_braking_pedestrians_cyclists",
+          "printed_row_label": "System awaryjnego hamowania (AEBS) z wykrywaniem pieszych i rowerzystów",
+          "source_text_lines": [
+            935,
+            936
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a962db1301b8c24efa5583ff2b1783d55ec09c33e7766d310927f99a004a8fbb",
+            "1763885c2d287f8dc65422fd3c0649011b81104fd7c24746d6fa2afd7a4f617b",
+            "b65e1ffe6d5ca1dad13bf7a79dd0c94c45b5c3d906539a8412c7410949608778"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped row label, marker-bearing fragment and continuation are preserved separately; all four grade markers indicate standard."
+        },
+        {
+          "attribute_candidate_group": "lane_departure_warning",
+          "printed_row_label": "System ostrzegania o niezamierzonej zmianie pasa ruchu",
+          "source_text_lines": [
+            937,
+            938
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "b8bbc587719b76950da81288798c44b66b7ee4eb2c9e667814905cd6b53fa181"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Brochure row and grade-wide standard state are recorded without promoting the candidate to master."
+        },
+        {
+          "attribute_candidate_group": "driver_attention_warning",
+          "printed_row_label": "Ostrzeganie o zmęczeniu kierowcy",
+          "source_text_lines": [
+            939
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "5c92cafb076acdbbfc7fba28b3cd356e0291b6ee0da784240c17d821a72eb3f1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row is recorded as standard for all grades; candidate-to-master mapping remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "intelligent_speed_assistance",
+          "printed_row_label": "Inteligentny asystent prędkości (ISA)",
+          "source_text_lines": [
+            940,
+            941
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "6944bf0e7eb4a1240a7946617c61fe3860575301f40cfc094d313fbf39e57e57",
+            "e6600a89702777af61e858722144aaa336f0250a0e8c9daa46586c8a9a7fef59",
+            "8b341337f61a5ac6485932080efad71b83ce069c8849fe8042762743bb637b5e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Wrapped label, markers and continuation are retained as separate source fragments; grade-wide standard state does not imply import approval."
+        },
+        {
+          "attribute_candidate_group": "emergency_brake_assist",
+          "printed_row_label": "System wspomagania nagłego hamowania",
+          "source_text_lines": [
+            942
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "fb23412e7f7c39ecb398ce33dc43cad3f15afe95e8f6a5935d2d2a9054134a39"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source row and four standard markers recorded; no semantic inference or master-data change."
+        },
+        {
+          "attribute_candidate_group": "esp",
+          "printed_row_label": "System kontroli toru jazdy (ESP)",
+          "source_text_lines": [
+            943
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "a12e2cea029937f53983d5295ffcd3fda9b17debd907ba230c759f64e5f7236d"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete row is recorded as standard across all four grades; candidate remains unapproved for master mapping."
+        },
+        {
+          "attribute_candidate_group": "automatic_lights",
+          "printed_row_label": "Automatyczne światła",
+          "source_text_lines": [
+            944
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "2ecbed78522e7e7940b25113f66ff9efe4e11ac018d14690c959a82d24601e76"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source row and grade-wide standard markers recorded without changing master data."
+        },
+        {
+          "attribute_candidate_group": "ecall",
+          "printed_row_label": "System połączeń alarmowych eCall",
+          "source_text_lines": [
+            945
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "d0d618ee3e6abd41b1156d36c8d3f3da5603e7c354663a71a7ef9913a23b379a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete brochure row is recorded as standard for every grade; exact master mapping remains open."
+        },
+        {
+          "attribute_candidate_group": "rescue_code",
+          "printed_row_label": "Kod ratunkowy QRescue",
+          "source_text_lines": [
+            951
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "9c24bbf45b5f708068b8cd41d54844956406347594a7fc7e9316b907162238e6"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete row and grade-wide standard state are recorded; no import promotion."
+        },
+        {
+          "attribute_candidate_group": "seat_belts",
+          "printed_row_label": "Pasy bezpieczeństwa",
+          "source_text_lines": [
+            952,
+            953
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "bdd9fb05da8f3a7ab549b4b31c77ad59c5c0ef17644cbfc15ffe285b04bcfc8e",
+            "c821b4d93ae74d995c99b901d4e208dcdc50ff02f8f3f71e30b1cd0bfd53bd1f",
+            "944288c7392e4276e16a11c48b79636e68dd4b8cf2fc673ff9929adb5c06815e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Label, marker sequence and continuation remain separate fragments linked to one source row; no merging of candidate records."
+        },
+        {
+          "attribute_candidate_group": "eco_stop_start_gear_indicator",
+          "printed_row_label": "Wskaźnik zmiany biegów / ECO / Stop & Start",
+          "source_text_lines": [
+            955,
+            956
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "765e2ab133029c38ac58f8596c6c055a00879c495045da7a6c3790dab398fddc",
+            "35d35bc4e8e2c1a6cc81f2fd2837bcf5c8ba6f97a85c9846167c5c38c7d815ed",
+            "5d9fe83238894767f8b1d6b4abfc70f3159739de09f9bccfcdfbfb1827c50bd7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The multi-line source row and its marker fragments are retained without merging; standard state is recorded for all grades."
+        },
+        {
+          "attribute_candidate_group": "cruise_limiter_controls",
+          "printed_row_label": "Regulator i ogranicznik prędkości",
+          "source_text_lines": [
+            959
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "3b98e962949c92710a3f8f0746900a85cc153421ece34992a08e1536cd02e1ea"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Complete source row recorded as standard across all grades; exact mapping remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "rear_parking_sensors_reversing_camera",
+          "printed_row_label": "Tylne czujniki parkowania i kamera cofania",
+          "source_text_lines": [
+            960
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "98ede153010af14b67997de525d1242c828fb8ff43c04c14a4d347b1c6e4dec7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "Source row and four standard markers recorded; no candidate deduplication or import approval."
+        },
+        {
+          "attribute_candidate_group": "electric_power_steering",
+          "printed_row_label": "Elektryczne wspomaganie kierownicy",
+          "source_text_lines": [
+            984
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "c43557e4cbc8c54f4caf60cb25dcab7c27ac656386e5d1adda64edf256331fe2"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The exact page-22 candidate row shows four standard markers. Source row is recorded without asserting candidate-to-master identity or approving import."
+        },
+        {
+          "attribute_candidate_group": "youclip_mounting_points",
+          "printed_row_label": "Punkty mocowania YouClip",
+          "source_text_lines": [
+            985
+          ],
+          "source_values_by_grade": {
+            "essential": 4,
+            "expression": 5,
+            "journey": 5,
+            "extreme": 5
+          },
+          "candidate_ids": [
+            "70336206b610a44ffbea4d1449fe7b3f1cc4eba9ba28ff5054ff578a1da4729e"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row explicitly gives counts 4/5/5/5 in Essential, Expression, Journey and Extreme order. Counts remain source-period-specific; no master mapping or import approval."
+        },
+        {
+          "attribute_candidate_group": "remote_central_lock",
+          "printed_row_label": "Centralny zamek sterowany zdalnie",
+          "source_text_lines": [
+            986
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "4f8c81c5da1d978dfc3f94ad5779ec2cbf5684cea0ac0ce6a3564cf251565827"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The exact source row shows standard availability for all four grades. Candidate remains separate and unapproved for master mapping."
+        },
+        {
+          "attribute_candidate_group": "folding_key",
+          "printed_row_label": "Składany kluczyk",
+          "source_text_lines": [
+            987
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "524e5967dd7f40bca44a0354dff7d503532fbc06b8ab2abdee6e39d0fed0809a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the folding key as standard on Essential and Expression, and unavailable on Journey and Extreme. This is limited to the December 2025 brochure."
+        },
+        {
+          "attribute_candidate_group": "keyless_entry_card",
+          "printed_row_label": "Karta Keyless Entry",
+          "source_text_lines": [
+            988
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "4a4c8af29d0ba66987c78a6dc9e32ad7e32491de75df1af839c1466f3acc79a7"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks Keyless Entry as unavailable on Essential and Expression, and standard on Journey and Extreme. No master mapping is approved."
+        },
+        {
+          "attribute_candidate_group": "digital_instrument_cluster_7",
+          "printed_row_label": "Cyfrowy zestaw wskaźników 7″",
+          "source_text_lines": [
+            989
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "c6cc0d2dec8be5fedfbc4259e9c98c87875f90be230385bd4b8eb95ae5a9cd57"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The 7-inch cluster is marked standard on Essential and Expression, unavailable on Journey and Extreme in this brochure."
+        },
+        {
+          "attribute_candidate_group": "digital_instrument_cluster_10",
+          "printed_row_label": "Cyfrowy zestaw wskaźników 10″",
+          "source_text_lines": [
+            990
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "ff44882ec1f67c7c28bcd88a563d684c9235355dde5a4df1f8b82add175f1882"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The 10-inch cluster is marked unavailable on Essential and Expression, standard on Journey and Extreme in this brochure."
+        },
+        {
+          "attribute_candidate_group": "heated_power_side_mirrors",
+          "printed_row_label": "Lusterka zewnętrzne elektryczne i podgrzewane",
+          "source_text_lines": [
+            996
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "238ccc4a14556569503a14119a8bf823bcff88b53db94463c433d3315f802aa6"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source row shows standard electric heated mirrors across all four grades. Master attribute identity remains unapproved."
+        },
+        {
+          "attribute_candidate_group": "adjustable_steering_wheel",
+          "printed_row_label": "Kierownica regulowana w pionie i w poziomie",
+          "source_text_lines": [
+            1000
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "46bd5d2dea9c92a0470b1ba34ae3ad2abe20a74aa400be61e713892d9a65b30f"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks vertical and horizontal steering-wheel adjustment as standard across all grades."
+        },
+        {
+          "attribute_candidate_group": "youclip_phone_holder",
+          "printed_row_label": "Uchwyt YouClip na smartfon",
+          "source_text_lines": [
+            991
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "c1a94feb8c7abaa6fea934d803cf63e5c03118e893b47bd8313796531f3cbfcd"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the YouClip smartphone holder unavailable on Essential and Expression, standard on Journey and Extreme."
+        },
+        {
+          "attribute_candidate_group": "front_rear_impulse_windows",
+          "printed_row_label": "Elektryczne szyby z przodu i z tyłu z funkcją impulsową",
+          "source_text_lines": [
+            998
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "5504649f300ace2147721b88c9213ca6eb13f10f051cb68d0a07465c0e08ef82",
+            "901037523e70e18a3ed92b7fbc3cbbeed90f31bfedaaf81474ed8110aefd68e1",
+            "e6a1efb3b466aef3d1c6f5cd6dbe38bbe04e820adcae89b59330b36424bb3cf3"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source line and its continuation together identify front and rear electric windows with impulse function, standard across all four grades. Candidate fragments are retained without merging their underlying records."
+        },
+        {
+          "attribute_candidate_group": "boot_cover",
+          "printed_row_label": "Roleta bagażnika",
+          "source_text_lines": [
+            1001
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "standard",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "9a34ef5f212fbfea0aacf05c50cbeee2ac5315dc8d6a666a291f645703e00b9a"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the luggage-compartment cover as standard across all four grades."
+        },
+        {
+          "attribute_candidate_group": "low_central_console",
+          "printed_row_label": "Konsola centralna niska",
+          "source_text_lines": [
+            1002
+          ],
+          "source_values_by_grade": {
+            "essential": "standard",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "58f5bde3e0593d5299145f50acc8d6431038b8d8a4329037fc119d1aaf8e54e8"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The source matrix marks the low central console standard only on Essential and unavailable on the other three grades."
+        },
+        {
+          "attribute_candidate_group": "power_tailgate",
+          "printed_row_label": "Elektryczna klapa bagażnika",
+          "source_text_lines": [
+            1009
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "optional"
+          },
+          "candidate_ids": [
+            "736d43d00586fbe1a501306798eb212228535826c991267e1da36937bb60e371"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks the power tailgate unavailable on Essential and Expression, standard on Journey, and optional on Extreme."
+        },
+        {
+          "attribute_candidate_group": "central_console_armrest_storage",
+          "printed_row_label": "Konsola centralna z podłokietnikiem i schowkiem",
+          "source_text_lines": [
+            1003,
+            1004
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "standard",
+            "journey": "unavailable",
+            "extreme": "unavailable"
+          },
+          "candidate_ids": [
+            "1bed4aef4b58fe9e0b7f065f681a0f4742d18fb6b0c14d881edb39412dbae694",
+            "659b2146444a2b691042807d95fa7b8ab142483d45b4c38052f0f42ddf36b8cc"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure row and continuation identify the armrest/storage console; markers show unavailable on Essential, standard on Expression, and unavailable on Journey and Extreme. The continuation remains a separate candidate fragment."
+        },
+        {
+          "attribute_candidate_group": "high_central_console_cooled_storage",
+          "printed_row_label": "Konsola centralna wysoka z uchwytami na kubki, podłokietnikiem i chłodzonym schowkiem (dla silnika hybrid 155)",
+          "source_text_lines": [
+            1005,
+            1006,
+            1007,
+            1008
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "standard",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "e8a8b9222f58b11557db17a29a301b08a93218a1064429ecbcdfc13c3fc3fff1",
+            "c29f92ab5c3bdca7a08d9ce462b503535e81821318781c32a7cf0e35e9eedd8b",
+            "f53de531d0449d388bb98eb1500d51114567b68cec2c2454f773078437cc62c1"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The full wrapped label qualifies this high console as for Hybrid 155; grade markers show unavailable on Essential/Expression and standard on Journey/Extreme. Candidate fragments remain separate."
+        },
+        {
+          "attribute_candidate_group": "youclip_3_in_1",
+          "printed_row_label": "YouClip 3 w 1",
+          "source_text_lines": [
+            1011
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "863c9f241febd8cc08e9fcb6d0f387a0e19fedef2c0f1a2f9fa7dd6d769b12bb"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks YouClip 3-in-1 unavailable on Essential, Expression and Journey, and standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "reversible_boot_mat",
+          "printed_row_label": "Mata bagażnika dwustronna (tkanina/guma)",
+          "source_text_lines": [
+            1012
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "f06382d1b5e2326ef28288e63977f470aa8d24404b6963087bc9a37e93ce10ab"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The reversible textile/rubber boot mat is unavailable on Essential, Expression and Journey, and standard on Extreme."
+        },
+        {
+          "attribute_candidate_group": "rubber_floor_mats",
+          "printed_row_label": "Dywaniki gumowe przód i tył",
+          "source_text_lines": [
+            1013
+          ],
+          "source_values_by_grade": {
+            "essential": "unavailable",
+            "expression": "unavailable",
+            "journey": "unavailable",
+            "extreme": "standard"
+          },
+          "candidate_ids": [
+            "171dbc7b10f63f65bd3b529e68c812def676dfebe1562ae4d7cbd278e9138a54"
+          ],
+          "reconciliation": "source_row_text_and_grade_values_confirmed",
+          "master_mapping": "not_approved",
+          "rationale": "The brochure marks front and rear rubber floor mats unavailable on Essential, Expression and Journey, and standard on Extreme."
+        }
+      ],
+      "semantic_boundaries": {
+        "grade_values_are_source_period_specific": true,
+        "candidate_fragments_not_deduplicated": true,
+        "historical_source_not_retagged": true,
+        "master_data_changes": false,
+        "approved_import_spec_generation": false,
+        "hill_descent_control_grade_mapping_approved": true
+      },
+      "row_count": 72,
+      "method": "undefined Added five page-22 interior/accessory rows after checking exact candidate IDs, wrapped labels and aligned grade markers in unresolved review chunk 1 against the archived brochure's printed source lines; no candidate records merged and master mappings remain unapproved. Existing Media Display, Media Nav Live, remote services, FOTA and package rows were re-audited against page-22 chunks 1–2; stored grade values remain source-aligned, while candidate signature mismatches remain unresolved."
+    },
+    "next_step_after_source_reconciliation": "Use the diagnostic canonical mapping audit to prioritize exact candidate identity and attribute semantics. Verify configuration coverage and source-period compatibility before any import-spec or master-data changes; do not approve mappings from name similarity alone.",
+    "canonical_mapping_audit": {
+      "reviewed_on": "2026-10-24",
+      "status": "diagnostic_only_mapping_not_approved",
+      "basis": {
+        "attributes_path": "data/master/attributes.csv",
+        "attributes_blob_sha": "b56f5d92a92e84fc457e518a05d18a07ed0e9f05",
+        "configurations_path": "data/master/configurations.csv",
+        "configurations_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
+        "method": "Read current attribute dictionary and configuration registry from the active review branch; compare likely canonical codes against source-row labels and recorded grade values. This is a semantic screening only, not proof of candidate identity, source-period continuity, configuration coverage or import eligibility.",
+        "temporal_boundary_check": {
+          "source_brochure_code": "src_pl_bigster_brochure_20251210",
+          "source_brochure_date": "2025-12-10",
+          "linked_ambiguity_review_path": "data/reporting/bigster_equipment_page22_ambiguity_review.json",
+          "linked_ambiguity_review_blob_sha": "ce13aef4afaeae7c5b15342ffec498183f44153a",
+          "selected_evidence_signatures": 18,
+          "selected_evidence_records": 126,
+          "evidence_source_codes": [
+            "src_pl_bigster_price_my26_20260703"
+          ],
+          "decision": "later price-list evidence is context only for this earlier brochure; not sufficient for source-period validation"
+        }
+      },
+      "findings": [
+        {
+          "source_row_group": "electric_power_steering",
+          "candidate_attribute_codes": [
+            "steering_type"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary code describes steering type as a string; source row states electric power steering. Confirm stored values and canonical value vocabulary before mapping."
+        },
+        {
+          "source_row_group": "remote_central_lock",
+          "candidate_attribute_codes": [
+            "central_locking"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary has central_locking, but the brochure explicitly says remote-controlled central locking. Confirm whether remote operation is represented separately."
+        },
+        {
+          "source_row_group": "keyless_entry_card",
+          "candidate_attribute_codes": [
+            "keyless_entry",
+            "keyless_start"
+          ],
+          "status": "ambiguous_multi_attribute",
+          "reason": "Keyless Entry card may refer to entry, starting, or a combined access system; do not map to either boolean without canonical definition and evidence."
+        },
+        {
+          "source_row_group": "heated_power_side_mirrors",
+          "candidate_attribute_codes": [
+            "side_mirrors_heated",
+            "side_mirrors_electric_adjustment"
+          ],
+          "status": "two_attributes_may_apply",
+          "reason": "Source label combines heated and electrically adjustable mirrors; one source row may correspond to two canonical attributes. Do not collapse into a single boolean."
+        },
+        {
+          "source_row_group": "front_rear_impulse_windows",
+          "candidate_attribute_codes": [
+            "front_windows_power",
+            "rear_windows_power",
+            "one_touch_windows"
+          ],
+          "status": "ambiguous_scope",
+          "reason": "Impulse operation is not necessarily equivalent to power windows or one-touch operation; confirm row wording and canonical attribute semantics."
+        },
+        {
+          "source_row_group": "power_tailgate",
+          "candidate_attribute_codes": [
+            "power_tailgate",
+            "hands_free_tailgate"
+          ],
+          "status": "ambiguous_scope",
+          "reason": "Power-operated tailgate is distinct from hands-free operation; preserve the brochure's exact label and grade-specific markers."
+        },
+        {
+          "source_row_group": "media_display",
+          "candidate_attribute_codes": [
+            "media_display_system"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary contains a Media Display system attribute, but its boolean schema may not encode the brochure's grade-level availability state directly."
+        },
+        {
+          "source_row_group": "media_nav_live",
+          "candidate_attribute_codes": [
+            "navigation_system",
+            "live_traffic_information",
+            "infotainment_screen_size",
+            "touchscreen",
+            "connected_services"
+          ],
+          "status": "composite_feature_row",
+          "reason": "Media Nav Live is a bundled multimedia system with several functions; do not substitute one component attribute for the complete row."
+        },
+        {
+          "source_row_group": "usb_c_ports",
+          "candidate_attribute_codes": [
+            "usb_ports_count",
+            "rear_usb_c_ports"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary separates total USB count and rear USB-C availability; source also specifies front ports. Check data model granularity before mapping."
+        },
+        {
+          "source_row_group": "12v_sockets",
+          "candidate_attribute_codes": [
+            "boot_12v_socket"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary explicitly represents a boot 12 V socket but the source row also includes front-only/front-plus-boot states. Front socket presence may need separate representation."
+        },
+        {
+          "source_row_group": "central_console_armrest_storage",
+          "candidate_attribute_codes": [
+            "front_centre_armrest",
+            "centre_console_variant"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Armrest and storage are separate concepts; no exact single canonical code established for the complete row."
+        },
+        {
+          "source_row_group": "high_central_console_cooled_storage",
+          "candidate_attribute_codes": [
+            "cooled_centre_armrest",
+            "centre_console_variant"
+          ],
+          "status": "partial_semantic_match",
+          "reason": "Dictionary contains cooled centre-armrest storage, but brochure qualifies it for Hybrid 155; exact configuration applicability and source-period coverage remain unverified."
+        },
+        {
+          "source_row_group": "youclip_phone_holder",
+          "candidate_attribute_codes": [
+            "youclip_phone_holder"
+          ],
+          "status": "exact_code_candidate_unapproved",
+          "reason": "An exact-looking dictionary code exists; this does not resolve the candidate evidence-signature mismatch or prove configuration-level source mapping."
+        },
+        {
+          "source_row_group": "hill_descent_control",
+          "candidate_attribute_codes": [
+            "hill_descent_control"
+          ],
+          "status": "exact_code_candidate_unapproved",
+          "reason": "An exact-looking dictionary code exists, but 4x2/4x4 and powertrain applicability qualifiers must be checked per configuration."
+        },
+        {
+          "source_row_group": "tyre_pressure_monitoring",
+          "candidate_attribute_codes": [
+            "tyre_pressure_monitoring_system"
+          ],
+          "status": "exact_code_candidate_unapproved",
+          "reason": "An exact-looking dictionary code exists; source-row alignment does not resolve candidate identity or configuration mapping."
+        },
+        {
+          "source_row_group": "cross_source_temporal_boundary",
+          "candidate_attribute_codes": [],
+          "status": "source_period_mismatch_blocker",
+          "reason": "The linked authored page-22 ambiguity review contains 18 selected evidence signatures and 126 records, all sourced from src_pl_bigster_price_my26_20260703. The reviewed brochure source is src_pl_bigster_brochure_20251210. These later price-list records may help with semantic discovery but cannot independently validate the earlier brochure's trim-level states; do not use them to resolve candidate identity or approve mapping without direct brochure-period evidence."
+        }
+      ],
+      "controls": {
+        "master_data_changes": false,
+        "import_spec_changes": false,
+        "candidate_records_merged": false,
+        "mapping_approved": false,
+        "note": "All findings are proposed semantic candidates for further review. No mapping is approved."
+      }
+    }
+  }
+}

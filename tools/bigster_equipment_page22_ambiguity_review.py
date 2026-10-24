@@ -290,7 +290,7 @@ def build_review(prioritization: Mapping[str, Any], repository: Path) -> dict[st
     selected_signature_count = sum(item["selected_evidence_signature_count"] for item in decisions)
     selected_record_count = sum(item["selected_evidence_record_count"] for item in decisions)
     ensure((selected_signature_count, selected_record_count) == (18, 126), "selected evidence totals differ")
-    return {
+    payload = {
         "version": REVIEW_VERSION, "kind": REVIEW_KIND, "reviewed_on": REVIEWED_ON, "status": "complete",
         "source_prioritization": DEFAULT_PRIORITIZATION.as_posix(), "package_id": PACKAGE_ID, "source_receipt": source_receipt,
         "scope": {"candidate_count": 7, "source_code": SOURCE_CODE, "model_code": "bigster", "domain": "equipment_matrix", "page": SOURCE_PAGE, "input_coverage_status": "ambiguous"},
@@ -311,6 +311,32 @@ def build_review(prioritization: Mapping[str, Any], repository: Path) -> dict[st
         "next_package": {"name": NEXT_PACKAGE, "status": "planned",
                          "goal": "Review the 5 ambiguous equipment candidates from Jogger brochure page 20 against their 10 preserved evidence signatures without creating master-data rows or approved import specifications."},
     }
+
+    payload["historical_source_boundary"] = {
+        "reviewed_on": "2026-10-21",
+        "purpose": "Clarify the temporal scope of attached evidence without changing the original visual row decisions.",
+        "brochure_source": {
+            "source_code": "src_pl_bigster_brochure_20251210",
+            "document_date": "2025-12-10",
+            "page": 22
+        },
+        "attached_master_evidence": {
+            "source_code": "src_pl_bigster_price_my26_20260703",
+            "document_date": "2026-07-03",
+            "interpretation": "The attached records are sourced from the July 2026 price list. Matching equipment wording and trim labels may corroborate a later state, but do not independently establish the equipment state printed in the December 2025 brochure."
+        },
+        "disposition": "historical_row_reconciliation_open",
+        "constraints": [
+            "Do not treat the selected evidence signature or record counts as proof that the historical brochure state is fully represented.",
+            "Do not overwrite or retag July 2026 source records as December 2025 brochure observations.",
+            "Keep the visual row/trim interpretation separate from historical continuity evidence.",
+            "Any historical import requires source-period evidence or an explicit, independently supported continuity decision.",
+            "Preserve package-bound, optional, standard and unavailable states as distinct."
+        ],
+        "master_data_changes": False,
+        "approved_import_spec_generation": False
+    }
+    return payload
 
 def render_markdown(payload: Mapping[str, Any]) -> str:
     summary = payload["summary"]
