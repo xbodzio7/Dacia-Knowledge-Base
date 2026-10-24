@@ -182,15 +182,16 @@ class CrossModelWorkspaceEntryPointTests(unittest.TestCase):
                 href,
             )
 
-    def test_public_download_contract_targets_v1_8_1_and_84_links(self) -> None:
+    def test_public_download_contract_targets_current_release_and_local_links(self) -> None:
         workflow = WORKFLOW.read_text(encoding="utf-8")
-        self.assertIn("--version 1.8.1", workflow)
+        self.assertIn("--version 1.19.1", workflow)
         self.assertIn(
-            "0b7009fd1950693e347638a6b96756aeefb43b8a",
+            "e3a43a999a40f920bceab655cdfdac5856119a07",
             workflow,
         )
-        self.assertIn("len(local)==84", workflow)
+        self.assertIn("assert local;", workflow)
         self.assertIn("Models and comparison scopes", workflow)
+        self.assertIn("all(root.joinpath(*PurePosixPath(unquote(href)).parts).is_file() for href in local)", workflow)
         self.assertIn("compare-workspace-index", workflow)
 
     def test_historical_audit_and_boundaries_remain_immutable(self) -> None:
