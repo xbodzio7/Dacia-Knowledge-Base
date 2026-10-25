@@ -5,22 +5,26 @@ Source: `src_pl_bigster_brochure_20251210`, dated 2025-12-10
 Archived PDF SHA-256: `76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74`  
 Page: 22; grade columns in the source review: Essential, Expression, Journey, Extreme.
 
-This ledger organizes candidate mappings from the existing unresolved-review chunk. The symbols are transcribed from that review and have not been independently pixel-verified here. Nothing in this file approves a data import.
+This ledger organizes candidate mappings from the existing unresolved-review chunk and has now been checked against the rendered page image (PDF page index 21, printed page 22). The page's printed legend defines `•` as standard, `○` as optional, and `-` as unavailable. Nothing in this file approves a data import.
 
 | Row | Extracted values / text | Existing attribute candidates | Reconciliation decision |
 |---|---|---|---|
-| Folding key | •, •, -, - | Existing key attributes require definition check | Verify row and markers in rendered page. |
-| Keyless Entry card | -, -, •, • | `keyless_entry`, if its definition matches card-based access | Verify semantics and matrix cells. |
-| 7-inch digital cluster | •, •, -, - | `instrument_cluster_colour_7` (314) | Check whether the source specifically means colour. |
-| 10-inch digital cluster | -, -, •, • | `instrument_cluster_colour_10_1` (383) | Not an exact size match: source says 10-inch, dictionary says 10.1-inch. Resolve before mapping. |
-| Dual-zone automatic HVAC | -, •, •, • | `dual_zone_climate_control` (295), `automatic_climate_control` (294) | Label and markers are separate candidates; confirm their visual association. |
-| Electric heated mirrors | •, •, •, • | `side_mirrors_electric_adjustment` (242), `side_mirrors_heated` (243) | Split into separate facts only after verifying source wording and grade cells. |
-| Power windows with one-touch | •, •, •, • | `front_windows_power` (231), `rear_windows_power` (232), `one_touch_windows` (233) | The label is split across text and marker fragments; resolve the row boundary first. |
-| Electric tailgate | -, -, •, ¤ | `power_tailgate` (197) | Interpret `¤` only using the source legend/footnote. |
-| YouClip mounting points | 4, 5, 5, 5 | No exact count attribute; `youclip_phone_holder` (377) is not a count | Preserve as a dictionary gap and check against the brochure prose. |
-| 12 V sockets | Fragments: front / “Gniazda 12 V” / “and boot” with aligned values | `boot_12v_socket` (379) | Existing attribute covers boot only, not front location/count. Do not map whole row to it. |
-| USB-C ports | Fragments: “2 front” / “Porty USB-C” / “and 2 rear” with aligned values | `usb_ports_count` (289), `rear_usb_c_ports` (380) | Total count and rear-port presence do not fully encode front/rear distribution. Resolve exact columns and roles. |
-| Media Display | Marker fragment •, •, -, -; description spans neighbouring candidates | `media_display_system` (311), screen (279), touchscreen (280), wireless replication (313), speakers (421), Bluetooth (288), connected services (292) | Composite row; split into separately supported facts only after attaching the label and cells. |
+| Folding key | •, •, -, - | Existing key attributes require definition check | Visually confirmed: standard in Essential/Expression; unavailable in Journey/Extreme. Check attribute semantics before mapping. |
+| Keyless Entry card | -, -, •, • | `keyless_entry`, if its definition matches card-based access | Visually confirmed: unavailable in Essential/Expression; standard in Journey/Extreme. Preserve the source term “card” when checking semantics. |
+| 7-inch digital cluster | •, •, -, - | `instrument_cluster_colour_7` (314) | Visually confirmed: standard in Essential/Expression only. The row names screen size, not colour; attribute definition is not an exact semantic match. |
+| 10-inch digital cluster | -, -, •, • | `instrument_cluster_colour_10_1` (383) | Visually confirmed: standard in Journey/Extreme only. Not an exact size match: source says 10-inch, dictionary says 10.1-inch; do not map until resolved. |
+| Dual-zone automatic HVAC | -, •, •, • | `dual_zone_climate_control` (295), `automatic_climate_control` (294) | Visually confirmed: unavailable in Essential; standard in Expression/Journey/Extreme. Label and markers align on the rendered row. |
+| Electric heated mirrors | •, •, •, • | `side_mirrors_electric_adjustment` (242), `side_mirrors_heated` (243) | Visually confirmed standard in all four grades; source row explicitly combines electric adjustment and heating. Split only if both dictionary definitions and source evidence support it. |
+| Power windows with one-touch | •, •, •, • | `front_windows_power` (231), `rear_windows_power` (232), `one_touch_windows` (233) | Visually confirmed standard in all four grades; the row explicitly covers front and rear windows with impulse/one-touch function. |
+| Electric tailgate | -, -, •, ○ | `power_tailgate` (197) | Visually confirmed: unavailable in Essential/Expression, standard in Journey, optional in Extreme. The mark is `○` (not `¤`); page legend defines it as optional. |
+| YouClip mounting points | 4, 5, 5, 5 | No exact count attribute; `youclip_phone_holder` (377) is not a count | Visually confirmed values. Page 8 prose says five standard points generally, so the Essential value of 4 remains a documented source conflict; do not normalize it away. |
+| 12 V sockets | Essential: front; Expression/Journey/Extreme: front and boot | `boot_12v_socket` (379) | Visually confirmed. Existing attribute covers boot only, not front location/count; do not map the whole row to it. |
+| USB-C ports | Essential: 2 front; Expression/Journey/Extreme: 2 front and 2 rear | `usb_ports_count` (289), `rear_usb_c_ports` (380) | Visually confirmed. Total count and rear-port presence do not fully encode front/rear distribution; preserve front/rear split. |
+| Media Display | •, •, -, - | `media_display_system` (311), screen (279), touchscreen (280), wireless replication (313), speakers (421), Bluetooth (288), connected services (292) | Visually confirmed: standard in Essential/Expression; unavailable in Journey/Extreme. Description specifies a 10.1-inch touchscreen, USB or wireless Wi-Fi smartphone replication, Bluetooth, four speakers and remote-services package; split only into facts supported by the data contract. |
+
+## Visual verification result
+
+The rendered page image confirms the grade order (Essential, Expression, Journey, Extreme), the standard/optional/unavailable legend, and the values and markers recorded above. The electric-tailgate marker in Extreme is a hollow circle (`○`, optional), not the `¤` glyph suggested by the extracted text. The 12 V and USB-C row values are now read directly from their aligned table cells. This is page-level verification only; exact model/powertrain applicability and import signatures remain unresolved.
 
 ## Evidence boundary
 
@@ -28,8 +32,8 @@ The existing unresolved-review chunk lists 69 candidates on page 22; its first c
 
 ## Next actions
 
-1. Inspect the rendered page 22, confirm row geometry, grade columns and symbol legend.
-2. Resolve exact candidate IDs for each row and marker; do not merge candidates merely because extracted text looks similar.
+1. Rendered page 22 has been inspected; row geometry, grade columns and symbol legend are visually confirmed.
+2. Resolve exact candidate IDs for each row and marker; visual row confirmation does not resolve repository candidate signatures or authorize merging.
 3. Join confirmed cells to exact model/powertrain/trim configuration signatures and the 2025-12-10 source receipt.
 4. Generate imports only for fully resolved, source-backed facts. Keep ambiguous symbols, composite rows and dictionary gaps out of approved imports.
 
