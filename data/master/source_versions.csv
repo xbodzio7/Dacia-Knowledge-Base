@@ -72,7 +72,3 @@ id,source_code,version_code,relationship,notes
 71,src_pl_duster_price_my26_20260901,duster_iii_expression,documents,Version column in the 2026-09-01 price matrix.
 72,src_pl_duster_price_my26_20260901,duster_iii_extreme,documents,Version column in the 2026-09-01 price matrix.
 73,src_pl_duster_price_my26_20260901,duster_iii_journey,documents,Version column in the 2026-09-01 price matrix.
-74,src_pl_bigster_brochure_20251210,bigster_essential,documents,Official 2025-12-10 Bigster brochure grade column; powertrain-specific observations are joined only through exact source-configuration links.
-75,src_pl_bigster_brochure_20251210,bigster_expression,documents,Official 2025-12-10 Bigster brochure grade column; powertrain-specific observations are joined only through exact source-configuration links.
-76,src_pl_bigster_brochure_20251210,bigster_journey,documents,Official 2025-12-10 Bigster brochure grade column; powertrain-specific observations are joined only through exact source-configuration links.
-77,src_pl_bigster_brochure_20251210,bigster_extreme,documents,Official 2025-12-10 Bigster brochure grade column; powertrain-specific observations are joined only through exact source-configuration links.
