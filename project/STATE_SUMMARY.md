@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Bigster Brochure Full Assimilation** — `in_progress`
+**Official Dacia Brochure Portfolio Coverage Reconciliation** — `complete`
 
-Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. The first bounded batch adds 14 page-21 TPMS standard observations for the 14 exact brochure configurations. Later 2026 price-list evidence remains separate.
+Reconciled the six currently registered official Polish-market brochure sources against official download links, repository hashes, existing imports and master data. Full page-by-page assimilation remains a separate package; no assumption is made that source registration alone means a brochure is fully assimilated.
 
 ## Next package
 
-**CAT-GAP-002 Exact-State Configurator Interaction** — `planned`
+**Official Bigster Brochure Full Assimilation** — `planned`
 
-After the official brochure portfolio is reconciled, resolve only the remaining configuration gaps that cannot be answered from current official price lists and brochures, using exact-state configurator evidence.
+Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. The first verified batch contains 14 page-21 TPMS standard observations for the 14 exact brochure configurations; continue with exact historical row-to-attribute mapping and import only directly supported gaps. Keep later 2026 price-list evidence separate.
 
 ## Autonomy
 
