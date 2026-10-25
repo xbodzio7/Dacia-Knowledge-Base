@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added 14 dated historical TPMS standard observations from printed page 21 of the official Bigster brochure dated 2025-12-10, linked to the exact 14 documented configurations. Registered the four brochure grade columns and added a guarded importer/spec contract with source SHA-256 validation; existing 2026-07-03 observations remain separately dated. Master row count is now 21263 and availability records 9817.
+
 * Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.
 
 * Closed the 43-line configurator-PDF `400 m ze startu zatrzymanego` residual: 40 numeric candidates match existing exact observations, seven `17.0`/`17,0` displays are equivalent, and three `nd` markers remain non-observations. The deferred-observation count is corrected from 170 to 130; no master rows were added.
