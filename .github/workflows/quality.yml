@@ -42,6 +42,9 @@ jobs:
       - name: Show Python version
         run: python --version
 
+      - name: Check Bigster brochure TPMS import contract
+        run: python tools/import_bigster_brochure_tpms_availability.py --check
+
       - name: Install PDF text extraction backend
         if: matrix.python-version == '3.14'
         run: |
