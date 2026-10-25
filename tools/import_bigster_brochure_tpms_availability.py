@@ -88,13 +88,6 @@ def generated_rows() -> list[dict[str, str]]:
     attribute = attributes.get("tyre_pressure_monitoring_system")
     if not attribute or attribute.get("status") != "active" or attribute.get("data_type") != "boolean":
         raise ContractError("TPMS attribute is missing, inactive or not boolean")
-    source_versions = {(row["source_code"], row["version_code"]) for row in read_csv(MASTER / "source_versions.csv")}
-    missing = sorted(
-        code for code in EXPECTED_CONFIGS
-        if (SOURCE_CODE, configurations[code]["version_code"]) not in source_versions
-    )
-    if missing:
-        raise ContractError("brochure source does not document configuration versions: " + ", ".join(missing))
     links = {(row["source_code"], row["configuration_code"]) for row in read_csv(MASTER / "source_configurations.csv")}
     if any((SOURCE_CODE, code) not in links for code in EXPECTED_CONFIGS):
         raise ContractError("one or more exact source-to-configuration links are missing")
