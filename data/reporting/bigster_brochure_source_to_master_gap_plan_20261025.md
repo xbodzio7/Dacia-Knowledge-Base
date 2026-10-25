@@ -26,14 +26,26 @@ The 2026-10-01 price list is a current commercial comparator, not a substitute f
 | Mirrors | `side_mirrors_electric_adjustment` (242), `side_mirrors_heated` (243), `side_mirrors_folding` (244) | Existing dictionary covers several functions separately. Confirm whether the brochure's composite wording asserts each function and preserve trim applicability independently. |
 | YouClip mounting points | `youclip_phone_holder` (377) is not a count attribute | A boolean phone-holder field does not represent the number of mounting points. Brochure narrative and matrix appear to differ (narrative says five standard points; matrix row shows 4/5/5/5). Preserve as an explicit source conflict until visual/source context resolves it; do not normalize by inference. |
 
+## Visual page-level verification completed (2026-10-25)
+
+The rendered images for printed pages 21 and 22 have now been inspected. Page 21 confirms the grade order Essential, Expression, Journey, Extreme and the legend `•` = standard, `○` = optional, `-` = unavailable. The following examples are directly visible in the matrix and are useful as row-alignment checks, not as import approvals:
+
+- Panoramic opening roof: unavailable in Essential and Expression, optional in Journey, standard in Extreme.
+- Rear tinted windows: unavailable in Essential/Expression, standard in Journey/Extreme.
+- Electric-folding mirrors: unavailable in Essential, standard in Expression/Journey/Extreme; heated electric mirrors are standard in all four grades.
+- Seat upholstery differs by grade: Essential/Expression use grade-specific fabric; Journey uses MicroCloud Journey; Extreme uses MicroCloud Extreme. These labels should not be collapsed into a generic upholstery boolean if the dictionary intends to preserve material/variant.
+- Adaptive cruise control is marked unavailable in all four grade columns in this brochure matrix, despite other Bigster sources potentially describing it for selected powertrains. Preserve this source-specific state; do not overwrite with a later price list or infer a powertrain exception.
+- The spare-wheel option has footnotes restricting applicability (including a mild-hybrid-G 140 exception and replacement of the tyre-repair kit). Keep the footnote attached to the option instead of treating the circles as universal availability.
+
+Page 22 is covered by the updated row-level ledger. Page-level visual confirmation resolves row labels, grade columns and symbol readings, but does not resolve repository candidate IDs, powertrain-specific configuration signatures, or whether an attribute's definition exactly matches the source claim.
+
 ## Required resolution sequence
 
-1. Re-open the rendered page 21 and page 22 images and capture the exact row boundaries, column headings, markers and footnotes for each unresolved signature group.
-2. For every candidate, record its exact candidate ID, row label, column/trim, marker, and evidence source/page. Do not merge candidates solely because extracted text is similar.
-3. Join each resolved row to the correct model/powertrain/trim configuration and source-period receipt. Later price-list observations may be used only for a separately dated comparison.
-4. Reuse an existing attribute only when its definition exactly matches the fact's scope. Record dictionary gaps for counts, locations, roles or service duration rather than forcing composite rows into narrower booleans.
-5. Generate import specifications only for fully resolved, source-backed observations. Keep unresolved, contradictory and context-only items out of approved imports.
-6. Run the repository's normal validation and quality workflow against the resulting commit before proposing any merge.
+1. Cross-reference the visually confirmed rows with the exact unresolved candidate IDs in each page-21/page-22 chunk; record row label, grade, marker and source page. Do not merge candidates solely because extracted text is similar.
+2. Join each resolved row to the correct model/powertrain/trim configuration and source-period receipt. Later price-list observations may be used only for a separately dated comparison.
+3. Reuse an existing attribute only when its definition exactly matches the fact's scope. Record dictionary gaps for counts, locations, roles or service duration rather than forcing composite rows into narrower booleans.
+4. Generate import specifications only for fully resolved, source-backed observations. Keep unresolved, contradictory and context-only items out of approved imports.
+5. Run the repository's normal validation and quality workflow against the resulting commit before proposing any merge.
 
 ## Decision
 
