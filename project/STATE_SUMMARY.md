@@ -38,7 +38,7 @@
 
 **Official Dacia Brochure Portfolio Coverage Reconciliation** — `complete`
 
-Reconciled the six currently registered official Polish-market brochure sources against official download links, repository hashes, existing imports and master data. Full page-by-page assimilation remains a separate package; no assumption is made that source registration alone means a brochure is fully assimilated.
+Reconcile all six registered Polish-market brochure sources against current official download links, repository hashes, existing imports and current master data. Keep all six in partial_review until full page-by-page and source-to-master reconciliation is demonstrated; no master rows are added.
 
 ## Next package
 
