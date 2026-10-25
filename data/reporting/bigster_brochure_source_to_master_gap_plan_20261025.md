@@ -34,7 +34,7 @@ The rendered images for printed pages 21 and 22 have now been inspected. Page 21
 - Rear tinted windows: unavailable in Essential/Expression, standard in Journey/Extreme.
 - Electric-folding mirrors: unavailable in Essential, standard in Expression/Journey/Extreme; heated electric mirrors are standard in all four grades.
 - Seat upholstery differs by grade: Essential/Expression use grade-specific fabric; Journey uses MicroCloud Journey; Extreme uses MicroCloud Extreme. These labels should not be collapsed into a generic upholstery boolean if the dictionary intends to preserve material/variant.
-- Adaptive cruise control is marked unavailable in all four grade columns in this brochure matrix, despite other Bigster sources potentially describing it for selected powertrains. Preserve this source-specific state; do not overwrite with a later price list or infer a powertrain exception.
+- Adaptive cruise control is restricted to Hybrid 155 by the source text and marked unavailable in Essential/Expression, optional in Journey/Extreme. The candidate crosswalk was corrected on 2026-10-25 to reflect those markers; do not generalize the option to other powertrains or grades.
 - The spare-wheel option has footnotes restricting applicability (including a mild-hybrid-G 140 exception and replacement of the tyre-repair kit). Keep the footnote attached to the option instead of treating the circles as universal availability.
 
 Page 22 is covered by the updated row-level ledger. Page-level visual confirmation resolves row labels, grade columns and symbol readings, but does not resolve repository candidate IDs, powertrain-specific configuration signatures, or whether an attribute's definition exactly matches the source claim.
@@ -50,3 +50,7 @@ Page 22 is covered by the updated row-level ledger. Page-level visual confirmati
 ## Decision
 
 No data-master values, configuration import specifications, or attribute definitions are changed by this plan. The next data-changing step remains blocked on exact candidate signature and grade-cell resolution, not on the existence of superficially similar attribute names.
+
+## Acceleration gate (2026-10-25)
+
+Do not extend this diagnostic plan with another general-purpose report. The next implementation pass must produce one of two outcomes for each visually confirmed page-21/22 row: (a) an exact source-backed observation attached to an existing configuration signature and valid import contract, or (b) a concise, actionable blocker naming the missing signature, attribute contract, or source qualifier. Where the existing contract supports the fact and exact signatures are available, import the facts in a single batch; where not, defer only those rows. The page-21 crosswalk is the controlling corrected row map for adaptive cruise and spare-wheel applicability. Reconcile this plan and the PR description against that crosswalk before merge.
