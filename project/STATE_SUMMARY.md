@@ -42,7 +42,7 @@ Reconcile all six registered Polish-market brochure sources against current offi
 
 ## Next package
 
-**Official Bigster Brochure Full Assimilation** — `in_progress`
+**Official Bigster Brochure Full Assimilation** — `active`
 
 Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. 311 directly supported page-21/22 equipment observations now cover 23 boolean attributes across the 14 exact brochure configurations; continue reviewing the remaining pages and import only exact historical gaps. Keep the YouClip count conflict, 12 V socket location/count, USB-C distribution, composite Media Display/Nav Live, and dimension discrepancies explicitly deferred until exact source and attribute contracts are resolved. Keep later 2026 price-list evidence separate.
 
