@@ -26,13 +26,13 @@ zweryfikowane linie CI i warunki późniejszego podniesienia minimum opisuje
 
 ## Gotowe produkty offline
 
-Najnowsze zweryfikowane publiczne wydanie `data-products-v1.19.1` można pobrać, sprawdzić
+Najnowsze zweryfikowane publiczne wydanie `data-products-v1.8.1` można pobrać, sprawdzić
 oraz bezpiecznie rozpakować jedną komendą:
 
 ```bash
 python tools/dkb.py data-product-release-download \
-  --version 1.19.1 \
-  --output-directory ../dkb-data-products-v1.19.1
+  --version 1.8.1 \
+  --output-directory ../dkb-data-products-v1.8.1
 ```
 
 Komenda wymaga jawnej, niezmiennej wersji. Sprawdza tag GitHub, dokładny zestaw
@@ -46,7 +46,7 @@ i bez modyfikowania plików:
 
 ```bash
 python tools/dkb.py data-product-workspace-verify \
-  --workspace-directory ../dkb-data-products-v1.19.1
+  --workspace-directory ../dkb-data-products-v1.8.1
 ```
 
 Opcja `--json` zwraca deterministyczny raport dla automatyzacji. Weryfikator
@@ -1295,11 +1295,11 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1949 testów, 48 pliki CSV, 21249 rekordów
+Zweryfikowany model obejmuje 1949 testów, 48 pliki CSV, 21263 rekordów
 danych, 51 relacje między tabelami, 8186 wartości konfiguracji, 161 skalarnych specyfikacji importu, 441 zakresów konfiguracji i 24
-specyfikacji zakresów oraz 9803 rekordów dostępności wyposażenia.
+specyfikacji zakresów oraz 9817 rekordów dostępności wyposażenia.
 Katalog zawiera 416 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 48 tabele i 21249 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 48 tabele i 21263 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
