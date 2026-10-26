@@ -99,7 +99,6 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
         all_rows = [
             row for row in self.rows("configuration_attribute_availability.csv")
             if row["configuration_code"] in journey_codes
-            and row["source_code"] == "src_pl_bigster_price_my26_20260703"
             and row["attribute_code"] == "side_mirrors_folding"
         ]
         historical = [row for row in all_rows if row["observation_date"] == "2026-04-01"]
@@ -193,6 +192,7 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
         bigster_folding = [
             row for row in all_rows
             if row["configuration_code"] in july_bigster
+            and row["source_code"] == "src_pl_bigster_price_my26_20260703"
             and row["attribute_code"] == "side_mirrors_folding"
         ]
         self.assertEqual(len(bigster_shark), 14)
