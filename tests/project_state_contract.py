@@ -124,16 +124,6 @@ class ProjectStateContractTests(unittest.TestCase):
         self.assertEqual(
             documentation_baseline.check_documents(REPOSITORY, live),
             [],
-            msg=(
-                "Live documentation baseline for diagnosis: "
-                + repr(live)
-                + "\\nExpected SESSION_STATE block: "
-                + repr(
-                    documentation_baseline.blocks(live)[
-                        "project/SESSION_STATE.md"
-                    ]
-                ),
-            ),
         )
 
     def test_summary_is_deterministic(self) -> None:
