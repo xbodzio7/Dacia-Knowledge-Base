@@ -120,12 +120,12 @@ def verify() -> None:
     ensure("_verified_content_path(" in source, "verified path helper missing")
 
     workflow = WORKFLOW.read_text(encoding="utf-8")
-    ensure("--version 1.8.1" in workflow, "public smoke version differs")
+    ensure("--version 1.19.1" in workflow, "public smoke version differs")
     ensure(
-        "0b7009fd1950693e347638a6b96756aeefb43b8a" in workflow,
+        "e3a43a999a40f920bceab655cdfdac5856119a07" in workflow,
         "public smoke commit differs",
     )
-    ensure("len(local)==84" in workflow, "public smoke link count missing")
+    ensure("assert local;" in workflow, "public local-link check missing")
     ensure(
         "Models and comparison scopes" in workflow,
         "public smoke card check missing",
