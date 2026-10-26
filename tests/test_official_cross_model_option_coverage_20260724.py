@@ -186,11 +186,13 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
         bigster_shark = [
             row for row in all_rows
             if row["configuration_code"] in july_bigster
+            and row["source_code"] == "src_pl_bigster_price_my26_20260703"
             and row["attribute_code"] == "shark_fin_antenna"
         ]
         bigster_folding = [
             row for row in all_rows
             if row["configuration_code"] in july_bigster
+            and row["source_code"] == "src_pl_bigster_price_my26_20260703"
             and row["attribute_code"] == "side_mirrors_folding"
         ]
         self.assertEqual(len(bigster_shark), 14)
