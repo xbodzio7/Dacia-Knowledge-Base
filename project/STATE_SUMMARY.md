@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-10-14
+- State updated: 2026-10-25
 
 ## Phase
 
@@ -25,12 +25,12 @@
 
 - Tests: 1949
 - Master CSV files: 48
-- Master rows: 21249
+- Master rows: 21263
 - Configuration values: 8186
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
-- Availability records: 9803
+- Availability records: 9817
 - Canonical attributes: 416
 - Attribute categories: 30
 
@@ -44,7 +44,7 @@ Reconcile all six registered Polish-market brochure sources against current offi
 
 **Official Bigster Brochure Full Assimilation** — `planned`
 
-Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. The first verified batch contains 14 page-21 TPMS standard observations for the 14 exact brochure configurations; continue with exact historical row-to-attribute mapping and import only directly supported gaps. Keep later 2026 price-list evidence separate.
 
 ## Autonomy
 
