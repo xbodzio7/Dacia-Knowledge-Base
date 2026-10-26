@@ -306,7 +306,9 @@ def verify_current_dimension_boundaries(payload: Mapping[str, Any]) -> None:
     brochure_generic = [
         row
         for row in values
-        if row.get("source_code") in SOURCE_CODES and row.get("attribute_code") in ATTRIBUTE_CODES
+        if row.get("source_code") in SOURCE_CODES
+        and row.get("attribute_code") in ATTRIBUTE_CODES
+        and 2568 <= int(row.get("id", "0")) <= 2949
     ]
     receipt = payload.get("import_receipt")
     if receipt is None:

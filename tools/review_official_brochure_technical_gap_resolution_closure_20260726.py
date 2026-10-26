@@ -332,6 +332,22 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 11})
         expected_total += 11
+    bigster_overall_length = [
+        row for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "overall_length"
+        and row.get("observation_date") == "2025-12-10"
+    ]
+    if bigster_overall_length:
+        ensure(len(bigster_overall_length) == 14, "Bigster historical overall-length receipt differs")
+        ensure(
+            [int(row["id"]) for row in bigster_overall_length] == list(range(8203, 8217)),
+            "Bigster historical overall-length IDs differ",
+        )
+        ensure({row.get("value", "") for row in bigster_overall_length} == {"4570"}, "Bigster historical overall-length values differ")
+        ensure(len({row.get("configuration_code", "") for row in bigster_overall_length}) == 14, "Bigster historical overall-length targets differ")
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 14})
+        expected_total += 14
     jogger_acceleration = [
         row
         for row in scalar
@@ -565,7 +581,7 @@ def verify_non_import_boundaries() -> None:
     dimensions = [row for row in scalar if row.get("attribute_code") in approved_attributes]
     if dimensions:
         approved = [row for row in dimensions if 2568 <= int(row["id"]) <= 2949]
-        ensure(len(dimensions) == 382 and len(approved) == 382, "unreviewed generic brochure dimension was imported")
+        ensure(len(dimensions) == 396 and len(approved) == 382, "unreviewed generic brochure dimension was imported")
         ensure(
             Counter(row.get("source_code", "") for row in approved)
             == Counter(

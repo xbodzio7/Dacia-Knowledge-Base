@@ -35,7 +35,7 @@ EXPECTED_CURRENT_SCALAR = Counter(
         "src_pl_sandero_brochure_20260202": 132,
         "src_pl_sandero_stepway_brochure_20260202": 72,
         "src_pl_jogger_brochure_20251217": 618,
-        "src_pl_bigster_brochure_20251210": 248,
+        "src_pl_bigster_brochure_20251210": 262,
         "src_pl_duster_mini_brochure_20251020": 279,
     }
 )
@@ -95,7 +95,7 @@ class OfficialBrochureTechnicalGapResolutionClosureTests(unittest.TestCase):
         self.assertEqual(sum(item["new_attributes"] for item in packages), 4)
 
     def test_current_brochure_scalar_and_range_coverage_is_exact(self) -> None:
-        self.assertEqual(len(self.scalar), 1349)
+        self.assertEqual(len(self.scalar), 1363)
         self.assertEqual(len(self.ranges), 122)
         self.assertEqual(
             Counter(row["source_code"] for row in self.scalar),
@@ -110,6 +110,18 @@ class OfficialBrochureTechnicalGapResolutionClosureTests(unittest.TestCase):
             Counter(self.report["current_brochure_coverage"]["range_values_by_source"]),
             EXPECTED_RANGES,
         )
+
+    def test_bigster_historical_overall_length_receipt_is_exact(self) -> None:
+        selected = [
+            row for row in self.scalar
+            if row["source_code"] == "src_pl_bigster_brochure_20251210"
+            and row["attribute_code"] == "overall_length"
+            and row["observation_date"] == "2025-12-10"
+        ]
+        self.assertEqual([int(row["id"]) for row in selected], list(range(8203, 8217)))
+        self.assertEqual({row["value"] for row in selected}, {"4570"})
+        self.assertEqual(len({row["configuration_code"] for row in selected}), 14)
+        self.assertTrue(all("page 23" in row["notes"] for row in selected))
 
     def test_priority_id_receipts_are_contiguous(self) -> None:
         scalar = [row for row in self.scalar if 2189 <= int(row["id"]) <= 2567]

@@ -211,7 +211,7 @@ def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
         ensure(len(selected["sandero_stepway_iii"]) == 62, "Stepway exact dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 8, "Stepway exact dimension configuration count differs")
         ensure(selected["jogger"] == [], "Jogger dimensions unexpectedly already imported")
-        ensure(len(selected["bigster"]) == 140, "Bigster exact dimension coverage differs")
+        ensure(len(selected["bigster"]) == 154, "Bigster exact dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["bigster"]}) == 14, "Bigster exact dimension configuration count differs")
         ensure(selected["duster_iii"] == [], "Duster core dimensions unexpectedly already imported")
     else:
@@ -221,7 +221,7 @@ def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
         ensure(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}) == 8, "Stepway exact dimension configuration count differs")
         ensure(len(selected["jogger"]) == 242, "post-import Jogger dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["jogger"]}) == 22, "post-import Jogger configuration count differs")
-        ensure(len(selected["bigster"]) == 140, "Bigster exact dimension coverage differs")
+        ensure(len(selected["bigster"]) == 154, "Bigster exact dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["bigster"]}) == 14, "Bigster exact dimension configuration count differs")
         ensure(len(selected["duster_iii"]) == 100, "post-import Duster dimension coverage differs")
         ensure(len({row["configuration_code"] for row in selected["duster_iii"]}) == 10, "post-import Duster configuration count differs")
@@ -254,7 +254,7 @@ def verify_non_import_boundaries(payload: Mapping[str, Any]) -> None:
         ensure(generic == [], "generic brochure dimensions were imported before semantic mapping review")
     else:
         approved = [row for row in generic if 2568 <= int(row["id"]) <= 2949]
-        ensure(len(approved) == 382 and len(generic) == 382, "approved generic dimension package differs")
+        ensure(len(approved) == 382 and len(generic) == 396, "approved generic dimension package differs")
         ensure([int(row["id"]) for row in approved] == list(range(2568, 2950)), "approved dimension IDs differ")
         ensure(
             Counter(row.get("source_code", "") for row in approved)

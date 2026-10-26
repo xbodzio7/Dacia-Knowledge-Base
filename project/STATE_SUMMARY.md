@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1949
+- Tests: 1950
 - Master CSV files: 48
-- Master rows: 21546
-- Configuration values: 8186
-- Configuration import specifications: 161
+- Master rows: 21560
+- Configuration values: 8200
+- Configuration import specifications: 162
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
 - Availability records: 10100
@@ -44,7 +44,7 @@ Reconcile all six registered Polish-market brochure sources against current offi
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. 297 directly supported page-21/22 equipment observations now cover 22 boolean attributes across the 14 exact brochure configurations; continue reviewing the remaining pages and import only exact historical gaps. Keep the YouClip count conflict, 12 V socket location/count, USB-C distribution, the rear-vent subclaim within the composite climate row, Media Display/Nav Live composite, and dimension discrepancies explicitly deferred until exact source and attribute contracts are resolved. Keep later 2026 price-list evidence separate.
+Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. 297 directly supported page-21/22 equipment observations cover 22 boolean attributes across the 14 exact brochure configurations; a further 14 source-bound overall-length observations (4570 mm, page 23) preserve the historical brochure date separately from later price lists. Continue reviewing exact historical gaps. Keep the YouClip count conflict, 12 V socket location/count, USB-C distribution, the rear-vent subclaim within the composite climate row, Media Display/Nav Live composite, and unresolved dimension applicability/pairing explicitly deferred until exact source and attribute contracts are resolved. Keep later 2026 price-list evidence separate.
 
 ## Autonomy
 
