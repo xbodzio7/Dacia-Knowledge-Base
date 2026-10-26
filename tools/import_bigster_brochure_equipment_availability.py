@@ -58,7 +58,6 @@ RULES = {
     "manual_air_conditioning": (22, "Manual air conditioning", {"essential": "standard", "expression": "not_available", "journey": "not_available", "extreme": "not_available"}, False),
     "automatic_climate_control": (22, "Dual-zone automatic climate control with rear vents", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
     "dual_zone_climate_control": (22, "Dual-zone automatic climate control with rear vents", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
-    "rear_air_vents": (22, "Dual-zone automatic climate control with rear vents", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
     "power_tailgate": (22, "Electric tailgate", {"essential": "not_available", "expression": "not_available", "journey": "standard", "extreme": "optional"}, False),
 }
 
@@ -108,8 +107,8 @@ def expected_spec_rows() -> set[tuple[str, str, str, str, str]]:
             if hybrid155_only and "_hybrid155_" not in configuration_code:
                 continue
             expected.add((configuration_code, attribute_code, grade_states[grade], str(page), label))
-    if len(expected) != 311:
-        raise ContractError(f"internal page-21/22 contract expected 311 cells, got {len(expected)}")
+    if len(expected) != 297:
+        raise ContractError(f"internal page-21/22 contract expected 297 cells, got {len(expected)}")
     return expected
 
 
@@ -193,7 +192,7 @@ def main() -> int:
     if args.check:
         if actual_set != expected_set or len(actual) != len(expected):
             raise ContractError(f"stored brochure equipment observations differ from contract (expected={len(expected)}, actual={len(actual)})")
-        print("Bigster brochure equipment availability: PASS (311 direct page-21/22 observations)")
+        print("Bigster brochure equipment availability: PASS (297 direct page-21/22 observations)")
         return 0
     if actual_set == expected_set and len(actual) == len(expected):
         print("Bigster brochure equipment observations already match the contract.")
