@@ -116,7 +116,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
         self.assertEqual(len({row["configuration_code"] for row in selected["sandero_stepway_iii"]}), 8)
         self.assertEqual(len(selected["jogger"]), 242)
         self.assertEqual(len({row["configuration_code"] for row in selected["jogger"]}), 22)
-        self.assertEqual(len(selected["bigster"]), 140)
+        self.assertEqual(len(selected["bigster"]), 154)
         self.assertEqual(len({row["configuration_code"] for row in selected["bigster"]}), 14)
         self.assertEqual(len(selected["duster_iii"]), 100)
         self.assertEqual(len({row["configuration_code"] for row in selected["duster_iii"]}), 10)
@@ -136,7 +136,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
             and row["attribute_code"] in CORE_DIMENSIONS
         ]
         approved = [row for row in generic if 2568 <= int(row["id"]) <= 2949]
-        self.assertEqual(len(generic), 382)
+        self.assertEqual(len(generic), 396)
         self.assertEqual(len(approved), 382)
         self.assertEqual(
             [int(row["id"]) for row in approved],
