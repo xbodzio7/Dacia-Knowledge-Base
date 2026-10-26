@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-10-25
+- State updated: 2026-10-26
 
 ## Phase
 
@@ -25,12 +25,12 @@
 
 - Tests: 1949
 - Master CSV files: 48
-- Master rows: 21263
+- Master rows: 21560
 - Configuration values: 8186
 - Configuration import specifications: 161
 - Configuration value ranges: 441
 - Configuration range import specifications: 24
-- Availability records: 9817
+- Availability records: 10114
 - Canonical attributes: 416
 - Attribute categories: 30
 
@@ -42,9 +42,9 @@ Reconcile all six registered Polish-market brochure sources against current offi
 
 ## Next package
 
-**Official Bigster Brochure Full Assimilation** — `planned`
+**Official Bigster Brochure Full Assimilation** — `in_progress`
 
-Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. The first verified batch contains 14 page-21 TPMS standard observations for the 14 exact brochure configurations; continue with exact historical row-to-attribute mapping and import only directly supported gaps. Keep later 2026 price-list evidence separate.
+Complete the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation. 311 directly supported page-21/22 equipment observations now cover 23 boolean attributes across the 14 exact brochure configurations; continue reviewing the remaining pages and import only exact historical gaps. Keep the YouClip count conflict, 12 V socket location/count, USB-C distribution, composite Media Display/Nav Live, and dimension discrepancies explicitly deferred until exact source and attribute contracts are resolved. Keep later 2026 price-list evidence separate.
 
 ## Autonomy
 

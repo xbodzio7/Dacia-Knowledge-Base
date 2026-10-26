@@ -71,7 +71,7 @@ def generated_rows() -> list[dict[str, str]]:
     if sha256(SOURCE) != SOURCE_SHA256:
         raise ContractError("Bigster brochure source SHA-256 mismatch")
     require_header(SPEC, SPEC_FIELDS)
-    spec = read_csv(SPEC)
+    spec = [row for row in read_csv(SPEC) if row["attribute_code"] == "tyre_pressure_monitoring_system"]
     if len(spec) != len(EXPECTED_CONFIGS):
         raise ContractError(f"expected {len(EXPECTED_CONFIGS)} matrix cells, found {len(spec)}")
     if {row["configuration_code"] for row in spec} != EXPECTED_CONFIGS:

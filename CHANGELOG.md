@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Added 14 dated historical TPMS standard observations from printed page 21 of the official Bigster brochure dated 2025-12-10, linked to the exact 14 documented configurations. Registered the four brochure grade columns and added a guarded importer/spec contract with source SHA-256 validation; existing 2026-07-03 observations remain separately dated. Master row count is now 21263 and availability records 9817.
+* Added 311 dated historical equipment-availability observations from printed pages 21–22 of the official Bigster brochure dated 2025-12-10: 14 TPMS cells plus 297 directly mapped equipment cells across 23 boolean attributes and 14 exact brochure-linked configurations. The guarded importer validates the source SHA-256, grade states, attribute contracts and source links; unresolved composite/quantity rows remain deferred. Master row count is now 21560 and availability records 10114.
 
 * Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.
 
@@ -337,13 +337,13 @@ All notable changes to this project will be documented in this file.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
 * The automated test suite now contains 1949 tests.
-* The verified master-data baseline now contains 48 CSV files and 21263 rows.
-* SQLite verification now covers 48 tables and 21263 rows.
+* The verified master-data baseline now contains 48 CSV files and 21560 rows.
+* SQLite verification now covers 48 tables and 21560 rows.
 * Configuration attribute values now contain 8186 dated records.
 * Declarative scalar configuration-value imports now contain 161 versioned JSON specifications.
 * Configuration value ranges now contain 441 dated records from 24 range specifications.
 * The canonical catalogue now contains 416 attributes in 30 categories.
-* Equipment availability now contains 9817 records: 7921 `standard`, 676 `optional`, 1220 `not_available` and 0 `unknown`.
+* Equipment availability now contains 10114 records: 8159 `standard`, 682 `optional`, 1273 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed
