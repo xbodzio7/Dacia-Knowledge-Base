@@ -336,7 +336,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1949 tests.
+* The automated test suite now contains 1950 tests.
 * The verified master-data baseline now contains 48 CSV files and 21560 rows.
 * SQLite verification now covers 48 tables and 21560 rows.
 * Configuration attribute values now contain 8200 dated records.
