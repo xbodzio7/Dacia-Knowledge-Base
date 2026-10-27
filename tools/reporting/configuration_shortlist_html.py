@@ -45,6 +45,9 @@ _FUEL_LABELS_PL = {
     "diesel": "olej napędowy",
     "electricity": "energia elektryczna",
     "lpg_petrol": "LPG / benzyna",
+    "electric": "napęd elektryczny",
+    "hybrid": "pełna hybryda benzynowa",
+    "mhev": "miękka hybryda benzynowa",
 }
 _UNIT_LABELS = {
     "cm3": "cm³",
@@ -157,6 +160,33 @@ def _comparison_key(
     )
 
 
+def _cargo_context_label(context: Mapping[str, str] | None) -> str:
+    """Render populated cargo dimensions as readable Polish, never raw signatures."""
+    if context is None:
+        return ""
+    field_labels = {
+        "measurement_basis_code": "Podstawa pomiaru",
+        "second_row_state_code": "Drugi rząd siedzeń",
+        "third_row_state_code": "Trzeci rząd siedzeń",
+        "compartment_code": "Schowek",
+        "spare_wheel_state_code": "Koło zapasowe",
+        "tyre_repair_kit_state_code": "Zestaw naprawczy",
+        "double_floor_state_code": "Podwójna podłoga",
+    }
+    value_labels = {
+        "vda_iso_3832": "VDA / ISO 3832",
+        "underfloor_compartment": "schowek pod podłogą",
+        "present": "obecne", "absent": "brak", "folded": "złożony",
+        "upright": "rozłożony", "removed": "wymontowane",
+        "installed": "zamontowane", "not_applicable": "nie dotyczy",
+    }
+    return "; ".join(
+        f"{label}: {value_labels.get(raw, raw.replace('_', ' '))}"
+        for field, label in field_labels.items()
+        if (raw := str(context.get(field, "")).strip())
+    )
+
+
 def _unit_label(unit: str) -> str:
     return _UNIT_LABELS.get(unit, unit)
 
@@ -214,11 +244,7 @@ def _technical_value_state(
         "gear_number": gear_number,
         "cargo_context": context_payload,
         "cargo_context_signature": signature,
-        "cargo_context_label": (
-            semantic_signature(context_payload)
-            if context_payload is not None
-            else ""
-        ),
+        "cargo_context_label": _cargo_context_label(context_payload),
         "context": technical_context(fuel_type_code, context_payload, gear_number),
         "kind": "value",
         "value": row.get("value", ""),
@@ -384,6 +410,13 @@ def collect_browser_catalog(
         equipment_codes,
     )
 
+    configuration_fuels: dict[str, str] = {}
+    for (configuration_code, attribute_code, _, _, _), row in latest_values.items():
+        if attribute_code == "fuel_type":
+            fuel_code = str(row.get("value", "")).strip()
+            if fuel_code:
+                configuration_fuels[configuration_code] = fuel_code
+
     catalog_configurations: list[dict[str, Any]] = []
     equipment_counts: dict[str, Counter[str]] = {code: Counter() for code in sorted(equipment_codes)}
     for configuration in configurations:
@@ -418,6 +451,7 @@ def collect_browser_catalog(
                     f"{configuration.get('powertrain_label', '')} · skrzynia {transmission_label}"
                 ),
                 "powertrain_label": configuration.get("powertrain_label", ""),
+                "fuel_type_code": configuration_fuels.get(code, ""),
                 "transmission_type": transmission,
                 "catalog_price": core._price_state(prices.get((code,))),
                 "number_of_seats": core._seat_state(seats.get((code,))),
@@ -526,6 +560,13 @@ def collect_browser_catalog(
                 row.get("powertrain_label", "") for row in configurations
                 if row.get("powertrain_label", "")
             }),
+            "fuel_types": [
+                {"code": code, "name": _FUEL_LABELS_PL.get(code, code.replace("_", " "))}
+                for code in sorted({
+                    item.get("fuel_type_code", "") for item in catalog_configurations
+                    if item.get("fuel_type_code", "")
+                }, key=lambda value: (_FUEL_LABELS_PL.get(value, value).casefold(), value))
+            ],
             "seat_counts": sorted({
                 int(state["value"])
                 for state in (item["number_of_seats"] for item in catalog_configurations)
@@ -581,8 +622,11 @@ def render_html(catalog: Mapping[str, Any]) -> str:
     <label>Skrzynia
       <select id="transmissions"></select>
     </label>
-    <label>Napędy
+    <label>Napędy / silniki
       <select id="powertrains" multiple size="5"></select>
+    </label>
+    <label>Paliwo
+      <select id="fuel-types"><option value="">Dowolne paliwo</option></select>
     </label>
     <div class="price-range-row">
       <label>Cena minimalna PLN

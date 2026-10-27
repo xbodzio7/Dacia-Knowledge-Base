@@ -136,6 +136,7 @@ class ConfigurationShortlistHtmlTests(unittest.TestCase):
             "versions",
             "transmissions",
             "powertrains",
+            "fuel-types",
             "minimum-price",
             "maximum-price",
             "seats",
@@ -325,6 +326,7 @@ process.stdout.write(JSON.stringify(state));
         self.assertIn('<select id="versions" multiple size="5" disabled>', rendered)
         self.assertIn('<select id="transmissions"></select>', rendered)
         self.assertIn('<select id="powertrains" multiple size="5"></select>', rendered)
+        self.assertIn('<select id="fuel-types">', rendered)
         self.assertIn("HTMLFormElement.prototype.reset.call(filters)", rendered)
 
         script = REPOSITORY / "tools" / "reporting" / "configuration_shortlist_browser.js"
@@ -335,12 +337,18 @@ const versions = [
   {code: "a_two", name: "Two", model_code: "model_a"},
   {code: "b_one", name: "One", model_code: "model_b"}
 ];
+const configurations = [
+  {model_code: "model_a", version_code: "a_one", fuel_type_code: "petrol"},
+  {model_code: "model_a", version_code: "a_two", fuel_type_code: "lpg_petrol"},
+  {model_code: "model_b", version_code: "b_one", fuel_type_code: "hybrid"}
+];
 process.stdout.write(JSON.stringify({
   model: api.modelOptionLabel({code: "model_a", name: "Model A"}),
   version: api.versionOptionLabel(versions[0]),
   none: api.versionsForModels(versions, []).map((item) => item.code),
   modelA: api.versionsForModels(versions, ["model_a"]).map((item) => item.code),
   both: api.versionsForModels(versions, ["model_a", "model_b"]).map((item) => item.code),
+  fuelFiltered: api.versionsForModels(versions, ["model_a"], configurations, ["lpg_petrol"]).map((item) => item.code),
   groups: api.versionGroupsForModels(versions, ["model_a", "model_b"]).map((item) => ({name: item.name, codes: item.version_codes}))
 }));
 """
@@ -357,6 +365,7 @@ process.stdout.write(JSON.stringify({
         self.assertEqual(result["none"], [])
         self.assertEqual(result["modelA"], ["a_one", "a_two"])
         self.assertEqual(result["both"], ["a_one", "a_two", "b_one"])
+        self.assertEqual(result["fuelFiltered"], ["a_two"])
         self.assertEqual(
   result["groups"],
   [

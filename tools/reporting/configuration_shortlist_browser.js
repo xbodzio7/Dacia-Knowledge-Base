@@ -26,6 +26,7 @@
       versions: unique(criteria && criteria.versions),
       transmissions: unique(criteria && criteria.transmissions),
       powertrains: unique(criteria && criteria.powertrains),
+      fuel_types: unique(criteria && criteria.fuel_types),
       minimum_price_pln: minimum === null || minimum === undefined || minimum === "" ? null : Number(minimum),
       maximum_price_pln: maximum === null || maximum === undefined || maximum === "" ? null : Number(maximum),
       seats,
@@ -62,6 +63,9 @@
     if (criteria.powertrains.length && !criteria.powertrains.some((phrase) =>
       configuration.powertrain_label.toLocaleLowerCase("pl").includes(phrase.toLocaleLowerCase("pl")))) {
       reasons.add("powertrain");
+    }
+    if (criteria.fuel_types.length && !criteria.fuel_types.includes(configuration.fuel_type_code || "")) {
+      reasons.add("fuel_type");
     }
     if (criteria.search && !configurationSearchText(configuration).includes(criteria.search)) reasons.add("search");
 
@@ -360,10 +364,18 @@
     return String(item.name || item.code || "");
   }
 
-  function versionsForModels(versions, modelCodes) {
+  function versionsForModels(versions, modelCodes, configurations, fuelTypes) {
     const wanted = new Set(modelCodes || []);
     if (!wanted.size) return [];
-    return (versions || []).filter((item) => wanted.has(item.model_code));
+    const selectedFuels = new Set(fuelTypes || []);
+    const compatibleVersions = selectedFuels.size
+      ? new Set((configurations || [])
+        .filter((item) => wanted.has(item.model_code) && selectedFuels.has(item.fuel_type_code || ""))
+        .map((item) => item.version_code))
+      : null;
+    return (versions || []).filter((item) =>
+      wanted.has(item.model_code) && (!compatibleVersions || compatibleVersions.has(item.code))
+    );
   }
 
   function versionGroupKey(item) {
@@ -429,10 +441,12 @@ model_codes: []
     ).join("");
   }
 
-  function populateVersions(catalog, modelCodes, selectedVersions) {
+  function populateVersions(catalog, modelCodes, selectedVersions, fuelTypes) {
     const select = document.querySelector("#versions");
     const field = document.querySelector("#versions-field");
-    const items = versionGroupsForModels(catalog.facets.versions, modelCodes);
+    const versions = versionsForModels(catalog.facets.versions, modelCodes, catalog.configurations,
+      fuelTypes || selectedValues(document.querySelector("#fuel-types")));
+    const items = versionGroupsForModels(versions, modelCodes);
     select.innerHTML = versionGroupMarkup(items);
     select.disabled = items.length === 0;
     if (field) field.hidden = items.length === 0;
@@ -445,6 +459,8 @@ model_codes: []
     document.querySelector("#transmissions").innerHTML = '<option value="">Dowolna</option>'
       + optionMarkup(catalog.facets.transmissions, "", (item) => item);
     document.querySelector("#powertrains").innerHTML = optionMarkup(catalog.facets.powertrains, "", (item) => item);
+    document.querySelector("#fuel-types").innerHTML = '<option value="">Dowolne paliwo</option>'
+      + optionMarkup(catalog.facets.fuel_types || [], "code", (item) => item.name);
     document.querySelector("#seats").innerHTML = '<option value="">Dowolna / także brak danych</option>'
       + optionMarkup(catalog.facets.seat_counts.map(String), "", (item) => `${item} miejsc`);
     document.querySelector("#required-equipment").innerHTML = optionMarkup(
@@ -460,6 +476,7 @@ model_codes: []
       versions: selectedVersionCodes(document.querySelector("#versions")),
       transmissions: transmission ? [transmission] : [],
       powertrains: selectedValues(document.querySelector("#powertrains")),
+      fuel_types: selectedValues(document.querySelector("#fuel-types")),
       minimum_price_pln: document.querySelector("#minimum-price").value,
       maximum_price_pln: document.querySelector("#maximum-price").value,
       seats: document.querySelector("#seats").value,
@@ -482,6 +499,8 @@ model_codes: []
     populateVersions(catalog, modelCodes, selectedVersions);
     document.querySelector("#transmissions").value = (filters.transmissions || [])[0] || "";
     setSelected(document.querySelector("#powertrains"), filters.powertrains || []);
+    document.querySelector("#fuel-types").value = (filters.fuel_types || [])[0] || "";
+    populateVersions(catalog, modelCodes, selectedVersions, filters.fuel_types || []);
     document.querySelector("#minimum-price").value = filters.minimum_price_pln || "";
     document.querySelector("#maximum-price").value = filters.maximum_price_pln || "";
     document.querySelector("#seats").value = filters.seats || "";
@@ -514,18 +533,24 @@ model_codes: []
     const models = document.querySelector("#models");
     models.addEventListener("change", () => {
       const selectedVersions = selectedVersionCodes(document.querySelector("#versions"));
-      populateVersions(catalog, selectedValues(models), selectedVersions);
+      populateVersions(catalog, selectedValues(models), selectedVersions, selectedValues(document.querySelector("#fuel-types")));
+      update();
+    });
+    const fuelTypes = document.querySelector("#fuel-types");
+    fuelTypes.addEventListener("change", () => {
+      const selectedVersions = selectedVersionCodes(document.querySelector("#versions"));
+      populateVersions(catalog, selectedValues(models), selectedVersions, selectedValues(fuelTypes));
       update();
     });
     for (const element of document.querySelectorAll("#filters input, #filters select")) {
-      if (element === models) continue;
+      if (element === models || element === fuelTypes) continue;
       element.addEventListener(element.tagName === "SELECT" ? "change" : "input", update);
     }
     document.querySelector("#reset").addEventListener("click", () => {
       const filters = document.querySelector("#filters");
       HTMLFormElement.prototype.reset.call(filters);
       for (const element of document.querySelectorAll("#filters select[multiple]")) setSelected(element, []);
-      populateVersions(catalog, [], []);
+      populateVersions(catalog, [], [], []);
       update();
     });
     update();
