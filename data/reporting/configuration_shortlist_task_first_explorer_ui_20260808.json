@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "kind": "configuration_shortlist_task_first_explorer_ui",
+  "implemented_on": "2026-08-08",
+  "status": "complete_pending_final_quality",
+  "entry_marker": "configuration_shortlist_task_first_explorer_v1",
+  "primary_tasks": [
+    {
+      "id": "configure",
+      "label": "Skonfiguruj samochód",
+      "target": "configurator_step_navigation_v1"
+    },
+    {
+      "id": "compare",
+      "label": "Porównaj wersje",
+      "target": "selection-panel"
+    },
+    {
+      "id": "browse",
+      "label": "Przeglądaj modele",
+      "target": "model-picker"
+    },
+    {
+      "id": "sources",
+      "label": "Sprawdź źródła",
+      "target": "configurator-observation-filters"
+    }
+  ],
+  "preserved_workflows": {
+    "eight_step_configurator_navigation": true,
+    "multi_configuration_comparison": true,
+    "commercial_selection_session_storage": true,
+    "commercial_selection_json_export": true,
+    "offline_self_contained_html": true
+  },
+  "evidence_scope_legend": [
+    "catalog_choice",
+    "exact_observation",
+    "grade_scope_evidence",
+    "source_blocked"
+  ],
+  "semantic_boundaries": {
+    "source_data_mutated": false,
+    "master_data_mutated": false,
+    "catalogue_choice_inferred_from_selected_observation": false,
+    "grade_evidence_promoted_to_exact_configuration": false,
+    "cross_grade_projection": false,
+    "cross_powertrain_projection": false,
+    "cross_transmission_projection": false,
+    "compatibility_inference_added": false,
+    "ranking_added": false,
+    "recommendation_added": false
+  },
+  "sandero_stepway_data_boundary": {
+    "active_exact_configuration_surfaces": 15,
+    "inventory_and_catalogue_price_verified_surfaces": 15,
+    "exact_complete_design_surfaces": 2,
+    "exact_design_source_blocked_surfaces": 13,
+    "ui_must_not_create_design_selectors_for_source_blocked_surfaces": true
+  }
+}

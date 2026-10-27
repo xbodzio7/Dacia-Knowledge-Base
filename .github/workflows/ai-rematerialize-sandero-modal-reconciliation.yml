@@ -1,0 +1,57 @@
+name: AI rematerialize conservative Sandero modal reconciliation
+
+on:
+  push:
+    branches:
+      - ai/sandero-stepway-full-modal-reconciliation-001
+    paths:
+      - .github/workflows/ai-rematerialize-sandero-modal-reconciliation.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ai/sandero-stepway-full-modal-reconciliation-001
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Remove only prior observations from this snapshot
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          root = Path('.')
+          source = 'src_pl_sandero_stepway_full_modal_20260809'
+          for rel in ('data/master/configuration_attribute_availability.csv','data/master/configuration_attribute_values.csv'):
+              path = root / rel
+              with path.open(encoding='utf-8-sig', newline='') as f:
+                  reader = csv.DictReader(f)
+                  fields = list(reader.fieldnames or [])
+                  rows = [r for r in reader if r.get('source_code') != source]
+              with path.open('w', encoding='utf-8', newline='') as f:
+                  writer = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
+                  writer.writeheader(); writer.writerows(rows)
+          PY
+      - name: Apply corrected reconciliation
+        run: |
+          python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py --apply
+          python tools/import_sandero_stepway_full_modal_reconciliation_20260809.py --verify
+      - name: Commit rematerialized data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/master/configuration_attribute_availability.csv \
+            data/master/configuration_attribute_values.csv \
+            data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.json \
+            data/reporting/sandero_stepway_full_modal_canonical_reconciliation_20260809.md
+          git commit -m "data(sandero): rematerialize conservative modal reconciliation"
+          git push origin HEAD:ai/sandero-stepway-full-modal-reconciliation-001

@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 3416,
+  "attribute_code": "lpg_vessel_filling_capacity",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "L",
+    "status": "active"
+  },
+  "observation_date": "2025-12-17",
+  "fuel_type_code": "",
+  "source_page": 19,
+  "source_section": "Pojemność zbiornika paliwa (l)",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "fuel_type_code": "lpg",
+      "value": "40",
+      "source_text": "Pojemność zbiornika paliwa (l) 50 50/40(3) 50 50/40(3) 50 50"
+    }
+  ]
+}

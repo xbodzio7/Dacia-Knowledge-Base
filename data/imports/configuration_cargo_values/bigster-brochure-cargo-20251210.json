@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "kind": "configuration_cargo_values",
+  "value_id_start": 1987,
+  "context_id_start": 156,
+  "observation_date": "2025-12-10",
+  "source_page": 20,
+  "source_section": "07. DANE TECHNICZNE — MASY (kg) I OBJĘTOŚCI (dm3 LUB LITRY)",
+  "attribute_code": "boot_capacity",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "L",
+    "status": "active"
+  },
+  "source_code": "src_pl_bigster_brochure_20251210",
+  "groups": [
+    {
+      "group_code": "mild_hybrid_g_140",
+      "powertrain_label": "mild hybrid-G 140 4x2",
+      "configurations": [
+        "bigster_essential_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual"
+      ],
+      "repair_kit_configurations": [
+        "bigster_essential_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual"
+      ],
+      "spare_wheel_configurations": [],
+      "repair_kit_observations": [
+        {"context_code": "repair_kit_upright_vda_iso3832", "value": "609", "source_text": "Pojemność maksymalna pod półką bagażową z zestawem naprawczym — 609 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_folded_vda_iso3832", "value": "1877", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z zestawem naprawczym — 1877 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_upright_ordinary_litre", "value": "660", "source_text": "Pojemność maksymalna pod półką bagażową z zestawem naprawczym — 660 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_folded_ordinary_litre", "value": "1960", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z zestawem naprawczym — 1960 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""}
+      ],
+      "spare_wheel_observations": []
+    },
+    {
+      "group_code": "mild_hybrid_140",
+      "powertrain_label": "mild hybrid 140 4x2",
+      "configurations": [
+        "bigster_essential_mildhybrid140_4x2_manual",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybrid140_4x2_manual"
+      ],
+      "repair_kit_configurations": [
+        "bigster_essential_mildhybrid140_4x2_manual",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybrid140_4x2_manual"
+      ],
+      "spare_wheel_configurations": [
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybrid140_4x2_manual"
+      ],
+      "repair_kit_observations": [
+        {"context_code": "repair_kit_upright_vda_iso3832", "value": "667", "source_text": "Pojemność maksymalna pod półką bagażową z zestawem naprawczym — 667 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_folded_vda_iso3832", "value": "1937", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z zestawem naprawczym — 1937 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_upright_ordinary_litre", "value": "702", "source_text": "Pojemność maksymalna pod półką bagażową z zestawem naprawczym — 702 litry", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_folded_ordinary_litre", "value": "2002", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z zestawem naprawczym — 2002 litry", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""}
+      ],
+      "spare_wheel_observations": [
+        {"context_code": "spare_wheel_upright_vda_iso3832", "value": "624", "source_text": "Pojemność maksymalna pod półką bagażową z kołem zapasowym — 624 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""},
+        {"context_code": "spare_wheel_folded_vda_iso3832", "value": "1894", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z kołem zapasowym — 1894 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""},
+        {"context_code": "spare_wheel_upright_ordinary_litre", "value": "681", "source_text": "Pojemność maksymalna pod półką bagażową z kołem zapasowym — 681 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""},
+        {"context_code": "spare_wheel_folded_ordinary_litre", "value": "1981", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z kołem zapasowym — 1981 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""}
+      ]
+    },
+    {
+      "group_code": "hybrid_155",
+      "powertrain_label": "hybrid 155 4x2",
+      "configurations": [
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_journey_hybrid155_4x2_automatic"
+      ],
+      "repair_kit_configurations": [
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_journey_hybrid155_4x2_automatic"
+      ],
+      "spare_wheel_configurations": [
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_journey_hybrid155_4x2_automatic"
+      ],
+      "repair_kit_observations": [
+        {"context_code": "repair_kit_upright_vda_iso3832", "value": "546", "source_text": "Pojemność maksymalna pod półką bagażową z zestawem naprawczym — 546 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_folded_vda_iso3832", "value": "1851", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z zestawem naprawczym — 1851 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_upright_ordinary_litre", "value": "612", "source_text": "Pojemność maksymalna pod półką bagażową z zestawem naprawczym — 612 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""},
+        {"context_code": "repair_kit_folded_ordinary_litre", "value": "1912", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z zestawem naprawczym — 1912 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "absent", "tyre_repair_kit_state_code": "present", "double_floor_state_code": ""}
+      ],
+      "spare_wheel_observations": [
+        {"context_code": "spare_wheel_upright_vda_iso3832", "value": "488", "source_text": "Pojemność maksymalna pod półką bagażową z kołem zapasowym — 488 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""},
+        {"context_code": "spare_wheel_folded_vda_iso3832", "value": "1791", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z kołem zapasowym — 1791 dm3 VDA", "measurement_basis_code": "vda_iso_3832", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""},
+        {"context_code": "spare_wheel_upright_ordinary_litre", "value": "566", "source_text": "Pojemność maksymalna pod półką bagażową z kołem zapasowym — 566 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "upright", "third_row_state_code": "", "compartment_code": "main_luggage_compartment", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""},
+        {"context_code": "spare_wheel_folded_ordinary_litre", "value": "1866", "source_text": "Pojemność maksymalna ze złożoną tylną kanapą z kołem zapasowym — 1866 litrów", "measurement_basis_code": "ordinary_litre", "second_row_state_code": "folded", "third_row_state_code": "", "compartment_code": "source_stated_total", "spare_wheel_state_code": "present", "tyre_repair_kit_state_code": "absent", "double_floor_state_code": ""}
+      ]
+    }
+  ],
+  "deferred_groups": [
+    {
+      "group_code": "hybrid_g_150_4x4",
+      "configurations": [
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ],
+      "source_values": ["444", "1712", "556", "1856"],
+      "reason": "The technical table says there is no repair kit / spare wheel for this column, while the same brochure equipment table marks the tyre repair kit as standard for every trim. The physical equipment context is therefore contradictory."
+    },
+    {
+      "group_code": "generic_dimensions_double_floor",
+      "source_values": ["667", "702", "1937", "2002"],
+      "reason": "The dimensions page states no double floor and no spare wheel but does not identify a powertrain. Matching the values to the mild hybrid 140 technical column is not sufficient evidence for configuration projection."
+    }
+  ],
+  "non_inference": [
+    "Do not import hybrid-G 150 4x4 cargo values until the repair-kit contradiction is resolved.",
+    "Do not project generic dimensions-page values to a powertrain solely because the numbers match.",
+    "Do not infer double-floor state for page-20 technical-table observations.",
+    "Do not import spare-wheel observations into Essential or mild hybrid-G 140 configurations.",
+    "Do not project any observation outside the 11 explicitly mapped configurations."
+  ]
+}

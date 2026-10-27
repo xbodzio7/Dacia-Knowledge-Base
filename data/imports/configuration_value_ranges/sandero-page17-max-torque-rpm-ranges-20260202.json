@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 290,
+  "attribute_code": "max_torque_rpm",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "rpm",
+    "status": "active"
+  },
+  "observation_date": "2026-02-02",
+  "fuel_type_code": "",
+  "source_page": 17,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}. Inclusive engine-speed interval retained with source fuel context.",
+  "rows": [
+    {
+      "configuration_code": "sandero_iii_essential_tce100_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 od 2900 do 3500"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_tce100_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 od 2900 do 3500"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_tce100_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2900",
+      "maximum_value": "3500",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "200 od 2900 do 3500"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "lpg",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "197 od 1750 do 3750"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "lpg",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "197 od 1750 do 3750"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "lpg",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "197 od 1750 do 3750"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "lpg",
+      "minimum_value": "1750",
+      "maximum_value": "3750",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "197 od 1750 do 3750"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "190 od 2000 do 4000"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "fuel_type_code": "petrol",
+      "minimum_value": "2000",
+      "maximum_value": "4000",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "190 od 2000 do 4000"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_brochure_cargo_import",
+  "implemented_on": "2026-07-25",
+  "observation_date": "2026-02-02",
+  "source_page": 20,
+  "source_codes": [
+    "src_pl_sandero_brochure_20260202",
+    "src_pl_sandero_stepway_brochure_20260202"
+  ],
+  "models": [
+    "sandero_iii",
+    "sandero_stepway_iii"
+  ],
+  "configurations": 9,
+  "configuration_values_imported": 45,
+  "cargo_context_rows_imported": 45,
+  "source_configuration_relationships": 9,
+  "values_per_configuration": {
+    "minimum_vda_iso3832": 328,
+    "minimum_ordinary_litre": 410,
+    "maximum_vda_iso3832": 1108,
+    "maximum_ordinary_litre": 1455,
+    "underfloor_vda_iso3832": 78
+  },
+  "legacy_values_migrated": false,
+  "legacy_20260626_boot_capacity_rows_preserved": 7,
+  "equipment_context_policy": "not_stated",
+  "conflict_policy": "The brochure's 328 dm3 historical observation coexists with later configuration-specific 372 dm3 cargo_volume_vda observations; neither is overwritten or converted.",
+  "next_package": "Jogger Brochure Cargo Value Import"
+}

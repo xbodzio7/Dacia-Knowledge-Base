@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "kind": "duster_mini_technical_page21_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_018",
+  "source_receipt": {
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+    "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+    "page": 21
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 61,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 30,
+    "decision_counts": {
+      "context_only_non_import": 14,
+      "unresolved_signature_mismatch": 26
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "powertrain_columns": [
+      "hybrid-G 150 4×4*",
+      "hybrid 155"
+    ],
+    "energy_source": [
+      "Benzyna / LPG / Elektryczny mild hybrid 48 V",
+      "Benzyna / Elektryczny full hybrid 260 V"
+    ],
+    "traction_battery": [
+      "Litowo-jonowy / 48 V / 0,84 kWh",
+      "Litowo-jonowy / 260 V / 1,4 kWh"
+    ],
+    "drivetrain": [
+      "4×4 z silnikiem elektrycznym z tyłu",
+      "4×2"
+    ],
+    "gearbox": [
+      "Automatyczna dwusprzęgłowa / 6",
+      "Automatyczna Multimode / 4+2"
+    ],
+    "co2": [
+      "do określenia w zależności od kraju",
+      "105/107"
+    ],
+    "combined_fuel_consumption": [
+      "do określenia w zależności od kraju",
+      "4,6/4,7"
+    ],
+    "missing_mass_fragments_not_projected": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "country_dependent_values_not_invented": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Duster Mini Technical Page 21 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_019",
+    "candidate_count": 21
+  }
+}

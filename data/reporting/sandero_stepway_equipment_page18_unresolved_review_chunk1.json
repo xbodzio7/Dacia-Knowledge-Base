@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_equipment_page18_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_034",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 18
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 97,
+    "chunk_index": 1,
+    "chunk_count": 3,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 19,
+    "decision_counts": {
+      "context_only_non_import": 19,
+      "unresolved_signature_mismatch": 21
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme"
+    ],
+    "reviewed_sections": [
+      "body and lighting",
+      "wheels",
+      "start of interior"
+    ],
+    "copper_brown_fragments_preserved": true,
+    "side_decal_and_snorkel_fragments_preserved": true,
+    "dashboard_and_door_insert_fragments_remain_one_visual_row": true,
+    "marker_only_lines_kept_with_wrapped_labels": true,
+    "rear_bench_row_continues_into_next_chunk": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_values_not_projected": true,
+    "wrapped_values_not_promoted_independently": true,
+    "partial_cross_chunk_row_not_completed_by_inference": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_035",
+    "candidate_count": 40,
+    "group_candidate_count": 97,
+    "chunk_index": 2,
+    "chunk_count": 3
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 3285,
+  "attribute_code": "traction_motor_torque",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "Nm",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_page": 20,
+  "source_section": "ZUŻYCIE PALIWA I EMISJA CO2",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "87",
+      "source_text": "87 przy 1630 – elektryczny"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "87",
+      "source_text": "87 przy 1630 – elektryczny"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "87",
+      "source_text": "87 przy 1630 – elektryczny"
+    }
+  ]
+}

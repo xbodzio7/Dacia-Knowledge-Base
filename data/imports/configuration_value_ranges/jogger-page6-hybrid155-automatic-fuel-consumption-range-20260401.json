@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 53,
+  "attribute_code": "fuel_consumption_combined",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "l/100 km",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "petrol",
+  "source_page": 6,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4.5",
+      "maximum_value": "4.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "4,5-4,6"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4.5",
+      "maximum_value": "4.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "4,5-4,6"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4.5",
+      "maximum_value": "4.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "4,5-4,6"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4.5",
+      "maximum_value": "4.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "4,5-4,6"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4.5",
+      "maximum_value": "4.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "4,5-4,6"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "4.5",
+      "maximum_value": "4.6",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "4,5-4,6"
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "version": 1,
+  "kind": "spring_legacy_pdf_assimilation_closure",
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "package_id": "spring_legacy_pdf_assimilation_closure_001",
+  "milestone": {
+    "phase": "Legacy PDF Source Audit",
+    "scope": "Spring brochure 2026-02-19 and MY2025 stock price list 2026-07-08",
+    "closure_status": "closed",
+    "master_mutations_in_closure_package": 0
+  },
+  "source_receipts": [
+    {
+      "source_code": "src_pl_spring_brochure_20260219",
+      "repository_path": "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+      "sha256": "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d",
+      "document_date": "2026-02-19",
+      "page_count": 22,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "inventory": "project/source-audit/spring-brochure-20260219-page-inventory.md"
+    },
+    {
+      "source_code": "src_pl_spring_price_my25_stock_20260708",
+      "repository_path": "PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf",
+      "sha256": "809d24ec3710aac02b3f3a2f33e1872689430a1d6887f387936a5ac3ff343ae0",
+      "document_date": "2026-07-08",
+      "page_count": 6,
+      "reviewed_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "inventory": "project/source-audit/spring-price-my25-stock-20260708-page-inventory.md"
+    }
+  ],
+  "page_accounting": {
+    "source_count": 2,
+    "brochure_pages": 22,
+    "price_list_pages": 6,
+    "reviewed_pages": 28,
+    "unreviewed_pages": 0
+  },
+  "ledger_accounting": {
+    "area_count": 22,
+    "initial_status_counts": {
+      "candidate": 12,
+      "conflict": 2,
+      "deferred": 4,
+      "out_of_scope": 1,
+      "represented": 3
+    },
+    "closure_outcomes": [
+      {
+        "area": "Document identity",
+        "initial_status": "represented",
+        "closure_classification": "represented",
+        "evidence": [
+          "data/master/sources.csv",
+          "project/source-audit/spring-full-assimilation-intake-20260802.md"
+        ]
+      },
+      {
+        "area": "Stock prices",
+        "initial_status": "represented",
+        "closure_classification": "represented_with_model_year_boundary",
+        "evidence": [
+          "data/master/configuration_prices.csv"
+        ]
+      },
+      {
+        "area": "Charging cables",
+        "initial_status": "conflict",
+        "closure_classification": "explicit_temporal_conflict",
+        "evidence": [
+          "project/source-audit/spring-source-conflicts-20260802.md",
+          "data/reporting/spring_charging_cable_commercial_semantics_migration.json"
+        ]
+      },
+      {
+        "area": "DC charging",
+        "initial_status": "candidate",
+        "closure_classification": "represented_with_context",
+        "evidence": [
+          "data/reporting/spring_charging_cable_representation_migration.json"
+        ]
+      },
+      {
+        "area": "V2L",
+        "initial_status": "conflict",
+        "closure_classification": "explicit_dated_range_conflict",
+        "evidence": [
+          "project/source-audit/spring-source-conflicts-20260802.md"
+        ]
+      },
+      {
+        "area": "Multimedia",
+        "initial_status": "candidate",
+        "closure_classification": "represented",
+        "evidence": [
+          "data/master/configuration_attribute_availability.csv"
+        ]
+      },
+      {
+        "area": "Exterior colours",
+        "initial_status": "candidate",
+        "closure_classification": "represented_and_bounded_current_delta",
+        "evidence": [
+          "data/reporting/spring_biel_alpejska_default_colour_migration.json"
+        ]
+      },
+      {
+        "area": "Grade trims",
+        "initial_status": "candidate",
+        "closure_classification": "represented",
+        "evidence": [
+          "data/master/configuration_attribute_availability.csv"
+        ]
+      },
+      {
+        "area": "Safety/ADAS",
+        "initial_status": "candidate",
+        "closure_classification": "represented",
+        "evidence": [
+          "data/master/configuration_attribute_availability.csv"
+        ]
+      },
+      {
+        "area": "Parking",
+        "initial_status": "candidate",
+        "closure_classification": "represented",
+        "evidence": [
+          "data/master/configuration_attribute_availability.csv"
+        ]
+      },
+      {
+        "area": "Powertrain",
+        "initial_status": "candidate",
+        "closure_classification": "represented_and_materialized",
+        "evidence": [
+          "data/reporting/spring_nonconflicting_common_technical_migration.json"
+        ]
+      },
+      {
+        "area": "Battery",
+        "initial_status": "candidate",
+        "closure_classification": "partly_materialized_with_explicit_deferrals",
+        "evidence": [
+          "data/reporting/spring_nonconflicting_technical_observations_review.json",
+          "data/reporting/spring_nonconflicting_common_technical_migration.json"
+        ]
+      },
+      {
+        "area": "Charging times",
+        "initial_status": "candidate",
+        "closure_classification": "explicit_contextual_deferral",
+        "evidence": [
+          "data/reporting/spring_nonconflicting_common_technical_migration.json"
+        ]
+      },
+      {
+        "area": "Range/energy",
+        "initial_status": "deferred",
+        "closure_classification": "represented_or_explicitly_deferred",
+        "evidence": [
+          "data/reporting/spring_nonconflicting_technical_observations_review.json"
+        ]
+      },
+      {
+        "area": "Performance",
+        "initial_status": "candidate",
+        "closure_classification": "represented",
+        "evidence": [
+          "data/master/configuration_attribute_values.csv"
+        ]
+      },
+      {
+        "area": "Passenger dimensions",
+        "initial_status": "candidate",
+        "closure_classification": "materialized_with_wheel_qualified_deferral",
+        "evidence": [
+          "data/reporting/spring_nonconflicting_common_technical_migration.json"
+        ]
+      },
+      {
+        "area": "Passenger luggage",
+        "initial_status": "candidate",
+        "closure_classification": "represented_with_measurement_context",
+        "evidence": [
+          "data/master/configuration_attribute_values.csv"
+        ]
+      },
+      {
+        "area": "Interior storage",
+        "initial_status": "deferred",
+        "closure_classification": "explicit_accessory_context_deferral",
+        "evidence": [
+          "project/source-audit/spring-evidence-ledger-20260802.md"
+        ]
+      },
+      {
+        "area": "Cargo derivative",
+        "initial_status": "deferred",
+        "closure_classification": "explicit_separate_configuration_deferral",
+        "evidence": [
+          "project/source-audit/spring-evidence-ledger-20260802.md"
+        ]
+      },
+      {
+        "area": "Accessories/YouClip",
+        "initial_status": "deferred",
+        "closure_classification": "explicit_accessory_domain_deferral",
+        "evidence": [
+          "project/source-audit/spring-evidence-ledger-20260802.md"
+        ]
+      },
+      {
+        "area": "Marketing/design",
+        "initial_status": "out_of_scope",
+        "closure_classification": "out_of_scope",
+        "evidence": [
+          "project/source-audit/spring-evidence-ledger-20260802.md"
+        ]
+      },
+      {
+        "area": "Legal disclaimers",
+        "initial_status": "represented",
+        "closure_classification": "represented_as_evidence_boundary",
+        "evidence": [
+          "project/source-audit/spring-evidence-ledger-20260802.md"
+        ]
+      }
+    ],
+    "unclassified_area_count": 0
+  },
+  "downstream_receipts": [
+    "data/reporting/spring_official_pdf_source_registration.json",
+    "data/reporting/spring_source_backed_data_import_review.json",
+    "data/reporting/spring_current_grade_snapshot_capture.json",
+    "data/reporting/spring_exact_current_semantic_migration_review.json",
+    "data/reporting/spring_standard_equipment_representation_review.json",
+    "data/reporting/spring_biel_alpejska_default_colour_migration.json",
+    "data/reporting/spring_charging_cable_representation_migration.json",
+    "data/reporting/spring_charging_cable_commercial_semantics_review.json",
+    "data/reporting/spring_charging_cable_commercial_semantics_migration.json",
+    "data/reporting/post_spring_charging_cable_priority_selection_review.json",
+    "data/reporting/spring_nonconflicting_technical_observations_review.json",
+    "data/reporting/spring_nonconflicting_common_technical_migration.json"
+  ],
+  "materialized_observations": {
+    "approved_attribute_count": 12,
+    "approved_configuration_count": 3,
+    "approved_observation_count": 36,
+    "materialized_observation_count": 36,
+    "value_id_range": [
+      3569,
+      3604
+    ],
+    "source_code": "src_pl_spring_brochure_20260219",
+    "observation_date": "2026-02-19"
+  },
+  "represented_source_surfaces": {
+    "scalar_values": {
+      "total": 90,
+      "by_source": {
+        "src_pl_spring_brochure_20260219": 90
+      }
+    },
+    "range_values": {
+      "total": 3,
+      "by_source": {
+        "src_pl_spring_brochure_20260219": 3
+      }
+    },
+    "availability_records": {
+      "total": 126,
+      "by_source": {
+        "src_pl_spring_brochure_20260219": 126
+      }
+    },
+    "configuration_prices": {
+      "total": 1,
+      "by_source": {
+        "src_pl_spring_price_my25_stock_20260708": 1
+      }
+    }
+  },
+  "preserved_deferrals": [
+    "battery_mass_204_kg_my2025_stock_only",
+    "battery_voltage_354_v_my2025_stock_only",
+    "battery_capacity_24_3_kwh_measurement_basis_unqualified",
+    "charging_times_context_dependent",
+    "ground_clearance_15_inch_wheel_only",
+    "range_and_maximum_speed_not_reimported"
+  ],
+  "preserved_conflicts": [
+    "C-001_temporal_model_year_charging_cable_conflict",
+    "C-002_internal_price_list_charging_cable_contradiction",
+    "C-003_brochure_narrative_matrix_precision_hierarchy",
+    "C-004_brochure_vs_saved_my2026_range_evolution"
+  ],
+  "source_candidate_closure": {
+    "eligible_candidate_count": 0,
+    "selected_next_source_package": null,
+    "source_exhausted_candidate_count": 7
+  },
+  "closure_checks": {
+    "both_source_hashes_verified": true,
+    "all_pages_inventoried": true,
+    "every_ledger_area_classified": true,
+    "all_downstream_reports_complete": true,
+    "all_approved_observations_materialized": true,
+    "all_technical_deferrals_explicit": true,
+    "all_documentary_conflicts_preserved": true,
+    "no_eligible_source_candidate_remains": true,
+    "no_new_attribute_or_domain_decision_required": true
+  },
+  "release_handoff": {
+    "last_public_release": "data-products-v1.10.0",
+    "source_backed_repository_delta_after_release": true,
+    "selected_next_package": "data_products_v1_11_0_accelerated_release_preparation_001",
+    "selection_reason": "The legacy-PDF source milestone is closed with new source-backed Spring data and zero eligible source candidates; the existing immutable-release architecture can publish the verified current dataset without expanding source scope or changing product semantics."
+  },
+  "next_package": {
+    "package_id": "data_products_v1_11_0_accelerated_release_preparation_001",
+    "kind": "accelerated_release_preparation",
+    "name": "Data Products v1.11.0 Accelerated Release Preparation",
+    "status": "planned",
+    "goal": "Prepare an immutable v1.11.0 data-product release from the closed legacy-PDF milestone, prove the exact source SHA through double-build byte identity, preserve current product semantics, and publish only after complete Quality and post-merge verification."
+  }
+}

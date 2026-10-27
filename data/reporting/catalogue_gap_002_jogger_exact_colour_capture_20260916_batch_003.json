@@ -1,0 +1,14 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-16",
+  "market": "PL",
+  "capture_method": "live_official_dacia_configurator_interaction",
+  "source_url": "https://www.dacia.pl/samochody/jogger-ri1-ph2-7seats/konfigurator.html",
+  "policy": {"selected_exact_state_required": true,"all_visible_colour_choices_recorded": true,"cross_configuration_projection": false,"grade_level_projection": false,"absence_interpreted_as_unavailability": false,"master_data_mutated": false},
+  "observations": [
+    {"configuration_code":"jogger_extreme_7seat_ecog120_automatic","model":"jogger","seats":7,"grade":"extreme","powertrain":"Eco-G 120","transmission":"automatic","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]},
+    {"configuration_code":"jogger_journey_7seat_ecog120_automatic","model":"jogger","seats":7,"grade":"journey","powertrain":"Eco-G 120","transmission":"automatic","visible_colour_count":7,"colours":[{"name":"biel alpejska","price_pln":0},{"name":"szary schiste","price_pln":2700},{"name":"sandstone","price_pln":2700},{"name":"zielony cedar","price_pln":2700},{"name":"szary urban","price_pln":2700},{"name":"czarna perła","price_pln":2700},{"name":"brązowy terracotta","price_pln":2900}]}
+  ],
+  "non_surface_observation": {"configuration_code":"jogger_expression_7seat_ecog120_automatic","status":"not_settable","reason":"Configurator exposed only the 6-speed manual transmission for Expression with Eco-G 120; no automatic option was available in the interacted state."},
+  "note": "Only the two actually selectable exact states above are recorded as colour surfaces. The Expression automatic combination is retained only as a negative selector observation and is not counted as an active exact colour surface."
+}

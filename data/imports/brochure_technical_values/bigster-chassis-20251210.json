@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "kind": "bigster_chassis_observations",
+  "reviewed_on": "2026-07-26",
+  "observation_date": "2025-12-10",
+  "source_code": "src_pl_bigster_brochure_20251210",
+  "source_page": 20,
+  "source_section": "UKŁAD KIEROWNICZY / UKŁAD HAMULCOWY / KOŁA I OPONY / MASY",
+  "value_id_start": 2336,
+  "groups": [
+    {
+      "code": "mildhybridg140_4x2_manual",
+      "configurations": [
+        "bigster_essential_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual"
+      ],
+      "observations": [
+        {"attribute_code": "turning_circle_between_kerbs", "value": "10.97", "source_text": "Średnica zawracania (między krawężnikami): 10,97 m"},
+        {"attribute_code": "maximum_kerb_weight", "value": "1478", "source_text": "Masa własna maks.: 1478 kg"},
+        {"attribute_code": "steering_type", "value": "Ze wspomaganiem elektrycznym", "source_text": "Układ kierowniczy: Ze wspomaganiem elektrycznym"},
+        {"attribute_code": "front_brake_type", "value": "Tarcze wentylowane Φ296x26", "source_text": "Przód: tarcze wentylowane / średnica: Φ296x26"},
+        {"attribute_code": "rear_brake_type", "value": "Bęben 9” (hamulec postojowy manualny) / tarcza pełna Φ280x9,6 (hamulec postojowy automatyczny)", "source_text": "Tył: bęben (hamulec postojowy manualny): 9” / tarcza pełna (hamulec postojowy automatyczny): Φ280x9,6"},
+        {"attribute_code": "standard_tyre_specification", "value": "215/65/17 99 / 6.5 J17 EC32; 215/60/18 98 / 6.5 J18 EC32; 205/55/19 97 / 7 J19 EC32", "source_text": "Rozmiary opon: 215/65/17 99 / 6.5 J17 EC32; 215/60/18 98 / 6.5 J18 EC32; 205/55/19 97 / 7 J19 EC32"}
+      ]
+    },
+    {
+      "code": "mildhybrid140_4x2_manual",
+      "configurations": [
+        "bigster_essential_mildhybrid140_4x2_manual",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybrid140_4x2_manual"
+      ],
+      "observations": [
+        {"attribute_code": "turning_circle_between_kerbs", "value": "10.97", "source_text": "Średnica zawracania (między krawężnikami): 10,97 m"},
+        {"attribute_code": "maximum_kerb_weight", "value": "1439", "source_text": "Masa własna maks.: 1439 kg"},
+        {"attribute_code": "steering_type", "value": "Ze wspomaganiem elektrycznym", "source_text": "Układ kierowniczy: Ze wspomaganiem elektrycznym"},
+        {"attribute_code": "front_brake_type", "value": "Tarcze wentylowane Φ296x26", "source_text": "Przód: tarcze wentylowane / średnica: Φ296x26"},
+        {"attribute_code": "rear_brake_type", "value": "Bęben 9” (hamulec postojowy manualny) / tarcza pełna Φ280x9,6 (hamulec postojowy automatyczny)", "source_text": "Tył: bęben (hamulec postojowy manualny): 9” / tarcza pełna (hamulec postojowy automatyczny): Φ280x9,6"},
+        {"attribute_code": "standard_tyre_specification", "value": "215/65/17 99 / 6.5 J17 EC32; 215/60/18 98 / 6.5 J18 EC32; 205/55/19 97 / 7 J19 EC31", "source_text": "Rozmiary opon: 215/65/17 99 / 6.5 J17 EC32; 215/60/18 98 / 6.5 J18 EC32; 205/55/19 97 / 7 J19 EC31"}
+      ]
+    },
+    {
+      "code": "hybridg150_4x4_automatic",
+      "configurations": [
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ],
+      "observations": [
+        {"attribute_code": "turning_circle_between_kerbs", "value": "10.97", "source_text": "Średnica zawracania (między krawężnikami): 10,97 m"},
+        {"attribute_code": "maximum_kerb_weight", "value": "1515", "source_text": "Masa własna maks.: 1515 kg"},
+        {"attribute_code": "steering_type", "value": "Ze wspomaganiem elektrycznym", "source_text": "Układ kierowniczy: Ze wspomaganiem elektrycznym"},
+        {"attribute_code": "front_brake_type", "value": "Tarcze wentylowane Φ296x26", "source_text": "Przód: tarcze wentylowane / średnica: Φ296x26"},
+        {"attribute_code": "rear_brake_type", "value": "Tarcza pełna Ø280x9,6", "source_text": "Tył: tarcza pełna Ø280x9,6"},
+        {"attribute_code": "standard_tyre_specification", "value": "225/60 R17 103 H XL 3PMSF / ALU 6.5 J17 5 36; 225/55 R18 102 H XL 3PMSF / ALU 7 J18 5 39; 205/55 R19 97 H XL letnie / ALU 7 J19 5 31; 225/55 R18 102 Y XL letnie / ALU 7 J18 5 39", "source_text": "Rozmiary opon: 225/60 R17 103 H XL 3PMSF / ALU 6.5 J17 5 36; 225/55 R18 102 H XL 3PMSF / ALU 7 J18 5 39; 205/55 R19 97 H XL letnie / ALU 7 J19 5 31; 225/55 R18 102 Y XL letnie / ALU 7 J18 5 39"}
+      ]
+    },
+    {
+      "code": "hybrid155_4x2_automatic",
+      "configurations": [
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_journey_hybrid155_4x2_automatic"
+      ],
+      "observations": [
+        {"attribute_code": "turning_circle_between_kerbs", "value": "10.97", "source_text": "Średnica zawracania (między krawężnikami): 10,97 m"},
+        {"attribute_code": "maximum_kerb_weight", "value": "1487", "source_text": "Masa własna maks.: 1487 kg"},
+        {"attribute_code": "steering_type", "value": "Ze wspomaganiem elektrycznym", "source_text": "Układ kierowniczy: Ze wspomaganiem elektrycznym"},
+        {"attribute_code": "front_brake_type", "value": "Tarcze wentylowane Φ296x26", "source_text": "Przód: tarcze wentylowane / średnica: Φ296x26"},
+        {"attribute_code": "rear_brake_type", "value": "Bęben 9” (hamulec postojowy manualny) / tarcza pełna Φ280x9,6 (hamulec postojowy automatyczny)", "source_text": "Tył: bęben (hamulec postojowy manualny): 9” / tarcza pełna (hamulec postojowy automatyczny): Φ280x9,6"},
+        {"attribute_code": "standard_tyre_specification", "value": "215/65/17 99 / 6.5 J17 EC32; 215/60/18 98 / 6.5 J18 EC32; 205/55/19 97 / 7 J19 EC33", "source_text": "Rozmiary opon: 215/65/17 99 / 6.5 J17 EC32; 215/60/18 98 / 6.5 J18 EC32; 205/55/19 97 / 7 J19 EC33"}
+      ]
+    }
+  ],
+  "excluded_evidence": [
+    {"code": "cargo_rows_out_of_scope", "reason": "Cargo values remain governed by the existing ISO 3832 cargo-context model."},
+    {"code": "payload_range_follow_up", "reason": "The min/max payload row is reserved for the later Duster and payload-range follow-up package."},
+    {"code": "legacy_turning_circle_not_rewritten", "reason": "New basis-qualified evidence uses turning_circle_between_kerbs and does not rewrite any context-free value."},
+    {"code": "later_my26_values_remain_current", "reason": "Later MY26 price-list observations remain current where equivalent fields exist."}
+  ]
+}

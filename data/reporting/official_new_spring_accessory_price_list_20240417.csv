@@ -1,0 +1,57 @@
+category,subcategory,name,part_number,price_pln_vat_without_installation,installation_required
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,"Zestaw bezpieczeństwa (kamizelka, trójkąt, apteczka)",7711780759,87,False
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Gaśnica 1 kg,7711943172,87,False
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Wideo rejestrator Nextbase 222,7711945185,940,False
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Uchwyt do mocowania gaśnicy,966115844R,157,True
+bezpieczenstwo,lancuchy_sniegowe,"Łańcuchy śniegowe Standard 9 mm, rozmiar 50",7711578466,387.1,False
+design,felgi_i_akcesoria_do_kol,Kołpak 15 cali,403152645R,173,False
+design,felgi_i_akcesoria_do_kol,Kołpak 14 cali,403152884R,169,False
+design,felgi_i_akcesoria_do_kol,Kołpak 15 cali,403154034R,173,False
+design,felgi_i_akcesoria_do_kol,Kołpak 14 cali,403154280R,155,False
+design,felgi_i_akcesoria_do_kol,Śruby antykradzieżowe do felg aluminiowych - 4 śruby,8201724187,145,False
+design,wyglad_wnetrza,YouClip – uchwyt do smartfona,283143468R,113,False
+design,wyglad_wnetrza,YouClip – indukcyjna ładowarka do smartfonów,283D84357R,283,False
+design,wyglad_wnetrza,YouClip – lampka,684342227R,145,False
+design,wyglad_wnetrza,YouClip – zaczep,684344266R,56,False
+design,wyglad_wnetrza,YouClip – wielofunkcyjny uchwyt na kubek,684349615R,95,False
+design,wyglad_wnetrza,YouClip – kieszonka,685605709R,259,False
+design,wyglad_wnetrza,Uchwyt na kubek,685609899R,126,False
+design,wyglad_wnetrza,YouClip – etui na okulary,739M00386R,149,False
+design,wyglad_wnetrza,Nakładki na progi przednich drzwi Spring,7711945712,187,True
+design,wyglad_wnetrza,Podłokietnik,8201751967,984,False
+design,wyglad_wnetrza,YouClip – 3 w 1 (uchwyt na kubki + lampka + zaczep),984392908R,259,False
+design,wyglad_zewnetrzny,Nakładki ochronne na krawędzie drzwi i boczne lusterka,8201743312,214,True
+design,wyglad_zewnetrzny,Listwa bagażnika,8201751961,342,False
+komfort_i_ochrona,akcesoria_do_ladowania,Przejściówka do zasilania zewnętrznego sprzętu,296976446R,949,False
+komfort_i_ochrona,akcesoria_do_ladowania,"Przewód ładowania akumulatora z gniazda domowego T2-E/F, jednofazowy 10 A, długość 6,5 m",7711943515,1230,False
+komfort_i_ochrona,akcesoria_do_ladowania,"Przewód ładowania akumulatora z terminala Wallbox T2-T2 32 A, długość 6,5 m",7711943517,3219,False
+komfort_i_ochrona,akcesoria_do_ladowania,"Przewód ładowania akumulatora z terminala Wallbox T2-T2 20 A, długość 6,5 m",7711943518,2164,False
+komfort_i_ochrona,akcesoria_do_ladowania,"Przewód ładowania akumulatora Typ 2, 6,5 m, ze wzmocnionego gniazda domowego jednofazowego 16 A Typ E/F, 3,7 kW",7717278287,1549,False
+komfort_i_ochrona,akcesoria_do_ladowania,"Rękawice do ładowania akumulatora, rozmiar S/M",7717301120,83,False
+komfort_i_ochrona,akcesoria_do_ladowania,"Rękawice do ładowania akumulatora, rozmiar L/XL",7717301121,97,False
+komfort_i_ochrona,akcesoria_do_ladowania,Domowe gniazdo ładowania Green’Up Typ E,8201486883,1509,False
+komfort_i_ochrona,akcesoria_do_ladowania,Domowe gniazdo ładowania Green’Up Typ F,8201486884,1548,False
+komfort_i_ochrona,akcesoria_do_ladowania,Uchwyt do przenoszenia kabla,8201738553,303,False
+komfort_i_ochrona,dywaniki,Dywaniki tekstylne Comfort,8201751532,168,False
+komfort_i_ochrona,dywaniki,Dywaniki tekstylne Premium,8201751534,291,False
+komfort_i_ochrona,dywaniki,Dywaniki tekstylne Comfort,8201752597,187,False
+komfort_i_ochrona,dywaniki,Dywaniki tekstylne Premium,8201752599,264,False
+komfort_i_ochrona,dywaniki,Dywaniki gumowe,8201756618,250,False
+komfort_i_ochrona,dywaniki,Dywaniki gumowe (tylny rząd),8201756621,170,False
+komfort_i_ochrona,ochrona_karoserii,Pokrowiec na samochód (rozmiar XS),7711949659,378,False
+komfort_i_ochrona,ochrona_karoserii,Przednie lub tylne chlapacze,7717301274,111,False
+komfort_i_ochrona,wyposazenie_bagaznika,Organizer do bagażnika,7711940885,318,False
+komfort_i_ochrona,wyposazenie_bagaznika,Wykładzina bagażnika Spring,8201741933,187,False
+komfort_i_ochrona,wyposazenie_bagaznika,Dwustronna mata bagażnika do bagażnika Spring,8201742284,311,False
+komfort_i_ochrona,wyposazenie_wnetrza,Wkładka do uchwytu na kubek,7711945469,125,False
+komfort_i_ochrona,wyposazenie_wnetrza,Pokrowiec na tylne siedzenia do przewozu psów,7711945735,419,True
+komfort_i_ochrona,wyposazenie_wnetrza,Lodówka przenośna,7717277903,415,False
+komfort_i_ochrona,wyposazenie_wnetrza,Zestaw dla palących (popielniczka + zapalniczka),8201375535,225,True
+komfort_i_ochrona,wyposazenie_wnetrza,Organizer konsoli centralnej,8201751965,291,False
+komfort_i_ochrona,wyposazenie_wnetrza,Schowek pod maską silnika,8201751968,969,False
+multimedia,telefon,Uchwyt na telefon - montowany na desce rozdzielczej,7711784775,111,False
+multimedia,telefon,Indukcyjna magnetyczna ładowarka do smartfona mocowana na kratce nawiewu,7711949678,328,False
+multimedia,telefon,Indukcyjna ładowarka do smartfonów,8201737398,277,False
+multimedia,wideo,Wideorejestrator Nextbase 322 GW i karta SD 32 GB,7711945184,1419,False
+transport,poprzeczki_i_bagazniki,Relingi dachowe,738200989R,441,False
+transport,poprzeczki_i_bagazniki,Bagażnik z podwójną podłogą do przechowywania kabli,7717300012,1169,False

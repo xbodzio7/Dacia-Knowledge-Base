@@ -1,0 +1,68 @@
+01	1000 m ze startu zatrzymanego (s)	bigster,duster,sandero,sandero_stepway,spring	31,7 | 32,1 (LPG) / 33,1 | 31,8 (LPG) / 32,9 | 31,4
+02	400 m ze startu zatrzymanego (s)	bigster,duster,jogger_5,jogger_7,spring	32,6 | 31,7 | 32,3 | 32,9
+03	Długość całkowita	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	4102 | 4550 | 4343 | 4570
+04	EV - zasięg w cyklu mieszanym WLTP E-TECH (km)	spring	221 | 226
+05	EV - zużycie energii elektrycznej w cyklu mieszanym WLTP (kWh/100 km)	spring	12.7 | 12.4
+06	Emisja CO2 cykl mieszany WLTP (g/km)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	121 | 123 | 125 | 128
+07	Emisja CO2 cykl mieszany WLTP*LPG (g/km)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway	110 | 111 | 115 | 116
+08	Liczba biegów do przodu	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	6 | 1
+09	Liczba cylindrów	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway	3 | 4
+10	Liczba drzwi	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	5
+11	Liczba miejsc siedzących	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	5 | 7 | 4
+12	Liczba zaworów	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway	12 | 16
+13	Maksymalna masa całkowita pojazdu (kg)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	1570 | 1640 | 1665 | 1585
+14	Maksymalna masa całkowita zespołu pojazdów (kg)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	2550 | 2740 | 2765 | 2685
+15	Maksymalna masa przyczepy bez hamulca (kg)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	565 | 615 | 640 | 585
+16	Maksymalna masa przyczepy z hamulcem (kg)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	980 | 1100 | 1200 | 1000
+17	Maksymalna ładowność (kg)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	431 | 400 | 375 | 379
+18	Maksymalny moment obrotowy w Nm	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	200 przy 2900-3500 | 172 przy 3000 / 205 przy 7000 (ELEK.) | 190 / 200 (LPG) | 197 przy 1750-3750(LPG)/190 przy 2000-
+19	Maksymalny moment obrotowy w Nm 197 przy 1750 (LPG)	jogger_5,jogger_7	/ 190 przy 2000
+20	Maksymalny moment obrotowy w Nm 197 przy 1750-3750 (LPG)	sandero,sandero_stepway	/ 190 przy 2000-
+21	Minimalna masa pojazdu gotowego do jazdy (bez opcji)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	(kg) 1142 | (kg) 1173 | (kg) 1267 | (kg) 1289
+22	Moc maksymalna kW (KM)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	74 (100) | 84/90 LPG (114/122 LPG) | 81 (110) | 90 (122) LPG / 84 (114)
+23	Norma emisji spalin	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	Euro 6e BIS | EURO6 | Euro 6 | nie dotyczy
+24	Opony standardowe	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	185/65 R15 88H | 195/55 R16 87H | 205/60 R16 92H | 215/70 R16 100H
+25	Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	1108 z kołem / 1152 (1455 l) z zestawem | 1819 dm3 (2094 l)(5-m.) / 1807 dm3 (2085 | 1545 dm3 / 1632 l | 1609 dm3 / 1696 l
+26	Pojemność przestrzeni bagażowej min. (dm3)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	328 z kołem / 372 (410 l) z zestawem | 708 dm3 (829 l)(5-m.) / 160 dm3 (212 l)(7- | 453 dm3 / 513 l | 517 dm3 / 594 l
+27	Pojemność skokowa (cm3)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	999 | 1199 | 1789 | nie dotyczy
+28	Poziom hałasu przy 50 km/h (dB)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	67 | 66 | 68 | 65
+29	Procedura homologacji	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	1
+30	Protokół homologacji	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	WLTP
+31	Prześwit pojazdu	bigster,duster,jogger_5,jogger_7,spring	160-195 | 171/209 (przy maks. obciążeniu/prześwit | 182/217 (przy maks. obciążeniu/prześwit | 194 / 220 nieobciążony
+32	Prześwit pojazdu 130-160 (Sandero)	sandero,sandero_stepway	/ 170-200 (Stepway)
+33	Przyspieszenie 0-100 km/h (s)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	9,7 | 10,1 (LPG) / 11,1 | 9,8 (LPG) / 10,9 | 10,0
+34	Prędkość maksymalna (km/h)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	180 | 130
+35	Rodzaj nadwozia	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	hatchback | kombi | SUV | SUV Long
+36	Rodzaj napędu	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	przedni | 4x2 | 4x4
+37	Rodzaj paliwa	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	benzyna | benzyna + LPG | benzyna full hybrid | benzyna mild hybrid
+38	Rodzaj skrzyni biegów	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	manualna | automatyczna | manualna 6 biegów | automatyczna 6 biegów
+39	Rozstaw osi	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	2604 | 2898 | 2657 | 2658
+40	Szerokość całkowita	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	1753 / 1784 (Stepway) | z lusterkami zewnętrznymi 1853/2012 (złożone/rozłożone) | 1784 | 1921
+41	Szerokość dolnej części bagażnika	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	950 | 1018 | 980 | 788
+42	Typ techniczny	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	DJFBESNF6XC14M500C | DJFBLSNC6XC15M500C | DJFBLSNCAXC18M500C | DJFBEVMD6XC12M500C
+43	Wysokość bez obciążenia z otwartą klapą tylną	bigster,duster,jogger_5,jogger_7,spring	2009 | 2092 | 2095 | 2069
+44	Wysokość bez obciążenia z otwartą klapą tylną 1976 (Sandero)	sandero,sandero_stepway	2012 (Stepway)
+45	Wysokość całkowita	bigster,duster,sandero,sandero_stepway,spring	1496/1535 (Stepway bez relingów) | 2092 | 1657 / 1706 (z relingami) | 1662 / 1711 (z relingami)
+46	Wysokość całkowita 1689 (5m.)	jogger_5,jogger_7	/ 1684 (7m.)
+47	Wysokość pojazdu nieobciążonego z relingami (mm)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	1586 (Stepway) | 1675 (5m.) / 1673 (7m.) | 1656 | 1661
+48	Zużycie paliwa cykl mieszany WLTP (l/100 km)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway	5.3 | 5.4 | 5.5 | 5.6
+49	Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway	6.8 | 6.9 | 7,1 | 7.1
+50	Zwis przedni	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	833 | 857 | 854 | 683
+51	Zwis tylny	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	665 | 819 | 828 | 827
+52	napięcie nominalne	spring	354 V
+53	pojemność akumulatora	bigster,duster,jogger_5,jogger_7,spring	1,4 kWh | 0,84 kWh | 0,839 kWh | 24,3 kWh
+54	pojemność zbiornika paliwa (l)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway	50 | 51 | 48,5
+55	w 3 godziny	spring	20 minut
+56	więcej o ładowaniu AC ładowanie z Walboxa 7 kW z 20% do	spring	100%
+57	ładowanie AC	spring	7 kW
+58	Średnica zawracania (m)	bigster,duster,jogger_5,jogger_7,sandero,sandero_stepway,spring	10,64 | 11,39 | 10.86 | 10,97
+
+UNPARSED
+32	Bateria i ładowanie
+22	m.)
+22	l)(7-m.)
+9	4000
+3	5750(benzyna)
+3	4000(benzyna)
+2	39
+1	5 36

@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "kind": "catalogue_gap_002_exact_state_capture",
+  "captured_on": "2026-09-25",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "capture_method": "live_official_dacia_configurator_saved_states",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "bigster_expression_hybrid155_automatic",
+      "model": "bigster",
+      "grade": "expression",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 124900,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 6,
+      "colours": [
+        "biel alpejska",
+        "niebieski indigo",
+        "szary schiste",
+        "zielony cedar",
+        "brązowy terracotta",
+        "czarna perła"
+      ],
+      "wheel": "aluminiowe obręcze kół 17\" 215 TERGAN diamentowane",
+      "upholstery": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical": {
+        "power": "116 (157)",
+        "co2_wltp_mixed_g_km": 105,
+        "fuel_wltp_mixed_l_100km": 4.6
+      }
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "model": "bigster",
+      "grade": "expression",
+      "powertrain": "hybrid-G 150 4x4",
+      "transmission": "automatic",
+      "drive": "4x4",
+      "price_pln": 128900,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 6,
+      "colours": [
+        "biel alpejska",
+        "niebieski indigo",
+        "szary schiste",
+        "zielony cedar",
+        "brązowy terracotta",
+        "czarna perła"
+      ],
+      "wheel": "aluminiowe obręcze kół 17\" 225 TERGAN diamentowane",
+      "upholstery": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical": {
+        "power": "113 (150)",
+        "co2_wltp_mixed_g_km": 132,
+        "fuel_wltp_mixed_l_100km": 5.8,
+        "lpg_co2_wltp_mixed_g_km": 115,
+        "lpg_fuel_wltp_mixed_l_100km": 7.1
+      }
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_automatic",
+      "model": "bigster",
+      "grade": "extreme",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 133400,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 6,
+      "colours": [
+        "biel alpejska",
+        "niebieski indigo",
+        "szary schiste",
+        "zielony cedar",
+        "brązowy terracotta",
+        "czarna perła"
+      ],
+      "wheel": "aluminiowe obręcze kół 18\" 215 TAGASAN pół diamentowane",
+      "upholstery": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "technical": {
+        "power": "116 (157)",
+        "co2_wltp_mixed_g_km": 105,
+        "fuel_wltp_mixed_l_100km": 4.6
+      }
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "model": "bigster",
+      "grade": "extreme",
+      "powertrain": "hybrid-G 150 4x4",
+      "transmission": "automatic",
+      "drive": "4x4",
+      "price_pln": 137600,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 6,
+      "colours": [
+        "biel alpejska",
+        "niebieski indigo",
+        "szary schiste",
+        "zielony cedar",
+        "brązowy terracotta",
+        "czarna perła"
+      ],
+      "wheel": "aluminiowe obręcze kół 18\" 215 TAGASAN pół diamentowane",
+      "upholstery": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "technical": {
+        "power": "113 (150)",
+        "co2_wltp_mixed_g_km": 132,
+        "fuel_wltp_mixed_l_100km": 5.8,
+        "lpg_co2_wltp_mixed_g_km": 115,
+        "lpg_fuel_wltp_mixed_l_100km": 7.1
+      }
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "model": "bigster",
+      "grade": "journey",
+      "powertrain": "hybrid-G 150 4x4",
+      "transmission": "automatic",
+      "drive": "4x4",
+      "price_pln": 137200,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 6,
+      "colours": [
+        "biel alpejska",
+        "niebieski indigo",
+        "szary schiste",
+        "zielony cedar",
+        "brązowy terracotta",
+        "czarna perła"
+      ],
+      "wheel": "aluminiowe obręcze kół 18\" 225 TAGASAN diamentowane",
+      "upholstery": "tapicerka materiałowa journey łączona z MicroCloud",
+      "technical": {
+        "power": "113 (150)",
+        "co2_wltp_mixed_g_km": 132,
+        "fuel_wltp_mixed_l_100km": 5.8,
+        "lpg_co2_wltp_mixed_g_km": 115,
+        "lpg_fuel_wltp_mixed_l_100km": 7.1
+      }
+    }
+  ],
+  "notes": [
+    "Five source-confirmed Bigster exact states were captured from currently open official Polish Dacia configurator tabs.",
+    "Official price lists / official Dacia version pages remain authoritative for version enumeration and catalogue prices.",
+    "Per-colour surcharges were not promoted where extraction was not reliable; no inference was made."
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "kind": "cross_model_comparison_view_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_release": {
+    "tag": "data-products-v1.7.0",
+    "target_commit": "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+    "publication_audit": "project/releases/data-products-v1.7.0-publication-audit.json",
+    "verification": "PASS"
+  },
+  "inventory": {
+    "as_of": "2026-07-25",
+    "active_configuration_count": 72,
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "single_model_scope_count": 18,
+    "mixed_model_scope_count": 1,
+    "within_scope_pair_count": 114,
+    "price_recorded_count": 72,
+    "technical_comparison_facet_count": 124,
+    "equipment_facet_count": 110,
+    "one_scope_per_configuration": true
+  },
+  "model_families": [
+    {
+      "model_code": "bigster",
+      "model_name": "Bigster",
+      "generation": "I",
+      "body_type_code": "suv",
+      "segment_code": "SUV-C",
+      "configuration_count": 14,
+      "version_count": 4,
+      "exclusive_scope_count": 4,
+      "shared_scope_count": 0,
+      "catalog_price_min_pln": 101400,
+      "catalog_price_max_pln": 137600,
+      "catalog_price_coverage": "14/14",
+      "recorded_seat_values": [],
+      "scope_slugs": [
+        "bigster_hybrid155_4x2_automatic",
+        "bigster_hybridg150_4x4_automatic",
+        "bigster_mildhybrid140_4x2_manual",
+        "bigster_mildhybridg140_4x2_manual"
+      ]
+    },
+    {
+      "model_code": "duster_iii",
+      "model_name": "Duster",
+      "generation": "III",
+      "body_type_code": "suv",
+      "segment_code": "SUV-C",
+      "configuration_count": 27,
+      "version_count": 5,
+      "exclusive_scope_count": 8,
+      "shared_scope_count": 0,
+      "catalog_price_min_pln": 82000,
+      "catalog_price_max_pln": 123600,
+      "catalog_price_coverage": "27/27",
+      "recorded_seat_values": [],
+      "scope_slugs": [
+        "duster_ecog100",
+        "duster_ecog120_automatic",
+        "duster_ecog120",
+        "duster_hybrid140",
+        "duster_hybrid155",
+        "duster_mildhybrid130_4x2",
+        "duster_mildhybrid130_4x4",
+        "duster_mildhybrid140_4x2"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "model_name": "Jogger",
+      "generation": "I",
+      "body_type_code": "estate",
+      "segment_code": "C",
+      "configuration_count": 22,
+      "version_count": 4,
+      "exclusive_scope_count": 4,
+      "shared_scope_count": 0,
+      "catalog_price_min_pln": 77900,
+      "catalog_price_max_pln": 118050,
+      "catalog_price_coverage": "22/22",
+      "recorded_seat_values": [5, 7],
+      "scope_slugs": [
+        "jogger_ecog120_automatic",
+        "jogger_ecog120_manual",
+        "jogger_hybrid155_automatic",
+        "jogger_tce110_manual"
+      ]
+    },
+    {
+      "model_code": "sandero_iii",
+      "model_name": "Sandero",
+      "generation": "III",
+      "body_type_code": "hatchback",
+      "segment_code": "B",
+      "configuration_count": 4,
+      "version_count": 2,
+      "exclusive_scope_count": 1,
+      "shared_scope_count": 1,
+      "catalog_price_min_pln": 68000,
+      "catalog_price_max_pln": 80500,
+      "catalog_price_coverage": "4/4",
+      "recorded_seat_values": [5],
+      "scope_slugs": [
+        "sandero_ecog120_automatic",
+        "sandero_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "model_name": "Sandero Stepway",
+      "generation": "III",
+      "body_type_code": "crossover",
+      "segment_code": "B",
+      "configuration_count": 5,
+      "version_count": 3,
+      "exclusive_scope_count": 1,
+      "shared_scope_count": 1,
+      "catalog_price_min_pln": 71700,
+      "catalog_price_max_pln": 89400,
+      "catalog_price_coverage": "5/5",
+      "recorded_seat_values": [5],
+      "scope_slugs": [
+        "sandero_stepway_ecog120_automatic",
+        "sandero_ecog120_manual"
+      ]
+    }
+  ],
+  "existing_mixed_model_scope": {
+    "slug": "sandero_ecog120_manual",
+    "model_codes": [
+      "sandero_iii",
+      "sandero_stepway_iii"
+    ],
+    "configuration_count": 5,
+    "pair_count": 10,
+    "technical_slot_count": 56,
+    "reason_preserved": "This existing scope compares exact Eco-G 120 manual configurations under one established completeness and evidence contract. The review preserves it and does not generalize its comparability to other models or scopes."
+  },
+  "design_options": [
+    {
+      "code": "scope_preserving_navigation",
+      "name": "Scope-Preserving Model Navigation",
+      "status": "selected",
+      "description": "Show five model-family summaries and a directory of nineteen existing reporting scopes. Launch comparison only inside an existing scope; preserve the one established Sandero/Stepway mixed scope.",
+      "consumer_value": "high",
+      "implementation_risk": "low",
+      "architecture_change": false
+    },
+    {
+      "code": "global_common_attribute_matrix",
+      "name": "Global Common-Attribute Matrix",
+      "status": "rejected",
+      "description": "Intersect attributes across all models and show one broad technical matrix.",
+      "rejection_reason": "Attribute presence alone does not establish comparable measurement context, fuel, gear, cargo state, source date or reporting denominator."
+    },
+    {
+      "code": "unrestricted_cross_model_pairs",
+      "name": "Unrestricted Cross-Model Pairing",
+      "status": "rejected",
+      "description": "Allow any two of the seventy-two configurations to be compared directly.",
+      "rejection_reason": "This would bypass the nineteen explicit completeness/evidence scopes and create unsupported cross-scope pair semantics."
+    },
+    {
+      "code": "normalized_model_ranking",
+      "name": "Normalized Model Ranking",
+      "status": "rejected",
+      "description": "Convert model characteristics into scores or recommendations.",
+      "rejection_reason": "The repository stores evidence, not consumer preference weights, and the release contract prohibits ranking and recommendation generation."
+    }
+  ],
+  "selection": {
+    "code": "scope_preserving_navigation",
+    "name": "Scope-Preserving Model Navigation",
+    "layers": [
+      "model_family_overview",
+      "reporting_scope_directory",
+      "existing_scope_comparison_launch"
+    ],
+    "allowed_model_summary_fields": [
+      "model_name",
+      "generation",
+      "body_type",
+      "segment",
+      "configuration_count",
+      "version_count",
+      "recorded_catalog_price_minimum",
+      "recorded_catalog_price_maximum",
+      "catalog_price_coverage",
+      "recorded_seat_values",
+      "transmission_values",
+      "powertrain_labels",
+      "reporting_scope_links"
+    ],
+    "required_unknown_handling": "A missing model-level fact remains not stated. Empty recorded-seat sets for Bigster and Duster must not be rendered as zero seats or an assumed five-seat value.",
+    "pair_generation_rule": "Generate or open pairs only from an existing reporting scope. Never synthesize a pair from model-card membership.",
+    "mixed_scope_rule": "Label sandero_ecog120_manual explicitly as a shared Sandero and Sandero Stepway scope and preserve its existing five configurations and ten pairs without expanding it."
+  },
+  "implementation_contract": {
+    "next_package": "Cross-Model Comparison View Foundation",
+    "outputs": [
+      "deterministic_json",
+      "standalone_html"
+    ],
+    "model_card_count": 5,
+    "scope_card_count": 19,
+    "configuration_count": 72,
+    "master_data_changes": false,
+    "new_schema": false,
+    "new_comparison_engine": false,
+    "reuse": [
+      "configuration_shortlist_html_browser_catalog",
+      "configuration_comparison_bundle_scope_discovery",
+      "existing_model_media_registry",
+      "existing_release_and_offline_workspace_pipeline"
+    ],
+    "acceptance_criteria": [
+      "Every active configuration appears once in the scope directory.",
+      "All five model families show exact configuration and price-coverage counts.",
+      "All nineteen scopes are linked without generating a new pair.",
+      "The shared Sandero/Stepway manual scope is visibly marked as mixed-model.",
+      "Bigster and Duster seat summaries remain not stated until exact seat observations exist.",
+      "No score, winner, recommendation, inferred value or cross-scope pair is emitted.",
+      "JSON and HTML are deterministic and fully usable offline."
+    ]
+  },
+  "next_package": {
+    "name": "Cross-Model Comparison View Foundation",
+    "goal": "Implement a deterministic JSON and standalone HTML navigation view over five model families and nineteen existing scopes, preserving the established Sandero/Stepway mixed scope and generating no new comparison pair or inferred value."
+  }
+}

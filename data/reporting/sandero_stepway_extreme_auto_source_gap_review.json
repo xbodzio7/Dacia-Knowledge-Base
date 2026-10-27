@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "configuration_source_gap_review",
+  "model_code": "sandero",
+  "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+  "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+  "source_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+  "source_sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
+  "source_observation_date": "2026-06-26",
+  "initial_gap": {
+    "reviewed_unique_slots": 13,
+    "technical_slots": 11,
+    "equipment_slots": 2
+  },
+  "resolution": {
+    "scalar_values": [
+      {
+        "attribute_code": "overall_height",
+        "value": "1586",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "overall_width_with_mirrors",
+        "value": "2012",
+        "source_page": 6
+      }
+    ],
+    "ranges": [
+      {
+        "attribute_code": "ground_clearance",
+        "fuel_type_code": "",
+        "minimum_value": "170",
+        "maximum_value": "200",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "lpg",
+        "minimum_value": "1750",
+        "maximum_value": "3750",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "petrol",
+        "minimum_value": "2000",
+        "maximum_value": "4000",
+        "source_page": 6
+      }
+    ],
+    "availability": [
+      {
+        "attribute_code": "parking_assist_system",
+        "availability_status": "standard",
+        "source_page": 4
+      }
+    ]
+  },
+  "preserved_out_of_scope": [
+    {
+      "attribute_code": "gear_shift_indicator",
+      "reason": "The canonical decision already classifies the manual gear-shift indicator outside the automatic-transmission scope."
+    }
+  ],
+  "excluded_alternatives": [
+    {
+      "attribute_code": "overall_height",
+      "value": "1535",
+      "reason": "Stepway height without roof rails does not describe the exact standard configuration"
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "value": "1853",
+      "reason": "folded-mirror width is outside the repository comparison convention"
+    }
+  ],
+  "reconciliation": {
+    "classification": "source_exhausted_not_stated",
+    "resolved_unique_slots": 6,
+    "preserved_out_of_scope_slots": 1,
+    "remaining_unique_slots": 6,
+    "remaining_technical_slots": [
+      {
+        "attribute_code": "front_track",
+        "fuel_type_code": "",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "rear_track",
+        "fuel_type_code": "",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "lpg",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "petrol",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "lpg",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "elasticity_80_120",
+        "fuel_type_code": "petrol",
+        "reason": "not_stated_in_source"
+      }
+    ],
+    "remaining_equipment_slots": [
+      {
+        "attribute_code": "gear_shift_indicator",
+        "reason": "out_of_scope_for_automatic_transmission"
+      }
+    ],
+    "boundary": "The source does not state front/rear track widths, maximum-power engine speeds or 80-120 km/h elasticity. The manual gear-shift indicator remains outside the automatic-transmission scope."
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "kind": "sandero_page17_power_torque_rpm_range_import_closure",
+  "reviewed_on": "2026-07-31",
+  "status": "complete_with_preserved_boundaries",
+  "package_id": "post_residual_sandero_page17_power_torque_rpm_range_import_closure_001",
+  "source": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 17,
+    "observation_date": "2026-02-02"
+  },
+  "scope": {
+    "reviewed_candidates": 46,
+    "import_ready_candidate_decisions": 2,
+    "imported_range_observations": 20,
+    "target_configurations": 7,
+    "import_specs": 2
+  },
+  "completed_import_receipts": [
+    {
+      "attribute": "max_power_rpm",
+      "spec_path": "data/imports/configuration_value_ranges/sandero-page17-max-power-rpm-ranges-20260202.json",
+      "id_range": [
+        279,
+        289
+      ],
+      "observations": 11,
+      "fuel_context_counts": {
+        "petrol": 7,
+        "lpg": 4
+      },
+      "closed_intervals": [
+        {
+          "fuel_type_code": "petrol",
+          "minimum_value": "5000",
+          "maximum_value": "5250",
+          "observations": 3
+        },
+        {
+          "fuel_type_code": "lpg",
+          "minimum_value": "4500",
+          "maximum_value": "5000",
+          "observations": 4
+        },
+        {
+          "fuel_type_code": "petrol",
+          "minimum_value": "4500",
+          "maximum_value": "5750",
+          "observations": 4
+        }
+      ]
+    },
+    {
+      "attribute": "max_torque_rpm",
+      "spec_path": "data/imports/configuration_value_ranges/sandero-page17-max-torque-rpm-ranges-20260202.json",
+      "id_range": [
+        290,
+        298
+      ],
+      "observations": 9,
+      "fuel_context_counts": {
+        "petrol": 5,
+        "lpg": 4
+      },
+      "closed_intervals": [
+        {
+          "fuel_type_code": "petrol",
+          "minimum_value": "2900",
+          "maximum_value": "3500",
+          "observations": 3
+        },
+        {
+          "fuel_type_code": "lpg",
+          "minimum_value": "1750",
+          "maximum_value": "3750",
+          "observations": 4
+        },
+        {
+          "fuel_type_code": "petrol",
+          "minimum_value": "2000",
+          "maximum_value": "4000",
+          "observations": 2
+        }
+      ]
+    }
+  ],
+  "master_receipt": {
+    "id_range": [
+      279,
+      298
+    ],
+    "observations": 20,
+    "attribute_counts": {
+      "max_power_rpm": 11,
+      "max_torque_rpm": 9
+    },
+    "fuel_context_counts": {
+      "petrol": 12,
+      "lpg": 8
+    },
+    "configuration_group_counts": {
+      "tce100_manual": 6,
+      "ecog120_manual": 8,
+      "ecog120_automatic": 6
+    },
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "observation_date": "2026-02-02",
+    "closed_intervals_only": true
+  },
+  "reconciliation_closure": {
+    "candidate_partition_preserved": true,
+    "current_exact_scalar_coverage": 11,
+    "current_configuration_or_fuel_identity_coverage": 2,
+    "import_ready_candidate_decisions_closed": 2,
+    "planned_range_observations_materialized": 20,
+    "remaining_context_model_required": 1,
+    "remaining_explicit_non_import_or_context": 30,
+    "remaining_import_ready_exact_gaps": 0
+  },
+  "preserved_boundaries": [
+    {
+      "code": "printed_tce_power_literal_conflict",
+      "classification": "source_literal_preserved",
+      "decision": "retain the printed 100 TCe / 74 (120 KM) inconsistency without creating or normalizing another scalar power value"
+    },
+    {
+      "code": "automatic_petrol_ecog_torque_rpm",
+      "classification": "not_stated_on_aligned_source_continuation",
+      "decision": "do not infer a petrol torque-speed interval for the two Eco-G automatic configurations"
+    },
+    {
+      "code": "direct_injection_dual_fuel_context",
+      "classification": "fuel_context_model_required",
+      "decision": "do not create an unscoped dual-fuel injection scalar from the shared brochure row"
+    },
+    {
+      "code": "explicit_non_import_or_context",
+      "candidate_count": 30,
+      "decision": "retain all authored protocol, continuation, country-dependent and context-only boundaries"
+    }
+  ],
+  "closure_decision": {
+    "exact_range_import_complete": true,
+    "master_values_overwritten": false,
+    "automatic_promotion_used": false,
+    "fuel_subcolumns_collapsed": false,
+    "automatic_petrol_torque_range_inferred": false,
+    "sandero_page17_import_ready_boundary_complete": true,
+    "release_checkpoint_ready": true,
+    "target_release": "data-products-v1.9.0"
+  },
+  "next_package": {
+    "package_id": "data_products_v1_9_0_release_preparation_001",
+    "kind": "release_preparation",
+    "name": "Data Products v1.9.0 Release Preparation",
+    "status": "planned",
+    "goal": "Prepare and verify an immutable minor-release candidate containing the completed Sandero page-17 RPM range coverage and all current source-backed data products, without publishing or changing source data.",
+    "manifest_paths": [
+      "data/reporting/data_products_v1_9_0_release_preparation.json",
+      "project/packages/data-products-v1.9.0-release-preparation.md",
+      "tests/test_data_products_v1_9_0_release_preparation.py",
+      "tools/review_data_products_v1_9_0_release_preparation_20260731.py",
+      "tools/reporting/data_product_release.py",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

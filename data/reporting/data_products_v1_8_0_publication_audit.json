@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_0_publication_audit",
+  "recorded_on": "2026-07-26",
+  "status": "PASS",
+  "release": {
+    "version": "1.8.0",
+    "tag": "data-products-v1.8.0",
+    "release_id": 360115681,
+    "release_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.8.0",
+    "published_at": "2026-07-26T20:50:24Z",
+    "source_commit": "becd218228e3f4f0cdd312b0ed836ade487422b1",
+    "draft": false,
+    "prerelease": false,
+    "asset_count": 3
+  },
+  "workflow_evidence": {
+    "preparation_pull_request": 284,
+    "preflight_pull_request": 285,
+    "preflight_run": 30219704364,
+    "publication_pull_request": 286,
+    "publication_run": 30219809423,
+    "independent_audit_pull_request": 287,
+    "independent_audit_run": 30220008441
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.8.0.zip": {
+      "asset_id": 490686120,
+      "size_bytes": 62141187,
+      "sha256": "2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9",
+      "api_digest": "sha256:2af02fc148446eb3789ed4e19f32c52e54c484464ca1cdb2ba1048ae02b7cec9"
+    },
+    "data-product-release-manifest.json": {
+      "asset_id": 490686121,
+      "size_bytes": 20606,
+      "sha256": "af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b",
+      "api_digest": "sha256:af9366e92543a8aadca5e0a94a43391d202bce71f684bf3d9583913764f0de3b"
+    },
+    "SHA256SUMS": {
+      "asset_id": 490686122,
+      "size_bytes": 213,
+      "sha256": "8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596",
+      "api_digest": "sha256:8649769104a5b695c2b6e21177c032523fdc0a694ea11931ce95a6a5ae428596"
+    }
+  },
+  "release_contents": {
+    "selected_configuration_count": 72,
+    "scope_group_count": 19,
+    "comparable_scope_count": 19,
+    "singleton_scope_count": 0,
+    "within_scope_pair_count": 114,
+    "recorded_difference_count": 1695,
+    "archive_member_count": 85,
+    "technical_comparison_facet_count": 124,
+    "equipment_facet_count": 110,
+    "formats": [
+      "JSON",
+      "Markdown",
+      "CSV",
+      "HTML",
+      "XLSX"
+    ]
+  },
+  "cross_model_product": {
+    "json_path": "cross-model/cross-model-comparison-view.json",
+    "html_path": "cross-model/cross-model-comparison-view.html",
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "active_configuration_count": 72,
+    "within_scope_pair_count": 114,
+    "comparison_path_count": 76,
+    "navigation_path_count": 2,
+    "html_local_file_link_count": 57,
+    "standalone_html": true,
+    "javascript_used": false,
+    "runtime_image_dependency": false,
+    "unknown_seat_models": [
+      "bigster",
+      "duster_iii"
+    ],
+    "unknown_state": "not_stated"
+  },
+  "offline_workspace": {
+    "verification": "PASS",
+    "asset_count": 3,
+    "content_file_count": 85,
+    "index_local_link_count": 83,
+    "index_sha256": "ad2074a55e110ac11a518b441cbdc51864d5c7223cba75812c5b719facdf9b24",
+    "index_link_explanation": "The deterministic index contains four primary product links, seventy-six existing scope-report links and three original-asset links. The two cross-model members are verified content and are audited directly; their discoverability is delegated to the next usability review."
+  },
+  "semantic_boundaries": {
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "public_v1_7_0_rewritten": false
+  },
+  "verification": {
+    "preflight_byte_identical_rebuilds": "PASS",
+    "publication_public_redownload": "PASS",
+    "independent_public_download": "PASS",
+    "release_asset_verifier": "PASS",
+    "offline_workspace_verifier": "PASS",
+    "cross_model_local_targets": "PASS",
+    "tag_to_commit_binding": "PASS"
+  },
+  "next_package": {
+    "name": "Cross-Model Navigation Usability Review",
+    "goal": "Review consumer discoverability and navigation of the published cross-model products, including whether the deterministic workspace index should expose a dedicated entry point, without changing comparison semantics or implementing the decision in the review package."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "kind": "sandero_equipment_page18_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_043",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 18
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 77,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 24,
+    "decision_counts": {
+      "context_only_non_import": 15,
+      "unresolved_signature_mismatch": 25
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_equipment_page18_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "lighting",
+      "exterior and wheels",
+      "interior trim and upholstery",
+      "start of active/passive safety"
+    ],
+    "literal_question_mark_preserved": true,
+    "esc_hsa_row_continues_into_next_chunk": true,
+    "missing_labels_not_reconstructed": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_visual_rows": true,
+    "cross_chunk_row_not_completed_by_inference": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "milestone_review": {
+    "packages": [
+      "residual_gap_039",
+      "residual_gap_040",
+      "residual_gap_041",
+      "residual_gap_042",
+      "residual_gap_043"
+    ],
+    "new_domain_required": false,
+    "schema_change_required": false,
+    "architecture_change_required": false,
+    "import_policy_change_required": false,
+    "separate_review_only_pull_request_required": false
+  },
+  "next_package": {
+    "name": "Sandero Equipment Page 18 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_044",
+    "candidate_count": 37,
+    "group_candidate_count": 77,
+    "chunk_index": 2,
+    "chunk_count": 2
+  }
+}

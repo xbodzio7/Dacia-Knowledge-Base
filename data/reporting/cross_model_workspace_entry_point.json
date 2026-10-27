@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "cross_model_workspace_entry_point",
+  "implemented_on": "2026-07-27",
+  "status": "complete",
+  "selected_by": "cross_model_navigation_usability_review.json",
+  "source_review": {
+    "pull_request": 295,
+    "merge_commit": "2ca040708e9f8bba92abe70693395c6a5447252f",
+    "quality_run": 2102
+  },
+  "implementation": {
+    "release_member": "cross-model/cross-model-comparison-view.html",
+    "workspace_path": "contents/cross-model/cross-model-comparison-view.html",
+    "title": "Models and comparison scopes",
+    "description": "Browse model families and open only existing scope reports.",
+    "member_absent_primary_card_count": 4,
+    "member_present_primary_card_count": 5,
+    "public_v1_8_1_local_link_count": 84,
+    "conditional_on_verified_manifest_membership": true,
+    "requires_local_file": true,
+    "uses_existing_safe_path_helpers": true,
+    "parses_cross_model_json": false,
+    "uses_javascript": false,
+    "uses_external_runtime_resources": false
+  },
+  "compatibility": {
+    "synthetic_release_without_member": "PASS",
+    "declared_member_without_file_rejected": true,
+    "older_release_primary_card_count": 4,
+    "historical_v1_8_1_publication_audit_local_links": 83,
+    "historical_audit_rewritten": false
+  },
+  "public_smoke_contract": {
+    "release_version": "1.8.1",
+    "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+    "required_local_links": 84,
+    "required_primary_cards": 5,
+    "linux_windows_byte_parity_required": true,
+    "all_local_targets_must_exist": true
+  },
+  "semantic_boundaries": {
+    "public_release_assets_changed": false,
+    "public_release_tag_changed": false,
+    "master_data_changed": false,
+    "schema_changed": false,
+    "comparison_engine_changed": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "repository_baseline": {
+    "tests": 1070,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "next_package": {
+    "name": "Post-Cross-Model Workspace Priority Selection Review",
+    "goal": "Review the completed public release, cross-model navigation and local workspace flow, then select the next highest-value package without changing source data in the review package."
+  }
+}

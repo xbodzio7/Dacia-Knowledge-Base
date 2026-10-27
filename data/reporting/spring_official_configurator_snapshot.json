@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "kind": "spring_official_configurator_snapshot",
+  "observed_on": "2026-07-31",
+  "status": "complete",
+  "materialization": {
+    "workflow": "Temporary Spring Configurator Snapshot Replay",
+    "workflow_run": 30639505251,
+    "materialized_commit": "873acab11c729504fe3c157d64fc541b17591f05",
+    "result": "PASS"
+  },
+  "source_code": "src_pl_spring_official_configurator_20260731",
+  "snapshot_path": "project/sources/dacia-pl-spring-configurator-20260731.json",
+  "snapshot_sha256": "9b90aa2a2f81f1bc81509f04d3705887e8bd74af595f69a3e830c85c35b0601b",
+  "observed_grade_count": 3,
+  "observed_state_count": 3,
+  "accepted_catalog_price_count": 2,
+  "unresolved_catalog_price_count": 1,
+  "accepted_states": [
+    {
+      "grade": "essential",
+      "powertrain": "electric 70",
+      "catalog_price_pln": 73500
+    },
+    {
+      "grade": "expression",
+      "powertrain": "electric 70",
+      "catalog_price_pln": null
+    },
+    {
+      "grade": "extreme",
+      "powertrain": "electric 100",
+      "catalog_price_pln": 85900
+    }
+  ],
+  "boundaries": {
+    "master_configurations_imported": false,
+    "catalog_prices_imported": false,
+    "equipment_imported": false,
+    "technical_values_imported": false,
+    "repeated_expression_price_accepted": false,
+    "unobserved_grade_powertrain_combinations_created": false,
+    "cargo_state_created": false,
+    "registered_pdf_sources_superseded": false,
+    "public_release_modified": false
+  },
+  "decision": "REGISTER_SPRING_OFFICIAL_CONFIGURATOR_SNAPSHOT",
+  "next_package": "Spring Source-Backed Data Import Review"
+}

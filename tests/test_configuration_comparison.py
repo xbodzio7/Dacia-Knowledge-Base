@@ -1,0 +1,881 @@
+from __future__ import annotations
+
+import csv
+import json
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+REPOSITORY = Path(__file__).resolve().parents[1]
+TOOLS = REPOSITORY / "tools"
+sys.path.insert(0, str(TOOLS))
+import configuration_comparison as comparison  # noqa: E402
+
+
+class ConfigurationComparisonTests(unittest.TestCase):
+    def write_csv(
+        self,
+        path: Path,
+        header: list[str],
+        rows: list[list[str]],
+    ) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.writer(handle)
+            writer.writerow(header)
+            writer.writerows(rows)
+
+    def fixture(self, root: Path) -> tuple[Path, Path, Path]:
+        repository = root / "repository"
+        master = repository / "data" / "master"
+        reporting = repository / "data" / "reporting"
+        reporting.mkdir(parents=True)
+
+        self.write_csv(
+            master / "configurations.csv",
+            [
+                "id",
+                "code",
+                "version_code",
+                "powertrain_label",
+                "transmission_type",
+                "status",
+                "notes",
+            ],
+            [
+                [
+                    "1",
+                    "cfg_a",
+                    "version_a",
+                    "Powertrain",
+                    "manual",
+                    "active",
+                    "",
+                ],
+                [
+                    "2",
+                    "cfg_b",
+                    "version_b",
+                    "Powertrain",
+                    "automatic",
+                    "active",
+                    "",
+                ],
+            ],
+        )
+        self.write_csv(
+            master / "sources.csv",
+            ["id", "code", "status"],
+            [
+                ["1", "src_a", "active"],
+                ["2", "src_b", "active"],
+            ],
+        )
+        self.write_csv(
+            master / "attributes.csv",
+            [
+                "id",
+                "code",
+                "category",
+                "name",
+                "data_type",
+                "unit",
+                "description",
+                "status",
+            ],
+            [
+                [
+                    "1",
+                    "engine_power",
+                    "Engine",
+                    "Power",
+                    "integer",
+                    "kW",
+                    "",
+                    "active",
+                ],
+                [
+                    "2",
+                    "engine_torque",
+                    "Engine",
+                    "Torque",
+                    "integer",
+                    "Nm",
+                    "",
+                    "active",
+                ],
+                [
+                    "3",
+                    "vehicle_height",
+                    "Dimensions",
+                    "Height",
+                    "integer",
+                    "mm",
+                    "",
+                    "active",
+                ],
+                [
+                    "4",
+                    "fog_lights",
+                    "Lighting",
+                    "Fog lights",
+                    "boolean",
+                    "",
+                    "",
+                    "active",
+                ],
+                [
+                    "5",
+                    "heated_seat",
+                    "Comfort",
+                    "Heated seat",
+                    "boolean",
+                    "",
+                    "",
+                    "active",
+                ],
+            ],
+        )
+        self.write_csv(
+            master / "configuration_prices.csv",
+            [
+                "id",
+                "code",
+                "configuration_code",
+                "market",
+                "price_type",
+                "amount",
+                "currency_code",
+                "price_date",
+                "source_code",
+                "notes",
+            ],
+            [
+                [
+                    "1",
+                    "a_old",
+                    "cfg_a",
+                    "PL",
+                    "catalog_gross",
+                    "90",
+                    "PLN",
+                    "2026-01-01",
+                    "src_a",
+                    "",
+                ],
+                [
+                    "2",
+                    "a",
+                    "cfg_a",
+                    "PL",
+                    "catalog_gross",
+                    "100",
+                    "PLN",
+                    "2026-06-01",
+                    "src_a",
+                    "",
+                ],
+                [
+                    "3",
+                    "b",
+                    "cfg_b",
+                    "PL",
+                    "catalog_gross",
+                    "120",
+                    "PLN",
+                    "2026-06-01",
+                    "src_b",
+                    "",
+                ],
+            ],
+        )
+        self.write_csv(
+            master / "configuration_attribute_values.csv",
+            [
+                "id",
+                "code",
+                "configuration_code",
+                "attribute_code",
+                "fuel_type_code",
+                "gear_number",
+                "value",
+                "observation_date",
+                "source_code",
+                "notes",
+            ],
+            [
+                [
+                    "1",
+                    "a_power_old",
+                    "cfg_a",
+                    "engine_power",
+                    "",
+                    "",
+                    "90",
+                    "2026-01-01",
+                    "src_a",
+                    "",
+                ],
+                [
+                    "2",
+                    "a_power",
+                    "cfg_a",
+                    "engine_power",
+                    "",
+                    "",
+                    "100",
+                    "2026-06-01",
+                    "src_a",
+                    "",
+                ],
+                [
+                    "3",
+                    "b_power",
+                    "cfg_b",
+                    "engine_power",
+                    "",
+                    "",
+                    "100",
+                    "2026-06-01",
+                    "src_b",
+                    "",
+                ],
+                [
+                    "4",
+                    "a_torque",
+                    "cfg_a",
+                    "engine_torque",
+                    "",
+                    "",
+                    "180",
+                    "2026-06-01",
+                    "src_a",
+                    "",
+                ],
+            ],
+        )
+        self.write_csv(
+            master / "configuration_attribute_availability.csv",
+            [
+                "id",
+                "code",
+                "configuration_code",
+                "attribute_code",
+                "availability_status",
+                "observation_date",
+                "source_code",
+                "notes",
+            ],
+            [
+                [
+                    "1",
+                    "a_fog",
+                    "cfg_a",
+                    "fog_lights",
+                    "standard",
+                    "2026-06-01",
+                    "src_a",
+                    "",
+                ],
+                [
+                    "2",
+                    "b_fog",
+                    "cfg_b",
+                    "fog_lights",
+                    "not_available",
+                    "2026-06-01",
+                    "src_b",
+                    "",
+                ],
+                [
+                    "3",
+                    "b_heated",
+                    "cfg_b",
+                    "heated_seat",
+                    "standard",
+                    "2026-06-01",
+                    "src_b",
+                    "",
+                ],
+            ],
+        )
+
+        completeness = {
+            "version": 1,
+            "configuration_status": "active",
+            "configurations": [
+                {
+                    "configuration_code": "cfg_a",
+                    "source_code": "src_a",
+                },
+                {
+                    "configuration_code": "cfg_b",
+                    "source_code": "src_b",
+                },
+            ],
+            "technical_slots": [
+                {
+                    "attribute_code": "engine_power",
+                    "fuel_type_code": "",
+                },
+                {
+                    "attribute_code": "engine_torque",
+                    "fuel_type_code": "",
+                },
+                {
+                    "attribute_code": "vehicle_height",
+                    "fuel_type_code": "",
+                },
+            ],
+            "equipment_attributes": [
+                "fog_lights",
+                "heated_seat",
+            ],
+            "not_applicable": {
+                "technical": [
+                    {
+                        "configuration_code": "cfg_b",
+                        "attribute_code": "engine_torque",
+                        "fuel_type_code": "",
+                    }
+                ],
+                "equipment": [],
+            },
+        }
+        completeness_path = (
+            reporting / "configuration_completeness.json"
+        )
+        completeness_path.write_text(
+            json.dumps(completeness, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+        evidence = {
+            "version": 1,
+            "as_of": "2026-06-01",
+            "review_scope": "source_page_evidence",
+            "review_policy": {
+                "allowed_classifications": [
+                    "ambiguous",
+                    "found",
+                    "not_stated",
+                    "out_of_scope",
+                ],
+                "auto_import": False,
+            },
+            "decisions": [
+                {
+                    "domain": "technical",
+                    "configuration_code": "cfg_a",
+                    "attribute_code": "vehicle_height",
+                    "fuel_type_code": "",
+                    "classification": "not_stated",
+                    "reason_code": "not_stated",
+                    "source_code": "src_a",
+                    "reviewed_pages": [1],
+                },
+                {
+                    "domain": "technical",
+                    "configuration_code": "cfg_b",
+                    "attribute_code": "vehicle_height",
+                    "fuel_type_code": "",
+                    "classification": "out_of_scope",
+                    "reason_code": "alternative",
+                    "source_code": "src_b",
+                    "reviewed_pages": [1],
+                    "basis": {
+                        "type": "configuration_field",
+                        "value": "alternative",
+                    },
+                },
+                {
+                    "domain": "equipment",
+                    "configuration_code": "cfg_a",
+                    "attribute_code": "heated_seat",
+                    "fuel_type_code": "",
+                    "classification": "not_stated",
+                    "reason_code": "not_stated",
+                    "source_code": "src_a",
+                    "reviewed_pages": [2],
+                },
+            ],
+        }
+        evidence_path = reporting / "configuration_gap_evidence.json"
+        evidence_path.write_text(
+            json.dumps(evidence, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        return repository, completeness_path, evidence_path
+
+    def test_distinguishes_recorded_differences_and_evidence_states(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        self.assertEqual(report["scope"]["active_configurations"], 2)
+        self.assertEqual(report["scope"]["pair_count"], 1)
+        self.assertEqual(report["summary"]["prices"]["different"], 1)
+        self.assertEqual(report["summary"]["technical"]["equal"], 1)
+        self.assertEqual(
+            report["summary"]["technical"]["not_comparable"],
+            2,
+        )
+        self.assertEqual(
+            report["summary"]["equipment"]["different"],
+            1,
+        )
+        self.assertEqual(
+            report["summary"]["equipment"]["not_comparable"],
+            1,
+        )
+        self.assertEqual(
+            report["evidence_summary"],
+            {
+                "total": 3,
+                "ambiguous": 0,
+                "found": 0,
+                "not_stated": 2,
+                "out_of_scope": 1,
+            },
+        )
+        pair = report["pairs"][0]
+        self.assertEqual(
+            pair["prices"][0]["left"]["amount"],
+            "100",
+        )
+        self.assertEqual(
+            pair["prices"][0]["amount_delta_right_minus_left"],
+            "20",
+        )
+
+    def test_deterministic_json_and_markdown(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        rendered = comparison.render_json(report)
+        self.assertEqual(rendered, comparison.render_json(report))
+        self.assertNotIn("generated_at", rendered)
+        markdown = comparison.render_markdown(report)
+        self.assertIn("# Configuration Comparison Report", markdown)
+        self.assertIn("`different_version_different_transmission`", markdown)
+        self.assertIn("`fog_lights`", markdown)
+        self.assertIn("not_stated=2", markdown)
+
+    def test_pair_type_filter_recalculates_scope_and_summary(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            matching = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter=(
+                    "different_version_different_transmission"
+                ),
+            )
+            empty = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter="same_version_different_transmission",
+            )
+
+        self.assertEqual(
+            matching["scope"]["pair_type_filter"],
+            "different_version_different_transmission",
+        )
+        self.assertEqual(
+            matching["scope"]["unfiltered_pair_count"],
+            1,
+        )
+        self.assertEqual(matching["scope"]["pair_count"], 1)
+        self.assertEqual(
+            matching["scope"]["selected_configurations"],
+            2,
+        )
+        self.assertEqual(
+            matching["scope"]["selected_configuration_codes"],
+            ["cfg_a", "cfg_b"],
+        )
+        self.assertEqual(
+            matching["summary"]["total_differences"],
+            2,
+        )
+        self.assertEqual(
+            empty["scope"]["pair_type_filter"],
+            "same_version_different_transmission",
+        )
+        self.assertEqual(empty["scope"]["unfiltered_pair_count"], 1)
+        self.assertEqual(empty["scope"]["pair_count"], 0)
+        self.assertEqual(empty["scope"]["selected_configurations"], 0)
+        self.assertEqual(empty["pairs"], [])
+        self.assertEqual(empty["summary"]["total_differences"], 0)
+        for domain in ("prices", "technical", "equipment"):
+            self.assertEqual(
+                empty["summary"][domain],
+                {
+                    "comparisons": 0,
+                    "equal": 0,
+                    "different": 0,
+                    "not_comparable": 0,
+                },
+            )
+
+    def test_rejects_unknown_pair_type_filter(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            with self.assertRaisesRegex(
+                comparison.ComparisonError,
+                "unsupported pair type filter",
+            ):
+                comparison.collect_report(
+                    repository,
+                    completeness,
+                    evidence,
+                    pair_type_filter="unsupported",
+                )
+
+    def test_difference_csv_contains_only_recorded_differences(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        rendered = comparison.render_difference_csv(report)
+        self.assertEqual(
+            rendered,
+            comparison.render_difference_csv(report),
+        )
+        reader = csv.DictReader(rendered.splitlines())
+        rows = list(reader)
+        self.assertEqual(
+            reader.fieldnames,
+            list(comparison.DIFFERENCE_CSV_FIELDS),
+        )
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(
+            [row["domain"] for row in rows],
+            ["prices", "equipment"],
+        )
+        for row in rows:
+            self.assertEqual(row["comparison"], "different")
+            self.assertEqual(row["left_state"], "recorded")
+            self.assertEqual(row["right_state"], "recorded")
+            self.assertNotEqual(row["left_value"], row["right_value"])
+            self.assertTrue(row["left_source_code"])
+            self.assertTrue(row["right_source_code"])
+            self.assertTrue(row["left_observation_date"])
+            self.assertTrue(row["right_observation_date"])
+        self.assertEqual(rows[0]["item_code"], "catalog_gross")
+        self.assertEqual(rows[0]["unit"], "PLN")
+        self.assertEqual(rows[0]["delta_right_minus_left"], "20")
+        self.assertEqual(rows[1]["item_code"], "fog_lights")
+        self.assertEqual(rows[1]["left_value"], "standard")
+        self.assertEqual(rows[1]["right_value"], "not_available")
+        self.assertEqual(rows[1]["delta_right_minus_left"], "")
+
+    def test_difference_csv_empty_filter_has_header_only(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter="same_version_different_transmission",
+            )
+
+        rendered = comparison.render_difference_csv(report)
+        reader = csv.DictReader(rendered.splitlines())
+        self.assertEqual(list(reader), [])
+        self.assertEqual(
+            reader.fieldnames,
+            list(comparison.DIFFERENCE_CSV_FIELDS),
+        )
+        self.assertEqual(rendered.count("\n"), 1)
+
+    def test_difference_csv_domain_filter_composes_with_pair_type(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter=(
+                    "different_version_different_transmission"
+                ),
+            )
+
+        prices = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    report,
+                    "prices",
+                ).splitlines()
+            )
+        )
+        technical = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    report,
+                    "technical",
+                ).splitlines()
+            )
+        )
+        equipment = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    report,
+                    "equipment",
+                ).splitlines()
+            )
+        )
+
+        self.assertEqual(len(prices), 1)
+        self.assertEqual(prices[0]["domain"], "prices")
+        self.assertEqual(prices[0]["item_code"], "catalog_gross")
+        self.assertEqual(prices[0]["delta_right_minus_left"], "20")
+        self.assertEqual(technical, [])
+        self.assertEqual(len(equipment), 1)
+        self.assertEqual(equipment[0]["domain"], "equipment")
+        self.assertEqual(equipment[0]["item_code"], "fog_lights")
+        self.assertEqual(
+            {
+                prices[0]["pair_type"],
+                equipment[0]["pair_type"],
+            },
+            {"different_version_different_transmission"},
+        )
+
+    def test_rejects_unknown_difference_domain(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        with self.assertRaisesRegex(
+            comparison.ComparisonError,
+            "unsupported difference domain",
+        ):
+            comparison.render_difference_csv(
+                report,
+                "unsupported",
+            )
+
+    def test_difference_csv_item_filter_composes_with_other_filters(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            full_report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+            filtered_report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+                pair_type_filter=(
+                    "different_version_different_transmission"
+                ),
+            )
+
+        known_item_codes = comparison.difference_item_codes(
+            full_report
+        )
+        self.assertEqual(
+            known_item_codes,
+            (
+                "catalog_gross",
+                "engine_power",
+                "engine_torque",
+                "fog_lights",
+                "heated_seat",
+                "vehicle_height",
+            ),
+        )
+
+        prices = list(
+            csv.DictReader(
+                comparison.render_difference_csv(
+                    filtered_report,
+                    "prices",
+                    "catalog_gross",
+                    known_item_codes,
+                ).splitlines()
+            )
+        )
+        header_only = comparison.render_difference_csv(
+            filtered_report,
+            "technical",
+            "fog_lights",
+            known_item_codes,
+        )
+        header_only_rows = list(
+            csv.DictReader(header_only.splitlines())
+        )
+
+        self.assertEqual(len(prices), 1)
+        self.assertEqual(prices[0]["domain"], "prices")
+        self.assertEqual(prices[0]["item_code"], "catalog_gross")
+        self.assertEqual(prices[0]["delta_right_minus_left"], "20")
+        self.assertEqual(header_only_rows, [])
+        self.assertEqual(header_only.count("\n"), 1)
+
+    def test_rejects_unknown_difference_item_code(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        with self.assertRaisesRegex(
+            comparison.ComparisonError,
+            "unsupported difference item code",
+        ):
+            comparison.render_difference_csv(
+                report,
+                difference_item_code="unsupported",
+                known_item_codes=comparison.difference_item_codes(
+                    report
+                ),
+            )
+
+    def test_rejects_evidence_scope_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            payload = json.loads(evidence.read_text(encoding="utf-8"))
+            payload["decisions"].pop()
+            evidence.write_text(
+                json.dumps(payload),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                comparison.ComparisonError,
+                "evidence decisions differ",
+            ):
+                comparison.collect_report(
+                    repository,
+                    completeness,
+                    evidence,
+                )
+
+    def test_rejects_duplicate_current_price(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            path = (
+                repository
+                / "data"
+                / "master"
+                / "configuration_prices.csv"
+            )
+            with path.open("a", encoding="utf-8", newline="") as handle:
+                csv.writer(handle).writerow(
+                    [
+                        "4",
+                        "a_duplicate",
+                        "cfg_a",
+                        "PL",
+                        "catalog_gross",
+                        "101",
+                        "PLN",
+                        "2026-06-01",
+                        "src_a",
+                        "",
+                    ]
+                )
+            with self.assertRaisesRegex(
+                comparison.ComparisonError,
+                "duplicate current records",
+            ):
+                comparison.collect_report(
+                    repository,
+                    completeness,
+                    evidence,
+                )
+
+    def test_overlapping_ranges_preserve_relation_and_endpoints(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(Path(directory))
+            master = repository / 'data' / 'master'
+            self.write_csv(
+                master / 'configuration_attribute_value_ranges.csv',
+                ['id', 'code', 'configuration_code', 'attribute_code',
+                 'fuel_type_code', 'minimum_value', 'maximum_value',
+                 'lower_inclusive', 'upper_inclusive', 'observation_date',
+                 'source_code', 'notes'],
+                [
+                    ['1', 'a_height', 'cfg_a', 'vehicle_height', '', '1600', '1650', 'true', 'true', '2026-06-01', 'src_a', ''],
+                    ['2', 'b_height', 'cfg_b', 'vehicle_height', '', '1640', '1700', 'true', 'true', '2026-06-01', 'src_b', ''],
+                ],
+            )
+            payload = json.loads(evidence.read_text(encoding='utf-8'))
+            payload['decisions'] = [
+                item for item in payload['decisions']
+                if item['attribute_code'] != 'vehicle_height'
+            ]
+            evidence.write_text(json.dumps(payload), encoding='utf-8')
+            report = comparison.collect_report(repository, completeness, evidence)
+            item = next(
+                item for item in report['pairs'][0]['technical']
+                if item['attribute_code'] == 'vehicle_height'
+            )
+            differences = comparison.render_difference_csv(report)
+        self.assertEqual(item['comparison'], 'different')
+        self.assertEqual(item['range_relation'], 'overlapping')
+        self.assertIn('[1600,1650]', differences)
+        self.assertIn('[1640,1700]', differences)
+        self.assertIn('range_relation=overlapping', differences)
+
+
+if __name__ == "__main__":
+    unittest.main()

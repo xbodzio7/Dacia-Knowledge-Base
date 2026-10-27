@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page20_unresolved_review_chunk3",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_033",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 20
+  },
+  "scope": {
+    "candidate_count": 23,
+    "group_candidate_count": 103,
+    "chunk_index": 3,
+    "chunk_count": 3,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 13,
+    "decision_counts": {
+      "context_only_non_import": 10,
+      "unresolved_signature_mismatch": 13
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/jogger_equipment_page20_unresolved_review_chunk3.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "remaining active and passive safety",
+      "parking and visibility assistance"
+    ],
+    "two_fatigue_system_rows_remain_separate": true,
+    "hybrid155_parking_brake_qualifier_preserved": true,
+    "option_and_standard_markers_not_collapsed": true,
+    "wrapped_labels_not_promoted_independently": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "similar_labels_not_deduplicated": true,
+    "powertrain_qualifier_not_broadened": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Stepway Equipment Page 18 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_034",
+    "candidate_count": 40,
+    "group_candidate_count": 97,
+    "chunk_index": 1,
+    "chunk_count": 3
+  },
+  "milestone_review": {
+    "interval_package_count": 5,
+    "packages": [
+      "residual_gap_029",
+      "residual_gap_030",
+      "residual_gap_031",
+      "residual_gap_032",
+      "residual_gap_033"
+    ],
+    "new_domain_decision_required": false,
+    "new_schema_decision_required": false,
+    "new_architecture_decision_required": false,
+    "separate_review_pull_request_required": false,
+    "conclusion": "Continue the prioritized residual-gap queue."
+  }
+}

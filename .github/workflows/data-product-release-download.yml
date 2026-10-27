@@ -1,0 +1,87 @@
+name: Verified Data Product Release Download
+
+on:
+  pull_request:
+    paths-ignore:
+      - project/state.json
+      - project/STATE_SUMMARY.md
+      - project/reviews/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Historical regression traceability only:
+# --version 1.0.0
+# 653ddacf9dcaeefa356f53e3c00e71666f5c5b3e
+
+jobs:
+  download-and-verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact: workspace-index-linux
+          - os: windows-latest
+            artifact: workspace-index-windows
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+      - name: Run downloader regression tests
+        run: python -m unittest -q tests.test_data_product_release_download
+      - name: Run workspace renderer checks
+        run: python tests/workspace_index_checks.py -q
+      - name: Run workspace integration check
+        run: python tests/workspace_download_integration_checks.py -q
+      - name: Run workspace verification checks
+        run: python tests/workspace_verification_checks.py -q
+      - name: Run consumer guide checks
+        run: python tests/data_product_consumer_guide_checks.py -q
+      - name: Download immutable public v1.19.1
+        run: python tools/dkb.py data-product-release-download --version 1.19.1 --output-directory downloaded-release
+      - name: Independently verify downloaded assets
+        run: python tools/data_product_release.py --verify --version 1.19.1 --commit-sha e3a43a999a40f920bceab655cdfdac5856119a07 --output-directory downloaded-release/assets
+      - name: Verify complete workspace offline
+        run: python tools/dkb.py data-product-workspace-verify --workspace-directory downloaded-release --json
+      - name: Reject a corrupted copied workspace without further changes
+        run: |
+          python -c "from pathlib import Path; import shutil,subprocess,sys; source=Path('downloaded-release'); copied=Path('corrupted-release'); shutil.copytree(source,copied); target=next(path for path in sorted((copied/'contents').rglob('*')) if path.is_file()); target.write_bytes(target.read_bytes()+b'corruption'); damaged=target.read_bytes(); result=subprocess.run([sys.executable,'tools/dkb.py','data-product-workspace-verify','--workspace-directory',str(copied)],capture_output=True,text=True); assert result.returncode != 0; assert target.read_bytes() == damaged; print(result.stderr.strip())"
+      - name: Check ready-to-open entry points
+        run: |
+          python -c "from pathlib import Path; root=Path('downloaded-release'); required=['index.html','contents/shortlist/configuration-shortlist.html','contents/comparison-bundle/configuration-comparison-workbook.xlsx','contents/comparison-bundle/comparison-bundle-manifest.json','contents/cross-model/cross-model-comparison-view.html','contents/RELEASE_NOTES.md']; assert all((root / path).is_file() for path in required)"
+      - name: Verify local index links and offline contract
+        run: |
+          python -c "from html.parser import HTMLParser; from pathlib import Path, PurePosixPath; from urllib.parse import unquote; root=Path('downloaded-release'); text=(root/'index.html').read_text(encoding='utf-8'); assert '<script' not in text.lower(); P=type('P',(HTMLParser,),{'__init__':lambda self:(HTMLParser.__init__(self),setattr(self,'hrefs',[]))[-1],'handle_starttag':lambda self,tag,attrs:self.hrefs.extend([value for key,value in attrs if key=='href' and value])}); parser=P(); parser.feed(text); local=[href for href in parser.hrefs if not href.startswith('https://')]; assert local; assert 'contents/cross-model/cross-model-comparison-view.html' in local; assert 'Models and comparison scopes' in text; assert all(root.joinpath(*PurePosixPath(unquote(href)).parts).is_file() for href in local)"
+      - name: Upload deterministic workspace index
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: ${{ matrix.artifact }}
+          path: downloaded-release/index.html
+          if-no-files-found: error
+          retention-days: 7
+
+  compare-workspace-index:
+    needs: download-and-verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Linux index
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          name: workspace-index-linux
+          path: linux
+      - name: Download Windows index
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8
+        with:
+          name: workspace-index-windows
+          path: windows
+      - name: Compare index bytes
+        run: |
+          python -c "from pathlib import Path; left=(Path('linux')/'index.html').read_bytes(); right=(Path('windows')/'index.html').read_bytes(); assert left == right; print(f'byte-identical index.html: {len(left)} bytes')"

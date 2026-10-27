@@ -1,0 +1,5 @@
+code,name,description,status
+upright,Upright,Seat row is in its normal passenger-use position.,active
+folded,Folded,Seat row is folded as stated by the source.,active
+removed,Removed,Seat row is removed as stated by the source.,active
+folded_or_removed,Folded or removed,Source groups folded and removed alternatives without separate values.,active

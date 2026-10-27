@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 1013,
+  "attribute_code": "traction_motor_power",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "kW",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "36",
+      "source_text": "E-Motor = 36 kW (49 KM)"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "36",
+      "source_text": "E-Motor = 36 kW (49 KM)"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "36",
+      "source_text": "E-Motor = 36 kW (49 KM)"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "36",
+      "source_text": "E-Motor = 36 kW (49 KM)"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "36",
+      "source_text": "E-Motor = 36 kW (49 KM)"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "36",
+      "source_text": "E-Motor = 36 kW (49 KM)"
+    }
+  ]
+}

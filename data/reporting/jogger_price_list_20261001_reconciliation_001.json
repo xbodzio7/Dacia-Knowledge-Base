@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "kind": "official_price_list_reconciliation",
+  "package_id": "jogger_price_list_20261001_reconciliation_001",
+  "source": {
+    "source_code": "src_pl_jogger_price_my26_20261001",
+    "title": "DACIA JOGGER cennik MY26",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-10-01",
+    "effective_from": "2026-10-01",
+    "external_reference": "https://www.dacia.pl/cenniki.html",
+    "supplied_file_name": "f5cdbd7878.pdf",
+    "supplied_file_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "pages": 9
+  },
+  "review": {
+    "status": "full_document_reviewed",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "document_effective_date": "2026-10-01",
+    "configurator_used": false
+  },
+  "catalogue_prices_pln": {
+    "seats_5": {
+      "Eco-G 120": {
+        "essential": 77900,
+        "expression": 82050,
+        "extreme": 89900
+      },
+      "Eco-G 120 auto": {
+        "extreme": 96800
+      },
+      "hybrid 155": {
+        "expression": 103550,
+        "extreme": 111400
+      }
+    },
+    "seats_7": {
+      "Eco-G 120": {
+        "essential": 86550,
+        "expression": 94400,
+        "extreme": 94400
+      },
+      "Eco-G 120 auto": {
+        "extreme": 101300
+      },
+      "hybrid 155": {
+        "expression": 108050,
+        "extreme": 115900
+      }
+    }
+  },
+  "packages": [
+    [
+      "ZIMOWY",
+      1200
+    ],
+    [
+      "DRIVE",
+      1400
+    ]
+  ],
+  "removed_from_current_catalogue": [
+    "TCe 110 (all listed seat/grade combinations)",
+    "Journey (all listed powertrain/seat combinations)",
+    "KOMFORT HEV",
+    "KOMFORT"
+  ],
+  "technical_data": {
+    "ecog120_manual": {
+      "gearbox": "manualna 6-biegowa",
+      "power_lpg_kw_hp": "90 kW / 122 KM",
+      "speed_kmh": 180,
+      "co2_lpg_g_km": "119-121",
+      "consumption_lpg_l_100km": "7.3-7.4",
+      "boot_vda_dm3": "708/160 (5/7 seats)"
+    },
+    "ecog120_auto": {
+      "gearbox": "automatyczna dwusprzęgłowa 6-biegowa",
+      "power_lpg_kw_hp": "90 kW / 122 KM",
+      "speed_kmh": 180,
+      "co2_lpg_g_km": "121-123",
+      "consumption_lpg_l_100km": "7.5-7.6",
+      "boot_vda_dm3": "708/160 (5/7 seats)"
+    },
+    "hybrid155": {
+      "gearbox": "automatyczna Multi-mode",
+      "system_power_kw_hp": "116 kW / 157 KM",
+      "battery": "200 V / 1.4 kWh",
+      "speed_kmh": 180,
+      "zero_to_100_s": "8.9-9.0",
+      "consumption_l_100km": "4.5-4.6",
+      "co2_g_km": "103-104",
+      "boot_vda_dm3": "708/160 (5/7 seats)"
+    }
+  },
+  "comparison_with_previous": {
+    "previous_source_code": "src_pl_jogger_price_my26_20260703",
+    "previous_sha256": "92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87",
+    "result": "catalogue_and_portfolio_delta_identified",
+    "deltas": [
+      "5-seat retained configurations keep their 03.07.2026 catalogue prices.",
+      "7-seat Eco-G 120 Essential changes from 82,400 PLN to 86,550 PLN (+4,150 PLN).",
+      "7-seat Eco-G 120 Expression changes from 86,550 PLN to 94,400 PLN (+7,850 PLN).",
+      "7-seat Eco-G 120 Extreme and Eco-G 120 auto Extreme prices are unchanged.",
+      "Hybrid 155 Expression/Extreme prices are unchanged for both 5- and 7-seat versions.",
+      "TCe 110 configurations are absent from the 01.10.2026 catalogue matrix.",
+      "Journey configurations are absent from the 01.10.2026 catalogue matrix.",
+      "KOMFORT and KOMFORT HEV packages are absent; ZIMOWY and DRIVE remain at 1,200 PLN and 1,400 PLN.",
+      "No configurator data was used."
+    ],
+    "master_mutation_required": true,
+    "notes": [
+      "Historical configuration and price observations from earlier source dates are retained; the 01.10.2026 source is appended as a new documentary snapshot.",
+      "Current 01.10.2026 catalogue prices were added for the 12 listed Jogger configurations.",
+      "Current option/package mappings were added for the retained current configurations only.",
+      "The price list states that it cancels all previous editions."
+    ]
+  },
+  "next_action": "Reconcile the 01.10.2026 Bigster price list, then run focused tests and full Quality before merge."
+}

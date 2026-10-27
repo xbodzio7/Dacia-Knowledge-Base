@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_9_0_release_preparation",
+  "prepared_on": "2026-07-31",
+  "status": "complete",
+  "selected_by": "sandero_page17_power_torque_rpm_range_import_closure.json",
+  "target": {
+    "version": "1.9.0",
+    "tag": "data-products-v1.9.0",
+    "archive_name": "dacia-knowledge-base-data-products-v1.9.0.zip",
+    "manifest_name": "data-product-release-manifest.json",
+    "checksums_name": "SHA256SUMS"
+  },
+  "public_baseline": {
+    "version": "1.8.1",
+    "tag": "data-products-v1.8.1",
+    "release_id": 360138130,
+    "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+    "archive_members": 85,
+    "selected_configuration_count": 72,
+    "scope_group_count": 19,
+    "within_scope_pair_count": 114,
+    "recorded_difference_count": 1695,
+    "technical_comparison_facet_count": 124,
+    "equipment_facet_count": 110,
+    "verification": "PASS"
+  },
+  "candidate_baseline": {
+    "selected_configuration_count": 78,
+    "scope_group_count": 20,
+    "comparable_scope_count": 20,
+    "singleton_scope_count": 0,
+    "within_scope_pair_count": 129,
+    "recorded_difference_count": 2180,
+    "archive_member_count": 89,
+    "technical_comparison_facet_count": 127,
+    "equipment_facet_count": 110,
+    "formats": [
+      "JSON",
+      "Markdown",
+      "CSV",
+      "HTML",
+      "XLSX"
+    ],
+    "member_set_change_since_public_baseline": true,
+    "semantic_boundaries": {
+      "new_source_backed_configurations": true,
+      "new_reporting_scope": true,
+      "new_within_scope_pairs": true,
+      "cross_scope_pairs_generated": false,
+      "ranking_generated": false,
+      "recommendations_generated": false,
+      "inferred_values_generated": false
+    }
+  },
+  "release_delta": {
+    "new_configuration_codes": [
+      "sandero_iii_essential_tce100_manual",
+      "sandero_iii_expression_tce100_manual",
+      "sandero_iii_journey_tce100_manual",
+      "sandero_stepway_iii_essential_tce110_manual",
+      "sandero_stepway_iii_expression_tce110_manual",
+      "sandero_stepway_iii_extreme_tce110_manual"
+    ],
+    "new_reporting_scope": "sandero_tce100_stepway_tce110_manual",
+    "selected_configuration_delta": 6,
+    "scope_group_delta": 1,
+    "within_scope_pair_delta": 15,
+    "recorded_difference_delta": 485,
+    "archive_member_delta": 4,
+    "technical_comparison_facet_delta": 3,
+    "equipment_facet_delta": 0,
+    "repository_data_delta": {
+      "master_rows": 1692,
+      "configuration_values": 549,
+      "configuration_value_ranges": 54,
+      "availability_records": 1016
+    }
+  },
+  "shortlist_contract": {
+    "active_configuration_count": 78,
+    "equipment_facet_count": 110,
+    "visible_equipment_choices": 108,
+    "rear_view_camera_matches": 71,
+    "missing_and_unknown_are_exclusions": true,
+    "model_order": [
+      {
+        "model_code": "sandero_iii",
+        "minimum_catalog_price_pln": 63900
+      },
+      {
+        "model_code": "sandero_stepway_iii",
+        "minimum_catalog_price_pln": 71700
+      },
+      {
+        "model_code": "jogger",
+        "minimum_catalog_price_pln": 77900
+      },
+      {
+        "model_code": "duster_iii",
+        "minimum_catalog_price_pln": 82000
+      },
+      {
+        "model_code": "bigster",
+        "minimum_catalog_price_pln": 101400
+      }
+    ]
+  },
+  "release_notes_contract": {
+    "headline": "Data Products v1.9.0",
+    "must_state": [
+      "six new source-backed Sandero and Sandero Stepway manual configurations",
+      "78 active configurations in 20 independent scopes",
+      "129 within-scope pairs and 2180 recorded differences",
+      "89 deterministic archive members",
+      "127 technical comparison facets and 110 equipment facets",
+      "no cross-scope pairs, ranking, recommendations or inferred values",
+      "public data-products-v1.8.1 remains immutable"
+    ]
+  },
+  "publication_lifecycle": [
+    "preflight",
+    "publish",
+    "independent_public_audit",
+    "record_publication"
+  ],
+  "preflight_contract": {
+    "source": "exact squash-merged preparation commit",
+    "build_count": 2,
+    "required_checks": [
+      "byte_identical_rebuilds",
+      "release_asset_verification",
+      "current_repository_baseline",
+      "new_configuration_membership",
+      "scope_partition",
+      "offline_workspace_verification",
+      "public_v1_8_1_control_download",
+      "tag_and_release_absence"
+    ],
+    "final_identity_fields": [
+      "source_commit",
+      "archive_size_bytes",
+      "archive_sha256",
+      "manifest_size_bytes",
+      "manifest_sha256",
+      "checksums_size_bytes",
+      "checksums_sha256"
+    ]
+  },
+  "publication_state": {
+    "publication_performed": false,
+    "tag_created": false,
+    "release_created": false,
+    "final_source_commit": null,
+    "final_asset_identity": null,
+    "reason": "Preparation branch identity is not the final squash-merged source commit. Exact identity is established only by the separate preflight package."
+  },
+  "non_goals": [
+    "cross_scope_pair_generation",
+    "ranking",
+    "recommendations",
+    "inferred_values",
+    "rewriting_public_v1_6_1_assets",
+    "rewriting_public_v1_7_0_assets",
+    "rewriting_public_v1_8_0_assets",
+    "rewriting_public_v1_8_1_assets"
+  ],
+  "repository_baseline": {
+    "tests": 1676,
+    "csv_files": 46,
+    "rows": 11380,
+    "configuration_values": 3498,
+    "configuration_import_specs": 138,
+    "configuration_value_ranges": 298,
+    "configuration_range_import_specs": 24,
+    "availability_records": 5770,
+    "attributes": 385,
+    "attribute_categories": 30
+  },
+  "next_package": {
+    "name": "Data Products v1.9.0 Preflight",
+    "goal": "Build the v1.9.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify the 78-configuration and 20-scope release contracts, and record final sizes and SHA-256 values without creating a tag or release."
+  }
+}

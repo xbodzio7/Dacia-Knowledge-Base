@@ -1,0 +1,1485 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page20_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_010",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 20,
+    "review_basis": "authored visual review of the archived page-20 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 5,
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "model_code": "jogger",
+    "domain": "equipment_matrix",
+    "page": 20,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 5,
+    "decision_counts": {
+      "covered": 0,
+      "partially_covered": 3,
+      "context_only_non_import": 1,
+      "deferred_source_conflict": 1
+    },
+    "selected_evidence_signature_count": 8,
+    "selected_evidence_record_count": 154,
+    "rejected_attached_signature_count": 2,
+    "rejected_attached_record_count": 44,
+    "candidates_with_selected_evidence": 4,
+    "candidates_without_selected_evidence": 1
+  },
+  "decisions": [
+    {
+      "candidate_id": "9d57df671f89142af2044fbdd10fbd54d161263845b3844d261e084c992b5229",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 20,
+      "line_start": 104,
+      "line_end": 104,
+      "exact_text": "System kontroli toru jazdy (ESC) z systemem",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "first line of the combined ESC and hill-start-assist row",
+      "source_availability": {
+        "essential": "standard",
+        "expression": "standard",
+        "extreme": "standard",
+        "journey": "standard"
+      },
+      "rationale": "This fragment starts one visual row containing ESC and HSA. Both standard signatures are retained as separate attributes for all trims.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 44,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "electronic_stability_control",
+            "availability_status": "standard"
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_electronic_stability_control_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_electronic_stability_control_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "hill_start_assist",
+            "availability_status": "standard"
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_hill_start_assist_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_hill_start_assist_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "193d1c166bdaa5b2dc4de8e6e10baa5acc2b636af093d320cdc580f53944e46e",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 20,
+      "line_start": 125,
+      "line_end": 125,
+      "exact_text": "Czołowa poduszka powietrzna kierowcy",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "first line of the driver/passenger front-airbag row",
+      "source_availability": {
+        "essential": "driver and passenger airbags standard; passenger deactivation printed",
+        "expression": "driver and passenger airbags standard; passenger deactivation printed",
+        "extreme": "driver and passenger airbags standard; passenger deactivation printed",
+        "journey": "driver and passenger airbags standard; passenger deactivation printed"
+      },
+      "rationale": "This fragment starts the three-line driver and passenger front-airbag row. Both presence signatures belong to the visual row and remain separate attributes.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 44,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "driver_front_airbag",
+            "availability_status": "standard"
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "passenger_front_airbag",
+            "availability_status": "standard"
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "9ee402355ae79cfac77ff578143243621c2b9eb00eb32ea03698fce8a4321114",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 20,
+      "line_start": 126,
+      "line_end": 126,
+      "exact_text": "/ czołowa poduszka powietrzna pasażera                 •/•               •/•                •/•             •/•",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "row_context": "availability-bearing middle line of the driver/passenger front-airbag row",
+      "source_availability": {
+        "essential": "driver and passenger airbags standard; passenger deactivation printed",
+        "expression": "driver and passenger airbags standard; passenger deactivation printed",
+        "extreme": "driver and passenger airbags standard; passenger deactivation printed",
+        "journey": "driver and passenger airbags standard; passenger deactivation printed"
+      },
+      "rationale": "This middle fragment carries the paired standard markers for the driver and passenger front airbags. Both signatures are retained within the visual-row boundary.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 44,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "driver_front_airbag",
+            "availability_status": "standard"
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_driver_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "passenger_front_airbag",
+            "availability_status": "standard"
+          },
+          "record_count": 22,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_passenger_front_airbag_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    },
+    {
+      "candidate_id": "9487bcbf484f556f17b25bc13b8dc2cc9b76d4617bc31048806dfc176e244359",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 20,
+      "line_start": 127,
+      "line_end": 127,
+      "exact_text": "z możliwością dezaktywacji",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "context_only_non_import",
+      "row_context": "final passenger-airbag deactivation clause of the three-line front-airbag row",
+      "source_availability": {
+        "essential": "driver and passenger airbags standard; passenger deactivation printed",
+        "expression": "driver and passenger airbags standard; passenger deactivation printed",
+        "extreme": "driver and passenger airbags standard; passenger deactivation printed",
+        "journey": "driver and passenger airbags standard; passenger deactivation printed"
+      },
+      "rationale": "The printed clause states that the passenger airbag can be deactivated, but no attached signature represents deactivation. Airbag-presence signatures are not substituted for the missing deactivation attribute.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "rejected_attached_signature_count": 2
+    },
+    {
+      "candidate_id": "1316f560401dec9a13d2a771fbd535448cf85f650d0f938239baf73f56452b59",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 20,
+      "line_start": 138,
+      "line_end": 138,
+      "exact_text": "Kamera cofania                                          -                 •                  •               -",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "row_context": "complete rear-view-camera row with a brochure versus later price-list trim conflict",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "standard",
+        "extreme": "standard",
+        "journey": "not_available"
+      },
+      "rationale": "The 2025-12-17 brochure prints unavailable for Essential and Journey and standard for Expression and Extreme. Attached 2026-04-01 price-list evidence preserves Essential unavailable but marks Expression, Extreme and Journey standard. Both signatures are retained as competing evidence and the Journey conflict is deferred without import approval.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 22,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "rear_view_camera",
+            "availability_status": "not_available"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "rear_view_camera",
+            "availability_status": "standard"
+          },
+          "record_count": 20,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_rear_view_camera_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_rear_view_camera_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "multi_line_rows_are_reviewed_as_visual_units": true,
+    "esc_and_hill_start_assist_remain_distinct_attributes": true,
+    "driver_and_passenger_airbags_remain_distinct": true,
+    "passenger_airbag_deactivation_is_not_claimed_without_an_attached_attribute": true,
+    "brochure_and_later_price_list_camera_states_remain_in_conflict": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Bigster Equipment Page 21 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 1 ambiguous equipment candidate from Bigster brochure page 21 against its 3 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

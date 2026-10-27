@@ -1,0 +1,95 @@
+id,code,version_code,powertrain_label,transmission_type,status,notes
+1,sandero_iii_expression_ecog120_manual,sandero_iii_expression,Eco-G 120,manual,active,
+2,sandero_iii_journey_ecog120_manual,sandero_iii_journey,Eco-G 120,manual,active,
+3,sandero_stepway_iii_essential_ecog120_manual,sandero_stepway_iii_essential,Eco-G 120,manual,active,
+4,sandero_stepway_iii_expression_ecog120_automatic,sandero_stepway_iii_expression,Eco-G 120,automatic,active,
+5,sandero_stepway_iii_expression_ecog120_manual,sandero_stepway_iii_expression,Eco-G 120,manual,active,
+6,sandero_stepway_iii_extreme_ecog120_automatic,sandero_stepway_iii_extreme,Eco-G 120,automatic,active,
+7,sandero_stepway_iii_extreme_ecog120_manual,sandero_stepway_iii_extreme,Eco-G 120,manual,active,
+8,duster_iii_essential_ecog100_4x2_manual,duster_iii_essential,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+9,duster_iii_expression_ecog100_4x2_manual,duster_iii_expression,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+10,duster_iii_extreme_ecog100_4x2_manual,duster_iii_extreme,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+11,duster_iii_journey_ecog100_4x2_manual,duster_iii_journey,Eco-G 100 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+12,duster_iii_expression_mildhybrid130_4x2_manual,duster_iii_expression,mild hybrid 130 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+13,duster_iii_extreme_mildhybrid130_4x2_manual,duster_iii_extreme,mild hybrid 130 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+14,duster_iii_journey_mildhybrid130_4x2_manual,duster_iii_journey,mild hybrid 130 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+15,duster_iii_expression_hybrid140_4x2_automatic,duster_iii_expression,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+16,duster_iii_extreme_hybrid140_4x2_automatic,duster_iii_extreme,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+17,duster_iii_journey_hybrid140_4x2_automatic,duster_iii_journey,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+18,duster_iii_journey_plus_hybrid140_4x2_automatic,duster_iii_journey_plus,hybrid 140 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+19,duster_iii_expression_mildhybrid130_4x4_manual,duster_iii_expression,mild hybrid 130 4x4,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+20,duster_iii_extreme_mildhybrid130_4x4_manual,duster_iii_extreme,mild hybrid 130 4x4,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+21,duster_iii_journey_mildhybrid130_4x4_manual,duster_iii_journey,mild hybrid 130 4x4,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+22,duster_iii_essential_ecog120_4x2_manual,duster_iii_essential,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+23,duster_iii_expression_ecog120_4x2_manual,duster_iii_expression,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+24,duster_iii_extreme_ecog120_4x2_manual,duster_iii_extreme,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+25,duster_iii_journey_ecog120_4x2_manual,duster_iii_journey,Eco-G 120 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+26,duster_iii_expression_mildhybrid140_4x2_manual,duster_iii_expression,mild hybrid 140 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+27,duster_iii_extreme_mildhybrid140_4x2_manual,duster_iii_extreme,mild hybrid 140 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+28,duster_iii_journey_mildhybrid140_4x2_manual,duster_iii_journey,mild hybrid 140 4x2,manual,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+29,duster_iii_expression_hybrid155_4x2_automatic,duster_iii_expression,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+30,duster_iii_extreme_hybrid155_4x2_automatic,duster_iii_extreme,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+31,duster_iii_journey_hybrid155_4x2_automatic,duster_iii_journey,hybrid 155 4x2,automatic,active,Combination listed on page 1; transmission confirmed on pages 8-9.
+32,jogger_essential_5seat_ecog120_manual,jogger_essential,Eco-G 120,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+33,jogger_expression_5seat_ecog120_manual,jogger_expression,Eco-G 120,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+34,jogger_extreme_5seat_ecog120_manual,jogger_extreme,Eco-G 120,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+35,jogger_extreme_5seat_ecog120_automatic,jogger_extreme,Eco-G 120,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+36,jogger_journey_5seat_ecog120_automatic,jogger_journey,Eco-G 120,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+37,jogger_expression_5seat_tce110_manual,jogger_expression,TCe 110,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+38,jogger_extreme_5seat_tce110_manual,jogger_extreme,TCe 110,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+39,jogger_journey_5seat_tce110_manual,jogger_journey,TCe 110,manual,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+40,jogger_expression_5seat_hybrid155_automatic,jogger_expression,hybrid 155,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+41,jogger_extreme_5seat_hybrid155_automatic,jogger_extreme,hybrid 155,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+42,jogger_journey_5seat_hybrid155_automatic,jogger_journey,hybrid 155,automatic,active,Page-1 catalogue combination; 5 seats are also stored as number_of_seats.
+43,jogger_essential_7seat_ecog120_manual,jogger_essential,Eco-G 120,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+44,jogger_expression_7seat_ecog120_manual,jogger_expression,Eco-G 120,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+45,jogger_extreme_7seat_ecog120_manual,jogger_extreme,Eco-G 120,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+46,jogger_extreme_7seat_ecog120_automatic,jogger_extreme,Eco-G 120,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+47,jogger_journey_7seat_ecog120_automatic,jogger_journey,Eco-G 120,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+48,jogger_expression_7seat_tce110_manual,jogger_expression,TCe 110,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+49,jogger_extreme_7seat_tce110_manual,jogger_extreme,TCe 110,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+50,jogger_journey_7seat_tce110_manual,jogger_journey,TCe 110,manual,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+51,jogger_expression_7seat_hybrid155_automatic,jogger_expression,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+52,jogger_extreme_7seat_hybrid155_automatic,jogger_extreme,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+53,jogger_journey_7seat_hybrid155_automatic,jogger_journey,hybrid 155,automatic,active,Page-1 catalogue combination; 7 seats are also stored as number_of_seats.
+54,bigster_essential_mildhybrid140_4x2_manual,bigster_essential,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+55,bigster_expression_mildhybrid140_4x2_manual,bigster_expression,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+56,bigster_extreme_mildhybrid140_4x2_manual,bigster_extreme,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+57,bigster_journey_mildhybrid140_4x2_manual,bigster_journey,mild hybrid 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+58,bigster_essential_mildhybridg140_4x2_manual,bigster_essential,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+59,bigster_expression_mildhybridg140_4x2_manual,bigster_expression,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+60,bigster_extreme_mildhybridg140_4x2_manual,bigster_extreme,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+61,bigster_journey_mildhybridg140_4x2_manual,bigster_journey,mild hybrid-G 140 4x2,manual,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+62,bigster_expression_hybrid155_4x2_automatic,bigster_expression,hybrid 155 4x2,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+63,bigster_extreme_hybrid155_4x2_automatic,bigster_extreme,hybrid 155 4x2,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+64,bigster_journey_hybrid155_4x2_automatic,bigster_journey,hybrid 155 4x2,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+65,bigster_expression_hybridg150_4x4_automatic,bigster_expression,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+66,bigster_extreme_hybridg150_4x4_automatic,bigster_extreme,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+67,bigster_journey_hybridg150_4x4_automatic,bigster_journey,hybrid-G 150 4x4,automatic,active,Non-empty page-1 catalogue combination; transmission type confirmed in the source engine table.
+68,sandero_iii_expression_ecog120_automatic,sandero_iii_expression,Eco-G 120,automatic,active,Official Dacia Poland Sandero version page observed 2026-07-23 explicitly lists this Eco-G 120 automatic trim and catalogue price.
+69,sandero_iii_journey_ecog120_automatic,sandero_iii_journey,Eco-G 120,automatic,active,Official Dacia Poland Sandero version page observed 2026-07-23 explicitly lists this Eco-G 120 automatic trim and catalogue price.
+70,duster_iii_expression_ecog120_4x2_automatic,duster_iii_expression,Eco-G 120 4x2,automatic,active,"Exact official Dacia Poland 2026 stock card 121553 observed 2026-07-24; Eco-G 120, 90 kW/122 KM and automatic transmission explicitly stated."
+71,duster_iii_extreme_ecog120_4x2_automatic,duster_iii_extreme,Eco-G 120 4x2,automatic,active,"Exact official Dacia Poland 2026 stock card 121540 observed 2026-07-24; Eco-G 120, 90 kW/122 KM and automatic transmission explicitly stated."
+72,duster_iii_journey_ecog120_4x2_automatic,duster_iii_journey,Eco-G 120 4x2,automatic,active,"Exact official Dacia Poland 2026 stock card 121030 observed 2026-07-24; Eco-G 120, 90 kW/122 KM and automatic transmission explicitly stated."
+73,sandero_iii_essential_tce100_manual,sandero_iii_essential,TCe 100,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Essential TCe 100 with a six-speed manual gearbox.
+74,sandero_iii_expression_tce100_manual,sandero_iii_expression,TCe 100,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Expression TCe 100 with a six-speed manual gearbox.
+75,sandero_iii_journey_tce100_manual,sandero_iii_journey,TCe 100,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Journey TCe 100 with a six-speed manual gearbox.
+76,sandero_stepway_iii_essential_tce110_manual,sandero_stepway_iii_essential,TCe 110,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Stepway Essential TCe 110 with a six-speed manual gearbox.
+77,sandero_stepway_iii_expression_tce110_manual,sandero_stepway_iii_expression,TCe 110,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Stepway Expression TCe 110 with a six-speed manual gearbox.
+78,sandero_stepway_iii_extreme_tce110_manual,sandero_stepway_iii_extreme,TCe 110,manual,active,Official Polish MY26 catalogue effective 2026-07-03 lists Sandero Stepway Extreme TCe 110 with a six-speed manual gearbox.
+79,spring_essential_electric70_automatic,spring_essential,electric 70,automatic,active,Exact current official configurator state observed 2026-07-31; no unobserved grade or powertrain combination inferred.
+80,spring_expression_electric70_automatic,spring_expression,electric 70,automatic,active,Exact current official configurator state observed 2026-07-31; current catalogue price remains unresolved and the registered price is MY25 dealer-stock bounded.
+81,spring_extreme_electric100_automatic,spring_extreme,electric 100,automatic,active,Exact current official comparison state observed 2026-07-31; kept separate from Electric 70 reporting scope.
+82,duster_iii_expression_hybridg150_4x4_automatic,duster_iii_expression,hybrid-G 150 4x4,automatic,active,Official Polish MY26 Duster catalogue effective 2026-07-03 lists Expression hybrid-G 150 4x4 with a six-speed EDC dual-clutch automatic transmission.
+83,duster_iii_extreme_hybridg150_4x4_automatic,duster_iii_extreme,hybrid-G 150 4x4,automatic,active,Official Polish MY26 Duster catalogue effective 2026-07-03 lists Extreme hybrid-G 150 4x4 with a six-speed EDC dual-clutch automatic transmission.
+84,duster_iii_journey_hybridg150_4x4_automatic,duster_iii_journey,hybrid-G 150 4x4,automatic,active,Official Polish MY26 Duster catalogue effective 2026-07-03 lists Journey hybrid-G 150 4x4 with a six-speed EDC dual-clutch automatic transmission.
+85,sandero_iii_expression_hybrid155_automatic,sandero_iii_expression,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+86,sandero_iii_journey_hybrid155_automatic,sandero_iii_journey,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+87,sandero_stepway_iii_expression_hybrid155_automatic,sandero_stepway_iii_expression,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+88,sandero_stepway_iii_extreme_hybrid155_automatic,sandero_stepway_iii_extreme,hybrid 155,automatic,active,Explicit 2026-08-11 Sandero/Sandero Stepway price-list combination.
+90,bigster_expression_mildhybridg140_4x2_automatic,bigster_expression,mild hybrid-G 140 auto 4x2,automatic,active,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
+91,bigster_extreme_mildhybridg140_4x2_automatic,bigster_extreme,mild hybrid-G 140 auto 4x2,automatic,active,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
+92,bigster_journey_mildhybridg140_4x2_automatic,bigster_journey,mild hybrid-G 140 auto 4x2,automatic,active,New 2026-10-01 catalogue combination; automatic six-speed dual-clutch transmission confirmed by the technical table.
+93,bigster_expression_tribrid150_4x4_automatic,bigster_expression,tribrid 150 4x4,automatic,active,2026-10-01 catalogue naming supersedes the earlier hybrid-G 150 4x4 label; technical table confirms 4x4 and six-speed dual-clutch automatic.
+94,bigster_extreme_tribrid150_4x4_automatic,bigster_extreme,tribrid 150 4x4,automatic,active,2026-10-01 catalogue naming supersedes the earlier hybrid-G 150 4x4 label; technical table confirms 4x4 and six-speed dual-clutch automatic.
+95,bigster_journey_tribrid150_4x4_automatic,bigster_journey,tribrid 150 4x4,automatic,active,2026-10-01 catalogue naming supersedes the earlier hybrid-G 150 4x4 label; technical table confirms 4x4 and six-speed dual-clutch automatic.

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "package_id": "official_configurator_exact_state_capture_001",
+  "status": "complete_with_bounded_external_input",
+  "observed_on": "2026-08-02",
+  "registered_source_reused": "src_pl_dacia_official_configurator_coverage_20260802",
+  "active_configurations_in_catalogue": 81,
+  "automatically_captured_default_states": 7,
+  "existing_configuration_pdfs": 7,
+  "manual_artifacts_required_now": 1,
+  "high_priority_manual_artifacts_after_current_blocker": 3,
+  "blanket_export_request_rejected": true,
+  "saved_conf_resolution": {
+    "spring_expression": "not_resolved_by_static_capture",
+    "required_artifact": "configurator_pdf"
+  },
+  "architecture_decision": "deferred",
+  "master_data_delta": {
+    "sources_added": 0,
+    "configuration_values_added": 0,
+    "availability_records_added": 0,
+    "commercial_mappings_changed": 0,
+    "attributes_added": 0
+  },
+  "next_action": {
+    "package_id": "spring_expression_saved_state_artifact_intake_001",
+    "required_from_user": "Upload the PDF downloaded from the already supplied Spring Expression saved configuration.",
+    "fallback": "Provide screenshots of the summary, standard equipment, optional equipment and battery/charging sections."
+  }
+}

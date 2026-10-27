@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "kind": "configuration_cargo_values",
+  "value_id_start": 1877,
+  "context_id_start": 46,
+  "observation_date": "2025-12-17",
+  "source_page": 22,
+  "source_section": "06. WYMIARY — POJEMNOŚĆ BAGAŻNIKA",
+  "attribute_code": "boot_capacity",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "L",
+    "status": "active"
+  },
+  "source_code": "src_pl_jogger_brochure_20251217",
+  "layouts": [
+    {
+      "seat_count": 5,
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_hybrid155_automatic"
+      ],
+      "observations": [
+        {
+          "context_code": "five_seat_minimum_vda_iso3832",
+          "value": "708",
+          "source_text": "Minimalna pojemność bagażnika wersji 5-miejscowej — 708 dm3 według normy ISO 3832",
+          "measurement_basis_code": "vda_iso_3832",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "five_seat_minimum_ordinary_litre",
+          "value": "829",
+          "source_text": "Minimalna pojemność bagażnika wersji 5-miejscowej — 829 litrów",
+          "measurement_basis_code": "ordinary_litre",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "five_seat_maximum_vda_iso3832",
+          "value": "1819",
+          "source_text": "Maksymalna pojemność bagażnika wersji 5-miejscowej — 1819 dm3 według normy ISO 3832",
+          "measurement_basis_code": "vda_iso_3832",
+          "second_row_state_code": "folded",
+          "third_row_state_code": "",
+          "compartment_code": "source_stated_total",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "five_seat_maximum_ordinary_litre",
+          "value": "2094",
+          "source_text": "Maksymalna pojemność bagażnika wersji 5-miejscowej — 2094 litry",
+          "measurement_basis_code": "ordinary_litre",
+          "second_row_state_code": "folded",
+          "third_row_state_code": "",
+          "compartment_code": "source_stated_total",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        }
+      ]
+    },
+    {
+      "seat_count": 7,
+      "configurations": [
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_7seat_tce110_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_hybrid155_automatic"
+      ],
+      "observations": [
+        {
+          "context_code": "seven_seat_minimum_vda_iso3832",
+          "value": "160",
+          "source_text": "Minimalna pojemność bagażnika wersji 7-miejscowej — 160 dm3 według normy ISO 3832",
+          "measurement_basis_code": "vda_iso_3832",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "upright",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "seven_seat_minimum_ordinary_litre",
+          "value": "212",
+          "source_text": "Minimalna pojemność bagażnika wersji 7-miejscowej — 212 litrów",
+          "measurement_basis_code": "ordinary_litre",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "upright",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "seven_seat_second_upright_third_folded_vda_iso3832",
+          "value": "565",
+          "source_text": "Drugi rząd foteli rozłożony, trzeci rząd foteli złożony — 565 dm3 według normy ISO 3832",
+          "measurement_basis_code": "vda_iso_3832",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "folded",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "seven_seat_second_upright_third_folded_ordinary_litre",
+          "value": "699",
+          "source_text": "Drugi rząd foteli rozłożony, trzeci rząd foteli złożony — 699 litrów",
+          "measurement_basis_code": "ordinary_litre",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "folded",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "seven_seat_second_upright_third_removed_vda_iso3832",
+          "value": "696",
+          "source_text": "Drugi rząd foteli rozłożony, trzeci rząd foteli wymontowany — 696 dm3 według normy ISO 3832",
+          "measurement_basis_code": "vda_iso_3832",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "removed",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        },
+        {
+          "context_code": "seven_seat_second_upright_third_removed_ordinary_litre",
+          "value": "820",
+          "source_text": "Drugi rząd foteli rozłożony, trzeci rząd foteli wymontowany — 820 litrów",
+          "measurement_basis_code": "ordinary_litre",
+          "second_row_state_code": "upright",
+          "third_row_state_code": "removed",
+          "compartment_code": "main_luggage_compartment",
+          "spare_wheel_state_code": "",
+          "tyre_repair_kit_state_code": "",
+          "double_floor_state_code": ""
+        }
+      ]
+    }
+  ],
+  "deferred_observations": [
+    {
+      "seat_count": 7,
+      "source_text": "Maksymalna pojemność bagażnika wersji 7-miejscowej — 1807 dm3 według normy ISO 3832 / 2085 litrów",
+      "reason": "Tabela nie określa, czy trzeci rząd jest złożony, czy wymontowany; nie przypisuj stanu siedzeń bez dodatkowego źródła."
+    }
+  ],
+  "non_inference": [
+    "Do not import the 1807/2085 maximum pair until the third-row state is source-backed.",
+    "Do not infer spare-wheel, tyre-repair-kit or double-floor state.",
+    "Do not flatten five-seat and seven-seat layouts into one model-wide value.",
+    "Do not project any cargo observation outside the 22 active Jogger configurations listed in this specification."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_14_0_publication",
+  "published_on": "2026-08-03",
+  "status": "complete",
+  "tag": "data-products-v1.14.0",
+  "release_id": 364506207,
+  "source_commit": "6b02c97344050eab0900a48570a7239c1ce98d52",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "consumer_interface": {
+    "model_family_summary_entry_point": "model_family_summary_html",
+    "model_family_summary_workspace_card": "Model family summary",
+    "model_family_comparison_entry_point": "model_family_comparison_matrix_html",
+    "model_family_comparison_workspace_card": "Model family comparison matrix",
+    "model_version_comparison_entry_point": "model_version_comparison_matrix_html",
+    "model_version_comparison_workspace_card": "Model version comparison matrix",
+    "older_release_compatibility": true
+  },
+  "portfolio_model_version_comparison_matrix": {
+    "model_families": 6,
+    "active_versions": 22,
+    "active_configurations": 81,
+    "reporting_scopes": 22,
+    "provenance_sources": 33,
+    "source_configuration_relationships": 251,
+    "configurations_without_provenance": 0,
+    "formats": [
+      "JSON",
+      "CSV",
+      "HTML"
+    ]
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "configuration_pairs_generated": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.14.0.zip": {
+      "size_bytes": 83471454,
+      "sha256": "fa7125abe50f277a9301fae7f529d5dea40100f04b363e72d270cba354f35cd4"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 25314,
+      "sha256": "177484bc56221bd3284101bcd2be7359af196223ac976a31f74af05d727427e8"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "87d25fd3f8569d84d286605ea28d37a068c645507042bbb4fcecd534ff5d7bfd"
+    }
+  },
+  "public_v1_13_0_immutable": true
+}

@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "scope": {
+    "source_codes": [
+      "src_pl_spring_brochure_20260219",
+      "src_pl_spring_price_my25_stock_20260708"
+    ],
+    "configuration_codes": [
+      "spring_essential_electric70_automatic",
+      "spring_expression_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ],
+    "reviewed_areas": [
+      "battery",
+      "charging_times",
+      "performance",
+      "dimensions",
+      "luggage"
+    ],
+    "master_data_mutation_authorized": false
+  },
+  "source_receipts": [
+    {
+      "source_code": "src_pl_spring_brochure_20260219",
+      "repository_path": "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+      "sha256": "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d",
+      "source_date": "2026-02-19"
+    },
+    {
+      "source_code": "src_pl_spring_price_my25_stock_20260708",
+      "repository_path": "PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf",
+      "sha256": "809d24ec3710aac02b3f3a2f33e1872689430a1d6887f387936a5ac3ff343ae0",
+      "source_date": "2026-07-08"
+    }
+  ],
+  "master_snapshot": {
+    "spring_scalar_observations": 55,
+    "approved_pairs_already_present": 0,
+    "approved_attribute_count": 12,
+    "approved_observation_count": 36
+  },
+  "approved_migration": {
+    "classification": "context_safe_nonconflicting",
+    "source_code": "src_pl_spring_brochure_20260219",
+    "source_pages": [
+      18,
+      21
+    ],
+    "observation_date": "2026-02-19",
+    "configuration_count": 3,
+    "attribute_values": {
+      "electric_motor_type": "permanent_magnet_synchronous",
+      "traction_battery_type": "lithium_iron_phosphate",
+      "steering_type": "Elektryczne wspomaganie układu kierowniczego",
+      "overall_height": "1489",
+      "front_track": "1385",
+      "overall_width": "1583",
+      "overall_width_with_mirrors": "1767",
+      "rear_track": "1365",
+      "front_overhang": "683",
+      "wheelbase": "2423",
+      "rear_overhang": "595",
+      "overall_length": "3701"
+    },
+    "observation_count": 36,
+    "observations": [
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "electric_motor_type",
+        "value": "permanent_magnet_synchronous",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "traction_battery_type",
+        "value": "lithium_iron_phosphate",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "steering_type",
+        "value": "Elektryczne wspomaganie układu kierowniczego",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "overall_height",
+        "value": "1489",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "front_track",
+        "value": "1385",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "overall_width",
+        "value": "1583",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "overall_width_with_mirrors",
+        "value": "1767",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "rear_track",
+        "value": "1365",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "front_overhang",
+        "value": "683",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "wheelbase",
+        "value": "2423",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "rear_overhang",
+        "value": "595",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "attribute_code": "overall_length",
+        "value": "3701",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "electric_motor_type",
+        "value": "permanent_magnet_synchronous",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "traction_battery_type",
+        "value": "lithium_iron_phosphate",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "steering_type",
+        "value": "Elektryczne wspomaganie układu kierowniczego",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "overall_height",
+        "value": "1489",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "front_track",
+        "value": "1385",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "overall_width",
+        "value": "1583",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "overall_width_with_mirrors",
+        "value": "1767",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "rear_track",
+        "value": "1365",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "front_overhang",
+        "value": "683",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "wheelbase",
+        "value": "2423",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "rear_overhang",
+        "value": "595",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_expression_electric70_automatic",
+        "attribute_code": "overall_length",
+        "value": "3701",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "electric_motor_type",
+        "value": "permanent_magnet_synchronous",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "traction_battery_type",
+        "value": "lithium_iron_phosphate",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "steering_type",
+        "value": "Elektryczne wspomaganie układu kierowniczego",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 18
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "overall_height",
+        "value": "1489",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "front_track",
+        "value": "1385",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "overall_width",
+        "value": "1583",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "overall_width_with_mirrors",
+        "value": "1767",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "rear_track",
+        "value": "1365",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "front_overhang",
+        "value": "683",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "wheelbase",
+        "value": "2423",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "rear_overhang",
+        "value": "595",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "attribute_code": "overall_length",
+        "value": "3701",
+        "observation_date": "2026-02-19",
+        "source_code": "src_pl_spring_brochure_20260219",
+        "source_page": 21
+      }
+    ],
+    "enum_representation": {
+      "electric_motor_type": {
+        "registry_status": "missing",
+        "required_domain_file": "electric_motor_types.csv",
+        "required_value": "permanent_magnet_synchronous"
+      },
+      "traction_battery_type": {
+        "registry_status": "missing",
+        "required_domain_file": "battery_chemistries.csv",
+        "required_value": "lithium_iron_phosphate"
+      }
+    },
+    "boundaries": [
+      "Only facts printed as common to Electric 70 and Electric 100 or shown as model-wide body dimensions are approved.",
+      "No value is transferred from the MY2025 stock-only price list into the current Spring configuration set.",
+      "The 146 mm ground-clearance value is excluded because the source limits it to 15-inch wheels.",
+      "No charging-time, range, maximum-speed or grade-specific value is included."
+    ]
+  },
+  "classifications": [
+    {
+      "fact": "traction battery chemistry",
+      "source_value": "Litowo–żelazowo–fosforanowy",
+      "classification": "approved_migration",
+      "reason": "The brochure states one common chemistry for both represented powertrains, exact grade footnotes cover all three configurations, and no later source conflicts with it."
+    },
+    {
+      "fact": "electric motor technology",
+      "source_value": "Silnik synchroniczny ze stałymi magnesami",
+      "classification": "approved_migration",
+      "reason": "The brochure states one common motor technology for Electric 70 and Electric 100 and the canonical enum attribute already exists."
+    },
+    {
+      "fact": "steering assistance type",
+      "source_value": "Elektryczne wspomaganie układu kierowniczego",
+      "classification": "approved_migration",
+      "reason": "The brochure states one common steering system and the canonical string attribute already has the same source-faithful representation pattern in other models."
+    },
+    {
+      "fact": "common body dimensions",
+      "source_value": {
+        "electric_motor_type": "permanent_magnet_synchronous",
+        "traction_battery_type": "lithium_iron_phosphate",
+        "steering_type": "Elektryczne wspomaganie układu kierowniczego",
+        "overall_height": "1489",
+        "front_track": "1385",
+        "overall_width": "1583",
+        "overall_width_with_mirrors": "1767",
+        "rear_track": "1365",
+        "front_overhang": "683",
+        "wheelbase": "2423",
+        "rear_overhang": "595",
+        "overall_length": "3701"
+      },
+      "classification": "approved_migration",
+      "reason": "Nine arrow-bounded dimensions are unambiguous in the fully reviewed page-21 visual and are not wheel-, grade- or powertrain-qualified."
+    },
+    {
+      "fact": "traction battery mass",
+      "source_value": "204 kg",
+      "classification": "deferred_model_year_bound",
+      "reason": "The value exists only in the July price list explicitly limited to MY2025 dealer stock; no brochure or later exact-current source proves model-year independence."
+    },
+    {
+      "fact": "traction battery nominal voltage",
+      "source_value": "354 V",
+      "classification": "deferred_model_year_bound",
+      "reason": "The value exists only in the MY2025 stock technical table and must not be projected onto the current configuration set."
+    },
+    {
+      "fact": "traction battery capacity",
+      "source_value": "24.3 kWh",
+      "classification": "deferred_measurement_basis",
+      "reason": "The sources do not qualify the value as gross or net while the canonical traction-battery capacity attributes require that distinction."
+    },
+    {
+      "fact": "charging times",
+      "classification": "deferred_contextual",
+      "reason": "SOC endpoints, charger power, option/package state and dated source context must remain explicit; automatic migration is prohibited for this package."
+    },
+    {
+      "fact": "performance and range",
+      "classification": "represented_or_deferred",
+      "reason": "Power, 0-50, 0-100, maximum speed and mixed range are already represented; torque retains a source-unit conflict and no later values are imported."
+    },
+    {
+      "fact": "luggage volumes",
+      "classification": "already_represented",
+      "reason": "The 308 L minimum and 1004 L folded values already exist for all three configurations with ISO 3832 context."
+    },
+    {
+      "fact": "wheel-qualified ground clearance",
+      "source_value": "146 mm",
+      "classification": "deferred_configuration_dependent",
+      "reason": "The page-21 footnote limits the value to 15-inch wheels, so it is excluded from the common migration."
+    }
+  ],
+  "summary": {
+    "approved_attributes": 12,
+    "approved_observations": 36,
+    "approved_enum_attributes": 2,
+    "deferred_facts": 5,
+    "already_represented_fact_groups": 2,
+    "master_rows_changed": 0
+  },
+  "next_package": {
+    "package_id": "spring_nonconflicting_common_technical_observations_migration_001",
+    "goal": "Materialize the 36 approved brochure observations, add only the two required enum-domain mappings and controlled values, and preserve every deferred MY2025, charging, range and wheel-qualified boundary."
+  }
+}

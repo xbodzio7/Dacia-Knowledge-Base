@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_equipment_page18_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_015",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 18,
+    "review_basis": "authored visual review of the archived page-18 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 1,
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "model_code": "sandero_stepway_iii",
+    "domain": "equipment_matrix",
+    "page": 18,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "rejected_evidence_preserved_with_reason": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 1,
+    "decision_counts": {
+      "covered": 1
+    },
+    "selected_evidence_signature_count": 1,
+    "selected_evidence_record_count": 1,
+    "rejected_attached_signature_count": 1,
+    "rejected_attached_record_count": 2,
+    "candidates_with_selected_evidence": 1,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "ec4e48ba49e9e26f9b158c5427a8063c899061b5d2343499a5c4695767303f71",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 18,
+      "line_start": 42,
+      "line_end": 42,
+      "exact_text": "Relingi dachowe                                          •                    -                      -",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered",
+      "row_context": "complete plain roof-rails row immediately above the distinct modular-roof-rails row",
+      "source_availability": {
+        "essential": "standard",
+        "expression": "not_available",
+        "extreme": "not_available"
+      },
+      "adjacent_row_context": {
+        "label": "Modułowe relingi dachowe (szare Megalith)",
+        "essential": "not_available",
+        "expression": "standard",
+        "extreme": "standard"
+      },
+      "rationale": "The 2026-02-02 brochure prints two consecutive but separate roof-rail rows. The candidate row 'Relingi dachowe' is standard only in Essential and unavailable in Expression and Extreme. The immediately following 'Modułowe relingi dachowe (szare Megalith)' row has the inverse layout: unavailable in Essential and standard in Expression and Extreme. The attached Essential roof_rails record is selected; the two Expression modular_roof_rails records are retained and explicitly rejected as evidence for the adjacent row. The review does not approve an import or project unavailable states between configurations.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 1,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "roof_rails",
+            "availability_status": "standard"
+          },
+          "record_count": 1,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_stepway_iii_essential_ecog120_manual_roof_rails_official_web_20260723",
+              "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 1,
+      "rejected_attached_record_count": 2,
+      "rejected_attached_signatures": [
+        {
+          "signature": {
+            "attribute_code": "modular_roof_rails",
+            "availability_status": "standard"
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_stepway_iii_expression_ecog120_automatic_modular_roof_rails_official_web_20260723",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_stepway_iii_expression_ecog120_manual_modular_roof_rails_official_web_20260723",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_official_web_configurations_20260723",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ],
+          "rejection_reason": "The modular-roof-rail signature belongs to the immediately following, visually distinct row 'Modułowe relingi dachowe (szare Megalith)', which is unavailable in Essential and standard in Expression and Extreme. Its two Expression records must not be substituted into the plain-roof-rail row."
+        }
+      ]
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "complete_row_trim_states_are_preserved": true,
+    "plain_roof_rails_remain_distinct_from_modular_roof_rails": true,
+    "adjacent_row_evidence_is_preserved_but_rejected": true,
+    "essential_expression_and_extreme_states_are_not_projected": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Bigster Technical Page 20 Unresolved Review — Chunk 1",
+    "status": "planned",
+    "goal": "Review chunk 1 of the 40 unresolved technical candidates from Bigster brochure page 20 without creating master-data rows or approved import specifications."
+  }
+}

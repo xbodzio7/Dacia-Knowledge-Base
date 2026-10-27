@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 813,
+  "attribute_code": "engine_power",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kW",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "81",
+      "source_text": "81 (110) przy 5 000- 5 250"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "81",
+      "source_text": "81 (110) przy 5 000- 5 250"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "81",
+      "source_text": "81 (110) przy 5 000- 5 250"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "80",
+      "source_text": "80 kW (108KM)"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "80",
+      "source_text": "80 kW (108KM)"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "80",
+      "source_text": "80 kW (108KM)"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "90",
+      "source_text": "LPG: 90 (122) przy 4 500 - 5 000",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "84",
+      "source_text": "Ben: 84 (114) przy 4 500 - 5 750",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "81",
+      "source_text": "81 (110) przy 5 000- 5 250"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "81",
+      "source_text": "81 (110) przy 5 000- 5 250"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "81",
+      "source_text": "81 (110) przy 5 000- 5 250"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "80",
+      "source_text": "80 kW (108KM)"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "80",
+      "source_text": "80 kW (108KM)"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "80",
+      "source_text": "80 kW (108KM)"
+    }
+  ]
+}

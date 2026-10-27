@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "source_code": "src_pl_non_spring_current_configurator_scope_20260808",
+  "source_type": "official_dynamic_web_review_with_existing_repository_context",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-08-08",
+  "volatility": "dynamic_official_web",
+  "goal": "Complete the reproducible current configurator evidence scope for every current Dacia family other than Spring, without projecting grade-level or selected-state facts across unobserved engine, transmission or seating surfaces.",
+  "excluded_family": {
+    "model_id": "spring",
+    "reason": "Spring current configurator and Type-2 selector reconciliation were completed in earlier packages and are outside this requested continuation scope."
+  },
+  "already_completed_scope": {
+    "families": ["sandero", "sandero_stepway"],
+    "source_path": "project/sources/dacia-pl-sandero-stepway-current-configurator-scope-20260808.json",
+    "package_path": "project/packages/sandero-stepway-configurator-data-completion-001-20260808.md",
+    "result": "15 current exact configuration surfaces inventory-and-price verified; exact complete Design capture on two reproducible default surfaces; remaining exact Design states explicitly source-bounded."
+  },
+  "models": {
+    "duster": {
+      "product_page": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv.html",
+      "generic_configurator": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+      "current_grades": [
+        {"grade": "essential", "catalog_price_pln": 82000, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZu/Ai0", "current_engine_scope": ["Eco-G 120"]},
+        {"grade": "expression", "catalog_price_pln": 90000, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZu/Ai1", "current_engine_scope": ["Eco-G 120", "Eco-G 120 auto", "mild hybrid 140", "hybrid-G 150 4x4", "hybrid 155"]},
+        {"grade": "extreme", "catalog_price_pln": 96000, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZu/Ai2", "current_engine_scope": ["Eco-G 120", "Eco-G 120 auto", "mild hybrid 140", "hybrid-G 150 4x4", "hybrid 155"]},
+        {"grade": "journey", "catalog_price_pln": 96200, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZu/Ai3", "current_engine_scope": ["Eco-G 120", "Eco-G 120 auto", "mild hybrid 140", "hybrid-G 150 4x4", "hybrid 155"]}
+      ],
+      "exact_default": {
+        "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+        "price_pln": 82000,
+        "colours": [
+          {"name": "biel alpejska", "price_pln": 0},
+          {"name": "szary schiste", "price_pln": 2700},
+          {"name": "khaki lichen", "price_pln": 2700}
+        ],
+        "wheels": [{"name": "16\" felgi stalowe w kolorze czarnym", "price_pln": 0}],
+        "upholstery": [{"name": "tapicerka materiałowa essential", "price_pln": 0}],
+        "factory_options_visible": [],
+        "accessory_count": 25
+      },
+      "same_day_grade_preset_observations": {
+        "expression": {
+          "colours": [
+            {"name": "biel alpejska", "price_pln": 0},
+            {"name": "szary schiste", "price_pln": 2700},
+            {"name": "brązowy terracotta", "price_pln": 2700},
+            {"name": "khaki lichen", "price_pln": 2700},
+            {"name": "czarna perła", "price_pln": 2700},
+            {"name": "sandstone", "price_pln": 2900},
+            {"name": "zielony cedar", "price_pln": 2900}
+          ],
+          "wheels": [{"name": "17\" aluminiowe TERGAN 215", "price_pln": 0}],
+          "upholstery": [{"name": "tapicerka materiałowa Denim z odblaskowym logo", "price_pln": 0}],
+          "factory_options": [
+            {"name": "Media Nav Live 10\"", "price_pln": 2400},
+            {"name": "Pakiet ZIMOWY", "price_pln": 1200}
+          ]
+        },
+        "extreme": {
+          "colours": [
+            {"name": "biel alpejska", "price_pln": 0},
+            {"name": "szary schiste", "price_pln": 2700},
+            {"name": "brązowy terracotta", "price_pln": 2700},
+            {"name": "khaki lichen", "price_pln": 2700},
+            {"name": "czarna perła", "price_pln": 2700},
+            {"name": "sandstone", "price_pln": 2900},
+            {"name": "zielony cedar", "price_pln": 2900}
+          ],
+          "wheels": [
+            {"name": "17\" TERGAN BLACK 215", "price_pln": 0},
+            {"name": "18\" TAGASAN 215 pół diamentowane", "price_pln": 1000}
+          ],
+          "upholstery": [{"name": "tapicerka MicroCloud z odblaskowym logo", "price_pln": 0}],
+          "factory_options": [
+            {"name": "Pakiet TECHNO", "price_pln": 2700},
+            {"name": "Pakiet PARKING", "price_pln": 2200},
+            {"name": "Pakiet ZIMOWY", "price_pln": 1200},
+            {"name": "Pakiet ZIMOWY PLUS", "price_pln": 2300}
+          ]
+        },
+        "journey": {
+          "colours": [
+            {"name": "biel alpejska", "price_pln": 0},
+            {"name": "szary schiste", "price_pln": 2700},
+            {"name": "brązowy terracotta", "price_pln": 2700},
+            {"name": "khaki lichen", "price_pln": 2700},
+            {"name": "czarna perła", "price_pln": 2700},
+            {"name": "sandstone", "price_pln": 2900},
+            {"name": "zielony cedar", "price_pln": 2900}
+          ],
+          "wheels": [{"name": "18\" TAGASAN 215 diamentowane", "price_pln": 0}],
+          "upholstery": [{"name": "tapicerka materiałowa journey", "price_pln": 0}],
+          "factory_options": [
+            {"name": "Pakiet PARKING", "price_pln": 2200},
+            {"name": "Pakiet ZIMOWY PLUS", "price_pln": 2300},
+            {"name": "Pakiet ZIMOWY", "price_pln": 1200}
+          ]
+        }
+      },
+      "configuration_identity_reconciliation": {
+        "current_live_surfaces": 16,
+        "current_registry_matches": 13,
+        "current_candidates_absent_from_registry": [
+          "duster_iii_expression_hybridg150_4x4",
+          "duster_iii_extreme_hybridg150_4x4",
+          "duster_iii_journey_hybridg150_4x4"
+        ],
+        "prior_phase_registry_surfaces_still_active": 14,
+        "master_mutation_in_this_package": false,
+        "next_required_action": "Separate source-backed current-range catalogue reconciliation before changing canonical configuration status."
+      }
+    },
+    "jogger": {
+      "product_page": "https://www.dacia.pl/samochody/jogger-hybydowy.html",
+      "five_seat_configurator": "https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html",
+      "seven_seat_configurators": [
+        "https://www.dacia.pl/samochody/jogger-7/konfigurator.html",
+        "https://www.dacia.pl/samochody/jogger-ri1-ph2-7seats/konfigurator.html"
+      ],
+      "current_grade_pages": [
+        {"grade": "essential", "grade_code": "ENS_MDL3P4X41SERIELIM1", "engines": [{"name": "Eco-G 120", "transmission": "manual", "price_pln": 77900}]},
+        {"grade": "expression", "grade_code": "ENS_MDL3P4X41SERIELIM2", "engines": [{"name": "TCe 110", "transmission": "manual", "price_pln": 84050}, {"name": "Eco-G 120", "transmission": "manual", "price_pln": 82050}, {"name": "hybrid 155", "transmission": "automatic", "price_pln": 103550}]},
+        {"grade": "extreme", "grade_code": "ENS_MDL3P4X41SERIELIM3", "engines": [{"name": "TCe 110", "transmission": "manual", "price_pln": 91900}, {"name": "Eco-G 120", "transmission": "manual", "price_pln": 89900}, {"name": "Eco-G 120", "transmission": "automatic", "price_pln": 96800}, {"name": "hybrid 155", "transmission": "automatic", "price_pln": 111400}]},
+        {"grade": "journey", "grade_code": "ENS_MDL3P4X41SERIELIM4", "engines": [{"name": "TCe 110", "transmission": "manual", "price_pln": 94050}, {"name": "Eco-G 120", "transmission": "automatic", "price_pln": 98950}, {"name": "hybrid 155", "transmission": "automatic", "price_pln": 113550}]}
+      ],
+      "exact_defaults": [
+        {
+          "configuration_code": "jogger_essential_5seat_ecog120_manual",
+          "price_pln": 77900,
+          "colours": [{"name": "biel alpejska", "price_pln": 0}, {"name": "szary schiste", "price_pln": 2700}, {"name": "czarna perła", "price_pln": 2700}],
+          "wheels": [{"name": "16\" felgi stalowe", "price_pln": 0}],
+          "upholstery": [{"name": "tapicerka materiałowa w kolorze czarnym i wstawkami denim", "price_pln": 0}],
+          "factory_options": [{"name": "kryterium ewolucyjne e-Call", "price_pln": 0}],
+          "accessory_count": 39
+        },
+        {
+          "configuration_code": "jogger_essential_7seat_ecog120_manual",
+          "price_pln": 82400,
+          "colours": [{"name": "biel alpejska", "price_pln": 0}, {"name": "szary schiste", "price_pln": 2700}, {"name": "czarna perła", "price_pln": 2700}],
+          "wheels": [{"name": "16\" felgi stalowe", "price_pln": 0}],
+          "upholstery": [{"name": "tapicerka materiałowa w kolorze czarnym i wstawkami denim", "price_pln": 0}]
+        }
+      ],
+      "exact_surface_count_in_registry": 22,
+      "non_default_design_scope": "dynamic_target_state_not_reproducibly_addressable_from_accessible_grade_pages; do not project default five/seven-seat palettes across grades or powertrains"
+    },
+    "bigster": {
+      "product_page": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv.html",
+      "generic_configurator": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html",
+      "current_grade_presets": [
+        {"grade": "essential", "catalog_price_pln": 101400, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZv/Ahs", "grade_code": "ENS_MDL2P1SERIELIM1"},
+        {"grade": "expression", "catalog_price_pln": 110400, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZv/Aht", "grade_code": "ENS_MDL2P1SERIELIM2"},
+        {"grade": "extreme", "catalog_price_pln": 118900, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZv/Ahu", "grade_code": "ENS_MDL2P1SERIELIM3"},
+        {"grade": "journey", "catalog_price_pln": 118500, "preset_conf": "https://pl.co.rplug.renault.com/c/BAEZv/Ahv", "grade_code": "ENS_MDL2P1SERIELIM4"}
+      ],
+      "current_engine_scope": {
+        "essential": ["mild hybrid-G 140", "mild hybrid 140"],
+        "expression": ["mild hybrid-G 140", "hybrid 155", "mild hybrid 140", "hybrid-G 150 4x4"],
+        "extreme": ["mild hybrid-G 140", "hybrid 155", "mild hybrid 140", "hybrid-G 150 4x4"],
+        "journey": ["mild hybrid-G 140", "hybrid 155", "mild hybrid 140", "hybrid-G 150 4x4"]
+      },
+      "exact_default": {
+        "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+        "price_pln": 101400,
+        "colours": [{"name": "biel alpejska", "price_pln": 0}, {"name": "szary schiste", "price_pln": 3000}, {"name": "czarna perła", "price_pln": 3000}],
+        "wheels": [{"name": "aluminiowe obręcze kół 17\" 215 TERGAN", "price_pln": 0}],
+        "upholstery": [{"name": "tapicerka materiałowa essential", "price_pln": 0}],
+        "factory_options": [{"name": "kryterium techniczne e-call", "price_pln": 0}],
+        "accessory_count": 25
+      },
+      "same_day_journey_grade_preset": {
+        "selected_powertrain": "mild hybrid 140",
+        "selected_price_pln": 118500,
+        "colours": [{"name": "biel alpejska", "price_pln": 0}, {"name": "niebieski indigo", "price_pln": 3000}, {"name": "szary schiste", "price_pln": 3000}, {"name": "zielony cedar", "price_pln": 3000}, {"name": "brązowy terracotta", "price_pln": 3000}, {"name": "czarna perła", "price_pln": 3000}],
+        "wheels": [{"name": "18\" TAGASAN 215 diamentowane", "price_pln": 0}, {"name": "19\" RASAN pół diamentowane", "price_pln": 1200}],
+        "upholstery": [{"name": "tapicerka journey materiałowa łączona z MicroCloud", "price_pln": 0}],
+        "factory_options": [{"name": "Pakiet ZIMOWY PLUS", "price_pln": 2300}, {"name": "Pakiet ZIMOWY", "price_pln": 1200}, {"name": "dach panoramiczny", "price_pln": 4300}, {"name": "Pakiet PARKING", "price_pln": 2200}, {"name": "kryterium techniczne e-call", "price_pln": 0}, {"name": "koło zapasowe dojazdowe", "price_pln": 800}, {"name": "nadwozie dwukolorowe", "price_pln": 1400}],
+        "accessory_count": 29
+      },
+      "exact_surface_count_in_registry": 14,
+      "non_default_exact_design_scope": "grade pages and real preset links prove current grade/powertrain inventory, but Design selections are not promoted across engines when a deterministic exact selector state is not reproduced"
+    }
+  },
+  "normalization_rules": [
+    "Use only official Dacia Poland pages and repository-preserved official source context.",
+    "Real product-page preset links may be stored; synthetic or guessed configurator deep links are forbidden.",
+    "Grade-level Design observations are not promoted to exact engine/transmission catalogues.",
+    "Five-seat and seven-seat Jogger states remain distinct.",
+    "Selected appearance is not promoted to a complete choice list.",
+    "Current inventory drift is recorded but canonical master status changes require a dedicated reconciliation package.",
+    "Accessory selector rows remain a distinct commercial domain from factory packages/options."
+  ],
+  "summary": {
+    "requested_non_spring_families": 5,
+    "previously_completed_families_reused": 2,
+    "newly_reviewed_families": 3,
+    "families_with_current_official_configurator_evidence": 5,
+    "current_exact_configuration_surfaces_across_non_spring_scope": 67,
+    "duster_current_candidates_absent_from_registry": 3,
+    "duster_prior_phase_active_surfaces_to_reconcile": 14,
+    "duster_registry_records_in_reconciliation_scope": 17,
+    "new_master_rows_created": 0,
+    "completion_classification": "source-complete-with-explicit-exact-scope-boundaries"
+  }
+}

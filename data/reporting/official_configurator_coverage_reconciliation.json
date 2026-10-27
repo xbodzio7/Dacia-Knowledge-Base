@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "package_id": "official_configurator_coverage_reconciliation_001",
+  "source_code": "src_pl_dacia_official_configurator_coverage_20260802",
+  "scope": {
+    "active_model_families": 6,
+    "primary_configurator_surfaces": 7,
+    "registered_user_deep_links": 1,
+    "master_data_mutation_authorized": false
+  },
+  "coverage": {
+    "active_model_codes": [
+      "spring",
+      "sandero_iii",
+      "sandero_stepway_iii",
+      "jogger",
+      "duster_iii",
+      "bigster"
+    ],
+    "surface_codes": [
+      "spring",
+      "sandero_iii",
+      "sandero_stepway_iii",
+      "jogger_5_seat",
+      "jogger_7_seat",
+      "duster_iii",
+      "bigster"
+    ],
+    "excluded_without_configurator": [
+      "striker"
+    ],
+    "previously_omitted_active_model_families": [
+      "spring"
+    ],
+    "jogger_split_surface_required": true,
+    "exact_state_dimensions": [
+      "model_code",
+      "grade",
+      "powertrain",
+      "transmission",
+      "drive_type",
+      "seat_count",
+      "model_year_or_phase",
+      "conf_url"
+    ]
+  },
+  "source_registration": {
+    "source_rows_added": 1,
+    "source_id": 35,
+    "snapshot_path": "project/sources/dacia-pl-official-configurator-coverage-20260802.json",
+    "snapshot_sha256": "a40919c21f0c78187db014483c789c6d84864953a21536583bf4f34fbd6211fc"
+  },
+  "spring_findings": {
+    "essential_default_state_confirmed": true,
+    "essential_type2_cable_standard_confirmed": true,
+    "essential_home_cable_optional_price_pln": 1500,
+    "expression_saved_state_registered": true,
+    "expression_saved_state_statically_resolved": false,
+    "expression_cable_state": "unresolved_pending_exact_saved_state_capture",
+    "supplied_cable_architecture_decision": "deferred_until_exact_state_capture"
+  },
+  "architecture_boundary": {
+    "status": "deferred",
+    "reason": "The user-provided Spring conf URL is registered, but static retrieval falls back to the default Essential state and does not prove the saved Expression equipment state.",
+    "decision_not_yet_authorized": "No supplied-cable attribute or commercial-model decision is made in this package."
+  },
+  "master_data_delta": {
+    "source_rows_added": 1,
+    "other_master_rows_added": 0,
+    "configuration_values_changed": 0,
+    "availability_rows_changed": 0,
+    "commercial_mappings_changed": 0,
+    "attributes_added": 0,
+    "net_master_row_increase": 1
+  },
+  "verified_after_counts": {
+    "sources": 35,
+    "master_rows": 11715,
+    "configuration_values": 3567,
+    "configuration_import_specs": 138,
+    "availability_records": 5906,
+    "attributes": 385
+  },
+  "next_package": {
+    "package_id": "official_configurator_exact_state_capture_001",
+    "kind": "bounded_source_capture",
+    "goal": "Capture and normalize exact saved configurator states for every active model, grade, powertrain and transmission surface, beginning with the user-provided Spring link, before any architecture or master-data decision."
+  }
+}

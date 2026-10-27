@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_0_release_preparation",
+  "prepared_on": "2026-07-26",
+  "status": "complete",
+  "selected_by": "post_cross_model_priority_selection_review.json",
+  "target": {
+    "version": "1.8.0",
+    "tag": "data-products-v1.8.0",
+    "archive_name": "dacia-knowledge-base-data-products-v1.8.0.zip",
+    "manifest_name": "data-product-release-manifest.json",
+    "checksums_name": "SHA256SUMS"
+  },
+  "public_baseline": {
+    "version": "1.7.0",
+    "tag": "data-products-v1.7.0",
+    "release_id": 360090447,
+    "source_commit": "99e0e19b86cad6eae619f37702464e6a5a761cd8",
+    "archive_members": 83,
+    "verification": "PASS"
+  },
+  "candidate_baseline": {
+    "selected_configuration_count": 72,
+    "scope_group_count": 19,
+    "comparable_scope_count": 19,
+    "singleton_scope_count": 0,
+    "within_scope_pair_count": 114,
+    "recorded_difference_count": 1695,
+    "archive_member_count": 85,
+    "technical_comparison_facet_count": 124,
+    "equipment_facet_count": 110,
+    "formats": [
+      "JSON",
+      "Markdown",
+      "CSV",
+      "HTML",
+      "XLSX"
+    ],
+    "new_members_since_public_baseline": [
+      "cross-model/cross-model-comparison-view.json",
+      "cross-model/cross-model-comparison-view.html"
+    ],
+    "semantic_boundaries": {
+      "cross_scope_pairs_generated": false,
+      "ranking_generated": false,
+      "recommendations_generated": false,
+      "inferred_values_generated": false
+    }
+  },
+  "cross_model_product_contract": {
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "active_configuration_count": 72,
+    "within_scope_pair_count": 114,
+    "json_comparison_paths": 76,
+    "json_navigation_paths": 2,
+    "html_local_file_links": 57,
+    "standalone_html": true,
+    "javascript_used": false,
+    "runtime_image_dependency": false,
+    "unknown_seat_models": [
+      "bigster",
+      "duster_iii"
+    ],
+    "unknown_state": "not_stated"
+  },
+  "release_notes_contract": {
+    "headline": "Data Products v1.8.0",
+    "primary_change": "Add scope-preserving cross-model JSON and static HTML navigation to the public offline data-product workspace.",
+    "preserved_content": "Retain the complete v1.7.0 shortlist and nineteen comparison scopes without changing source-backed data or comparison semantics.",
+    "must_state": [
+      "72 active configurations",
+      "19 independent scopes",
+      "114 within-scope pairs",
+      "85 archive members",
+      "cross-scope pairs none",
+      "no ranking recommendations or inferred values"
+    ]
+  },
+  "publication_lifecycle": [
+    "preflight",
+    "publish",
+    "independent_public_audit",
+    "record_publication"
+  ],
+  "preflight_contract": {
+    "source": "exact squash-merged preparation commit",
+    "build_count": 2,
+    "required_checks": [
+      "byte_identical_rebuilds",
+      "release_asset_verification",
+      "cross_model_json_verification",
+      "cross_model_html_verification",
+      "offline_workspace_verification",
+      "public_v1_7_0_control_download",
+      "tag_and_release_absence"
+    ],
+    "final_identity_fields": [
+      "source_commit",
+      "archive_size_bytes",
+      "archive_sha256",
+      "manifest_size_bytes",
+      "manifest_sha256",
+      "checksums_size_bytes",
+      "checksums_sha256"
+    ]
+  },
+  "publication_state": {
+    "publication_performed": false,
+    "tag_created": false,
+    "release_created": false,
+    "final_source_commit": null,
+    "final_asset_identity": null,
+    "reason": "Preparation branch identity is not the final squash-merged source commit. Exact identity is established only by the separate preflight package."
+  },
+  "non_goals": [
+    "new_data_imports",
+    "cross_model_ui_expansion",
+    "ranking",
+    "recommendations",
+    "cross_scope_pair_generation",
+    "inferred_values",
+    "rewriting_public_v1_7_0_assets"
+  ],
+  "repository_baseline": {
+    "tests": 1014,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "next_package": {
+    "name": "Data Products v1.8.0 Preflight",
+    "goal": "Build the v1.8.0 assets twice from the exact squash-merged preparation commit, prove byte identity, verify all release and offline workspace contracts, and record final sizes and SHA-256 values without creating a tag or release."
+  }
+}

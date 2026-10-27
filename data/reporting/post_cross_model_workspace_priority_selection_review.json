@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "kind": "post_cross_model_workspace_priority_selection_review",
+  "reviewed_on": "2026-07-27",
+  "status": "complete",
+  "source_milestone": "cross_model_workspace_entry_point.json",
+  "selection_policy": {
+    "scale": "1_to_5",
+    "weights_percent": {
+      "consumer_value": 30,
+      "evidence_readiness": 25,
+      "existing_tooling_reuse": 20,
+      "low_implementation_risk": 15,
+      "dependency_clearance": 10
+    },
+    "decision_rule": "Select the highest weighted score that advances the source-backed knowledge base without requiring ambiguous evidence resolution, unavailable exact source relationships or a destructive operation."
+  },
+  "repository_readiness": {
+    "latest_documented_public_release": "data-products-v1.8.1",
+    "public_release_archive_members": 85,
+    "offline_workspace_primary_cards": 5,
+    "offline_workspace_local_links": 84,
+    "active_configurations": 72,
+    "model_families": 5,
+    "independent_comparison_scopes": 19,
+    "within_scope_pairs": 114,
+    "recorded_differences": 1695,
+    "registered_official_brochures": 5,
+    "registered_brochure_pages": 114,
+    "registered_brochure_bytes": 40608101,
+    "registered_brochures_have_sha256": true,
+    "pdf_text_backend_in_quality_ci": "pdftotext",
+    "existing_pdf_review_command": "configuration-gap-source-review",
+    "existing_declarative_import_commands": [
+      "import-configuration-values",
+      "import-configuration-value-ranges"
+    ],
+    "missing_layer": "deterministic extraction candidates separated from approved imports"
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "code": "pdf_candidate_extraction_automation_review",
+      "name": "PDF Candidate Extraction Automation Review",
+      "status": "selected",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 5,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 4,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 81,
+      "decision": "Review a deterministic candidate-only extraction layer for registered PDFs. The repository already has pinned local sources, page-aware evidence review, a CI text backend and declarative importers, but extraction output must remain separate from approved master-data imports."
+    },
+    {
+      "rank": 2,
+      "code": "workflow_maintainability_review",
+      "name": "Workflow Maintainability Review",
+      "status": "follow_up",
+      "scores": {
+        "consumer_value": 2,
+        "evidence_readiness": 5,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 5,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 78,
+      "decision": "Review standard workflow duplication, runtime and failure diagnostics after the recent workspace package. The current fifteen-workflow baseline is green, so this is valuable operational follow-up rather than the highest-value knowledge-base package."
+    },
+    {
+      "rank": 3,
+      "code": "external_data_product_format_review",
+      "name": "External Data Product Format Review",
+      "status": "follow_up",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 4,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 4,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 76,
+      "decision": "Review whether an additional stable external format would add value beyond the existing JSON, Markdown, CSV, HTML and XLSX products. The current portfolio is already public and usable, reducing urgency."
+    },
+    {
+      "rank": 4,
+      "code": "exact_configuration_expansion_review",
+      "name": "Exact Configuration Expansion Review",
+      "status": "blocked_evidence",
+      "scores": {
+        "consumer_value": 4,
+        "evidence_readiness": 2,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 1
+      },
+      "weighted_score": 57,
+      "blockers": [
+        "sandero_tce100_without_exact_configuration",
+        "stepway_tce110_without_exact_configuration",
+        "duster_hybridg150_without_exact_configuration",
+        "duster_4x4_dimensions_without_exact_source_relationship"
+      ],
+      "decision": "Do not create configurations or project generic observations without exact source-backed configurations and relationships."
+    },
+    {
+      "rank": 5,
+      "code": "spring_source_foundation_review",
+      "name": "Spring Source Foundation Review",
+      "status": "blocked_source",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 1,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 1
+      },
+      "weighted_score": 46,
+      "blockers": [
+        "no_registered_exact_current_spring_catalogue_source",
+        "no_approved_configuration_scope"
+      ],
+      "decision": "Keep Spring as a strategic expansion target until an exact current source and approved configuration scope are registered."
+    }
+  ],
+  "selection": {
+    "code": "pdf_candidate_extraction_automation_review",
+    "name": "PDF Candidate Extraction Automation Review",
+    "weighted_score": 81,
+    "rationale": "The two previously higher-priority consumer milestones—public cross-model delivery and local workspace discoverability—are complete. Five official brochures are pinned locally with exact identities and mature evidence boundaries, while CI and the unified CLI already provide the adjacent extraction, review and import building blocks. A review can now select the smallest safe candidate-only automation without changing source data or approving imports."
+  },
+  "pdf_candidate_extraction_review_contract": {
+    "registered_source_count": 5,
+    "registered_page_count": 114,
+    "required_inputs": [
+      "registered local PDF path",
+      "source code",
+      "document date",
+      "page count",
+      "SHA-256"
+    ],
+    "architectures_to_compare": [
+      "deterministic page-text inventory",
+      "rule-based scalar and range candidate extraction",
+      "table-region candidate extraction with explicit review",
+      "hybrid candidate queue that separates text pages from visual diagrams"
+    ],
+    "required_candidate_provenance": [
+      "source_code",
+      "pdf_page",
+      "source_sha256",
+      "verbatim_source_fragment",
+      "candidate_kind",
+      "candidate_status"
+    ],
+    "required_status_boundaries": [
+      "candidate_only",
+      "duplicate_existing",
+      "requires_exact_configuration",
+      "requires_context_model",
+      "requires_visual_review",
+      "ambiguous_source_evidence",
+      "explicit_non_import"
+    ],
+    "required_verification": [
+      "byte_deterministic_output",
+      "stable_page_order",
+      "source_hash_verification",
+      "linux_windows_contract",
+      "no_master_data_changes",
+      "no_approved_import_spec_generation",
+      "no_inference_from_missing_text",
+      "visual_diagrams_not_silently_parsed_as_text"
+    ],
+    "non_goals": [
+      "OCR implementation",
+      "master data import",
+      "automatic approval",
+      "new source registration",
+      "schema change",
+      "configuration creation",
+      "context flattening",
+      "resolving ambiguous evidence"
+    ]
+  },
+  "next_package": {
+    "name": "PDF Candidate Extraction Automation Review",
+    "goal": "Inventory the registered PDF sources and existing extraction, review and import tooling; compare candidate-only architectures; and select the smallest deterministic pipeline that preserves page-level provenance and evidence boundaries without modifying master data or producing approved imports."
+  }
+}

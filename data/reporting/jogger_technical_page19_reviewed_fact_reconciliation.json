@@ -1,0 +1,334 @@
+{
+  "version": 1,
+  "kind": "jogger_technical_page19_reviewed_fact_reconciliation",
+  "reviewed_on": "2026-07-30",
+  "status": "complete",
+  "package_id": "post_residual_jogger_technical_page19_reconciliation_001",
+  "source": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19,
+    "observation_date": "2025-12-17"
+  },
+  "comparison_source": {
+    "source_code": "src_pl_jogger_price_my26_20260401",
+    "observation_date": "2026-04-01"
+  },
+  "source_packages": [
+    "residual_gap_002",
+    "residual_gap_024",
+    "residual_gap_025"
+  ],
+  "scope": {
+    "reviewed_source_fact_count": 22,
+    "current_jogger_configuration_count": 22,
+    "powertrain_columns": [
+      "tce110",
+      "ecog120_manual_lpg",
+      "ecog120_manual_petrol",
+      "ecog120_automatic_lpg",
+      "ecog120_automatic_petrol",
+      "hybrid155_combustion",
+      "hybrid155_electric"
+    ]
+  },
+  "summary": {
+    "primary_classification_counts": {
+      "context_model_required": 2,
+      "deferred_source_conflict": 5,
+      "existing_coverage": 10,
+      "import_ready_gap": 5
+    },
+    "overlapping_classification_tag_counts": {
+      "context_model_required": 4,
+      "deferred_source_conflict": 5,
+      "existing_coverage": 19,
+      "import_ready_gap": 7
+    },
+    "safe_next_import_area": "source-specific 0-100 km/h acceleration observations for current non-Hybrid Jogger configurations",
+    "safe_next_import_observation_count": 26
+  },
+  "policy": {
+    "review_only": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false,
+    "current_exact_values_not_overwritten": true,
+    "official_source_conflicts_preserved": true,
+    "printed_labels_not_corrected_by_inference": true
+  },
+  "facts": [
+    {
+      "code": "energy_source_columns",
+      "attribute": "propulsion_energy_sources",
+      "source_values": {
+        "tce110": ["Benzyna"],
+        "ecog120_manual": ["LPG", "Benzyna"],
+        "ecog120_automatic": ["LPG", "Benzyna"],
+        "hybrid155": ["Benzyna", "Elektryczność"]
+      },
+      "primary": "context_model_required",
+      "tags": ["existing_coverage", "context_model_required"],
+      "context": ["Fuel, hybrid architecture and electric-energy context are represented by separate governed fields; the printed seven-column row is not one scalar attribute."]
+    },
+    {
+      "code": "maximum_power",
+      "attribute": "engine_power_and_hybrid_system_power_total",
+      "source_values": {
+        "tce110": "81 kW",
+        "ecog120_lpg": "90 kW",
+        "ecog120_petrol": "84 kW",
+        "hybrid155_total": "105 kW (140 KM)"
+      },
+      "primary": "deferred_source_conflict",
+      "tags": ["existing_coverage", "deferred_source_conflict"],
+      "conflicts": ["TCe 110 and both Eco-G values agree with current exact data; the brochure Hybrid 155 total is 105 kW while the later official source records 116 kW."]
+    },
+    {
+      "code": "maximum_power_speed",
+      "attribute": "max_power_rpm",
+      "source_values": {
+        "tce110": "5000-5250 rpm",
+        "ecog120_lpg": "4500-5000 rpm",
+        "ecog120_petrol": "4500-5000 rpm",
+        "hybrid155": "5600 rpm"
+      },
+      "primary": "deferred_source_conflict",
+      "tags": ["existing_coverage", "import_ready_gap", "deferred_source_conflict"],
+      "gaps": ["Matching TCe 110 and Eco-G LPG brochure ranges are not yet preserved as source-specific observations."],
+      "conflicts": ["The brochure Eco-G petrol upper endpoint is 5000 rpm while the later official range ends at 5750 rpm."],
+      "notes": ["Hybrid 155 5600 rpm is already stored from the brochure source."]
+    },
+    {
+      "code": "maximum_torque",
+      "attribute": "engine_torque_and_traction_motor_torque",
+      "source_values": {
+        "tce110": "200 Nm",
+        "ecog120_lpg": "197 Nm",
+        "ecog120_petrol": "190 Nm",
+        "hybrid155": "172 Nm combustion + 205 Nm electric"
+      },
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "maximum_torque_speed",
+      "attribute": "max_torque_rpm",
+      "source_values": {
+        "tce110": "2900-3500 rpm",
+        "ecog120_lpg": "1750-3750 rpm",
+        "ecog120_petrol": "2000-4000 rpm",
+        "hybrid155_combustion": "3000-4000 rpm"
+      },
+      "primary": "import_ready_gap",
+      "tags": ["existing_coverage", "import_ready_gap"],
+      "gaps": ["The brochure ranges can be retained as source-specific range observations without overwriting later exact or range observations."],
+      "context": ["The electric-motor 205 Nm row does not state a governed motor-speed value in this package."]
+    },
+    {
+      "code": "gearbox",
+      "attribute": "gearbox_type_and_gear_count",
+      "source_values": {
+        "tce110": "manual",
+        "ecog120_manual": "manual",
+        "ecog120_automatic": "dual-clutch automatic",
+        "hybrid155": "automatic Multi-mode"
+      },
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "injection",
+      "attribute": "injection_type",
+      "source_values": {
+        "tce110": "direct turbo injection",
+        "ecog120_lpg": "indirect/port injection",
+        "ecog120_petrol": "direct injection",
+        "hybrid155_petrol": "indirect/multi-point injection",
+        "electric": "not applicable"
+      },
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "engine_displacement",
+      "attribute": "engine_displacement",
+      "source_values": {
+        "tce110": "999 cm3",
+        "ecog120": "1199 cm3",
+        "hybrid155": "1789 cm3",
+        "electric": "-"
+      },
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "cylinders_and_valves",
+      "attribute": "cylinder_count_and_total_valve_count",
+      "source_values": {
+        "tce110": "3/12",
+        "ecog120": "3/12",
+        "hybrid155": "4/16",
+        "electric": "-"
+      },
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "emission_standard",
+      "attribute": "emission_standard",
+      "source_values": {"all_powertrains": "Euro 6e-bis"},
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "front_suspension",
+      "attribute": "front_suspension",
+      "source_values": {"all_configurations": "McPherson with lower control arm, coil springs, telescopic hydraulic dampers and stabilizer"},
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"],
+      "notes": ["Twenty-two exact brochure-source observations are already registered."]
+    },
+    {
+      "code": "rear_suspension",
+      "attribute": "rear_suspension",
+      "source_values": {"all_configurations": "torsion beam with coil springs, telescopic hydraulic dampers and stabilizer"},
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"],
+      "notes": ["Twenty-two exact brochure-source observations are already registered."]
+    },
+    {
+      "code": "maximum_speed",
+      "attribute": "top_speed",
+      "source_values": {"all_powertrains": "180 km/h"},
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"]
+    },
+    {
+      "code": "acceleration_0_100",
+      "attribute": "acceleration_0_100",
+      "source_values": {
+        "five_seat": ["TCe 10.5", "Eco-G manual LPG 10.9", "Eco-G manual petrol 11.9", "Eco-G auto LPG 10.4", "Eco-G auto petrol 11.4", "Hybrid 8.9"],
+        "seven_seat": ["TCe 11.2", "Eco-G manual LPG 11.0", "Eco-G manual petrol 12.0", "Eco-G auto LPG 10.7", "Eco-G auto petrol 11.7", "Hybrid 9.0"]
+      },
+      "primary": "import_ready_gap",
+      "tags": ["existing_coverage", "import_ready_gap"],
+      "gaps": ["Add 26 brochure-source observations for the 6 TCe 110 and 10 Eco-G 120 current configurations; six Hybrid 155 brochure-source observations already exist."],
+      "planned_observation_count": 26
+    },
+    {
+      "code": "elasticity_80_120",
+      "attribute": "elasticity_80_120",
+      "source_values": {
+        "five_seat": ["11.4", "8.1", "9.1", "8.3", "9.2", "6.4"],
+        "seven_seat": ["12.3", "8.2", "9.2", "8.7", "9.5", "6.5"]
+      },
+      "primary": "existing_coverage",
+      "tags": ["existing_coverage"],
+      "notes": ["The values are already registered from the brochure with fourth-gear context and seat-count-specific targets."]
+    },
+    {
+      "code": "test_protocol",
+      "attribute": "homologation_protocol",
+      "source_values": {"all_powertrains": "WLTP(2)"},
+      "primary": "context_model_required",
+      "tags": ["context_model_required"],
+      "context": ["No approved governed homologation-protocol attribute exists; explanatory footnotes remain context only."]
+    },
+    {
+      "code": "fuel_and_lpg_capacity",
+      "attribute": "fuel_tank_capacity_and_lpg_vessel_capacity",
+      "source_values": {
+        "tce110_petrol": "50 L",
+        "ecog120_petrol": "50 L",
+        "ecog120_lpg": "50 L total / 40 L usable",
+        "hybrid155_petrol": "50 L"
+      },
+      "primary": "import_ready_gap",
+      "tags": ["existing_coverage", "import_ready_gap"],
+      "gaps": ["The brochure row and footnote support source-specific petrol-tank, LPG-total and LPG-usable observations without collapsing the capacities."]
+    },
+    {
+      "code": "minimum_kerb_weight",
+      "attribute": "minimum_kerb_weight",
+      "source_values": {
+        "five_seat": ["1193", "1292", "1326", "1359"],
+        "seven_seat": ["1221", "1321", "1354", "1388"]
+      },
+      "primary": "import_ready_gap",
+      "tags": ["existing_coverage", "import_ready_gap"],
+      "gaps": ["All printed values match current exact observations and can be retained with brochure provenance."]
+    },
+    {
+      "code": "maximum_kerb_like_mislabeled_block",
+      "attribute": "maximum_kerb_weight_unapproved",
+      "source_values": {
+        "five_seat": ["1230", "1312", "1335", "1373"],
+        "seven_seat": ["1261", "1342", "1364", "1405"]
+      },
+      "primary": "deferred_source_conflict",
+      "tags": ["context_model_required", "deferred_source_conflict"],
+      "conflicts": ["The printed heading says gross train weight while the magnitudes follow a maximum-kerb-weight pattern; the repository does not relabel source evidence by inference."]
+    },
+    {
+      "code": "gross_train_like_mislabeled_block",
+      "attribute": "gross_train_weight_unapproved",
+      "source_values": {
+        "five_seat": ["2885", "2965", "2985", "2830"],
+        "seven_seat": ["3055", "3140", "3160", "3000"]
+      },
+      "primary": "deferred_source_conflict",
+      "tags": ["context_model_required", "deferred_source_conflict"],
+      "conflicts": ["The printed heading says gross vehicle weight while the values follow gross vehicle plus braked trailer; no inferred relabeling or import is approved."]
+    },
+    {
+      "code": "gross_vehicle_weight",
+      "attribute": "gross_vehicle_weight",
+      "source_values": {
+        "five_seat": ["1685", "1765", "1785", "1830"],
+        "seven_seat": ["1855", "1940", "1960", "2000"]
+      },
+      "primary": "import_ready_gap",
+      "tags": ["existing_coverage", "import_ready_gap"],
+      "gaps": ["All values match current exact observations and can be added with brochure provenance."]
+    },
+    {
+      "code": "braked_trailer_weight",
+      "attribute": "braked_trailer_weight",
+      "source_values": {
+        "tce110": "1200 kg",
+        "ecog120_manual": "1200 kg",
+        "ecog120_automatic": "1200 kg",
+        "hybrid155": "1200 kg"
+      },
+      "primary": "deferred_source_conflict",
+      "tags": ["existing_coverage", "import_ready_gap", "deferred_source_conflict"],
+      "gaps": ["Matching 1200 kg non-Hybrid observations can be retained with brochure provenance."],
+      "conflicts": ["The brochure states 1200 kg for Hybrid 155 while the later official source records 1000 kg."]
+    }
+  ],
+  "excluded_boundaries": {
+    "co2_and_consumption_value_lines_absent_from_reviewed_candidate_blocks": true,
+    "wltp_and_capacity_footnotes_remain_context_only": true,
+    "electric_dash_cells_not_promoted": true
+  },
+  "next_package": {
+    "package_id": "post_residual_jogger_page19_acceleration_source_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Jogger Page 19 Acceleration Source Observations",
+    "status": "planned",
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "target_configuration_count": 16,
+    "excluded_existing_hybrid_configuration_count": 6,
+    "planned_observation_count": 26,
+    "goal": "Add the 26 missing brochure-source 0-100 km/h acceleration observations for six current TCe 110 and ten current Eco-G 120 configurations, preserving fuel and seat-count context, while retaining the six existing Hybrid 155 brochure observations and without overwriting later official-source observations.",
+    "manifest_paths": [
+      "data/imports/jogger_page19_acceleration_source_observations_20251217.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_jogger_page19_acceleration_source_observations.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

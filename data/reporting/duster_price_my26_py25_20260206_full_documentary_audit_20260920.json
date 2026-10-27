@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "kind": "duster_price_my26_py25_20260206_full_documentary_audit",
+  "reviewed_on": "2026-09-20",
+  "status": "complete",
+  "source": {
+    "source_code": "src_pl_duster_price_my26_py25_20260206",
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price-2025.pdf.asset.pdf/b281a995a9.pdf",
+    "pages": 11,
+    "effective_date": "2026-02-06"
+  },
+  "price_matrix": {
+    "MY25_stock": {
+      "Eco-G 100 4x2": {
+        "essential": 82000,
+        "expression": 90000,
+        "extreme": 96000,
+        "journey": 96000,
+        "journey+": null
+      },
+      "mild hybrid 130 4x2": {
+        "essential": null,
+        "expression": 97600,
+        "extreme": 103600,
+        "journey": 103800,
+        "journey+": null
+      },
+      "hybrid 140 4x2": {
+        "essential": null,
+        "expression": 112100,
+        "extreme": 118100,
+        "journey": 118300,
+        "journey+": 123600
+      },
+      "mild hybrid 130 4x4": {
+        "essential": null,
+        "expression": 111900,
+        "extreme": 117900,
+        "journey": 117900,
+        "journey+": null
+      }
+    },
+    "MY26": {
+      "Eco-G 120 4x2": {
+        "essential": 82000,
+        "expression": 90000,
+        "extreme": 96000,
+        "journey": 96200
+      },
+      "mild hybrid 140 4x2": {
+        "essential": null,
+        "expression": 97600,
+        "extreme": 103600,
+        "journey": 103800
+      },
+      "hybrid 155 4x2": {
+        "essential": null,
+        "expression": 112100,
+        "extreme": 118100,
+        "journey": 118300
+      },
+      "hybrid-G 150 4x4": {
+        "essential": null,
+        "expression": 119900,
+        "extreme": 125900,
+        "journey": 126100
+      }
+    }
+  },
+  "options_and_packages": {
+    "MY26": [
+      "PARKING: Extreme 2200 PLN, Journey 2200 PLN",
+      "TECHNO 1: Extreme 2900 PLN",
+      "ZIMOWY: Expression 1200 PLN",
+      "ZIMOWY PLUS: Journey 2300 PLN",
+      "ZIMOWY PLUS: Extreme 2300 PLN"
+    ],
+    "notes": [
+      "Spare wheel 800 PLN for Expression/Extreme/Journey in the MY26 matrix; explicitly unavailable with LPG.",
+      "Media Nav Live 2400 PLN is offered where the matrix marks P/price; exact grade/engine applicability remains configuration-dependent.",
+      "The MY26 documentary matrix at 06.02.2026 does not list Eco-G 120 automatic in the opening price table; later April/July documentary sources do. This absence is historical documentary evidence, not a statement about general unavailability outside this dated cennik."
+    ]
+  },
+  "technical_context": {
+    "MY26 Eco-G 120": "manual 6-speed, petrol+LPG, 1199 cm3, 90 kW/120 KM LPG",
+    "MY26 hybrid-G 150 4x4": "6-speed dual-clutch automatic, petrol+LPG, 1789 cm3, 80 kW/109 KM engine + electric system",
+    "MY26 hybrid 155": "Multi-mode automatic, 1.4 kWh/230 V full hybrid"
+  },
+  "historical_boundary": "This 06.02.2026 source mixes MY25 stock pricing and MY26 documentary data. Both contexts are preserved separately; later documentary values are not back-projected into this source."
+}

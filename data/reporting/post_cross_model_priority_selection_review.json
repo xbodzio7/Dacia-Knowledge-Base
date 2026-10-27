@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "kind": "post_cross_model_priority_selection_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_milestone": "cross_model_comparison_view_closure_review.json",
+  "selection_policy": {
+    "scale": "1_to_5",
+    "weights_percent": {
+      "consumer_value": 30,
+      "evidence_readiness": 25,
+      "existing_tooling_reuse": 20,
+      "low_implementation_risk": 15,
+      "dependency_clearance": 10
+    },
+    "decision_rule": "Select the highest weighted score that delivers current source-backed work without requiring new architecture, ambiguous evidence resolution or an unavailable exact source relationship."
+  },
+  "repository_readiness": {
+    "latest_documented_public_release": "data-products-v1.7.0",
+    "public_release_archive_members": 83,
+    "current_candidate_archive_members": 85,
+    "unpublished_products": [
+      "cross-model/cross-model-comparison-view.json",
+      "cross-model/cross-model-comparison-view.html"
+    ],
+    "active_configurations": 72,
+    "independent_comparison_scopes": 19,
+    "within_scope_pairs": 114,
+    "recorded_differences": 1695,
+    "technical_comparison_facets": 124,
+    "equipment_facets": 110,
+    "candidate_release_formats": [
+      "JSON",
+      "Markdown",
+      "CSV",
+      "HTML",
+      "XLSX"
+    ],
+    "candidate_release_semantic_boundaries": {
+      "cross_scope_pairs_generated": false,
+      "ranking_generated": false,
+      "recommendations_generated": false,
+      "inferred_values_generated": false
+    },
+    "closed_milestone": {
+      "pull_request": 282,
+      "merge_commit": "911c6461f1846944fe56f2ec569e929811d3a251",
+      "tests": 998,
+      "standard_workflows": 15,
+      "verification": "PASS"
+    }
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "code": "data_products_v1_8_0_release_preparation",
+      "name": "Data Products v1.8.0 Release Preparation",
+      "status": "selected",
+      "scores": {
+        "consumer_value": 5,
+        "evidence_readiness": 5,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 5,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 100,
+      "decision": "Prepare a new minor public release that adds the closed cross-model JSON and static HTML products to the immutable v1.7.0 baseline. The existing deterministic build, preflight, publication, download and offline verification pipelines can be reused without changing data semantics."
+    },
+    {
+      "rank": 2,
+      "code": "cross_model_navigation_usability_review",
+      "name": "Cross-Model Navigation Usability Review",
+      "status": "follow_up_after_release",
+      "scores": {
+        "consumer_value": 4,
+        "evidence_readiness": 5,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 84,
+      "decision": "Search, filtering or richer navigation may improve the static view, but the completed foundation should first be delivered publicly. Any later enhancement must preserve the nineteen-scope boundary and remain independent of ranking or recommendation logic."
+    },
+    {
+      "rank": 3,
+      "code": "pdf_candidate_extraction_automation_review",
+      "name": "PDF Candidate Extraction Automation Review",
+      "status": "strategic_later",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 4,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 4
+      },
+      "weighted_score": 67,
+      "decision": "The brochure archive and evidence boundaries support a tooling review, but candidate extraction remains an internal productivity investment and must stay separate from approved master-data imports."
+    },
+    {
+      "rank": 4,
+      "code": "exact_configuration_expansion_review",
+      "name": "Exact Configuration Expansion Review",
+      "status": "blocked_evidence",
+      "scores": {
+        "consumer_value": 4,
+        "evidence_readiness": 2,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 1
+      },
+      "weighted_score": 57,
+      "blockers": [
+        "sandero_tce100_without_exact_configuration",
+        "stepway_tce110_without_exact_configuration",
+        "duster_hybridg150_without_exact_configuration",
+        "duster_4x4_dimensions_without_exact_source_relationship"
+      ],
+      "decision": "Do not create configurations or project generic observations without exact source-backed configuration and relationship evidence."
+    },
+    {
+      "rank": 5,
+      "code": "spring_source_foundation_review",
+      "name": "Spring Source Foundation Review",
+      "status": "blocked_source",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 1,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 1
+      },
+      "weighted_score": 46,
+      "blockers": [
+        "no_registered_exact_current_spring_catalogue_source",
+        "no_approved_configuration_scope"
+      ],
+      "decision": "Spring remains a strategic model-expansion target, but implementation must wait for exact current sources and an approved configuration relationship."
+    }
+  ],
+  "selection": {
+    "code": "data_products_v1_8_0_release_preparation",
+    "name": "Data Products v1.8.0 Release Preparation",
+    "weighted_score": 100,
+    "rationale": "The repository contains two fully verified consumer products that are absent from immutable public v1.7.0. Publishing them provides immediate value, requires no new architecture or evidence decision, and reuses the complete green release lifecycle. A minor version is appropriate because the archive gains a new machine-readable product and a new user-facing navigation surface."
+  },
+  "release_preparation_contract": {
+    "target_version": "1.8.0",
+    "target_tag": "data-products-v1.8.0",
+    "publication_mode": "manual_after_verified_preparation",
+    "expected_archive_members": 85,
+    "required_new_members": [
+      "cross-model/cross-model-comparison-view.json",
+      "cross-model/cross-model-comparison-view.html"
+    ],
+    "required_assets": [
+      "dacia-knowledge-base-data-products-v1.8.0.zip",
+      "data-product-release-manifest.json",
+      "SHA256SUMS"
+    ],
+    "required_verification": [
+      "green_source_commit",
+      "deterministic_candidate_generation",
+      "cross_model_product_verification",
+      "independent_download_verification",
+      "offline_workspace_verification",
+      "exact_release_tag_commit_binding"
+    ],
+    "non_goals": [
+      "ranking",
+      "recommendations",
+      "cross_scope_pair_generation",
+      "inferred_values",
+      "new_data_imports",
+      "cross_model_ui_expansion"
+    ]
+  },
+  "next_package": {
+    "name": "Data Products v1.8.0 Release Preparation",
+    "goal": "Freeze the v1.8.0 version and release notes, build deterministic 85-member assets from a green source commit, verify the cross-model JSON and HTML in an offline workspace, and prepare exact preflight evidence without changing data semantics."
+  }
+}

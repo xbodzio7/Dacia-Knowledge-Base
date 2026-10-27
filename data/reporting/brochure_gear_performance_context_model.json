@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "kind": "brochure_gear_performance_context_model",
+  "reviewed_on": "2026-07-26",
+  "status": "accepted",
+  "canonical_attribute": "elasticity_80_120",
+  "decision": {
+    "storage": "configuration_attribute_values_optional_column",
+    "planned_column": "gear_number",
+    "column_position": "after_fuel_type_code_before_value",
+    "data_type": "positive_integer",
+    "required_when": "the source explicitly qualifies the observation by one selected forward gear",
+    "empty_means": "the source does not qualify the observation by a selected gear",
+    "initial_eligible_attributes": [
+      "elasticity_80_120"
+    ]
+  },
+  "existing_dimensions_reused": {
+    "speed_interval": "The 80-120 km/h interval is part of the canonical attribute meaning.",
+    "fuel": "Fuel-dependent alternatives use the existing configuration_attribute_values.fuel_type_code field.",
+    "passenger_layout": "Five- and seven-seat distinctions target exact configurations and reuse canonical number_of_seats data.",
+    "powertrain_and_transmission": "Powertrain and transmission are properties of the exact target configuration."
+  },
+  "source_evidence": [
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "pdf_page": 17,
+      "gear_numbers": [4, 5],
+      "fuel_specific": true,
+      "passenger_layout_specific": false,
+      "notes": "The table gives fourth- and fifth-gear 80-120 km/h values, including separate LPG and petrol columns for Eco-G 120."
+    },
+    {
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "pdf_page": 17,
+      "gear_numbers": [4, 5, 6],
+      "fuel_specific": true,
+      "passenger_layout_specific": false,
+      "notes": "The table gives fourth-, fifth- and sixth-gear values where stated; the automatic Eco-G column states only fourth-gear values."
+    },
+    {
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "pdf_page": 19,
+      "gear_numbers": [4],
+      "fuel_specific": true,
+      "passenger_layout_specific": true,
+      "notes": "The table states fourth-gear elasticity separately for exact five- and seven-seat variants and separates LPG and petrol where the powertrain is bi-fuel."
+    }
+  ],
+  "planned_semantics": {
+    "observation_identity_dimensions": [
+      "configuration_code",
+      "attribute_code",
+      "fuel_type_code",
+      "gear_number"
+    ],
+    "history_dimension": "observation_date",
+    "source_provenance": "source_code",
+    "automatic_transmissions": "A gear number is valid for an automatic transmission only when the source explicitly names that gear.",
+    "gear_count": "Do not derive gear_number from gear_count and do not infer missing gears from the transmission specification.",
+    "blank_value": "Blank is not unknown, all gears, top gear or not applicable."
+  },
+  "planned_validation": [
+    "gear_number is empty or a canonical positive integer",
+    "a populated gear_number is allowed only for an explicitly eligible performance attribute",
+    "gear-distinct values may share configuration, attribute, fuel, date and source",
+    "two rows with the same complete observation identity and date remain a semantic collision",
+    "reporting and latest-value selection include gear_number in their keys"
+  ],
+  "existing_data_policy": [
+    "Existing elasticity observations without explicit gear context remain unchanged and retain an empty gear_number after schema migration.",
+    "No current configuration value, range, availability record, price or source relationship is changed by this modeling package."
+  ],
+  "rejected_alternatives": [
+    {
+      "alternative": "gear_specific_attribute_codes",
+      "reason": "Codes such as elasticity_80_120_4th_gear duplicate one fact and make comparison across gears harder."
+    },
+    {
+      "alternative": "one_to_one_gear_context_relation",
+      "reason": "A separate table is disproportionate for one scalar qualifier already analogous to observation-level fuel context."
+    },
+    {
+      "alternative": "generic_key_value_measurement_context",
+      "reason": "The reviewed evidence does not justify an untyped all-purpose context architecture."
+    },
+    {
+      "alternative": "duplicate_fuel_layout_or_transmission_fields",
+      "reason": "Those dimensions already exist on the value row or exact configuration and must not be repeated."
+    }
+  ],
+  "next_package": {
+    "name": "Brochure Gear-Specific Performance Schema Foundation",
+    "goal": "Add the optional gear_number column, validation, import-spec, SQLite, data-dictionary and reporting support without importing brochure elasticity values."
+  }
+}

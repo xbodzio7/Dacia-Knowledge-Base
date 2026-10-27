@@ -1,0 +1,127 @@
+configuration_code,attribute_code,availability_status,source_page,source_label,normalization_notes
+spring_essential_electric70_automatic,led_daytime_running_lights,standard,19,Automatycznie włączane światła dzienne LED,
+spring_essential_electric70_automatic,traffic_sign_recognition,standard,19,System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości,
+spring_essential_electric70_automatic,emergency_call_ecall,standard,19,Funkcja połączenia alarmowego (eCall),
+spring_essential_electric70_automatic,anti_lock_braking_system,standard,19,System zapobiegający blokowaniu kół (ABS) + układ wspomagania nagłego hamowania (AFU) z sygnalizacją awaryjnego hamowania,The ABS capability is mapped separately from the AFU qualifier preserved in the source label.
+spring_essential_electric70_automatic,automatic_emergency_braking,standard,19,"System wspomagania nagłego hamowania AEBS z funkcją wykrywania pieszych, rowerzystów i motocyklistów",
+spring_essential_electric70_automatic,lane_departure_warning,standard,19,System kontroli pasa ruchu (LDW),
+spring_essential_electric70_automatic,lane_keep_assist,standard,19,System utrzymania pasa ruchu (LKA),
+spring_essential_electric70_automatic,driver_attention_monitoring,standard,19,System kontroli zmęczenia kierowcy,
+spring_essential_electric70_automatic,my_safety_button,standard,19,Przycisk My Safety aktywacji / dezaktywacji systemów wspomagania prowadzenia,
+spring_essential_electric70_automatic,rescue_code,standard,19,Kod QR „Rescue Code®” z przodu / z tyłu,
+spring_essential_electric70_automatic,electronic_stability_control,standard,19,Układ kontroli toru jazdy (ESC) z funkcją wspomagania ruszania pod górę (HSA),The ESC capability is mapped separately; the HSA qualifier remains in the source label.
+spring_essential_electric70_automatic,driver_front_airbag,standard,19,Czołowa poduszka powietrzna kierowcy,
+spring_essential_electric70_automatic,passenger_front_airbag,standard,19,Czołowa poduszka powietrzna pasażera z możliwością dezaktywacji,Only passenger-front-airbag availability is imported; deactivation capability remains a source qualifier.
+spring_essential_electric70_automatic,front_side_airbags,standard,19,Boczne poduszki powietrzne i poduszki kurtynowe,The combined source row is split into the canonical side-airbag and curtain-airbag capabilities.
+spring_essential_electric70_automatic,curtain_airbags,standard,19,Boczne poduszki powietrzne i poduszki kurtynowe,The combined source row is split into the canonical side-airbag and curtain-airbag capabilities.
+spring_essential_electric70_automatic,front_seat_belt_pretensioners,standard,19,Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi,The combined source row is split into front and rear pretensioner capabilities.
+spring_essential_electric70_automatic,rear_seat_belt_pretensioners,standard,19,Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi,The combined source row is split into front and rear pretensioner capabilities.
+spring_essential_electric70_automatic,tyre_pressure_monitoring_system,standard,19,System kontroli ciśnienia w oponach,
+spring_essential_electric70_automatic,tyre_repair_kit,standard,19,Zestaw do pompowania kół,
+spring_essential_electric70_automatic,isofix_rear,standard,19,System mocowania fotelików dziecięcych Isofix na tylnych siedzeniach,
+spring_essential_electric70_automatic,instrument_cluster_colour_7,standard,19,"Cyfrowy, 7-calowy, konfigurowalny zespół zegarów i 13-funkcyjny komputer pokładowy",Uses the existing canonical 7-inch instrument-display capability; no separate scalar display value is created.
+spring_essential_electric70_automatic,seat_belt_reminder,standard,19,Kontrolka i sygnał niezapięcia pasów bezpieczeństwa (przednich i tylnych),
+spring_essential_electric70_automatic,eco_mode,standard,19,Tryb Eco,
+spring_essential_electric70_automatic,cruise_control,standard,19,Regulator i ogranicznik prędkości,The combined source row is split into cruise-control and speed-limiter capabilities.
+spring_essential_electric70_automatic,speed_limiter,standard,19,Regulator i ogranicznik prędkości,The combined source row is split into cruise-control and speed-limiter capabilities.
+spring_essential_electric70_automatic,rear_parking_sensors,standard,19,Czujniki wspomagania parkowania tyłem,
+spring_essential_electric70_automatic,front_parking_sensors,not_available,19,Czujniki wspomagania parkowania przodem,The Extreme option is package-qualified in the source; package membership is deferred.
+spring_essential_electric70_automatic,rear_view_camera,not_available,19,Kamera cofania,The Expression option is package-qualified in the source; package membership is deferred.
+spring_essential_electric70_automatic,heated_rear_window,standard,20,Funkcja podgrzewania tylnej szyby,
+spring_essential_electric70_automatic,side_mirrors_electric_adjustment,not_available,20,Elektrycznie sterowane lusterka boczne,
+spring_essential_electric70_automatic,manual_air_conditioning,not_available,20,Klimatyzacja manualna,
+spring_essential_electric70_automatic,regenerative_braking,standard,20,Tryb hamowania z odzyskiwaniem energii (Tryb B na dźwigni e-shifter),
+spring_essential_electric70_automatic,central_locking,standard,20,Centralny zamek z pilotem + kluczyk,
+spring_essential_electric70_automatic,front_windows_power,standard,20,Elektrycznie regulowane szyby przednie,
+spring_essential_electric70_automatic,rear_windows_power,not_available,20,Elektrycznie regulowane szyby tylne,
+spring_essential_electric70_automatic,steering_wheel_height_adjustment,standard,20,Kierownica z regulacją w pionie,
+spring_essential_electric70_automatic,rear_seat_folding,standard,20,Tylna kanapa składana w układzie 1/1,The string-valued canonical attribute is used only as an availability capability; the 1/1 layout stays in the source label.
+spring_essential_electric70_automatic,media_control_system,standard,20,"System multimedialny Media Control: radio cyfrowe DAB, 1 port USB-C, 2 głośniki, Bluetooth i aplikacja Dacia Media Control",
+spring_essential_electric70_automatic,media_display_system,not_available,20,"System multimedialny Media Display: 10,1-calowy ekran dotykowy, DAB, replikacja smartfona, 2 gniazda USB-C, Bluetooth, 2 głośniki i usługi zdalne",The Expression option is later listed in Pakiet Techno; package membership is deferred.
+spring_essential_electric70_automatic,dc_charging_supported,not_available,20,Gniazdo Combo DC (40 kW) do szybkiego ładowania,The Extreme option is package-qualified in the source; charging-package membership is deferred.
+spring_essential_electric70_automatic,connected_services,not_available,20,Pakiet usług zdalnych (za pośrednictwem aplikacji My Dacia) dostępny nieodpłatnie przez 8 lat,The Expression option is package-qualified in the source; package membership is deferred.
+spring_essential_electric70_automatic,remote_firmware_updates,not_available,20,FOTA (Firmaware Over The Air): zdalne aktualizacje pokładowego oprogramowania,The Expression option is package-qualified in the source; package membership is deferred.
+spring_expression_electric70_automatic,led_daytime_running_lights,standard,19,Automatycznie włączane światła dzienne LED,
+spring_expression_electric70_automatic,traffic_sign_recognition,standard,19,System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości,
+spring_expression_electric70_automatic,emergency_call_ecall,standard,19,Funkcja połączenia alarmowego (eCall),
+spring_expression_electric70_automatic,anti_lock_braking_system,standard,19,System zapobiegający blokowaniu kół (ABS) + układ wspomagania nagłego hamowania (AFU) z sygnalizacją awaryjnego hamowania,The ABS capability is mapped separately from the AFU qualifier preserved in the source label.
+spring_expression_electric70_automatic,automatic_emergency_braking,standard,19,"System wspomagania nagłego hamowania AEBS z funkcją wykrywania pieszych, rowerzystów i motocyklistów",
+spring_expression_electric70_automatic,lane_departure_warning,standard,19,System kontroli pasa ruchu (LDW),
+spring_expression_electric70_automatic,lane_keep_assist,standard,19,System utrzymania pasa ruchu (LKA),
+spring_expression_electric70_automatic,driver_attention_monitoring,standard,19,System kontroli zmęczenia kierowcy,
+spring_expression_electric70_automatic,my_safety_button,standard,19,Przycisk My Safety aktywacji / dezaktywacji systemów wspomagania prowadzenia,
+spring_expression_electric70_automatic,rescue_code,standard,19,Kod QR „Rescue Code®” z przodu / z tyłu,
+spring_expression_electric70_automatic,electronic_stability_control,standard,19,Układ kontroli toru jazdy (ESC) z funkcją wspomagania ruszania pod górę (HSA),The ESC capability is mapped separately; the HSA qualifier remains in the source label.
+spring_expression_electric70_automatic,driver_front_airbag,standard,19,Czołowa poduszka powietrzna kierowcy,
+spring_expression_electric70_automatic,passenger_front_airbag,standard,19,Czołowa poduszka powietrzna pasażera z możliwością dezaktywacji,Only passenger-front-airbag availability is imported; deactivation capability remains a source qualifier.
+spring_expression_electric70_automatic,front_side_airbags,standard,19,Boczne poduszki powietrzne i poduszki kurtynowe,The combined source row is split into the canonical side-airbag and curtain-airbag capabilities.
+spring_expression_electric70_automatic,curtain_airbags,standard,19,Boczne poduszki powietrzne i poduszki kurtynowe,The combined source row is split into the canonical side-airbag and curtain-airbag capabilities.
+spring_expression_electric70_automatic,front_seat_belt_pretensioners,standard,19,Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi,The combined source row is split into front and rear pretensioner capabilities.
+spring_expression_electric70_automatic,rear_seat_belt_pretensioners,standard,19,Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi,The combined source row is split into front and rear pretensioner capabilities.
+spring_expression_electric70_automatic,tyre_pressure_monitoring_system,standard,19,System kontroli ciśnienia w oponach,
+spring_expression_electric70_automatic,tyre_repair_kit,standard,19,Zestaw do pompowania kół,
+spring_expression_electric70_automatic,isofix_rear,standard,19,System mocowania fotelików dziecięcych Isofix na tylnych siedzeniach,
+spring_expression_electric70_automatic,instrument_cluster_colour_7,standard,19,"Cyfrowy, 7-calowy, konfigurowalny zespół zegarów i 13-funkcyjny komputer pokładowy",Uses the existing canonical 7-inch instrument-display capability; no separate scalar display value is created.
+spring_expression_electric70_automatic,seat_belt_reminder,standard,19,Kontrolka i sygnał niezapięcia pasów bezpieczeństwa (przednich i tylnych),
+spring_expression_electric70_automatic,eco_mode,standard,19,Tryb Eco,
+spring_expression_electric70_automatic,cruise_control,standard,19,Regulator i ogranicznik prędkości,The combined source row is split into cruise-control and speed-limiter capabilities.
+spring_expression_electric70_automatic,speed_limiter,standard,19,Regulator i ogranicznik prędkości,The combined source row is split into cruise-control and speed-limiter capabilities.
+spring_expression_electric70_automatic,rear_parking_sensors,standard,19,Czujniki wspomagania parkowania tyłem,
+spring_expression_electric70_automatic,front_parking_sensors,not_available,19,Czujniki wspomagania parkowania przodem,The Extreme option is package-qualified in the source; package membership is deferred.
+spring_expression_electric70_automatic,rear_view_camera,optional,19,Kamera cofania,The Expression option is package-qualified in the source; package membership is deferred.
+spring_expression_electric70_automatic,heated_rear_window,standard,20,Funkcja podgrzewania tylnej szyby,
+spring_expression_electric70_automatic,side_mirrors_electric_adjustment,not_available,20,Elektrycznie sterowane lusterka boczne,
+spring_expression_electric70_automatic,manual_air_conditioning,standard,20,Klimatyzacja manualna,
+spring_expression_electric70_automatic,regenerative_braking,standard,20,Tryb hamowania z odzyskiwaniem energii (Tryb B na dźwigni e-shifter),
+spring_expression_electric70_automatic,central_locking,standard,20,Centralny zamek z pilotem + kluczyk,
+spring_expression_electric70_automatic,front_windows_power,standard,20,Elektrycznie regulowane szyby przednie,
+spring_expression_electric70_automatic,rear_windows_power,not_available,20,Elektrycznie regulowane szyby tylne,
+spring_expression_electric70_automatic,steering_wheel_height_adjustment,standard,20,Kierownica z regulacją w pionie,
+spring_expression_electric70_automatic,rear_seat_folding,standard,20,Tylna kanapa składana w układzie 1/1,The string-valued canonical attribute is used only as an availability capability; the 1/1 layout stays in the source label.
+spring_expression_electric70_automatic,media_control_system,standard,20,"System multimedialny Media Control: radio cyfrowe DAB, 1 port USB-C, 2 głośniki, Bluetooth i aplikacja Dacia Media Control",
+spring_expression_electric70_automatic,media_display_system,optional,20,"System multimedialny Media Display: 10,1-calowy ekran dotykowy, DAB, replikacja smartfona, 2 gniazda USB-C, Bluetooth, 2 głośniki i usługi zdalne",The Expression option is later listed in Pakiet Techno; package membership is deferred.
+spring_expression_electric70_automatic,dc_charging_supported,optional,20,Gniazdo Combo DC (40 kW) do szybkiego ładowania,The Extreme option is package-qualified in the source; charging-package membership is deferred.
+spring_expression_electric70_automatic,connected_services,optional,20,Pakiet usług zdalnych (za pośrednictwem aplikacji My Dacia) dostępny nieodpłatnie przez 8 lat,The Expression option is package-qualified in the source; package membership is deferred.
+spring_expression_electric70_automatic,remote_firmware_updates,optional,20,FOTA (Firmaware Over The Air): zdalne aktualizacje pokładowego oprogramowania,The Expression option is package-qualified in the source; package membership is deferred.
+spring_extreme_electric100_automatic,led_daytime_running_lights,standard,19,Automatycznie włączane światła dzienne LED,
+spring_extreme_electric100_automatic,traffic_sign_recognition,standard,19,System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości,
+spring_extreme_electric100_automatic,emergency_call_ecall,standard,19,Funkcja połączenia alarmowego (eCall),
+spring_extreme_electric100_automatic,anti_lock_braking_system,standard,19,System zapobiegający blokowaniu kół (ABS) + układ wspomagania nagłego hamowania (AFU) z sygnalizacją awaryjnego hamowania,The ABS capability is mapped separately from the AFU qualifier preserved in the source label.
+spring_extreme_electric100_automatic,automatic_emergency_braking,standard,19,"System wspomagania nagłego hamowania AEBS z funkcją wykrywania pieszych, rowerzystów i motocyklistów",
+spring_extreme_electric100_automatic,lane_departure_warning,standard,19,System kontroli pasa ruchu (LDW),
+spring_extreme_electric100_automatic,lane_keep_assist,standard,19,System utrzymania pasa ruchu (LKA),
+spring_extreme_electric100_automatic,driver_attention_monitoring,standard,19,System kontroli zmęczenia kierowcy,
+spring_extreme_electric100_automatic,my_safety_button,standard,19,Przycisk My Safety aktywacji / dezaktywacji systemów wspomagania prowadzenia,
+spring_extreme_electric100_automatic,rescue_code,standard,19,Kod QR „Rescue Code®” z przodu / z tyłu,
+spring_extreme_electric100_automatic,electronic_stability_control,standard,19,Układ kontroli toru jazdy (ESC) z funkcją wspomagania ruszania pod górę (HSA),The ESC capability is mapped separately; the HSA qualifier remains in the source label.
+spring_extreme_electric100_automatic,driver_front_airbag,standard,19,Czołowa poduszka powietrzna kierowcy,
+spring_extreme_electric100_automatic,passenger_front_airbag,standard,19,Czołowa poduszka powietrzna pasażera z możliwością dezaktywacji,Only passenger-front-airbag availability is imported; deactivation capability remains a source qualifier.
+spring_extreme_electric100_automatic,front_side_airbags,standard,19,Boczne poduszki powietrzne i poduszki kurtynowe,The combined source row is split into the canonical side-airbag and curtain-airbag capabilities.
+spring_extreme_electric100_automatic,curtain_airbags,standard,19,Boczne poduszki powietrzne i poduszki kurtynowe,The combined source row is split into the canonical side-airbag and curtain-airbag capabilities.
+spring_extreme_electric100_automatic,front_seat_belt_pretensioners,standard,19,Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi,The combined source row is split into front and rear pretensioner capabilities.
+spring_extreme_electric100_automatic,rear_seat_belt_pretensioners,standard,19,Pasy bezpieczeństwa przednie i tylne z napinaczami pirotechnicznymi,The combined source row is split into front and rear pretensioner capabilities.
+spring_extreme_electric100_automatic,tyre_pressure_monitoring_system,standard,19,System kontroli ciśnienia w oponach,
+spring_extreme_electric100_automatic,tyre_repair_kit,standard,19,Zestaw do pompowania kół,
+spring_extreme_electric100_automatic,isofix_rear,standard,19,System mocowania fotelików dziecięcych Isofix na tylnych siedzeniach,
+spring_extreme_electric100_automatic,instrument_cluster_colour_7,standard,19,"Cyfrowy, 7-calowy, konfigurowalny zespół zegarów i 13-funkcyjny komputer pokładowy",Uses the existing canonical 7-inch instrument-display capability; no separate scalar display value is created.
+spring_extreme_electric100_automatic,seat_belt_reminder,standard,19,Kontrolka i sygnał niezapięcia pasów bezpieczeństwa (przednich i tylnych),
+spring_extreme_electric100_automatic,eco_mode,standard,19,Tryb Eco,
+spring_extreme_electric100_automatic,cruise_control,standard,19,Regulator i ogranicznik prędkości,The combined source row is split into cruise-control and speed-limiter capabilities.
+spring_extreme_electric100_automatic,speed_limiter,standard,19,Regulator i ogranicznik prędkości,The combined source row is split into cruise-control and speed-limiter capabilities.
+spring_extreme_electric100_automatic,rear_parking_sensors,standard,19,Czujniki wspomagania parkowania tyłem,
+spring_extreme_electric100_automatic,front_parking_sensors,optional,19,Czujniki wspomagania parkowania przodem,The Extreme option is package-qualified in the source; package membership is deferred.
+spring_extreme_electric100_automatic,rear_view_camera,standard,19,Kamera cofania,The Expression option is package-qualified in the source; package membership is deferred.
+spring_extreme_electric100_automatic,heated_rear_window,standard,20,Funkcja podgrzewania tylnej szyby,
+spring_extreme_electric100_automatic,side_mirrors_electric_adjustment,standard,20,Elektrycznie sterowane lusterka boczne,
+spring_extreme_electric100_automatic,manual_air_conditioning,standard,20,Klimatyzacja manualna,
+spring_extreme_electric100_automatic,regenerative_braking,standard,20,Tryb hamowania z odzyskiwaniem energii (Tryb B na dźwigni e-shifter),
+spring_extreme_electric100_automatic,central_locking,standard,20,Centralny zamek z pilotem + kluczyk,
+spring_extreme_electric100_automatic,front_windows_power,standard,20,Elektrycznie regulowane szyby przednie,
+spring_extreme_electric100_automatic,rear_windows_power,standard,20,Elektrycznie regulowane szyby tylne,
+spring_extreme_electric100_automatic,steering_wheel_height_adjustment,standard,20,Kierownica z regulacją w pionie,
+spring_extreme_electric100_automatic,rear_seat_folding,standard,20,Tylna kanapa składana w układzie 1/1,The string-valued canonical attribute is used only as an availability capability; the 1/1 layout stays in the source label.
+spring_extreme_electric100_automatic,media_control_system,not_available,20,"System multimedialny Media Control: radio cyfrowe DAB, 1 port USB-C, 2 głośniki, Bluetooth i aplikacja Dacia Media Control",
+spring_extreme_electric100_automatic,media_display_system,standard,20,"System multimedialny Media Display: 10,1-calowy ekran dotykowy, DAB, replikacja smartfona, 2 gniazda USB-C, Bluetooth, 2 głośniki i usługi zdalne",The Expression option is later listed in Pakiet Techno; package membership is deferred.
+spring_extreme_electric100_automatic,dc_charging_supported,optional,20,Gniazdo Combo DC (40 kW) do szybkiego ładowania,The Extreme option is package-qualified in the source; charging-package membership is deferred.
+spring_extreme_electric100_automatic,connected_services,standard,20,Pakiet usług zdalnych (za pośrednictwem aplikacji My Dacia) dostępny nieodpłatnie przez 8 lat,The Expression option is package-qualified in the source; package membership is deferred.
+spring_extreme_electric100_automatic,remote_firmware_updates,standard,20,FOTA (Firmaware Over The Air): zdalne aktualizacje pokładowego oprogramowania,The Expression option is package-qualified in the source; package membership is deferred.

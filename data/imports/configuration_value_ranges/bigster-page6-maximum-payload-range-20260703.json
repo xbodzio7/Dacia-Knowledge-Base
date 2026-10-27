@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 145,
+  "attribute_code": "maximum_payload",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2026-07-03",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "MASY (kg)",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "451",
+      "maximum_value": "540",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "451/540"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "462",
+      "maximum_value": "509",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "462/509"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "462",
+      "maximum_value": "509",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "462/509"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "462",
+      "maximum_value": "509",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "462/509"
+    },
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "453",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "453/521"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "453",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "453/521"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "minimum_value": "453",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "453/521"
+    }
+  ]
+}

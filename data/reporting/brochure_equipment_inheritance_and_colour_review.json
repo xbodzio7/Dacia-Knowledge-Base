@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "kind": "brochure_equipment_inheritance_and_colour_review",
+  "reviewed_on": "2026-07-31",
+  "status": "complete",
+  "source_audit": {
+    "registered_pdf_sources": 20,
+    "repository_files_present": 20,
+    "sha256_verified": 20,
+    "text_extracted": 20,
+    "missing_repository_files": 0,
+    "source_codes": [
+      "src_pl_sandero_expression_ecog120_mt_20260626",
+      "src_pl_sandero_journey_ecog120_mt_20260626",
+      "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "src_pl_duster_price_my26_py25_20260206",
+      "src_pl_jogger_price_my26_20260401",
+      "src_pl_sandero_stepway_price_my26_20260703",
+      "src_pl_duster_price_my26_20260703",
+      "src_pl_jogger_price_my26_20260703",
+      "src_pl_bigster_price_my26_20260703",
+      "src_pl_bigster_brochure_20251210",
+      "src_pl_jogger_brochure_20251217",
+      "src_pl_sandero_brochure_20260202",
+      "src_pl_sandero_stepway_brochure_20260202",
+      "src_pl_duster_mini_brochure_20251020",
+      "src_pl_spring_brochure_20260219",
+      "src_pl_spring_price_my25_stock_20260708"
+    ],
+    "scope": "All registered brochure_pdf and configuration_pdf sources; dynamic web snapshots remain separate dated evidence."
+  },
+  "baseline_before_imports": {
+    "tests": 1676,
+    "csv_files": 46,
+    "master_rows": 11405,
+    "configuration_values": 3498,
+    "configuration_import_specs": 138,
+    "configuration_value_ranges": 298,
+    "configuration_range_import_specs": 24,
+    "availability_records": 5770,
+    "attributes": 385,
+    "attribute_categories": 30,
+    "configurations": 81,
+    "reporting_scopes": 22,
+    "current_model_families": 6,
+    "within_scope_pairs": 130
+  },
+  "inheritance_findings": {
+    "statement_count": 24,
+    "source_count": 9,
+    "groups": [
+      {"source_code": "src_pl_duster_price_my26_py25_20260206", "page": 3, "chains": ["Expression=Essential+", "Extreme=Expression+", "Journey=Expression+"]},
+      {"source_code": "src_pl_duster_price_my26_20260703", "page": 3, "chains": ["Expression=Essential+", "Extreme=Expression+", "Journey=Expression+"]},
+      {"source_code": "src_pl_bigster_price_my26_20260703", "page": 3, "chains": ["Expression=Essential+", "Extreme=Expression+", "Journey=Expression+"]},
+      {"source_code": "src_pl_bigster_brochure_20251210", "pages": [16, 17, 18], "chains": ["Expression=Essential+", "Journey=Expression+", "Extreme=Expression+"]},
+      {"source_code": "src_pl_jogger_brochure_20251217", "pages": [15, 16, 17], "chains": ["Expression=Essential+", "Extreme=Expression+", "Journey=Expression+"]},
+      {"source_code": "src_pl_sandero_brochure_20260202", "pages": [14, 15], "chains": ["Expression=Essential+", "Journey=Expression+"]},
+      {"source_code": "src_pl_sandero_stepway_brochure_20260202", "pages": [14, 15], "chains": ["Expression=Essential+", "Extreme=Expression+"]},
+      {"source_code": "src_pl_duster_mini_brochure_20251020", "pages": [16, 17, 18], "chains": ["Expression=Essential+", "Journey=Expression+", "Extreme=Expression+"]},
+      {"source_code": "src_pl_spring_brochure_20260219", "pages": [14, 15], "chains": ["Expression=Essential+", "Extreme=Expression+"]}
+    ],
+    "policy": "Inheritance is legal only inside the exact source, model, date or model year and grade chain. Direct matrix cells take precedence over reconstructed inheritance."
+  },
+  "colour_findings": {
+    "palette_source_count": 6,
+    "named_palette_entries": 40,
+    "palettes": [
+      {
+        "source_code": "src_pl_bigster_brochure_20251210",
+        "page": 14,
+        "entries": ["Biel Alpejska|non_metallic|two_tone", "Czarna Perła|metallic", "Szary Shiste|metallic|two_tone", "Niebieski Indigo|metallic|two_tone", "Zielony Cedar|metallic|two_tone", "Brązowy Terracotta|metallic|two_tone"],
+        "boundary": "The page states two-tone eligibility but no individual named-colour price."
+      },
+      {
+        "source_code": "src_pl_jogger_brochure_20251217",
+        "page": 13,
+        "entries": ["Piaskowy Sandstone|metallic|essential_available", "Brązowy Terracotta|non_metallic|essential_not_available", "Zielony Cedar|non_metallic|essential_not_available", "Biały Glacier|metallic|essential_available", "Czarna Pearła|non_metallic|essential_available", "Szary Schist|non_metallic|essential_available", "Szary Urban|metallic|essential_not_available"],
+        "boundary": "Source spelling and finish footnotes are preserved; starred colours are unavailable for Essential."
+      },
+      {
+        "source_code": "src_pl_sandero_brochure_20260202",
+        "page": 12,
+        "entries": ["Żółty Amber|metallic|essential_not_available", "Piaskowy Sandstone|metallic|essential_available", "Biały Glacier|non_metallic|essential_available", "Szary Schist|metallic|essential_not_available", "Niebieski Iron|metallic|essential_not_available", "Szary Urban|metallic|essential_not_available", "Zielony Cedar|metallic|essential_not_available"],
+        "boundary": "Starred colours are explicitly unavailable for Essential."
+      },
+      {
+        "source_code": "src_pl_sandero_stepway_brochure_20260202",
+        "page": 12,
+        "entries": ["Żółty Amber|metallic|essential_not_available", "Biały Glacier|non_metallic|essential_available", "Czarny Pearl|metallic|essential_available", "Szary Schist|metallic|essential_not_available", "Niebieski Iron|metallic|essential_available", "Beżowy Safari|metallic|essential_not_available", "Zielony Cedar|metallic|essential_not_available"],
+        "boundary": "Starred colours are explicitly unavailable for Essential."
+      },
+      {
+        "source_code": "src_pl_duster_mini_brochure_20251020",
+        "page": 14,
+        "entries": ["Sandstone|metallic|essential_not_available", "Lichen Khaki|non_metallic|essential_available", "Brązowy Terracotta|metallic|essential_not_available", "Biel Alpejska|non_metallic|essential_available", "Szary Shiste|metallic|essential_available", "Czarna Perła|metallic|essential_not_available", "Zielony Cèdre|metallic|essential_not_available"],
+        "boundary": "Footnote 3 explicitly identifies the only colours available for Essential."
+      },
+      {
+        "source_code": "src_pl_spring_brochure_20260219",
+        "page": 12,
+        "entries": ["Czerwony Brick|non_metallic", "Seafoam|non_metallic", "Szary Diamond|metallic", "Lichen Khaki|non_metallic", "Niebieski Stonewash|non_metallic", "Biel Alpejska|non_metallic"],
+        "boundary": "The page states no grade restriction and no individual colour price."
+      }
+    ],
+    "existing_exact_configuration_colour_values": {
+      "count": 7,
+      "attribute_code": "exterior_color",
+      "value": "biel alpejska",
+      "amount_pln": 0,
+      "scope": "Seven exact Sandero and Sandero Stepway configuration PDFs dated 2026-06-26; already imported and not duplicated."
+    },
+    "existing_commercial_colour_items": 0,
+    "price_rows": [
+      {
+        "source_code": "src_pl_sandero_stepway_price_my26_20260703",
+        "page": 3,
+        "cells": {"sandero_essential": "2500", "sandero_expression": "2500", "sandero_journey": "2500", "stepway_essential": "2500", "stepway_expression": "2500/2700", "stepway_extreme": "2500/2700"},
+        "decision": "select_fixed_2500_subset_only"
+      },
+      {
+        "source_code": "src_pl_duster_price_my26_20260703",
+        "page": 4,
+        "cells": {"metallic_all_grades": "2700/2900", "Biel_Alpejska_or_Khaki_Lichen_all_grades": "0/2700"},
+        "decision": "defer_ranges_and_zero_surcharge_colour_semantics"
+      },
+      {
+        "source_code": "src_pl_jogger_price_my26_20260703",
+        "page": 3,
+        "cells": {"non_metallic_all_grades": "0/2700", "metallic_all_grades": "2700/2900"},
+        "decision": "defer_price_ranges"
+      },
+      {
+        "source_code": "src_pl_bigster_price_my26_20260703",
+        "page": 4,
+        "cells": {"metallic_all_grades": "3000", "two_tone_essential": "-", "two_tone_expression": "-", "two_tone_extreme": "1400", "two_tone_journey": "1400"},
+        "decision": "select_exact_commercial_option_package"
+      },
+      {
+        "source_code": "src_pl_spring_price_my25_stock_20260708",
+        "page": 3,
+        "cells": {"expression_electric70_my25_stock": "2300", "extreme_electric100_my25_stock": "2300"},
+        "decision": "defer_my25_stock_colour_price"
+      }
+    ]
+  },
+  "coverage_findings": {
+    "spring": {"configurations": 3, "current_availability_records": 0, "direct_matrix_pages": [19, 20], "direct_mapped_attributes": 42, "selected_package_records": 126},
+    "jogger": {"explicit_change": "Expression fog lights are standard in the April source and not available in the July source.", "affected_current_expression_configurations": 6, "policy": "Add dated July observations and retain April history; omitted July rows are not negative facts."},
+    "duster_ecog120_automatic": {"same_grade_manual_attribute_gap_counts": {"expression": 17, "extreme": 5, "journey": 4, "total": 26}, "policy": "Use direct current matrix cells, never manual-to-automatic copying."}
+  },
+  "package_queue": [
+    {
+      "priority": 1,
+      "package_id": "spring_version_equipment_matrix_availability_001",
+      "name": "Spring Version Equipment Matrix Availability Import",
+      "status": "selected_next",
+      "source_code": "src_pl_spring_brochure_20260219",
+      "source_pages": [19, 20],
+      "configurations": ["spring_essential_electric70_automatic", "spring_expression_electric70_automatic", "spring_extreme_electric100_automatic"],
+      "attribute_codes": ["led_daytime_running_lights", "traffic_sign_recognition", "emergency_call_ecall", "anti_lock_braking_system", "automatic_emergency_braking", "lane_departure_warning", "lane_keep_assist", "driver_attention_monitoring", "my_safety_button", "rescue_code", "electronic_stability_control", "driver_front_airbag", "passenger_front_airbag", "front_side_airbags", "curtain_airbags", "front_seat_belt_pretensioners", "rear_seat_belt_pretensioners", "tyre_pressure_monitoring_system", "tyre_repair_kit", "isofix_rear", "instrument_cluster_colour_7", "seat_belt_reminder", "eco_mode", "cruise_control", "speed_limiter", "rear_parking_sensors", "front_parking_sensors", "rear_view_camera", "heated_rear_window", "side_mirrors_electric_adjustment", "manual_air_conditioning", "regenerative_braking", "central_locking", "front_windows_power", "rear_windows_power", "steering_wheel_height_adjustment", "rear_seat_folding", "media_control_system", "media_display_system", "dc_charging_supported", "connected_services", "remote_firmware_updates"],
+      "expected_delta": {"availability_records": 126, "standard": 106, "optional": 7, "not_available": 13},
+      "exclusions": ["commercial packages", "Type 2 cable choice", "appearance strings", "wheel and upholstery values", "parking-brake and steering-type strings", "YouClip count", "front 12 V socket without a matching attribute", "colours", "technical data", "Cargo", "inferred inheritance"]
+    },
+    {
+      "priority": 2,
+      "package_id": "spring_commercial_packages_and_charging_options_001",
+      "name": "Spring Commercial Packages and Charging Options",
+      "status": "planned_after_selected",
+      "items": ["spring_type2_charging_cable_option", "spring_techno_package", "spring_power_package", "spring_city_package"],
+      "boundary": "Store source-visible applicability and contents with blank amounts; the brochure states no price."
+    },
+    {
+      "priority": 3,
+      "package_id": "jogger_my26_fog_light_superseding_observations_001",
+      "name": "Jogger MY26 Fog-Light Superseding Observations",
+      "status": "import_ready",
+      "expected_delta": {"availability_records": 6, "not_available": 6}
+    },
+    {
+      "priority": 4,
+      "package_id": "bigster_my26_exact_paint_options_001",
+      "name": "Bigster MY26 Exact Paint Options",
+      "status": "import_ready",
+      "expected_delta": {"commercial_items": 2, "commercial_configuration_mappings": 22}
+    },
+    {
+      "priority": 5,
+      "package_id": "sandero_stepway_fixed_paint_price_subset_001",
+      "name": "Sandero and Stepway Fixed Paint Price Subset",
+      "status": "import_ready",
+      "expected_delta": {"commercial_items": 1, "commercial_configuration_mappings": 9}
+    },
+    {
+      "priority": 6,
+      "package_id": "duster_ecog120_automatic_equipment_matrix_closure_001",
+      "name": "Duster Eco-G 120 Automatic Equipment Matrix Closure",
+      "status": "requires_row_contract_before_import",
+      "observed_gap": 26
+    }
+  ],
+  "deferred_decisions": [
+    "commercial price ranges require a source-faithful range representation",
+    "all named colours require model-level colour-choice and two-tone semantics",
+    "Spring 2300 PLN colour pricing remains MY25 stock-bounded",
+    "grade inheritance never crosses source, model year, campaign, model or powertrain"
+  ],
+  "selection": {
+    "package_id": "spring_version_equipment_matrix_availability_001",
+    "kind": "equipment_availability_import",
+    "name": "Spring Version Equipment Matrix Availability Import",
+    "status": "planned",
+    "goal": "Import 126 direct source-backed Spring equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100 from brochure pages 19-20, without importing packages, appearance values, colours, technical data, Cargo or inferred inheritance.",
+    "manifest_paths": ["CHANGELOG.md", "README.md", "data/imports/spring_equipment_availability_20260219.csv", "data/master/configuration_attribute_availability.csv", "data/reporting/spring_electric100_automatic_completeness.json", "data/reporting/spring_electric70_automatic_completeness.json", "project/ROADMAP.md", "project/SESSION_STATE.md", "project/STATE_SUMMARY.md", "project/packages/spring-version-equipment-matrix-availability-20260731.md", "project/state.json", "tests/test_spring_equipment_availability.py", "tools/import_spring_equipment_availability.py"]
+  },
+  "decision": "SELECT_SPRING_VERSION_EQUIPMENT_MATRIX_AVAILABILITY_IMPORT"
+}

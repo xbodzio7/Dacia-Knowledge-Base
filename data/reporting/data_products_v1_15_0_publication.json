@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_15_0_publication",
+  "published_on": "2026-08-04",
+  "status": "complete",
+  "tag": "data-products-v1.15.0",
+  "release_id": 365150208,
+  "source_commit": "5a824010921ef305b481f8284ae45bdfd8801780",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "consumer_interface": {
+    "model_family_summary_entry_point": "model_family_summary_html",
+    "model_family_summary_workspace_card": "Model family summary",
+    "model_family_comparison_entry_point": "model_family_comparison_matrix_html",
+    "model_family_comparison_workspace_card": "Model family comparison matrix",
+    "model_version_comparison_entry_point": "model_version_comparison_matrix_html",
+    "model_version_comparison_workspace_card": "Model version comparison matrix",
+    "source_coverage_entry_point": "source_coverage_matrix_html",
+    "source_coverage_workspace_card": "Source coverage matrix",
+    "older_release_compatibility": true
+  },
+  "portfolio_source_coverage_matrix": {
+    "model_families": 6,
+    "active_versions": 22,
+    "active_configurations": 81,
+    "provenance_sources": 33,
+    "source_configuration_relationships": 251,
+    "configurations_without_provenance": 0,
+    "formats": [
+      "JSON",
+      "CSV",
+      "HTML"
+    ]
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "master_data_changed": false,
+    "source_quality_scores_generated": false,
+    "source_rankings_generated": false,
+    "configuration_pairs_generated": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.15.0.zip": {
+      "size_bytes": 83615529,
+      "sha256": "2212ecbf27629203d2039f66298b43b56fbfc50ac62803041111652949be294a"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 26208,
+      "sha256": "137359dc8fa9f07758710579788900aae71252f1f1fbed127cc2b07f0b3cc7ed"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "fcd4e816af08a29f9902c69954e91b2001f648a8ecf97271bec72d926b8c5ba1"
+    }
+  },
+  "public_v1_14_1_immutable": true
+}

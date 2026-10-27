@@ -1,0 +1,14 @@
+domain,subdomain,description,status
+Vehicle,Wheels,Wheel and tyre specifications,active
+Vehicle,Dimensions,Vehicle dimensions and measurements,active
+Vehicle,Doors,Doors and opening systems,active
+Vehicle,Seats,Seat configuration and functionality,active
+Vehicle,Windows,Windows and glazing systems,active
+Vehicle,Mirrors,Mirrors and visibility systems,active
+Vehicle,Lighting,Exterior and interior lighting,active
+Vehicle,ADAS,Advanced driver assistance systems,active
+Vehicle,Infotainment,Infotainment and connectivity,active
+Vehicle,HVAC,Heating ventilation and air conditioning,active
+Vehicle,Powertrain,Engine transmission and drivetrain,active
+Vehicle,Cargo,Cargo and storage systems,active
+Vehicle,Safety,Passive safety systems,active

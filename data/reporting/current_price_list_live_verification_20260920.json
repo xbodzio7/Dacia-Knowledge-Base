@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "kind": "current_price_list_live_verification_20260920",
+  "reviewed_on": "2026-09-20",
+  "purpose": "Verify whether the official current Dacia Poland price-list PDFs still carry the 03.07.2026 catalogue prices already assimilated, while keeping historical documentary snapshots separate.",
+  "sources": {
+    "sandero_stepway": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-stepway-price.pdf.asset.pdf/bd9f9519ce.pdf",
+      "effective_date": "2026-08-11",
+      "status": "current PDF",
+      "price_matrix_matches_20260703": true
+    },
+    "duster": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/73baf27ec0.pdf",
+      "effective_date": "2026-09-01",
+      "status": "current PDF",
+      "price_matrix_matches_20260703": true
+    },
+    "jogger": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/51a64d2724.pdf",
+      "document_effective_date": "2026-07-03",
+      "status": "current PDF served by Dacia; file metadata/crawl label is 05.08.2026",
+      "price_matrix_matches_20260703": true
+    },
+    "bigster": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/5edf29d32f.pdf",
+      "effective_date": "2026-09-01",
+      "status": "current PDF",
+      "price_matrix_matches_20260703": true
+    }
+  },
+  "catalogue_price_change_summary": {
+    "sandero_stepway": "No catalogue-price change detected versus 03.07.2026 matrix.",
+    "duster": "No catalogue-price change detected versus 03.07.2026 matrix.",
+    "jogger": "No catalogue-price change detected versus 03.07.2026 matrix.",
+    "bigster": "No catalogue-price change detected versus 03.07.2026 matrix."
+  },
+  "documentary_deltas": [
+    "Duster current price list now labels the 4x4 LPG automatic powertrain as 'tribrid 150 4X4' in the price matrix; the 03.07 audit used the then-visible 'hybrid-G 150 4x4' wording. Preserve both historical labels and reconcile at master level rather than rewriting the historical snapshot.",
+    "Bigster current price list likewise labels the 4x4 LPG automatic powertrain 'tribrid 150 4X4'; historical 03.07 audit preserved 'hybrid-G 150 4x4'.",
+    "Duster current price list effective 01.09.2026 retains the same catalogue prices as the 03.07.2026 matrix.",
+    "Bigster current price list effective 01.09.2026 retains the same catalogue prices as the 03.07.2026 matrix.",
+    "Sandero/Stepway current price list effective 11.08.2026 retains the same catalogue prices as the 03.07.2026 matrix.",
+    "Jogger served current PDF states the price list is effective 03.07.2026 and its catalogue matrix is identical to the audited 03.07.2026 matrix."
+  ],
+  "price_matrix": {
+    "sandero_stepway": {
+      "Eco_G_120": {
+        "sandero_expression": 68000,
+        "sandero_journey": 73600,
+        "stepway_essential": 71700,
+        "stepway_expression": 76400,
+        "stepway_extreme": 82500
+      },
+      "Eco_G_120_auto": {
+        "sandero_expression": 74900,
+        "sandero_journey": 80500,
+        "stepway_expression": 83300,
+        "stepway_extreme": 89400
+      }
+    },
+    "duster": {
+      "Eco_G_120": {
+        "essential": 82000,
+        "expression": 90000,
+        "extreme": 96000,
+        "journey": 96200
+      },
+      "Eco-G 120 auto": {
+        "expression": 96900,
+        "extreme": 102900,
+        "journey": 103100
+      }
+    },
+    "jogger": {
+      "five_seat": {
+        "Eco_G_120": {
+          "essential": 77900,
+          "expression": 82050,
+          "extreme": 89900
+        },
+        "Eco_G_120_auto": {
+          "extreme": 96800,
+          "journey": 98950
+        }
+      },
+      "seven_seat": {
+        "Eco_G_120": {
+          "essential": 82400,
+          "expression": 86550,
+          "extreme": 94400
+        },
+        "Eco_G_120_auto": {
+          "extreme": 101300,
+          "journey": 103450
+        }
+      }
+    },
+    "bigster": {
+      "mild hybrid 140": {
+        "essential": 101400,
+        "expression": 110400,
+        "extreme": 118900,
+        "journey": 118500
+      },
+      "mild hybrid-G 140": {
+        "essential": 101400,
+        "expression": 110400,
+        "extreme": 118900,
+        "journey": 118500
+      },
+      "hybrid 155": {
+        "expression": 124900,
+        "extreme": 133400,
+        "journey": 133000
+      },
+      "tribrid 150 4x4": {
+        "expression": 128900,
+        "extreme": 137600,
+        "journey": 137200
+      }
+    }
+  },
+  "master_mapping_status": "Live verification complete; master-schema reconciliation remains open."
+}

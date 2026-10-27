@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "kind": "configuration_cargo_values",
+  "value_id_start": 1832,
+  "context_id_start": 1,
+  "observation_date": "2026-02-02",
+  "source_page": 20,
+  "source_section": "06. WYMIARY — POJEMNOŚĆ BAGAŻNIKA",
+  "attribute_code": "boot_capacity",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "L",
+    "status": "active"
+  },
+  "configurations": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "source_code": "src_pl_sandero_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202"
+    }
+  ],
+  "observations": [
+    {
+      "context_code": "minimum_vda_iso3832",
+      "value": "328",
+      "source_text": "Minimalna pojemność bagażnika — 328 dm3 według normy ISO 3832",
+      "measurement_basis_code": "vda_iso_3832",
+      "second_row_state_code": "upright",
+      "third_row_state_code": "",
+      "compartment_code": "main_luggage_compartment",
+      "spare_wheel_state_code": "",
+      "tyre_repair_kit_state_code": "",
+      "double_floor_state_code": ""
+    },
+    {
+      "context_code": "minimum_ordinary_litre",
+      "value": "410",
+      "source_text": "Minimalna pojemność bagażnika — 410 litrów",
+      "measurement_basis_code": "ordinary_litre",
+      "second_row_state_code": "upright",
+      "third_row_state_code": "",
+      "compartment_code": "main_luggage_compartment",
+      "spare_wheel_state_code": "",
+      "tyre_repair_kit_state_code": "",
+      "double_floor_state_code": ""
+    },
+    {
+      "context_code": "maximum_vda_iso3832",
+      "value": "1108",
+      "source_text": "Maksymalna pojemność bagażnika — 1108 dm3 według normy ISO 3832",
+      "measurement_basis_code": "vda_iso_3832",
+      "second_row_state_code": "folded",
+      "third_row_state_code": "",
+      "compartment_code": "source_stated_total",
+      "spare_wheel_state_code": "",
+      "tyre_repair_kit_state_code": "",
+      "double_floor_state_code": ""
+    },
+    {
+      "context_code": "maximum_ordinary_litre",
+      "value": "1455",
+      "source_text": "Maksymalna pojemność bagażnika — 1455 litrów",
+      "measurement_basis_code": "ordinary_litre",
+      "second_row_state_code": "folded",
+      "third_row_state_code": "",
+      "compartment_code": "source_stated_total",
+      "spare_wheel_state_code": "",
+      "tyre_repair_kit_state_code": "",
+      "double_floor_state_code": ""
+    },
+    {
+      "context_code": "underfloor_vda_iso3832",
+      "value": "78",
+      "source_text": "Pojemność schowka pod podłogą — 78 dm3 według normy ISO 3832",
+      "measurement_basis_code": "vda_iso_3832",
+      "second_row_state_code": "",
+      "third_row_state_code": "",
+      "compartment_code": "underfloor_compartment",
+      "spare_wheel_state_code": "",
+      "tyre_repair_kit_state_code": "",
+      "double_floor_state_code": ""
+    }
+  ],
+  "non_inference": [
+    "Do not replace the later 372 dm3 VDA configuration observations.",
+    "Do not infer tyre-repair-kit, spare-wheel or double-floor state from another source.",
+    "Do not convert an unstated context dimension to absent.",
+    "Do not import TCe 100 configurations that are not present in master data."
+  ]
+}

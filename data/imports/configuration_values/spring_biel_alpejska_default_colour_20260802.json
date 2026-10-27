@@ -1,0 +1,24 @@
+{
+  "attribute_code": "exterior_color",
+  "attribute_contract": {
+    "data_type": "string",
+    "status": "active",
+    "unit": ""
+  },
+  "fuel_type_code": "",
+  "id_start": 3568,
+  "kind": "configuration_attribute_values",
+  "notes_template": "Exact-current Spring Essential default exterior colour. Source page {page}, section {section}: {source_text}. The direct scalar records the grade default independently from the zero-surcharge commercial palette relationship.",
+  "observation_date": "2026-08-02",
+  "rows": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "source_code": "src_pl_spring_commercial_context_20260802",
+      "source_text": "Biel Alpejska — standard — 0 PLN",
+      "value": "biel alpejska"
+    }
+  ],
+  "source_page": 1,
+  "source_section": "official_sources[0].evidence.exterior_colours",
+  "version": 1
+}

@@ -1,0 +1,37 @@
+{
+  "release_id": 358341344,
+  "tag": "data-products-v1.1.1",
+  "target_commit_sha": "b333f74e8426993e797a79c2e8621bd2f0f7bf4e",
+  "target_commitish": "b333f74e8426993e797a79c2e8621bd2f0f7bf4e",
+  "published_at": "2026-07-22T21:42:16Z",
+  "html_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.1.1",
+  "draft": false,
+  "prerelease": false,
+  "assets": [
+    {
+      "name": "SHA256SUMS",
+      "asset_id": null,
+      "size": 213,
+      "sha256": "e163ae071e24233e6879059b0fc37c30ba14472a74327c21a260f66f7797dd36",
+      "api_digest": "sha256:e163ae071e24233e6879059b0fc37c30ba14472a74327c21a260f66f7797dd36",
+      "state": "uploaded"
+    },
+    {
+      "name": "dacia-knowledge-base-data-products-v1.1.1.zip",
+      "asset_id": null,
+      "size": 45161275,
+      "sha256": "273fa6f507aa3e0143c650b0d1236effeb3129ac999be775ce9566a10b2553d0",
+      "api_digest": "sha256:273fa6f507aa3e0143c650b0d1236effeb3129ac999be775ce9566a10b2553d0",
+      "state": "uploaded"
+    },
+    {
+      "name": "data-product-release-manifest.json",
+      "asset_id": null,
+      "size": 18215,
+      "sha256": "c67c500044acbd9731e7a26a10583f69ec7cc446047571cc3d8b7011b2bb455d",
+      "api_digest": "sha256:c67c500044acbd9731e7a26a10583f69ec7cc446047571cc3d8b7011b2bb455d",
+      "state": "uploaded"
+    }
+  ],
+  "verification": "PASS"
+}

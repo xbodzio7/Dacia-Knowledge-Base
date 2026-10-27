@@ -1,0 +1,420 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## Unreleased
+
+### Added
+
+* Added 297 dated historical equipment-availability observations from printed pages 21–22 of the official Bigster brochure dated 2025-12-10: 14 TPMS cells plus 283 directly mapped equipment cells across 22 boolean attributes and 14 exact brochure-linked configurations. The guarded importer validates the source SHA-256, grade states, attribute contracts and source links; unresolved composite/quantity rows remain deferred. Master row count is now 21546 and availability records 10100.
+
+* Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.
+
+* Closed the 43-line configurator-PDF `400 m ze startu zatrzymanego` residual: 40 numeric candidates match existing exact observations, seven `17.0`/`17,0` displays are equivalent, and three `nd` markers remain non-observations. The deferred-observation count is corrected from 170 to 130; no master rows were added.
+
+* Classified all 10 remaining configurator-PDF roof-height-with-rails deferrals: kept seven base Sandero configurations separate from the explicit `1586 (Stepway)` statement, and preserved three Spring `b.d.` markers as non-observations. No master rows were added.
+
+* Reconciled 52 layout-dependent height candidates from saved configurator PDFs: confirmed 22 exact Jogger 5-seat/7-seat values, removed 16 ambiguous Duster `2092` scalar projections while preserving the source-stated literals, and kept 14 Bigster paired heights contextual because roof-rail state is not selected by the exact configuration. No new master rows were added; the master lost 16 unsafe scalar rows.
+
+* Reconciled 40 source-stated 400 m standing-start candidates across 70 saved configurator PDFs: confirmed all 40 numeric candidates were already covered, normalized seven equivalent `17.0`/`17,0` representations, and imported zero new master rows, and preserved three `nd` markers as non-observations.
+
+* Reconciled 210 source-stated body-style, technical-type-code and gearbox-description observations across 70 saved configurator PDFs against exact existing master rows; no duplicate data was added, the importer now recognizes these mappings, and the remaining 170 technical deferrals stay explicit.
+
+* Added 147 page-6 technical scalar observations for six Bigster automatic configurations from the official MY26 price list effective 2026-10-01, using 22 declarative import specifications with dated source provenance. The tribrid power wording `103 (140) + 10 (13)` remains unnormalized; no combined system-power value, prices, equipment, colours or configurator facts were introduced.
+
+* Added the complete documentary reconciliation of the official Bigster MY26 price list effective 2026-10-01: 13 current catalogue configurations, six new canonical configuration records for the new automatic and tribrid nomenclature, 13 dated catalogue prices, 564 equipment-availability observations, and 0 new commercial mappings (existing matrix retained), source registration with verified SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`, and no configurator use.
+
+* Captured the complete official standard-equipment and technical-specification accordions for all 15 exact current Sandero and Sandero Stepway states, preserving 1,029 equipment rows and 679 technical rows without importing ambiguous or model-qualified values.
+
+* Normalized the exact current Design and paid factory-option surfaces for all 15 Sandero and Sandero Stepway configurations: 93 colour memberships, 60 selected wheel/upholstery values and 40 priced option mappings, preserving historical observations and exact configuration boundaries.
+
+* Published and independently re-verified immutable `data-products-v1.14.1` from exact main commit `c01315369a9676ceaa0cdf584ef9f03ea0cddc6d`, correcting the archived interactive shortlist pipeline while preserving source data and comparison semantics.
+
+* Corrected the versioned release builder to use the same enhanced interactive-shortlist pipeline as the CLI, restoring the Spring image, reviewed commercial and technical states, non-overlapping comparison navigation, collapsible parameter groups and session persistence while retaining the dark theme, grouped versions and two-axis sticky grid.
+
+* Integrated the verified portfolio model-family JSON, Markdown and HTML summary into deterministic versioned data-product archives and offline navigation without changing source data or comparison semantics.
+
+* Added deterministic JSON, Markdown and standalone HTML portfolio model-family summaries for all 81 active configurations across six canonical families, preserving 22 independent reporting scopes, 251 explicit source relationships and exact source hashes without cross-scope pairs, rankings, recommendations or inferred values.
+
+* Added a deterministic post-v1.11.0 priority review that confirms zero eligible source-backed completeness candidates, preserves all exhausted source boundaries and selects a scope-preserving portfolio model-family summary as the next reporting package without ranking or inferred values.
+
+* Added 54 exact Spring brochure technical observations, three closed maximum-power RPM ranges and three one-to-one ISO 3832 cargo contexts across the existing Essential Electric 70, Expression Electric 70 and Extreme Electric 100 configurations, prioritizing core comparison completeness over the previously planned Bigster paint package and importing no new entities or inferred values.
+* Added six direct July 2026 Jogger Expression `fog_lights=not_available` observations from the exact page-4 matrix, preserving the six existing April 2026 standard observations, both source hashes, all exact seat-count and powertrain relationships, and no new model, version, configuration or front/rear reinterpretation.
+* Added six source-bounded Spring exterior-colour options from brochure page 12, with five non-metallic and one metallic finish, eighteen exact optional mappings to the three existing Spring configurations, blank amounts and price dates, no fabricated standard colour and no new model, version or configuration.
+* Added five source-bounded Spring commercial items from brochure pages 13-15: the Type 2 charging cable for all three existing grades, Pakiet Techno and the standalone DC 40 kW option for Expression, plus Pakiet Power and Pakiet City for Extreme, with 18 exact equipment memberships, seven optional configuration mappings, deliberately blank amounts and dates, schema-required PLN currency references and no new models, versions or configurations.
+* Added 126 direct Spring brochure equipment-availability observations for 42 existing attributes across Essential Electric 70, Expression Electric 70 and Extreme Electric 100, preserving 106 standard, 7 optional and 13 unavailable matrix cells from pages 19-20 with three exact brochure-to-configuration provenance links and without importing packages, colours, technical data or inferred inheritance.
+* Added chunk 2 of the authored Bigster brochure page-20 unresolved technical review: the remaining 29 exact candidates regrouped into 16 visual areas, with 8 unresolved signature mismatches, 21 context-only fragments, labels, footnotes and notes, zero attached evidence and literal preservation of the printed `1960**` and `2002 / 1981` sequence, without master-data or approved import changes.
+* Added chunk 1 of the authored Bigster brochure page-20 unresolved technical review: 40 exact candidates regrouped into 18 visual table groups, with 16 unresolved signature mismatches, 24 context-only fragments, zero attached evidence, an explicit reference to the prior rear-brake decision and a five-package milestone conclusion, without master-data or approved import changes.
+* Added an authored review of the single ambiguous Sandero Stepway brochure page-18 roof-rails candidate: 1 covered decision, 1 selected plain-roof-rail signature and record, plus 1 preserved and explicitly rejected modular-roof-rail signature with 2 records, without master-data or approved import changes.
+* Added an authored review of the single ambiguous Sandero brochure page-19 combined cruise-control and speed-limiter candidate: 1 covered decision, both attached standard signatures and all 4 exact records, preserving all three standard trim markers without master-data or approved import changes.
+* Added an authored review of the single ambiguous Sandero brochure page-18 rear-view-camera candidate: one deferred brochure/price-list-versus-later-official-web Expression conflict, both attached signatures and all 4 exact records, without master-data or approved import changes.
+* Added an authored review of the single ambiguous Jogger brochure page-21 heated-steering-wheel candidate: one deferred brochure-versus-price-list Journey conflict, both attached signatures and all 30 exact records, without master-data or approved import changes.
+* Added an authored review of the single ambiguous Bigster brochure page-21 panoramic-roof candidate: 1 covered decision, all 3 attached signatures and 14 exact records, preserving unavailable, optional and standard trim states without master-data or approved import changes.
+* Added an authored review of 5 ambiguous Jogger brochure page-20 equipment candidates: 3 partially covered decisions, 1 context-only passenger-airbag deactivation clause and 1 deferred rear-camera source conflict, with 8 selected signatures and 154 exact records and no master-data or approved import changes.
+* Added an authored review of 7 ambiguous Bigster brochure page-22 equipment candidates: 3 covered and 4 partially covered decisions, all 18 attached signatures and 126 exact records, preserving climate, console and Winter-package row boundaries without master-data or approved import changes.
+* Added an authored review of 11 ambiguous Duster mini-brochure page-22 equipment candidates: 3 covered and 8 partially covered decisions, 23 selected signatures and 524 exact records, preserving multi-line safety rows, trim columns and optional parking markers without master-data or approved import changes.
+* Added an authored review of 26 ambiguous Duster mini-brochure page-23 equipment candidates: 6 covered and 20 partially covered decisions, 43 selected signatures and 518 exact records, preserving trim columns, multi-line rows and standard/optional/unavailable symbols without master-data or approved import changes.
+* Added an authored review of the single ambiguous Duster mini-brochure page-21 steering row: one valid steering-type signature with three Hybrid 155 records, explicit rejection of six adjacent-row signatures, and no master-data or approved import-spec changes.
+* Added an authored review of all 4 ambiguous Sandero Stepway page-17 technical-table candidates: 3 partially covered and 1 unresolved cross-row signature mismatch, selecting 5 exact signatures and 15 records while preserving steering, minimum/maximum kerb-mass and TCe/Eco-G boundaries without master-data or import-spec changes.
+* Added an authored review of all 5 ambiguous Sandero page-17 technical-table candidates: all remain partially covered, selecting 8 exact signatures and 16 records while preserving unattached TCe/manual values and gross-vehicle/gross-train row boundaries without master-data or import-spec changes.
+* Added an authored review of all 5 ambiguous Duster mini-brochure page-20 technical-table candidates: 3 covered and 2 partially covered, selecting 9 exact signatures and 34 records while preserving page-21 Hybrid 155 and adjacent-candidate evidence as non-substitutable and making no master-data or import-spec changes.
+* Added an authored review of all 16 ambiguous Jogger page-19 technical-table candidates: 1 covered by selected exact evidence, 2 partially covered, 7 deferred source conflicts and 6 explicit cross-attribute signature mismatches, selecting 3 signatures and 28 records without master-data or import-spec changes.
+* Added an authored review of all 23 ambiguous Bigster page-20 technical-table candidates: 9 covered by selected exact evidence, 3 partially covered, 7 context-only non-imports, 2 preserved Hybrid-G 150 cargo deferrals and 2 explicit cross-attribute signature mismatches, selecting 36 signatures and 143 records without master-data or import-spec changes.
+* Added deterministic residual-gap prioritization for all 1,266 ambiguous and unresolved verified PDF candidates: 52 source/domain/page/status-bounded review packages of at most 40 candidates, preserving exact IDs, text and evidence without master-data or approved import-spec changes.
+* Added deterministic candidate-level coverage reconciliation for 1,583 reviewed technical and equipment spans: 122 already covered, 108 ambiguous, 1,158 unresolved and 195 explicit non-import, with no master-data or approved import-spec changes.
+* Added a complete review partition for all 4,256 verified PDF candidates: 30 source/page-bounded evidence decisions, 60 exact-text anchors, zero unassigned candidates and zero duplicate assignments, while preserving a strict no-import boundary.
+* Added a receipt-verified PDF candidate ledger for five official brochures and all 114 declared pages, producing 4,256 stable source/page/backend/line-span candidates plus deterministic JSON and Markdown artifacts without creating master-data rows or approved import specifications.
+* Added 18 scalar and 58 closed-range historical Jogger brochure observations: exact five-/seven-seat hybrid 155 acceleration, neutral source-stated 1.4 kWh battery capacity, the hybrid combustion-engine power point, and fuel-preserving maximum-power/torque engine-speed intervals across all 22 configurations, while retaining later MY26 observations as current.
+* Imported 48 exact gross-train and unbraked-trailer mass observations from the official Bigster and Duster brochures across 24 active configurations, preserving exact powertrain boundaries and retaining newer Duster Eco-G 120 automatic homologation evidence.
+* Imported 36 exact brochure technical observations for the two active Sandero Eco-G 120 automatic Expression and Journey configurations, preserving LPG/petrol context for power, torque and acceleration while excluding WLTP placeholders, maximum kerb weight and model-wide chassis rows.
+* Classified the remaining technical evidence in all five archived official brochures into 29 reviewed groups: current or newer coverage, exact scalar/range candidates, ambiguous or blank evidence, unmodeled configurations and fields requiring explicit chassis/mass context modeling.
+* Closed the selected-gear brochure performance milestone after verifying 70 exact observations across three sources, 31 configurations, six gear/fuel contexts, eight reporting surfaces and six explicit non-import boundaries.
+* Imported 70 exact `elasticity_80_120` observations from the official Sandero, Sandero Stepway and Jogger brochures across 31 configurations, preserving selected gear, fuel and five-/seven-seat context without filling unstated Stepway automatic gears.
+* Imported 68 context-aware `boot_capacity` observations from the official 2025-12-10 Bigster brochure across 11 exact 4x2 configurations, preserving repair-kit, optional spare-wheel, seat-state and measurement-basis context.
+* Imported 110 context-aware `boot_capacity` observations from the official 2025-12-17 Jogger brochure across 22 five- and seven-seat configurations, with 110 exact cargo-context rows and 22 source relationships.
+* Imported 45 context-aware `boot_capacity` observations from the official 2026-02-02 Sandero and Sandero Stepway brochures across nine Eco-G 120 configurations, with 45 exact cargo-context rows and nine source relationships.
+* Made comparison, shortlist, selection, flat CSV, HTML and workbook reporting preserve every context-distinct `boot_capacity` observation by measurement basis, seat state, compartment and explicit cargo-equipment qualifiers.
+* Added the header-only cargo-volume context relation, four controlled context dictionaries, eight reference rules, four lifecycle rules and semantic validation that restricts contexts to one `boot_capacity` observation.
+* Accepted a context-preserving cargo-volume model that keeps numeric observations in `configuration_attribute_values.csv` and defines a separate one-to-one cargo context relation for measurement basis, seat state, compartment and equipment qualifiers.
+* Configurator-style shortlist controls with official Dacia Polska model packshots, deterministic offline SVG fallbacks and minimum/maximum price fields in one row.
+* Source-complete dynamic equipment facets that hide universal, incomplete and unknown availability instead of turning missing evidence into a buyer-facing difference; clarified equipment-list search semantics.
+* Full in-page comparison of all latest recorded technical values, ranges and fuel contexts alongside complete equipment availability, with Polish parameter labels and a global differences-only view.
+* Official Sandero configuration-level import covering four exact Eco-G 120 Expression/Journey states, including two newly active automatic configurations and four dated catalogue prices.
+* Sixteen source-visible standard-equipment observations, a new Sandero Eco-G 120 automatic comparison scope and explicit non-import decisions for unproven packages and the default Essential TCe 100 configurator state.
+* Deterministic Sandero official-web importer with snapshot SHA-256, exact state, source-relationship and non-inference contracts.
+* First configuration-level official configurator import for five Sandero Stepway Eco-G 120 states, including dated catalogue prices, exact source relationships and 24 source-visible standard-equipment highlights.
+* Deterministic Sandero Stepway official-web importer with SHA-256, powertrain/gearbox and non-inference contracts.
+* Browser shortlist v1.4 with vertically stacked filters, model-and-trim silhouettes, full equipment comparison and a differences-only view.
+* Dated normalized intake of official Polish Dacia configurators for Sandero, Sandero Stepway, Duster, Jogger and Bigster.
+* Interactive shortlist HTML v1.3 with dynamic equipment facets that hide unavailable choices and automatically remove incompatible selections before they can reduce the result set to zero.
+* Direct in-page comparison of any number of selected configurations, including catalogue/configured prices, selected-equipment status and horizontally scrollable difference highlighting.
+* Deterministic offline SVG model thumbnails in model selectors, result cards and comparison headers without external network or image dependencies.
+* Dependent model/version browser filters with clean model labels, single-choice transmission selection and a multi-select powertrain list for the next data-product release.
+* Published and independently re-verified immutable `data-products-v1.1.0` from exact main commit `397958ba740c0b3b9370822d7e1d473c4829c11e`, covering 67 configurations, 17 scopes and the corrected offline HTML selector.
+* Published and independently re-verified patch release `data-products-v1.1.1` from exact main commit `b333f74e8426993e797a79c2e8621bd2f0f7bf4e`, eliminating equipment-selection browser stalls without changing data or comparison semantics.
+* Published and independently re-verified patch release `data-products-v1.1.2` from exact main commit `8b08dbd8d846610577437c150a0d39aeb3d868f4`, replacing the two browser equipment filters with one buyer-oriented selector and moving standard/package/option status into each matched price breakdown.
+* Published and independently re-verified minor release `data-products-v1.2.0` from exact main commit `2982ff68b8e1f3097403d96afd1754ae473c2aa3`, adding dynamic equipment facets, direct multi-configuration comparison and deterministic offline model illustrations.
+* Published and independently re-verified minor release `data-products-v1.3.0` from exact main commit `beb2151853b2d3de8837ff7c5e8d2b55b78af76e`, adding vertical filters, model-and-trim silhouettes, full equipment comparison, a differences-only view and dated official configurator source intake.
+* Published and independently re-verified minor release `data-products-v1.4.0` from exact main commit `85fff3f69cae97de900bf9422f2418de9f8335ee`, adding exact official Sandero Stepway Eco-G 120 prices and configuration-level standard-equipment observations with explicit non-inference boundaries.
+* Published and independently re-verified minor release `data-products-v1.5.0` from exact main commit `7f325d254b68eb495204c01c075727ee34893e1f`, adding four exact Sandero Eco-G 120 Expression/Journey manual and automatic states, four dated catalogue prices, 16 configuration-level standard-equipment observations and a dedicated automatic comparison scope with explicit non-inference boundaries.
+* Published and independently re-verified minor release `data-products-v1.6.0` from exact main commit `539fba58d1ee2ef538c782b20e049be482d72988`, adding official Dacia Polska model images with offline fallbacks, configurator-style controls, source-complete differentiating equipment facets and full technical/equipment comparison.
+* Fixed equipment-facet interaction: list search now visibly filters entries, selected equipment is never removed automatically, and only source-complete compatible additions remain selectable.
+* Published and independently re-verified patch release `data-products-v1.6.1` from exact main commit `4b77571c788b862a6543161b9343a35f464bd7c6`, preserving selected equipment, making list search visible and hiding only incompatible or source-incomplete additions without changing catalogue data.
+* Published and independently re-verified minor release `data-products-v1.7.0` from exact main commit `99e0e19b86cad6eae619f37702464e6a5a761cd8`, covering 72 active configurations, 19 independent scopes, 114 within-scope pairs, 1,695 differences and 83 deterministic archive members with verified public browser and offline workspace payloads.
+* Published and independently re-verified minor release `data-products-v1.8.0` from exact main commit `becd218228e3f4f0cdd312b0ed836ade487422b1`, adding deterministic scope-preserving cross-model JSON and static HTML navigation while retaining 72 configurations, 19 scopes, 114 within-scope pairs and 1,695 differences in an 85-member archive with a verified public offline workspace.
+* Published and independently re-verified patch release `data-products-v1.8.1` from exact main commit `0b7009fd1950693e347638a6b96756aeefb43b8a`, restoring visible equipment-list filtering and selected-equipment behavior, retaining 72 configurations, 19 scopes, 114 within-scope pairs and 1,695 differences in an 85-member archive, and ordering model choices by minimum current catalogue price without changing source-backed data.
+* Imported 37 dated factory-equipment observations from nine official Dacia Polska grade pages: exact shark-fin antenna coverage for 31 configurations and six newer standard power-folding-mirror states for Jogger Journey, with historical rows and non-inference boundaries preserved.
+* Added three exact 2026 Duster Eco-G 120 automatic configurations from official stock cards, three explicit catalogue prices, two standard power-folding-mirror observations and nine source-scoped intrinsic engine values without projecting manual homologation data.
+* Expanded the three exact Duster Eco-G 120 automatic stock configurations with 203 new dated equipment observations, four source-priced package mappings and four separately dated selected-package states while preserving antenna and Expression mirror unknowns.
+* Added 60 automatic-specific Duster Eco-G 120 scalar technical observations and 18 closed ranges for power, torque, performance, WLTP, mass and towing, while retaining cargo volume and petrol CO2 as explicit unknowns.
+* Added six exact Duster Eco-G 120 automatic ISO 3832 cargo observations: 439 dm3 without a spare wheel and 1373 dm3 maximum capacity for Expression, Extreme and Journey; petrol CO2 remains unknown because the catalogue does not split 123 g/km by fuel.
+* Archived and registered five official Polish Bigster, Jogger, Sandero, Sandero Stepway and Duster brochures with immutable SHA-256 identities, model-level relationships and a context-preserving technical gap review; no brochure observations were imported.
+* Source-backed Bigster MY26 technical package with 552 exact configuration values in 41 declarative specifications and 14 closed maximum-payload ranges.
+* Bigster engine, performance, WLTP, capacity, mass and dimension observations with explicit petrol/LPG context, separate hybrid components and preserved 4x2/4x4 values.
+* Deterministic `tools/import_bigster_technical_specifications.py` verification of the registered PDF hash, page evidence, contiguous IDs and exact materialized records.
+* Five neutral Bigster attributes for particulate filtration, hybrid voltage, source-stated battery capacity and ISO 3832 cargo measurements, plus the canonical `dm3` unit.
+* Source-backed commercial model with 27 named packages/options, 68 equipment memberships and 86 configuration price mappings from the official Polish MY26 price lists effective 3 July 2026.
+* Interactive shortlist HTML v1.2 with grouped click-based equipment selection, persistent selected-item trays and deterministic minimum-cost package pricing.
+* Filterable `Equipment` and `Commercial Offers` sheets in deterministic comparison workbooks.
+
+* Four current official Polish MY26 price lists effective 3 July 2026 for Sandero/Sandero Stepway, Duster, Jogger and Bigster, archived with SHA-256 and model/version/configuration relationships.
+
+* Source-backed Polish data-product consumer guide covering immutable download, offline navigation, shortlist selection, custom comparison bundles, provenance, recovery and lifecycle verification.
+* Automated validation that every documented unified-CLI command, product path, version example and semantic boundary remains valid.
+* Fully offline, read-only local data-product workspace verification CLI covering canonical assets, extracted member hashes, deterministic index bytes and safe links.
+* Linux and Windows live verification of public `v1.0.0`, including rejection of a deliberately corrupted copied workspace without further file changes.
+* Verified public data-product release download and safe extraction CLI with immutable tag binding, canonical asset enforcement and ready-to-open entry points.
+* Read-only Linux and Windows smoke verification of the public `data-products-v1.0.0` release.
+* Published the first immutable public data-product release, `data-products-v1.0.0`, from main commit `653ddacf9dcaeefa356f53e3c00e71666f5c5b3e` with three downloaded and verifier-confirmed assets.
+* Deterministic versioned data-product release archives covering the complete shortlist and all 13 comparison scopes.
+* External release manifests, SHA256SUMS and guarded manual GitHub Release publication from main.
+* Deterministic six-sheet XLSX workbooks for comparison bundles.
+* Typed values, evidence states and byte-identical Linux/Windows output.
+* Persistent browser selection independent of active shortlist filters, with visible-set and individual controls.
+* Deterministic bundle-compatible shortlist JSON and plain configuration-code exports verified end to end.
+* Transactional configuration comparison bundles that group explicit selections by independent reporting scope.
+* Evidence-filtered JSON, Markdown, CSV and HTML bundle reports with singleton groups and SHA-256 manifests.
+* Self-contained interactive configuration shortlist HTML with a full source-backed browser catalog and CLI-defined initial filters.
+* JavaScript/Python semantic parity tests for metadata, price, seat and equipment shortlist filters.
+* Evidence-aware configuration shortlist CLI with model, version, powertrain, transmission, price, seat and equipment filters.
+* Deterministic JSON, Markdown and CSV shortlist artifacts with explicit unknown and exclusion reporting.
+* Self-contained interactive HTML configuration comparison reports with offline filtering, source provenance and evidence-aware states.
+* GitHub Actions publication of current Sandero browser reports with a SHA-256 artifact manifest.
+* Source-backed Jogger equipment availability with 1,166 records across 53 canonical attributes and explicit standard, optional and unavailable semantics.
+* Jogger Hybrid 155 total system power modeled as a dedicated attribute with six source-backed 116 kW observations.
+* Jogger MY26 total LPG vessel and filling capacities modeled as separate attributes with 20 source-backed LPG observations.
+* Jogger MY26 cargo measurements modeled as two VDA height-specific attributes with 44 source-backed observations.
+* Jogger MY26 minimum kerb weight modeled as a dedicated attribute with 22 source-backed five-/seven-seat observations.
+* Jogger MY26 gearbox reconciliation with 38 exact configuration observations and current mt6, EDC6 and e-DHT 155 model associations.
+* Thirty-two exact Jogger injection-type observations with explicit petrol/LPG contexts and controlled existing-enum mappings.
+* Exact repository archival of the official Polish Jogger MY26 PDF with verified SHA-256.
+* Source-backed Jogger catalogue foundation with 4 versions, 22 configurations, 22 prices and explicit five-/seven-seat observations.
+* 312 exact Jogger page-6 technical observations in 17 declarative import specifications with fuel and seat-count contexts.
+* Regression coverage for the Jogger source hash, group denominators, context preservation and deferred ranges.
+* Explicit Duster Eco-G 120 reporting subset with complete technical, equipment, price and source coverage plus six deterministic trim comparisons.
+* Source-backed Duster III equipment availability with 1,392 records across 58 canonical attributes and explicit standard, optional and unavailable semantics.
+* Source-backed Duster III technical import with 392 observations across 17 canonical attributes, explicit fuel context and conservative exclusion of trim-ambiguous values.
+* Duster III catalogue gross prices for all 24 source-supported configurations, dated 2026-02-06 and separated from promotional discount and financing claims.
+* Source-backed Duster III catalogue bootstrap with 5 active versions, 24 explicit version/powertrain configurations and complete source relationships.
+* Reproducible and atomic SQLite database builder.
+* Optional SQLite output path through `--output`.
+* CSV encoding inspection and Windows-1250 to UTF-8 normalization tool.
+* Unified CLI commands for SQLite builds and encoding normalization.
+* GitHub Actions workflow for automated data quality checks.
+* Automated SQLite integrity verification on Python 3.10 and 3.13.
+* Temporary CI artifacts containing the generated SQLite database and validation report.
+* Cross-file reference validation for models, engines, gearboxes and lookup tables.
+* Unit tests for CSV reference validation.
+* Strict UTF-8 CSV structure validation with header and row checks.
+* Unit tests for malformed CSV files and encoding failures.
+* Repository-wide uniqueness validation for `id` and `code` columns.
+* Unit tests for duplicate and missing CSV key values.
+* CLI integration test for the complete validation command.
+* Validation of production and availability year ranges.
+* Unit tests for malformed, missing and reversed year ranges.
+* Validation of status vocabularies and lifecycle consistency.
+* Unit tests for invalid statuses and lifecycle mismatches.
+* Validation of association availability against parent lifetimes.
+* Unit tests for association ranges outside parent lifetimes.
+* Validation of duplicate and overlapping association intervals.
+* Unit tests for repeated association interval conflicts.
+* Validation of declarative rule contracts against the current schema.
+* Unit tests for invalid rule fields, syntax, severity and targets.
+* Dedicated dictionary for technical attribute categories.
+* Cross-file validation of attribute category references.
+* Execution of declarative validation rules against attributes.
+* Separate reporting of data-rule errors and warnings.
+* SQLite parity verification for tables and row counts.
+* Unified `sqlite-verify` CLI command.
+* Full SQLite schema and row-content comparison with source CSV files.
+* Regression tests for atomic SQLite build safety and failure recovery.
+* Regression tests for CSV search, statistics, CLI routing, encoding normalization and Markdown reporting.
+* Unified `quality` CLI command for the complete local quality gate.
+* Unit tests for quality-step orchestration and failure propagation.
+* Safe package workflow commands for branch creation, review and finish checks.
+* Integration tests for package workflow behavior in temporary Git repositories.
+* Durable `package-publish` command for exact manifest-driven staging, commit, finish and explicitly authorized push.
+* Versioned quality receipts bound to branch, base SHA, commit subject, exact paths, an isolated Git tree and raw file bytes.
+* Stable `handoff.json` and complete publication logs for machine-verifiable package transfer.
+* Regression coverage for receipt rejection, one-byte changes, exact staging, failed finish, failed push, safe resume and Polish UTF-8 paths.
+* Source registry for seven official Sandero and Sandero Stepway configuration documents.
+* Source-to-model, source-to-version and source-to-configuration relationships.
+* Five Sandero and Sandero Stepway trim records.
+* Seven source-backed Eco-G 120 configuration records.
+* PLN currency catalogue entry.
+* Seven dated Polish catalogue gross price observations.
+* Configuration-level technical observation dataset with date and source traceability.
+* Thirty-five basic technical observations for seven Sandero configurations.
+* Forty-nine performance, towing and weight observations.
+* Thirty-five source-backed dimensional observations.
+* Twenty-one cargo-capacity and tyre-repair-kit observations.
+* Optional observation-level `fuel_type_code` context referencing the fuel-type dictionary.
+* Twenty-eight dated WLTP fuel-consumption and CO2-emission observations.
+* Separate LPG and petrol context for fuel-dependent observations.
+* One hundred sixty-eight source-backed technical observations in total.
+* Architecture decision D-014 for observation-level fuel context.
+* Architecture decision D-015 for configuration-level equipment availability.
+* Architecture decision D-016 for configuration-level wheel and upholstery values.
+* Architecture decision D-017 for evidence-gated commercial packages and options.
+* Architecture decision D-018 for axle-neutral standard tyre specifications.
+* Explicit separation of wheel size, material, commercial design and finish.
+* Conservative source-conflict policy for Stepway Essential wheel descriptions.
+* Controlled dictionary for equipment availability statuses.
+* Header-only `configuration_attribute_availability.csv` relation implementing D-015.
+* Four cross-file references for configuration-level equipment availability.
+* Regression coverage for the equipment availability schema and SQLite discovery.
+* Twenty-five canonical boolean attributes for functional equipment.
+* Three hundred source-backed equipment availability observations for seven Sandero configurations.
+* Source-page and original-wording provenance for every imported equipment observation.
+* Regression coverage for equipment counts, statuses, uniqueness and configuration differences.
+* Seventeen canonical boolean attributes for explicit passive-safety equipment.
+* One hundred nineteen source-backed passive-safety observations across seven configurations.
+* Regression coverage for passive-safety counts, source wording, statuses and package boundaries.
+* Two canonical string attributes for wheel design and upholstery variant.
+* Twenty-nine source-backed wheel and upholstery values across seven configurations.
+* Regression coverage for normalized values, provenance, conflict boundaries and non-boolean modeling.
+* Exterior attribute category and canonical `exterior_color` string attribute.
+* Seven source-backed exterior-colour values for the current Sandero configurations.
+* Regression coverage for source mapping, provenance, zero-price boundaries and non-boolean colour modeling.
+* Canonical `standard_tyre_specification` string attribute in the `Wheels` category.
+* Seven source-backed standard-tyre-specification values for the current Sandero configurations.
+* Regression coverage for source mapping, provenance, axle-neutral semantics, rating boundaries and separation from rim size.
+* Seven source-backed number-of-doors values for the current Sandero configurations.
+* Regression coverage for source mapping, provenance, total-versus-side-door semantics and package boundaries.
+* Controlled `euro_6e_bis` emission-standard dictionary value.
+* Regression coverage for exact emission-standard variants and the model/import boundary.
+* Seven source-backed `Euro 6e BIS` emission-standard values for the current Sandero configurations.
+* Regression coverage for source mapping, exact enum semantics, provenance and package boundaries.
+* Acoustics attribute category, `dB` unit and canonical `noise_level_at_50_kmh` decimal attribute.
+* Regression coverage for speed-specific noise semantics and the model/import boundary.
+* Seven source-backed 50 km/h noise-level values for the current Sandero configurations.
+* Regression coverage for source mapping, exact speed semantics, provenance and package boundaries.
+* Seven source-backed front-wheel-drive values for the current Sandero configurations.
+* Regression coverage for controlled drive-type semantics, source mapping, provenance and duplicate-string boundaries.
+* Canonical `maximum_payload` integer attribute in the existing `Weights` category using the existing `kg` unit.
+* Regression coverage for source-stated payload semantics, mass-concept boundaries and the model/import split.
+* Seven source-backed maximum-payload values for the current Sandero configurations.
+* Regression coverage for exact payload values, source mapping, provenance, mass boundaries and package isolation.
+* Versioned declarative JSON specifications and a repository-owned importer for planning, atomic application and exact verification of configuration values.
+* Shared contract tests for all declarative import specifications, registered source mappings, SHA-256 hashes and identifier uniqueness.
+* Twenty-eight source-backed engine-power and engine-torque values with separate petrol and LPG context.
+* Architecture decision D-022 and the canonical integer `total_valve_count` attribute for source-stated total engine valves.
+* Seven source-backed `total_valve_count = 12` values with empty fuel context and exact page-6 provenance.
+* Fourteen source-backed `acceleration_0_100` values with separate LPG and petrol context and exact page-5 provenance.
+* Versioned resolution planning for 69 active configuration-gap decisions after the evidence-backed import.
+* One source-backed `wheel_design = ERALIA` value imported as ID 310 through the eleventh declarative specification without a model change.
+* Explicit closure of 44 `not_stated` and 25 `out_of_scope` decisions with zero remaining candidates, zero planned rows and automatic import disabled.
+* Versioned source-page review rules for all 44 active evidence-review targets.
+* SHA-256-verified review of 19 relevant source pages across seven registered PDFs.
+* Active source-page results: 0 `found`, 44 `not_stated`, 0 `ambiguous`, 25 unchanged `out_of_scope` decisions and zero candidate values.
+* Versioned configuration-gap evidence decisions matched one-to-one with the 69-entry triage queue.
+* Conservative classifications that do not convert absent source statements into negative data.
+* Resolution planning routes the next package to the configuration-gap closure documentation milestone.
+* Deterministic, non-prioritized verification queue for configuration gaps.
+* One-to-one consistency checks between completeness and source-coverage gaps.
+* Source-verification tasks retaining document dates, paths and SHA-256 hashes with automatic import disabled.
+* Deterministic source-registration, area, section and record coverage reports.
+* Source metadata verification retaining document dates, paths and SHA-256 hashes.
+* Separate `source_missing` and `record_missing` states for source-backed gaps.
+* Explicit, versioned denominator specification for configuration-data completeness.
+* Deterministic JSON and Markdown completeness reports grouped by configuration, category and source.
+* Deterministic JSON and Markdown configuration comparison reports for all 21 active configuration pairs.
+* Separate price, technical-value and equipment-availability comparison domains.
+* Explicit `not_comparable` handling for missing, `not_stated`, `out_of_scope`, `ambiguous` and `not_applicable` states.
+* Pair classification for version and transmission comparisons while preserving source-backed `not_available` differences.
+* Optional deterministic configuration-comparison filtering by existing version/transmission pair type.
+* Filtered reports recalculate selected pairs, selected configurations and all domain summaries while keeping the unfiltered 21-pair report as the default.
+* Deterministic flat CSV export containing only actual configuration differences.
+* Difference rows retain pair metadata, domain context, both recorded values, dates and source codes.
+* Optional deterministic filtering of the flat difference CSV by price, technical or equipment domain.
+* Difference-domain filtering composes with pair-type filtering while leaving JSON, Markdown and the full CSV unchanged by default.
+* Optional exact item-code filtering for the flat configuration-difference CSV.
+* Item-code validation uses the full active comparison report before pair and domain filtering.
+* Separate reporting for missing records, `unknown`, `not_available` and declared `not_applicable` slots.
+* Deterministic `documentation-baseline` command for current project counters.
+* Machine-readable JSON and human-readable Markdown baseline reports.
+* Managed documentation blocks for README, changelog, roadmap and session state.
+* Fourteen source-backed `standing_km` values with separate LPG and petrol context and exact page-5 provenance.
+* Regression coverage for the optional fuel-context relationship.
+* Cross-file reference and status rules for the new source-backed data tables.
+
+### Changed
+
+* The unified CLI now propagates command exit codes.
+* Repetitive Git package checks are consolidated into three CLI commands while commit, push and merge remain explicit operations.
+* Package review and finish commands accept a versioned JSON manifest with exact branch, base SHA, commit subject and path scope.
+* Package finish enforces one commit, its exact parent and an exact committed-file manifest when a package manifest is supplied.
+* Git path discovery uses byte-exact NUL output while human-readable Git output is decoded deterministically as UTF-8.
+* Line-ending policy is declared in `.gitattributes`, and CI runs package workflow tests on Windows.
+* Full quality now generates and publishes both configuration-gap-resolution-plan report formats.
+* Full quality now generates and publishes configuration-comparison JSON, Markdown and difference-CSV formats.
+* Configuration comparison preserves the global evidence summary when pair filtering narrows the displayed comparisons.
+* Difference-domain filtering affects only the flat CSV export and does not narrow report summaries or evidence scope.
+* Difference item filtering affects only flat CSV rows; known codes may yield header-only output after other filters.
+* Full quality now verifies and publishes both configuration-gap-source-review report formats.
+* Full quality now generates and publishes both configuration-gap-evidence report formats.
+* Full quality now generates and publishes both configuration-gap-triage report formats.
+* Full quality now generates and publishes both source-coverage report formats.
+* Full quality now generates and publishes both configuration-completeness report formats.
+* Full quality now verifies documentation counters against the built SQLite database and publishes both baseline report formats.
+* Successful quality output is concise while complete verbose output remains available in a file and failures replay names and tracebacks.
+* Python 3.10 keeps compile-and-test compatibility coverage, while Python 3.13 owns full data, SQLite and artifact validation.
+* All project CSV files are stored as valid UTF-8.
+* Command usage documentation reflects the current tooling.
+* Generated SQLite databases are treated as disposable local artifacts.
+* Project validation is automatically executed for pushes and Pull Requests.
+* Changelog formatting uses standard Markdown syntax.
+* The main validator reports cross-file reference errors.
+* GitHub Actions runs the unit test suite on Python 3.10 and 3.13.
+* The CSV validator no longer accepts legacy Windows-1250 input.
+* Generated validation reports are treated as disposable local and CI artifacts.
+* The attribute-only uniqueness check now covers every master CSV table.
+* Cross-file search exports use aligned columns and exclude their own output file from scanning.
+* Dataset statistics analyze only source CSV files under `data/master`.
+* Entity catalogs and data dictionaries analyze only source CSV files under `data/master`.
+* Search and reporting tools accept UTF-8 CSV files with an optional BOM.
+* Cross-file validation now covers 34 declared relationships.
+* Lifecycle and catalogue status validation now covers 19 declared rules.
+<!-- dkb:documentation-baseline:changelog:start -->
+* The automated test suite now contains 1950 tests.
+* The verified master-data baseline now contains 48 CSV files and 21560 rows.
+* SQLite verification now covers 48 tables and 21560 rows.
+* Configuration attribute values now contain 8200 dated records.
+* Declarative scalar configuration-value imports now contain 162 versioned JSON specifications.
+* Configuration value ranges now contain 441 dated records from 24 range specifications.
+* The canonical catalogue now contains 416 attributes in 30 categories.
+* Equipment availability now contains 10100 records: 8147 `standard`, 682 `optional`, 1271 `not_available` and 0 `unknown`.
+<!-- dkb:documentation-baseline:changelog:end -->
+
+### Fixed
+
+* Hid technical configuration identifiers from buyer-facing cards and comparison headers while retaining them in provenance and exports.
+* Completed Polish category labels for all equipment domains used by the active catalogue.
+* Unified browser equipment selection into one filter; matched configuration prices now explain whether each selected item is standard, packaged, optional or unpriced.
+* Prevented the interactive shortlist from entering a self-sustaining DOM mutation refresh loop after equipment selection; updates now use one explicit render lifecycle event and animation-frame batching.
+* Replaced duplicate equipment-selection events and unsafe bit-shift package enumeration with single-event updates and deterministic coverage-based dynamic programming.
+* Interactive shortlist selection now accepts the browser's native `Set` state without JavaScript errors, so selection counts, chips and exports initialize correctly.
+* The shortlist reset button now invokes the native form reset method safely even though the form contains a control named `reset`; dependent versions and all active filters return to the full catalogue while explicit configuration selections remain intact.
+* Local quality subprocesses force UTF-8 output on Windows consoles and redirected logs.
+* Package workflow Git commands no longer depend on the Windows console code page when displaying Polish paths and diff content.
+* Restored the executable validation entry point after it was accidentally emptied.
+* Validation CI now detects commands that return success without running the validator.
+
+### Removed
+
+* Buyer-facing shortlist audit diagnostics and the redundant global text-search field from the main offline selector interface.
+* Generated `dacia_knowledge_base.db` from version control.
+* Generated `reports/validation_report.md` from version control.
+
+### Documentation
+
+* Standardized AI-assisted development workflow.
+* Documented validation, normalization, SQLite export, search and reporting commands.
+* Documented the automated GitHub Actions quality workflow.
+* Synchronized `ROADMAP.md` and `SESSION_STATE.md` with the completed tooling and quality baseline.
+* Replaced outdated tooling placeholders with the next source-backed data expansion phase.
+* Normalized project state documents to standard Markdown syntax.
+* Synchronized project documentation with the Sandero source, version, configuration and price packages merged through PRs #3–#6.
+* Synchronized project documentation with the technical observation packages merged through PRs #8 and #9.
+* Synchronized project documentation with the dimensions and cargo-capacity packages merged through PRs #11 and #12.
+* Synchronized project documentation after PRs #13 and #14, recorded merge commit `6224875` and closed the Fuel-mode-aware WLTP Observation Analysis package.
+* Analyzed coverage of all seven registered Sandero and Sandero Stepway PDF sources.
+* Identified configuration-level equipment availability as the next model gap and separated schema implementation from source-data import.
+* Documented the implemented equipment availability schema and the separate source-import follow-up package.
+* Documented the first functional equipment import and its conservative source-mapping boundary.
+* Documented the passive-safety import and deferred wheel and upholstery value modeling.
+* Documented the wheel and upholstery value model without importing ambiguous source records.
+* Documented the controlled wheel and upholstery value import and the preserved Stepway Essential conflict boundary.
+* Analyzed all seven current sources for commercial packages and options and deferred schema work because no named offer records are present.
+* Imported `biel alpejska` as a dated exterior-colour value for all seven current configurations while retaining `0 zł` only as source provenance.
+* Analyzed the remaining explicit PDF values and selected the axle-neutral standard tyre specification as the next controlled import.
+* Imported `205/60 R16 92H` as an axle-neutral dated standard-tyre specification for all seven current configurations.
+* Reassessed the remaining explicit Sandero PDF value gaps, rejected already-modeled and non-data candidates, and selected `number_of_doors` for the next controlled import.
+* Imported `number_of_doors = 5` as a dated value for all seven current configurations using the existing integer attribute.
+* Modeled exact `Euro 6e BIS` semantics as a distinct controlled value and deferred configuration records to a separate import.
+* Imported `emission_standard = euro_6e_bis` as a dated value for all seven current configurations.
+* Modeled the page-6 50 km/h noise field as a speed-specific `dB` measurement and deferred configuration records to a separate import.
+* Imported `noise_level_at_50_kmh = 67` as a dated value for all seven current configurations.
+* Reviewed the remaining Sandero technical-value candidates, rejected already-modeled and non-data matches, and selected `drive_type = fwd` for the next controlled import.
+* Imported `drive_type = fwd` as a dated value for all seven current configurations using the existing controlled enum.
+* Modeled the explicit page-5 maximum-payload field as an independent integer `kg` observation under decision D-021 and deferred configuration records to a separate import.
+* Synchronized the documentation milestone after PRs #39–#42.
+* Documented declarative configuration-value imports, the petrol/LPG engine-output observations, decision D-022 and the total-valve-count import.
+* Imported and documented separate LPG and petrol `acceleration_0_100` observations for all seven current configurations.
+* Imported and documented separate LPG and petrol `standing_km` observations for all seven current configurations.
+* Reassessed 43 remaining technical-value groups after 309 observations and found no additional group satisfying the complete import contract.
+* Documented relevant-page extraction, direct-match evidence and the remaining ambiguity boundary.
+* Documented structured-evidence scope, unresolved PDF-page review and the zero-candidate-import result.
+* Documented neutral triage ordering, source-verification states and the no-auto-import boundary.
+* Documented source registration, section coverage and source-backed gap semantics.
+* Documented the explicit configuration-completeness denominator and non-guessing gap semantics.
+* Added generated baseline counters and drift-checked current documentation summaries.
+* Synchronized README, changelog, roadmap and session state after PRs #44–#45 and closed the current explicit technical-value sweep.
+* Planned and imported the source-backed Stepway Essential `wheel_design = ERALIA` value as ID 310 through PRs #53–#54.
+* Closed the active configuration-gap cycle at 69 decisions: 44 `not_stated`, 25 `out_of_scope`, zero candidates, zero planned rows and automatic import disabled.
+* Synchronized README, changelog, roadmap and session state after PRs #53–#54 and selected a configuration comparison report as the next reporting package.
+* Added and documented deterministic configuration comparison as the next reporting capability.
+* Reviewed the 21-pair comparison snapshot and selected same-version transmission filtering as the highest-signal follow-up.
+* Documented the flat comparison-difference CSV contract and its compatibility with pair-type filtering.
+* Reviewed the 305-row difference export and selected domain filtering over configuration filtering as the next reporting package.
+* Reviewed the three domain exports and selected exact item-code filtering over configuration filtering.

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-08-04",
+  "source_bundle": "cross-model-configurator-pdf-bundle-20260804",
+  "scope": {
+    "documents": 18,
+    "saved_configurator_states": 18,
+    "option_entries": 0,
+    "package_entries": 0,
+    "accessory_entries": 0
+  },
+  "interpretation": "The saved configurator PDFs document the selected configuration, standard equipment, technical data, WLTP information, tyre-label guidance and legal notices. They do not expose separate catalogues of available options, packages or accessories. Legal-note mentions of accessories are not product entries.",
+  "records": [
+    {"configurator_code":"OL7ODX","model":"BIGSTER","grade":"journey","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"XO3PYO","model":"BIGSTER","grade":"extreme","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"EFVBCJ","model":"BIGSTER","grade":"expression","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"GGQ0LU","model":"BIGSTER","grade":"essential","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"OQNKFK","model":"DUSTER","grade":"journey","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"QVQDYV","model":"DUSTER","grade":"extreme","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"QWY7QR","model":"DUSTER","grade":"expression","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"MEOHF3","model":"DUSTER","grade":"essential","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"ARKVJG","model":"NOWY JOGGER","grade":"journey","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"YHGCUZ","model":"NOWY JOGGER","grade":"extreme","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"KJUY16","model":"NOWY JOGGER","grade":"expression","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"I23FGG","model":"NOWY JOGGER","grade":"essential","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"5WZLHM","model":"NOWE SANDERO STEPWAY F.2","grade":"extreme","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"U56SQT","model":"NOWE SANDERO STEPWAY F.2","grade":"expression","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"9I1STI","model":"NOWE SANDERO STEPWAY F.2","grade":"essential","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"HJISLB","model":"NOWE SANDERO F.2","grade":"journey","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"FZXCXZ","model":"NOWE SANDERO F.2","grade":"expression","result":"no_option_package_or_accessory_section"},
+    {"configurator_code":"4TJTWN","model":"NOWE SANDERO F.2","grade":"essential","result":"no_option_package_or_accessory_section"}
+  ],
+  "excluded_as_non_entries": [
+    "generic legal notices mentioning vehicle and accessory images",
+    "generic legal notices mentioning changing accessory prices",
+    "standard-equipment items already captured in the standard-equipment migration",
+    "selected colour, wheel and upholstery values already captured in the commercial migration"
+  ],
+  "follow_up": "Do not infer availability or prices. Exact option/package/accessory data require a separate configurator capture that explicitly lists those products, or another authoritative source already registered for the exact model phase and configuration identity."
+}

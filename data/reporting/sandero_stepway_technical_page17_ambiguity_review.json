@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_technical_page17_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_005",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 17,
+    "review_basis": "authored visual review of the archived page-17 technical table"
+  },
+  "scope": {
+    "candidate_count": 4,
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "model_code": "sandero_stepway_iii",
+    "domain": "technical_tables",
+    "page": 17,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "adjacent_candidate_evidence_not_silently_substituted": true,
+    "cross_row_evidence_not_silently_substituted": true,
+    "unattached_configuration_values_not_inferred": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 4,
+    "decision_counts": {
+      "partially_covered": 3,
+      "unresolved_signature_mismatch": 1
+    },
+    "selected_evidence_signature_count": 5,
+    "selected_evidence_record_count": 15,
+    "candidates_with_selected_evidence": 3,
+    "candidates_without_selected_evidence": 1
+  },
+  "decisions": [
+    {
+      "candidate_id": "7174bea551651d0ef41e920ec1836f014de7a5a6f6cf4374ee9741c818b20423",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "line_start": 42,
+      "line_end": 42,
+      "exact_text": "Układ kierowniczy –",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "The fragment starts the steering-system turning-circle label. Only the attached 10.64 m turning-circle signature belongs to this row; suspension, tyre and kerb-mass signatures belong to other labelled rows on the same page.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 5,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "turning_circle_between_kerbs",
+            "value": "10.64",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 5,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_essential_ecog120_manual_turning_circle_between_kerbs_20260202",
+              "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_expression_ecog120_automatic_turning_circle_between_kerbs_20260202",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_expression_ecog120_manual_turning_circle_between_kerbs_20260202",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_extreme_ecog120_automatic_turning_circle_between_kerbs_20260202",
+              "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_extreme_ecog120_manual_turning_circle_between_kerbs_20260202",
+              "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "turning_circle_between_kerbs",
+          "source_values": [
+            "10.64"
+          ],
+          "reason": "The value is printed on the following continuation line, so this label fragment is only partially covered by the selected evidence."
+        }
+      ]
+    },
+    {
+      "candidate_id": "142dcad00906e420e554f558092509354e221a4a255e777e1a3394f8923b4968",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "line_start": 80,
+      "line_end": 80,
+      "exact_text": "gotowego do jazdy",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "unresolved_signature_mismatch",
+      "rationale": "This continuation belongs to the minimum kerb-mass row (1095/1194/1222 kg), but both attached signatures are maximum kerb masses 1225 and 1249 kg from the following row. Cross-row substitution is rejected.",
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "selected_evidence_signatures": [],
+      "source_facts": [
+        {
+          "attribute_code": "minimum_kerb_weight",
+          "source_values": [
+            "1095",
+            "1194",
+            "1222"
+          ],
+          "reason": "The visual row has no matching evidence signature attached to this candidate."
+        }
+      ]
+    },
+    {
+      "candidate_id": "42122e7844285bbea37c05cd6bbd36f3e3e8c24f8ee740d6c8b53cf0a9767f3c",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "line_start": 81,
+      "line_end": 81,
+      "exact_text": "Maksymalna masa pojazdu",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "Both attached signatures belong to the maximum kerb-mass row and cover the manual and automatic Eco-G columns. The visible 1149 kg TCe 110 value has no attached record and is not inferred.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 5,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "maximum_kerb_weight",
+            "value": "1225",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_essential_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_expression_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_extreme_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "maximum_kerb_weight",
+            "value": "1249",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_expression_ecog120_automatic_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_extreme_ecog120_automatic_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "source_values": [
+            "1149"
+          ],
+          "reason": "The TCe 110 value is visible in the row but is outside the attached evidence set."
+        }
+      ]
+    },
+    {
+      "candidate_id": "a53c392d018f9e1f8538c42625fa5f6a91c6f66bb144966f5c1f68e492d9292f",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "line_start": 83,
+      "line_end": 83,
+      "exact_text": "gotowego do jazdy",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "This continuation completes the maximum kerb-mass label, so the attached 1225 and 1249 kg signatures remain valid for the manual and automatic Eco-G columns. The TCe 110 value remains unattached.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 5,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "maximum_kerb_weight",
+            "value": "1225",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_essential_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_expression_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_extreme_ecog120_manual_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "maximum_kerb_weight",
+            "value": "1249",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 2,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_expression_ecog120_automatic_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "sandero_stepway_iii_extreme_ecog120_automatic_maximum_kerb_weight_20260202",
+              "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_page": 17,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "source_values": [
+            "1149"
+          ],
+          "reason": "The TCe 110 maximum kerb mass has no attached evidence for this fragment."
+        }
+      ]
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "cross_row_evidence_remains_non_substitutable": true,
+    "unattached_configuration_values_remain_source_facts": true,
+    "partial_coverage_does_not_authorize_missing_value_inference": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Duster Mini Technical Page 21 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 1 ambiguous technical candidate from the Duster mini-brochure page 21 against its 7 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

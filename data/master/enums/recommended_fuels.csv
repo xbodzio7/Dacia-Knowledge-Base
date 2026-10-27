@@ -1,0 +1,7 @@
+code,name,description,status
+petrol_95,Petrol 95 RON,Unleaded petrol with minimum 95 RON octane rating,active
+petrol_98,Petrol 98 RON,Unleaded petrol with minimum 98 RON octane rating,active
+diesel,Diesel,Automotive diesel fuel,active
+lpg,LPG,Automotive liquefied petroleum gas,active
+electricity,Electricity,Electric energy for battery electric vehicles,active
+not_applicable,Not Applicable,Recommended fuel is not applicable,active

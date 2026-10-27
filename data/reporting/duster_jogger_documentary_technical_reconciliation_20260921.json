@@ -1,0 +1,15 @@
+{
+  "package_id": "duster_jogger_documentary_technical_reconciliation_007",
+  "reviewed_on": "2026-09-21",
+  "source_first": true,
+  "status": "Duster and Jogger technical materialization",
+  "duster_configurations": 16,
+  "jogger_configurations": 22,
+  "added_jogger_values": 514,
+  "added_jogger_ranges": 64,
+  "documentary_boundary": [
+    "No configurator evidence used.",
+    "5-seat and 7-seat Jogger values remain explicitly separated.",
+    "Eco-G 120 automatic remains only Extreme/Journey in the July source; no Essential/Expression automatic configuration was fabricated."
+  ]
+}

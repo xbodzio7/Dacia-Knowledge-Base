@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "kind": "official_source_slice",
+  "slice_code": "src_pl_sandero_catalog_tce_slice_20260202",
+  "raw_source_code": "src_pl_sandero_brochure_20260202",
+  "raw_source": {
+    "title": "DACIA SANDERO broszura",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-02-02",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97"
+  },
+  "selection": {
+    "configuration_codes": [
+      "sandero_iii_essential_tce100_manual",
+      "sandero_iii_expression_tce100_manual",
+      "sandero_iii_journey_tce100_manual"
+    ],
+    "source_pages": [
+      17,
+      20
+    ],
+    "observation_families": [
+      "technical",
+      "performance",
+      "chassis",
+      "dimensions",
+      "cargo"
+    ]
+  },
+  "non_inference": [
+    "The slice does not replace or alter the registered raw official document.",
+    "Every imported observation retains raw page and section provenance in its notes.",
+    "Only values directly visible in the selected official source are represented."
+  ]
+}

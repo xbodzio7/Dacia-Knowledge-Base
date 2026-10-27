@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "kind": "brochure_cargo_import_closure_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "sources": [
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "model_code": "sandero_iii",
+      "configurations": 4,
+      "values": 20,
+      "contexts": 20
+    },
+    {
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "model_code": "sandero_stepway_iii",
+      "configurations": 5,
+      "values": 25,
+      "contexts": 25
+    },
+    {
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "model_code": "jogger",
+      "configurations": 22,
+      "values": 110,
+      "contexts": 110
+    },
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "model_code": "bigster",
+      "configurations": 11,
+      "values": 68,
+      "contexts": 68
+    },
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "model_code": "duster_iii",
+      "configurations": 10,
+      "values": 64,
+      "contexts": 64
+    }
+  ],
+  "totals": {
+    "sources": 5,
+    "configurations": 52,
+    "values": 287,
+    "contexts": 287,
+    "source_configuration_relationships": 52
+  },
+  "context_dimensions": [
+    "measurement_basis_code",
+    "second_row_state_code",
+    "third_row_state_code",
+    "compartment_code",
+    "spare_wheel_state_code",
+    "tyre_repair_kit_state_code",
+    "double_floor_state_code"
+  ],
+  "deferred_evidence": [
+    {
+      "code": "jogger_7seat_maximum_third_row_state",
+      "reason": "The 1807 dm3 VDA / 2085 litre maximum pair does not identify whether the third row is folded or removed."
+    },
+    {
+      "code": "bigster_hybrid_g_150_4x4_equipment_contradiction",
+      "reason": "The brochure technical and equipment tables conflict on the repair-kit boundary."
+    },
+    {
+      "code": "bigster_generic_dimensions_powertrain_projection",
+      "reason": "The generic dimensions page does not identify an exact powertrain and double-floor state."
+    },
+    {
+      "code": "duster_ecog120_manual_to_automatic_projection",
+      "reason": "The Eco-G 120 brochure column is manual and cannot document automatic configurations."
+    },
+    {
+      "code": "duster_hybrid_g_150_4x4_unmodeled",
+      "reason": "No exact active Duster hybrid-G 150 4x4 configuration exists in master data."
+    },
+    {
+      "code": "duster_generic_dimensions_powertrain_projection",
+      "reason": "The generic 4x2/4x4 dimensions page does not identify an exact powertrain."
+    }
+  ],
+  "closure_decision": "Close the brochure cargo import milestone with all unresolved evidence preserved as explicit deferrals and no inferred observations."
+}

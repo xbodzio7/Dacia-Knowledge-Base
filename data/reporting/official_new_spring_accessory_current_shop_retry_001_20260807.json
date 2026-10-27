@@ -1,0 +1,248 @@
+{
+  "package_id": "new_spring_current_shop_retry_001",
+  "package_name": "New Spring Current Shop Retry 001",
+  "checked_on": "2026-08-07",
+  "base_commit": "b89717b7c2b99dc2d4ef69baaa74f10b0e8a1249",
+  "source_queue": "data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv",
+  "scope": {
+    "retry_positions": {
+      "from": 1,
+      "to": 10
+    },
+    "record_count": 10,
+    "identity_rule": "exact_part_number",
+    "accepted_confirmation_source": "official_polish_dacia_shop_card"
+  },
+  "result": {
+    "confirmed_polish_dacia_shop_cards": 0,
+    "cards_not_resolved": 10,
+    "current_shop_catalogue_prices_captured": 0,
+    "price_matches": 0,
+    "price_mismatches": 0,
+    "status_changes": 0
+  },
+  "status_semantics": {
+    "dacia_pl_card_not_resolved": "No official Polish Dacia Shop card was resolved in the bounded retry. This does not establish withdrawal, incompatibility or unavailability."
+  },
+  "semantic_guards": [
+    "Exact part number remains the primary identity.",
+    "An unresolved Polish shop card is not evidence of withdrawal, incompatibility or unavailability.",
+    "Foreign-market official Dacia records are not transferred to Polish New Spring evidence.",
+    "Renault Shop records are not substituted for Polish Dacia Shop records.",
+    "Third-party records are not substituted for official Polish Dacia Shop records.",
+    "A missing current shop price is not a mismatch.",
+    "No master-data mutation is permitted in this reporting package."
+  ],
+  "records": [
+    {
+      "retry_position": 1,
+      "price_list_ordinal": 2,
+      "category": "BEZPIECZEŃSTWO",
+      "subcategory": "Bezpieczeństwo i sygnalizacja",
+      "price_list_name": "Gaśnica 1 kg",
+      "part_number": "7711943172",
+      "document_price_gross_pln": "87.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711943172",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "Foreign-market official Dacia records may exist, but no Polish Dacia Shop card was resolved; no cross-market transfer."
+    },
+    {
+      "retry_position": 2,
+      "price_list_ordinal": 4,
+      "category": "BEZPIECZEŃSTWO",
+      "subcategory": "Bezpieczeństwo i sygnalizacja",
+      "price_list_name": "Uchwyt do mocowania gaśnicy",
+      "part_number": "966115844R",
+      "document_price_gross_pln": "157.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/966115844R",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No Polish Dacia Shop card was resolved in the bounded retry."
+    },
+    {
+      "retry_position": 3,
+      "price_list_ordinal": 9,
+      "category": "DESIGN",
+      "subcategory": "Felgi i akcesoria do kół",
+      "price_list_name": "Kołpak 14\"",
+      "part_number": "403154280R",
+      "document_price_gross_pln": "155.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/403154280R",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No Polish Dacia Shop card was resolved in the bounded retry."
+    },
+    {
+      "retry_position": 4,
+      "price_list_ordinal": 18,
+      "category": "DESIGN",
+      "subcategory": "Wygląd wnętrza",
+      "price_list_name": "YouClip – etui na okulary",
+      "part_number": "739M00386R",
+      "document_price_gross_pln": "149.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/739M00386R",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "Foreign-market official Dacia cards were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 5,
+      "price_list_ordinal": 19,
+      "category": "DESIGN",
+      "subcategory": "Wygląd wnętrza",
+      "price_list_name": "Nakładki na progi przednich drzwi Spring",
+      "part_number": "7711945712",
+      "document_price_gross_pln": "187.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711945712",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "Third-party Polish marketplace records were not substituted for an official Polish Dacia Shop card."
+    },
+    {
+      "retry_position": 6,
+      "price_list_ordinal": 22,
+      "category": "DESIGN",
+      "subcategory": "Wygląd zewnętrzny",
+      "price_list_name": "Nakładki ochronne na krawędzie drzwi i boczne lusterka",
+      "part_number": "8201743312",
+      "document_price_gross_pln": "214.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201743312",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "Foreign and third-party records were not transferred to Polish New Spring evidence."
+    },
+    {
+      "retry_position": 7,
+      "price_list_ordinal": 23,
+      "category": "DESIGN",
+      "subcategory": "Wygląd zewnętrzny",
+      "price_list_name": "Listwa bagażnika",
+      "part_number": "8201751961",
+      "document_price_gross_pln": "342.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201751961",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No Polish Dacia Shop card was resolved in the bounded retry."
+    },
+    {
+      "retry_position": 8,
+      "price_list_ordinal": 24,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Przejściówka do zasilania zewnętrznego sprzętu",
+      "part_number": "296976446R",
+      "document_price_gross_pln": "949.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/296976446R",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "A Polish Renault Shop card and foreign third-party records were not substituted for a Polish Dacia Shop card."
+    },
+    {
+      "retry_position": 9,
+      "price_list_ordinal": 26,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Przewód ładowania akumulatora z terminala Wallbox T2-T2 32 A - zasięg 6,5 m.",
+      "part_number": "7711943517",
+      "document_price_gross_pln": "3219.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711943517",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "No Polish Dacia Shop card was resolved in the bounded retry."
+    },
+    {
+      "retry_position": 10,
+      "price_list_ordinal": 27,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Przewód ładowania akumulatora z terminala Wallbox T2-T2 20 A - zasięg 6,5 m.",
+      "part_number": "7711943518",
+      "document_price_gross_pln": "2164.00",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711943518",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      },
+      "notes": "Third-party foreign records were not substituted for an official Polish Dacia Shop card."
+    }
+  ]
+}

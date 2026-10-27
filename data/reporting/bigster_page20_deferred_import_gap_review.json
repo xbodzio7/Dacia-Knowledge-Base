@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "kind": "bigster_page20_deferred_import_gap_review",
+  "date": "2026-07-30",
+  "status": "complete",
+  "package_id": "post_residual_bigster_page20_deferred_import_gap_review_001",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 20,
+    "section": "DANE TECHNICZNE / ZUŻYCIE PALIWA I EMISJA CO2"
+  },
+  "upstream": {
+    "package_id": "post_residual_bigster_technical_page20_reconciliation_001",
+    "report_path": "data/reporting/bigster_technical_page20_reviewed_fact_reconciliation.json",
+    "source_packages": [
+      "residual_gap_016",
+      "residual_gap_017"
+    ]
+  },
+  "scope": {
+    "reviewed_non_conflicting_subfacts": 3,
+    "current_bigster_configurations": 14,
+    "hybrid_g_150_4x4_configurations": 3,
+    "planned_observations": 20
+  },
+  "summary": {
+    "import_ready_subfacts": 3,
+    "planned_observations_by_attribute": {
+      "hybrid_system_power_total": 3,
+      "traction_motor_torque": 3,
+      "hybrid_battery_type": 14
+    },
+    "preserved_conflict_boundaries": 5,
+    "selected_next_package": "post_residual_bigster_page20_deferred_import_gap_import_001"
+  },
+  "policy": {
+    "review_only": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "current_exact_values_not_overwritten": true,
+    "official_source_conflicts_preserved": true,
+    "compound_source_rows_split_only_at_explicit_semantic_boundaries": true
+  },
+  "attribute_contracts": [
+    {
+      "source_subfact": "113 kW (150 KM) – moc łączna",
+      "attribute_code": "hybrid_system_power_total",
+      "data_type": "decimal",
+      "unit": "kW",
+      "canonical_value": "113",
+      "target_configurations": [
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ],
+      "planned_observations": 3,
+      "decision": "import_ready",
+      "rationale": "The attribute explicitly represents source-stated total hybrid-system output and does not reuse the conflicting engine-power RPM context."
+    },
+    {
+      "source_subfact": "87 N.m przy 1630 obr./min – elektryczny",
+      "attribute_code": "traction_motor_torque",
+      "data_type": "decimal",
+      "unit": "Nm",
+      "canonical_value": "87",
+      "target_configurations": [
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ],
+      "planned_observations": 3,
+      "decision": "import_ready_scalar_only",
+      "rationale": "The torque value maps exactly to the existing traction-motor attribute. The printed 1630 rpm context remains excluded because max_torque_rpm is engine-scoped and no motor-specific RPM field is approved."
+    },
+    {
+      "source_subfact": "Litowo-jonowy",
+      "attribute_code": "hybrid_battery_type",
+      "data_type": "enum",
+      "unit": "",
+      "canonical_value": "lithium_ion",
+      "target_configurations": [
+        "bigster_essential_mildhybrid140_4x2_manual",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_extreme_mildhybrid140_4x2_manual",
+        "bigster_journey_mildhybrid140_4x2_manual",
+        "bigster_essential_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual",
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic",
+        "bigster_journey_hybrid155_4x2_automatic",
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_extreme_hybridg150_4x4_automatic",
+        "bigster_journey_hybridg150_4x4_automatic"
+      ],
+      "planned_observations": 14,
+      "decision": "import_ready",
+      "rationale": "The active hybrid_battery_type contract and existing canonical enum value are already used for hybrid configurations. traction_battery_type is not selected, avoiding duplicate battery-chemistry semantics."
+    }
+  ],
+  "source_relationship_checks": {
+    "required_relationship": "brochure_technical_data_for",
+    "linked_configuration_count": 14,
+    "all_targets_linked": true,
+    "hybrid_g_150_targets": [
+      "bigster_expression_hybridg150_4x4_automatic",
+      "bigster_extreme_hybridg150_4x4_automatic",
+      "bigster_journey_hybridg150_4x4_automatic"
+    ]
+  },
+  "planned_import_rows": [
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "value": "113",
+      "unit": "kW",
+      "fuel_type_code": "",
+      "source_text": "113 kW (150 KM) – moc łączna"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "value": "113",
+      "unit": "kW",
+      "fuel_type_code": "",
+      "source_text": "113 kW (150 KM) – moc łączna"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "attribute_code": "hybrid_system_power_total",
+      "value": "113",
+      "unit": "kW",
+      "fuel_type_code": "",
+      "source_text": "113 kW (150 KM) – moc łączna"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "attribute_code": "traction_motor_torque",
+      "value": "87",
+      "unit": "Nm",
+      "fuel_type_code": "",
+      "source_text": "87 N.m przy 1630 obr./min – elektryczny",
+      "excluded_context": "1630 obr./min is not imported because no motor-specific RPM attribute is approved."
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "traction_motor_torque",
+      "value": "87",
+      "unit": "Nm",
+      "fuel_type_code": "",
+      "source_text": "87 N.m przy 1630 obr./min – elektryczny",
+      "excluded_context": "1630 obr./min is not imported because no motor-specific RPM attribute is approved."
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "attribute_code": "traction_motor_torque",
+      "value": "87",
+      "unit": "Nm",
+      "fuel_type_code": "",
+      "source_text": "87 N.m przy 1630 obr./min – elektryczny",
+      "excluded_context": "1630 obr./min is not imported because no motor-specific RPM attribute is approved."
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "attribute_code": "hybrid_battery_type",
+      "value": "lithium_ion",
+      "unit": "",
+      "fuel_type_code": "",
+      "source_text": "Litowo-jonowy"
+    }
+  ],
+  "preserved_boundaries": [
+    {
+      "code": "hybrid_g_150_engine_power_rpm_conflict",
+      "source_value": "4500 rpm",
+      "current_exact_value": "5000 rpm",
+      "decision": "defer",
+      "reason": "The safe 113 kW total-system subfact does not resolve the engine maximum-power RPM conflict."
+    },
+    {
+      "code": "hybrid_g_150_engine_torque_rpm_conflict",
+      "source_value": "4000 rpm",
+      "current_exact_value": "1750 rpm",
+      "decision": "defer",
+      "reason": "The safe 87 Nm traction-motor subfact does not resolve the engine maximum-torque RPM conflict."
+    },
+    {
+      "code": "traction_motor_rpm_context_unmodeled",
+      "source_value": "1630 rpm",
+      "current_exact_value": null,
+      "decision": "defer",
+      "reason": "No approved motor-specific RPM attribute exists; max_torque_rpm remains engine-scoped."
+    },
+    {
+      "code": "mild_hybrid_battery_capacity_precision_conflict",
+      "source_value": "0.84 kWh",
+      "current_exact_value": "0.839 kWh",
+      "decision": "defer",
+      "reason": "Battery chemistry can be imported independently; source precision does not authorize overwriting current capacity observations."
+    },
+    {
+      "code": "hybrid_155_voltage_conflict",
+      "source_value": "280 V",
+      "current_exact_value": "200 V",
+      "decision": "defer",
+      "reason": "Battery chemistry is independent of the unresolved official-source voltage conflict."
+    }
+  ],
+  "next_package": {
+    "package_id": "post_residual_bigster_page20_deferred_import_gap_import_001",
+    "kind": "configuration_value_import",
+    "name": "Bigster Page 20 Deferred Import Gap Import",
+    "status": "planned",
+    "planned_observations": 20,
+    "goal": "Add three 113 kW total-system-power observations, three 87 Nm traction-motor-torque observations and fourteen lithium-ion hybrid-battery-type observations without importing or overwriting any RPM, capacity or voltage value.",
+    "manifest_paths": [
+      "data/imports/configuration_values/bigster-page20-hybrid-system-power-total-20251210.json",
+      "data/imports/configuration_values/bigster-page20-traction-motor-torque-20251210.json",
+      "data/imports/configuration_values/bigster-page20-hybrid-battery-type-20251210.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_bigster_page20_deferred_import_gaps.py",
+      "data/reporting/bigster_mildhybrid140_4x2_manual_completeness.json",
+      "data/reporting/bigster_mildhybridg140_4x2_manual_completeness.json",
+      "data/reporting/bigster_hybridg150_4x4_automatic_completeness.json",
+      "data/reporting/bigster_hybrid155_4x2_automatic_completeness.json",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py"
+    ],
+    "configuration_import_spec_count": 3
+  }
+}

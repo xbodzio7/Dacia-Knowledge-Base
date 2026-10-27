@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "kind": "brochure_cargo_measurement_context_model",
+  "accepted_on": "2026-07-25",
+  "status": "accepted",
+  "value_relation": "data/master/configuration_attribute_values.csv",
+  "canonical_attribute_code": "boot_capacity",
+  "value_unit": "L",
+  "context_relation": {
+    "file": "data/master/configuration_cargo_volume_contexts.csv",
+    "cardinality": "zero_or_one_context_per_configuration_attribute_value",
+    "reference_column": "configuration_attribute_value_code",
+    "fields": [
+      "id",
+      "code",
+      "configuration_attribute_value_code",
+      "measurement_basis_code",
+      "second_row_state_code",
+      "third_row_state_code",
+      "compartment_code",
+      "spare_wheel_state_code",
+      "tyre_repair_kit_state_code",
+      "double_floor_state_code",
+      "notes"
+    ],
+    "required_fields": [
+      "id",
+      "code",
+      "configuration_attribute_value_code",
+      "measurement_basis_code",
+      "compartment_code"
+    ]
+  },
+  "controlled_dictionaries": {
+    "cargo_measurement_bases": [
+      "vda_iso_3832",
+      "ordinary_litre"
+    ],
+    "cargo_seat_states": [
+      "upright",
+      "folded",
+      "removed",
+      "folded_or_removed"
+    ],
+    "cargo_compartment_types": [
+      "main_luggage_compartment",
+      "underfloor_compartment",
+      "source_stated_total"
+    ],
+    "context_presence_states": [
+      "present",
+      "absent"
+    ]
+  },
+  "inherited_from_configuration": [
+    "passenger_layout",
+    "number_of_seats",
+    "drive_type"
+  ],
+  "rules": [
+    "empty_optional_context_is_not_stated_not_absent",
+    "spare_wheel_repair_kit_and_double_floor_are_independent",
+    "main_underfloor_and_source_stated_total_are_not_interchangeable",
+    "seat_and_drive_source_groups_require_exact_matching_configurations",
+    "vda_dm3_is_normalized_numerically_to_litres_with_basis_preserved",
+    "context_distinct_values_must_not_be_collapsed",
+    "one_context_row_may_reference_only_a_boot_capacity_value"
+  ],
+  "legacy_policy": {
+    "migrate_existing_values": false,
+    "retained_attribute_codes": [
+      "cargo_volume_vda",
+      "cargo_volume_vda_to_luggage_cover",
+      "cargo_volume_vda_to_seatback",
+      "cargo_volume_without_spare_wheel_iso3832",
+      "maximum_cargo_volume_iso3832"
+    ]
+  },
+  "deferred": [
+    "gear_specific_elasticity_context"
+  ],
+  "next_package": "Brochure Cargo Context Schema Foundation"
+}

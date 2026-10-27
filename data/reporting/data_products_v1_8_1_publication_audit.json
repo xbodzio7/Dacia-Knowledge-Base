@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_1_public_audit",
+  "status": "PASS",
+  "release_id": 360138130,
+  "release_tag": "data-products-v1.8.1",
+  "release_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/releases/tag/data-products-v1.8.1",
+  "published_at": "2026-07-26T23:05:03Z",
+  "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+  "publication_workflow_run": 30224467755,
+  "audit_workflow_run": 30225040623,
+  "assets": {
+    "SHA256SUMS": {
+      "asset_id": 490767593,
+      "size_bytes": 213,
+      "sha256": "ca59fb187c8fbdcbacf7c62d0c65559a8f604defc5634b1d7fe257df7f7e668e",
+      "api_digest": "sha256:ca59fb187c8fbdcbacf7c62d0c65559a8f604defc5634b1d7fe257df7f7e668e"
+    },
+    "dacia-knowledge-base-data-products-v1.8.1.zip": {
+      "asset_id": 490767591,
+      "size_bytes": 62141954,
+      "sha256": "3bb8ba7c48195651bbe24cae042560273c5e4083467c01b203bb07dab7401bc5",
+      "api_digest": "sha256:3bb8ba7c48195651bbe24cae042560273c5e4083467c01b203bb07dab7401bc5"
+    },
+    "data-product-release-manifest.json": {
+      "asset_id": 490767592,
+      "size_bytes": 20607,
+      "sha256": "f4ed40ed7e469876c80ee95c6b1ad18fcf6c86f215934ab5942373f2889a54fd",
+      "api_digest": "sha256:f4ed40ed7e469876c80ee95c6b1ad18fcf6c86f215934ab5942373f2889a54fd"
+    }
+  },
+  "workspace": {
+    "asset_count": 3,
+    "content_file_count": 85,
+    "index_local_link_count": 83,
+    "index_sha256": "653a505102a15dc66d770b82612e18da324c0299162f644b7192628911c54b80"
+  },
+  "release_contents": {
+    "selected_configuration_count": 72,
+    "scope_group_count": 19,
+    "within_scope_pair_count": 114,
+    "archive_member_count": 85,
+    "equipment_facet_count": 110
+  },
+  "equipment_filter": {
+    "visible_choices": 108,
+    "camera_matches": 66,
+    "missing_and_unknown_are_exclusions": true
+  },
+  "model_order": [
+    {
+      "model_code": "sandero_iii",
+      "minimum_catalog_price_pln": 68000
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "minimum_catalog_price_pln": 71700
+    },
+    {
+      "model_code": "jogger",
+      "minimum_catalog_price_pln": 77900
+    },
+    {
+      "model_code": "duster_iii",
+      "minimum_catalog_price_pln": 82000
+    },
+    {
+      "model_code": "bigster",
+      "minimum_catalog_price_pln": 101400
+    }
+  ],
+  "cross_model": {
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "active_configuration_count": 72,
+    "comparison_path_count": 76,
+    "navigation_path_count": 2,
+    "html_local_file_link_count": 57,
+    "unknown_seat_models": [
+      "bigster",
+      "duster_iii"
+    ],
+    "unknown_state": "not_stated"
+  },
+  "semantic_boundaries": {
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "public_v1_8_0_rewritten": false
+  },
+  "verification": "PASS"
+}

@@ -1,0 +1,7 @@
+configuration_code,model_id,grade,powertrain,transmission,source_colour_name,price_pln,price_state,selected,source_url
+sandero_iii_essential_tce100_manual,sandero,essential,TCe 100,manual,biel alpejska,0,included_in_base_equipment,true,https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html
+sandero_iii_essential_tce100_manual,sandero,essential,TCe 100,manual,niebieski iron,2500,exact_visible_option_price,false,https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html
+sandero_iii_essential_tce100_manual,sandero,essential,TCe 100,manual,szary schiste,2500,exact_visible_option_price,false,https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html
+sandero_stepway_iii_essential_tce110_manual,sandero_stepway,essential,TCe 110,manual,biel alpejska,0,included_in_base_equipment,true,https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html
+sandero_stepway_iii_essential_tce110_manual,sandero_stepway,essential,TCe 110,manual,szary schiste,2500,exact_visible_option_price,false,https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html
+sandero_stepway_iii_essential_tce110_manual,sandero_stepway,essential,TCe 110,manual,czarna perła,2500,exact_visible_option_price,false,https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html

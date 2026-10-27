@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "kind": "post_cross_model_download_alignment_priority_review",
+  "reviewed_on": "2026-07-31",
+  "status": "complete",
+  "trigger": {
+    "closed_package": "cross_model_download_discoverability_alignment_closure_001",
+    "closure_pull_request": 418,
+    "closure_head": "a9f2e1a5a2255dbc706fdb230e4dd223ee9bf017",
+    "closure_quality_run": 2734,
+    "open_pull_request_count": 0
+  },
+  "repository_evidence": {
+    "current_model_count": 19,
+    "spring_model_code": "spring",
+    "spring_model_status": "current",
+    "registered_source_count": 30,
+    "registered_spring_source_count": 0,
+    "test_baseline": 1676,
+    "roadmap_directions": [
+      "source_backed_data_quality",
+      "model_and_source_expansion",
+      "reporting_usability"
+    ]
+  },
+  "official_public_candidate_evidence": {
+    "observed_on": "2026-07-31",
+    "publisher": "Dacia Polska",
+    "market": "PL",
+    "candidate_endpoints": [
+      {
+        "kind": "configurator",
+        "url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html",
+        "observed_scope": "Spring MY26 grades, powertrain choices, prices, standard equipment and technical values"
+      },
+      {
+        "kind": "brochure_landing_page",
+        "url": "https://www.dacia.pl/pobierz-broszure.html",
+        "observed_scope": "official Spring brochure download entry point"
+      },
+      {
+        "kind": "official_stock_catalogue",
+        "url": "https://www.dacia.pl/katalog-nci.html?model.code=S2E",
+        "observed_scope": "exact Spring MY26 stock cards and configuration identities"
+      }
+    ],
+    "canonical_registration_completed": false,
+    "master_data_import_allowed": false
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Spring Official Source Intake Review",
+      "decision": "selected",
+      "readiness": "high",
+      "value": "high",
+      "reason": "Spring is a current canonical model with no registered source, while official Polish brochure, configurator and stock endpoints are available. A review-only intake can establish exact capture and evidence boundaries before any import.",
+      "boundary": "Review and source-selection only; no source registration, binary archive, normalized snapshot or master-data import in this package."
+    },
+    {
+      "rank": 2,
+      "name": "Additional reporting expansion",
+      "decision": "deferred",
+      "readiness": "requires_bounded_gap",
+      "value": "conditional",
+      "reason": "The recently completed cross-model discoverability sequence closed the known consumer navigation inconsistency. No equally concrete post-closure reporting defect is currently recorded."
+    },
+    {
+      "rank": 3,
+      "name": "Verified PDF residual continuation",
+      "decision": "deferred",
+      "readiness": "low_without_new_evidence",
+      "value": "conditional",
+      "reason": "Completed residual boundaries remain closed and no new registered source or evidence decision makes another residual package import-ready."
+    },
+    {
+      "rank": 4,
+      "name": "Immediate data-products release",
+      "decision": "deferred",
+      "readiness": "not_applicable",
+      "value": "low_without_delta",
+      "reason": "There is no new source-backed data or product implementation delta after v1.9.0 that justifies another immutable release."
+    }
+  ],
+  "selection": {
+    "package_id": "spring_official_source_intake_review_001",
+    "kind": "source_intake_review",
+    "name": "Spring Official Source Intake Review",
+    "status": "planned",
+    "goal": "Select the exact official Dacia Poland Spring source set and define a bounded, reproducible capture plan that separates immutable brochure evidence, dated dynamic configurator observations and exact stock-card evidence before any source registration or data import.",
+    "review_questions": [
+      "Which official Spring document can be captured with a stable document date and SHA-256?",
+      "Which MY26 grades and electric powertrains are explicitly represented by each candidate source?",
+      "Which observations require dated normalized snapshots instead of PDF registration?",
+      "Which configuration, equipment and technical claims must remain non-imports until exact applicability is proven?",
+      "What is the smallest source-registration package that can follow this review without changing master data?"
+    ],
+    "manifest_paths": [
+      "data/reporting/spring_official_source_intake_review.json",
+      "data/reporting/spring_official_source_intake_review.md",
+      "project/reviews/spring-official-source-intake-review-2026-07-31.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "non_goals": [
+    "register_unverified_source",
+    "download_or_archive_binary_in_review_package",
+    "create_normalized_source_snapshot",
+    "modify_master_data",
+    "infer_grade_or_powertrain_applicability",
+    "modify_reporting_scopes",
+    "publish_new_data_product_release",
+    "reopen_completed_usability_release_or_residual_boundaries"
+  ],
+  "decision": "SELECT_SPRING_OFFICIAL_SOURCE_INTAKE_REVIEW"
+}

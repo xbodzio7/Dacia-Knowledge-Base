@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "as_of": "2026-09-20",
+  "package_id": "sandero_stepway_current_gap_reassessment_001",
+  "purpose": "Reassess current Sandero Stepway configurator evidence against the already assimilated dated documentary boundary.",
+  "historical_boundary": {
+    "primary_source": "src_pl_sandero_stepway_price_my26_20260811",
+    "status": "already_assimilated",
+    "scope": "Sandero and Sandero Stepway price matrix dated 2026-08-11",
+    "master_reimport": false
+  },
+  "documentary_coverage": {
+    "2026_08_11_price_matrix": "covered",
+    "2026_08_09_full_modal_states": "covered",
+    "2026_08_09_configurator_pdfs": "covered",
+    "2026_02_brochures": "covered_for_registered_model_powertrains_and_technical_data",
+    "2026_07_03_price_sources": "covered_as_historical_snapshot",
+    "remaining_documentary_gap": "No repository evidence currently justifies re-importing the same historical Sandero Stepway commercial/equipment data."
+  },
+  "current_web_reassessment": {
+    "source": "official Dacia Stepway configurator and version pages",
+    "status": "current_web_only",
+    "observed_current_stepway_essential": {
+      "engines_exposed": ["TCe 110", "Eco-G 120"],
+      "starting_price_pln": 71700,
+      "colors_exposed": 3,
+      "optional_group_observed": {"name": "pakiet MEDIA DISPLAY", "price_pln": 1900},
+      "default_wheels": "16\" felgi stalowe ERALIA",
+      "default_upholstery": "tapicerka materiałowa stepway"
+    },
+    "observed_current_stepway_expression": {
+      "engines_exposed": ["TCe 110", "Eco-G 120", "Eco-G 120 auto", "hybrid 155"],
+      "starting_prices_pln": {"TCe110": 76400, "EcoG120": 76400, "EcoG120_auto": 83300, "hybrid155": 90700}
+    },
+    "observed_current_stepway_extreme": {
+      "engines_exposed": ["TCe 110", "Eco-G 120", "Eco-G 120 auto", "hybrid 155"],
+      "starting_prices_pln": {"TCe110": 82500, "EcoG120": 82500, "EcoG120_auto": 89400, "hybrid155": 96800}
+    }
+  },
+  "reconciliation_findings": [
+    {
+      "finding": "Current Stepway configurator is not a historical 2026-08-11 price source.",
+      "action": "Do not overwrite or backfill the 2026-08-11 master values from current web values."
+    },
+    {
+      "finding": "Current web availability differs by grade; Essential currently exposes fewer powertrains than Expression/Extreme.",
+      "action": "Record only as current-web dependency evidence if a dedicated current-state dataset is required; do not infer historical unavailability."
+    },
+    {
+      "finding": "Current configurator exposes option-state information not needed to reconstruct the already assimilated 2026-08-11 historical matrix.",
+      "action": "No master import in this package."
+    }
+  ],
+  "residual_gap": {
+    "type": "current_interactive_dependency_enumeration",
+    "status": "open_for_future_browser_capture",
+    "required_scope": "Only option/engine/color/wheel/trim dependency states that are not already represented by dated documentary evidence.",
+    "next_action": "Use connected configurator session to enumerate residual current-state dependencies, beginning with Stepway Expression and Extreme."
+  },
+  "negative_evidence_rule": "A current configurator omission is not evidence that an option or powertrain was historically unavailable.",
+  "master_mutations": []
+}

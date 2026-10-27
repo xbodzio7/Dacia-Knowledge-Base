@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "as_of": "2026-09-20",
+  "package_id": "sandero_current_dependency_capture_001",
+  "purpose": "Capture current interactive Sandero configurator dependency evidence not required to reconstruct the already assimilated dated documentary boundary.",
+  "source": {
+    "primary": "Official Dacia Poland Sandero configurator accessed through connected Opera session.",
+    "status": "current_web_only",
+    "historical_use": "non_overwriting",
+    "negative_evidence_rule": "Current omission or availability is not evidence of historical unavailability."
+  },
+  "captured_states": {
+    "sandero_expression_hybrid155": {
+      "price_pln": 84600,
+      "engine": "hybrid 155",
+      "engine_output_displayed": "80 + 35 (156)",
+      "transmission": "automatyczna",
+      "fuel_type": "full hybrid",
+      "wltp_co2_g_km": 96,
+      "wltp_fuel_l_per_100km": 4.2,
+      "colors_count": 7,
+      "colors": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "default_color": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "default_wheels": "16\" felgi stalowe ATARA",
+      "upholstery": [
+        "tapicerka materiałowa w kolorze czarnym i wstawkami denim"
+      ],
+      "default_upholstery": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "optional_equipment_visible": [
+        {
+          "category": "MULTIMEDIA",
+          "name": "MEDIA NAV",
+          "price_pln": 1600
+        },
+        {
+          "category": "KOMFORT I WNĘTRZE",
+          "name": "pakiet COMFORT",
+          "price_pln": 2000
+        },
+        {
+          "category": "PROWADZENIE POJAZDU",
+          "name": "kamera cofania",
+          "price_pln": 700
+        },
+        {
+          "category": "OGRZEWANIE I WENTYLACJA",
+          "name": "pakiet THERMO",
+          "price_pln": 1900
+        }
+      ],
+      "summary_price_delta_pln": 0
+    }
+  },
+  "current_grade_scope": {
+    "grades_exposed": [
+      "essential",
+      "expression",
+      "journey"
+    ],
+    "engines_visible_in_current_expression_page": [
+      "TCe 100",
+      "Eco-G 120",
+      "Eco-G 120 auto",
+      "hybrid 155"
+    ],
+    "current_model_page_starting_prices_pln": {
+      "expression_hybrid155": 84600,
+      "journey_hybrid155": 90200
+    },
+    "journey_live_switch_status": "not_reproduced"
+  },
+  "interactive_dependency_observations": [
+    {
+      "dependency": "grade -> engine availability",
+      "observation": "The current Sandero configurator page exposes TCe 100, Eco-G 120, Eco-G 120 auto and hybrid 155 in the readable engine selector for the currently captured page.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "grade -> color availability",
+      "observation": "The current Sandero Expression Hybrid 155 state exposes seven colors.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "grade -> wheel availability",
+      "observation": "The current Sandero Expression Hybrid 155 state exposes 16-inch steel ATARA wheels as the selectable wheel state.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "grade -> upholstery availability",
+      "observation": "The current Sandero Expression Hybrid 155 state exposes the black fabric/denim upholstery state.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "grade -> optional equipment",
+      "observation": "The current Sandero Expression Hybrid 155 state exposes MEDIA NAV, COMFORT, rear camera and THERMO options in the readable configurator tree.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "journey -> current interactive option matrix",
+      "observation": "Journey is exposed as a grade and its current Hybrid 155 starting price is documented by the current model-page evidence, but this session could not reproducibly switch the live configurator to Journey.",
+      "confidence": "bounded"
+    }
+  ],
+  "access_boundary": {
+    "opera_connected": true,
+    "read_access": true,
+    "interactive_action_surface": "read-only accessibility tree plus navigation",
+    "limitation": "The available Opera connector exposes element action metadata but does not provide a click/press invocation primitive. The current Sandero page therefore could not be switched programmatically from Expression to Journey or used to toggle individual options and observe resulting dependency changes.",
+    "consequence": "No inferred Journey option dependency matrix and no synthetic option-compatibility records were added."
+  },
+  "documentary_reconciliation": {
+    "historical_source": "src_pl_sandero_stepway_price_my26_20260811",
+    "status": "already_assimilated",
+    "action": "No master-data mutation; current-web observations remain reporting/provenance only."
+  },
+  "master_mutations": [],
+  "next_scope": {
+    "status": "open",
+    "target": "Journey live configurator state and option compatibility after an interactive action surface becomes available.",
+    "safe_fallback": "Continue documenting readable current-grade evidence without treating it as historical master data."
+  }
+}

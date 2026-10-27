@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "kind": "duster_brochure_cargo_import_receipt",
+  "source_code": "src_pl_duster_mini_brochure_20251020",
+  "source_page": 20,
+  "observation_date": "2025-10-20",
+  "imported_configurations": 10,
+  "imported_values": 64,
+  "imported_contexts": 64,
+  "source_configuration_relationships": 10,
+  "groups": {
+    "eco_g_120_manual_4x2": {"configurations": 4, "values_per_configuration": 4},
+    "mild_hybrid_140_manual_4x2": {"configurations": 3, "values_per_configuration": 8},
+    "hybrid_155_automatic_4x2": {"configurations": 3, "values_per_configuration": 8}
+  },
+  "deferred": [
+    "Eco-G 120 automatic configurations: brochure column is manual",
+    "hybrid-G 150 4x4 values: no exact modeled Duster configuration",
+    "generic dimensions-page 4x2/4x4 values: no exact powertrain mapping"
+  ],
+  "automatic_import": false
+}

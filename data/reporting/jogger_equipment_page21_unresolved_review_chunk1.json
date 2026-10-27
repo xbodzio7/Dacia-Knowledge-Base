@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page21_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_045",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 21
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 72,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 24,
+    "decision_counts": {
+      "context_only_non_import": 16,
+      "unresolved_signature_mismatch": 24
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/jogger_equipment_page21_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "driving and instruments",
+      "visibility",
+      "comfort through front 12 V socket"
+    ],
+    "duplicate_power_folding_mirror_rows_preserved": true,
+    "literal_lpg_hev_qualifiers_preserved": true,
+    "literal_markers_preserved": true,
+    "chunk_boundary_ends_on_complete_row": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_visual_rows": true,
+    "duplicate_labels_not_collapsed": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Jogger Equipment Page 21 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_046",
+    "candidate_count": 32,
+    "group_candidate_count": 72,
+    "chunk_index": 2,
+    "chunk_count": 2
+  }
+}

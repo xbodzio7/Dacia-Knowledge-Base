@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "product_code": "configurator_ui_appearance_catalog_20260807",
+  "observed_on": "2026-08-07",
+  "market": "PL",
+  "purpose": "Source-bounded appearance and selector data layer for a Dacia-configurator-like interface.",
+  "repository_baseline_sha": "7582c1316360d32466c7c9c3125e0060b0029736",
+  "inputs": {
+    "exact_current_choices": "data/reporting/configurator_ui_current_exact_choices_20260807.csv",
+    "exact_saved_appearance": "data/reporting/cross_model_configurator_commercial_data.json",
+    "existing_exact_colour_choice_captures": [
+      "data/reporting/sandero_stepway_exact_default_colour_choice_capture_20260806.json",
+      "data/reporting/spring_essential_exact_colour_choice_capture_20260806.json"
+    ],
+    "official_model_media": "project/sources/dacia-pl-model-media-20260724.json"
+  },
+  "coverage": {
+    "model_families": 6,
+    "exact_current_default_surfaces": 6,
+    "exact_current_default_surfaces_with_complete_colour_wheel_upholstery_choices": 6,
+    "exact_saved_configuration_selected_appearance_records": 18,
+    "additional_current_grade_design_surfaces_with_complete_visible_choice_names": 2,
+    "portfolio_exact_colour_choice_surface_target": 81,
+    "portfolio_exact_colour_choice_surfaces_complete_before": 3,
+    "portfolio_exact_colour_choice_surfaces_complete_after": 6,
+    "portfolio_exact_colour_choice_surfaces_remaining": 75,
+    "model_packshot_families": 6
+  },
+  "exact_default_configuration_codes": [
+    "sandero_iii_essential_tce100_manual",
+    "sandero_stepway_iii_essential_tce110_manual",
+    "duster_iii_essential_ecog120_4x2_manual",
+    "jogger_essential_5seat_ecog120_manual",
+    "bigster_essential_mildhybridg140_4x2_manual",
+    "spring_essential_electric70_automatic"
+  ],
+  "current_grade_design_surfaces": [
+    {
+      "model_id": "sandero",
+      "grade": "journey",
+      "source_url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+      "source_scope": "current_grade_page",
+      "applies_to_powertrains": [
+        "TCe 100 manual",
+        "Eco-G 120 manual",
+        "Eco-G 120 automatic"
+      ],
+      "choice_completeness": "complete_visible_grade_design",
+      "prices": "not_exposed_on_grade_page",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "żółty amber",
+        "zielony cedar",
+        "szary urban"
+      ],
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA"
+      ],
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+      ]
+    },
+    {
+      "model_id": "bigster",
+      "grade": "expression",
+      "source_url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/wersje-i-ceny.html?gradeCode=ENS_MDL2P1SERIELIM2",
+      "source_scope": "current_grade_page",
+      "applies_to_powertrains": [
+        "mild hybrid-G 140 manual",
+        "HYBRID 155 automatic",
+        "mild hybrid 140 manual",
+        "hybrid-G 150 4x4 automatic"
+      ],
+      "choice_completeness": "complete_visible_grade_design",
+      "prices": "not_exposed_on_grade_page",
+      "colours": [
+        "brązowy terracotta",
+        "niebieski indigo",
+        "szary schiste",
+        "zielony cedar",
+        "biel alpejska"
+      ],
+      "wheels": [
+        "aluminiowe obręcze kół 17\" 215 TERGAN diamentowane",
+        "aluminiowe obręcze kół 17\" 225 TERGAN diamentowane"
+      ],
+      "upholsteries": [
+        "tapicerka materiałowa \"Denim\" z odblaskowym logo"
+      ]
+    }
+  ],
+  "source_urls": {
+    "sandero_default": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+    "sandero_stepway_default": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
+    "duster_default": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+    "jogger_default": "https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html",
+    "bigster_default": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html",
+    "spring_default": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html"
+  },
+  "ui_semantics": {
+    "exact_current_default_configurator": "May be rendered as a selectable colour, wheel and upholstery control with captured prices for that exact configuration only.",
+    "current_grade_page": "May be rendered as a grade-level selector only for the listed grade. Do not invent option prices or broaden the powertrain scope beyond the same page.",
+    "exact_saved_configuration": "May establish the selected appearance for that saved state, but not a complete list of alternatives.",
+    "brochure_palette": "May be shown as catalogue context, but not as an exact selectable list unless current grade/configurator evidence proves compatibility.",
+    "model_packshot": "May illustrate a model family; it is not evidence that the image matches the chosen colour, wheels or upholstery."
+  },
+  "ui_readiness": {
+    "model_selection": "ready",
+    "grade_and_powertrain_selection": "ready_from_master_data",
+    "standard_equipment": "ready_from_master_data",
+    "factory_options_and_packages": "ready_with_existing_source_boundaries",
+    "model_packshots": "ready_model_level",
+    "default_appearance": "ready_for_all_six_model_families",
+    "full_exact_appearance_selector": "partial",
+    "per_colour_vehicle_render": "not_available",
+    "safe_ui_behavior": "Show exact controls where completeness is proven; otherwise show source-backed selected appearance and catalogue context without implying a complete alternative list."
+  },
+  "remaining_evidence_boundaries": [
+    "75 active configuration surfaces still lack a complete exact current colour choice list under the strict CAT-GAP-002 closure rule.",
+    "Interactive target-state selection is not reproducible through the current static retrieval interface for many non-default grades.",
+    "Official model packshots are model-level assets and must not be recoloured or relabelled as exact factory renders without source evidence.",
+    "Wheel and upholstery alternatives for non-default states remain selected-only unless a grade page or exact configurator exposes the complete list."
+  ],
+  "master_data_mutated": false
+}

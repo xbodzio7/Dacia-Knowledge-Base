@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "kind": "bigster_duster_brochure_towing_masses",
+  "reviewed_on": "2026-07-26",
+  "value_id_start": 2225,
+  "relationship_id_start": 217,
+  "attributes": [
+    "gross_train_weight",
+    "unbraked_trailer_weight"
+  ],
+  "sources": [
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "observation_date": "2025-12-10",
+      "groups": [
+        {
+          "powertrain_label": "mild hybrid-G 140 4x2",
+          "transmission_type": "manual",
+          "source_page": 20,
+          "gross_train_weight": "3430",
+          "unbraked_trailer_weight": "740",
+          "configurations": [
+            "bigster_essential_mildhybridg140_4x2_manual",
+            "bigster_expression_mildhybridg140_4x2_manual",
+            "bigster_extreme_mildhybridg140_4x2_manual",
+            "bigster_journey_mildhybridg140_4x2_manual"
+          ]
+        },
+        {
+          "powertrain_label": "mild hybrid 140 4x2",
+          "transmission_type": "manual",
+          "source_page": 20,
+          "gross_train_weight": "3390",
+          "unbraked_trailer_weight": "710",
+          "configurations": [
+            "bigster_essential_mildhybrid140_4x2_manual",
+            "bigster_expression_mildhybrid140_4x2_manual",
+            "bigster_extreme_mildhybrid140_4x2_manual",
+            "bigster_journey_mildhybrid140_4x2_manual"
+          ]
+        },
+        {
+          "powertrain_label": "hybrid-G 150 4x4",
+          "transmission_type": "automatic",
+          "source_page": 20,
+          "gross_train_weight": "3545",
+          "unbraked_trailer_weight": "750",
+          "configurations": [
+            "bigster_expression_hybridg150_4x4_automatic",
+            "bigster_extreme_hybridg150_4x4_automatic",
+            "bigster_journey_hybridg150_4x4_automatic"
+          ]
+        },
+        {
+          "powertrain_label": "hybrid 155 4x2",
+          "transmission_type": "automatic",
+          "source_page": 20,
+          "gross_train_weight": "2940",
+          "unbraked_trailer_weight": "745",
+          "configurations": [
+            "bigster_expression_hybrid155_4x2_automatic",
+            "bigster_extreme_hybrid155_4x2_automatic",
+            "bigster_journey_hybrid155_4x2_automatic"
+          ]
+        }
+      ]
+    },
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "observation_date": "2025-10-20",
+      "groups": [
+        {
+          "powertrain_label": "Eco-G 120 4x2",
+          "transmission_type": "manual",
+          "source_page": 20,
+          "gross_train_weight": "3305",
+          "unbraked_trailer_weight": "695",
+          "configurations": [
+            "duster_iii_essential_ecog120_4x2_manual",
+            "duster_iii_expression_ecog120_4x2_manual",
+            "duster_iii_extreme_ecog120_4x2_manual",
+            "duster_iii_journey_ecog120_4x2_manual"
+          ]
+        },
+        {
+          "powertrain_label": "mild hybrid 140 4x2",
+          "transmission_type": "manual",
+          "source_page": 20,
+          "gross_train_weight": "3330",
+          "unbraked_trailer_weight": "685",
+          "configurations": [
+            "duster_iii_expression_mildhybrid140_4x2_manual",
+            "duster_iii_extreme_mildhybrid140_4x2_manual",
+            "duster_iii_journey_mildhybrid140_4x2_manual"
+          ]
+        },
+        {
+          "powertrain_label": "hybrid 155 4x2",
+          "transmission_type": "automatic",
+          "source_page": 21,
+          "gross_train_weight": "2655",
+          "unbraked_trailer_weight": "725",
+          "configurations": [
+            "duster_iii_expression_hybrid155_4x2_automatic",
+            "duster_iii_extreme_hybrid155_4x2_automatic",
+            "duster_iii_journey_hybrid155_4x2_automatic"
+          ]
+        }
+      ]
+    }
+  ],
+  "new_source_relationships": [
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "relationship": "brochure_technical_data_for",
+      "notes": "The official Bigster brochure page-20 technical table directly documents the hybrid-G 150 4x4 powertrain and towing masses."
+    },
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "relationship": "brochure_technical_data_for",
+      "notes": "The official Bigster brochure page-20 technical table directly documents the hybrid-G 150 4x4 powertrain and towing masses."
+    },
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "relationship": "brochure_technical_data_for",
+      "notes": "The official Bigster brochure page-20 technical table directly documents the hybrid-G 150 4x4 powertrain and towing masses."
+    }
+  ],
+  "excluded_evidence": [
+    {
+      "code": "duster_hybridg150_without_exact_configuration",
+      "reason": "The Duster hybrid-G 150 4x4 brochure column has no exact active master configuration."
+    },
+    {
+      "code": "duster_ecog120_automatic_uses_newer_homologation",
+      "reason": "The three active Duster Eco-G 120 automatic configurations retain their newer exact homologation observations and are outside this brochure import."
+    },
+    {
+      "code": "no_cross_powertrain_projection",
+      "reason": "Each towing value is assigned only to configurations with the exact source powertrain and transmission."
+    },
+    {
+      "code": "no_other_mass_rows",
+      "reason": "Maximum kerb weight, payload and other mass rows remain outside this exact two-attribute package."
+    }
+  ]
+}

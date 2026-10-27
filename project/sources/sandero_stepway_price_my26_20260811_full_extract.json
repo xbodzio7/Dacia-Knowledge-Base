@@ -1,0 +1,1000 @@
+{
+  "version": 1,
+  "kind": "official_price_list_full_extract",
+  "extract_code": "src_pl_sandero_stepway_price_my26_20260811_full_extract",
+  "source": {
+    "source_code": "src_pl_sandero_stepway_price_my26_20260811",
+    "title": "DACIA SANDERO I SANDERO STEPWAY cennik MY26",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-08-11",
+    "effective_from": "2026-08-11",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-stepway-price.pdf.asset.pdf/bd9f9519ce.pdf",
+    "supplied_file_name": "bd9f9519ce.pdf",
+    "supplied_file_sha256": "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+    "pages": 7
+  },
+  "coverage": {
+    "status": "full_document_reviewed",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "rendered_visual_page_review": [
+      3,
+      6
+    ],
+    "page_3_note": "Rendered equipment matrix checked against parsed text.",
+    "page_6_note": "Dimension drawing checked from rendered page because PDF text extraction contains no measurements.",
+    "inference_policy": "No cross-grade, cross-powertrain, cross-model-year or absence inference."
+  },
+  "catalogue_prices_pln": {
+    "columns": [
+      "sandero_essential",
+      "sandero_expression",
+      "sandero_journey",
+      "stepway_essential",
+      "stepway_expression",
+      "stepway_extreme"
+    ],
+    "rows": [
+      [
+        "TCe 100",
+        63900,
+        68000,
+        73600,
+        null,
+        null,
+        null
+      ],
+      [
+        "TCe 110",
+        null,
+        null,
+        null,
+        71700,
+        76400,
+        82500
+      ],
+      [
+        "Eco-G 120",
+        null,
+        68000,
+        73600,
+        71700,
+        76400,
+        82500
+      ],
+      [
+        "Eco-G 120 auto",
+        null,
+        74900,
+        80500,
+        null,
+        83300,
+        89400
+      ],
+      [
+        "hybrid 155",
+        null,
+        84600,
+        90200,
+        null,
+        90700,
+        96800
+      ]
+    ]
+  },
+  "equipment_matrix": {
+    "columns": [
+      "sandero_essential",
+      "sandero_expression",
+      "sandero_journey",
+      "stepway_essential",
+      "stepway_expression",
+      "stepway_extreme"
+    ],
+    "symbols": {
+      "●": "standard",
+      "P": "package_item",
+      "-": "unavailable"
+    },
+    "rows": [
+      [
+        "Osłona chłodnicy z jasnymi dekorami",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Osłona chłodnicy z logiem „Stepway”",
+        [
+          "-",
+          "-",
+          "-",
+          "w kolorze czarnym",
+          "w kolorze białym",
+          "w kolorze białym"
+        ]
+      ],
+      [
+        "Przednia i tylna osłona podwozia w kolorze szary megalith",
+        [
+          "-",
+          "-",
+          "-",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Zewnętrzne klamki drzwi",
+        [
+          "w kolorze czarnym",
+          "w kolorze nadwozia",
+          "w kolorze nadwozia",
+          "w kolorze czarnym",
+          "w kolorze nadwozia",
+          "w kolorze nadwozia"
+        ]
+      ],
+      [
+        "Lusterka boczne: czarne / nadwozia / brązowy copper",
+        [
+          "● / - / -",
+          "- / ● / -",
+          "- / ● / -",
+          "● / - / -",
+          "- / ● / -",
+          "- / - / ●"
+        ]
+      ],
+      [
+        "Relingi dachowe",
+        [
+          "-",
+          "-",
+          "-",
+          "●",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Modułowe relingi dachowe",
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Antena typu „płetwa rekina”",
+        [
+          "-",
+          "●",
+          "●",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Oklejenie drzwi / topograficzny wzór Extreme",
+        [
+          "- / -",
+          "- / -",
+          "- / -",
+          "- / -",
+          "● / -",
+          "● / ●"
+        ]
+      ],
+      [
+        "Stalowe obręcze 15\" ELMA",
+        [
+          "●",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Flexwheel 16\" ATARA",
+        [
+          "-",
+          "●",
+          "-",
+          "-",
+          "●",
+          "-"
+        ]
+      ],
+      [
+        "Flexwheel 16\" ATARA DARK",
+        [
+          "-",
+          "-",
+          "-",
+          "●",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Aluminiowe 16\" TAMIA",
+        [
+          "-",
+          "-",
+          "●",
+          "-",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Aluminiowe 16\" TAMIA czarne",
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "Lakier metalizowany lub niemetalizowany specjalny PLN",
+        [
+          2500,
+          2500,
+          2500,
+          2500,
+          "2500 / 2700",
+          "2500 / 2700"
+        ]
+      ],
+      [
+        "Obramowania nawiewów",
+        [
+          "chromowany mat",
+          "podwójnie chromowany mat",
+          "podwójnie chromowany mat",
+          "pomarańczowy miedziany",
+          "chromowany mat + pomarańczowy miedziany",
+          "chromowany mat + brązowo miedziany"
+        ]
+      ],
+      [
+        "Wewnętrzne klamki drzwi",
+        [
+          "w kolorze czarnym",
+          "w kolorze czarnym",
+          "chromowany mat",
+          "w kolorze czarnym",
+          "w kolorze czarnym",
+          "chromowany mat"
+        ]
+      ],
+      [
+        "Tkaninowe obicie deski/podłokietników / brązowo-miedziane wstawki",
+        [
+          "- / -",
+          "● / -",
+          "● / -",
+          "- / -",
+          "● / -",
+          "● / ●"
+        ]
+      ],
+      [
+        "Tylna kanapa dzielona 1/3 - 2/3",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Tapicerka czarna ze wstawkami denim",
+        [
+          "●",
+          "●",
+          "-",
+          "●",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Tapicerka denim",
+        [
+          "-",
+          "-",
+          "●",
+          "-",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Tapicerka czarna z geometrycznymi wzorami i pomarańczowymi przeszyciami",
+        [
+          "-",
+          "-",
+          "-",
+          "●",
+          "●",
+          "-"
+        ]
+      ],
+      [
+        "Specjalna tapicerka extreme",
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "Dywaniki gumowe z topograficznym wzorem",
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "ABS + AFU",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "AEBS piesi/rowerzyści",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "ESC + HSA",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "LDWS",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "LKA",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "DDAM",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "ISA",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "My Safety",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "eCall",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Isofix tylne boczne",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Regulator i ogranicznik prędkości",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Wspomaganie parkowania tyłem",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Wspomaganie parkowania przodem",
+        [
+          "-",
+          "-",
+          "●",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "Kamera cofania",
+        [
+          "-",
+          "700",
+          "●",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Multiview kamera",
+        [
+          "-",
+          "-",
+          "P",
+          "-",
+          "-",
+          "P"
+        ]
+      ],
+      [
+        "Monitorowanie martwego pola",
+        [
+          "-",
+          "-",
+          "●",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "Automatyczny hamulec postojowy",
+        [
+          "-",
+          "- / ●",
+          "●",
+          "-",
+          "- / ●",
+          "●"
+        ]
+      ],
+      [
+        "System kontroli ciśnienia",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Zestaw do naprawy opony",
+        [
+          "●",
+          "●",
+          "●",
+          "●",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Koło zapasowe + podnośnik (nie dotyczy LPG)",
+        [
+          700,
+          700,
+          700,
+          700,
+          700,
+          700
+        ]
+      ],
+      [
+        "Światła przeciwmgłowe",
+        [
+          "-",
+          "-",
+          "●",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "Lusterka ręczne",
+        [
+          "●",
+          "-",
+          "-",
+          "●",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Lusterka elektryczne i podgrzewane",
+        [
+          "-",
+          "●",
+          "●",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Klimatyzacja manualna",
+        [
+          "-",
+          "●",
+          "-",
+          "●",
+          "●",
+          "-"
+        ]
+      ],
+      [
+        "Automatyczna klimatyzacja",
+        [
+          "-",
+          "P",
+          "●",
+          "-",
+          "P",
+          "●"
+        ]
+      ],
+      [
+        "Automatyczne światła / wycieraczki",
+        [
+          "● / ●",
+          "● / ●",
+          "● / ●",
+          "● / ●",
+          "● / ●",
+          "● / ●"
+        ]
+      ],
+      [
+        "Szyby przednie elektryczne / impuls kierowcy",
+        [
+          "● / -",
+          "● / ●",
+          "● / ●",
+          "● / -",
+          "● / ●",
+          "● / ●"
+        ]
+      ],
+      [
+        "Szyby tylne elektryczne",
+        [
+          "-",
+          "●",
+          "●",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Szklany dach elektrycznie otwierany",
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "2200"
+        ]
+      ],
+      [
+        "Kierownica regulowana wysokość / głębokość",
+        [
+          "● / -",
+          "● / ●",
+          "● / ●",
+          "● / -",
+          "● / ●",
+          "● / ●"
+        ]
+      ],
+      [
+        "Fotel kierowcy wysokość / podłokietnik",
+        [
+          "● / -",
+          "● / ●",
+          "● / ●",
+          "● / -",
+          "● / ●",
+          "● / ●"
+        ]
+      ],
+      [
+        "Konsola centralna z podłokietnikiem",
+        [
+          "-",
+          "●",
+          "●",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Podgrzewane przednie fotele",
+        [
+          "-",
+          "P",
+          "P",
+          "-",
+          "P",
+          "P"
+        ]
+      ],
+      [
+        "Podgrzewana kierownica",
+        [
+          "-",
+          "-",
+          "P",
+          "-",
+          "-",
+          "P"
+        ]
+      ],
+      [
+        "Keyless Entry",
+        [
+          "-",
+          "-",
+          "●",
+          "-",
+          "-",
+          "●"
+        ]
+      ],
+      [
+        "USB 1x / 2x",
+        [
+          "● / -",
+          "● / P",
+          "● / P",
+          "● / -",
+          "● / P",
+          "● / P"
+        ]
+      ],
+      [
+        "Media Control",
+        [
+          "●",
+          "-",
+          "-",
+          "●",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        "Media Display 10\"",
+        [
+          "-",
+          "●",
+          "●",
+          "-",
+          "●",
+          "●"
+        ]
+      ],
+      [
+        "Media Nav Live",
+        [
+          "-",
+          "1600",
+          "P",
+          "-",
+          "1600",
+          "P"
+        ]
+      ]
+    ]
+  },
+  "packages": [
+    [
+      "COMFORT (Eco-G 120 auto)",
+      2000,
+      [
+        "klimatyzacja automatyczna",
+        "Keyless Entry"
+      ]
+    ],
+    [
+      "THERMO",
+      1900,
+      [
+        "klimatyzacja automatyczna",
+        "przednie fotele podgrzewane"
+      ]
+    ],
+    [
+      "ZIMOWY",
+      1200,
+      [
+        "przednie fotele podgrzewane",
+        "podgrzewana kierownica"
+      ]
+    ],
+    [
+      "MEDIA NAV LIVE",
+      1600,
+      [
+        "Media Nav Live",
+        "radio DAB",
+        "nawigacja on-line",
+        "Bluetooth",
+        "replikacja ekranu przez USB",
+        "pilot sterowania przy kierownicy",
+        "8-letnia subskrypcja",
+        "ładowarka indukcyjna"
+      ]
+    ],
+    [
+      "EASY",
+      1600,
+      [
+        "lusterka podgrzewane, elektryczne i składane",
+        "AHL",
+        "Multiview kamera"
+      ]
+    ]
+  ],
+  "technical_data": {
+    "columns": [
+      "TCe 100",
+      "TCe 110",
+      "Eco-G 120",
+      "Eco-G 120 auto",
+      "hybrid 155"
+    ],
+    "rows": {
+      "fuel_type": [
+        "petrol",
+        "petrol",
+        "benzyna + LPG",
+        "benzyna + LPG",
+        "benzyna | elektryczny"
+      ],
+      "emission_standard": [
+        "Euro 6e BIS",
+        "Euro 6e BIS",
+        "Euro 6e BIS",
+        "Euro 6e BIS",
+        "Euro 6e BIS"
+      ],
+      "gearbox": [
+        "manualna 6-biegowa",
+        "manualna 6-biegowa",
+        "manualna 6-biegowa",
+        "automatyczna 6-biegowa",
+        "automatyczna Multimode"
+      ],
+      "displacement_cm3": [
+        999,
+        999,
+        1199,
+        1199,
+        1789
+      ],
+      "cylinders_valves": [
+        "3 / 12",
+        "3 / 12",
+        "3 / 12",
+        "3 / 12",
+        "4 / 16"
+      ],
+      "max_power": [
+        "74 kW (100 KM) @ 5000 rpm",
+        "81 kW (110 KM) @ 5000 rpm",
+        "LPG 90 kW (122 KM) @ 4500 rpm; petrol 84 kW (114 KM) @ 4500 rpm",
+        "LPG 90 kW (122 KM) @ 4500 rpm; petrol 84 kW (114 KM) @ 4500 rpm",
+        "80 kW (108 KM) | E-Motor 36 kW (49 KM) | HSG 15 kW"
+      ],
+      "max_torque": [
+        "200 Nm @ 2900 rpm",
+        "200 Nm @ 2900 rpm",
+        "LPG 197 Nm @ 1750 rpm; petrol 190 Nm @ 2000 rpm",
+        "LPG 197 Nm @ 1750 rpm; petrol 190 Nm @ 2000 rpm",
+        "172 Nm @ 3000 rpm | 205 Nm @ 7000 rpm"
+      ],
+      "injection": [
+        "bezpośredni",
+        "bezpośredni",
+        "bezpośredni",
+        "bezpośredni",
+        "wielopunktowy"
+      ],
+      "max_speed_kmh": [
+        180,
+        180,
+        180,
+        180,
+        180
+      ],
+      "zero_to_100_s": [
+        "9,7",
+        "10,0",
+        "10,1 - 10,4*",
+        "9,8 - 10,0*",
+        "9,8 - 10,0*"
+      ],
+      "combined_consumption_l100km": [
+        "5,4",
+        "5,7",
+        "5,4 / 6,8 LPG",
+        "5,7 / 7,1 LPG*",
+        "4,2 Sandero / 4,4 Stepway"
+      ],
+      "co2_gkm": [
+        "122",
+        "128",
+        "123 / 110 LPG",
+        "129 / 116 LPG*",
+        "96 Sandero / 100 Stepway"
+      ],
+      "fuel_tank_l": [
+        "50",
+        "50",
+        "LPG 40 / petrol 50",
+        "LPG 40 / petrol 50",
+        "50"
+      ],
+      "boot_capacity_vda_dm3": 328
+    }
+  },
+  "dimensions": {
+    "Sandero": {
+      "length_mm": 4102,
+      "wheelbase_mm": 2604,
+      "ground_clearance_mm": 162,
+      "height_mm": 1496,
+      "height_open_tailgate_mm": 1985,
+      "body_width_mm": 1853,
+      "width_with_mirrors_mm": 2012,
+      "front_track_mm": 1533,
+      "rear_track_mm": 1519,
+      "interior_width_front_mm": 1408,
+      "interior_width_rear_mm": 1406,
+      "interior_cargo_width_mm": 1026,
+      "front_overhang_mm": 835,
+      "rear_overhang_mm": 665
+    },
+    "Sandero Stepway": {
+      "length_mm": 4102,
+      "wheelbase_mm": 2604,
+      "ground_clearance_mm": 200,
+      "height_mm": 1555,
+      "height_open_tailgate_mm": 2019,
+      "body_width_mm": 1853,
+      "width_with_mirrors_mm": 2012,
+      "front_track_mm": 1520,
+      "rear_track_mm": 1509,
+      "interior_width_front_mm": 1408,
+      "interior_width_rear_mm": 1406,
+      "interior_cargo_width_mm": 1026,
+      "front_overhang_mm": 835,
+      "rear_overhang_mm": 665
+    }
+  },
+  "dimension_diagram_angles_note": "Page 6 also visually shows 3.4° and 14° labels on the side-profile drawings; because the diagram does not provide a textual attribute label for those two annotations, they are retained as source observations rather than mapped to canonical approach/departure attributes.",
+  "footnotes": [
+    "● = seryjne; P = element pakietu; - = niedostępne; ceny opcji w zł.",
+    "Niektóre opcje wymagają zamówienia dodatkowego wyposażenia opcjonalnego lub wykluczają się wzajemnie.",
+    "Koło zapasowe + podnośnik nie dotyczy wersji z LPG.",
+    "WLTP: stan danych 04.12.2025; rzeczywiste zużycie i emisja mogą się różnić.",
+    "Cennik anuluje wszystkie poprzednie edycje.",
+    "Stan na dzień 11.08.2026."
+  ],
+  "canonical_master_mutated": false,
+  "next_action": "Compare this complete document extract with current master/source slices before deciding which exact-state configurator gaps remain."
+}

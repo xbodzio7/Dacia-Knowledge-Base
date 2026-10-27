@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "kind": "duster_mini_technical_page21_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_006",
+  "source_receipt": {
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+    "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+    "page": 21,
+    "review_basis": "authored visual review of the archived page-21 technical table"
+  },
+  "scope": {
+    "candidate_count": 1,
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "model_code": "duster_iii",
+    "domain": "technical_tables",
+    "page": 21,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "adjacent_row_evidence_not_silently_substituted": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "unattached_powertrain_values_not_inferred": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 1,
+    "decision_counts": {
+      "partially_covered": 1
+    },
+    "selected_evidence_signature_count": 1,
+    "selected_evidence_record_count": 3,
+    "candidates_with_selected_evidence": 1,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "6fd0360bfac47f6996e0fb04b3de4470e2edb507a12c70d96008d442a1489a6c",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 21,
+      "line_start": 56,
+      "line_end": 56,
+      "exact_text": "Układ kierowniczy                                                    układu kierowniczego              układu kierowniczego",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "partially_covered",
+      "rationale": "The candidate is the steering-type row. Only the attached electric-power-assistance signature belongs to this row. Turning-circle, brake, tyre, maximum-kerb-weight and payload signatures belong to other labelled rows on the same page and are rejected.",
+      "selected_evidence_signature_count": 1,
+      "selected_evidence_record_count": 3,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "steering_type",
+            "value": "Elektryczne wspomaganie układu kierowniczego",
+            "fuel_type_code": "",
+            "gear_number": ""
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_expression_hybrid155_4x2_automatic_steering_type_20251020",
+              "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 21,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_extreme_hybrid155_4x2_automatic_steering_type_20251020",
+              "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 21,
+              "match_basis": "same_source_page_ordered_text"
+            },
+            {
+              "table": "configuration_attribute_values",
+              "record_code": "duster_iii_journey_hybrid155_4x2_automatic_steering_type_20251020",
+              "configuration_code": "duster_iii_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_duster_mini_brochure_20251020",
+              "source_page": 21,
+              "match_basis": "same_source_page_ordered_text"
+            }
+          ]
+        }
+      ],
+      "source_facts": [
+        {
+          "attribute_code": "steering_type",
+          "source_values": [
+            "Elektryczne wspomaganie układu kierowniczego"
+          ],
+          "reason": "The same value is printed for Hybrid-G 150 4x4, but the selected records cover only Hybrid 155 configurations."
+        }
+      ]
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "turning_circle_is_a_distinct_row": true,
+    "brake_tyre_mass_and_payload_evidence_remain_non_substitutable": true,
+    "hybrid_g_steering_value_remains_a_source_fact_without_attached_records": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Duster Mini Equipment Page 23 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 26 ambiguous equipment candidates from Duster mini-brochure page 23 against their 61 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

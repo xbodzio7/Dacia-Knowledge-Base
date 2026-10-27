@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "source_code": "src_pl_spring_saved_configurations_20260802",
+  "source_type": "normalized_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-08-02",
+  "normalization_basis": "Two exact official configurator PDFs exported by the project owner from saved Dacia Polska Spring configurations.",
+  "binary_archive": {
+    "status": "not_archived_by_connector",
+    "reason": "The GitHub connector available to this session writes UTF-8 repository content but does not accept local binary files. Exact PDF names, SHA-256 digests, sizes, page counts and saved-state references are retained so the artifacts can be matched or archived later without ambiguity."
+  },
+  "artifacts": [
+    {
+      "artifact_name": "SPRING expression 70 MY26.pdf",
+      "configuration_code": "spring_expression_electric70_automatic",
+      "configuration_reference": "7OO7LQ",
+      "state_label": "SPRING expression 70 MY26.b",
+      "grade": "expression",
+      "powertrain": "electric 70",
+      "transmission": "automatic",
+      "document_date": "2026-08-02",
+      "pdf_sha256": "9e4d3493dcb411f9a4c5160707868e89e755708bab0a00aba33dcde96bbb0ec3",
+      "pdf_size_bytes": 617722,
+      "page_count": 9,
+      "saved_state_payload_url": "https://pl.co.rplug.renault.com/c/BAEYl/Ayq",
+      "catalog_price_pln": 81500,
+      "selected_configuration": {
+        "exterior_colour": "biel alpejska",
+        "exterior_colour_price_pln": 0,
+        "wheel": "15-inch steel Resia",
+        "wheel_price_pln": 0,
+        "upholstery": "two-tone Twilight fabric",
+        "upholstery_price_pln": 0
+      },
+      "standard_charging_equipment": [
+        "type 2 charging cable for wallbox and public terminals",
+        "V2G charging control system"
+      ],
+      "technical_highlights": {
+        "battery_capacity_kwh": 24.3,
+        "ac_charging_power_kw": 7,
+        "nominal_voltage_v": 354,
+        "ac_charging_20_100_minutes": 200,
+        "wltp_range_km": 226,
+        "wltp_consumption_kwh_per_100km": 12.4,
+        "maximum_power_kw": 52,
+        "maximum_power_hp": 70,
+        "maximum_torque_nm": 137,
+        "zero_to_100_seconds": 12.3,
+        "maximum_speed_kmh": 130,
+        "minimum_kerb_weight_kg": 1002,
+        "maximum_payload_kg": 271,
+        "gross_vehicle_weight_kg": 1344,
+        "technical_type": "DBGBV2M40EB06100C0"
+      }
+    },
+    {
+      "artifact_name": "SPRING extreme 100 MY26.pdf",
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "configuration_reference": "WKAWYV",
+      "state_label": "SPRING extreme 100 MY26.b",
+      "grade": "extreme",
+      "powertrain": "electric 100",
+      "transmission": "automatic",
+      "document_date": "2026-08-02",
+      "pdf_sha256": "9e3f11003090227e018254dd0ea2f5dc2f9eb5f80a35859706a2fea06d031f74",
+      "pdf_size_bytes": 609238,
+      "page_count": 9,
+      "saved_state_payload_url": "https://pl.co.rplug.renault.com/c/BAEYl/Ays",
+      "catalog_price_pln": 85900,
+      "selected_configuration": {
+        "exterior_colour": "biel alpejska",
+        "exterior_colour_price_pln": 0,
+        "wheel": "15-inch steel Danube",
+        "wheel_price_pln": 0,
+        "upholstery": "Fusion fabric with MicroCloud",
+        "upholstery_price_pln": 0
+      },
+      "standard_charging_equipment": [
+        "type 2 charging cable for wallbox and public terminals",
+        "V2G charging control system"
+      ],
+      "technical_highlights": {
+        "battery_capacity_kwh": 24.3,
+        "ac_charging_power_kw": 7,
+        "nominal_voltage_v": 354,
+        "ac_charging_20_100_minutes": 200,
+        "wltp_range_km": 226,
+        "wltp_consumption_kwh_per_100km": 12.4,
+        "maximum_power_kw": 75,
+        "maximum_power_hp": 100,
+        "maximum_torque_nm": 137,
+        "zero_to_100_seconds": 9.6,
+        "maximum_speed_kmh": 130,
+        "minimum_kerb_weight_kg": 1009,
+        "maximum_payload_kg": 267,
+        "gross_vehicle_weight_kg": 1344,
+        "technical_type": "DBGBV2M30EB06100C0"
+      }
+    }
+  ],
+  "charging_cable_evidence_matrix": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "type2_cable": "standard",
+      "domestic_socket_cable": "optional_1500_pln",
+      "evidence": "existing exact-current official configurator observation"
+    },
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "type2_cable": "standard",
+      "domestic_socket_cable": "unresolved",
+      "evidence": "exact saved-state PDF proves Type 2 as standard; an export of selected and standard equipment does not prove that an unselected domestic cable is unavailable"
+    },
+    {
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "type2_cable": "standard",
+      "domestic_socket_cable": "optional_1500_pln",
+      "evidence": "exact saved-state PDF independently confirms Type 2 as standard; existing exact-current configurator observation proves the domestic cable option and price"
+    }
+  ],
+  "architecture_decision": {
+    "status": "accepted",
+    "decision_code": "spring_independent_charging_cable_concepts",
+    "canonical_concepts": [
+      {
+        "planned_attribute_code": "type2_charging_cable_supplied",
+        "value_type": "boolean",
+        "availability_relation": "configuration_attribute_availability"
+      },
+      {
+        "planned_attribute_code": "domestic_socket_charging_cable",
+        "value_type": "boolean",
+        "availability_relation": "configuration_attribute_availability"
+      }
+    ],
+    "rules": [
+      "The vehicle charging connector standard is not a substitute for a cable supplied with the vehicle.",
+      "Type 2 and domestic-socket cables are independent equipment concepts because both may coexist and have different standard or optional states.",
+      "A selected-configuration PDF proves listed standard equipment but does not prove that an omitted unselected option is unavailable.",
+      "Historical brochure-backed commercial item and configuration mappings remain unchanged in this intake package.",
+      "The next package may implement the two canonical attributes and exact-current availability rows without rewriting historical observations."
+    ],
+    "master_data_mutation_authorized_in_this_package": false,
+    "bounded_migration_authorized_next": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_9_0_public_audit",
+  "status": "PASS",
+  "audited_on": "2026-07-31",
+  "release_id": 362975393,
+  "release_tag": "data-products-v1.9.0",
+  "published_at": "2026-07-31T09:53:36Z",
+  "source_commit": "6c8f6f68c21022fa3bd6b6248d06b87d5d484d5c",
+  "publication_workflow_run": 30621546974,
+  "audit_workflow_run": 30622774008,
+  "assets": {
+    "SHA256SUMS": {"asset_id": 496530500, "size_bytes": 213, "sha256": "48c9b648d6a2e848f6e35118c9530024637f06e50ff71cea861acd1a0c7bd9cb"},
+    "dacia-knowledge-base-data-products-v1.9.0.zip": {"asset_id": 496530474, "size_bytes": 82612470, "sha256": "4e114f171a80445369f2439466d0d102e894145614d9a221a0390452309f453d"},
+    "data-product-release-manifest.json": {"asset_id": 496530499, "size_bytes": 21600, "sha256": "519f371be16251533befdeb8147caba30bdf2f3bd2c0122f474c03924574c7ad"}
+  },
+  "workspace": {"content_file_count": 89, "index_local_link_count": 88, "index_sha256": "1e3f1572db21499e162ae4f5e04557070b1a7e878d5bf2a83f46c5dbc18a7cc2"},
+  "release_contents": {"selected_configuration_count": 78, "scope_group_count": 20, "within_scope_pair_count": 129, "recorded_difference_count": 2180, "archive_member_count": 89, "technical_comparison_facet_count": 127, "equipment_facet_count": 110},
+  "semantic_boundaries": {"cross_scope_pairs_generated": false, "ranking_generated": false, "recommendations_generated": false, "inferred_values_generated": false, "public_v1_8_1_rewritten": false},
+  "verification": "PASS"
+}

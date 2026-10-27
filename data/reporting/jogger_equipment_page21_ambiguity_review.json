@@ -1,0 +1,342 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page21_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_012",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 21,
+    "review_basis": "authored visual review of the archived page-21 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 1,
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "model_code": "jogger",
+    "domain": "equipment_matrix",
+    "page": 21,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 1,
+    "decision_counts": {
+      "deferred_source_conflict": 1
+    },
+    "selected_evidence_signature_count": 2,
+    "selected_evidence_record_count": 30,
+    "rejected_attached_signature_count": 0,
+    "rejected_attached_record_count": 0,
+    "candidates_with_selected_evidence": 1,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "700a42c048ad585e9a11e214d90d2024ff27b4253c7a4b78cc03800ef05bd3f4",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 21,
+      "line_start": 68,
+      "line_end": 68,
+      "exact_text": "Podgrzewana kierownica                                                  -             -             o                  •",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "row_context": "complete heated-steering-wheel row with a brochure versus later price-list Journey conflict",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "extreme": "optional",
+        "journey": "standard"
+      },
+      "rationale": "The 2025-12-17 brochure prints unavailable for Essential and Expression, optional for Extreme and standard for Journey. Attached later price-list evidence preserves Essential and Expression as unavailable and Extreme as optional, but marks Journey unavailable. Both signatures are retained as competing evidence and the Journey conflict is deferred without import approval.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 30,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "heated_steering_wheel",
+            "availability_status": "not_available"
+          },
+          "record_count": 14,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_5seat_ecog120_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_essential_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_essential_7seat_ecog120_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_essential_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_ecog120_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_expression_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_hybrid155_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_5seat_tce110_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_expression_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_ecog120_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_expression_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_hybrid155_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_expression_7seat_tce110_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_expression_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_ecog120_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_hybrid155_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_5seat_tce110_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_journey_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_ecog120_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_hybrid155_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_journey_7seat_tce110_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_journey_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "heated_steering_wheel",
+            "availability_status": "optional"
+          },
+          "record_count": 16,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_ecog120_manual_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_hybrid155_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_5seat_tce110_manual_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_5seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_ecog120_manual_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_hybrid155_automatic_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_heated_steering_wheel_20260401",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260401",
+              "source_page": 5,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "jogger_extreme_7seat_tce110_manual_heated_steering_wheel_20260703",
+              "configuration_code": "jogger_extreme_7seat_tce110_manual",
+              "source_code": "src_pl_jogger_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "complete_row_trim_states_are_preserved": true,
+    "brochure_and_later_price_list_journey_states_remain_in_conflict": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Sandero Equipment Page 18 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 1 ambiguous equipment candidate from Sandero brochure page 18 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

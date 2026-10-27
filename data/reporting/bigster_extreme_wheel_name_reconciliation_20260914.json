@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "kind": "bigster_extreme_wheel_name_reconciliation",
+  "captured_on": "2026-09-14",
+  "gap_id": "CAT-GAP-014",
+  "target_configurations": 4,
+  "canonical_slots": {
+    "expected": 4,
+    "occupied": 4,
+    "missing": 0,
+    "duplicates": 0
+  },
+  "observed_value_shape": {
+    "4x2": "TAGASAN, 18-inch, semi-diamond-cut wording",
+    "4x4": "TAGASAN, 18-inch, 225-width, semi-diamond-cut wording"
+  },
+  "new_master_rows_required": 0,
+  "new_import_specs_required": 0,
+  "new_attributes_required": 0,
+  "status": "closed_zero_data_delta",
+  "source_evidence": [
+    {
+      "scope": "Bigster Extreme mild hybrid 140 4x2",
+      "source": "Dacia Poland catalogue stock card",
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01475236656"
+    },
+    {
+      "scope": "Bigster Extreme mild hybrid-G 140 4x2",
+      "source": "Dacia Poland catalogue stock card",
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01376899341"
+    },
+    {
+      "scope": "Bigster Extreme hybrid 155 4x2",
+      "source": "Dacia Poland catalogue stock card",
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01276795097"
+    },
+    {
+      "scope": "Bigster Extreme hybrid-G 150 4x4",
+      "source": "Dacia Poland sales catalogue stock card",
+      "url": "https://kup.dacia.pl/nowedealerszczegoly/pgd/dacia/bigster/2026/121423"
+    }
+  ],
+  "conclusion": "CAT-GAP-014 does not require additional canonical rows. The four exact Bigster Extreme wheel_design slots are already occupied in the current repository. The 4x2/4x4 distinction is preserved; no grade-only projection is introduced.",
+  "safety": [
+    "No canonical row was duplicated.",
+    "No source literal was normalized into a new vocabulary value.",
+    "No historical Sandero full-modal evidence was reopened.",
+    "PR #634 remains untouched.",
+    "PR #639 remains closed.",
+    "Historical PR #637 was not reused or rerun."
+  ]
+}

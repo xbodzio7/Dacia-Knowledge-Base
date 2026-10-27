@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "kind": "bigster_equipment_page21_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_028",
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 21
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 107,
+    "chunk_index": 1,
+    "chunk_count": 3,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 20,
+    "decision_counts": {
+      "context_only_non_import": 20,
+      "unresolved_signature_mismatch": 20
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/bigster_equipment_page21_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "Essential",
+      "Expression",
+      "Journey",
+      "Extreme"
+    ],
+    "symbol_legend": {
+      "•": "standard",
+      "¤": "option",
+      "-": "not_available"
+    },
+    "complete_availability_rows_preserved": true,
+    "multi_line_labels_not_collapsed_across_adjacent_rows": true,
+    "multi_line_colour_values_preserved": true,
+    "standard_option_and_unavailable_states_not_interchanged": true,
+    "source_spelling_preserved": "brązowomiedzinymi",
+    "reviewed_sections": [
+      "external design",
+      "wheels",
+      "start of seats and interior design"
+    ]
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_their_visual_row": true,
+    "wrapped_labels_and_values_not_promoted_independently": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Bigster Equipment Page 21 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_029",
+    "candidate_count": 40,
+    "group_candidate_count": 107,
+    "chunk_index": 2,
+    "chunk_count": 3
+  },
+  "milestone_review": {
+    "interval_package_count": 5,
+    "packages": [
+      "residual_gap_024",
+      "residual_gap_025",
+      "residual_gap_026",
+      "residual_gap_027",
+      "residual_gap_028"
+    ],
+    "new_domain_decision_required": false,
+    "new_schema_decision_required": false,
+    "new_architecture_decision_required": false,
+    "separate_review_pull_request_required": false,
+    "conclusion": "Continue the prioritized residual-gap queue."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_17_0_publication",
+  "published_on": "2026-08-05",
+  "status": "complete",
+  "tag": "data-products-v1.17.0",
+  "release_id": 365796797,
+  "source_commit": "ee7a55f3a01daafed7d13ac937eaa43af2c225ee",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "consumer_interface": {
+    "model_family_summary_entry_point": "model_family_summary_html",
+    "model_family_comparison_entry_point": "model_family_comparison_matrix_html",
+    "model_version_comparison_entry_point": "model_version_comparison_matrix_html",
+    "source_coverage_entry_point": "source_coverage_matrix_html",
+    "powertrain_transmission_entry_point": "powertrain_transmission_matrix_html",
+    "powertrain_transmission_workspace_card": "Powertrain and transmission matrix",
+    "older_release_compatibility": true
+  },
+  "configuration_shortlist_v1_17": {
+    "official_spring_media_normalized": true,
+    "exact_configurator_saved_states": 18,
+    "exact_standard_equipment_source_lines": 1355,
+    "observation_date": "2026-08-04",
+    "availability_catalogue_inferred": false,
+    "semantic_line_joining_performed": false,
+    "cross_phase_promotion": false,
+    "cross_grade_transfer": false,
+    "cross_powertrain_transfer": false
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "master_data_changed": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.17.0.zip": {
+      "size_bytes": 83910398,
+      "sha256": "c5e5dc33187fdc46e934e0d30d691378bfd4a9dbe9d43bde8049cbfab956547f"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 27531,
+      "sha256": "1474aa0f2d7ae6c7a557bbaebd61600c67f4086fd241e8f447b92d060f610d46"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "24e97127d247b30ae1bcbd205f8287b5f73eebb0fb645ff347a58db4679048a8"
+    }
+  },
+  "public_v1_16_0_immutable": true
+}

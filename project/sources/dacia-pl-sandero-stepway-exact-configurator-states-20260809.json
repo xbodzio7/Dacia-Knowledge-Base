@@ -1,0 +1,1009 @@
+{
+  "version": 1,
+  "kind": "dacia_pl_sandero_stepway_exact_configurator_state_capture",
+  "observed_on": "2026-08-09",
+  "publisher": "Dacia",
+  "market": "PL",
+  "volatility": "dynamic_official_web",
+  "entry_pages": [
+    "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+    "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html"
+  ],
+  "capture_method": "Interactive selection of every visible grade and engine/transmission radio state in the official configurator, followed by exact conf-URL and DOM-backed surface extraction.",
+  "normalization_boundaries": [
+    "Each record is exact to one selected grade and engine/transmission state.",
+    "No appearance, option or technical observation is projected to another configuration.",
+    "Catalog prices are cross-checked against the already verified current scope inventory.",
+    "Accessory lists are excluded from this capture; factory options are preserved.",
+    "Technical highlights are not a substitute for the full technical modal and are not imported as a complete specification here."
+  ],
+  "summary": {
+    "exact_configuration_surfaces": 15,
+    "sandero_surfaces": 7,
+    "sandero_stepway_surfaces": 8,
+    "formerly_source_blocked_surfaces_reopened": 13,
+    "surfaces_with_stable_conf_url": 15,
+    "surfaces_with_complete_visible_colour_list": 15,
+    "surfaces_with_visible_wheel_list": 15,
+    "surfaces_with_visible_upholstery_list": 15,
+    "surfaces_with_visible_factory_option_list": 15,
+    "master_rows_created": 0
+  },
+  "configurations": [
+    {
+      "configuration_code": "sandero_iii_essential_tce100_manual",
+      "catalog_price_pln": 63900,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj0A",
+      "grade": "essential",
+      "engine": "TCe 100",
+      "descriptor": "SANDERO F.2 essential TCe 100 F.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "15\" felgi stalowe ELMA"
+      ],
+      "selected_wheel": "15\" felgi stalowe ELMA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze czarnym i wstawkami denim"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "factory_options": [
+        {
+          "source_item_code": "SGAV02",
+          "name": "fotel kierowcy z regulacją wysokości",
+          "price_text": "0 zł"
+        },
+        {
+          "source_item_code": "SGAR03",
+          "name": "tylne oparcie kanapy składane 1/3 i 2/3",
+          "price_text": "0 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "74 (100)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "121"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.3"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "catalog_price_pln": 74900,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R-A%23this",
+      "grade": "expression",
+      "engine": "Eco-G 120 auto",
+      "descriptor": "SANDERO F.2 expression Eco-G 120  auto f.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ATARA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze czarnym i wstawkami denim"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "factory_options": [
+        {
+          "source_item_code": "NA487",
+          "name": "MEDIA NAV",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCV0Y",
+          "name": "pakiet COMFORT",
+          "price_text": "2000 zł"
+        },
+        {
+          "source_item_code": "RRCAM",
+          "name": "kamera cofania",
+          "price_text": "700 zł"
+        },
+        {
+          "source_item_code": "PCV12",
+          "name": "pakiet THERMO",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "125"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.5"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "111"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "6.9"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "catalog_price_pln": 68000,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R_I%23this",
+      "grade": "expression",
+      "engine": "Eco-G 120",
+      "descriptor": "SANDERO F.2 expression Eco-G 120  f.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ATARA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze czarnym i wstawkami denim"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "factory_options": [
+        {
+          "source_item_code": "NA487",
+          "name": "MEDIA NAV",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "RRCAM",
+          "name": "kamera cofania",
+          "price_text": "700 zł"
+        },
+        {
+          "source_item_code": "PCV12",
+          "name": "pakiet THERMO",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "123"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.4"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "110"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "6.8"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_expression_tce100_manual",
+      "catalog_price_pln": 68000,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1A",
+      "grade": "expression",
+      "engine": "TCe 100",
+      "descriptor": "SANDERO F.2 expression TCe 100  f.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ATARA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze czarnym i wstawkami denim"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "factory_options": [
+        {
+          "source_item_code": "NA487",
+          "name": "MEDIA NAV",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "RRCAM",
+          "name": "kamera cofania",
+          "price_text": "700 zł"
+        },
+        {
+          "source_item_code": "PCV12",
+          "name": "pakiet THERMO",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "74 (100)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "121"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.4"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "catalog_price_pln": 80500,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R-Y%23this",
+      "grade": "journey",
+      "engine": "Eco-G 120 auto",
+      "descriptor": "SANDERO F.2 journey Eco-G 120 auto f.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA"
+      ],
+      "selected_wheel": "16\" felgi aluminiowe TAMIA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze denim i czarnymi wstawkami",
+      "factory_options": [
+        {
+          "source_item_code": "PCU64",
+          "name": "pakiet MEDIA NAV LIVE",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCU66",
+          "name": "pakiet ZIMOWY",
+          "price_text": "1200 zł"
+        },
+        {
+          "source_item_code": "PCU68",
+          "name": "pakiet EASY",
+          "price_text": "1400 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "125"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.5"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "111"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "6.8"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "catalog_price_pln": 73600,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R_g%23this",
+      "grade": "journey",
+      "engine": "Eco-G 120",
+      "descriptor": "SANDERO F.2 journey Eco-G 120 f.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA"
+      ],
+      "selected_wheel": "16\" felgi aluminiowe TAMIA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze denim i czarnymi wstawkami",
+      "factory_options": [
+        {
+          "source_item_code": "PCU64",
+          "name": "pakiet MEDIA NAV LIVE",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCU66",
+          "name": "pakiet ZIMOWY",
+          "price_text": "1200 zł"
+        },
+        {
+          "source_item_code": "PCU68",
+          "name": "pakiet EASY",
+          "price_text": "1400 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "123"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.4"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "110"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "6.8"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_journey_tce100_manual",
+      "catalog_price_pln": 73600,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2A",
+      "grade": "journey",
+      "engine": "TCe 100",
+      "descriptor": "SANDERO F.2 journey TCe 100 f.2",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "szary urban",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA"
+      ],
+      "selected_wheel": "16\" felgi aluminiowe TAMIA",
+      "upholsteries": [
+        "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+      ],
+      "selected_upholstery": "tapicerka materiałowa w kolorze denim i czarnymi wstawkami",
+      "factory_options": [
+        {
+          "source_item_code": "PCU64",
+          "name": "pakiet MEDIA NAV LIVE",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCU66",
+          "name": "pakiet ZIMOWY",
+          "price_text": "1200 zł"
+        },
+        {
+          "source_item_code": "PCU68",
+          "name": "pakiet EASY",
+          "price_text": "1400 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "74 (100)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "121"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.3"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "catalog_price_pln": 71700,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0x_A%23this",
+      "grade": "stepway essential",
+      "engine": "Eco-G 120",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ERALIA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ERALIA",
+      "upholsteries": [
+        "tapicerka materiałowa stepway"
+      ],
+      "selected_upholstery": "tapicerka materiałowa stepway",
+      "factory_options": [
+        {
+          "source_item_code": "PCU20",
+          "name": "pakiet MEDIA DISPLAY",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "129"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.7"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "115"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "7.1"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+      "catalog_price_pln": 71700,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0g",
+      "grade": "stepway essential",
+      "engine": "TCe 110",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ERALIA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ERALIA",
+      "upholsteries": [
+        "tapicerka materiałowa stepway"
+      ],
+      "selected_upholstery": "tapicerka materiałowa stepway",
+      "factory_options": [
+        {
+          "source_item_code": "PCU20",
+          "name": "pakiet MEDIA DISPLAY",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "81 (110)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "128"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.6"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "catalog_price_pln": 83300,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-Q%23this",
+      "grade": "stepway expression",
+      "engine": "Eco-G 120 auto",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "beżowy safari",
+        "zielony cedar",
+        "czarna perła",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ATARA",
+      "upholsteries": [
+        "tapicerka materiałowa stepway"
+      ],
+      "selected_upholstery": "tapicerka materiałowa stepway",
+      "factory_options": [
+        {
+          "source_item_code": "NA487",
+          "name": "MEDIA NAV",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCV0Y",
+          "name": "pakiet COMFORT",
+          "price_text": "2000 zł"
+        },
+        {
+          "source_item_code": "PCV12",
+          "name": "pakiet THERMO",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "130"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.7"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "115"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "7.1"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "catalog_price_pln": 76400,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1g",
+      "grade": "stepway expression",
+      "engine": "Eco-G 120",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "beżowy safari",
+        "zielony cedar",
+        "czarna perła",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ATARA",
+      "upholsteries": [
+        "tapicerka materiałowa stepway"
+      ],
+      "selected_upholstery": "tapicerka materiałowa stepway",
+      "factory_options": [
+        {
+          "source_item_code": "NA487",
+          "name": "MEDIA NAV",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCV12",
+          "name": "pakiet THERMO",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "129"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.7"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "116"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "7.1"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
+      "catalog_price_pln": 76400,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-I%23this",
+      "grade": "stepway expression",
+      "engine": "TCe 110",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "beżowy safari",
+        "zielony cedar",
+        "czarna perła",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi stalowe ATARA"
+      ],
+      "selected_wheel": "16\" felgi stalowe ATARA",
+      "upholsteries": [
+        "tapicerka materiałowa stepway"
+      ],
+      "selected_upholstery": "tapicerka materiałowa stepway",
+      "factory_options": [
+        {
+          "source_item_code": "NA487",
+          "name": "MEDIA NAV",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCV12",
+          "name": "pakiet THERMO",
+          "price_text": "1900 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "81 (110)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "128"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.6"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "catalog_price_pln": 89400,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-o%23this",
+      "grade": "stepway extreme",
+      "engine": "Eco-G 120 auto",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "beżowy safari",
+        "zielony cedar",
+        "czarna perła",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA BLACK"
+      ],
+      "selected_wheel": "16\" felgi aluminiowe TAMIA BLACK",
+      "upholsteries": [
+        "Tapicerka materiałowa z materiałów pochodzących z recyklingu"
+      ],
+      "selected_upholstery": "Tapicerka materiałowa z materiałów pochodzących z recyklingu",
+      "factory_options": [
+        {
+          "source_item_code": "PCU64",
+          "name": "pakiet MEDIA NAV LIVE",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCU66",
+          "name": "pakiet ZIMOWY",
+          "price_text": "1200 zł"
+        },
+        {
+          "source_item_code": "PCU68",
+          "name": "pakiet EASY",
+          "price_text": "1400 zł"
+        },
+        {
+          "source_item_code": "TOELEC",
+          "name": "elektrycznie otwierany, szklany dach",
+          "price_text": "2200 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "130"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.7"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "116"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "7.1"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "catalog_price_pln": 82500,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2g",
+      "grade": "stepway extreme",
+      "engine": "Eco-G 120",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "beżowy safari",
+        "zielony cedar",
+        "czarna perła",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA BLACK"
+      ],
+      "selected_wheel": "16\" felgi aluminiowe TAMIA BLACK",
+      "upholsteries": [
+        "Tapicerka materiałowa z materiałów pochodzących z recyklingu"
+      ],
+      "selected_upholstery": "Tapicerka materiałowa z materiałów pochodzących z recyklingu",
+      "factory_options": [
+        {
+          "source_item_code": "PCU64",
+          "name": "pakiet MEDIA NAV LIVE",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCU66",
+          "name": "pakiet ZIMOWY",
+          "price_text": "1200 zł"
+        },
+        {
+          "source_item_code": "PCU68",
+          "name": "pakiet EASY",
+          "price_text": "1400 zł"
+        },
+        {
+          "source_item_code": "TOELEC",
+          "name": "elektrycznie otwierany, szklany dach",
+          "price_text": "2200 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "84/90 LPG (114/122 LPG)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "130"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.7"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+          "value": "116"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+          "value": "7.2"
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_tce110_manual",
+      "catalog_price_pln": 82500,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-g%23this",
+      "grade": "stepway extreme",
+      "engine": "TCe 110",
+      "descriptor": "<img src=\"https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=e595e4ae-338e-6a7b-27be-075f1c8f9390\" alt=\"SANDERO F.2\" />",
+      "colours": [
+        "biel alpejska",
+        "niebieski iron",
+        "szary schiste",
+        "beżowy safari",
+        "zielony cedar",
+        "czarna perła",
+        "żółty amber"
+      ],
+      "selected_colour": "biel alpejska",
+      "wheels": [
+        "16\" felgi aluminiowe TAMIA BLACK"
+      ],
+      "selected_wheel": "16\" felgi aluminiowe TAMIA BLACK",
+      "upholsteries": [
+        "Tapicerka materiałowa z materiałów pochodzących z recyklingu"
+      ],
+      "selected_upholstery": "Tapicerka materiałowa z materiałów pochodzących z recyklingu",
+      "factory_options": [
+        {
+          "source_item_code": "PCU64",
+          "name": "pakiet MEDIA NAV LIVE",
+          "price_text": "1600 zł"
+        },
+        {
+          "source_item_code": "PCU66",
+          "name": "pakiet ZIMOWY",
+          "price_text": "1200 zł"
+        },
+        {
+          "source_item_code": "PCU68",
+          "name": "pakiet EASY",
+          "price_text": "1400 zł"
+        },
+        {
+          "source_item_code": "TOELEC",
+          "name": "elektrycznie otwierany, szklany dach",
+          "price_text": "2200 zł"
+        },
+        {
+          "source_item_code": "TCHZ0",
+          "name": "ewolucja e-Call",
+          "price_text": "0 zł"
+        }
+      ],
+      "technical_highlights": [
+        {
+          "label": "Moc maksymalna kW (KM)",
+          "value": "81 (110)"
+        },
+        {
+          "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+          "value": "128"
+        },
+        {
+          "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+          "value": "5.7"
+        }
+      ]
+    }
+  ]
+}

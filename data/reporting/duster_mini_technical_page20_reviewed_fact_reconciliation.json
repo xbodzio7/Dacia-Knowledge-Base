@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "kind": "duster_mini_technical_page20_reviewed_fact_reconciliation",
+  "reviewed_on": "2026-07-30",
+  "status": "complete_with_import_handoff",
+  "package_id": "post_residual_duster_mini_technical_page20_reviewed_fact_reconciliation_001",
+  "source": {
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+    "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+    "page": 20,
+    "observation_date": "2025-10-20"
+  },
+  "source_review_packages": [
+    "residual_gap_003",
+    "residual_gap_020",
+    "residual_gap_021"
+  ],
+  "scope": {
+    "reviewed_candidates": 65,
+    "ambiguity_candidates": 5,
+    "unresolved_candidates": 60,
+    "exact_manual_target_configurations": 7
+  },
+  "authored_decision_receipts": {
+    "ambiguity": {
+      "candidate_count": 5,
+      "decision_counts": {
+        "covered_by_selected_evidence": 3,
+        "partially_covered": 2
+      },
+      "selected_evidence_signature_count": 9,
+      "selected_evidence_record_count": 34,
+      "candidates_with_selected_evidence": 5,
+      "candidates_without_selected_evidence": 0
+    },
+    "unresolved_chunk_1": {
+      "logical_group_count": 30,
+      "decision_counts": {
+        "context_only_non_import": 16,
+        "unresolved_signature_mismatch": 24
+      },
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_mini_technical_page20_unresolved_review_chunk1.md"
+    },
+    "unresolved_chunk_2": {
+      "logical_group_count": 8,
+      "decision_counts": {
+        "context_only_non_import": 17,
+        "unresolved_signature_mismatch": 3
+      },
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0,
+      "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_mini_technical_page20_unresolved_review_chunk2.md"
+    }
+  },
+  "current_master_receipts": {
+    "same_source_scalar_values": 244,
+    "same_source_range_values": 10,
+    "same_source_candidate_decisions_closed": 10,
+    "later_exact_candidate_decisions_closed": 8,
+    "configuration_identity_candidate_decisions_closed": 2,
+    "import_ready_candidate_decisions": 5,
+    "context_model_required_candidate_decisions": 2,
+    "explicit_non_import_or_context_candidate_decisions": 38
+  },
+  "candidate_reconciliation": {
+    "current_exact_same_source_coverage": {
+      "candidate_count": 10,
+      "groups": [
+        "steering ratio and turning circle",
+        "maximum kerb weight",
+        "payload range",
+        "front brake specification",
+        "unbraked trailer weight",
+        "three cargo-capacity rows"
+      ]
+    },
+    "current_exact_later_source_coverage": {
+      "candidate_count": 8,
+      "groups": [
+        "maximum power",
+        "maximum torque",
+        "engine displacement",
+        "cylinders and valves",
+        "maximum speed",
+        "0-100 km/h acceleration",
+        "fuel tank capacities",
+        "braked trailer weight"
+      ]
+    },
+    "current_configuration_identity_coverage": {
+      "candidate_count": 2,
+      "groups": [
+        "4x2 drivetrain",
+        "manual six-speed gearbox"
+      ]
+    },
+    "import_ready_exact_gap": {
+      "candidate_count": 5,
+      "planned_observation_count": 35,
+      "attributes": {
+        "emission_standard": {
+          "value": "euro_6e_bis",
+          "count": 7
+        },
+        "particulate_filter": {
+          "value": "true",
+          "count": 7
+        },
+        "start_stop_system": {
+          "value": "true",
+          "count": 7
+        },
+        "eco_mode": {
+          "value": "true",
+          "count": 7
+        },
+        "gross_vehicle_weight": {
+          "ecog_value": "1805",
+          "mhev_value": "1830",
+          "count": 7
+        }
+      },
+      "target_configurations": [
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual"
+      ]
+    },
+    "context_model_required": {
+      "candidate_count": 2,
+      "groups": [
+        {
+          "code": "energy_source_columns",
+          "decision": "preserve_as_multi-column context; existing configuration/fuel modeling already represents the powertrain boundary"
+        },
+        {
+          "code": "injection_type_direct_for_dual_fuel_ecog",
+          "decision": "defer because the source row is unscoped while the repository governs injection_type by fuel context for dual-fuel configurations"
+        }
+      ]
+    },
+    "explicit_non_import_or_context": {
+      "candidate_count": 38,
+      "groups": [
+        "all 33 originally authored context-only candidates",
+        "fully-electric-driving dash cells",
+        "traction-battery dash fragment",
+        "WLTP test-protocol label",
+        "country-dependent CO2 continuation",
+        "country-dependent combined-consumption continuation"
+      ]
+    }
+  },
+  "partition_check": {
+    "candidate_count": 65,
+    "classified_once": true,
+    "class_counts": {
+      "current_exact_same_source_coverage": 10,
+      "current_exact_later_source_coverage": 8,
+      "current_configuration_identity_coverage": 2,
+      "import_ready_exact_gap": 5,
+      "context_model_required": 2,
+      "explicit_non_import_or_context": 38
+    }
+  },
+  "closure_decision": {
+    "source_review_reopened": false,
+    "master_data_changed": false,
+    "automatic_promotion_used": false,
+    "country_dependent_values_invented": false,
+    "incomplete_rows_promoted": false,
+    "safe_exact_import_handoff_created": true
+  },
+  "next_package": {
+    "package_id": "post_residual_duster_mini_page20_exact_scalar_gap_import_001",
+    "kind": "configuration_value_import",
+    "name": "Duster Mini Page 20 Exact Scalar Gap Import",
+    "status": "planned",
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "source_page": 20,
+    "goal": "Add 35 append-only source-specific observations across the seven exact manual 4x2 Duster configurations: Euro 6E bis, particulate filter, Start & Stop, Eco mode and gross vehicle weight. Preserve injection type as a fuel-context modeling deferral and keep every context-only/non-import decision unchanged.",
+    "target_configurations": [
+      "duster_iii_essential_ecog120_4x2_manual",
+      "duster_iii_expression_ecog120_4x2_manual",
+      "duster_iii_expression_mildhybrid140_4x2_manual",
+      "duster_iii_extreme_ecog120_4x2_manual",
+      "duster_iii_extreme_mildhybrid140_4x2_manual",
+      "duster_iii_journey_ecog120_4x2_manual",
+      "duster_iii_journey_mildhybrid140_4x2_manual"
+    ],
+    "attribute_counts": {
+      "emission_standard": 7,
+      "particulate_filter": 7,
+      "start_stop_system": 7,
+      "eco_mode": 7,
+      "gross_vehicle_weight": 7
+    },
+    "planned_value_id_start": 3464,
+    "planned_value_id_end": 3498,
+    "manifest_paths": [
+      "data/imports/configuration_values/duster-mini-page20-emission-standard-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-particulate-filter-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-start-stop-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-eco-mode-20251020.json",
+      "data/imports/configuration_values/duster-mini-page20-gross-vehicle-weight-20251020.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_duster_mini_page20_exact_scalar_gap_import.py",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

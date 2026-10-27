@@ -1,0 +1,3 @@
+id,code,name,status,description
+1,package,Pakiet wyposażenia,active,Named commercial package containing multiple equipment items.
+2,option,Opcja wyposażenia,active,Individually priced commercial equipment option.

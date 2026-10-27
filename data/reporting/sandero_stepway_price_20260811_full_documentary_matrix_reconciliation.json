@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "kind": "full_documentary_matrix_reconciliation",
+  "package_id": "sandero_stepway_price_list_matrix_reconciliation_20260811",
+  "source": {
+    "source_code": "src_pl_sandero_stepway_price_my26_20260811",
+    "source_extract": "project/sources/sandero_stepway_price_my26_20260811_full_extract.json",
+    "document_date": "2026-08-11",
+    "effective_from": "2026-08-11",
+    "pdf_sha256": "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+    "coverage": "full_document_reviewed",
+    "pages_reviewed": 7
+  },
+  "scope": {
+    "catalogue_configuration_count": 19,
+    "configuration_codes": [
+      "sandero_iii_essential_tce100_manual",
+      "sandero_iii_expression_tce100_manual",
+      "sandero_iii_journey_tce100_manual",
+      "sandero_stepway_iii_essential_tce110_manual",
+      "sandero_stepway_iii_expression_tce110_manual",
+      "sandero_stepway_iii_extreme_tce110_manual",
+      "sandero_iii_expression_ecog120_manual",
+      "sandero_iii_journey_ecog120_manual",
+      "sandero_stepway_iii_essential_ecog120_manual",
+      "sandero_stepway_iii_expression_ecog120_manual",
+      "sandero_stepway_iii_extreme_ecog120_manual",
+      "sandero_iii_expression_ecog120_automatic",
+      "sandero_iii_journey_ecog120_automatic",
+      "sandero_stepway_iii_expression_ecog120_automatic",
+      "sandero_stepway_iii_extreme_ecog120_automatic",
+      "sandero_iii_expression_hybrid155_automatic",
+      "sandero_iii_journey_hybrid155_automatic",
+      "sandero_stepway_iii_expression_hybrid155_automatic",
+      "sandero_stepway_iii_extreme_hybrid155_automatic"
+    ],
+    "direct_source_boundary": "Use the 11.08.2026 equipment matrix directly for every grade/configuration column. Do not copy historical availability as a substitute for documentary evidence and do not use the configurator for matrix data already present in the price list."
+  },
+  "required_reconciliation": [
+    "Materialize direct 11.08.2026 equipment observations for all 19 configurations.",
+    "Preserve the four already materialized Hybrid 155 configurations without duplicate observations.",
+    "Keep 03.07.2026 historical observations unchanged.",
+    "Use explicit source symbols: standard, package_item and unavailable; do not convert descriptive colour/trim cells into unrelated boolean attributes.",
+    "Preserve price-list option/package prices from the source extract; do not overwrite historical configurator observations.",
+    "Keep exact colour-name compatibility outside this package unless explicitly present in the source matrix."
+  ],
+  "acceptance": {
+    "source_sha_verified": true,
+    "configuration_count": 19,
+    "all_equipment_rows_have_source_date": "2026-08-11",
+    "all_equipment_rows_have_source_code": "src_pl_sandero_stepway_price_my26_20260811",
+    "no_configurator_data_for_matrix": true,
+    "no_historical_2026_07_03_overwrite": true,
+    "focused_regression_required": true,
+    "full_quality_required": true
+  }
+}

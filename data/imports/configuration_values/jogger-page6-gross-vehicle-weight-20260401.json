@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 963,
+  "attribute_code": "gross_vehicle_weight",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "MASY (kg)",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1765",
+      "source_text": "1765 / 1940"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1765",
+      "source_text": "1765 / 1940"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1765",
+      "source_text": "1765 / 1940"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1785",
+      "source_text": "1785 / 1960"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1785",
+      "source_text": "1785 / 1960"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1685",
+      "source_text": "1685 / 1855"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1685",
+      "source_text": "1685 / 1855"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1685",
+      "source_text": "1685 / 1855"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1830",
+      "source_text": "1830 / 2000"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1830",
+      "source_text": "1830 / 2000"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1830",
+      "source_text": "1830 / 2000"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1940",
+      "source_text": "1765 / 1940"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1940",
+      "source_text": "1765 / 1940"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1940",
+      "source_text": "1765 / 1940"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1960",
+      "source_text": "1785 / 1960"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1960",
+      "source_text": "1785 / 1960"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1855",
+      "source_text": "1685 / 1855"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1855",
+      "source_text": "1685 / 1855"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "1855",
+      "source_text": "1685 / 1855"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "2000",
+      "source_text": "1830 / 2000"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "2000",
+      "source_text": "1830 / 2000"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "2000",
+      "source_text": "1830 / 2000"
+    }
+  ]
+}

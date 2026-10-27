@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "kind": "official_nonconfigurator_catalog_source_inventory",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "policy": {
+    "primary_sources": [
+      "current_model_brochure",
+      "current_model_price_list",
+      "current_accessory_catalog",
+      "current_accessory_price_list",
+      "official_model_page",
+      "official_dacia_shop"
+    ],
+    "fallback_source": "official_configurator",
+    "fallback_rule": "Use the configurator only for fields or compatibility dependencies not resolved by the registered non-configurator sources.",
+    "no_cross_model_transfer": true,
+    "no_cross_grade_transfer": true,
+    "no_cross_powertrain_transfer": true,
+    "no_cross_source_date_transfer": true
+  },
+  "source_hubs": [
+    {
+      "source_id": "dacia_pl_brochure_hub_20260806",
+      "source_type": "official_brochure_hub",
+      "url": "https://www.dacia.pl/pobierz-broszure.html",
+      "models": ["spring", "sandero", "sandero_stepway", "jogger", "duster", "bigster"]
+    },
+    {
+      "source_id": "dacia_pl_accessory_hub_20260806",
+      "source_type": "official_accessory_hub",
+      "url": "https://akcesoria.dacia.pl/",
+      "models": ["spring", "sandero", "sandero_stepway", "jogger", "duster", "bigster"]
+    },
+    {
+      "source_id": "dacia_pl_shop_accessories_20260806",
+      "source_type": "official_shop",
+      "url": "https://sklep.dacia.pl/akcesoria",
+      "coverage": ["accessory_name", "part_number", "category", "catalog_price", "model_compatibility"]
+    }
+  ],
+  "models": [
+    {
+      "model_id": "spring",
+      "brochure": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf",
+        "pages": 22,
+        "expected_coverage": ["colours", "wheels", "upholstery", "standard_equipment", "options", "packages", "selected_accessories"]
+      },
+      "accessory_catalogs": [
+        {
+          "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-spring.pdf",
+          "pages": 10,
+          "status": "legacy_generation_reference"
+        }
+      ],
+      "accessory_price_lists": [
+        {
+          "url": "https://akcesoria.dacia.pl/model/nowy_spring",
+          "valid_from": "2024-04-17",
+          "pages": 10,
+          "status": "current_hub_entry"
+        }
+      ]
+    },
+    {
+      "model_id": "sandero",
+      "brochure": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-brochure.pdf.asset.pdf/b83cd5df5f.pdf",
+        "pages": 21,
+        "expected_coverage": ["colours", "wheels", "upholstery", "standard_equipment", "options", "packages", "selected_accessories"]
+      },
+      "accessory_catalogs": [
+        {
+          "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-sandero-sandero-stepway.pdf",
+          "status": "hub_link_requires_fetch_verification"
+        }
+      ],
+      "accessory_price_lists": [
+        {
+          "url": "https://akcesoria.dacia.pl/model/sandero_nowe",
+          "valid_from": "2022-10-03",
+          "pages": 13,
+          "status": "official_but_age_review_required"
+        }
+      ]
+    },
+    {
+      "model_id": "sandero_stepway",
+      "brochure": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+        "pages": 21,
+        "expected_coverage": ["colours", "wheels", "upholstery", "standard_equipment", "options", "packages", "selected_accessories"]
+      },
+      "accessory_catalogs": [
+        {
+          "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-sandero-sandero-stepway.pdf",
+          "status": "shared_catalog_hub_link_requires_fetch_verification"
+        }
+      ],
+      "accessory_price_lists": [
+        {
+          "url": "https://akcesoria.dacia.pl/model/sandero_stepway_nowe",
+          "valid_from": "2022-10-03",
+          "pages": 14,
+          "status": "official_but_age_review_required"
+        }
+      ]
+    },
+    {
+      "model_id": "jogger",
+      "brochure": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/jogger-brochure.pdf.asset.pdf/6b1235f90d.pdf",
+        "pages": 23,
+        "expected_coverage": ["colours", "wheels", "upholstery", "standard_equipment", "options", "packages", "selected_accessories"]
+      },
+      "accessory_catalogs": [
+        {
+          "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-jogger.pdf",
+          "status": "hub_link_requires_fetch_verification"
+        }
+      ],
+      "accessory_price_lists": [
+        {
+          "url": "https://akcesoria.dacia.pl/model/jogger",
+          "valid_from": "2022-10-03",
+          "pages": 13,
+          "status": "official_but_age_review_required"
+        }
+      ]
+    },
+    {
+      "model_id": "duster",
+      "brochure": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/mini-broszury/new-duster-mini-brochure_2024.pdf.asset.pdf/b2659c32d0.pdf",
+        "pages": 25,
+        "expected_coverage": ["colours", "wheels", "upholstery", "standard_equipment", "options", "packages", "selected_accessories"]
+      },
+      "accessory_catalogs": [
+        {
+          "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-new-duster.pdf",
+          "pages": 18,
+          "status": "current_hub_entry"
+        }
+      ],
+      "accessory_price_lists": [
+        {
+          "url": "https://akcesoria.dacia.pl/model/nowy_duster",
+          "valid_from": "2024-03-26",
+          "pages": 11,
+          "status": "current_hub_entry"
+        }
+      ]
+    },
+    {
+      "model_id": "bigster",
+      "brochure": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+        "pages": 24,
+        "expected_coverage": ["colours", "wheels", "upholstery", "standard_equipment", "options", "packages", "selected_accessories"]
+      },
+      "accessory_catalogs": [
+        {
+          "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-bigster.pdf",
+          "pages": 21,
+          "status": "current_hub_entry"
+        }
+      ],
+      "accessory_price_lists": [
+        {
+          "url": "https://akcesoria.dacia.pl/model/bigster",
+          "valid_from": "2025-01-09",
+          "pages": 12,
+          "status": "current_hub_entry"
+        }
+      ]
+    }
+  ],
+  "target_domains": [
+    "exterior_colours",
+    "wheels_and_wheel_covers",
+    "upholstery_and_interior_trim",
+    "standard_equipment",
+    "standalone_options",
+    "option_packages",
+    "dealer_accessories"
+  ],
+  "known_gaps_before_extraction": [
+    "Current model price-list URLs still require registration and date validation.",
+    "Sandero, Sandero Stepway and Jogger accessory catalog CDN links require direct-fetch verification.",
+    "Accessory price lists dated 2022 must not be treated as current compatibility evidence without corroboration.",
+    "Dynamic option dependencies may remain unresolved after document extraction and will be sent to configurator fallback review."
+  ]
+}

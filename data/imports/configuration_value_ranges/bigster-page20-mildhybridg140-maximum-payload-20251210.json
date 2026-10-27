@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 275,
+  "attribute_code": "maximum_payload",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_page": 20,
+  "source_section": "MASY",
+  "notes_template": "Source page {page}, section {section}: {source_text}. Inclusive source-specific interval retained without resolving conflicts by date.",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "minimum_value": "452",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "452/521"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "minimum_value": "452",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "452/521"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "minimum_value": "452",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "452/521"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "minimum_value": "452",
+      "maximum_value": "521",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "452/521"
+    }
+  ]
+}

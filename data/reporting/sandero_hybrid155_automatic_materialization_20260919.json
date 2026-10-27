@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "kind": "master_data_materialization",
+  "package_id": "sandero_stepway_price_list_20260811_technical_equipment_materialization_001",
+  "source": "src_pl_sandero_stepway_price_my26_20260811",
+  "source_sha256": "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+  "effective_from": "2026-08-11",
+  "configurations": [
+    {
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "catalogue_price_pln": 84600,
+      "equipment_rows": 66,
+      "technical_rows": 16
+    },
+    {
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "catalogue_price_pln": 90200,
+      "equipment_rows": 63,
+      "technical_rows": 16
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "catalogue_price_pln": 90700,
+      "equipment_rows": 67,
+      "technical_rows": 16
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "catalogue_price_pln": 96800,
+      "equipment_rows": 62,
+      "technical_rows": 16
+    }
+  ],
+  "technical_source_values": {
+    "emission_standard": "euro_6e_bis",
+    "engine_displacement_cm3": 1789,
+    "cylinder_count": 4,
+    "total_valve_count": 16,
+    "engine_power_kw": 80,
+    "engine_torque_nm": 172,
+    "max_torque_rpm": 3000,
+    "traction_motor_power_kw": 36,
+    "starter_generator_power_kw": 15,
+    "top_speed_kmh": 180,
+    "fuel_tank_l": 50,
+    "number_of_seats": 5,
+    "gearbox": "automatyczna Multimode",
+    "boot_capacity_vda_dm3": 328,
+    "consumption_l100km": {
+      "Sandero": 4.2,
+      "Stepway": 4.4
+    },
+    "co2_gkm": {
+      "Sandero": 96,
+      "Stepway": 100
+    }
+  },
+  "boundaries": {
+    "historical_2026_07_03_preserved": true,
+    "price_rows_from_prior_package_preserved": true,
+    "equipment_is_from_2026_08_11_matrix": true,
+    "technical_is_from_2026_08_11_table": true,
+    "colour_compatibility_unchanged": true,
+    "package_memberships_unchanged": true
+  },
+  "note": "Equipment availability is materialized from the dated 11.08.2026 matrix. Canonical attribute-code mapping follows the already verified 03.07.2026 normalized catalogue slice; no cross-grade or cross-model inference is used."
+}

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "kind": "jogger_uk_catalog_reference_matrix_reconciliation",
+  "captured_on": "2026-08-06",
+  "model": "jogger",
+  "configurator_used": false,
+  "source_policy": {
+    "polish_canonical_catalog_url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-jogger.pdf",
+    "polish_catalog_registered_but_not_extracted_in_this_package": true,
+    "supplemental_matrix_source": "Official Dacia UK accessory catalogue, May 2023, accessed through a document mirror",
+    "supplemental_matrix_pdf": "https://manuals.plus/m/87597efb3a9be1260f31ced7c17572c6070b0fd196103b16e4df622315c2bf56.pdf",
+    "supplemental_market": "GB",
+    "supplemental_publication_month": "2023-05",
+    "polish_price_list_reference": "data/reporting/official_jogger_accessory_price_list_20260806.csv",
+    "compatibility_scope": "The six compatibility columns reproduce the GB catalogue matrix only. They do not establish Polish MY2026 availability.",
+    "no_cross_market_availability_transfer": true,
+    "no_cross_market_price_transfer": true,
+    "no_part_number_normalization": true
+  },
+  "summary": {
+    "catalogue_rows": 107,
+    "catalogue_rows_with_part_number": 106,
+    "catalogue_unique_part_numbers": 105,
+    "polish_price_list_unique_part_numbers": 98,
+    "shared_part_numbers": 72,
+    "gb_catalogue_only_part_numbers": 33,
+    "polish_price_list_only_part_numbers": 26,
+    "catalogue_category_counts": {
+      "comfort_and_protection": 39,
+      "design": 11,
+      "multimedia": 12,
+      "pro_specials": 3,
+      "safety": 13,
+      "transport": 29
+    },
+    "compatibility_cell_counts": {
+      "compatible": 550,
+      "conditional": 20,
+      "incompatible": 72
+    }
+  },
+  "important_findings": [
+    {
+      "concept": "side_steps",
+      "finding": "GB catalogue uses complete pack reference 7711948922, while the Polish 2022 price list exposes separate mounting and step references 768478691R and 8201741626."
+    },
+    {
+      "concept": "roof_boxes",
+      "finding": "GB catalogue calls references 7711574056 and 7711574057 400 L and 480 L; the Polish 2022 price list describes the same references as 330 L and 390 L."
+    },
+    {
+      "concept": "cool_box",
+      "finding": "GB catalogue uses 7711431405 for a 24 L 12V-220V cool box, while the Polish price list uses 7717277903 for a portable refrigerator."
+    },
+    {
+      "concept": "rubber_floor_mats",
+      "finding": "GB catalogue supplies references 749020878R and 749022794R for five- and seven-seat rubber mats. These references are absent from the Polish 2022 price list and remain unconfirmed for the current Polish offer."
+    },
+    {
+      "concept": "sleep_pack",
+      "finding": "The complete Sleep Pack remains TBA in the GB matrix; box 984239528R, mattress 984247351R, tent 7717300226 and blinds 7717300430 are separate references."
+    },
+    {
+      "concept": "towbar_packages",
+      "finding": "GB catalogue exposes four complete towbar package references 7711949285-7711949288; the Polish price list instead exposes separate beam, mounting and wiring components."
+    },
+    {
+      "concept": "multimedia_names",
+      "finding": "The same radio references are called KMM-BT506DAB/KDC-BT740DAB in the GB catalogue and KMM-BT505DAB/KDC-BT730DAB in the Polish price list."
+    },
+    {
+      "concept": "snow_chain_variants",
+      "finding": "The GB catalogue contains both Premium and Premium Grip references, including 7711780255, while the Polish price list does not contain the Premium Grip reference."
+    },
+    {
+      "concept": "market_boundary",
+      "finding": "No GB compatibility mark is interpreted as proof of current Polish grade, engine, transmission or model-year compatibility."
+    }
+  ],
+  "next_actions": [
+    "Obtain an extractable copy of the current Polish Jogger accessory catalogue and compare its matrix with the GB reference.",
+    "Verify GB-only references through current Polish Dacia Shop cards or current Polish model pages.",
+    "Keep unresolved dynamic compatibility questions for the final bounded configurator fallback queue."
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "configuration_source_gap_review",
+  "model_code": "sandero",
+  "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+  "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+  "source_path": "PDF/Cenniki/NOWE SANDERO STEPWAY expression stepway Eco-G 120 f.pdf",
+  "source_sha256": "7cbca5f16e74c5bce10cdf1d099573b6ace40e905d79325676fdd5753d14f130",
+  "source_observation_date": "2026-06-26",
+  "initial_gap": {
+    "reported_records": 20,
+    "unique_slots": 10,
+    "scope_files": [
+      "configuration_completeness.json",
+      "sandero_ecog120_manual_completeness.json"
+    ]
+  },
+  "resolution": {
+    "scalar_values": [
+      {
+        "attribute_code": "overall_height",
+        "value": "1586",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "overall_width_with_mirrors",
+        "value": "2012",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "wheel_finish",
+        "value": "stalowe",
+        "source_page": 2
+      }
+    ],
+    "ranges": [
+      {
+        "attribute_code": "ground_clearance",
+        "fuel_type_code": "",
+        "minimum_value": "170",
+        "maximum_value": "200",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "lpg",
+        "minimum_value": "1750",
+        "maximum_value": "3750",
+        "source_page": 6
+      },
+      {
+        "attribute_code": "max_torque_rpm",
+        "fuel_type_code": "petrol",
+        "minimum_value": "2000",
+        "maximum_value": "4000",
+        "source_page": 6
+      }
+    ],
+    "reporting_context_corrections": []
+  },
+  "excluded_alternatives": [
+    {
+      "attribute_code": "overall_height",
+      "value": "1535",
+      "reason": "Stepway height without roof rails does not describe the exact standard configuration"
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "value": "1853",
+      "reason": "folded-mirror width is outside the repository comparison convention"
+    },
+    {
+      "attribute_code": "wheel_design",
+      "value": "ERALIA",
+      "reason": "already represented by an existing exact observation"
+    }
+  ],
+  "reconciliation": {
+    "classification": "source_exhausted_not_stated",
+    "resolved_unique_slots": 6,
+    "remaining_unique_slots": 4,
+    "remaining_slots": [
+      {
+        "attribute_code": "front_track",
+        "fuel_type_code": "",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "lpg",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "max_power_rpm",
+        "fuel_type_code": "petrol",
+        "reason": "not_stated_in_source"
+      },
+      {
+        "attribute_code": "rear_track",
+        "fuel_type_code": "",
+        "reason": "not_stated_in_source"
+      }
+    ],
+    "boundary": "No track widths or maximum-power engine speeds are printed in the source; no values are inferred from sibling trims, diagrams or other documents."
+  }
+}

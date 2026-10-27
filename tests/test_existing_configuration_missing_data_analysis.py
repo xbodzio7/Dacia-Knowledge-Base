@@ -1,0 +1,115 @@
+from __future__ import annotations
+
+import json
+import unittest
+from pathlib import Path
+
+from tools import existing_configuration_missing_data_analysis as analysis
+
+ROOT = Path(__file__).resolve().parents[1]
+OFFICIAL_WEB_SOURCE = "src_pl_sandero_official_web_configurations_20260723"
+
+
+class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.payload = analysis.collect(ROOT)
+
+    def test_report_has_stable_contract(self) -> None:
+        self.assertEqual(self.payload["version"], 2)
+        self.assertEqual(self.payload["as_of"], "2026-08-01")
+        self.assertEqual(
+            self.payload["kind"],
+            "existing_configuration_missing_data_analysis",
+        )
+        summary = self.payload["summary"]
+        self.assertGreater(summary["active_configuration_count"], 0)
+        self.assertGreater(summary["completeness_scope_count"], 0)
+        self.assertGreater(summary["scoped_configuration_count"], 0)
+        self.assertEqual(
+            summary["candidate_count"],
+            summary["exhausted_source_candidate_count"]
+            + summary["eligible_candidate_count"],
+        )
+        self.assertGreaterEqual(summary["exhausted_source_candidate_count"], 1)
+        self.assertEqual(summary["eligible_candidate_count"], 0)
+
+    def test_missing_slots_are_not_negative_and_candidates_are_ranked(self) -> None:
+        for item in self.payload["configurations"]:
+            self.assertGreaterEqual(item["missing_technical"], 0)
+            self.assertGreaterEqual(item["missing_equipment"], 0)
+            self.assertLessEqual(
+                item["missing_technical"],
+                item["expected_technical"],
+            )
+            self.assertLessEqual(
+                item["missing_equipment"],
+                item["expected_equipment"],
+            )
+        impacts = [
+            item["weighted_impact"]
+            for item in self.payload["ranked_candidates"]
+        ]
+        self.assertEqual(impacts, sorted(impacts, reverse=True))
+
+    def test_exhausted_sources_remain_visible_but_cannot_be_selected(self) -> None:
+        exhausted = [
+            item
+            for item in self.payload["ranked_candidates"]
+            if item["selection_status"] == analysis.EXHAUSTED_CLASSIFICATION
+        ]
+        self.assertTrue(exhausted)
+        self.assertTrue(all(item["source_review_path"] for item in exhausted))
+        official_web = next(
+            item
+            for item in exhausted
+            if item["source_code"] == OFFICIAL_WEB_SOURCE
+        )
+        self.assertEqual(
+            official_web["source_review_path"],
+            "sandero_official_web_source_gap_review.json",
+        )
+        selected = self.payload["selected_next_package"]
+        self.assertIsNone(selected)
+        self.assertEqual(self.payload["summary"]["eligible_candidate_count"], 0)
+
+    def test_not_applicable_slots_are_not_reported_missing(self) -> None:
+        for item in self.payload["configurations"]:
+            self.assertGreaterEqual(item["classified_not_applicable"], 0)
+            technical = {
+                (
+                    slot["attribute_code"],
+                    slot["fuel_type_code"],
+                    slot["gear_number"],
+                )
+                for slot in item["missing_technical_slots"]
+            }
+            self.assertEqual(len(technical), item["missing_technical"])
+            self.assertEqual(
+                len(set(item["missing_equipment_attributes"])),
+                item["missing_equipment"],
+            )
+
+    def test_rendering_and_checked_outputs_are_deterministic(self) -> None:
+        self.assertEqual(
+            analysis.render_markdown(self.payload),
+            analysis.render_markdown(analysis.collect(ROOT)),
+        )
+        report = (
+            ROOT
+            / "data/reporting/existing_configuration_missing_data_analysis.json"
+        )
+        markdown = (
+            ROOT
+            / "data/reporting/existing_configuration_missing_data_analysis.md"
+        )
+        self.assertTrue(report.is_file())
+        self.assertTrue(markdown.is_file())
+        self.assertEqual(
+            json.loads(report.read_text(encoding="utf-8")),
+            self.payload,
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

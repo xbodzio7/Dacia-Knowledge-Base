@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 677,
+  "attribute_code": "starter_generator_power",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "kW",
+    "status": "active"
+  },
+  "observation_date": "2026-02-06",
+  "fuel_type_code": "",
+  "source_page": 9,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "15",
+      "source_text": "HSG = 15 kW"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "15",
+      "source_text": "HSG = 15 kW"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "15",
+      "source_text": "HSG = 15 kW"
+    }
+  ]
+}

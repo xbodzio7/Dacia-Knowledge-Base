@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_13_0_publication",
+  "published_on": "2026-08-03",
+  "status": "complete",
+  "tag": "data-products-v1.13.0",
+  "release_id": 364486959,
+  "source_commit": "0e7a8b4106bc830d39a257e5ef18fb2adcd44d0d",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "consumer_interface": {
+    "model_family_summary_entry_point": "model_family_summary_html",
+    "model_family_summary_workspace_card": "Model family summary",
+    "model_family_comparison_entry_point": "model_family_comparison_matrix_html",
+    "model_family_comparison_workspace_card": "Model family comparison matrix",
+    "older_release_compatibility": true
+  },
+  "portfolio_model_family_comparison_matrix": {
+    "model_families": 6,
+    "active_configurations": 81,
+    "reporting_scopes": 22,
+    "provenance_sources": 33,
+    "source_configuration_relationships": 251,
+    "configurations_without_provenance": 0,
+    "formats": [
+      "JSON",
+      "CSV",
+      "HTML"
+    ]
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "configuration_pairs_generated": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.13.0.zip": {
+      "size_bytes": 83414765,
+      "sha256": "0a45dab5e41877a022cd7a7c9a448f022c0a590f971ceddb3a90b9ab3edc52f7"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 24372,
+      "sha256": "d0a9172170962448dbabf54298f7d8f302408d1140d2e95be2513312a5378c1d"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "0752c997afda8ac8c02fef307129ca177b5adf81695d9a38b02e855319028004"
+    }
+  },
+  "public_v1_12_1_immutable": true
+}

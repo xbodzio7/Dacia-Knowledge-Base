@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "package_id": "spring_charging_cable_representation_migration_001",
+  "decision_code": "spring_independent_charging_cable_concepts",
+  "migration": {
+    "attributes_added": 2,
+    "availability_rows_added": 5,
+    "attribute_codes": [
+      "type2_charging_cable_supplied",
+      "domestic_socket_charging_cable"
+    ],
+    "availability_codes": [
+      "spring_essential_electric70_automatic_type2_charging_cable_supplied_20260731",
+      "spring_expression_electric70_automatic_type2_charging_cable_supplied_20260802",
+      "spring_extreme_electric100_automatic_type2_charging_cable_supplied_20260802",
+      "spring_essential_electric70_automatic_domestic_socket_charging_cable_20260731",
+      "spring_extreme_electric100_automatic_domestic_socket_charging_cable_20260731"
+    ],
+    "expression_domestic_socket_state": "unresolved_no_row_created",
+    "historical_commercial_records_changed": 0
+  },
+  "counts": {
+    "before": {
+      "attributes": 385,
+      "availability_records": 5906,
+      "master_rows": 11716
+    },
+    "after": {
+      "attributes": 387,
+      "availability_records": 5911,
+      "master_rows": 11723
+    },
+    "delta": {
+      "attributes": 2,
+      "availability_records": 5,
+      "master_rows": 7
+    }
+  },
+  "evidence_boundary": {
+    "type2_standard_configurations": [
+      "spring_essential_electric70_automatic",
+      "spring_expression_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ],
+    "domestic_socket_optional_configurations": [
+      "spring_essential_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ],
+    "domestic_socket_unresolved_configurations": [
+      "spring_expression_electric70_automatic"
+    ]
+  },
+  "next_package": {
+    "package_id": "spring_charging_cable_commercial_semantics_review_001",
+    "goal": "Review the historical Spring charging-cable commercial item against its source wording and introduce a superseding current commercial representation only if the evidence requires it, without rewriting history."
+  }
+}

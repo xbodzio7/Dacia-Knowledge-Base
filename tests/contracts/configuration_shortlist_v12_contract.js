@@ -1,0 +1,139 @@
+"use strict";
+
+const assert = require("assert/strict");
+const api = require("../../tools/reporting/configuration_shortlist_v12_pricing.js");
+
+api.setEquipmentLabels({
+  automatic_climate_control: "Klimatyzacja automatyczna",
+  heated_front_seats: "Podgrzewane fotele przednie",
+  keyless_entry: "Dostęp bezkluczykowy"
+});
+
+const configuration = {
+  catalog_price: { state: "recorded", amount: 80000, currency_code: "PLN" },
+  equipment: {
+    automatic_climate_control: { availability_status: "optional" },
+    heated_front_seats: { availability_status: "optional" },
+    keyless_entry: { availability_status: "standard" }
+  },
+  price_components: [
+    { code: "climate_option", name: "Klimatyzacja", kind: "option", amount: 1500, currency_code: "PLN", equipment_codes: ["automatic_climate_control"] },
+    { code: "heated_option", name: "Fotele", kind: "option", amount: 900, currency_code: "PLN", equipment_codes: ["heated_front_seats"] },
+    { code: "thermo_package", name: "Pakiet THERMO", kind: "package", amount: 1900, currency_code: "PLN", equipment_codes: ["automatic_climate_control", "heated_front_seats"] }
+  ]
+};
+
+let breakdown = api.buildPriceBreakdown(
+  configuration,
+  ["automatic_climate_control", "heated_front_seats"],
+  ["keyless_entry"]
+);
+assert.equal(breakdown.known_surcharge, 1900);
+assert.equal(breakdown.total_amount, 81900);
+assert.deepEqual(breakdown.known_components.map((item) => item.code), ["thermo_package"]);
+assert.deepEqual(breakdown.included_standard.map((item) => item.code), ["keyless_entry"]);
+assert.deepEqual(
+  breakdown.selected_equipment.map((item) => [item.code, item.availability_status]),
+  [
+    ["automatic_climate_control", "optional"],
+    ["heated_front_seats", "optional"],
+    ["keyless_entry", "standard"]
+  ]
+);
+assert.equal(breakdown.total_is_complete, true);
+const markup = api.priceBreakdownMarkup(breakdown);
+assert.match(markup, /Wybrane wyposażenie/);
+assert.match(markup, /Dostęp bezkluczykowy/);
+assert.match(markup, /w standardzie — bez dopłaty/);
+assert.match(markup, /pakiet: Pakiet THERMO/);
+
+breakdown = api.buildPriceBreakdown(configuration, ["automatic_climate_control"], []);
+assert.deepEqual(breakdown.known_components.map((item) => item.code), ["climate_option"]);
+assert.equal(breakdown.known_surcharge, 1500);
+
+breakdown = api.buildPriceBreakdown(configuration, [], []);
+assert.equal(breakdown.known_components.length, 0);
+assert.equal(breakdown.total_amount, 80000);
+
+const missing = api.buildPriceBreakdown({
+  catalog_price: { state: "recorded", amount: 80000, currency_code: "PLN" },
+  equipment: { heated_front_seats: { availability_status: "optional" } },
+  price_components: []
+}, ["heated_front_seats"], []);
+assert.equal(missing.unknown_components.length, 1);
+assert.equal(missing.total_is_complete, false);
+assert.match(api.priceBreakdownMarkup(missing), /brak powiązania z cennikiem/);
+assert.match(api.priceBreakdownMarkup(missing), /Niepełne dopłaty nie zostały doliczone/);
+
+const manyAlternatives = Array.from({ length: 35 }, (_, index) => ({
+  code: `alternative_${index}`,
+  name: `Alternative ${index}`,
+  kind: "option",
+  amount: 2000 - index,
+  currency_code: "PLN",
+  equipment_codes: ["automatic_climate_control"]
+}));
+const selectedAlternative = api.chooseComponents(
+  manyAlternatives,
+  ["automatic_climate_control"]
+);
+assert.deepEqual(selectedAlternative.map((item) => item.code), ["alternative_34"]);
+
+const browser = require("../../tools/reporting/configuration_shortlist_browser.js");
+const equipmentVisibilityCatalog = { configurations: [
+  {
+    configuration_code: "visibility_a",
+    model_code: "model",
+    version_code: "version",
+    transmission_type: "manual",
+    powertrain_label: "powertrain",
+    catalog_price: { state: "missing" },
+    number_of_seats: { state: "missing" },
+    equipment: {
+      available_in_all: { availability_status: "standard" },
+      available_in_some: { availability_status: "standard" },
+      available_in_none: { availability_status: "not_available" }
+    }
+  },
+  {
+    configuration_code: "visibility_b",
+    model_code: "model",
+    version_code: "version",
+    transmission_type: "manual",
+    powertrain_label: "powertrain",
+    catalog_price: { state: "missing" },
+    number_of_seats: { state: "missing" },
+    equipment: {
+      available_in_all: { availability_status: "optional" },
+      available_in_some: { availability_status: "not_available" }
+    }
+  }
+] };
+const equipmentVisibility = browser.reconcileEquipmentSelection(
+  equipmentVisibilityCatalog,
+  { required_equipment: [], required_standard_equipment: [] }
+);
+assert.deepEqual(
+  equipmentVisibility.addable_equipment,
+  ["available_in_all", "available_in_some"]
+);
+assert.deepEqual(
+  equipmentVisibility.available_equipment,
+  ["available_in_all", "available_in_some"]
+);
+assert.equal(equipmentVisibility.available_equipment.includes("available_in_none"), false);
+assert.deepEqual(
+  equipmentVisibility.differentiating_equipment,
+  ["available_in_some"]
+);
+
+const ui = require("../../tools/reporting/configuration_shortlist_v12.js");
+
+global.Event = class Event {
+  constructor(type, options) { this.type = type; this.bubbles = Boolean(options && options.bubbles); }
+};
+const dispatched = [];
+ui.dispatchSelection({ dispatchEvent: (event) => dispatched.push(event.type) });
+assert.deepEqual(dispatched, ["change"]);
+
+console.log("Configuration shortlist HTML v1.2 pricing contract passed.");

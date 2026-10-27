@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "kind": "price_list_reconciliation_review",
+  "review_code": "sandero_stepway_price_list_20260811_reconciliation_001",
+  "source_extract": "project/sources/sandero_stepway_price_my26_20260811_full_extract.json",
+  "base_main_sha": "71765741c24736bc91bcbcc7a3c52513bf54be1c",
+  "source_pdf_sha256": "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+  "scope": {
+    "document_pages": 7,
+    "catalogue_combinations_in_20260811_price_matrix": 19,
+    "existing_active_sandero_stepway_configurations_before_reconciliation": 15,
+    "new_configuration_candidates": 4
+  },
+  "new_configuration_candidates": [
+    {
+      "code": "sandero_iii_expression_hybrid155_automatic",
+      "catalogue_price_pln": 84600
+    },
+    {
+      "code": "sandero_iii_journey_hybrid155_automatic",
+      "catalogue_price_pln": 90200
+    },
+    {
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "catalogue_price_pln": 90700
+    },
+    {
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "catalogue_price_pln": 96800
+    }
+  ],
+  "direct_current_price_matrix": [
+    [
+      "sandero_iii_essential_tce100_manual",
+      63900
+    ],
+    [
+      "sandero_iii_expression_tce100_manual",
+      68000
+    ],
+    [
+      "sandero_iii_journey_tce100_manual",
+      73600
+    ],
+    [
+      "sandero_stepway_iii_essential_tce110_manual",
+      71700
+    ],
+    [
+      "sandero_stepway_iii_expression_tce110_manual",
+      76400
+    ],
+    [
+      "sandero_stepway_iii_extreme_tce110_manual",
+      82500
+    ],
+    [
+      "sandero_iii_expression_ecog120_manual",
+      68000
+    ],
+    [
+      "sandero_iii_journey_ecog120_manual",
+      73600
+    ],
+    [
+      "sandero_stepway_iii_essential_ecog120_manual",
+      71700
+    ],
+    [
+      "sandero_stepway_iii_expression_ecog120_manual",
+      76400
+    ],
+    [
+      "sandero_stepway_iii_extreme_ecog120_manual",
+      82500
+    ],
+    [
+      "sandero_iii_expression_ecog120_automatic",
+      74900
+    ],
+    [
+      "sandero_iii_journey_ecog120_automatic",
+      80500
+    ],
+    [
+      "sandero_stepway_iii_expression_ecog120_automatic",
+      83300
+    ],
+    [
+      "sandero_stepway_iii_extreme_ecog120_automatic",
+      89400
+    ],
+    [
+      "sandero_iii_expression_hybrid155_automatic",
+      84600
+    ],
+    [
+      "sandero_iii_journey_hybrid155_automatic",
+      90200
+    ],
+    [
+      "sandero_stepway_iii_expression_hybrid155_automatic",
+      90700
+    ],
+    [
+      "sandero_stepway_iii_extreme_hybrid155_automatic",
+      96800
+    ]
+  ],
+  "option_and_package_findings": {
+    "package_prices_current": [
+      [
+        "comfort_ecog120_auto",
+        2000
+      ],
+      [
+        "thermo",
+        1900
+      ],
+      [
+        "zimowy",
+        1200
+      ],
+      [
+        "media_nav_live",
+        1600
+      ],
+      [
+        "easy",
+        1600
+      ]
+    ],
+    "price_conflict_resolved": [
+      {
+        "item": "sandero_easy_package",
+        "configuration": "sandero_iii_journey_ecog120_automatic",
+        "older_exact_configurator_snapshot_date": "2026-08-09",
+        "older_snapshot_price_pln": 1400,
+        "current_price_list_price_pln": 1600,
+        "resolution": "Use the 11.08.2026 price list for the commercial price; retain the 08.09 configurator observation as historical source evidence rather than overwriting it."
+      }
+    ],
+    "colour_boundary": "The price list provides paint surcharge classes (2500 PLN generally; 2500/2700 PLN for Expression/Extreme Stepway) but does not name individual colours in the equipment matrix. Exact colour names and exact configuration compatibility therefore remain a configurator/brochure evidence task; no colour-name-to-price projection is applied."
+  },
+  "technical_findings": {
+    "new_powertrain": "hybrid 155",
+    "cennik_power_description": "80 kW + E-Motor 36 kW + HSG 15 kW",
+    "displacement_cm3": 1789,
+    "gearbox": "automatyczna Multimode",
+    "source_note": "Cennik terminology is preserved exactly; no reconciliation to later web display terminology is performed in this package."
+  },
+  "dimension_findings": {
+    "Sandero": {
+      "length_mm": 4102,
+      "wheelbase_mm": 2604,
+      "ground_clearance_mm": 162,
+      "height_mm": 1496
+    },
+    "Sandero_Stepway": {
+      "length_mm": 4102,
+      "wheelbase_mm": 2604,
+      "ground_clearance_mm": 200,
+      "height_mm": 1555
+    }
+  },
+  "master_data_changes": {
+    "configurations_csv": false,
+    "configuration_prices": false,
+    "commercial_item_configurations": false,
+    "availability": false,
+    "attributes": false
+  },
+  "next_package": {
+    "package_id": "sandero_stepway_price_list_20260811_master_reconciliation_001",
+    "goal": "Materialize the four explicitly listed hybrid 155 configurations and reconcile current catalogue/package prices against existing dated commercial mappings, while keeping historical 2026-07-03 data and exact configurator observations separate."
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "bigster_documentary_technical_reconciliation_closure",
+  "reviewed_on": "2026-09-22",
+  "package_id": "bigster-documentary-technical-reconciliation-001",
+  "status": "complete",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 20,
+    "coverage": "fully_assimilated"
+  },
+  "cross_check_source": {
+    "source_code": "src_pl_bigster_price_my26_20260703",
+    "effective_date": "2026-07-03"
+  },
+  "scope": {
+    "current_bigster_configurations": 14,
+    "documentary_import_ready_facts_reviewed": 3,
+    "master_mutations_required": 0
+  },
+  "reconciliation": [
+    {
+      "attribute_code": "eco_mode",
+      "source_value": "true",
+      "source_scope": "all 14 configurations",
+      "master_status": "already represented from src_pl_bigster_brochure_20251210",
+      "action": "no_change"
+    },
+    {
+      "attribute_code": "hybrid_system_power_total",
+      "source_value": "113 kW (150 KM) for Hybrid-G 150 4x4",
+      "source_scope": "3 configurations",
+      "master_status": "already represented from src_pl_bigster_brochure_20251210",
+      "action": "no_change"
+    },
+    {
+      "attribute_code": "hybrid_battery_type",
+      "source_value": "lithium_ion",
+      "source_scope": "all 14 configurations",
+      "master_status": "already represented from src_pl_bigster_brochure_20251210",
+      "action": "no_change"
+    }
+  ],
+  "documentary_ranges": {
+    "status": "already_materialized",
+    "record_count": 30,
+    "attributes": [
+      "co2_emissions",
+      "fuel_consumption_combined"
+    ],
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "observation_date": "2025-12-10"
+  },
+  "preserved_conflicts": [
+    "Hybrid 155: brochure page 20 states 280 V; later July 2026 price-list data records 200 V. Both observations remain source-bound.",
+    "Mild hybrid-G 140 payload: brochure page 20 differs from later July 2026 exact range. No overwrite.",
+    "Hybrid-G 150 4x4: documentary naming/equipment conflicts remain explicitly deferred."
+  ],
+  "boundary": "Bigster documentary technical source-to-master reconciliation is closed. Equipment-matrix reconciliation remains a separate source-first scope; configurator evidence is not promoted merely because documentary technical coverage is closed.",
+  "evidence_policy": {
+    "configurator_used": false,
+    "negative_inference": false,
+    "cross_powertrain_projection": false
+  }
+}

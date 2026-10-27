@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_technical_page17_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_022",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 17
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 49,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 24,
+    "decision_counts": {
+      "context_only_non_import": 20,
+      "unresolved_signature_mismatch": 20
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_stepway_technical_page17_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "powertrain_columns": [
+      "TCe 110",
+      "120 Eco-G LPG",
+      "120 Eco-G Benzyna",
+      "120 Eco-G auto LPG",
+      "120 Eco-G auto Benzyna"
+    ],
+    "maximum_power_kw": [
+      "81 od 5000 do 5250",
+      "90 od 4500 do 5000",
+      "84 od 4500 do 5000",
+      "90 od 4500 do 5000",
+      "84 od 4500 do 5000"
+    ],
+    "maximum_torque_nm": [
+      "200 od 2900 do 3500",
+      "197 od 1750 do 3750",
+      "190 od 2000 do 4000",
+      "197 od 1750 do 3750",
+      "190 od 2000 do 4000"
+    ],
+    "gearboxes": [
+      "Manualna 6-biegowa",
+      "Manual 6-speed",
+      "Automatyczna 6-biegowa dwusprzęgłowa"
+    ],
+    "injection_types": [
+      "Bezpośredni z turbodoładowaniem",
+      "Pośredni / Bezpośredni",
+      "Pośredni / Bezpośredni"
+    ],
+    "acceleration_0_100_s": [
+      "10",
+      "10,4",
+      "11,4",
+      "10",
+      "11"
+    ],
+    "co2_g_km": [
+      "125/125",
+      "131/140",
+      "108/109",
+      "122/122"
+    ],
+    "combined_consumption_l_100km": [
+      "5,5/5,5",
+      "5,8/6,2",
+      "6,7/6,7",
+      "5,4/5,4"
+    ],
+    "elasticity_values_remain_gear_specific": true,
+    "incomplete_mass_labels_not_promoted": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "fuel_subcolumns_not_collapsed": true,
+    "gear_specific_elasticity_not_projected_to_automatic": true,
+    "incomplete_rows_not_promoted": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Stepway Technical Page 17 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_023",
+    "candidate_count": 9,
+    "group_candidate_count": 49,
+    "chunk_index": 2,
+    "chunk_count": 2
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "kind": "post_brochure_priority_selection_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_milestone": "brochure_generic_dimensions_import_closure_review.json",
+  "selection_policy": {
+    "scale": "1_to_5",
+    "weights_percent": {
+      "consumer_value": 30,
+      "evidence_readiness": 25,
+      "existing_tooling_reuse": 20,
+      "low_implementation_risk": 15,
+      "dependency_clearance": 10
+    },
+    "decision_rule": "Select the highest weighted score that does not require new architecture, ambiguous evidence resolution or an unavailable exact source relationship."
+  },
+  "repository_readiness": {
+    "latest_documented_public_release": "data-products-v1.6.1",
+    "active_configurations": 72,
+    "independent_comparison_scopes": 19,
+    "candidate_release_files": 83,
+    "candidate_release_archive_bytes": 62077663,
+    "candidate_release_pair_count": 114,
+    "candidate_release_difference_count": 1695,
+    "candidate_release_formats": [
+      "JSON",
+      "Markdown",
+      "CSV",
+      "HTML",
+      "XLSX"
+    ],
+    "candidate_release_semantic_boundaries": {
+      "cross_scope_pairs_generated": false,
+      "ranking_generated": false,
+      "recommendations_generated": false,
+      "inferred_values_generated": false
+    },
+    "candidate_workflow_evidence": {
+      "workflow_run": 30212405338,
+      "artifact_id": 8634835255,
+      "artifact_digest": "sha256:c963f118e227e70cd9b8402da88dd2d638fab5777df837d89fdcc1528b0342d6"
+    }
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "code": "data_products_v1_7_0_release_preparation",
+      "name": "Data Products v1.7.0 Release Preparation",
+      "status": "selected",
+      "scores": {
+        "consumer_value": 5,
+        "evidence_readiness": 5,
+        "existing_tooling_reuse": 5,
+        "low_implementation_risk": 5,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 100,
+      "decision": "Prepare a new minor public data-product release from the fully green post-brochure baseline. The package reuses the existing deterministic release, download and offline verification pipelines and exposes the accumulated source-backed additions without changing their semantics."
+    },
+    {
+      "rank": 2,
+      "code": "cross_model_comparison_view_review",
+      "name": "Cross-Model Comparison View Review",
+      "status": "follow_up_after_release",
+      "scores": {
+        "consumer_value": 4,
+        "evidence_readiness": 4,
+        "existing_tooling_reuse": 4,
+        "low_implementation_risk": 4,
+        "dependency_clearance": 5
+      },
+      "weighted_score": 82,
+      "decision": "The current release already contains nineteen independent scopes. A new cross-model consumer view is valuable but should be designed after the current source-backed portfolio is published and must continue to prohibit cross-scope inference."
+    },
+    {
+      "rank": 3,
+      "code": "pdf_candidate_extraction_automation_review",
+      "name": "PDF Candidate Extraction Automation Review",
+      "status": "strategic_later",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 4,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 4
+      },
+      "weighted_score": 67,
+      "decision": "The brochure milestone now provides mature evidence boundaries for candidate extraction, but automation remains a tooling investment and must continue to separate extraction candidates from approved imports."
+    },
+    {
+      "rank": 4,
+      "code": "exact_configuration_expansion_review",
+      "name": "Exact Configuration Expansion Review",
+      "status": "blocked_evidence",
+      "scores": {
+        "consumer_value": 4,
+        "evidence_readiness": 2,
+        "existing_tooling_reuse": 3,
+        "low_implementation_risk": 3,
+        "dependency_clearance": 1
+      },
+      "weighted_score": 57,
+      "blockers": [
+        "sandero_tce100_without_exact_configuration",
+        "stepway_tce110_without_exact_configuration",
+        "duster_hybridg150_without_exact_configuration",
+        "duster_4x4_dimensions_without_exact_source_relationship"
+      ],
+      "decision": "Do not create configurations or project generic observations without an exact source-backed configuration and relationship."
+    },
+    {
+      "rank": 5,
+      "code": "ambiguous_brochure_evidence_resolution",
+      "name": "Ambiguous Brochure Evidence Resolution",
+      "status": "blocked_ambiguity",
+      "scores": {
+        "consumer_value": 3,
+        "evidence_readiness": 1,
+        "existing_tooling_reuse": 2,
+        "low_implementation_risk": 2,
+        "dependency_clearance": 1
+      },
+      "weighted_score": 39,
+      "blockers": [
+        "jogger_mass_table_label_conflict"
+      ],
+      "decision": "Retain the ambiguity until a source or authoritative clarification provides a stable semantic mapping."
+    }
+  ],
+  "selection": {
+    "code": "data_products_v1_7_0_release_preparation",
+    "name": "Data Products v1.7.0 Release Preparation",
+    "weighted_score": 100,
+    "rationale": "This is the only candidate with immediate consumer delivery value, complete evidence readiness, full reuse of green deterministic tooling and no unresolved dependency. A minor release is appropriate because the documented public baseline remains v1.6.1 while the repository now contains materially expanded official brochure, Duster automatic and Bigster data."
+  },
+  "release_preparation_contract": {
+    "target_version": "1.7.0",
+    "target_tag": "data-products-v1.7.0",
+    "publication_mode": "manual_after_verified_preparation",
+    "required_assets": [
+      "dacia-knowledge-base-data-products-v1.7.0.zip",
+      "data-product-release-manifest.json",
+      "SHA256SUMS"
+    ],
+    "required_verification": [
+      "green_source_commit",
+      "deterministic_candidate_generation",
+      "independent_download_verification",
+      "offline_workspace_verification",
+      "exact_release_tag_commit_binding"
+    ],
+    "non_goals": [
+      "ranking",
+      "recommendations",
+      "cross_scope_pair_generation",
+      "inferred_values",
+      "new_data_imports"
+    ]
+  },
+  "next_package": {
+    "name": "Data Products v1.7.0 Release Preparation",
+    "goal": "Freeze the v1.7.0 release version and notes, generate deterministic assets from a green source commit, independently verify download and offline workspace behavior, and prepare exact tag-to-commit publication evidence without changing data semantics."
+  }
+}

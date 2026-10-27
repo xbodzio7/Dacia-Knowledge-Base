@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 240,
+  "attribute_code": "maximum_payload",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2026-06-26",
+  "fuel_type_code": "",
+  "source_page": 5,
+  "source_section": "Dopuszczalna masa całkowita",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+      "value": "373",
+      "source_text": "Maksymalna Ładowność (Kg) 373"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+      "value": "371",
+      "source_text": "Maksymalna Ładowność (Kg) 371"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "value": "385",
+      "source_text": "Maksymalna Ładowność (Kg) 385"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "value": "380",
+      "source_text": "Maksymalna Ładowność (Kg) 380"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "value": "376",
+      "source_text": "Maksymalna Ładowność (Kg) 376"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "value": "377",
+      "source_text": "Maksymalna Ładowność (Kg) 377"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "value": "375",
+      "source_text": "Maksymalna Ładowność (Kg) 375"
+    }
+  ]
+}

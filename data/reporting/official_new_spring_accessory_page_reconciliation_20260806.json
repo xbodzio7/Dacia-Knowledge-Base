@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "kind": "official_new_spring_accessory_page_reconciliation",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "model": "new_spring",
+  "configurator_used": false,
+  "sources": {
+    "price_list": {
+      "url": "https://akcesoria.dacia.pl/model/nowy_spring",
+      "valid_from": "2024-04-17",
+      "pages": 10,
+      "price_semantics": "Cena z VAT bez montażu; wydrukowane oznaczenie montażu zachowane osobno.",
+      "repository_extract": "data/reporting/official_new_spring_accessory_price_list_20240417.csv"
+    },
+    "current_model_page": {
+      "url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/akcesoria.html",
+      "retrieved_on": "2026-08-06"
+    },
+    "shop": {
+      "url": "https://sklep.dacia.pl/akcesoria",
+      "retrieved_on": "2026-08-06"
+    }
+  },
+  "summary": {
+    "price_list_rows": 56,
+    "price_list_installation_required_rows": 5,
+    "price_category_counts": {
+      "bezpieczenstwo": 5,
+      "design": 18,
+      "komfort_i_ochrona": 27,
+      "multimedia": 4,
+      "transport": 2
+    },
+    "current_model_page_featured_concepts": 12,
+    "current_page_concepts_with_direct_price_list_reference": 9,
+    "current_page_concepts_without_verified_reference": 3,
+    "current_shop_corroboration_rows": 11,
+    "current_shop_only_references": 1
+  },
+  "evidence_policy": {
+    "document_prices_are_not_automatically_current": true,
+    "current_model_page_does_not_prove_part_number": true,
+    "shop_product_card_proves_only_the_displayed_reference_and_model_compatibility": true,
+    "absence_from_shop_search_is_not_withdrawal": true,
+    "similar_names_are_not_normalized": true,
+    "no_cross_model_transfer": true
+  },
+  "current_model_page_concepts": [
+    {
+      "concept_id": "magsafe_phone_charger",
+      "name": "Częściowo zintegrowana indukcyjna ładowarka do smartfonów MagSafe 15 W",
+      "part_numbers": [],
+      "reference_status": "unresolved",
+      "notes": "Nie utożsamiono jej z ładowarką na kratkę nawiewu 7711949678 ani z YouClip 283D84357R."
+    },
+    {
+      "concept_id": "three_dimensional_cup_holder",
+      "name": "Uchwyt na napoje 3D",
+      "part_numbers": [],
+      "reference_status": "unresolved",
+      "notes": "Cennik zawiera uchwyt na kubek 685609899R, ale strona modelowa nie podaje numeru i nie potwierdza tożsamości produktu."
+    },
+    {
+      "concept_id": "armrest_with_storage",
+      "name": "Podłokietnik ze schowkiem",
+      "part_numbers": ["8201751967"],
+      "reference_status": "matched_by_official_name_and_model_context"
+    },
+    {
+      "concept_id": "front_trunk_34_l",
+      "name": "Schowek pod maską o pojemności 34 l",
+      "part_numbers": ["8201751968"],
+      "reference_status": "matched_by_official_name_and_model_context"
+    },
+    {
+      "concept_id": "v2l_adapter",
+      "name": "Adapter power to object do ładowania dwukierunkowego V2L",
+      "part_numbers": ["296976446R"],
+      "reference_status": "matched_by_official_function_and_price_list_description"
+    },
+    {
+      "concept_id": "youclip_smartphone_holder",
+      "name": "YouClip - uchwyt na smartfona",
+      "part_numbers": ["283143468R"],
+      "reference_status": "exact_name_match"
+    },
+    {
+      "concept_id": "youclip_wireless_charger",
+      "name": "YouClip - ładowarka indukcyjna",
+      "part_numbers": ["283D84357R"],
+      "reference_status": "exact_function_match"
+    },
+    {
+      "concept_id": "youclip_three_in_one",
+      "name": "YouClip - zestaw 3 w 1: uchwyt na kubek, lampka i zaczep",
+      "part_numbers": ["984392908R"],
+      "reference_status": "exact_name_match"
+    },
+    {
+      "concept_id": "youclip_bag",
+      "name": "YouClip - torba",
+      "part_numbers": [],
+      "reference_status": "unresolved",
+      "notes": "Nie utożsamiono torby z pozycją YouClip – kieszonka 685605709R."
+    },
+    {
+      "concept_id": "decorative_roof_rails",
+      "name": "Dekoracyjne relingi dachowe",
+      "part_numbers": ["738200989R"],
+      "reference_status": "matched_by_official_name_and_model_context"
+    },
+    {
+      "concept_id": "double_boot_floor",
+      "name": "Podwójna podłoga w bagażniku z przegrodami na kable",
+      "part_numbers": ["7717300012"],
+      "reference_status": "matched_by_official_function_and_price_list_description"
+    },
+    {
+      "concept_id": "reversible_boot_liner",
+      "name": "Dwustronny wkład do bagażnika materiał-guma",
+      "part_numbers": ["8201742284"],
+      "reference_status": "matched_by_official_function_and_price_list_description"
+    }
+  ],
+  "cross_source_findings": [
+    {
+      "concept": "source_age",
+      "finding": "Cennik obowiązuje od 2024-04-17. Pozostaje oficjalnym dowodem dokumentowym, lecz nie gwarantuje niezmienionej ceny ani dostępności w 2026 r."
+    },
+    {
+      "concept": "rubber_mats",
+      "finding": "Cennik podaje 8201756618 i 8201756621, natomiast bieżący sklep prowadzi dodatkową kartę gumowych dywaników 749M68749R dla Nowego Springa. Referencji nie połączono."
+    },
+    {
+      "concept": "duplicate_textile_mat_names",
+      "finding": "Cennik zawiera dwie pary produktów Comfort/Premium o różnych numerach: 8201751532/8201751534 oraz 8201752597/8201752599. Brak danych do ich semantycznego scalenia."
+    },
+    {
+      "concept": "magsafe_charger",
+      "finding": "Bieżąca strona promuje częściowo zintegrowaną ładowarkę MagSafe 15 W, której nie można bezpośrednio przypisać do żadnej z trzech ładowarek telefonu z cennika."
+    },
+    {
+      "concept": "youclip_bag",
+      "finding": "Bieżąca strona używa nazwy torba YouClip; cennik używa nazwy kieszonka dla 685605709R. Nie przyjęto, że to ten sam produkt."
+    },
+    {
+      "concept": "v2l_name_difference",
+      "finding": "Cennik opisuje 296976446R jako przejściówkę do zasilania zewnętrznego sprzętu, a strona modelowa jako adapter V2L. Funkcja i kontekst modelu pozwalają zachować powiązanie, ale oba oryginalne opisy pozostają widoczne."
+    },
+    {
+      "concept": "current_shop_price_identity",
+      "finding": "Sklep nadal pokazuje część cen identycznych z dokumentem, np. 7717301274, 984392908R, 684344266R, 283143468R, 738200989R i 684349615R. Nie ekstrapolowano tej zgodności na pozostałe pozycje."
+    }
+  ],
+  "shop_corroboration": [
+    {"part_number": "8201741933", "name": "Wykładzina bagażnika Dacia Spring", "price_pln": null, "new_spring_compatibility": true, "availability": "listed"},
+    {"part_number": "7717301274", "name": "Przednie lub tylne chlapacze", "price_pln": 111, "new_spring_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "403152645R", "name": "Kołpak 15 cali", "price_pln": null, "new_spring_compatibility": true, "availability": "listed"},
+    {"part_number": "685605709R", "name": "YouClip – kieszonka", "price_pln": null, "new_spring_compatibility": true, "availability": "listed"},
+    {"part_number": "984392908R", "name": "YouClip – 3 w 1", "price_pln": 259, "new_spring_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "684344266R", "name": "YouClip – zaczep", "price_pln": 56, "new_spring_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "684342227R", "name": "YouClip – lampka", "price_pln": null, "new_spring_compatibility": true, "availability": "listed"},
+    {"part_number": "283143468R", "name": "YouClip – uchwyt do smartfona", "price_pln": 113, "new_spring_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "738200989R", "name": "Relingi dachowe", "price_pln": 441, "new_spring_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "684349615R", "name": "YouClip – wielofunkcyjny uchwyt na kubek", "price_pln": 95, "new_spring_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "749M68749R", "name": "Dywaniki gumowe", "price_pln": null, "new_spring_compatibility": true, "availability": "listed", "source_relation": "shop_only_not_in_2024_price_list"}
+  ],
+  "next_actions": [
+    "Odnaleźć numery części dla bieżącej ładowarki MagSafe, uchwytu na napoje 3D i torby YouClip.",
+    "Rozstrzygnąć relację pomiędzy gumowymi dywanikami 749M68749R a numerami 8201756618 i 8201756621.",
+    "Odczytać aktualny katalog akcesoriów Nowego Springa, jeżeli zostanie udostępniony w formie z matrycą kompatybilności.",
+    "Przenieść wyłącznie nierozstrzygnięte zależności do końcowej, ograniczonej kolejki konfiguratora."
+  ]
+}

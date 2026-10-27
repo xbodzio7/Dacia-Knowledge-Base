@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "kind": "spring_official_source_intake_review",
+  "reviewed_on": "2026-07-31",
+  "status": "complete",
+  "model": {
+    "code": "spring",
+    "name": "Spring",
+    "status": "current",
+    "registered_source_count_before_review": 0
+  },
+  "candidate_sources": [
+    {
+      "rank": 1,
+      "code": "spring_official_brochure_20260219",
+      "kind": "brochure_pdf",
+      "title": "DACIA SPRING broszura",
+      "publisher": "Dacia",
+      "market": "PL",
+      "document_date": "2026-02-19",
+      "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf",
+      "page_count": 22,
+      "decision": "selected_for_registration",
+      "evidence_scope": {
+        "grades": ["essential", "expression", "extreme", "cargo"],
+        "powertrains": ["electric_70", "electric_100"],
+        "contains_equipment_matrix": true,
+        "contains_technical_table": true
+      },
+      "boundaries": [
+        "grade_and_cargo_applicability_must_follow_table_symbols_and_footnotes",
+        "electric_70_and_electric_100_values_must_not_be_cross_applied",
+        "registration_does_not_import_observations"
+      ]
+    },
+    {
+      "rank": 2,
+      "code": "spring_official_price_list_20260708",
+      "kind": "configuration_pdf",
+      "title": "DACIA SPRING cennik",
+      "publisher": "Dacia",
+      "market": "PL",
+      "document_date": "2026-07-08",
+      "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
+      "page_count": 6,
+      "decision": "selected_for_registration",
+      "evidence_scope": {
+        "commercial_scope": "model_year_2025_stock_offer",
+        "explicit_configurations": [
+          "expression_electric_70",
+          "extreme_electric_100"
+        ],
+        "contains_catalogue_prices": true,
+        "contains_promotional_stock_prices": true,
+        "contains_technical_table": true
+      },
+      "boundaries": [
+        "stock_and_promotional_prices_must_not_be_generalized_to_my26_configurator_states",
+        "technical_footnotes_must_preserve_grade_and_wheel_context",
+        "registration_does_not_import_observations"
+      ]
+    },
+    {
+      "rank": 3,
+      "code": "spring_official_configurator_20260731",
+      "kind": "web_snapshot_candidate",
+      "title": "Dacia Polska Spring configurator",
+      "publisher": "Dacia",
+      "market": "PL",
+      "observed_on": "2026-07-31",
+      "external_reference": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html",
+      "decision": "deferred_to_dated_snapshot_package",
+      "verified_default_state": {
+        "grade": "essential",
+        "powertrain": "electric_70",
+        "model_year_state": "MY26.b",
+        "catalogue_price_pln": 73500,
+        "transmission": "automatic",
+        "power_kw": 52,
+        "power_hp": 70,
+        "battery_capacity_kwh": 24.3,
+        "wltp_range_km": 221,
+        "wltp_consumption_kwh_per_100km": 12.7,
+        "zero_to_100_seconds": 12.3
+      },
+      "boundaries": [
+        "grade_selectors_do_not_prove_every_grade_powertrain_combination",
+        "dynamic_observations_require_a_dated_normalized_snapshot",
+        "default_state_must_not_be_generalized_to_other_grades"
+      ]
+    },
+    {
+      "rank": 4,
+      "code": "spring_official_stock_catalogue_20260731",
+      "kind": "web_snapshot_candidate",
+      "title": "Dacia Polska Spring exact stock catalogue",
+      "publisher": "Dacia",
+      "market": "PL",
+      "observed_on": "2026-07-31",
+      "external_reference": "https://www.dacia.pl/katalog-nci.html?model.code=S2E",
+      "decision": "deferred_to_exact_card_snapshot_package",
+      "verified_scope": "exact Spring MY26 stock cards including extreme electric 100 states",
+      "boundaries": [
+        "dealer_prices_are_exact_card_observations_not_catalogue_prices",
+        "stock_equipment_must_not_be_generalized_between_cards",
+        "dynamic_card_identity_and_expiry_must_be preserved"
+      ]
+    }
+  ],
+  "selection": {
+    "package_id": "spring_official_pdf_source_registration_001",
+    "kind": "source_registration",
+    "name": "Spring Official PDF Source Registration",
+    "status": "planned",
+    "goal": "Archive, hash and register the exact official Polish Spring brochure dated 2026-02-19 and price list effective 2026-07-08, add model-level Spring relationships and a registration receipt, without importing configuration, price, equipment or technical observations.",
+    "source_codes": [
+      "src_pl_spring_brochure_20260219",
+      "src_pl_spring_price_my25_stock_20260708"
+    ],
+    "planned_relationships": [
+      {
+        "source_code": "src_pl_spring_brochure_20260219",
+        "model_code": "spring",
+        "relationship": "brochure_for"
+      },
+      {
+        "source_code": "src_pl_spring_price_my25_stock_20260708",
+        "model_code": "spring",
+        "relationship": "price_list_for"
+      }
+    ],
+    "manifest_paths": [
+      "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+      "PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf",
+      "data/master/sources.csv",
+      "data/master/source_models.csv",
+      "data/reporting/spring_official_pdf_source_registration.json",
+      "data/reporting/spring_official_pdf_source_registration.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "deferred_packages": [
+    {
+      "name": "Spring Official Configurator Snapshot",
+      "condition": "after_pdf_source_registration",
+      "scope": "dated exact dynamic states only"
+    },
+    {
+      "name": "Spring Exact Stock Card Snapshot",
+      "condition": "after_separate_card_selection",
+      "scope": "individual cards only; no generalized dealer or equipment state"
+    },
+    {
+      "name": "Spring Source-Backed Data Import Review",
+      "condition": "after_sources_are_registered_and_exact_applicability_is_modeled",
+      "scope": "review before any master-data import"
+    }
+  ],
+  "non_goals": [
+    "modify_master_data_in_review_package",
+    "register_dynamic_web_pages_as_immutable_pdfs",
+    "generalize_stock_prices",
+    "infer_unobserved_grade_powertrain_combinations",
+    "flatten_technical_table_footnotes",
+    "publish_new_data_product_release"
+  ],
+  "decision": "SELECT_SPRING_OFFICIAL_PDF_SOURCE_REGISTRATION"
+}

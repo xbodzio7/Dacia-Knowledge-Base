@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "package_id": "spring_charging_cable_commercial_semantics_review_001",
+  "historical_type2_item": {
+    "commercial_item_code": "spring_type2_charging_cable_option",
+    "source_code": "src_pl_spring_brochure_20260219",
+    "source_meaning": "physical_type2_charging_cable",
+    "mapping_count": 3,
+    "mapping_status": "optional",
+    "mapping_action": "preserve_unchanged",
+    "current_membership_attribute": "charging_connector_type",
+    "membership_review": "semantically_incorrect",
+    "accepted_membership_attribute": "type2_charging_cable_supplied"
+  },
+  "current_domestic_socket_item": {
+    "accepted_code": "spring_domestic_socket_charging_cable_option",
+    "accepted_attribute_code": "domestic_socket_charging_cable",
+    "source_code": "src_pl_spring_commercial_context_20260802",
+    "exact_mappings": [
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "availability_status": "optional",
+        "amount_pln": 1500
+      },
+      {
+        "configuration_code": "spring_extreme_electric100_automatic",
+        "availability_status": "optional",
+        "amount_pln": 1500
+      }
+    ],
+    "unresolved_configuration_codes": [
+      "spring_expression_electric70_automatic"
+    ]
+  },
+  "master_data_delta": {
+    "commercial_items_changed": 0,
+    "commercial_memberships_changed": 0,
+    "commercial_mappings_changed": 0,
+    "net_master_rows_changed": 0
+  },
+  "accepted_future_migration_delta": {
+    "commercial_items": 1,
+    "commercial_item_attributes": 1,
+    "commercial_item_configurations": 2,
+    "net_master_rows": 3,
+    "historical_type2_mappings_changed": 0
+  },
+  "next_package": {
+    "package_id": "spring_charging_cable_commercial_semantics_migration_001",
+    "goal": "Materialize the accepted membership correction and exact-current domestic-socket commercial item without rewriting historical Type 2 mappings."
+  }
+}

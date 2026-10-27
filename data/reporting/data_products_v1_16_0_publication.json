@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_16_0_publication",
+  "published_on": "2026-08-05",
+  "status": "complete",
+  "tag": "data-products-v1.16.0",
+  "release_id": 365326491,
+  "source_commit": "bc6523ba3a37df40e879a8f8f5cf0fce8f0dcfd3",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "consumer_interface": {
+    "model_family_summary_entry_point": "model_family_summary_html",
+    "model_family_comparison_entry_point": "model_family_comparison_matrix_html",
+    "model_version_comparison_entry_point": "model_version_comparison_matrix_html",
+    "source_coverage_entry_point": "source_coverage_matrix_html",
+    "powertrain_transmission_entry_point": "powertrain_transmission_matrix_html",
+    "powertrain_transmission_workspace_card": "Powertrain and transmission matrix",
+    "older_release_compatibility": true
+  },
+  "portfolio_powertrain_transmission_matrix": {
+    "active_configurations": 81,
+    "formats": [
+      "JSON",
+      "CSV",
+      "HTML"
+    ],
+    "exact_recorded_grouping": true
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "master_data_changed": false,
+    "grouping_semantics_changed": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.16.0.zip": {
+      "size_bytes": 83667195,
+      "sha256": "f3f1fa7b0e2d37193e2c3ff2b0a4baa84141ca86c3b6ba6b4bb7f173fb891c95"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 27132,
+      "sha256": "3c1e43b2962fab39805f8fc0cc73c55be3ef051cc115b3b3d17d98027545ec8a"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "1c906fbd1613641d08940f54a5ef6ea46aeb701cf5498e98d2a937463a488600"
+    }
+  },
+  "public_v1_15_0_immutable": true
+}

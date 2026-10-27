@@ -1,0 +1,626 @@
+{
+  "version": 1,
+  "source_code": "src_ro_duster_ecog120_automatic_homologation_20260725",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "RO",
+  "observed_on": "2026-07-25",
+  "volatility": "dynamic_official_stock_cards",
+  "scope": {
+    "model_code": "duster_iii",
+    "powertrain_label": "Eco-G 120 4x2",
+    "transmission_type": "automatic"
+  },
+  "cards": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "version_code": "duster_iii_expression",
+      "version_name": "Expression",
+      "vehicle_id": "UU1DJF01177585830",
+      "url": "https://vanzari.dacia.ro/autoturisme-duster-expression-uu1djf01177585830.html",
+      "year": "2026",
+      "powertrain_source_label": "ECO-G 120 auto, 2WD",
+      "scalar_values": [
+        {
+          "attribute_code": "engine_power",
+          "fuel_type_code": "lpg",
+          "value": "90",
+          "unit": "kW",
+          "source_text": "GPL: 90 @4500-5000"
+        },
+        {
+          "attribute_code": "engine_power",
+          "fuel_type_code": "petrol",
+          "value": "84",
+          "unit": "kW",
+          "source_text": "B: 84 @4500-5750"
+        },
+        {
+          "attribute_code": "engine_torque",
+          "fuel_type_code": "lpg",
+          "value": "200",
+          "unit": "Nm",
+          "source_text": "200Nm@1750-4000 (GPL)"
+        },
+        {
+          "attribute_code": "engine_torque",
+          "fuel_type_code": "petrol",
+          "value": "190",
+          "unit": "Nm",
+          "source_text": "190Nm@1750-4000 (benzina)"
+        },
+        {
+          "attribute_code": "gear_count",
+          "fuel_type_code": "",
+          "value": "6",
+          "unit": "",
+          "source_text": "Numar de rapoarte: 6"
+        },
+        {
+          "attribute_code": "top_speed",
+          "fuel_type_code": "",
+          "value": "180",
+          "unit": "km/h",
+          "source_text": "Viteza maxima (km/h): 180"
+        },
+        {
+          "attribute_code": "acceleration_0_100",
+          "fuel_type_code": "petrol",
+          "value": "11.4",
+          "unit": "s",
+          "source_text": "0-100 km/h (s): 11.4 benzina"
+        },
+        {
+          "attribute_code": "acceleration_0_100",
+          "fuel_type_code": "lpg",
+          "value": "11.7",
+          "unit": "s",
+          "source_text": "0-100 km/h (s): 11.7 GPL"
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "petrol",
+          "value": "33.3",
+          "unit": "s",
+          "source_text": "1000 m cu plecare de pe loc: 33.3 benzina"
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "lpg",
+          "value": "33.6",
+          "unit": "s",
+          "source_text": "1000 m cu plecare de pe loc: 33.6 GPL"
+        },
+        {
+          "attribute_code": "turning_circle",
+          "fuel_type_code": "",
+          "value": "10.96",
+          "unit": "m",
+          "source_text": "Diametru de bracaj intre trotuare (m): 10,96"
+        },
+        {
+          "attribute_code": "gross_vehicle_weight",
+          "fuel_type_code": "",
+          "value": "1805",
+          "unit": "kg",
+          "source_text": "Masa total maxim autorizata (MTMA): 1805 kg"
+        },
+        {
+          "attribute_code": "gross_train_weight",
+          "fuel_type_code": "",
+          "value": "3305",
+          "unit": "kg",
+          "source_text": "Masa totala rulanta (M.T.R.): 3305 kg"
+        },
+        {
+          "attribute_code": "braked_trailer_weight",
+          "fuel_type_code": "",
+          "value": "1500",
+          "unit": "kg",
+          "source_text": "Masa maxima remorcabila cu sistem de franare mini/maxi: 1500 kg"
+        },
+        {
+          "attribute_code": "unbraked_trailer_weight",
+          "fuel_type_code": "",
+          "value": "715",
+          "unit": "kg",
+          "source_text": "Masa maxima remorcabila fara sistem de franare: 715 kg"
+        },
+        {
+          "attribute_code": "roof_load",
+          "fuel_type_code": "",
+          "value": "80",
+          "unit": "kg",
+          "source_text": "Masa maxima incarcare plafon: 80 kg"
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "lpg",
+          "value": "7.6",
+          "unit": "l/100 km",
+          "source_text": "ECO-G 120 auto: 7.6 l/100km GPL"
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "petrol",
+          "value": "6.2",
+          "unit": "l/100 km",
+          "source_text": "ECO-G 120 auto: 6.2 l/100km benzina"
+        }
+      ],
+      "range_values": [
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "4500",
+          "maximum_value": "5000",
+          "unit": "rpm",
+          "source_text": "GPL: 90 @4500-5000"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "4500",
+          "maximum_value": "5750",
+          "unit": "rpm",
+          "source_text": "B: 84 @4500-5750"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "1750",
+          "maximum_value": "4000",
+          "unit": "rpm",
+          "source_text": "200Nm@1750-4000 (GPL)"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "1750",
+          "maximum_value": "4000",
+          "unit": "rpm",
+          "source_text": "190Nm@1750-4000 (benzina)"
+        },
+        {
+          "attribute_code": "kerb_weight",
+          "fuel_type_code": "",
+          "minimum_value": "1358",
+          "maximum_value": "1381",
+          "unit": "kg",
+          "source_text": "Masa proprie vehicul minima/maxima (la gol): 1358 / 1381 kg"
+        },
+        {
+          "attribute_code": "maximum_payload",
+          "fuel_type_code": "",
+          "minimum_value": "454",
+          "maximum_value": "477",
+          "unit": "kg",
+          "source_text": "Sarcina utila (min-max) - cu sofer 75 kg: 454 / 477 kg"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "cargo_volume_vda",
+          "reason": "The exact automatic stock page does not state luggage-compartment volume."
+        },
+        {
+          "attribute_code": "cargo_volume_vda_to_luggage_cover",
+          "reason": "The exact automatic stock page does not state a VDA luggage-cover-height volume."
+        },
+        {
+          "attribute_code": "cargo_volume_vda_to_seatback",
+          "reason": "The exact automatic stock page does not state a VDA seat-back-height volume."
+        }
+      ]
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "version_code": "duster_iii_extreme",
+      "version_name": "Extreme",
+      "vehicle_id": "UU1DJF01577585894",
+      "url": "https://vanzari.dacia.ro/autoturisme-duster-extreme-uu1djf01577585894.html",
+      "year": "2026",
+      "powertrain_source_label": "ECO-G 120 auto, 2WD",
+      "scalar_values": [
+        {
+          "attribute_code": "engine_power",
+          "fuel_type_code": "lpg",
+          "value": "90",
+          "unit": "kW",
+          "source_text": "GPL: 90 @4500-5000"
+        },
+        {
+          "attribute_code": "engine_power",
+          "fuel_type_code": "petrol",
+          "value": "84",
+          "unit": "kW",
+          "source_text": "B: 84 @4500-5750"
+        },
+        {
+          "attribute_code": "engine_torque",
+          "fuel_type_code": "lpg",
+          "value": "200",
+          "unit": "Nm",
+          "source_text": "200Nm@1750-4000 (GPL)"
+        },
+        {
+          "attribute_code": "engine_torque",
+          "fuel_type_code": "petrol",
+          "value": "190",
+          "unit": "Nm",
+          "source_text": "190Nm@1750-4000 (benzina)"
+        },
+        {
+          "attribute_code": "gear_count",
+          "fuel_type_code": "",
+          "value": "6",
+          "unit": "",
+          "source_text": "Numar de rapoarte: 6"
+        },
+        {
+          "attribute_code": "top_speed",
+          "fuel_type_code": "",
+          "value": "180",
+          "unit": "km/h",
+          "source_text": "Viteza maxima (km/h): 180"
+        },
+        {
+          "attribute_code": "acceleration_0_100",
+          "fuel_type_code": "petrol",
+          "value": "11.4",
+          "unit": "s",
+          "source_text": "0-100 km/h (s): 11.4 benzina"
+        },
+        {
+          "attribute_code": "acceleration_0_100",
+          "fuel_type_code": "lpg",
+          "value": "11.7",
+          "unit": "s",
+          "source_text": "0-100 km/h (s): 11.7 GPL"
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "petrol",
+          "value": "33.3",
+          "unit": "s",
+          "source_text": "1000 m cu plecare de pe loc: 33.3 benzina"
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "lpg",
+          "value": "33.6",
+          "unit": "s",
+          "source_text": "1000 m cu plecare de pe loc: 33.6 GPL"
+        },
+        {
+          "attribute_code": "turning_circle",
+          "fuel_type_code": "",
+          "value": "10.96",
+          "unit": "m",
+          "source_text": "Diametru de bracaj intre trotuare (m): 10,96"
+        },
+        {
+          "attribute_code": "gross_vehicle_weight",
+          "fuel_type_code": "",
+          "value": "1805",
+          "unit": "kg",
+          "source_text": "Masa total maxim autorizata (MTMA): 1805 kg"
+        },
+        {
+          "attribute_code": "gross_train_weight",
+          "fuel_type_code": "",
+          "value": "3305",
+          "unit": "kg",
+          "source_text": "Masa totala rulanta (M.T.R.): 3305 kg"
+        },
+        {
+          "attribute_code": "braked_trailer_weight",
+          "fuel_type_code": "",
+          "value": "1500",
+          "unit": "kg",
+          "source_text": "Masa maxima remorcabila cu sistem de franare mini/maxi: 1500 kg"
+        },
+        {
+          "attribute_code": "unbraked_trailer_weight",
+          "fuel_type_code": "",
+          "value": "715",
+          "unit": "kg",
+          "source_text": "Masa maxima remorcabila fara sistem de franare: 715 kg"
+        },
+        {
+          "attribute_code": "roof_load",
+          "fuel_type_code": "",
+          "value": "80",
+          "unit": "kg",
+          "source_text": "Masa maxima incarcare plafon: 80 kg"
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "lpg",
+          "value": "7.6",
+          "unit": "l/100 km",
+          "source_text": "ECO-G 120 auto: 7.6 l/100km GPL"
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "petrol",
+          "value": "6.2",
+          "unit": "l/100 km",
+          "source_text": "ECO-G 120 auto: 6.2 l/100km benzina"
+        }
+      ],
+      "range_values": [
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "4500",
+          "maximum_value": "5000",
+          "unit": "rpm",
+          "source_text": "GPL: 90 @4500-5000"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "4500",
+          "maximum_value": "5750",
+          "unit": "rpm",
+          "source_text": "B: 84 @4500-5750"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "1750",
+          "maximum_value": "4000",
+          "unit": "rpm",
+          "source_text": "200Nm@1750-4000 (GPL)"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "1750",
+          "maximum_value": "4000",
+          "unit": "rpm",
+          "source_text": "190Nm@1750-4000 (benzina)"
+        },
+        {
+          "attribute_code": "kerb_weight",
+          "fuel_type_code": "",
+          "minimum_value": "1358",
+          "maximum_value": "1381",
+          "unit": "kg",
+          "source_text": "Masa proprie vehicul minima/maxima (la gol): 1358 / 1381 kg"
+        },
+        {
+          "attribute_code": "maximum_payload",
+          "fuel_type_code": "",
+          "minimum_value": "454",
+          "maximum_value": "477",
+          "unit": "kg",
+          "source_text": "Sarcina utila (min-max) - cu sofer 75 kg: 454 / 477 kg"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "cargo_volume_vda",
+          "reason": "The exact automatic stock page does not state luggage-compartment volume."
+        },
+        {
+          "attribute_code": "cargo_volume_vda_to_luggage_cover",
+          "reason": "The exact automatic stock page does not state a VDA luggage-cover-height volume."
+        },
+        {
+          "attribute_code": "cargo_volume_vda_to_seatback",
+          "reason": "The exact automatic stock page does not state a VDA seat-back-height volume."
+        }
+      ]
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "version_code": "duster_iii_journey",
+      "version_name": "Journey",
+      "vehicle_id": "UU1DJF01977030219",
+      "url": "https://vanzari.dacia.ro/autoturisme-duster-journey-uu1djf01977030219.html",
+      "year": "2026",
+      "powertrain_source_label": "ECO-G 120 auto, 2WD",
+      "scalar_values": [
+        {
+          "attribute_code": "engine_power",
+          "fuel_type_code": "lpg",
+          "value": "90",
+          "unit": "kW",
+          "source_text": "GPL: 90 @4500-5000"
+        },
+        {
+          "attribute_code": "engine_power",
+          "fuel_type_code": "petrol",
+          "value": "84",
+          "unit": "kW",
+          "source_text": "B: 84 @4500-5750"
+        },
+        {
+          "attribute_code": "engine_torque",
+          "fuel_type_code": "lpg",
+          "value": "200",
+          "unit": "Nm",
+          "source_text": "200Nm@1750-4000 (GPL)"
+        },
+        {
+          "attribute_code": "engine_torque",
+          "fuel_type_code": "petrol",
+          "value": "190",
+          "unit": "Nm",
+          "source_text": "190Nm@1750-4000 (benzina)"
+        },
+        {
+          "attribute_code": "gear_count",
+          "fuel_type_code": "",
+          "value": "6",
+          "unit": "",
+          "source_text": "Numar de rapoarte: 6"
+        },
+        {
+          "attribute_code": "top_speed",
+          "fuel_type_code": "",
+          "value": "180",
+          "unit": "km/h",
+          "source_text": "Viteza maxima (km/h): 180"
+        },
+        {
+          "attribute_code": "acceleration_0_100",
+          "fuel_type_code": "petrol",
+          "value": "11.4",
+          "unit": "s",
+          "source_text": "0-100 km/h (s): 11.4 benzina"
+        },
+        {
+          "attribute_code": "acceleration_0_100",
+          "fuel_type_code": "lpg",
+          "value": "11.7",
+          "unit": "s",
+          "source_text": "0-100 km/h (s): 11.7 GPL"
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "petrol",
+          "value": "33.3",
+          "unit": "s",
+          "source_text": "1000 m cu plecare de pe loc: 33.3 benzina"
+        },
+        {
+          "attribute_code": "standing_km",
+          "fuel_type_code": "lpg",
+          "value": "33.6",
+          "unit": "s",
+          "source_text": "1000 m cu plecare de pe loc: 33.6 GPL"
+        },
+        {
+          "attribute_code": "turning_circle",
+          "fuel_type_code": "",
+          "value": "10.96",
+          "unit": "m",
+          "source_text": "Diametru de bracaj intre trotuare (m): 10,96"
+        },
+        {
+          "attribute_code": "gross_vehicle_weight",
+          "fuel_type_code": "",
+          "value": "1805",
+          "unit": "kg",
+          "source_text": "Masa total maxim autorizata (MTMA): 1805 kg"
+        },
+        {
+          "attribute_code": "gross_train_weight",
+          "fuel_type_code": "",
+          "value": "3305",
+          "unit": "kg",
+          "source_text": "Masa totala rulanta (M.T.R.): 3305 kg"
+        },
+        {
+          "attribute_code": "braked_trailer_weight",
+          "fuel_type_code": "",
+          "value": "1500",
+          "unit": "kg",
+          "source_text": "Masa maxima remorcabila cu sistem de franare mini/maxi: 1500 kg"
+        },
+        {
+          "attribute_code": "unbraked_trailer_weight",
+          "fuel_type_code": "",
+          "value": "715",
+          "unit": "kg",
+          "source_text": "Masa maxima remorcabila fara sistem de franare: 715 kg"
+        },
+        {
+          "attribute_code": "roof_load",
+          "fuel_type_code": "",
+          "value": "80",
+          "unit": "kg",
+          "source_text": "Masa maxima incarcare plafon: 80 kg"
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "lpg",
+          "value": "7.6",
+          "unit": "l/100 km",
+          "source_text": "ECO-G 120 auto: 7.6 l/100km GPL"
+        },
+        {
+          "attribute_code": "fuel_consumption_combined",
+          "fuel_type_code": "petrol",
+          "value": "6.2",
+          "unit": "l/100 km",
+          "source_text": "ECO-G 120 auto: 6.2 l/100km benzina"
+        }
+      ],
+      "range_values": [
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "4500",
+          "maximum_value": "5000",
+          "unit": "rpm",
+          "source_text": "GPL: 90 @4500-5000"
+        },
+        {
+          "attribute_code": "max_power_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "4500",
+          "maximum_value": "5750",
+          "unit": "rpm",
+          "source_text": "B: 84 @4500-5750"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "lpg",
+          "minimum_value": "1750",
+          "maximum_value": "4000",
+          "unit": "rpm",
+          "source_text": "200Nm@1750-4000 (GPL)"
+        },
+        {
+          "attribute_code": "max_torque_rpm",
+          "fuel_type_code": "petrol",
+          "minimum_value": "1750",
+          "maximum_value": "4000",
+          "unit": "rpm",
+          "source_text": "190Nm@1750-4000 (benzina)"
+        },
+        {
+          "attribute_code": "kerb_weight",
+          "fuel_type_code": "",
+          "minimum_value": "1358",
+          "maximum_value": "1381",
+          "unit": "kg",
+          "source_text": "Masa proprie vehicul minima/maxima (la gol): 1358 / 1381 kg"
+        },
+        {
+          "attribute_code": "maximum_payload",
+          "fuel_type_code": "",
+          "minimum_value": "454",
+          "maximum_value": "477",
+          "unit": "kg",
+          "source_text": "Sarcina utila (min-max) - cu sofer 75 kg: 454 / 477 kg"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "cargo_volume_vda",
+          "reason": "The exact automatic stock page does not state luggage-compartment volume."
+        },
+        {
+          "attribute_code": "cargo_volume_vda_to_luggage_cover",
+          "reason": "The exact automatic stock page does not state a VDA luggage-cover-height volume."
+        },
+        {
+          "attribute_code": "cargo_volume_vda_to_seatback",
+          "reason": "The exact automatic stock page does not state a VDA seat-back-height volume."
+        }
+      ]
+    }
+  ],
+  "normalization_rules": [
+    "Only exact 2026 Duster Eco-G 120 auto 2WD stock pages are mapped to the matching Expression, Extreme and Journey configurations.",
+    "Fuel-specific power, torque, acceleration, standing-kilometre and consumption observations preserve petrol and LPG contexts.",
+    "Source-stated minimum/maximum kerb mass and payload remain closed ranges; endpoints are not collapsed or derived.",
+    "Cargo volume is not imported because the exact automatic stock pages do not state a luggage-volume value.",
+    "Romanian-market source provenance is retained; no commercial price or market-specific equipment is imported."
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 915,
+  "attribute_code": "acceleration_0_100",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "s",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.9",
+      "source_text": "LPG: 10,9 / 11,0",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.9",
+      "source_text": "Ben: 11,9 / 12,0",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.9",
+      "source_text": "LPG: 10,9 / 11,0",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.9",
+      "source_text": "Ben: 11,9 / 12,0",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.9",
+      "source_text": "LPG: 10,9 / 11,0",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.9",
+      "source_text": "Ben: 11,9 / 12,0",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.4",
+      "source_text": "LPG: 10,4 / 10,7",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.4",
+      "source_text": "Ben: 11,4 / 11,7",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.4",
+      "source_text": "LPG: 10,4 / 10,7",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.4",
+      "source_text": "Ben: 11,4 / 11,7",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.5",
+      "source_text": "10,5 / 11,2"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.5",
+      "source_text": "10,5 / 11,2"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.5",
+      "source_text": "10,5 / 11,2"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.0",
+      "source_text": "LPG: 10,9 / 11,0",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "12.0",
+      "source_text": "Ben: 11,9 / 12,0",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.0",
+      "source_text": "LPG: 10,9 / 11,0",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "12.0",
+      "source_text": "Ben: 11,9 / 12,0",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.0",
+      "source_text": "LPG: 10,9 / 11,0",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "12.0",
+      "source_text": "Ben: 11,9 / 12,0",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.7",
+      "source_text": "LPG: 10,4 / 10,7",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.7",
+      "source_text": "Ben: 11,4 / 11,7",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "10.7",
+      "source_text": "LPG: 10,4 / 10,7",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.7",
+      "source_text": "Ben: 11,4 / 11,7",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.2",
+      "source_text": "10,5 / 11,2"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.2",
+      "source_text": "10,5 / 11,2"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "value": "11.2",
+      "source_text": "10,5 / 11,2"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "kind": "bigster_page20_remaining_conflict_boundary_review",
+  "date": "2026-07-30",
+  "status": "complete",
+  "package_id": "post_residual_bigster_page20_remaining_conflict_boundary_review_001",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 20
+  },
+  "current_exact_source": {
+    "source_code": "src_pl_bigster_price_my26_20260703",
+    "observation_date": "2026-07-03"
+  },
+  "upstream": [
+    "post_residual_bigster_technical_page20_reconciliation_001",
+    "post_residual_bigster_page20_emissions_consumption_range_import_001",
+    "post_residual_bigster_page20_eco_mode_import_001",
+    "post_residual_bigster_page20_deferred_import_gap_import_001"
+  ],
+  "scope": {
+    "remaining_primary_conflict_facts": 10,
+    "reviewed_atomic_boundaries": 10,
+    "current_bigster_configurations": 14
+  },
+  "repository_model_findings": {
+    "source_specific_observations_supported": true,
+    "observation_identity_fields": [
+      "configuration_code",
+      "attribute_code",
+      "fuel_type_code",
+      "gear_number",
+      "observation_date",
+      "source_code"
+    ],
+    "conflicting_source_observations_may_coexist": true,
+    "later_source_not_overwritten": true,
+    "automatic_conflict_resolution_by_date": false,
+    "context_free_projection_forbidden": true
+  },
+  "summary": {
+    "source_observation_ready_boundaries": 5,
+    "context_blocked_boundaries": 4,
+    "anomalous_source_boundary": 1,
+    "selected_next_package": "post_residual_bigster_page20_hybridg150_rpm_conflict_observation_import_001",
+    "selected_observations": 6
+  },
+  "boundaries": [
+    {
+      "code": "hybridg150_max_power_rpm",
+      "attribute_code": "max_power_rpm",
+      "brochure_value": "4500",
+      "current_value": "5000",
+      "unit": "rpm",
+      "configuration_count": 3,
+      "decision": "source_observation_ready_selected",
+      "rationale": "Both values are explicit engine maximum-power speed observations from registered sources. The older brochure value can coexist without replacing the later price-source value."
+    },
+    {
+      "code": "hybridg150_max_torque_rpm",
+      "attribute_code": "max_torque_rpm",
+      "brochure_value": "4000",
+      "current_value": "1750",
+      "unit": "rpm",
+      "configuration_count": 3,
+      "decision": "source_observation_ready_selected",
+      "rationale": "Both values are explicit combustion-engine maximum-torque speed observations. The electric-motor 1630 rpm context is excluded."
+    },
+    {
+      "code": "emission_standard",
+      "attribute_code": "emission_standard",
+      "brochure_value": "euro_6e_bis",
+      "current_value": "euro_6",
+      "configuration_count": 14,
+      "decision": "source_observation_ready_later_package",
+      "rationale": "The enum domain already supports euro_6e_bis and both source statements are explicit. A separate package can preserve the older brochure observation and its provenance."
+    },
+    {
+      "code": "hybrid155_system_voltage",
+      "attribute_code": "hybrid_system_voltage",
+      "brochure_value": "280",
+      "current_value": "200",
+      "unit": "V",
+      "configuration_count": 3,
+      "decision": "source_observation_ready_later_package",
+      "rationale": "The voltage attribute is exact and source-specific; the contradiction can be preserved without promotion or overwrite."
+    },
+    {
+      "code": "mild_hybrid_battery_capacity_precision",
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "brochure_value": "0.84",
+      "current_value": "0.839",
+      "unit": "kWh",
+      "configuration_count": 11,
+      "decision": "source_observation_ready_later_package",
+      "rationale": "The attribute explicitly stores source-stated capacity, so the rounded brochure observation can coexist with the later higher-precision value."
+    },
+    {
+      "code": "mild_hybrid_g_payload_range",
+      "attribute_code": "maximum_payload",
+      "brochure_value": "452-521",
+      "current_value": "451-540",
+      "unit": "kg",
+      "configuration_count": 4,
+      "decision": "source_range_observation_ready_later_package",
+      "rationale": "The range model supports source-specific observations, but this is deferred until scalar conflict-preservation packages establish the reporting contract."
+    },
+    {
+      "code": "injection_fuel_scope",
+      "attribute_code": "injection_type",
+      "brochure_value": "direct_injection",
+      "current_value": "petrol direct_injection; LPG multi_point where explicitly sourced",
+      "decision": "context_blocked",
+      "rationale": "The brochure row is not fuel-scoped. It cannot be projected to LPG without contradicting explicit fuel-specific evidence."
+    },
+    {
+      "code": "traction_motor_rpm_context",
+      "attribute_code": null,
+      "brochure_value": "1630 rpm and 0-1630 rpm",
+      "current_value": null,
+      "decision": "context_model_required",
+      "rationale": "No approved motor-specific RPM scalar or range attribute exists; max_torque_rpm remains engine-scoped."
+    },
+    {
+      "code": "hybridg150_cargo_equipment_context",
+      "attribute_code": "boot_capacity",
+      "brochure_value": "444/1712 dm3 VDA and 556/1856 l with no repair kit or spare wheel",
+      "current_value": "equipment evidence includes tyre-repair-kit context",
+      "decision": "context_blocked",
+      "rationale": "The numeric values cannot be promoted to a contextual cargo slot while the repair-kit/spare-wheel premise remains contradictory."
+    },
+    {
+      "code": "mild_hybrid140_folded_cargo_anomaly",
+      "attribute_code": "boot_capacity",
+      "brochure_value": "1960** 2002 / 1981",
+      "current_value": null,
+      "decision": "source_anomaly_preserved",
+      "rationale": "The literal sequence is not deterministically attributable to one equipment context and is not reinterpreted."
+    }
+  ],
+  "next_package": {
+    "package_id": "post_residual_bigster_page20_hybridg150_rpm_conflict_observation_import_001",
+    "kind": "configuration_value_import",
+    "name": "Bigster Page 20 Hybrid-G 150 RPM Conflict Observation Import",
+    "status": "planned",
+    "goal": "Add six older brochure source observations, max_power_rpm=4500 and max_torque_rpm=4000 for the three Hybrid-G 150 4x4 configurations, while retaining and explicitly testing the later price-source values 5000 and 1750.",
+    "planned_observations": 6,
+    "manifest_paths": [
+      "data/imports/configuration_values/bigster-page20-hybridg150-max-power-rpm-20251210.json",
+      "data/imports/configuration_values/bigster-page20-hybridg150-max-torque-rpm-20251210.json",
+      "data/master/configuration_attribute_values.csv",
+      "tests/test_bigster_page20_hybridg150_rpm_conflict_observations.py",
+      "project/state.json",
+      "project/STATE_SUMMARY.md",
+      "README.md",
+      "CHANGELOG.md",
+      "project/ROADMAP.md",
+      "project/SESSION_STATE.md",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.json",
+      "data/reporting/verified_pdf_candidate_coverage_reconciliation.md",
+      "tests/test_verified_pdf_candidate_coverage_reconciliation.py",
+      "tests/test_verified_pdf_candidate_residual_gap_prioritization.py",
+      "tools/review_official_brochure_technical_gap_resolution_closure_20260726.py",
+      "tests/test_official_brochure_technical_gap_resolution_closure.py"
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "kind": "duster_mini_page20_exact_scalar_import_closure",
+  "reviewed_on": "2026-07-30",
+  "status": "complete_with_preserved_boundaries",
+  "package_id": "post_residual_duster_mini_page20_exact_scalar_gap_import_closure_001",
+  "source": {
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+    "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+    "page": 20,
+    "observation_date": "2025-10-20"
+  },
+  "scope": {
+    "reviewed_candidates": 65,
+    "import_ready_candidate_decisions": 5,
+    "imported_observations": 35,
+    "target_configurations": 7,
+    "import_specs": 5
+  },
+  "completed_import_receipts": [
+    {
+      "attribute": "emission_standard",
+      "spec_path": "data/imports/configuration_values/duster-mini-page20-emission-standard-20251020.json",
+      "id_range": [
+        3464,
+        3470
+      ],
+      "observations": 7,
+      "values": [
+        "euro_6e_bis"
+      ]
+    },
+    {
+      "attribute": "particulate_filter",
+      "spec_path": "data/imports/configuration_values/duster-mini-page20-particulate-filter-20251020.json",
+      "id_range": [
+        3471,
+        3477
+      ],
+      "observations": 7,
+      "values": [
+        "true"
+      ]
+    },
+    {
+      "attribute": "start_stop_system",
+      "spec_path": "data/imports/configuration_values/duster-mini-page20-start-stop-20251020.json",
+      "id_range": [
+        3478,
+        3484
+      ],
+      "observations": 7,
+      "values": [
+        "true"
+      ]
+    },
+    {
+      "attribute": "eco_mode",
+      "spec_path": "data/imports/configuration_values/duster-mini-page20-eco-mode-20251020.json",
+      "id_range": [
+        3485,
+        3491
+      ],
+      "observations": 7,
+      "values": [
+        "true"
+      ]
+    },
+    {
+      "attribute": "gross_vehicle_weight",
+      "spec_path": "data/imports/configuration_values/duster-mini-page20-gross-vehicle-weight-20251020.json",
+      "id_range": [
+        3492,
+        3498
+      ],
+      "observations": 7,
+      "values": [
+        "1805",
+        "1830"
+      ]
+    }
+  ],
+  "master_receipt": {
+    "id_range": [
+      3464,
+      3498
+    ],
+    "observations": 35,
+    "attribute_counts": {
+      "emission_standard": 7,
+      "particulate_filter": 7,
+      "start_stop_system": 7,
+      "eco_mode": 7,
+      "gross_vehicle_weight": 7
+    },
+    "configuration_counts": {
+      "ecog120_4x2_manual": 4,
+      "mildhybrid140_4x2_manual": 3
+    },
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "observation_date": "2025-10-20"
+  },
+  "reporting_scope_receipts": {
+    "duster_ecog120_completeness.json": {
+      "configurations": 4,
+      "technical_slots": 42
+    },
+    "duster_mildhybrid140_4x2_completeness.json": {
+      "configurations": 3,
+      "technical_slots": 39
+    }
+  },
+  "reconciliation_closure": {
+    "candidate_partition_preserved": true,
+    "import_ready_candidate_decisions_closed": 5,
+    "planned_observations_materialized": 35,
+    "remaining_context_model_required": 2,
+    "remaining_explicit_non_import_or_context": 38,
+    "remaining_import_ready_exact_gaps": 0
+  },
+  "preserved_boundaries": [
+    {
+      "code": "energy_source_columns",
+      "classification": "context_model_required",
+      "decision": "preserve multi-column powertrain context without promoting a duplicate scalar"
+    },
+    {
+      "code": "injection_type_direct_for_dual_fuel_ecog",
+      "classification": "fuel_context_model_required",
+      "decision": "do not import the unscoped direct-injection row for dual-fuel Eco-G configurations"
+    },
+    {
+      "code": "explicit_non_import_or_context",
+      "candidate_count": 38,
+      "decision": "retain all authored dash, continuation, protocol, country-dependent and incomplete-row boundaries"
+    }
+  ],
+  "closure_decision": {
+    "safe_exact_scalar_import_complete": true,
+    "master_values_overwritten": false,
+    "automatic_promotion_used": false,
+    "country_dependent_values_invented": false,
+    "injection_context_inferred": false,
+    "duster_page20_boundary_complete": true,
+    "return_to_global_residual_queue": true
+  },
+  "next_package": {
+    "package_id": "post_residual_verified_pdf_queue_reentry_review_002",
+    "kind": "review_closure",
+    "name": "Verified PDF Residual Queue Re-entry Review II",
+    "status": "planned",
+    "goal": "Rebuild the verified-PDF residual queue against current later reconciliation, import and closure evidence; exclude the completed Bigster, Jogger and Duster technical boundaries; and select the first remaining actionable stable source/model/domain/page boundary without reopening explicit non-import decisions.",
+    "manifest_paths": [
+      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
+      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-31.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

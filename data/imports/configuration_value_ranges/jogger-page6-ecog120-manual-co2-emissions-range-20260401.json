@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 13,
+  "attribute_code": "co2_emissions",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "g/km",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "119",
+      "maximum_value": "121",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 119-121",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "133",
+      "maximum_value": "134",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 133-134",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "119",
+      "maximum_value": "121",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 119-121",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "133",
+      "maximum_value": "134",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 133-134",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "119",
+      "maximum_value": "121",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 119-121",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "133",
+      "maximum_value": "134",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 133-134",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "119",
+      "maximum_value": "121",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 119-121",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "133",
+      "maximum_value": "134",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 133-134",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "119",
+      "maximum_value": "121",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 119-121",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "133",
+      "maximum_value": "134",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 133-134",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "119",
+      "maximum_value": "121",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "LPG: 119-121",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "133",
+      "maximum_value": "134",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "Ben: 133-134",
+      "fuel_type_code": "petrol"
+    }
+  ]
+}

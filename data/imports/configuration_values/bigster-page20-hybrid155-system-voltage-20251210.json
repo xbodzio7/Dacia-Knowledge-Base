@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 3322,
+  "attribute_code": "hybrid_system_voltage",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "V",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_page": 20,
+  "source_section": "BATERIA",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "280",
+      "source_text": "280 V / 1,4 kWh"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "280",
+      "source_text": "280 V / 1,4 kWh"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "280",
+      "source_text": "280 V / 1,4 kWh"
+    }
+  ]
+}

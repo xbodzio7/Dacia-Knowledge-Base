@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "kind": "jogger_chassis_observations",
+  "reviewed_on": "2026-07-26",
+  "observation_date": "2025-12-17",
+  "source_code": "src_pl_jogger_brochure_20251217",
+  "source_page": 19,
+  "source_section": "ZAWIESZENIE I UKŁAD KIEROWNICZY",
+  "value_id_start": 2480,
+  "configurations": [
+    "jogger_essential_5seat_ecog120_manual",
+    "jogger_expression_5seat_ecog120_manual",
+    "jogger_extreme_5seat_ecog120_manual",
+    "jogger_extreme_5seat_ecog120_automatic",
+    "jogger_journey_5seat_ecog120_automatic",
+    "jogger_expression_5seat_tce110_manual",
+    "jogger_extreme_5seat_tce110_manual",
+    "jogger_journey_5seat_tce110_manual",
+    "jogger_expression_5seat_hybrid155_automatic",
+    "jogger_extreme_5seat_hybrid155_automatic",
+    "jogger_journey_5seat_hybrid155_automatic",
+    "jogger_essential_7seat_ecog120_manual",
+    "jogger_expression_7seat_ecog120_manual",
+    "jogger_extreme_7seat_ecog120_manual",
+    "jogger_extreme_7seat_ecog120_automatic",
+    "jogger_journey_7seat_ecog120_automatic",
+    "jogger_expression_7seat_tce110_manual",
+    "jogger_extreme_7seat_tce110_manual",
+    "jogger_journey_7seat_tce110_manual",
+    "jogger_expression_7seat_hybrid155_automatic",
+    "jogger_extreme_7seat_hybrid155_automatic",
+    "jogger_journey_7seat_hybrid155_automatic"
+  ],
+  "observations": [
+    {
+      "attribute_code": "turning_circle_between_kerbs",
+      "value": "11.39",
+      "source_text": "Układ kierowniczy – średnica zawracania między krawężnikami: 11,39 m"
+    },
+    {
+      "attribute_code": "standard_tyre_specification",
+      "value": "205/60 R16 92H",
+      "source_text": "Rozmiar opon: 205/60 R16 92H"
+    },
+    {
+      "attribute_code": "front_suspension",
+      "value": "Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+      "source_text": "Przednie zawieszenie: Typu McPherson z dolnym wahaczem, sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+    },
+    {
+      "attribute_code": "rear_suspension",
+      "value": "Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem",
+      "source_text": "Tylne zawieszenie: Belka skrętna ze sprężynami śrubowymi, teleskopowymi amortyzatorami hydraulicznymi i stabilizatorem"
+    }
+  ],
+  "excluded_evidence": [
+    {
+      "code": "ambiguous_mass_table_labels",
+      "reason": "The repeated and physically incompatible mass-table labels are not semantically reassigned; jogger_mass_table_label_conflict remains unresolved."
+    },
+    {
+      "code": "blank_wltp_cells",
+      "reason": "Blank CO2 and fuel-consumption cells provide no observation."
+    },
+    {
+      "code": "powertrain_and_performance_rows_out_of_scope",
+      "reason": "Engine, performance, tank and towing evidence is already covered by dedicated packages or later official sources."
+    },
+    {
+      "code": "later_observations_remain_current",
+      "reason": "Any later exact MY26 observations remain current; this package adds dated historical brochure evidence only."
+    },
+    {
+      "code": "generic_dimensions_and_cargo_out_of_scope",
+      "reason": "Model-wide dimensions and cargo contexts remain governed by their dedicated reviews and context models."
+    }
+  ]
+}

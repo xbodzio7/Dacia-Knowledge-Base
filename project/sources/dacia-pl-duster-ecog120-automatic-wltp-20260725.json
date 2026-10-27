@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "source_code": "src_pl_duster_ecog120_automatic_wltp_20260725",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-25",
+  "volatility": "dynamic_official_stock_cards",
+  "scope": {
+    "model_code": "duster_iii",
+    "powertrain_label": "Eco-G 120 4x2",
+    "transmission_type": "automatic"
+  },
+  "cards": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+      "version_code": "duster_iii_expression",
+      "version_name": "Expression",
+      "vehicle_id": "VEH_UU1DJF01777214817",
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01777214817",
+      "powertrain_source_label": "Eco-G 120 auto, benzyna/gaz - automatyczna",
+      "scalar_values": [
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "lpg",
+          "value": "123",
+          "unit": "g/km",
+          "source_text": "Emisja CO2 cykl mieszany WLTP*LPG (g/km) 123"
+        },
+        {
+          "attribute_code": "fuel_tank_capacity",
+          "fuel_type_code": "",
+          "value": "51",
+          "unit": "L",
+          "source_text": "pojemność zbiornika paliwa (l) 51"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "petrol",
+          "reason": "The exact Polish card exposes only the LPG WLTP CO2 value."
+        },
+        {
+          "attribute_code": "cargo_volume_vda",
+          "fuel_type_code": "",
+          "reason": "The exact Polish card does not state automatic-specific luggage volume."
+        }
+      ]
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_automatic",
+      "version_code": "duster_iii_extreme",
+      "version_name": "Extreme",
+      "vehicle_id": "VEH_UU1DJF01977214866",
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01977214866",
+      "powertrain_source_label": "Eco-G 120 auto, benzyna/gaz - automatyczna",
+      "scalar_values": [
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "lpg",
+          "value": "123",
+          "unit": "g/km",
+          "source_text": "Emisja CO2 cykl mieszany WLTP*LPG (g/km) 123"
+        },
+        {
+          "attribute_code": "fuel_tank_capacity",
+          "fuel_type_code": "",
+          "value": "51",
+          "unit": "L",
+          "source_text": "pojemność zbiornika paliwa (l) 51"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "petrol",
+          "reason": "The exact Polish card exposes only the LPG WLTP CO2 value."
+        },
+        {
+          "attribute_code": "cargo_volume_vda",
+          "fuel_type_code": "",
+          "reason": "The exact Polish card does not state automatic-specific luggage volume."
+        }
+      ]
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_automatic",
+      "version_code": "duster_iii_journey",
+      "version_name": "Journey",
+      "vehicle_id": "VEH_UU1DJF01977214687",
+      "url": "https://www.dacia.pl/katalog-nci/szczegoly.html?productId=VEH_UU1DJF01977214687",
+      "powertrain_source_label": "Eco-G 120 auto, benzyna/gaz - automatyczna",
+      "scalar_values": [
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "lpg",
+          "value": "123",
+          "unit": "g/km",
+          "source_text": "Emisja CO2 cykl mieszany WLTP*LPG (g/km) 123"
+        },
+        {
+          "attribute_code": "fuel_tank_capacity",
+          "fuel_type_code": "",
+          "value": "51",
+          "unit": "L",
+          "source_text": "pojemność zbiornika paliwa (l) 51"
+        }
+      ],
+      "non_imports": [
+        {
+          "attribute_code": "co2_emissions",
+          "fuel_type_code": "petrol",
+          "reason": "The exact Polish card exposes only the LPG WLTP CO2 value."
+        },
+        {
+          "attribute_code": "cargo_volume_vda",
+          "fuel_type_code": "",
+          "reason": "The exact Polish card does not state automatic-specific luggage volume."
+        }
+      ]
+    }
+  ],
+  "normalization_rules": [
+    "Each exact Polish stock page explicitly identifies Duster, the matching trim, Eco-G 120 and automatic transmission.",
+    "Only the LPG WLTP CO2 value and the source-stated 51-litre fuel-tank capacity are imported from this supplementary source.",
+    "Power and consumption values already captured by the automatic-specific Romanian homologation source are not duplicated.",
+    "Petrol CO2 and automatic cargo volume remain unimported because the exact Polish cards do not state them."
+  ]
+}

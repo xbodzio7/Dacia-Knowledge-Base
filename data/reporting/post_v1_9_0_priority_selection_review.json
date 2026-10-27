@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "kind": "post_v1_9_0_priority_selection_review",
+  "reviewed_on": "2026-07-31",
+  "status": "complete",
+  "trigger": {
+    "release": "data-products-v1.9.0",
+    "release_id": 362975393,
+    "publication_record_pull_request": 414,
+    "publication_record_head": "8ec7fd09bf0fdfbb9b1f31902a443260973958f4",
+    "publication_record_quality_run": 2726,
+    "open_pull_request_count": 0
+  },
+  "evidence": {
+    "current_release_record": "project/releases/data-products-v1.9.0.md",
+    "current_public_audit": "data/reporting/data_products_v1_9_0_public_audit.json",
+    "deferred_candidate_record": "project/releases/data-products-v1.8.1.md",
+    "roadmap": "project/ROADMAP.md",
+    "public_snapshot": {
+      "active_configurations": 78,
+      "reporting_scopes": 20,
+      "within_scope_pairs": 129,
+      "recorded_differences": 2180,
+      "archive_members": 89,
+      "workspace_index_local_links": 88,
+      "cross_model_comparison_paths": 80,
+      "cross_model_navigation_paths": 2,
+      "cross_model_html_local_links": 60
+    }
+  },
+  "candidates": [
+    {
+      "name": "Cross-Model Navigation Usability Review",
+      "decision": "selected",
+      "readiness": "high",
+      "value": "high",
+      "reason": "The package was explicitly deferred after data-products-v1.8.1, the public cross-model product is now larger after v1.9.0, and the roadmap directs usability improvements without changing data semantics.",
+      "boundary": "Review only; no product, data, comparison-scope or release modification."
+    },
+    {
+      "name": "Verified PDF residual continuation",
+      "decision": "deferred",
+      "readiness": "low_without_new_evidence",
+      "value": "conditional",
+      "reason": "The completed v1.9.0 sequence explicitly forbids reopening completed residual boundaries, and this review found no newly registered source or evidence decision that would make another residual package import-ready."
+    },
+    {
+      "name": "Additional model or source expansion",
+      "decision": "deferred",
+      "readiness": "requires_intake",
+      "value": "high_after_source_selection",
+      "reason": "Spring and further model expansion remain strategic roadmap directions, but a bounded package requires a separate source-selection and intake decision."
+    },
+    {
+      "name": "Immediate data-products release",
+      "decision": "deferred",
+      "readiness": "not_applicable",
+      "value": "low_without_delta",
+      "reason": "No post-v1.9.0 source-backed data delta, confirmed interface defect or completed implementation package currently justifies another immutable release."
+    }
+  ],
+  "selection": {
+    "package_id": "cross_model_navigation_usability_review_001",
+    "kind": "product_usability_review",
+    "name": "Cross-Model Navigation Usability Review",
+    "status": "planned",
+    "goal": "Review consumer discoverability of the published cross-model products and deterministic offline workspace, determine whether the workspace index needs a dedicated cross-model entry point, and define one bounded implementation recommendation without changing comparison semantics in the review package.",
+    "review_questions": [
+      "Can a consumer discover the cross-model view directly from the deterministic workspace index?",
+      "Can model families and reporting scopes be reached without knowing generated file paths?",
+      "Do labels, navigation paths and provenance communicate the scope-preserving comparison boundary clearly?",
+      "What is the smallest testable implementation package that improves discoverability without changing comparison semantics?"
+    ],
+    "manifest_paths": [
+      "data/reporting/cross_model_navigation_usability_review.json",
+      "data/reporting/cross_model_navigation_usability_review.md",
+      "project/reviews/cross-model-navigation-usability-review-2026-07-31.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  },
+  "non_goals": [
+    "modify_source_or_master_data",
+    "change_reporting_scope_membership",
+    "generate_cross_scope_pairs",
+    "change_ranking_recommendation_or_inference_boundaries",
+    "modify_public_v1_9_0_assets",
+    "implement_interface_changes_in_the_review_package",
+    "reopen_completed_residual_boundaries"
+  ],
+  "decision": "SELECT_CROSS_MODEL_NAVIGATION_USABILITY_REVIEW"
+}
