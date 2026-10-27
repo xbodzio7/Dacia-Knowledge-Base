@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "source": {
+    "source_id": "bigster_brochure_20251210",
+    "document": "Dacia Bigster brochure",
+    "market": "PL",
+    "source_date": "2025-12-10",
+    "known_existing_import": "data/imports/bigster_brochure_equipment_availability_20251210.csv"
+  },
+  "purpose": "Register unresolved brochure facts so source assimilation and release work can proceed without inventing values or repeatedly reopening low-priority gaps.",
+  "status_semantics": {
+    "status": "Do sprawdzenia",
+    "meaning": "Unresolved; requires later source/applicability verification.",
+    "is_master_value": false
+  },
+  "items": [
+    {
+      "id": "BIGSTER-BR-001",
+      "subject": "YouClip count",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "The brochure evidence does not currently establish one unambiguous count.",
+      "next_action": "Recheck the exact brochure visual/text and applicable configuration before recording a numeric value.",
+      "source_pages": []
+    },
+    {
+      "id": "BIGSTER-BR-002",
+      "subject": "12 V socket location and count",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "Exact location and number of sockets are not yet established for the applicable configurations.",
+      "next_action": "Verify the relevant brochure page/visual and configuration applicability.",
+      "source_pages": []
+    },
+    {
+      "id": "BIGSTER-BR-003",
+      "subject": "USB-C port distribution",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "Distribution across seats/rows/configurations is not yet established.",
+      "next_action": "Verify the exact brochure evidence and scope before adding individual observations.",
+      "source_pages": []
+    },
+    {
+      "id": "BIGSTER-BR-004",
+      "subject": "Rear air vents within composite climate-control row",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "The composite row does not yet independently establish the rear-vent subclaim.",
+      "next_action": "Verify direct wording or visual evidence and whether the attribute model can represent the claim without overstatement.",
+      "source_pages": []
+    },
+    {
+      "id": "BIGSTER-BR-005",
+      "subject": "Media Display / Nav Live composite",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "The combined brochure label does not yet support an unambiguous split into individual equipment claims.",
+      "next_action": "Verify exact label semantics and applicable variants before splitting or importing claims.",
+      "source_pages": []
+    },
+    {
+      "id": "BIGSTER-BR-006",
+      "subject": "Technical dimensions applicability and pairing",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "The applicability and pairing of the documented dimensions are not yet resolved for exact configurations.",
+      "next_action": "Recheck dimension table headings, notes, and configuration applicability before importing dimension-specific values.",
+      "source_pages": []
+    }
+  ],
+  "handling_rules": [
+    "This ledger is not master data.",
+    "Never use 'Do sprawdzenia' as a technical or commercial value.",
+    "Do not infer values, applicability, or availability.",
+    "Keep evidence from the 2025-12-10 brochure separate from later 2026 price-list evidence.",
+    "Populate source_pages only when verified from the exact source."
+  ]
+}

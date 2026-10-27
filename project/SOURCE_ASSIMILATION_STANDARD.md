@@ -126,3 +126,17 @@ A source-assimilation package is complete only when:
 ## Session continuity
 
 Every AI session must read this document before working with documentary sources. Conversation memory must never substitute for the source coverage registry or page-level audit artifacts.
+
+
+## Deferred source gaps — non-value status
+
+An unresolved source fact may be recorded in a source-specific deferred-gap ledger with the exact status **`Do sprawdzenia`**. This is a workflow status meaning that the fact has not yet been established; it is not a vehicle specification, equipment-availability state, price, quantity, or substitute for a missing master-data value.
+
+Use this status to keep bounded packages moving when the unresolved item is not required to safely import the supported facts. Each ledger item must identify the source and subject, explain what remains unresolved, and state the next verification action. Preserve any known page references; do not invent page numbers or technical values.
+
+Rules:
+- Do not put `Do sprawdzenia` into typed master-data value or availability fields.
+- Do not convert an unresolved item to `standard`, `optional`, `not_available`, zero, an empty technical value, or a guessed value.
+- Keep the supported observations and their provenance separate from the unresolved item.
+- A package may proceed with explicitly registered deferrals when all other acceptance criteria are met; the deferral itself must not be represented as a resolved source fact.
+- Reopen a deferred item only when its source and exact applicability can be verified, or when the user explicitly prioritizes it.
