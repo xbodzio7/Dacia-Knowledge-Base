@@ -75,7 +75,7 @@ Strona działa bez serwera, JavaScriptu, zewnętrznych stylów i fontów. Zawier
 contents/shortlist/configuration-shortlist.html
 ```
 
-Shortlista pozwala filtrować źródłowo potwierdzone konfiguracje według modelu, wersji, układu napędowego, skrzyni, ceny, liczby miejsc i wyposażenia. Zaznaczenie konfiguracji jest niezależne od aktualnego filtra.
+Shortlista pozwala filtrować źródłowo potwierdzone konfiguracje według modelu, wersji, rodzaju paliwa, układu napędowego, skrzyni, ceny, liczby miejsc i wyposażenia. Zaznaczenie konfiguracji jest niezależne od aktualnego filtra.
 
 Z przeglądarki można pobrać deterministyczny plik JSON z wyborem konfiguracji. Zachowaj go poza niezmiennym workspace, na przykład jako:
 
