@@ -44,7 +44,7 @@ Reconcile all six registered Polish-market brochure sources against current offi
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Continue the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation without blocking on currently unresolved details. The 297 directly supported page-21/22 equipment observations cover 22 boolean attributes across 14 exact brochure configurations; 14 source-bound overall-length observations (4570 mm, page 23) preserve the historical brochure date separately from later price lists. Record the YouClip count conflict, 12 V socket location/count, USB-C distribution, rear-vent subclaim within the composite climate row, Media Display/Nav Live composite, and dimension applicability/pairing in `project/sources/bigster_brochure_deferred_gaps_20251210.json` with status `Do sprawdzenia`. Do not use this status as a technical/commercial master value or infer missing facts; keep later 2026 price-list evidence separate.
+Continue the 24-page 2025-12-10 Bigster brochure source-to-master reconciliation without blocking on currently unresolved details. Record the YouClip count conflict, 12 V socket location/count, USB-C distribution, rear-vent subclaim within the composite climate row, Media Display/Nav Live composite, and dimension applicability/pairing in project/sources/bigster_brochure_deferred_gaps_20251210.json with status 'Do sprawdzenia'. Do not enter this status as a technical/commercial master value, do not infer missing facts, and keep later 2026 price-list evidence separate.
 
 ## Autonomy
 
