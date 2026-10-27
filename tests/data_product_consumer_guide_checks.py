@@ -33,7 +33,7 @@ class DataProductConsumerGuideChecks(unittest.TestCase):
             "data-product-workspace-verify",
             "data-product-release-manifest.json",
             "SHA256SUMS",
-            "data-products-v1.19.1",
+            "data-products-v1.20.0",
         )
         for value in required:
             with self.subTest(value=value):
@@ -50,8 +50,8 @@ class DataProductConsumerGuideChecks(unittest.TestCase):
                 self.assertIn(command, dkb.SCRIPT_COMMANDS)
 
     def test_guide_uses_explicit_immutable_versions(self) -> None:
-        self.assertIn("--version 1.19.1", self.guide)
-        self.assertIn("data-products-v1.19.1", self.guide)
+        self.assertIn("--version 1.20.0", self.guide)
+        self.assertIn("data-products-v1.20.0", self.guide)
         self.assertNotIn("--version latest", self.guide.lower())
         self.assertIn("Nie obsługuje mutowalnego aliasu `latest`", self.guide)
 
