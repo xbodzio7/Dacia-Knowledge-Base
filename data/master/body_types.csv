@@ -1,9 +1,0 @@
-id,code,name_pl,name_en,description
-1,hatchback,Hatchback,Hatchback,Nadwozie dwubryłowe
-2,sedan,Sedan,Sedan,Nadwozie trójbryłowe
-3,estate,Kombi,Estate,Wydłużone nadwozie kombi
-4,suv,SUV,SUV,Sport Utility Vehicle
-5,crossover,Crossover,Crossover,Podwyższony hatchback/crossover
-6,mpv,Minivan,MPV,Multi Purpose Vehicle
-7,van,Furgon,Van,Lekki samochód dostawczy
-8,pickup,Pick-up,Pickup,Samochód z otwartą przestrzenią ładunkową
