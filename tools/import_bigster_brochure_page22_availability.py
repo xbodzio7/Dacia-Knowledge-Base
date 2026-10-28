@@ -60,7 +60,7 @@ def main():
  tmp=OUTPUT.with_name(f".{OUTPUT.name}.tmp-{os.getpid()}")
  try:
   with tmp.open("w",encoding="utf-8",newline="") as f:
-   w=csv.DictWriter(f,fieldnames=FIELDS,lineterminator="\\n"); w.writeheader(); w.writerows(current+additions)
+   w=csv.DictWriter(f,fieldnames=FIELDS,lineterminator="\n"); w.writeheader(); w.writerows(current+additions)
   tmp.replace(OUTPUT)
  finally: tmp.unlink(missing_ok=True)
  print(f"Imported {len(additions)} direct Bigster brochure page-22 observations."); return 0
