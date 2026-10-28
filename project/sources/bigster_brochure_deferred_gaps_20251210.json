@@ -20,7 +20,10 @@
       "status": "Do sprawdzenia",
       "unresolved_reason": "The brochure evidence does not currently establish one unambiguous count.",
       "next_action": "Recheck the exact brochure visual/text and applicable configuration before recording a numeric value.",
-      "source_pages": []
+      "source_pages": [
+        8,
+        22
+      ]
     },
     {
       "id": "BIGSTER-BR-002",
@@ -28,7 +31,9 @@
       "status": "Do sprawdzenia",
       "unresolved_reason": "Exact location and number of sockets are not yet established for the applicable configurations.",
       "next_action": "Verify the relevant brochure page/visual and configuration applicability.",
-      "source_pages": []
+      "source_pages": [
+        22
+      ]
     },
     {
       "id": "BIGSTER-BR-003",
@@ -36,7 +41,9 @@
       "status": "Do sprawdzenia",
       "unresolved_reason": "Distribution across seats/rows/configurations is not yet established.",
       "next_action": "Verify the exact brochure evidence and scope before adding individual observations.",
-      "source_pages": []
+      "source_pages": [
+        22
+      ]
     },
     {
       "id": "BIGSTER-BR-004",
@@ -44,7 +51,9 @@
       "status": "Do sprawdzenia",
       "unresolved_reason": "The composite row does not yet independently establish the rear-vent subclaim.",
       "next_action": "Verify direct wording or visual evidence and whether the attribute model can represent the claim without overstatement.",
-      "source_pages": []
+      "source_pages": [
+        22
+      ]
     },
     {
       "id": "BIGSTER-BR-005",
@@ -52,7 +61,9 @@
       "status": "Do sprawdzenia",
       "unresolved_reason": "The combined brochure label does not yet support an unambiguous split into individual equipment claims.",
       "next_action": "Verify exact label semantics and applicable variants before splitting or importing claims.",
-      "source_pages": []
+      "source_pages": [
+        22
+      ]
     },
     {
       "id": "BIGSTER-BR-006",
@@ -60,7 +71,9 @@
       "status": "Do sprawdzenia",
       "unresolved_reason": "The applicability and pairing of the documented dimensions are not yet resolved for exact configurations.",
       "next_action": "Recheck dimension table headings, notes, and configuration applicability before importing dimension-specific values.",
-      "source_pages": []
+      "source_pages": [
+        23
+      ]
     }
   ],
   "handling_rules": [
