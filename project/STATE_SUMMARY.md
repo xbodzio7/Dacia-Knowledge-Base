@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Brochure Page 17 — Current Main Reconciliation** — `complete`
+**Jogger Equipment Page 20 — Current Main Reconciliation** — `complete`
 
-Reconciled 46 reviewed candidates against current main. All 16 selected exact observations already exist under the exact source; the remaining 41 candidates have no selected evidence. No import or master-data change was warranted.
+Reconciled completed page-20 reviews against current main. All 110 unique selected equipment record codes already exist; 107 unresolved candidates have no selected evidence. No import or master-data change was warranted.
 
 ## Next package
 
-**Verified PDF Residual Queue — Current Main Re-entry** — `active`
+**Jogger Equipment Page 21 — Current Main Reconciliation** — `active`
 
-Reconcile completed residual review packages against later exact imports and closure receipts before selecting another boundary. Avoid stale queue selections and repeat reviews; exclude Bigster PR #754 crosswalk and PR #634. If no exact import is ready, move to the highest-impact actionable non-Bigster model-family source gap.
+Reconcile the completed page-21 ambiguity/unresolved reviews against current main. Check exact selected records before importing; preserve the deferred heated-steering-wheel conflict and do not infer equipment availability.
 
 ## Autonomy
 
