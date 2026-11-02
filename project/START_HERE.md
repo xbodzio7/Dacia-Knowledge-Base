@@ -49,6 +49,19 @@ Before any project action, the AI shall also perform a **continuity freshness ch
 
 If this check finds a state/documentation mismatch, enter recovery/diagnostic handling first; do not continue from the stale narrative.
 
+### Durable Result and Recovery Checkpoint
+
+Before continuing work, reconcile the previous session's deliverables against the repository:
+
+- enumerate completed analyses, generated reports, extracted data, code changes, and artifacts created during the prior work period;
+- verify each deliverable's exact persisted location and GitHub commit/PR status; a conversation statement or tool output is not proof of publication;
+- recover valuable uncommitted/off-repository artifacts from available conversation uploads, ZIPs, Library files, or generated outputs, then compare against current `main` before adding them;
+- record recovered deliverables in `reports/recovered/` with provenance, snapshot date, and scope limitations; never import report-derived values into `data/master` without a separate source-evidence workflow;
+- update the canonical state and session documentation with what was recovered, published, left local, or blocked;
+- do not mark a task done until its result is durably saved and its location is recorded.
+
+When file/repository access is unavailable, explicitly mark the result `not recovered` or `action required`; do not assume it was published or lost.
+
 Before any project action, the AI shall:
 
 - load `project/state.json` and identify the current package, next package, autonomy policy and execution policy;
