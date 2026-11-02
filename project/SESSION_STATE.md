@@ -56,6 +56,20 @@ Recovered outputs include:
 
 These are preserved as historical/generated analysis artifacts. They are not current master data, do not prove current completeness, and do not replace source-backed imports. The audit snapshot records 94 active configurations, 6 model families, 108 source records, 402 explicit source-to-configuration relationships, and 0 configurations without source links as of its stated scope/date. The 2026-10-01 snapshot is not to be substituted for current `main` counts. Repository quality tests were not rerun as part of this recovery.
 
+## Current Main Reconciliation (2026-11-02)
+
+After recovering ZIP-session artifacts, current main and the canonical source coverage report were checked against previously recorded Spring follow-up plans. The following review-document "next package" items have already been implemented on main and must not be repeated:
+
+- Spring Essential Biel Alpejska default-colour migration (direct `exterior_color` value and standard 0 PLN mapping).
+- Spring Essential Lichen Khaki exact-current price (2300 PLN).
+- Spring charging cable semantic migration and exact stock-price-list states, including Type 2 cable standard and domestic-socket cable 1500 PLN mappings.
+
+Current official brochure portfolio reconciliation records six registered brochures, zero fully assimilated at the source-wide coverage level, and all six as `partial_review`. This does not mean previously imported individual observations are missing; the status describes source-wide page/master reconciliation.
+
+The next package is selected as Duster mini brochure source-gap closure: 25-page registered source, substantial prior targeted imports, but no full source-wide page inventory. The goal is one bounded source-first reconciliation that results in an exact import batch or explicit blockers. Do not repeat Bigster PR #754 crosswalk work or rerun PR #634.
+
+No master data was changed in this state-reconciliation step. Tests/Quality were not rerun.
+
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
