@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Dacia Current Official Documentary Source Assimilation",
+  "phase": "Dacia Official Documentary Source Gap Closure",
   "reference_delivery": {
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "official_dacia_brochure_portfolio_coverage_reconciliation_20261014_001",
-    "kind": "official_brochure_source_coverage_reconciliation",
-    "name": "Official Dacia Brochure Portfolio Coverage Reconciliation",
+    "package_id": "continuity_recovery_and_current_main_reconciliation_20261102_001",
+    "kind": "project_continuity_recovery",
+    "name": "Continuity Recovery and Current Main Reconciliation",
     "status": "complete",
-    "goal": "Complete source-to-master assimilation of the registered official Dacia brochure portfolio. Verified Bigster brochure imports already merged on main: 14 TPMS availability observations (PR #759), 283 equipment availability observations (PR #760; 297 cells including TPMS across 22 attributes and 14 exact configurations), and 14 dated overall-length observations (PR #761). Six brochure-level gaps are explicitly deferred as Do sprawdzenia (PR #762), with page references added (PR #767); these are workflow statuses, not master values. Do not repeat the inventory or page-anchor work. The remaining active task is to reconcile the unresolved Bigster brochure candidates into exact importable observations versus specific evidence/attribute blockers, then prioritize the next highest-impact source-backed data gaps across the other model families."
+    "goal": "Recovered and published 18 historical portfolio/completeness audit artifacts from the prior ZIP session under reports/recovered/. Added continuity/persistence/recovery rules to START_HERE.md and AI_WORKING_AGREEMENT.md. Reconciled current main and identified that Spring follow-up packages previously listed as next in review reports (Biel Alpejska default, Lichen Khaki exact price, and charging cable semantics) have already been implemented in current master data. No new master data was changed in this reconciliation; tests were not rerun."
   },
   "next_package": {
-    "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+    "package_id": "duster_brochure_source_gap_closure_20261102_001",
     "kind": "official_brochure_full_source_assimilation",
-    "name": "Official Bigster Brochure Full Assimilation",
+    "name": "Duster Mini Brochure — Remaining Source-Backed Data Gap Closure",
     "status": "active",
-    "goal": "Resume from current main and the latest merged data, not the pre-October baseline. Review the current open PR #754 and recent merged source-backed changes before choosing work. Avoid repeated general-purpose crosswalk/report packages. Continue with one concrete batch of importable source-backed missing values, or switch to the next highest-impact model/source gap if #754 cannot yield an evidence-backed batch. Never infer or duplicate data; defer unresolved candidates explicitly. PR #763 also merged the user-facing fuel-type shortlist filter and readable cargo context."
+    "goal": "Start from current main. Source portfolio report records the registered 2025-10-20 Duster mini brochure (25 pages) as partial_review with targeted page reviews only. Perform one bounded, source-first page inventory and reconcile only exact, importable observations against current Duster configurations and existing imports. Prefer a concrete source-backed import batch; otherwise classify exact blockers and switch scope. Do not repeat Bigster PR #754 crosswalk/report, do not rerun PR #634, and do not infer 4x4 dimension projections or hybrid-G 150 configuration signatures. Run tests/quality and update canonical/generated documentation when the package is complete."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -98,6 +98,9 @@
     "source_snapshot_context": "ZIP snapshot used during the earlier portfolio-audit session; recovered reports retain their original dates and scope",
     "master_data_changed": false,
     "tests_rerun": false,
-    "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness."
+    "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness.",
+    "current_main_reconciliation": "completed",
+    "next_package_selection": "Duster mini brochure source-gap closure",
+    "rationale": "Spring source-backed follow-ups found in review documents are already materialized in current main; six registered brochures remain partial_review, and Duster mini brochure has substantial existing import coverage but only targeted page reviews."
   }
 }
