@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_brochure_page17_current_main_reconciliation_20261102_001",
+    "package_id": "jogger_equipment_page20_current_main_reconciliation_20261102_001",
     "kind": "source_candidate_current_main_reconciliation",
-    "name": "Sandero Brochure Page 17 — Current Main Reconciliation",
+    "name": "Jogger Brochure Equipment Page 20 — Current Main Reconciliation",
     "status": "complete",
-    "goal": "Reconciled the completed page-17 ambiguity/unresolved reviews against current main. All 16 selected evidence records already exist in master under the exact brochure source; remaining 41 candidates have no selected evidence and remain context-only/signature-mismatch. No new import or master data was justified. Persisted JSON and review artifact."
+    "goal": "Reconciled completed ambiguity and unresolved reviews against current main. All 110 unique selected equipment record codes are already present; the 107 unresolved candidates have no selected evidence. No new import or master data change."
   },
   "next_package": {
-    "package_id": "verified_pdf_residual_queue_current_main_reentry_20261102_001",
+    "package_id": "jogger_equipment_page21_current_main_reconciliation_20261102_001",
     "kind": "source_candidate_current_main_reconciliation",
-    "name": "Verified PDF Residual Queue — Current Main Re-entry",
+    "name": "Jogger Brochure Equipment Page 21 — Current Main Reconciliation",
     "status": "active",
-    "goal": "Starting from current main, reconcile existing completed residual review packages against later exact imports, master rows, and closures; avoid stale queue selections and all repeated reports/crosswalks. Select the first not-yet-reconciled, import-ready exact source/model/domain/page boundary outside the explicitly excluded Bigster PR #754 crosswalk and PR #634. If none is import-ready, produce exact blocker classification and move to highest-impact non-Bigster family source gap. Do not infer values or repeat page reviews already authored."
+    "goal": "Reconcile the previously completed page-21 ambiguity and unresolved review artifacts against current main. Check whether selected evidence already exists or is import-ready; preserve the deferred heated-steering-wheel conflict. Avoid duplicate data and do not infer configuration availability."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
