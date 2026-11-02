@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "continuity_recovery_and_current_main_reconciliation_20261102_001",
-    "kind": "project_continuity_recovery",
-    "name": "Continuity Recovery and Current Main Reconciliation",
+    "package_id": "sandero_brochure_page17_current_main_reconciliation_20261102_001",
+    "kind": "source_candidate_current_main_reconciliation",
+    "name": "Sandero Brochure Page 17 — Current Main Reconciliation",
     "status": "complete",
-    "goal": "Recovered and published 18 historical portfolio/completeness audit artifacts from the prior ZIP session under reports/recovered/. Added continuity/persistence/recovery rules to START_HERE.md and AI_WORKING_AGREEMENT.md. Reconciled current main and identified that Spring follow-up packages previously listed as next in review reports (Biel Alpejska default, Lichen Khaki exact price, and charging cable semantics) have already been implemented in current master data. No new master data was changed in this reconciliation; tests were not rerun."
+    "goal": "Reconciled the completed page-17 ambiguity/unresolved reviews against current main. All 16 selected evidence records already exist in master under the exact brochure source; remaining 41 candidates have no selected evidence and remain context-only/signature-mismatch. No new import or master data was justified. Persisted JSON and review artifact."
   },
   "next_package": {
-    "package_id": "duster_brochure_source_gap_closure_20261102_001",
-    "kind": "official_brochure_full_source_assimilation",
-    "name": "Duster Mini Brochure — Remaining Source-Backed Data Gap Closure",
+    "package_id": "verified_pdf_residual_queue_current_main_reentry_20261102_001",
+    "kind": "source_candidate_current_main_reconciliation",
+    "name": "Verified PDF Residual Queue — Current Main Re-entry",
     "status": "active",
-    "goal": "Start from current main. Source portfolio report records the registered 2025-10-20 Duster mini brochure (25 pages) as partial_review with targeted page reviews only. Perform one bounded, source-first page inventory and reconcile only exact, importable observations against current Duster configurations and existing imports. Prefer a concrete source-backed import batch; otherwise classify exact blockers and switch scope. Do not repeat Bigster PR #754 crosswalk/report, do not rerun PR #634, and do not infer 4x4 dimension projections or hybrid-G 150 configuration signatures. Run tests/quality and update canonical/generated documentation when the package is complete."
+    "goal": "Starting from current main, reconcile existing completed residual review packages against later exact imports, master rows, and closures; avoid stale queue selections and all repeated reports/crosswalks. Select the first not-yet-reconciled, import-ready exact source/model/domain/page boundary outside the explicitly excluded Bigster PR #754 crosswalk and PR #634. If none is import-ready, produce exact blocker classification and move to highest-impact non-Bigster family source gap. Do not infer values or repeat page reviews already authored."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
