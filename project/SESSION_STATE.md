@@ -193,3 +193,14 @@ Durable package receipts:
 - `project/reviews/sandero-brochure-page17-current-main-reconciliation-2026-11-02.md`
 
 The next package is now a bounded **current-main residual queue re-entry**: reconcile completed reviews against later imports and closure receipts before selecting another boundary. Do not repeat Sandero page 17, Bigster equipment page 21 (packages `028`–`030` are already reviewed), Bigster PR #754 crosswalk, or PR #634. If the queue yields no exact import, switch to a non-Bigster family with the highest-impact actionable source gap.
+
+
+## Jogger Equipment Page 20 — Current Main Reconciliation (2026-11-02)
+
+The completed ambiguity review selected 154 record references (110 unique codes) across 3 partially covered candidates. All 110 unique codes already exist in current-main `configuration_attribute_availability.csv`. The other two ambiguity outcomes are context-only and deferred source conflict. Three unresolved chunks cover 107 candidates and have no selected evidence signatures. No new import spec or master row is warranted.
+
+Durable receipts:
+- `data/reporting/jogger_equipment_page20_current_main_reconciliation_20261102.json`
+- `project/reviews/jogger-equipment-page20-current-main-reconciliation-2026-11-02.md`
+
+Next: reconcile Jogger equipment page 21's completed review against current main. Preserve the deferred heated steering wheel conflict; do not infer availability.
