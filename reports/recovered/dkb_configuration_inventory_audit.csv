@@ -1,0 +1,96 @@
+<PARSED TEXT FOR SHEET: 1 / 1 TABS
+TAB NAME: dkb_configuration_inventory_audit.csv>index,model_family,configuration_code,status,technical_value_rows,technical_attribute_codes,equipment_availability_rows,equipment_attribute_codes,price_rows,source_relation_rows,price_source_codes,technical_observation_sources,equipment_observation_sources
+0,Sandero,sandero_iii_expression_ecog120_manual,active,99,68,194,95,4,10,4,4,6
+1,Sandero,sandero_iii_journey_ecog120_manual,active,97,66,205,95,4,10,4,4,6
+2,Sandero Stepway,sandero_stepway_iii_essential_ecog120_manual,active,100,71,189,98,4,10,4,4,6
+3,Sandero Stepway,sandero_stepway_iii_expression_ecog120_automatic,active,94,66,198,95,4,10,4,4,6
+4,Sandero Stepway,sandero_stepway_iii_expression_ecog120_manual,active,97,66,198,96,4,10,4,4,6
+5,Sandero Stepway,sandero_stepway_iii_extreme_ecog120_automatic,active,93,64,205,94,4,10,4,4,6
+6,Sandero Stepway,sandero_stepway_iii_extreme_ecog120_manual,active,94,64,207,95,4,10,4,4,6
+7,Duster,duster_iii_essential_ecog100_4x2_manual,active,21,15,58,58,1,1,1,1,1
+8,Duster,duster_iii_expression_ecog100_4x2_manual,active,21,15,58,58,1,1,1,1,1
+9,Duster,duster_iii_extreme_ecog100_4x2_manual,active,21,15,58,58,1,1,1,1,1
+10,Duster,duster_iii_journey_ecog100_4x2_manual,active,21,15,58,58,1,1,1,1,1
+11,Duster,duster_iii_expression_mildhybrid130_4x2_manual,active,15,15,58,58,1,1,1,1,1
+12,Duster,duster_iii_extreme_mildhybrid130_4x2_manual,active,15,15,58,58,1,1,1,1,1
+13,Duster,duster_iii_journey_mildhybrid130_4x2_manual,active,15,15,58,58,1,1,1,1,1
+14,Duster,duster_iii_expression_hybrid140_4x2_automatic,active,15,15,58,58,1,1,1,1,1
+15,Duster,duster_iii_extreme_hybrid140_4x2_automatic,active,15,15,58,58,1,1,1,1,1
+16,Duster,duster_iii_journey_hybrid140_4x2_automatic,active,15,15,58,58,1,1,1,1,1
+17,Duster,duster_iii_journey_plus_hybrid140_4x2_automatic,active,15,15,58,58,1,1,1,1,1
+18,Duster,duster_iii_expression_mildhybrid130_4x4_manual,active,15,15,58,58,1,1,1,1,1
+19,Duster,duster_iii_extreme_mildhybrid130_4x4_manual,active,15,15,58,58,1,1,1,1,1
+20,Duster,duster_iii_journey_mildhybrid130_4x4_manual,active,15,15,58,58,1,1,1,1,1
+21,Duster,duster_iii_essential_ecog120_4x2_manual,active,140,75,135,76,3,5,3,5,3
+22,Duster,duster_iii_expression_ecog120_4x2_manual,active,137,72,139,77,3,5,3,5,4
+23,Duster,duster_iii_extreme_ecog120_4x2_manual,active,136,71,142,78,3,5,3,5,4
+24,Duster,duster_iii_journey_ecog120_4x2_manual,active,139,74,142,78,3,5,3,5,4
+25,Duster,duster_iii_expression_mildhybrid140_4x2_manual,active,132,76,139,77,3,5,3,5,4
+26,Duster,duster_iii_extreme_mildhybrid140_4x2_manual,active,131,75,142,78,3,5,3,5,4
+27,Duster,duster_iii_journey_mildhybrid140_4x2_manual,active,134,78,142,78,3,5,3,5,4
+28,Duster,duster_iii_expression_hybrid155_4x2_automatic,active,136,77,139,77,3,5,3,5,4
+29,Duster,duster_iii_extreme_hybrid155_4x2_automatic,active,135,76,146,78,3,5,3,5,4
+30,Duster,duster_iii_journey_hybrid155_4x2_automatic,active,138,79,143,78,3,5,3,5,4
+31,Jogger,jogger_essential_5seat_ecog120_manual,active,131,79,93,65,3,5,3,4,4
+32,Jogger,jogger_expression_5seat_ecog120_manual,active,128,76,96,66,3,5,3,4,4
+33,Jogger,jogger_extreme_5seat_ecog120_manual,active,127,75,95,66,3,5,3,4,4
+34,Jogger,jogger_extreme_5seat_ecog120_automatic,active,129,76,94,65,3,5,3,4,4
+35,Jogger,jogger_journey_5seat_ecog120_automatic,active,128,75,92,65,2,5,2,4,4
+36,Jogger,jogger_expression_5seat_tce110_manual,active,106,73,96,66,2,5,2,4,4
+37,Jogger,jogger_extreme_5seat_tce110_manual,active,105,72,95,66,2,5,2,4,4
+38,Jogger,jogger_journey_5seat_tce110_manual,active,104,71,93,66,2,5,2,4,4
+39,Jogger,jogger_expression_5seat_hybrid155_automatic,active,120,82,95,65,3,5,3,4,4
+40,Jogger,jogger_extreme_5seat_hybrid155_automatic,active,119,81,94,65,3,5,3,4,4
+41,Jogger,jogger_journey_5seat_hybrid155_automatic,active,118,80,92,65,2,5,2,4,4
+42,Jogger,jogger_essential_7seat_ecog120_manual,active,133,79,93,65,3,5,3,4,4
+43,Jogger,jogger_expression_7seat_ecog120_manual,active,130,76,96,66,3,5,3,4,4
+44,Jogger,jogger_extreme_7seat_ecog120_manual,active,129,75,95,66,3,5,3,4,4
+45,Jogger,jogger_extreme_7seat_ecog120_automatic,active,131,76,94,65,3,5,3,4,4
+46,Jogger,jogger_journey_7seat_ecog120_automatic,active,130,75,92,65,2,5,2,4,4
+47,Jogger,jogger_expression_7seat_tce110_manual,active,108,73,96,66,2,5,2,4,4
+48,Jogger,jogger_extreme_7seat_tce110_manual,active,107,72,95,66,2,5,2,4,4
+49,Jogger,jogger_journey_7seat_tce110_manual,active,106,71,93,66,2,5,2,4,4
+50,Jogger,jogger_expression_7seat_hybrid155_automatic,active,122,82,95,65,3,5,3,4,4
+51,Jogger,jogger_extreme_7seat_hybrid155_automatic,active,121,81,94,65,3,5,3,4,4
+52,Jogger,jogger_journey_7seat_hybrid155_automatic,active,120,80,92,65,2,5,2,4,4
+53,Bigster,bigster_essential_mildhybrid140_4x2_manual,active,95,80,116,95,1,3,1,3,3
+54,Bigster,bigster_expression_mildhybrid140_4x2_manual,active,97,80,116,95,1,3,1,3,3
+55,Bigster,bigster_extreme_mildhybrid140_4x2_manual,active,100,82,116,95,1,3,1,3,3
+56,Bigster,bigster_journey_mildhybrid140_4x2_manual,active,99,82,116,95,1,3,1,3,3
+57,Bigster,bigster_essential_mildhybridg140_4x2_manual,active,105,81,116,95,2,4,2,3,3
+58,Bigster,bigster_expression_mildhybridg140_4x2_manual,active,103,81,116,95,2,4,2,3,3
+59,Bigster,bigster_extreme_mildhybridg140_4x2_manual,active,103,83,116,95,2,4,2,3,3
+60,Bigster,bigster_journey_mildhybridg140_4x2_manual,active,104,83,116,95,2,4,2,3,3
+61,Bigster,bigster_expression_hybrid155_4x2_automatic,active,103,83,117,95,2,4,2,3,3
+62,Bigster,bigster_extreme_hybrid155_4x2_automatic,active,105,85,118,96,2,4,2,3,3
+63,Bigster,bigster_journey_hybrid155_4x2_automatic,active,105,85,118,96,2,4,2,3,3
+64,Bigster,bigster_expression_hybridg150_4x4_automatic,active,101,83,116,95,1,3,1,3,3
+65,Bigster,bigster_extreme_hybridg150_4x4_automatic,active,98,84,117,96,1,3,1,3,3
+66,Bigster,bigster_journey_hybridg150_4x4_automatic,active,102,84,117,96,1,3,1,3,3
+67,Sandero,sandero_iii_expression_ecog120_automatic,active,87,64,135,91,3,8,3,4,4
+68,Sandero,sandero_iii_journey_ecog120_automatic,active,85,62,140,91,3,8,3,4,4
+69,Duster,duster_iii_expression_ecog120_4x2_automatic,active,117,61,145,82,2,8,2,6,4
+70,Duster,duster_iii_extreme_ecog120_4x2_automatic,active,116,60,155,85,3,8,3,6,5
+71,Duster,duster_iii_journey_ecog120_4x2_automatic,active,119,63,153,84,3,8,3,6,5
+72,Sandero,sandero_iii_essential_tce100_manual,active,102,79,129,96,2,7,2,5,3
+73,Sandero,sandero_iii_expression_tce100_manual,active,94,71,130,92,2,7,2,5,2
+74,Sandero,sandero_iii_journey_tce100_manual,active,92,69,137,92,2,7,2,5,2
+75,Sandero Stepway,sandero_stepway_iii_essential_tce110_manual,active,101,77,131,95,2,6,2,5,3
+76,Sandero Stepway,sandero_stepway_iii_expression_tce110_manual,active,95,72,132,92,2,6,2,5,2
+77,Sandero Stepway,sandero_stepway_iii_extreme_tce110_manual,active,93,70,138,92,2,6,2,5,2
+78,Spring,spring_essential_electric70_automatic,active,73,64,46,46,1,4,1,3,3
+79,Spring,spring_expression_electric70_automatic,active,74,65,45,45,1,4,1,2,3
+80,Spring,spring_extreme_electric100_automatic,active,72,63,46,46,1,3,1,2,4
+81,Duster,duster_iii_expression_hybridg150_4x4_automatic,active,110,65,99,76,2,3,2,3,2
+82,Duster,duster_iii_extreme_hybridg150_4x4_automatic,active,109,64,101,77,2,3,2,3,2
+83,Duster,duster_iii_journey_hybridg150_4x4_automatic,active,112,67,98,76,2,3,2,3,2
+84,Sandero,sandero_iii_expression_hybrid155_automatic,active,16,16,66,66,1,1,1,1,1
+85,Sandero,sandero_iii_journey_hybrid155_automatic,active,16,16,63,63,1,1,1,1,1
+86,Sandero Stepway,sandero_stepway_iii_expression_hybrid155_automatic,active,16,16,67,67,1,1,1,1,1
+87,Sandero Stepway,sandero_stepway_iii_extreme_hybrid155_automatic,active,16,16,62,62,1,1,1,1,1
+88,Bigster,bigster_expression_mildhybridg140_4x2_automatic,active,25,22,94,94,1,1,1,1,1
+89,Bigster,bigster_extreme_mildhybridg140_4x2_automatic,active,25,22,94,94,1,1,1,1,1
+90,Bigster,bigster_journey_mildhybridg140_4x2_automatic,active,25,22,94,94,1,1,1,1,1
+91,Bigster,bigster_expression_tribrid150_4x4_automatic,active,24,21,94,94,1,1,1,1,1
+92,Bigster,bigster_extreme_tribrid150_4x4_automatic,active,24,21,94,94,1,1,1,1,1
+93,Bigster,bigster_journey_tribrid150_4x4_automatic,active,24,21,94,94,1,1,1,1,1
