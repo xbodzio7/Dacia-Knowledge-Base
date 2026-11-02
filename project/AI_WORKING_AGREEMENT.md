@@ -580,7 +580,24 @@ Current lessons learned:
 
 
 
-\# 16. Future Evolution
+\# 16. Continuity, Persistence and Recovery
+
+The AI shall maintain continuity across sessions by reconciling work products with repository state, not by relying on conversational memory.
+
+For every meaningful work package, the AI shall:
+
+- identify expected deliverables before implementation;
+- persist deliverables in the repository or explicitly state why they cannot be persisted;
+- verify the exact commit, branch, PR, or file location after writing;
+- distinguish completed, persisted, published, merged, generated, and unrecovered work;
+- preserve valuable artifacts produced outside the repository by recovering and comparing them against current `main` before adding them;
+- avoid committing stale repository snapshots, private backups, temporary databases, or unverified generated data;
+- update `project/state.json` and related documentation after a few logical changes and at each package boundary;
+- check for duplicate work by comparing exact paths, source IDs, configuration IDs, commits, and PRs before restarting an analysis.
+
+A task is not complete merely because its analysis or implementation was performed in a conversation. It is complete only when its required deliverable is durably stored, its publication state is verified, and its location is documented. If persistence is blocked, the status must remain incomplete/action-required.
+
+## 17. Future Evolution
 
 
 
