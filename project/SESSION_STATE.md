@@ -66,7 +66,7 @@ After recovering ZIP-session artifacts, current main and the canonical source co
 
 Current official brochure portfolio reconciliation records six registered brochures, zero fully assimilated at the source-wide coverage level, and all six as `partial_review`. This does not mean previously imported individual observations are missing; the status describes source-wide page/master reconciliation.
 
-The next package is selected as Duster mini brochure source-gap closure: 25-page registered source, substantial prior targeted imports, but no full source-wide page inventory. The goal is one bounded source-first reconciliation that results in an exact import batch or explicit blockers. Do not repeat Bigster PR #754 crosswalk work or rerun PR #634.
+The Duster mini brochure was previously selected as a source-gap package, but current-main reconciliation confirmed that page 20 has already been imported exactly (35 observations), page 21's ambiguity/unresolved reviews are closed with no import approvals, and pages 22–23 have completed review-only ambiguity packages. The selected Duster scope was therefore too broad/stale to justify a repeat. Do not repeat those page reviews.
 
 No master data was changed in this state-reconciliation step. Tests/Quality were not rerun.
 
@@ -177,3 +177,19 @@ Granica migracji i lokalizacja pozostałych zapisów historycznych są opisane w
 - `project/reviews/`,
 - `CHANGELOG.md`,
 - historii commitów i scalonych Pull Requestów.
+
+
+## Current Main Residual Reconciliation (2026-11-02)
+
+The stable residual queue had selected Sandero brochure page 17 (packages `residual_gap_004`, `026`, `027`) because no later current-main reconciliation was recorded. This page is now reconciled:
+
+- 46 candidates reviewed: 5 ambiguous and 41 unresolved.
+- The ambiguity review selected 8 exact signatures / 16 records. All 16 already exist in `data/master/configuration_attribute_values.csv` under exact source `src_pl_sandero_brochure_20260202`: engine power 4, engine torque 4, maximum kerb weight 4, gross vehicle weight 2, gross train weight 2.
+- The remaining 41 candidates have no selected evidence: 27 context-only and 14 signature mismatches.
+- No import-ready gap, master-data change, or new import spec.
+
+Durable package receipts:
+- `data/reporting/sandero_brochure_page17_current_main_reconciliation_20261102.json`
+- `project/reviews/sandero-brochure-page17-current-main-reconciliation-2026-11-02.md`
+
+The next package is now a bounded **current-main residual queue re-entry**: reconcile completed reviews against later imports and closure receipts before selecting another boundary. Do not repeat Sandero page 17, Bigster equipment page 21 (packages `028`–`030` are already reviewed), Bigster PR #754 crosswalk, or PR #634. If the queue yields no exact import, switch to a non-Bigster family with the highest-impact actionable source gap.
