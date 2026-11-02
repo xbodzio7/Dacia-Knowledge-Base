@@ -37,6 +37,25 @@ Current open PRs verified from GitHub:
 
 Operational rule: before every continuation, inspect current main, recent merged PRs, open PR heads, and the canonical state. Do not repeat PR #752 source portfolio inventory, PR #767 page anchoring, or the same #754 crosswalk report. The next package must deliver a concrete, source-backed import batch or explicitly move to the highest-impact unblocked data gap for another model family. If no importable batch is possible, state the exact evidence boundary and switch scope; do not loop on a generic blocker.
 
+## Recovered Work from ZIP Session (2026-11-02)
+
+The repository ZIP used in the earlier portfolio-audit work was re-opened and its generated audit outputs were compared with current `main`. Recoverable report artifacts have been committed under `reports/recovered/`.
+
+Recovered outputs include:
+
+- portfolio audit snapshot dated 2026-10-01;
+- model-family portfolio summary dated 2026-10-01;
+- completeness audit;
+- source coverage report;
+- configuration inventory and field inventory audits (Markdown/CSV);
+- peer-union candidate-gap CSV;
+- completeness-spec diagnostics (Markdown/CSV);
+- active configuration shortlist (Markdown/CSV);
+- all-configuration comparison (Markdown/CSV);
+- PDF candidate ledger, review, and residual-gap prioritization.
+
+These are preserved as historical/generated analysis artifacts. They are not current master data, do not prove current completeness, and do not replace source-backed imports. The audit snapshot records 94 active configurations, 6 model families, 108 source records, 402 explicit source-to-configuration relationships, and 0 configurations without source links as of its stated scope/date. The 2026-10-01 snapshot is not to be substituted for current `main` counts. Repository quality tests were not rerun as part of this recovery.
+
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
