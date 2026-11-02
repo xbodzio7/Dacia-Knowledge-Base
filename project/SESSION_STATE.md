@@ -17,6 +17,26 @@ python tools/dkb.py project-state --check
 
 Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
+## Verified Current Progress (2026-11-02)
+
+Latest verified merged work on `main` is newer than the old 2026-10-27 narrative and must be considered before selecting or repeating any package:
+
+- PR #759: 14 exact historical Bigster TPMS availability observations imported from the 2025-12-10 brochure.
+- PR #760: 283 additional Bigster equipment availability observations imported; together with TPMS, 297 exact cells across 22 attributes and 14 configurations.
+- PR #761: 14 exact historical Bigster overall-length observations imported.
+- PR #762: six unresolved Bigster brochure facts explicitly deferred as `Do sprawdzenia`; this is a workflow status, not a master-data value.
+- PR #767: source-page references added to those six deferred facts. This is traceability only and does not resolve them.
+- PR #763: shortlist fuel-type filter and readable cargo context merged; this is a user-facing feature, not a data-completeness milestone.
+- PR #766: consumer-guide example updated to published `data-products-v1.20.0`.
+
+Current open PRs verified from GitHub:
+
+- #754 — Bigster brochure page inventory/master reconciliation; Draft, not merged. Its remaining issue is exact candidate-to-configuration/evidence mapping and attribute contracts. CI green, if confirmed on current head, does not establish source-to-master completeness.
+- #675 and #673 — Sandero Hybrid 155 configurator reporting/endpoint discovery; neither is a completed master-data import.
+- #634 — old Draft Sandero residual full-modal import PR; do not rerun or treat as the current package without a fresh, current-main reconciliation.
+
+Operational rule: before every continuation, inspect current main, recent merged PRs, open PR heads, and the canonical state. Do not repeat PR #752 source portfolio inventory, PR #767 page anchoring, or the same #754 crosswalk report. The next package must deliver a concrete, source-backed import batch or explicitly move to the highest-impact unblocked data gap for another model family. If no importable batch is possible, state the exact evidence boundary and switch scope; do not loop on a generic blocker.
+
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
