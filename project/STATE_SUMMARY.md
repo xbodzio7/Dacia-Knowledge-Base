@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Dacia Current Official Documentary Source Assimilation**
+**Dacia Official Documentary Source Gap Closure**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Dacia Brochure Portfolio Coverage Reconciliation** — `complete`
+**Continuity Recovery and Current Main Reconciliation** — `complete`
 
-Complete source-to-master assimilation of the registered official Dacia brochure portfolio. Verified Bigster brochure imports already merged on main: 14 TPMS availability observations (PR #759), 283 equipment availability observations (PR #760; 297 cells including TPMS across 22 attributes and 14 exact configurations), and 14 dated overall-length observations (PR #761). Six brochure-level gaps are explicitly deferred as Do sprawdzenia (PR #762), with page references added (PR #767); these are workflow statuses, not master values. Do not repeat the inventory or page-anchor work. The remaining active task is to reconcile unresolved Bigster brochure candidates into exact importable observations versus specific evidence/attribute blockers, then prioritize the next highest-impact source-backed data gaps across the other model families.
+Recovered and published 18 historical audit artifacts under `reports/recovered/`; added continuity/persistence/recovery rules. Verified Spring follow-ups previously marked as next in review docs are already present in current master. No master data changed in this reconciliation; tests were not rerun.
 
 ## Next package
 
-**Official Bigster Brochure Full Assimilation** — `active`
+**Duster Mini Brochure — Remaining Source-Backed Data Gap Closure** — `active`
 
-Resume from current main and the latest merged data, not the pre-October baseline. Review the current open PR #754 and recent merged source-backed changes before choosing work. Avoid repeated general-purpose crosswalk/report packages. Continue with one concrete batch of importable source-backed missing values, or switch to the next highest-impact model/source gap if #754 cannot yield an evidence-backed batch. Never infer or duplicate data; defer unresolved candidates explicitly. PR #763 also merged the user-facing fuel-type shortlist filter and readable cargo context.
+The registered 2025-10-20 Duster mini brochure is 25 pages, partial_review, and has targeted page reviews only. Reconcile source-wide coverage from current main and existing imports, aiming for one exact source-backed import batch or explicit blockers. Do not repeat Bigster PR #754 crosswalk/report work or rerun PR #634.
 
 ## Autonomy
 
