@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Continuity Recovery and Current Main Reconciliation** — `complete`
+**Sandero Brochure Page 17 — Current Main Reconciliation** — `complete`
 
-Recovered and published 18 historical audit artifacts under `reports/recovered/`; added continuity/persistence/recovery rules. Verified Spring follow-ups previously marked as next in review docs are already present in current master. No master data changed in this reconciliation; tests were not rerun.
+Reconciled 46 reviewed candidates against current main. All 16 selected exact observations already exist under the exact source; the remaining 41 candidates have no selected evidence. No import or master-data change was warranted.
 
 ## Next package
 
-**Duster Mini Brochure — Remaining Source-Backed Data Gap Closure** — `active`
+**Verified PDF Residual Queue — Current Main Re-entry** — `active`
 
-The registered 2025-10-20 Duster mini brochure is 25 pages, partial_review, and has targeted page reviews only. Reconcile source-wide coverage from current main and existing imports, aiming for one exact source-backed import batch or explicit blockers. Do not repeat Bigster PR #754 crosswalk/report work or rerun PR #634.
+Reconcile completed residual review packages against later exact imports and closure receipts before selecting another boundary. Avoid stale queue selections and repeat reviews; exclude Bigster PR #754 crosswalk and PR #634. If no exact import is ready, move to the highest-impact actionable non-Bigster model-family source gap.
 
 ## Autonomy
 
