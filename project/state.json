@@ -87,5 +87,17 @@
     "release_exact_source_sha_required": true,
     "workflow_selection": "environment_detected",
     "active_profile": null
+  },
+  "recovery_checkpoint": {
+    "updated_on": "2026-11-02",
+    "policy": "continuity_persistence_recovery",
+    "result": "completed",
+    "recovered_artifacts_path": "reports/recovered/",
+    "recovered_artifact_count": 18,
+    "source_snapshot": "Dacia-Knowledge-Base-main(1).zip",
+    "source_snapshot_context": "ZIP snapshot used during the earlier portfolio-audit session; recovered reports retain their original dates and scope",
+    "master_data_changed": false,
+    "tests_rerun": false,
+    "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness."
   }
 }
