@@ -1,5 +1,4 @@
-<PARSED TEXT FOR SHEET: 1 / 1 TABS
-TAB NAME: dkb_configuration_inventory_audit.csv>index,model_family,configuration_code,status,technical_value_rows,technical_attribute_codes,equipment_availability_rows,equipment_attribute_codes,price_rows,source_relation_rows,price_source_codes,technical_observation_sources,equipment_observation_sources
+index,model_family,configuration_code,status,technical_value_rows,technical_attribute_codes,equipment_availability_rows,equipment_attribute_codes,price_rows,source_relation_rows,price_source_codes,technical_observation_sources,equipment_observation_sources
 0,Sandero,sandero_iii_expression_ecog120_manual,active,99,68,194,95,4,10,4,4,6
 1,Sandero,sandero_iii_journey_ecog120_manual,active,97,66,205,95,4,10,4,4,6
 2,Sandero Stepway,sandero_stepway_iii_essential_ecog120_manual,active,100,71,189,98,4,10,4,4,6
