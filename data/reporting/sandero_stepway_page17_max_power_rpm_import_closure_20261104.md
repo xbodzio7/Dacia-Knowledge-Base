@@ -11,7 +11,7 @@ Reviewed: 2026-11-04
 
 ## Evidence
 
-Official Dacia Sandero Stepway brochure, source `src_pl_sandero_stepway_brochure_20260202`, page 17, section SILNIKI. The table gives LPG as 90 kW from 4500 to 5000 rpm and petrol as 84 kW from 4500 to 5000 rpm, for both manual and automatic Eco-G 120 powertrains. The matching source SHA-256 is `800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48`.
+Official Dacia Sandero Stepway brochure, source `src_pl_sandero_stepway_brochure_20260202`, page 17, section SILNIKI. The table gives LPG as 90 kW from 4500 to 5000 rpm and petrol as 84 kW from 4500 to 5000 rpm, for both manual and automatic Eco-G 120 powertrains. The matching source SHA-256 is `800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48`. The master `observation_date` is 2026-11-04, the repository reconciliation date; the registered source document date remains 2026-02-02.
 
 ## Imported scope
 
