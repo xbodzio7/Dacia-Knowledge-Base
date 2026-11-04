@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1951
+- Tests: 1950
 - Master CSV files: 48
 - Master rows: 21582
 - Configuration values: 8200
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Pages 21–22 Equipment Gaps** — `complete`
+**Sandero Stepway Page 17 — Maximum Power RPM Ranges** — `complete`
 
-Imported 12 source-backed missing availability cells for Multiview camera and passenger seat height adjustment across nine exact configurations; existing cells and powertrains outside the brochure scope were excluded.
+Audited completeness specifications covering 94 active configurations and imported the 10 source-backed max_power_rpm fuel ranges missing from five Stepway Eco-G 120 configurations. This reduces required technical gaps from 80 to 70; 292 equipment gaps remain for source review.
 
 ## Next package
 
-**Verified PDF Residual Gap Queue Re-entry Review** — `active`
+**Duster Mini Brochure Source-Gap Closure** — `active`
 
-Reconcile remaining registered brochure PDF gaps against current imports and source completeness boundaries, then select the next exact source-backed package.
+Review the registered Duster mini brochure against its existing imports and current-main completeness gaps; import only exact source-backed values that are not already present.
 
 ## Autonomy
 
