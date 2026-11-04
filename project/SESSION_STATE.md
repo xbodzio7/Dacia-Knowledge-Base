@@ -204,3 +204,12 @@ Durable receipts:
 - `project/reviews/jogger-equipment-page20-current-main-reconciliation-2026-11-02.md`
 
 Next: reconcile Jogger equipment page 21's completed review against current main. Preserve the deferred heated steering wheel conflict; do not infer availability.
+
+
+## Jogger Equipment Page 21 — Current Main Reconciliation (2026-11-04)
+
+The completed page-21 ambiguity review selected 30 availability record codes across two competing signatures. All 30 unique codes are present exactly once in `data/master/configuration_attribute_availability.csv` using the canonical identifier column `code`. The two unresolved review chunks contain 72 candidates with zero selected evidence signatures or records. The heated-steering-wheel Journey state remains deferred because the 2025-12-17 brochure says standard while the later 2026-07-03 price list says unavailable. No import spec or master-data change is warranted.
+
+Durable receipt: `data/reporting/jogger_equipment_page21_current_main_reconciliation_20261104.json`.
+
+Next: re-enter the verified residual queue against current main, reconcile later imports and closure receipts, and select the highest-impact actionable non-Bigster source gap. Do not repeat closed reviews.
