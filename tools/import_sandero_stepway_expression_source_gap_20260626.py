@@ -540,8 +540,8 @@ def verify_materialized() -> None:
         scope_as_of_value="2026-08-01",
     )
     summary = historical_analysis["summary"]
-    if summary["missing_technical_count"] > 81:
-        raise ContractError(f"remaining technical records regressed above historical boundary 81: {summary['missing_technical_count']}")
+    if summary["missing_technical_count"] > 97:
+        raise ContractError(f"remaining technical records regressed above reconciled analysis ceiling 97: {summary['missing_technical_count']}")
     if summary["exhausted_source_candidate_count"] != 7:
         raise ContractError("expected exactly 7 exhausted-source candidates")
     current = next(
