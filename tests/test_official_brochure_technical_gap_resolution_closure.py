@@ -46,7 +46,11 @@ EXPECTED_RANGES = Counter(
     }
 )
 EXPECTED_CURRENT_RANGES = EXPECTED_RANGES + Counter(
-    {"src_pl_bigster_brochure_20251210": 34, "src_pl_sandero_brochure_20260202": 20}
+    {
+        "src_pl_bigster_brochure_20251210": 34,
+        "src_pl_sandero_brochure_20260202": 20,
+        "src_pl_sandero_stepway_brochure_20260202": 10,
+    }
 )
 
 
