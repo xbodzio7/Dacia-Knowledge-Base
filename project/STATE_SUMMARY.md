@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-04
+- State updated: 2026-11-05
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero Stepway Page 17 — Maximum Power RPM Ranges** — `complete`
+**Duster Mini Equipment Pages 21–22 Gap Closure** — `complete`
 
-Audited completeness specifications covering 94 active configurations and imported the 10 source-backed max_power_rpm fuel ranges missing from five Stepway Eco-G 120 configurations. This reduces required technical gaps from 80 to 70; 292 equipment gaps remain for source review.
+Imported 12 exact source-backed equipment availability cells from printed pages 21–22 across nine configurations: Multiview camera (5 unavailable, 4 optional) and passenger-seat height adjustment (2 optional, 1 standard). PR #773 merged to main as `5adfa817a391cdb1e423320d1ab8921c105b048f` after all Quality and reporting workflows passed.
 
 ## Next package
 
-**Duster Mini Brochure Source-Gap Closure** — `active`
+**Verified PDF Residual Queue Re-entry Review** — `active`
 
-Review the registered Duster mini brochure against its existing imports and current-main completeness gaps; import only exact source-backed values that are not already present.
+Reconcile the historical candidate and review queues against current main, all post-July imports and closure receipts; exclude completed or superseded boundaries and select the next exact source-backed package without reopening authored reviews.
 
 ## Autonomy
 
