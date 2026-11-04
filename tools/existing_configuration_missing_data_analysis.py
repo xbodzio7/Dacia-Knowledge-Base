@@ -16,6 +16,7 @@ OUT_MD = REPORTING / "existing_configuration_missing_data_analysis.md"
 PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-reanalysis-20260801.md"
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
+DEFAULT_ANALYSIS_AS_OF = "2026-07-31"
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -79,6 +80,8 @@ def collect(
     repository: Path = ROOT,
     scope_as_of_value: str | None = None,
 ) -> dict[str, object]:
+    if scope_as_of_value is None:
+        scope_as_of_value = DEFAULT_ANALYSIS_AS_OF
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
     excluded_configurations = {
@@ -102,6 +105,8 @@ def collect(
             row.get("gear_number", ""),
         )
         for row in rows(master / "configuration_attribute_values.csv")
+        if not scope_as_of_value
+        or str(row.get("observation_date", "")) <= scope_as_of_value
     }
     ranges = {
         (
@@ -111,6 +116,8 @@ def collect(
             row.get("gear_number", ""),
         )
         for row in rows(master / "configuration_attribute_value_ranges.csv")
+        if not scope_as_of_value
+        or str(row.get("observation_date", "")) <= scope_as_of_value
     }
     availability = {
         (row["configuration_code"], row["attribute_code"])
@@ -133,9 +140,27 @@ def collect(
         if path.name in {
             "bigster_mildhybridg140_4x2_automatic_completeness.json",
             "bigster_tribrid150_4x4_automatic_completeness.json",
+            "sandero_hybrid155_automatic_completeness.json",
         }:
             continue
         scope_files.append(path)
+
+    # Scope the active-configuration count to the configurations covered by
+    # the effective completeness files. Newly introduced configurations may
+    # already exist in the master inventory while remaining outside this
+    # historical analysis period.
+    scoped_configuration_codes: set[str] = set()
+    for path in scope_files:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for ref in payload.get("configurations", []):
+            code = ref if isinstance(ref, str) else str(ref.get("configuration_code", ""))
+            if code in configurations:
+                scoped_configuration_codes.add(code)
+    configurations = {
+        code: row for code, row in configurations.items()
+        if code in scoped_configuration_codes
+    }
+
     for path in scope_files:
         payload = json.loads(path.read_text(encoding="utf-8"))
         technical = [

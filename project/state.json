@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-11-02",
+  "updated_on": "2026-11-04",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -17,28 +17,28 @@
   "baseline": {
     "tests": 1950,
     "csv_files": 48,
-    "rows": 21560,
+    "rows": 21570,
     "configuration_values": 8200,
     "configuration_import_specs": 162,
-    "configuration_value_ranges": 441,
-    "configuration_range_import_specs": 24,
+    "configuration_value_ranges": 451,
+    "configuration_range_import_specs": 25,
     "availability_records": 10100,
     "attributes": 416,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_equipment_page20_current_main_reconciliation_20261102_001",
-    "kind": "source_candidate_current_main_reconciliation",
-    "name": "Jogger Brochure Equipment Page 20 — Current Main Reconciliation",
+    "package_id": "sandero_stepway_page17_max_power_rpm_import_20261104_001",
+    "kind": "configuration_value_range_import",
+    "name": "Sandero Stepway Page 17 — Maximum Power RPM Ranges",
     "status": "complete",
-    "goal": "Reconciled completed ambiguity and unresolved reviews against current main. All 110 unique selected equipment record codes are already present; the 107 unresolved candidates have no selected evidence. No new import or master data change."
+    "goal": "Audited completeness specifications covering 94 active configurations and imported the 10 source-backed max_power_rpm fuel ranges missing from five Stepway Eco-G 120 configurations. This reduces required technical gaps from 80 to 70; 292 equipment gaps remain for source review."
   },
   "next_package": {
-    "package_id": "jogger_equipment_page21_current_main_reconciliation_20261102_001",
-    "kind": "source_candidate_current_main_reconciliation",
-    "name": "Jogger Brochure Equipment Page 21 — Current Main Reconciliation",
+    "package_id": "duster_mini_brochure_source_gap_closure_001",
+    "kind": "source_gap_closure",
+    "name": "Duster Mini Brochure Source-Gap Closure",
     "status": "active",
-    "goal": "Reconcile the previously completed page-21 ambiguity and unresolved review artifacts against current main. Check whether selected evidence already exists or is import-ready; preserve the deferred heated-steering-wheel conflict. Avoid duplicate data and do not infer configuration availability."
+    "goal": "Review the registered Duster mini brochure against its existing imports and current-main completeness gaps; import only exact source-backed values that are not already present."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

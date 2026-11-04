@@ -75,18 +75,18 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 <!-- dkb:documentation-baseline:session:start -->
 - 1950 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 21560 rekordów danych,
+- 21570 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
 - 8200 obserwacji w `configuration_attribute_values.csv`,
 - 162 wersjonowanych specyfikacji w `data/imports/configuration_values`,
-- 441 obserwacji w `configuration_attribute_value_ranges.csv`,
-- 24 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
+- 451 obserwacji w `configuration_attribute_value_ranges.csv`,
+- 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 10100 rekordów w `configuration_attribute_availability.csv`,
 - 8147 rekordów `standard`, 682 `optional`, 1271 `not_available` i 0 `unknown`,
 - 416 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 21560 rekordów,
+- baza SQLite obejmująca 48 tabele i 21570 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -204,3 +204,12 @@ Durable receipts:
 - `project/reviews/jogger-equipment-page20-current-main-reconciliation-2026-11-02.md`
 
 Next: reconcile Jogger equipment page 21's completed review against current main. Preserve the deferred heated steering wheel conflict; do not infer availability.
+
+
+## Jogger Equipment Page 21 — Current Main Reconciliation (2026-11-04)
+
+The completed page-21 ambiguity review selected 30 availability record codes across two competing signatures. All 30 unique codes are present exactly once in `data/master/configuration_attribute_availability.csv` using the canonical identifier column `code`. The two unresolved review chunks contain 72 candidates with zero selected evidence signatures or records. The heated-steering-wheel Journey state remains deferred because the 2025-12-17 brochure says standard while the later 2026-07-03 price list says unavailable. No import spec or master-data change is warranted.
+
+Durable receipt: `data/reporting/jogger_equipment_page21_current_main_reconciliation_20261104.json`.
+
+Next: review the registered Duster mini brochure against current imports and completeness gaps; import only exact source-backed values not already present.

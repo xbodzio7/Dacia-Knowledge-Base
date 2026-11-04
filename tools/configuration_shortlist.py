@@ -379,6 +379,7 @@ def _apply_reviewed_gap_states(
     }
     reviewed_on = str(payload.get("generated_on", ""))
     technical_count = 0
+    technical_superseded_count = 0
     for review in _technical_review_states(payload):
         configuration = by_code.get(review["configuration_code"])
         facet = facet_by_key.get(review["comparison_key"])
@@ -412,10 +413,11 @@ def _apply_reviewed_gap_states(
             facet_by_key[review["comparison_key"]] = facet
         values = configuration.setdefault("comparison_values", {})
         if review["comparison_key"] in values:
-            raise ShortlistError(
-                "reviewed technical gap already has a recorded value: "
-                f"{review['configuration_code']} / {review['comparison_key']}"
-            )
+            # A later exact master observation closes this historical gap.
+            # Keep the source review in its dated report, but do not overlay a
+            # stale "not stated" state on the recorded technical value.
+            technical_superseded_count += 1
+            continue
         values[review["comparison_key"]] = {
             **facet,
             "kind": "reviewed_gap",
@@ -447,6 +449,7 @@ def _apply_reviewed_gap_states(
     catalog["reviewed_gap_materialization"] = {
         "reviewed_on": reviewed_on,
         "technical_states": technical_count,
+        "technical_states_superseded_by_later_observation": technical_superseded_count,
         "commercial_states": commercial_count,
         "commercial_decisions": len(decisions),
     }
