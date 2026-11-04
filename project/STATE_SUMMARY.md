@@ -36,7 +36,7 @@
 
 ## Current package
 
-**Jogger Equipment Page 20 — Current Main Reconciliation** — `complete`
+**Jogger Brochure Equipment Page 20 — Current Main Reconciliation** — `complete`
 
 Reconciled completed page-20 reviews against current main. All 110 unique selected equipment record codes already exist; 107 unresolved candidates have no selected evidence. No import or master-data change was warranted.
 
