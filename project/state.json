@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-11-02",
+  "updated_on": "2026-11-04",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_equipment_page20_current_main_reconciliation_20261102_001",
-    "kind": "source_candidate_current_main_reconciliation",
-    "name": "Jogger Brochure Equipment Page 20 — Current Main Reconciliation",
-    "status": "complete",
-    "goal": "Reconciled completed ambiguity and unresolved reviews against current main. All 110 unique selected equipment record codes are already present; the 107 unresolved candidates have no selected evidence. No new import or master data change."
-  },
-  "next_package": {
     "package_id": "jogger_equipment_page21_current_main_reconciliation_20261102_001",
     "kind": "source_candidate_current_main_reconciliation",
     "name": "Jogger Brochure Equipment Page 21 — Current Main Reconciliation",
+    "status": "complete",
+    "goal": "Reconciled completed page-21 ambiguity and unresolved reviews against current main. All 30 unique selected equipment record codes are present exactly once; 72 unresolved candidates have no selected evidence. The heated-steering-wheel Journey conflict remains deferred. No import or master data change."
+  },
+  "next_package": {
+    "package_id": "verified_pdf_residual_queue_current_main_reentry_20261104_001",
+    "kind": "source_candidate_current_main_reconciliation",
+    "name": "Verified PDF Residual Queue — Current Main Re-entry",
     "status": "active",
-    "goal": "Reconcile the previously completed page-21 ambiguity and unresolved review artifacts against current main. Check whether selected evidence already exists or is import-ready; preserve the deferred heated-steering-wheel conflict. Avoid duplicate data and do not infer configuration availability."
+    "goal": "Reconcile completed residual review packages against later exact imports and closure receipts before selecting the next boundary. Avoid stale queue selections and repeat reviews; prioritize the highest-impact actionable non-Bigster model-family source gap."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
