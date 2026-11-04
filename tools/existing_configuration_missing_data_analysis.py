@@ -16,7 +16,7 @@ OUT_MD = REPORTING / "existing_configuration_missing_data_analysis.md"
 PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-reanalysis-20260801.md"
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
-DEFAULT_ANALYSIS_AS_OF = "2026-08-01"
+DEFAULT_ANALYSIS_AS_OF = "2026-07-31"
 
 
 def rows(path: Path) -> list[dict[str, str]]:
