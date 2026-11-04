@@ -16,6 +16,7 @@ OUT_MD = REPORTING / "existing_configuration_missing_data_analysis.md"
 PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-reanalysis-20260801.md"
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
+DEFAULT_ANALYSIS_AS_OF = "2026-08-01"
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -79,6 +80,8 @@ def collect(
     repository: Path = ROOT,
     scope_as_of_value: str | None = None,
 ) -> dict[str, object]:
+    if scope_as_of_value is None:
+        scope_as_of_value = DEFAULT_ANALYSIS_AS_OF
     master = repository / "data" / "master"
     reporting = repository / "data" / "reporting"
     excluded_configurations = {
@@ -102,6 +105,8 @@ def collect(
             row.get("gear_number", ""),
         )
         for row in rows(master / "configuration_attribute_values.csv")
+        if not scope_as_of_value
+        or str(row.get("observation_date", "")) <= scope_as_of_value
     }
     ranges = {
         (
@@ -111,6 +116,8 @@ def collect(
             row.get("gear_number", ""),
         )
         for row in rows(master / "configuration_attribute_value_ranges.csv")
+        if not scope_as_of_value
+        or str(row.get("observation_date", "")) <= scope_as_of_value
     }
     availability = {
         (row["configuration_code"], row["attribute_code"])
