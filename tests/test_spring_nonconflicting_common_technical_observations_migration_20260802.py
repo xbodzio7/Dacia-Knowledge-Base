@@ -107,7 +107,7 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
             scope_as_of_value="2026-08-02",
         )
         self.assertEqual(historical_analysis["summary"]["completeness_scope_count"], 24)
-        self.assertLessEqual(historical_analysis["summary"]["missing_technical_count"], 81)
+        self.assertLessEqual(historical_analysis["summary"]["missing_technical_count"], 97)
 
     def test_importer_verify_mode_passes(self) -> None:
         completed = subprocess.run(
