@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-02
+- State updated: 2026-11-04
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger Equipment Page 20 — Current Main Reconciliation** — `complete`
+**Jogger Brochure Equipment Page 21 — Current Main Reconciliation** — `complete`
 
-Reconciled completed page-20 reviews against current main. All 110 unique selected equipment record codes already exist; 107 unresolved candidates have no selected evidence. No import or master-data change was warranted.
+Reconciled completed page-21 reviews against current main. All 30 unique selected equipment record codes are present exactly once; 72 unresolved candidates have no selected evidence. The heated-steering-wheel Journey conflict remains deferred. No import or master-data change was warranted.
 
 ## Next package
 
-**Jogger Equipment Page 21 — Current Main Reconciliation** — `active`
+**Verified PDF Residual Queue — Current Main Re-entry** — `active`
 
-Reconcile the completed page-21 ambiguity/unresolved reviews against current main. Check exact selected records before importing; preserve the deferred heated-steering-wheel conflict and do not infer equipment availability.
+Reconcile completed residual review packages against later exact imports and closure receipts before selecting the next boundary. Avoid stale queue selections and repeat reviews; prioritize the highest-impact actionable non-Bigster model-family source gap.
 
 ## Autonomy
 
