@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "duster_mini_equipment_page21_22_gap_import_20261104_001",
-    "kind": "configuration_attribute_availability_import",
-    "name": "Duster Mini Equipment Pages 21–22 Gap Closure",
-    "status": "complete",
-    "goal": "Imported 12 exact source-backed equipment availability cells from printed pages 21–22 across nine configurations: Multiview camera (5 unavailable, 4 optional) and passenger-seat height adjustment (2 optional, 1 standard). PR #773 merged to main as 5adfa817a391cdb1e423320d1ab8921c105b048f after all Quality and reporting workflows passed."
-  },
-  "next_package": {
     "package_id": "verified_pdf_residual_queue_reentry_review_20261105_001",
     "kind": "source_gap_closure",
     "name": "Verified PDF Residual Queue Re-entry Review",
+    "status": "complete",
+    "goal": "Reconciled the leading historical residual boundaries against current main and all later imports and closure receipts. The selected evidence codes in the reviewed high-priority equipment and technical reviews are present exactly once in their canonical master tables. Completed imports and deferred conflicts were preserved; no master data was changed."
+  },
+  "next_package": {
+    "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+    "kind": "source_gap_closure",
+    "name": "Official Bigster Brochure Full Assimilation",
     "status": "active",
-    "goal": "Reconcile the historical candidate and review queues against current main, all post-July imports and closure receipts; exclude completed or superseded boundaries and select the next exact source-backed package without reopening authored reviews."
+    "goal": "Review all 24 pages of the registered official Bigster brochure against its rendered pages and text, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
