@@ -75,7 +75,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 <!-- dkb:documentation-baseline:session:start -->
 - 1950 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 21570 rekordów danych,
+- 21588 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -83,10 +83,10 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 162 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 451 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
-- 10100 rekordów w `configuration_attribute_availability.csv`,
-- 8147 rekordów `standard`, 682 `optional`, 1271 `not_available` i 0 `unknown`,
+- 10112 rekordów w `configuration_attribute_availability.csv`,
+- 8148 rekordów `standard`, 688 `optional`, 1276 `not_available` i 0 `unknown`,
 - 416 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 21570 rekordów,
+- baza SQLite obejmująca 48 tabele i 21588 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -213,3 +213,15 @@ The completed page-21 ambiguity review selected 30 availability record codes acr
 Durable receipt: `data/reporting/jogger_equipment_page21_current_main_reconciliation_20261104.json`.
 
 Next: review the registered Duster mini brochure against current imports and completeness gaps; import only exact source-backed values not already present.
+
+
+## Duster Mini Equipment Pages 21–22 Gap Closure (2026-11-04)
+
+Reviewed the registered official Duster Mini brochure, printed pages 21–22, against current availability records. Added 12 missing source-backed cells across nine exact configurations: Multiview camera (5 unavailable, 4 optional) and passenger-seat height adjustment (2 optional, 1 standard). Existing cells were not overwritten. Brochure scope was kept to its listed powertrains; newer or unlisted powertrains were not projected.
+
+Durable receipts:
+- `data/imports/configuration_attribute_availability/duster_mini_equipment_page21_22_20251020.json`
+- `data/reporting/duster_mini_equipment_page21_22_gap_import_20261104.json`
+- `data/reporting/duster_mini_equipment_page21_22_gap_import_20261104.md`
+
+Next: re-enter the verified PDF residual gap queue and select the next exact source-backed package.
