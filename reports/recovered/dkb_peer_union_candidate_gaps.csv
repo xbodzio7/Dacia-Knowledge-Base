@@ -1,5 +1,4 @@
-<PARSED TEXT FOR SHEET: 1 / 1 TABS
-TAB NAME: dkb_peer_union_candidate_gaps.csv>index,model_family,configuration_code,domain,peer_observed_field_key,classification,meaning
+index,model_family,configuration_code,domain,peer_observed_field_key,classification,meaning
 0,Sandero,sandero_iii_expression_ecog120_manual,technical,acceleration_0_100 |  | ,peer_union_candidate_gap,Observed in at least one active configuration of this family; not a required-field assertion.
 1,Sandero,sandero_iii_expression_ecog120_manual,technical,aspiration_type |  | ,peer_union_candidate_gap,Observed in at least one active configuration of this family; not a required-field assertion.
 2,Sandero,sandero_iii_expression_ecog120_manual,technical,centre_console_variant |  | ,peer_union_candidate_gap,Observed in at least one active configuration of this family; not a required-field assertion.
