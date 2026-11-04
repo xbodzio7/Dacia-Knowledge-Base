@@ -25,26 +25,26 @@
 
 - Tests: 1950
 - Master CSV files: 48
-- Master rows: 21560
+- Master rows: 21570
 - Configuration values: 8200
 - Configuration import specifications: 162
-- Configuration value ranges: 441
-- Configuration range import specifications: 24
+- Configuration value ranges: 451
+- Configuration range import specifications: 25
 - Availability records: 10100
 - Canonical attributes: 416
 - Attribute categories: 30
 
 ## Current package
 
-**Jogger Brochure Equipment Page 21 — Current Main Reconciliation** — `complete`
+**Sandero Stepway Page 17 — Maximum Power RPM Ranges** — `complete`
 
-Reconciled completed page-21 reviews against current main. All 30 unique selected equipment record codes are present exactly once; 72 unresolved candidates have no selected evidence. The heated-steering-wheel Journey conflict remains deferred. No import or master-data change was warranted.
+Audited completeness specifications covering 94 active configurations and imported the 10 source-backed max_power_rpm fuel ranges missing from five Stepway Eco-G 120 configurations. This reduces required technical gaps from 80 to 70; 292 equipment gaps remain for source review.
 
 ## Next package
 
-**Verified PDF Residual Queue — Current Main Re-entry** — `active`
+**Duster Mini Brochure Source-Gap Closure** — `active`
 
-Reconcile completed residual review packages against later exact imports and closure receipts before selecting the next boundary. Avoid stale queue selections and repeat reviews; prioritize the highest-impact actionable non-Bigster model-family source gap.
+Review the registered Duster mini brochure against its existing imports and current-main completeness gaps; import only exact source-backed values that are not already present.
 
 ## Autonomy
 
