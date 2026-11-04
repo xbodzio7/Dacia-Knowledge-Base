@@ -172,7 +172,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             matrix_relationship_count = values[1] - (
                 9 if code == "sandero_iii"
                 else 10 if code == "sandero_stepway_iii"
-                else 16 if code == "duster_iii"
+                else 22 if code == "duster_iii"
                 else 13 if code == "bigster"
                 else 0
             )
@@ -195,7 +195,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 matrix_provenance["missing_configuration_count"], 0
             )
             matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 360)
+        self.assertEqual(matrix_relationship_total, 354)
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
