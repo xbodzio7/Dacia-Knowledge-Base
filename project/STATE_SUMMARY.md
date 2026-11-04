@@ -1,6 +1,6 @@
 # Project State Summary
 
-> Generated from `project/state.json`. Do not edit manually.
+ > Generated from `project/state.json`. Do not edit manually.
 
 ## Repository
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster Mini Equipment Pages 21–22 Gap Closure** — `complete`
+**Verified PDF Residual Queue Re-entry Review** — `complete`
 
-Imported 12 exact source-backed equipment availability cells from printed pages 21–22 across nine configurations: Multiview camera (5 unavailable, 4 optional) and passenger-seat height adjustment (2 optional, 1 standard). PR #773 merged to main as 5adfa817a391cdb1e423320d1ab8921c105b048f after all Quality and reporting workflows passed.
+Reconciled the leading historical residual boundaries against current main and all later imports and closure receipts. The selected evidence codes in the reviewed high-priority equipment and technical reviews are present exactly once in their canonical master tables. Completed imports and deferred conflicts were preserved; no master data was changed.
 
 ## Next package
 
-**Verified PDF Residual Queue Re-entry Review** — `active`
+**Official Bigster Brochure Full Assimilation** — `active`
 
-Reconcile the historical candidate and review queues against current main, all post-July imports and closure receipts; exclude completed or superseded boundaries and select the next exact source-backed package without reopening authored reviews.
+Review all 24 pages of the registered official Bigster brochure against its rendered pages and text, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 
 ## Autonomy
 
