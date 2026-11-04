@@ -103,7 +103,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
         self.assertEqual(len(review_states), 12)
         self.assertEqual(
             Counter(state["review_state"] for state in review_states),
-            Counter({"source-not-stated": 20, "context-unmodeled": 2}),
+            Counter({"source-not-stated": 10, "context-unmodeled": 2}),
         )
         self.assertEqual(
             sum(state["display_value"] == "nie dotyczy — skrzynia automatyczna" for state in review_states),
