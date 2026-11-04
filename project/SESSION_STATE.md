@@ -204,3 +204,20 @@ Durable receipts:
 - `project/reviews/jogger-equipment-page20-current-main-reconciliation-2026-11-02.md`
 
 Next: reconcile Jogger equipment page 21's completed review against current main. Preserve the deferred heated steering wheel conflict; do not infer availability.
+
+
+## Jogger Equipment Page 21 — Current Main Reconciliation (2026-11-04)
+
+The completed page-21 ambiguity and unresolved review artifacts were reconciled against the exact current-main base:
+
+- the ambiguity review selected 30 unique evidence record codes across two signatures (heated_steering_wheel=not_available and optional);
+- all 30 codes must exist exactly once in current-main configuration_attribute_availability.csv with the same configuration, source, attribute and status;
+- the two unresolved chunks contain 72 candidates and zero selected evidence signatures/records;
+- the Journey heated-steering-wheel conflict remains explicitly deferred; no grade or configuration state is inferred;
+- this is a review-only current-main reconciliation: no new import specification and no master-data change.
+
+Durable receipts:
+- data/reporting/jogger_equipment_page21_current_main_reconciliation_20261104.json
+- project/reviews/jogger-equipment-page21-current-main-reconciliation-2026-11-04.md
+
+Next package: spring_traction_battery_capacity_source_stated_import_20261104_001 — import the source-stated 24.3 kWh Spring traction-battery capacity from the 2026-02-19 official brochure, page 18, for the three exact passenger configurations. The existing neutral attribute preserves the source statement without gross/net/usable classification.
