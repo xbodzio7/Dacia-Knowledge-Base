@@ -9,6 +9,7 @@ PACKAGE = "duster_mini_equipment_page21_22_gap_import_20261104_001"
 SPEC_PATH = ROOT / "data/imports/configuration_attribute_availability/duster_mini_equipment_page21_22_20251020.json"
 MASTER_PATH = ROOT / "data/master/configuration_attribute_availability.csv"
 SOURCES_PATH = ROOT / "data/master/sources.csv"
+SOURCE_CONFIGS_PATH = ROOT / "data/master/source_configurations.csv"
 EXPECTED_SOURCE = "src_pl_duster_mini_brochure_20251020"
 
 
@@ -33,6 +34,9 @@ def test_duster_mini_page_21_22_gap_import_matches_master_and_registered_source(
             "id", "configuration_code", "attribute_code", "availability_status",
             "observation_date", "source_code",
         ))
+    with SOURCE_CONFIGS_PATH.open(encoding="utf-8-sig", newline="") as handle:
+        source_configs = {(row["source_code"], row["configuration_code"]) for row in csv.DictReader(handle)}
+    assert all((EXPECTED_SOURCE, row["configuration_code"]) in source_configs for row in records)
     camera = [row for row in records if row["attribute_code"] == "360_camera_system"]
     seats = [row for row in records if row["attribute_code"] == "passenger_seat_height_adjustment"]
     assert [row["availability_status"] for row in camera].count("not_available") == 5
