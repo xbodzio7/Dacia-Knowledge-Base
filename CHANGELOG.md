@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added 12 missing Duster Mini equipment-availability observations from printed pages 21–22 of the official brochure dated 2025-10-20: nine Multiview camera states and three passenger-seat-height-adjustment states across nine exact configurations. Existing cells were excluded. Master row count is now 21582 and availability records 10112.
+
 * Added 297 dated historical equipment-availability observations from printed pages 21–22 of the official Bigster brochure dated 2025-12-10: 14 TPMS cells plus 283 directly mapped equipment cells across 22 boolean attributes and 14 exact brochure-linked configurations. The guarded importer validates the source SHA-256, grade states, attribute contracts and source links; unresolved composite/quantity rows remain deferred. Master row count is now 21546 and availability records 10100.
 
 * Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.

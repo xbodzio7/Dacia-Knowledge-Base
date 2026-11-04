@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "package_id": "duster_mini_equipment_page21_22_gap_import_20261104_001",
+  "source_code": "src_pl_duster_mini_brochure_20251020",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/mini-broszury/new-duster-mini-brochure_2024.pdf.asset.pdf/b2659c32d0.pdf",
+  "source_sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+  "reviewed_printed_pages": [
+    21,
+    22
+  ],
+  "summary": {
+    "candidate_cells": 12,
+    "imported_cells": 12,
+    "existing_cells_excluded": 0,
+    "affected_configurations": 9,
+    "attributes": 2
+  },
+  "status_counts": {
+    "360_camera_system": {
+      "not_available": 5,
+      "optional": 4
+    },
+    "passenger_seat_height_adjustment": {
+      "optional": 2,
+      "standard": 1
+    }
+  },
+  "records": [
+    {
+      "id": 10101,
+      "code": "duster_essential_ecog120_4x2_manual_360_camera_system_20251020",
+      "configuration_code": "duster_essential_ecog120_4x2_manual",
+      "attribute_code": "360_camera_system",
+      "availability_status": "not_available"
+    },
+    {
+      "id": 10102,
+      "code": "duster_expression_ecog120_4x2_manual_360_camera_system_20251020",
+      "configuration_code": "duster_expression_ecog120_4x2_manual",
+      "attribute_code": "360_camera_system",
+      "availability_status": "not_available"
+    },
+    {
+      "id": 10103,
+      "code": "duster_expression_mildhybrid130_4x4_manual_360_camera_system_20251020",
+      "configuration_code": "duster_expression_mildhybrid130_4x4_manual",
+      "attribute_code": "360_camera_system",
+      "availability_status": "not_available"
+    },
+    {
+      "id": 10104,
+      "code": "duster_expression_hybrid155_4x2_automatic_360_camera_system_20251020",
+      "configuration_code": "duster_expression_hybrid155_4x2_automatic",
+      "attribute_code": "360_camera_system",
+      "availability_status": "not_available"
+    },
+    {
+      "id": 10105,
+      "code": "duster_expression_hybridg150_4x4_automatic_360_camera_system_20251020",
+      "configuration_code": "duster_expression_hybridg150_4x4_automatic",
+      "attribute_code": "360_camera_system",
+      "availability_status": "not_available"
+    },
+    {
+      "id": 10106,
+      "code": "duster_extreme_mildhybrid130_4x4_manual_360_camera_system_20251020",
+      "configuration_code": "duster_extreme_mildhybrid130_4x4_manual",
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional"
+    },
+    {
+      "id": 10107,
+      "code": "duster_extreme_hybridg150_4x4_automatic_360_camera_system_20251020",
+      "configuration_code": "duster_extreme_hybridg150_4x4_automatic",
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional"
+    },
+    {
+      "id": 10108,
+      "code": "duster_journey_hybridg150_4x4_automatic_360_camera_system_20251020",
+      "configuration_code": "duster_journey_hybridg150_4x4_automatic",
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional"
+    },
+    {
+      "id": 10109,
+      "code": "duster_journey_mildhybrid130_4x4_manual_360_camera_system_20251020",
+      "configuration_code": "duster_journey_mildhybrid130_4x4_manual",
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional"
+    },
+    {
+      "id": 10110,
+      "code": "duster_expression_mildhybrid130_4x4_manual_passenger_seat_height_adjustment_20251020",
+      "configuration_code": "duster_expression_mildhybrid130_4x4_manual",
+      "attribute_code": "passenger_seat_height_adjustment",
+      "availability_status": "optional"
+    },
+    {
+      "id": 10111,
+      "code": "duster_journey_mildhybrid130_4x4_manual_passenger_seat_height_adjustment_20251020",
+      "configuration_code": "duster_journey_mildhybrid130_4x4_manual",
+      "attribute_code": "passenger_seat_height_adjustment",
+      "availability_status": "optional"
+    },
+    {
+      "id": 10112,
+      "code": "duster_extreme_mildhybrid130_4x4_manual_passenger_seat_height_adjustment_20251020",
+      "configuration_code": "duster_extreme_mildhybrid130_4x4_manual",
+      "attribute_code": "passenger_seat_height_adjustment",
+      "availability_status": "standard"
+    }
+  ],
+  "method": "Imported only empty exact configuration/attribute cells. Brochure legend maps the printed availability symbols. No existing cell was overwritten; post-2025 powertrains outside the brochure's technical scope were excluded."
+}

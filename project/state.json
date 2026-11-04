@@ -15,30 +15,30 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1950,
+    "tests": 1951,
     "csv_files": 48,
-    "rows": 21570,
+    "rows": 21582,
     "configuration_values": 8200,
     "configuration_import_specs": 162,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
-    "availability_records": 10100,
+    "availability_records": 10112,
     "attributes": 416,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_stepway_page17_max_power_rpm_import_20261104_001",
-    "kind": "configuration_value_range_import",
-    "name": "Sandero Stepway Page 17 — Maximum Power RPM Ranges",
+    "package_id": "duster_mini_equipment_page21_22_gap_import_20261104_001",
+    "kind": "configuration_attribute_availability_import",
+    "name": "Duster Mini Pages 21–22 Equipment Gaps",
     "status": "complete",
-    "goal": "Audited completeness specifications covering 94 active configurations and imported the 10 source-backed max_power_rpm fuel ranges missing from five Stepway Eco-G 120 configurations. This reduces required technical gaps from 80 to 70; 292 equipment gaps remain for source review."
+    "goal": "Imported 12 source-backed missing availability cells for Multiview camera and passenger seat height adjustment across nine exact configurations; excluded existing cells and out-of-scope powertrains."
   },
   "next_package": {
-    "package_id": "duster_mini_brochure_source_gap_closure_001",
+    "package_id": "verified_pdf_residual_gap_queue_reentry_001",
     "kind": "source_gap_closure",
-    "name": "Duster Mini Brochure Source-Gap Closure",
+    "name": "Verified PDF Residual Gap Queue Re-entry Review",
     "status": "active",
-    "goal": "Review the registered Duster mini brochure against its existing imports and current-main completeness gaps; import only exact source-backed values that are not already present."
+    "goal": "Reconcile remaining registered brochure PDF gaps against current imports and source completeness boundaries, then select the next exact source-backed package."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -89,7 +89,7 @@
     "active_profile": null
   },
   "recovery_checkpoint": {
-    "updated_on": "2026-11-02",
+    "updated_on": "2026-11-04",
     "policy": "continuity_persistence_recovery",
     "result": "completed",
     "recovered_artifacts_path": "reports/recovered/",
@@ -100,7 +100,7 @@
     "tests_rerun": false,
     "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness.",
     "current_main_reconciliation": "completed",
-    "next_package_selection": "Duster mini brochure source-gap closure",
-    "rationale": "Spring source-backed follow-ups found in review documents are already materialized in current main; six registered brochures remain partial_review, and Duster mini brochure has substantial existing import coverage but only targeted page reviews."
+    "next_package_selection": "Verified PDF residual gap queue re-entry review",
+    "rationale": "Duster Mini printed-page 21–22 equipment gaps have been imported; resume the verified PDF residual queue and select the next exact, source-backed scope."
   }
 }
