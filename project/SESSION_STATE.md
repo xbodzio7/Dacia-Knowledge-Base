@@ -212,4 +212,4 @@ The completed page-21 ambiguity review selected 30 availability record codes acr
 
 Durable receipt: `data/reporting/jogger_equipment_page21_current_main_reconciliation_20261104.json`.
 
-Next: re-enter the verified residual queue against current main, reconcile later imports and closure receipts, and select the highest-impact actionable non-Bigster source gap. Do not repeat closed reviews.
+Next: review the registered Duster mini brochure against current imports and completeness gaps; import only exact source-backed values not already present.
