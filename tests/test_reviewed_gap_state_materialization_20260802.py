@@ -100,7 +100,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             for state in configuration.get("comparison_values", {}).values()
             if state.get("kind") == "reviewed_gap"
         ]
-        self.assertEqual(len(review_states), 22)
+        self.assertEqual(len(review_states), 12)
         self.assertEqual(
             Counter(state["review_state"] for state in review_states),
             Counter({"source-not-stated": 20, "context-unmodeled": 2}),
