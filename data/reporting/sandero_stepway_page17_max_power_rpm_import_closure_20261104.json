@@ -112,5 +112,7 @@
     "existing_values_modified": 0,
     "other_attributes_modified": 0
   },
-  "boundary": "This closure covers only the five Stepway Eco-G 120 configurations and the two fuel-specific max_power_rpm ranges documented on page 17. Other technical/equipment gaps in the 94-configuration audit remain outside this package."
+  "boundary": "This closure covers only the five Stepway Eco-G 120 configurations and the two fuel-specific max_power_rpm ranges documented on page 17. Other technical/equipment gaps in the 94-configuration audit remain outside this package.",
+  "master_observation_date": "2026-11-04",
+  "observation_date_semantics": "The master observation_date records the repository reconciliation date. The registered source document date remains 2026-02-02."
 }
