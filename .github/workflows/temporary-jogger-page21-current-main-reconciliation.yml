@@ -1,18 +1,17 @@
 name: Temporary Jogger Page 21 Current Main Reconciliation
 on:
-  pull_request:
-    types: [opened]
+  push:
+    branches:
+      - agent/jogger-page21-current-main-reconciliation-20261104-001
 permissions:
   contents: write
-  pull-requests: read
 jobs:
   reconcile:
-    if: github.event.pull_request.head.ref == 'agent/jogger-page21-current-main-reconciliation-20261104-001'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: \${{ github.event.pull_request.head.ref }}
+          ref: \${{ github.ref_name }}
           fetch-depth: 0
           lfs: true
       - uses: actions/setup-python@v5
@@ -20,8 +19,8 @@ jobs:
           python-version: '3.13'
       - name: Reconcile against the exact PR base
         env:
-          EXPECTED_MAIN_SHA: \${{ github.event.pull_request.base.sha }}
-          HEAD_BRANCH: \${{ github.event.pull_request.head.ref }}
+          EXPECTED_MAIN_SHA: 86e28a0b15a7bc26c214f8422e4ab95e7b4a5454
+          HEAD_BRANCH: \${{ github.ref_name }}
         run: |
           git fetch origin main
           python tools/reconcile_jogger_equipment_page21_current_main_20261104.py \
