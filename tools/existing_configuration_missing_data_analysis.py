@@ -140,9 +140,27 @@ def collect(
         if path.name in {
             "bigster_mildhybridg140_4x2_automatic_completeness.json",
             "bigster_tribrid150_4x4_automatic_completeness.json",
+            "sandero_hybrid155_automatic_completeness.json",
         }:
             continue
         scope_files.append(path)
+
+    # Scope the active-configuration count to the configurations covered by
+    # the effective completeness files. Newly introduced configurations may
+    # already exist in the master inventory while remaining outside this
+    # historical analysis period.
+    scoped_configuration_codes: set[str] = set()
+    for path in scope_files:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for ref in payload.get("configurations", []):
+            code = ref if isinstance(ref, str) else str(ref.get("configuration_code", ""))
+            if code in configurations:
+                scoped_configuration_codes.add(code)
+    configurations = {
+        code: row for code, row in configurations.items()
+        if code in scoped_configuration_codes
+    }
+
     for path in scope_files:
         payload = json.loads(path.read_text(encoding="utf-8"))
         technical = [
