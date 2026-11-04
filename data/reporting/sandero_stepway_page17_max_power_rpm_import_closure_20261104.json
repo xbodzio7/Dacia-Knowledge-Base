@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_page17_max_power_rpm_import_closure",
+  "reviewed_on": "2026-11-04",
+  "package_id": "sandero_stepway_page17_max_power_rpm_import_20261104_001",
+  "status": "source_verified_import_applied",
+  "scope": {
+    "active_configurations_reviewed": 94,
+    "configs_with_missing_max_power_rpm": 5,
+    "missing_fuel_context_slots_before": 10,
+    "imported_fuel_context_slots": 10,
+    "missing_fuel_context_slots_after": 0,
+    "technical_missing_slots_before": 80,
+    "technical_missing_slots_after": 70,
+    "equipment_missing_slots_before": 292,
+    "equipment_missing_slots_after": 292
+  },
+  "source": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "title": "DACIA SANDERO STEPWAY broszura",
+    "publisher": "Dacia",
+    "document_date": "2026-02-02",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+    "page": 17,
+    "section": "SILNIKI",
+    "evidence": {
+      "lpg": "90 od 4500 do 5000",
+      "petrol": "84 od 4500 do 5000"
+    }
+  },
+  "records": [
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "fuel_type_code": "lpg",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "fuel_type_code": "petrol",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "fuel_type_code": "lpg",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "fuel_type_code": "petrol",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "fuel_type_code": "lpg",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "fuel_type_code": "petrol",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "fuel_type_code": "lpg",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "fuel_type_code": "petrol",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "fuel_type_code": "lpg",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "fuel_type_code": "petrol",
+      "minimum_value": 4500,
+      "maximum_value": 5000,
+      "unit": "rpm"
+    }
+  ],
+  "files": {
+    "import_spec": "data/imports/configuration_value_ranges/sandero-stepway-page17-max-power-rpm-ranges-20260202.json",
+    "master_table": "data/master/configuration_attribute_value_ranges.csv"
+  },
+  "validation": {
+    "duplicate_keys_before_import": 0,
+    "master_records_added": 10,
+    "record_ids": "442-451",
+    "existing_values_modified": 0,
+    "other_attributes_modified": 0
+  },
+  "boundary": "This closure covers only the five Stepway Eco-G 120 configurations and the two fuel-specific max_power_rpm ranges documented on page 17. Other technical/equipment gaps in the 94-configuration audit remain outside this package."
+}
