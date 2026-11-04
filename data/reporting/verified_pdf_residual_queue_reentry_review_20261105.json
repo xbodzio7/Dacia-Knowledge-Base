@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "kind": "verified_pdf_residual_queue_reentry_review",
+  "reviewed_on": "2026-11-05",
+  "package_id": "verified_pdf_residual_queue_reentry_review_20261105_001",
+  "status": "complete_with_actionable_selection",
+  "current_main": {
+    "merge_commit": "d457774820839acf58c0b87920587a710e8e4ace",
+    "state_summary_correction": {
+      "pull_request": 775,
+      "merge_commit": "d457774820839acf58c0b87920587a710e8e4ace",
+      "quality_run": 41937134424,
+      "quality_conclusion": "success"
+    },
+    "post_merge_main_quality_run": {
+      "run_id": 41937756472,
+      "status": "in_progress"
+    }
+  },
+  "historical_queue": {
+    "source_report": "data/reporting/verified_pdf_residual_queue_reentry_review.json",
+    "source_reviewed_on": "2026-07-31",
+    "raw_queue_snapshot": {
+      "candidate_count": 1266,
+      "package_count": 52,
+      "ambiguous_candidates": 108,
+      "unresolved_candidates": 1158
+    },
+    "prior_selected_boundary": {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "model_code": "sandero_iii",
+      "domain": "technical_tables",
+      "page": 17,
+      "source_packages": [
+        "residual_gap_004",
+        "residual_gap_026",
+        "residual_gap_027"
+      ]
+    },
+    "prior_next_package": "post_residual_sandero_technical_page17_reviewed_fact_reconciliation_001"
+  },
+  "later_closures": [
+    {
+      "boundary": "Sandero technical page 17",
+      "status": "complete_no_new_import",
+      "receipt": "data/reporting/sandero_brochure_page17_current_main_reconciliation_20261102.json",
+      "finding": "All 16 selected observations already exist under the exact brochure source; remaining 41 candidates have no selected evidence."
+    },
+    {
+      "boundary": "Jogger equipment page 20",
+      "status": "complete_no_new_import",
+      "receipt": "data/reporting/jogger_equipment_page20_current_main_reconciliation_20261102.json",
+      "finding": "110 unique selected record codes are present in current main; 107 unresolved candidates have no selected evidence."
+    },
+    {
+      "boundary": "Jogger equipment page 21",
+      "status": "complete_no_new_import",
+      "receipt": "data/reporting/jogger_equipment_page21_current_main_reconciliation_20261104.json",
+      "finding": "30 unique selected record codes are present exactly once; 72 unresolved candidates have no selected evidence; heated-steering-wheel conflict remains deferred."
+    },
+    {
+      "boundary": "Sandero Stepway technical page 17",
+      "status": "source_verified_import_applied",
+      "receipt": "data/reporting/sandero_stepway_page17_max_power_rpm_import_closure_20261104.json",
+      "finding": "10 missing fuel-context range slots imported for five Eco-G 120 configurations."
+    },
+    {
+      "boundary": "Duster Mini equipment pages 21–22",
+      "status": "source_verified_import_applied",
+      "receipt": "data/reporting/duster_mini_equipment_page21_22_gap_import_20261104.json",
+      "pull_request": 773,
+      "merge_commit": "5adfa817a391cdb1e423320d1ab8921c105b048f",
+      "finding": "12 exact availability cells imported across nine configurations; no existing cells overwritten."
+    }
+  ],
+  "current_main_evidence_checks": [
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "domain": "equipment_matrix",
+      "page": 23,
+      "review": "data/reporting/duster_mini_equipment_page23_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_availability.csv",
+      "candidate_count": 26,
+      "decision_counts": {
+        "covered": 6,
+        "partially_covered": 20
+      },
+      "selected_record_references": 518,
+      "unique_selected_record_codes": 393,
+      "present_exactly_once": 393,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "No new import authorized; partial rows retain their authored package/attribute/context boundaries."
+    },
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "domain": "equipment_matrix",
+      "page": 21,
+      "review": "data/reporting/bigster_equipment_page21_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_availability.csv",
+      "candidate_count": 1,
+      "decision_counts": {
+        "covered": 1
+      },
+      "selected_record_references": 14,
+      "unique_selected_record_codes": 14,
+      "present_exactly_once": 14,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "Already covered; no import."
+    },
+    {
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "domain": "equipment_matrix",
+      "page": 22,
+      "review": "data/reporting/bigster_equipment_page22_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_availability.csv",
+      "candidate_count": 7,
+      "decision_counts": {
+        "covered": 3,
+        "partially_covered": 4
+      },
+      "selected_record_references": 126,
+      "unique_selected_record_codes": 126,
+      "present_exactly_once": 126,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "Selected evidence already exists; partial decisions are not import approval."
+    },
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "domain": "equipment_matrix",
+      "page": 18,
+      "review": "data/reporting/sandero_equipment_page18_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_availability.csv",
+      "candidate_count": 1,
+      "decision_counts": {
+        "deferred_source_conflict": 1
+      },
+      "selected_record_references": 4,
+      "unique_selected_record_codes": 4,
+      "present_exactly_once": 4,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "Preserve source conflict; no import."
+    },
+    {
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "domain": "equipment_matrix",
+      "page": 19,
+      "review": "data/reporting/sandero_equipment_page19_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_availability.csv",
+      "candidate_count": 1,
+      "decision_counts": {
+        "covered": 1
+      },
+      "selected_record_references": 4,
+      "unique_selected_record_codes": 4,
+      "present_exactly_once": 4,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "Already covered; no import."
+    },
+    {
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "domain": "equipment_matrix",
+      "page": 18,
+      "review": "data/reporting/sandero_stepway_equipment_page18_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_availability.csv",
+      "candidate_count": 1,
+      "decision_counts": {
+        "covered": 1
+      },
+      "selected_record_references": 1,
+      "unique_selected_record_codes": 1,
+      "present_exactly_once": 1,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "Already covered; no import."
+    },
+    {
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "domain": "technical_tables",
+      "page": 21,
+      "review": "data/reporting/duster_mini_technical_page21_ambiguity_review.json",
+      "master_table": "data/master/configuration_attribute_values.csv",
+      "candidate_count": 1,
+      "decision_counts": {
+        "partially_covered": 1
+      },
+      "selected_record_references": 3,
+      "unique_selected_record_codes": 3,
+      "present_exactly_once": 3,
+      "missing": 0,
+      "duplicates": 0,
+      "decision": "Three selected Hybrid 155 steering observations are present; Hybrid-G 150 fact has no attached exact evidence and is not projected."
+    }
+  ],
+  "selection": {
+    "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+    "kind": "source_gap_closure",
+    "name": "Official Bigster Brochure Full Assimilation",
+    "status": "active",
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "source_file": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "source_sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page_count": 24,
+    "comparison_source": "src_pl_bigster_price_my26_20261001",
+    "portfolio_receipt": "data/reporting/official_dacia_brochure_portfolio_coverage_reconciliation_20261014.json",
+    "goal": "Review all 24 pages of the registered official Bigster brochure against its rendered pages and text, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.",
+    "rationale": "The portfolio reconciliation lists Bigster as partial_review with only targeted page reviews and no source-wide page inventory. The highest-priority historical residual candidates checked in this re-entry are either already covered or remain explicitly partial/deferred; the next useful bounded step is source-wide Bigster assimilation, reusing existing page 20–22 receipts."
+  },
+  "policy": {
+    "no_master_data_changes_in_reentry_review": true,
+    "selected_evidence_presence_is_not_import_approval": true,
+    "partial_or_deferred_decisions_not_promoted": true,
+    "existing_source_reviews_reused": true,
+    "no_candidate_text_reinterpreted": true,
+    "pr_634_not_reopened": true
+  }
+}
