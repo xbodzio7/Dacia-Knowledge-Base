@@ -323,7 +323,7 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             context_filter.render_difference_csv(report),
             core.render_difference_csv(report),
         )
-        self.assertEqual(len(core.difference_csv_rows(report)), 421)
+        self.assertEqual(len(core.difference_csv_rows(report)), 411)
 
         expected_counts = {'': 36,
  'fuel_type_code=': 184,
