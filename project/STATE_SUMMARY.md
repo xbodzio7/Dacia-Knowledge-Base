@@ -36,7 +36,7 @@
 
 ## Current package
 
-**Jogger Equipment Page 21 — Current Main Reconciliation** — `complete`
+**Jogger Brochure Equipment Page 21 — Current Main Reconciliation** — `complete`
 
 Reconciled completed page-21 reviews against current main. All 30 unique selected equipment record codes are present exactly once; 72 unresolved candidates have no selected evidence. The heated-steering-wheel Journey conflict remains deferred. No import or master-data change was warranted.
 
