@@ -38,7 +38,7 @@
 
 **Duster Mini Equipment Pages 21–22 Gap Closure** — `complete`
 
-Imported 12 exact source-backed equipment availability cells from printed pages 21–22 across nine configurations: Multiview camera (5 unavailable, 4 optional) and passenger-seat height adjustment (2 optional, 1 standard). PR #773 merged to main as `5adfa817a391cdb1e423320d1ab8921c105b048f` after all Quality and reporting workflows passed.
+Imported 12 exact source-backed equipment availability cells from printed pages 21–22 across nine configurations: Multiview camera (5 unavailable, 4 optional) and passenger-seat height adjustment (2 optional, 1 standard). PR #773 merged to main as 5adfa817a391cdb1e423320d1ab8921c105b048f after all Quality and reporting workflows passed.
 
 ## Next package
 
