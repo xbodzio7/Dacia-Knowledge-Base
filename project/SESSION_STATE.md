@@ -225,3 +225,10 @@ Durable receipts:
 - `data/reporting/duster_mini_equipment_page21_22_gap_import_20261104.md`
 
 Next: re-enter the verified PDF residual gap queue and select the next exact source-backed package.
+
+
+## Duster Mini Equipment Pages 21–22 Gap Closure (2026-11-05)
+
+PR #773 was rebuilt on current `main` after the earlier stacked branch diverged, then merged after all required checks passed. Merge commit: `5adfa817a391cdb1e423320d1ab8921c105b048f`. The package adds 12 exact availability observations across nine configurations for Multiview camera and passenger-seat height adjustment. Quality passed on Python 3.10, 3.13, 3.14 and Windows package workflow; all reporting workflows passed.
+
+The state handoff is now the current-main verified PDF residual queue re-entry. Historical candidate priorities must be reconciled against all later review, import and closure receipts before selecting a new package.
