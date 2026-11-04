@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-11-02",
+  "updated_on": "2026-11-04",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_equipment_page20_current_main_reconciliation_20261102_001",
-    "kind": "source_candidate_current_main_reconciliation",
-    "name": "Jogger Brochure Equipment Page 20 — Current Main Reconciliation",
-    "status": "complete",
-    "goal": "Reconciled completed ambiguity and unresolved reviews against current main. All 110 unique selected equipment record codes are already present; the 107 unresolved candidates have no selected evidence. No new import or master data change."
-  },
-  "next_package": {
-    "package_id": "jogger_equipment_page21_current_main_reconciliation_20261102_001",
+    "package_id": "jogger_equipment_page21_current_main_reconciliation_20261104_001",
     "kind": "source_candidate_current_main_reconciliation",
     "name": "Jogger Brochure Equipment Page 21 — Current Main Reconciliation",
+    "status": "complete",
+    "goal": "Reconcile the completed page-21 ambiguity and unresolved reviews against current main. Verify all 30 selected evidence record codes are already present, retain the 72 candidates with no selected evidence as unresolved, and preserve the deferred heated-steering-wheel Journey conflict. No import or master-data change."
+  },
+  "next_package": {
+    "package_id": "spring_traction_battery_capacity_source_stated_import_20261104_001",
+    "kind": "configuration_value_import",
+    "name": "Spring Source-Stated Traction Battery Capacity — 24.3 kWh",
     "status": "active",
-    "goal": "Reconcile the previously completed page-21 ambiguity and unresolved review artifacts against current main. Check whether selected evidence already exists or is import-ready; preserve the deferred heated-steering-wheel conflict. Avoid duplicate data and do not infer configuration availability."
+    "goal": "Import the exact 24.3 kWh source-stated traction battery capacity for Essential Electric 70, Expression Electric 70 and Extreme Electric 100 using the existing neutral traction_battery_capacity_source_stated attribute. Do not classify the value as gross, net or usable."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
