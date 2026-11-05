@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Imported 126 historical Bigster exterior-dimension observations from printed page 23 of the official 2025-12-10 brochure across 14 exact source-linked configurations. Nine existing mm attributes and the explicit 4×2/4×4 footnote were used; later dated price-list observations remain separate and unchanged.
+
 * Added 12 missing Duster Mini equipment-availability observations from printed pages 21–22 of the official brochure dated 2025-10-20: nine Multiview camera states and three passenger-seat-height-adjustment states across nine exact configurations. Existing cells were excluded. Master row count is now 21582 and availability records 10112.
 
 * Added 297 dated historical equipment-availability observations from printed pages 21–22 of the official Bigster brochure dated 2025-12-10: 14 TPMS cells plus 283 directly mapped equipment cells across 22 boolean attributes and 14 exact brochure-linked configurations. The guarded importer validates the source SHA-256, grade states, attribute contracts and source links; unresolved composite/quantity rows remain deferred. Master row count is now 21546 and availability records 10100.
@@ -338,11 +340,11 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1958 tests.
-* The verified master-data baseline now contains 48 CSV files and 21676 rows.
-* SQLite verification now covers 48 tables and 21676 rows.
-* Configuration attribute values now contain 8273 dated records.
-* Declarative scalar configuration-value imports now contain 180 versioned JSON specifications.
+* The automated test suite now contains 1959 tests.
+* The verified master-data baseline now contains 48 CSV files and 21802 rows.
+* SQLite verification now covers 48 tables and 21802 rows.
+* Configuration attribute values now contain 8399 dated records.
+* Declarative scalar configuration-value imports now contain 189 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.
 * The canonical catalogue now contains 417 attributes in 30 categories.
 * Equipment availability now contains 10112 records: 8148 `standard`, 688 `optional`, 1276 `not_available` and 0 `unknown`.

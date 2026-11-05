@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1958
+- Tests: 1959
 - Master CSV files: 48
-- Master rows: 21676
-- Configuration values: 8273
-- Configuration import specifications: 180
+- Master rows: 21802
+- Configuration values: 8399
+- Configuration import specifications: 189
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
 - Availability records: 10112
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Brochure Grade-Specific Cabin Details Import** — `complete`
+**Bigster Brochure Page 23 Historical Dimensions Import** — `complete`
 
-Added 56 historical scalar observations across 14 exact active source-linked configurations for parking-brake type, steering-wheel material, rear-seat folding layout and speaker count from printed pages 14–17. Sixteen import specifications preserve grade/page boundaries and the explicit inheritance chain; no existing observations were overwritten.
+Added 126 historical scalar observations across 14 exact active source-linked configurations for nine existing exterior-dimension attributes from printed page 23. Nine import specifications preserve the explicit 4×2/4×4 mapping for ground clearance and overall height. The seven single-value diagram dimensions are scoped to the 14 documented brochure relationships. Existing overall-length observations and later 2026 price-list values remain separate and were not overwritten.
 
 ## Next package
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–22 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps.
+Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–23 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps.
 
 ## Autonomy
 
