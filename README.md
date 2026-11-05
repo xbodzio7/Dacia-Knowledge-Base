@@ -1295,7 +1295,7 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1954 testów, 48 pliki CSV, 21633 rekordów
+Zweryfikowany model obejmuje 1957 testów, 48 pliki CSV, 21633 rekordów
 danych, 51 relacje między tabelami, 8217 wartości konfiguracji, 164 skalarnych specyfikacji importu, 451 zakresów konfiguracji i 25
 specyfikacji zakresów oraz 10112 rekordów dostępności wyposażenia.
 Katalog zawiera 417 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
