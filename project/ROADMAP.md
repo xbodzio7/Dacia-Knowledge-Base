@@ -145,7 +145,7 @@ Pakiet Spring z 1 sierpnia 2026 r. świadomie wyprzedził planowany import lakie
 
 <!-- dkb:documentation-baseline:roadmap:start -->
 - 1957 testów automatycznych,
-- deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań.
+- deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
 - 51 deklarowanych relacji między tabelami,
