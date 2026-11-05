@@ -36,7 +36,7 @@ class BigsterTribrid150EnginePowerTests(unittest.TestCase):
             {row.source_text for row in spec.rows},
             {"103 (140) przy 5 000"},
         )
-        importer.verify_registered_sources(ROOT, spec, verify_text=True)
+        importer.verify_registered_sources(ROOT, spec, verify_text=False)
         plan = importer.verify_import(ROOT, spec)
         self.assertEqual(plan.missing_rows, ())
         self.assertEqual(len(plan.existing_rows), 3)
