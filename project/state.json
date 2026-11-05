@@ -15,30 +15,30 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1950,
+    "tests": 1953,
     "csv_files": 48,
-    "rows": 21588,
-    "configuration_values": 8200,
-    "configuration_import_specs": 162,
+    "rows": 21603,
+    "configuration_values": 8214,
+    "configuration_import_specs": 163,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
     "availability_records": 10112,
-    "attributes": 416,
+    "attributes": 417,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "verified_pdf_residual_queue_reentry_review_20261105_001",
-    "kind": "source_gap_closure",
-    "name": "Verified PDF Residual Queue Re-entry Review",
+    "package_id": "bigster_page21_youclip_mount_points_import_20261105_001",
+    "kind": "configuration_value_import",
+    "name": "Bigster Page 21 YouClip Mount Points Import",
     "status": "complete",
-    "goal": "Reconciled the leading historical residual boundaries against current main and all later imports and closure receipts. The selected evidence codes in the reviewed high-priority equipment and technical reviews are present exactly once in their canonical master tables. Completed imports and deferred conflicts were preserved; no master data was changed."
+    "goal": "Added the exact YouClip mounting-point count from printed page 21 as one canonical integer attribute and 14 source-linked scalar observations: 4 for Essential and 5 for Expression, Journey and Extreme. All targets are active configurations linked to the registered brochure; no existing observations were overwritten."
   },
   "next_package": {
     "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
     "kind": "source_gap_closure",
     "name": "Official Bigster Brochure Full Assimilation",
     "status": "active",
-    "goal": "Review all 24 pages of the registered official Bigster brochure against its rendered pages and text, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
+    "goal": "Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

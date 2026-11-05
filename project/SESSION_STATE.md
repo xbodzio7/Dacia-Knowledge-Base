@@ -243,3 +243,12 @@ Exact selected-evidence checks found no missing or duplicate codes in the review
 The next package is **Official Bigster Brochure Full Assimilation**. It will inventory all 24 pages, reuse existing page 20–22 reviews, reconcile against the 2026-10-01 official price list, preserve conflicts and import only exact unsuperseded gaps.
 
 PR #775 corrected the generated state summary and merged as `d457774820839acf58c0b87920587a710e8e4ace`; its PR Quality run passed all four jobs. The post-merge main Quality run #41937756472 was still in progress at this handoff.
+
+
+## Bigster page 21 — YouClip mount points import (2026-11-05)
+
+Captured the exact numeric row from the official Bigster brochure: 4 YouClip mounting points for Essential and 5 for Expression, Journey and Extreme. Added the canonical integer attribute `youclip_mount_points` in the existing Infotainment category and 14 source-linked scalar observations for the 14 active Bigster configurations linked to the brochure (2 Essential, 4 per other grade).
+
+Source page 21, SHA-256 `76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74`. Observation IDs 8217–8230. Three focused tests verify the source receipt, exact manifest, active source-linked configuration set and grade mapping. No existing observations were overwritten.
+
+The broader **Official Bigster Brochure Full Assimilation** package remains active.

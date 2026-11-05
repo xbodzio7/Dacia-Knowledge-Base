@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "package_id": "bigster_page21_youclip_mount_points_import_20261105_001",
+  "id_start": 8217,
+  "attribute_code": "youclip_mount_points",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_file": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+  "source_sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+  "source_page": 21,
+  "source_section": "PROWADZENIE I URZĄDZENIA KONTROLNE",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "4",
+      "source_text": "Punkty mocowania YouClip: 4 (essential)"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (expression)"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (extreme)"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (journey)"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "4",
+      "source_text": "Punkty mocowania YouClip: 4 (essential)"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (expression)"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (extreme)"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (journey)"
+    },
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (expression)"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (extreme)"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (journey)"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (expression)"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (extreme)"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "5",
+      "source_text": "Punkty mocowania YouClip: 5 (journey)"
+    }
+  ]
+}
