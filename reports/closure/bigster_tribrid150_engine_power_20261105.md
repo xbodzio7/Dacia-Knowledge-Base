@@ -19,4 +19,4 @@ Added three source-linked `engine_power` observations, each **103 kW**, for the 
 
 ## Verification
 
-The declarative import spec is covered by the shared import-spec contract and a focused test that checks all three configurations, source page text, registered source hash, and exact master-row materialization.
+The declarative import spec is covered by the shared import-spec contract and a focused test that checks all three configurations and exact master-row materialization. CI verifies the registered October source file against its SHA-256; direct PDF text extraction is not available in the current CI environment. The source wording and distinction between engine power and hybrid-system power were checked against the supplied official PDF.
