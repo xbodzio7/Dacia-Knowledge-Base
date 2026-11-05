@@ -17,10 +17,11 @@ python tools/dkb.py project-state --check
 
 Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
-## Verified Current Progress (2026-11-02)
+## Verified Current Progress (2026-11-05)
 
 Latest verified merged work on `main` is newer than the old 2026-10-27 narrative and must be considered before selecting or repeating any package:
 
+- Package `bigster_brochure_grade_details_import_20261105_001`: 56 historical scalar observations from Bigster brochure printed pages 14–17 imported for parking-brake type, steering-wheel material, rear-seat folding and speaker count across 14 exact configurations.
 - PR #759: 14 exact historical Bigster TPMS availability observations imported from the 2025-12-10 brochure.
 - PR #760: 283 additional Bigster equipment availability observations imported; together with TPMS, 297 exact cells across 22 attributes and 14 configurations.
 - PR #761: 14 exact historical Bigster overall-length observations imported.
@@ -73,20 +74,20 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1957 testów automatycznych zakończonych powodzeniem,
+- 1958 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 21620 rekordów danych,
+- 21676 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 8217 obserwacji w `configuration_attribute_values.csv`,
-- 164 wersjonowanych specyfikacji w `data/imports/configuration_values`,
+- 8273 obserwacji w `configuration_attribute_values.csv`,
+- 180 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 451 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 10112 rekordów w `configuration_attribute_availability.csv`,
 - 8148 rekordów `standard`, 688 `optional`, 1276 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 21620 rekordów,
+- baza SQLite obejmująca 48 tabele i 21676 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->

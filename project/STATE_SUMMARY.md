@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1957
+- Tests: 1958
 - Master CSV files: 48
-- Master rows: 21620
-- Configuration values: 8217
-- Configuration import specifications: 164
+- Master rows: 21676
+- Configuration values: 8273
+- Configuration import specifications: 180
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
 - Availability records: 10112
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Page 21 YouClip Mount Points Import** — `complete`
+**Bigster Brochure Grade-Specific Cabin Details Import** — `complete`
 
-Added the exact YouClip mounting-point count from printed page 21 as one canonical integer attribute and 14 source-linked scalar observations: 4 for Essential and 5 for Expression, Journey and Extreme. All targets are active configurations linked to the registered brochure; no existing observations were overwritten.
+Added 56 historical scalar observations across 14 exact active source-linked configurations for parking-brake type, steering-wheel material, rear-seat folding layout and speaker count from printed pages 14–17. Sixteen import specifications preserve grade/page boundaries and the explicit inheritance chain; no existing observations were overwritten.
 
 ## Next package
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, check current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–22 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps.
 
 ## Autonomy
 

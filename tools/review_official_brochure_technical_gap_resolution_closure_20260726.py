@@ -501,6 +501,38 @@ def verify_current_coverage() -> None:
         expected_scalar.update({"src_pl_duster_mini_brochure_20251020": 35})
         expected_total += 35
 
+    grade_detail_rows = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("observation_date") == "2025-12-10"
+        and row.get("attribute_code") in {
+            "parking_brake_type",
+            "steering_wheel_material",
+            "rear_seat_folding",
+            "speaker_count",
+        }
+    ]
+    if grade_detail_rows:
+        ensure(len(grade_detail_rows) == 56, "Bigster grade-specific cabin-detail receipt differs")
+        ensure(
+            Counter(row.get("attribute_code", "") for row in grade_detail_rows)
+            == Counter({
+                "parking_brake_type": 14,
+                "steering_wheel_material": 14,
+                "rear_seat_folding": 14,
+                "speaker_count": 14,
+            }),
+            "Bigster grade-specific cabin-detail attribute distribution differs",
+        )
+        ensure(
+            [int(row["id"]) for row in sorted(grade_detail_rows, key=lambda row: int(row["id"]))]
+            == list(range(8234, 8290)),
+            "Bigster grade-specific cabin-detail IDs differ",
+        )
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 56})
+        expected_total += 56
+
     youclip_rows = [
         row
         for row in scalar
