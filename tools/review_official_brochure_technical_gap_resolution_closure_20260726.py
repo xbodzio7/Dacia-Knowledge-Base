@@ -514,6 +514,7 @@ def verify_current_coverage() -> None:
             == Counter({"4": 2, "5": 12}),
             "Bigster page-21 YouClip grade counts differ",
         )
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 14})
         expected_total += 14
 
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
