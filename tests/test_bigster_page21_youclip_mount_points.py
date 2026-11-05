@@ -41,7 +41,7 @@ class BigsterPage21YouClipMountPointsTests(unittest.TestCase):
         self.assertEqual(self.spec["attribute_code"], "youclip_mount_points")
         self.assertEqual(self.spec["attribute_contract"], {"data_type": "integer", "unit": "", "status": "active"})
         self.assertEqual(self.spec["observation_date"], "2025-12-10")
-        self.assertEqual(self.spec["source_page"], 21)
+        self.assertEqual(self.spec["source_page"], 22)
         self.assertEqual(self.spec["source_section"], "PROWADZENIE I URZĄDZENIA KONTROLNE")
         report = json.loads((ROOT / "data" / "reporting" / "bigster_page21_youclip_mount_points_import_closure_20261105.json").read_text(encoding="utf-8"))
         self.assertEqual(report["package_id"], "bigster_page21_youclip_mount_points_import_20261105_001")
@@ -66,7 +66,7 @@ class BigsterPage21YouClipMountPointsTests(unittest.TestCase):
             grade = row["configuration_code"].split("_")[1]
             value = "4" if grade == "essential" else "5"
             self.assertEqual(row["value"], value)
-            notes = f"Source page 21, section PROWADZENIE I URZĄDZENIA KONTROLNE: {row['source_text']}."
+            notes = f"Source PDF page 22 (printed page 21), section PROWADZENIE I URZĄDZENIA KONTROLNE: {row['source_text']}."
             expected.append({
                 "id": str(8217 + index),
                 "code": f"{row['configuration_code']}_youclip_mount_points_20251210",
@@ -113,7 +113,7 @@ class BigsterPage21YouClipMountPointsTests(unittest.TestCase):
                 self.assertFalse(scope_codes & target_codes, filename)
         if shutil.which("pdftotext") is None:
             self.skipTest("pdftotext unavailable")
-        page_text = " ".join(_compact_text(value) for _, value in extract_page_candidates(PDF, 21))
+        page_text = " ".join(_compact_text(value) for _, value in extract_page_candidates(PDF, 22))
         self.assertIn(_compact_text("Punkty mocowania YouClip 4 5 5 5"), page_text)
 
 
