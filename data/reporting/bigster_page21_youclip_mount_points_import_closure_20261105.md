@@ -9,7 +9,7 @@
 - Official source: `src_pl_bigster_brochure_20251210`
 - File: `PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf`
 - SHA-256: `76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74`
-- Printed page: 21
+- Printed page: 21 (PDF page 22)
 - Section: `PROWADZENIE I URZĄDZENIA KONTROLNE`
 - Exact row: **Punkty mocowania YouClip — 4 / 5 / 5 / 5**
 
