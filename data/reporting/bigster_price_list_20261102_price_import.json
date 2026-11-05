@@ -1,0 +1,136 @@
+{
+  "package_id": "bigster_price_list_catalog_prices_20261102_001",
+  "source_code": "src_pl_bigster_price_my26_20261102",
+  "source": {
+    "title": "DACIA BIGSTER cennik MY26 2026-11-02",
+    "market": "PL",
+    "document_date": "2026-11-02",
+    "effective_date": "2026-11-02",
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf",
+    "pages": 8,
+    "sha256": null,
+    "sha256_note": "Raw PDF is retained in the user's Library and was not materialized as bytes in this session; no repository SHA-256 is asserted."
+  },
+  "scope": "Printed page 1 catalogue gross price matrix only.",
+  "result": {
+    "source_registry_records_added": 1,
+    "source_configuration_links_added": 13,
+    "catalogue_price_records_added": 13,
+    "existing_price_records_overwritten": 0,
+    "duplicate_new_price_records": 0
+  },
+  "prices": [
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 101400,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 110400,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 118900,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 118500,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 115600,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 124100,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 123700,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 124900,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 133400,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 133000,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_expression_tribrid150_4x4_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 128900,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_extreme_tribrid150_4x4_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 137600,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    },
+    {
+      "configuration_code": "bigster_journey_tribrid150_4x4_automatic",
+      "market": "PL",
+      "price_type": "catalog_gross",
+      "amount": 137200,
+      "currency_code": "PLN",
+      "price_date": "2026-11-02"
+    }
+  ],
+  "exclusions": [
+    "Promotional Rabat 7 000 zł claim",
+    "MFS financing benefit up to 7%",
+    "Monthly rental examples",
+    "Optional equipment and package prices from pages 4–5",
+    "Technical specifications from page 6; these require a separate source-to-master reconciliation"
+  ],
+  "reconciliation_note": "All 13 grade/powertrain combinations already existed as canonical configurations. Their 2026-10-01 catalogue prices are unchanged in amount; this package adds the new dated source and price observations without rewriting historical rows."
+}
