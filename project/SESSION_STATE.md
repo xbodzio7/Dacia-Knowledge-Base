@@ -38,6 +38,19 @@ Current open PRs verified from GitHub:
 
 Operational rule: before every continuation, inspect current main, recent merged PRs, open PR heads, and the canonical state. Do not repeat PR #752 source portfolio inventory, PR #767 page anchoring, or the same #754 crosswalk report. The next package must deliver a concrete, source-backed import batch or explicitly move to the highest-impact unblocked data gap for another model family. If no importable batch is possible, state the exact evidence boundary and switch scope; do not loop on a generic blocker.
 
+## Current Bigster Brochure Continuation (2026-11-05)
+
+The page-22 residual equipment batch was prepared from the repository ZIP, whose canonical `project/state.json` exactly matches the current main file. The source PDF SHA-256 matches the registered brochure receipt.
+
+- Added 260 dated 2025-12-10 availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations.
+- Combined brochure equipment availability coverage: 557 observations (157 page 21, 400 page 22).
+- IDs added: 10113–10372. The Hybrid 155-only cooled-console qualifier is preserved; no states are projected to other powertrains.
+- Focused tests: 33 passed; importer check, repository validation, documentation baseline and project-state checks passed.
+- Full local pytest exceeded the 300-second execution limit; full Quality must be confirmed on the GitHub PR head before merge.
+- The package implementation is complete locally and awaits GitHub PR validation. It does not close the wider 24-page brochure assimilation.
+
+The next package remains `Official Bigster Brochure Full Assimilation`; do not repeat the already closed page 14–17, 20, 21 and 23 imports/reviews.
+
 ## Recovered Work from ZIP Session (2026-11-02)
 
 The repository ZIP used in the earlier portfolio-audit work was re-opened and its generated audit outputs were compared with current `main`. Recoverable report artifacts have been committed under `reports/recovered/`.
@@ -74,9 +87,9 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1959 testów automatycznych zakończonych powodzeniem,
+- 1964 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 21802 rekordów danych,
+- 22062 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -84,10 +97,10 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 189 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 451 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
-- 10112 rekordów w `configuration_attribute_availability.csv`,
-- 8148 rekordów `standard`, 688 `optional`, 1276 `not_available` i 0 `unknown`,
+- 10372 rekordów w `configuration_attribute_availability.csv`,
+- 8370 rekordów `standard`, 692 `optional`, 1310 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 21802 rekordów,
+- baza SQLite obejmująca 48 tabele i 22062 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->

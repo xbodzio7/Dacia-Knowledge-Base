@@ -23,22 +23,22 @@
 
 ## Verified baseline
 
-- Tests: 1959
+- Tests: 1964
 - Master CSV files: 48
-- Master rows: 21802
+- Master rows: 22062
 - Configuration values: 8399
 - Configuration import specifications: 189
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
-- Availability records: 10112
+- Availability records: 10372
 - Canonical attributes: 417
 - Attribute categories: 30
 
 ## Current package
 
-**Bigster Brochure Page 23 Historical Dimensions Import** — `complete`
+**Bigster Brochure Page 22 Historical Equipment Residual Import** — `complete`
 
-Added 126 historical scalar observations across 14 exact active source-linked configurations for nine existing exterior-dimension attributes from printed page 23. Nine import specifications preserve the 4×2/4×4 footnote mapping for ground clearance and overall height; the seven single-value diagram dimensions remain model-wide within the 14 documented brochure links. Existing overall-length observations and later 2026 price-list values were retained without overwrite.
+Added 260 historical availability observations from exact page-22 rows of the 2025-12-10 Bigster brochure across 14 active source-linked configurations, using 20 existing boolean attributes. Preserved the Hybrid 155-only cooled-console qualifier and left composite/package or unsupported facts deferred.
 
 ## Next package
 
