@@ -9,7 +9,7 @@
 
 ## Result
 - 1 source registry record added.
-- 13 source-to-configuration links added.
+- 0 technical/equipment source-to-configuration links added; the 13 price rows carry direct source/configuration keys.
 - 13 dated catalogue gross price records added.
 - 0 existing records overwritten.
 - 0 duplicate new records.
@@ -42,4 +42,4 @@ All 13 target configurations already existed in the canonical configuration inve
 - Technical specifications on printed page 6; these require a separate exact source-to-master gap reconciliation.
 
 ## Validation contract
-The regression test verifies one active source record, 13 unique source-configuration relationships, and 13 exact price rows with the source/date/market/type tuple.
+The regression test verifies one active source record, 13 exact price records and no technical/equipment provenance links, and 13 exact price rows with the source/date/market/type tuple.
