@@ -500,6 +500,22 @@ def verify_current_coverage() -> None:
         ensure(not any(row.get("attribute_code") == "injection_type" for row in duster_page20_exact_scalar_gap), "Duster unscoped injection entered the package")
         expected_scalar.update({"src_pl_duster_mini_brochure_20251020": 35})
         expected_total += 35
+
+    youclip_rows = [
+        row
+        for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and row.get("attribute_code") == "youclip_mount_points"
+    ]
+    if youclip_rows:
+        ensure(len(youclip_rows) == 14, "Bigster page-21 YouClip count differs")
+        ensure(
+            Counter(row.get("value", "") for row in youclip_rows)
+            == Counter({"4": 2, "5": 12}),
+            "Bigster page-21 YouClip grade counts differ",
+        )
+        expected_total += 14
+
     ensure(len(scalar) == expected_total, f"expected exactly {expected_total} brochure scalar values")
 
 
