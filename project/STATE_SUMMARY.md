@@ -38,13 +38,13 @@
 
 **Bigster Brochure Grade-Specific Cabin Details Import** — `complete`
 
-Added 56 historical scalar observations for four cabin-detail attributes across 14 exact active source-linked configurations from printed pages 14–17. Sixteen import specifications preserve the grade inheritance and optional-audio boundaries; no existing observations were overwritten.
+Added 56 historical scalar observations across 14 exact active source-linked configurations for parking-brake type, steering-wheel material, rear-seat folding layout and speaker count from printed pages 14–17. Sixteen import specifications preserve grade/page boundaries and the explicit inheritance chain; no existing observations were overwritten.
 
 ## Next package
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, check current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–22 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps.
 
 ## Autonomy
 
