@@ -15,9 +15,9 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1954,
+    "tests": 1957,
     "csv_files": 48,
-    "rows": 21606,
+    "rows": 21620,
     "configuration_values": 8217,
     "configuration_import_specs": 164,
     "configuration_value_ranges": 451,
@@ -38,7 +38,7 @@
     "kind": "source_gap_closure",
     "name": "Official Bigster Brochure Full Assimilation",
     "status": "active",
-    "goal": "Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
+    "goal": "Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, check current import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

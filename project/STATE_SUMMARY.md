@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1954
+- Tests: 1957
 - Master CSV files: 48
-- Master rows: 21606
+- Master rows: 21620
 - Configuration values: 8217
 - Configuration import specifications: 164
 - Configuration value ranges: 451
@@ -44,7 +44,7 @@ Added the exact YouClip mounting-point count from printed page 21 as one canonic
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, check current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 
 ## Autonomy
 
