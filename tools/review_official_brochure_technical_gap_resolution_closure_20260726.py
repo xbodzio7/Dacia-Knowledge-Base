@@ -332,6 +332,36 @@ def verify_current_coverage() -> None:
         )
         expected_scalar.update({"src_pl_bigster_brochure_20251210": 11})
         expected_total += 11
+    bigster_page23_dimensions = [
+        row for row in scalar
+        if row.get("source_code") == "src_pl_bigster_brochure_20251210"
+        and 8290 <= int(row.get("id", "0")) <= 8415
+    ]
+    if bigster_page23_dimensions:
+        ensure(len(bigster_page23_dimensions) == 126, "Bigster page-23 dimension receipt differs")
+        ensure(
+            [int(row["id"]) for row in sorted(bigster_page23_dimensions, key=lambda row: int(row["id"]))]
+            == list(range(8290, 8416)),
+            "Bigster page-23 dimension IDs differ",
+        )
+        ensure(
+            Counter(row.get("attribute_code", "") for row in bigster_page23_dimensions)
+            == Counter({
+                "overall_width": 14,
+                "overall_width_with_mirrors": 14,
+                "front_track": 14,
+                "rear_track": 14,
+                "wheelbase": 14,
+                "front_overhang": 14,
+                "rear_overhang": 14,
+                "ground_clearance": 14,
+                "overall_height": 14,
+            }),
+            "Bigster page-23 dimension attribute distribution differs",
+        )
+        expected_scalar.update({"src_pl_bigster_brochure_20251210": 126})
+        expected_total += 126
+
     bigster_overall_length = [
         row for row in scalar
         if row.get("source_code") == "src_pl_bigster_brochure_20251210"
@@ -630,7 +660,7 @@ def verify_non_import_boundaries() -> None:
     dimensions = [row for row in scalar if row.get("attribute_code") in approved_attributes]
     if dimensions:
         approved = [row for row in dimensions if 2568 <= int(row["id"]) <= 2949]
-        ensure(len(dimensions) == 396 and len(approved) == 382, "unreviewed generic brochure dimension was imported")
+        ensure(len(dimensions) == 522 and len(approved) == 382, "unreviewed generic brochure dimension was imported")
         ensure(
             Counter(row.get("source_code", "") for row in approved)
             == Counter(

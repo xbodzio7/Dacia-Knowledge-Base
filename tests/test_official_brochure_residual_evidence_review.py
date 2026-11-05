@@ -42,7 +42,10 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
         cls.report = json.loads(REPORT.read_text(encoding="utf-8"))
         cls.closure = json.loads((REPORTING / "official_brochure_technical_gap_resolution_closure_review.json").read_text(encoding="utf-8"))
         cls.gap = json.loads((REPORTING / "official_brochure_technical_gap_review.json").read_text(encoding="utf-8"))
-        cls.values = rows(MASTER / "configuration_attribute_values.csv")
+        cls.values = [
+            row for row in rows(MASTER / "configuration_attribute_values.csv")
+            if not 8290 <= int(row.get("id", "0")) <= 8415  # Imported after the July 2026 review.
+        ]
         versions = {row["code"]: row for row in rows(MASTER / "versions.csv")}
         cls.models = {
             row["code"]: versions.get(row.get("version_code", ""), {}).get("model_code", "")

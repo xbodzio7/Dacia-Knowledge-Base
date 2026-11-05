@@ -397,7 +397,7 @@ class CoverageReconciliationRepositoryTests(unittest.TestCase):
             ("candidates", "1478", "evidence_signatures", "0", "records", "length"): (6, 12),
             ("summary", "active_evidence_record_counts", "configuration_attribute_availability"): (5906, 6758),
             ("summary", "active_evidence_record_counts", "configuration_attribute_value_ranges"): (316, 396),
-            ("summary", "active_evidence_record_counts", "configuration_attribute_values"): (3490, 4528),
+            ("summary", "active_evidence_record_counts", "configuration_attribute_values"): (3490, 4654),
         }
         actual_growth = {
             path: (committed, current) for path, committed, current in differences

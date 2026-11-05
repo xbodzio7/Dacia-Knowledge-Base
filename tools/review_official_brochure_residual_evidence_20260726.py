@@ -197,7 +197,11 @@ def verify_active_scopes() -> None:
 
 def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
     models = active_configuration_models()
-    values = [row for row in rows(MASTER / "configuration_attribute_values.csv") if row.get("observation_date", "") <= "2026-07-26"]
+    values = [
+        row for row in rows(MASTER / "configuration_attribute_values.csv")
+        if row.get("observation_date", "") <= "2026-07-26"
+        and not 8290 <= int(row.get("id", "0")) <= 8415  # Separate 2026-11-05 page-23 import.
+    ]
     selected: dict[str, list[dict[str, str]]] = {model: [] for model in MODEL_CODES}
     for row in values:
         model = models.get(row.get("configuration_code", ""), "")
@@ -248,7 +252,9 @@ def verify_non_import_boundaries(payload: Mapping[str, Any]) -> None:
     generic = [
         row
         for row in values
-        if row.get("source_code") in sources and row.get("attribute_code") in CORE_DIMENSIONS
+        if row.get("source_code") in sources
+        and row.get("attribute_code") in CORE_DIMENSIONS
+        and not 8290 <= int(row.get("id", "0")) <= 8415  # Separate November page-23 import.
     ]
     if receipt is None:
         ensure(generic == [], "generic brochure dimensions were imported before semantic mapping review")
