@@ -58,7 +58,7 @@ The 2026-10-01 and 2026-11-02 official Bigster MY26 price lists have now been re
 - Spare wheel price is recorded as 800 PLN in October and 900 PLN in November for Hybrid 155 only. Nonmatching powertrains are recorded as `unknown`, not `not_available`, so older generic prices are not presented as current.
 - The legacy 215/70 R16 row labelled for mild hybrid 130 4x4 is not mapped to tribrid 150 4x4. The source's 135/80 R17 row is not projected from non-G mild hybrid 140 to mild hybrid-G 140.
 - The October source PDF hash is verified against the archived repository file. The November source remains in the user's Library; its raw bytes could not be materialized, so no SHA-256 is asserted.
-- The source's 2026-11-02 page-6 technical table remains the next Bigster price-list reconciliation scope.
+- The 2026-11-02 price-list page-6 technical table states its data are current as of 01.10.2026. The matching 2026-10-01 source has 22 specifications and 150 observations, including the three Tribrid 150 engine_power rows (103 kW, IDs 8231–8233; PR #778). Do not duplicate. Next: resolve page-22 semantic/identity gaps and page-19 accessory-to-catalog links in the 24-page brochure.
 
 ## Recovered Work from ZIP Session (2026-11-02)
 

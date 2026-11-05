@@ -22,3 +22,7 @@
 Spare-wheel rows outside Hybrid 155 are `unknown` rather than `not_available`. The source qualifier does not justify projecting the price to mild hybrid-G 140 or tribrid 150. The commercial-offer loader now suppresses an older optional price when a later `unknown` or `not_available` mapping exists.
 
 October source SHA-256 is verified against the archived PDF. November source raw bytes remain in the user's Library; no hash is asserted.
+
+## Page-6 technical-table cross-reference
+
+The 2026-11-02 page-6 table labels its technical values as of 01.10.2026. The matching 2026-10-01 source already has 22 import specifications and 150 observations, including the three Tribrid 150 engine-power rows at 103 kW (IDs 8231–8233; PR #778). No duplicate November technical observations were added. Combined hybrid-system power and electric-motor component values remain separate deferred contexts.

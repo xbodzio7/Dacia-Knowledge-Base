@@ -44,7 +44,7 @@ Added 172 dated commercial item/configuration mappings across the October and No
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Continue the full 24-page Bigster brochure source-to-master reconciliation. Reuse completed page 14–23 imports and reviews; page-4/5 commercial option/package prices are now reconciled for 2026-10-01 and 2026-11-02. Continue with the 2026-11-02 page-6 technical table, preserving conflicts and importing only exact unsuperseded gaps.
+Continue the 24-page Bigster brochure source-to-master reconciliation by resolving the remaining page-22 semantic/identity gaps and the page-19 accessory-to-catalog crosswalk. Do not repeat page-6 technical scalar values from the 2026-10-01 price list: 22 import specifications and 150 observations are already in master, including Tribrid 150 engine_power=103 kW (IDs 8231–8233; PR #778). The 2026-11-02 price list labels its technical data as of 01.10.2026; no separate dated duplicate is warranted.
 
 ## Autonomy
 

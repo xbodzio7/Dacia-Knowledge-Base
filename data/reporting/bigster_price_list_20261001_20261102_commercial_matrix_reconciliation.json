@@ -123,7 +123,7 @@
     "The 215/70 R16 spare-wheel row qualified to mild hybrid 130 4x4 is not mapped to tribrid 150 4x4 because the powertrain label does not match a canonical configuration.",
     "No colour-by-colour surcharge is inferred from the generic metallic-paint row; brochure page-14 colour names and two-tone eligibility remain separate evidence.",
     "No equipment availability observations are imported from pages 4–5 in this commercial-price package.",
-    "The 2026-11-02 page-6 technical table remains a separate reconciliation."
+    "The 2026-11-02 page-6 table labels its technical values as of 01.10.2026; the corresponding 2026-10-01 source already has 22 import specifications and 150 scalar observations, including the three Tribrid 150 engine_power=103 kW rows (IDs 8231–8233; PR #778). No duplicate November observations are added. Combined hybrid-system power and electric-motor component values remain separate deferred contexts."
   ],
   "policy": {
     "source_first": true,
@@ -131,5 +131,19 @@
     "historical_overwrite_forbidden": true,
     "unknown_not_unavailable": true,
     "price_only_november_source_links_remain_zero": true
+  },
+  "technical_page6_cross_reference": {
+    "november_table_date_label": "Stan na dzień 01.10.2026",
+    "october_source_code": "src_pl_bigster_price_my26_20261001",
+    "imported_specifications": 22,
+    "imported_observations": 150,
+    "tribrid150_engine_power_ids": [
+      8231,
+      8232,
+      8233
+    ],
+    "no_november_duplicate_observations": true,
+    "closure_pr": 778,
+    "closure_commit": "a856cfaf14bfc0fbccc1d10a4da8b2fda20ba704"
   }
 }

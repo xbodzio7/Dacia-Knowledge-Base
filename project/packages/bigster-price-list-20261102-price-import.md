@@ -22,4 +22,6 @@ Register the owner-supplied official Dacia Poland Bigster MY26 price list effect
 The PDF is 8 pages and was text-extracted from the owner-supplied Library item. This package imports only page-1 catalogue gross prices. Promotional/financing claims, option/package prices, and page-6 technical specifications are excluded from this package. No SHA-256 is asserted because raw PDF bytes were not available for hashing in the repository runtime.
 
 ## Follow-up reconciliation
-The page-4/5 commercial option and package price matrix was imported separately for the 2026-10-01 and 2026-11-02 price lists under `bigster_price_list_20261001_20261102_commercial_matrix_import_20261105_001`. This preserves dated prices without overwriting the July history. The 2026-11-02 page-6 technical table remains a separate source-to-master reconciliation.
+The page-4/5 commercial option and package price matrix was imported separately for the 2026-10-01 and 2026-11-02 price lists under `bigster_price_list_20261001_20261102_commercial_matrix_import_20261105_001`. This preserves dated prices without overwriting the July history.
+
+The 2026-11-02 page-6 technical table labels its values as current on 01.10.2026. The corresponding 2026-10-01 source already has 22 import specifications and 150 observations, including `engine_power=103 kW` for the three Tribrid 150 4x4 automatic configurations (IDs 8231–8233; PR #778). No duplicate November observations are added. The combined hybrid-system power and electric-motor component remain separate evidence boundaries.
