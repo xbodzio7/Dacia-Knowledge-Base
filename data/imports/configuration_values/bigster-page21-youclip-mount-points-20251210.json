@@ -1,7 +1,6 @@
 {
   "version": 1,
   "kind": "configuration_attribute_values",
-  "package_id": "bigster_page21_youclip_mount_points_import_20261105_001",
   "id_start": 8217,
   "attribute_code": "youclip_mount_points",
   "attribute_contract": {
@@ -11,8 +10,6 @@
   },
   "observation_date": "2025-12-10",
   "fuel_type_code": "",
-  "source_file": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
-  "source_sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
   "source_page": 21,
   "source_section": "PROWADZENIE I URZĄDZENIA KONTROLNE",
   "notes_template": "Source page {page}, section {section}: {source_text}",
