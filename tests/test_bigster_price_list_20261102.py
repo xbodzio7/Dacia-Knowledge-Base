@@ -38,9 +38,9 @@ class BigsterNovember2026PriceListTests(unittest.TestCase):
 
     def test_source_links_cover_exact_price_matrix(self):
         rows = [r for r in _rows(ROOT / "data/master/source_configurations.csv") if r["source_code"] == SOURCE_CODE]
-        self.assertEqual(len(rows), len(EXPECTED))
-        self.assertEqual({r["configuration_code"] for r in rows}, set(EXPECTED))
-        self.assertTrue(all(r["relationship"] == "documents" for r in rows))
+        # This is a price-only source. Price rows carry the exact source and
+        # configuration keys; do not add equipment/technical provenance links.
+        self.assertEqual(rows, [])
 
     def test_catalogue_prices_are_exact_and_unique(self):
         rows = [r for r in _rows(ROOT / "data/master/configuration_prices.csv") if r["source_code"] == SOURCE_CODE]
