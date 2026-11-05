@@ -345,7 +345,7 @@ All notable changes to this project will be documented in this file.
 * Declarative scalar configuration-value imports now contain 163 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.
 * The canonical catalogue now contains 417 attributes in 30 categories.
-* Equipment availability now contains 10112 records: 8148 `standard`, 688 `optional`, 1276 `not_available` and 0 `unknown`.
+* Equipment availability now contains 10112 records: 8124 `standard`, 712 `optional`, 1276 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->
 
 ### Fixed
