@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "kind": "configuration_value_import_closure",
+  "date": "2026-11-05",
+  "status": "complete",
+  "package_id": "bigster_page21_youclip_mount_points_import_20261105_001",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "observation_date": "2025-12-10",
+    "page": 21,
+    "section": "PROWADZENIE I URZĄDZENIA KONTROLNE",
+    "literal_row": "Punkty mocowania YouClip 4 5 5 5",
+    "pdf_page": 22,
+    "printed_page": 21
+  },
+  "attribute": {
+    "id": 424,
+    "code": "youclip_mount_points",
+    "category": "Infotainment",
+    "name": "YouClip mounting points",
+    "data_type": "integer",
+    "unit": "",
+    "status": "active",
+    "description": "Number of YouClip mounting points explicitly stated for a configuration."
+  },
+  "scope": {
+    "source_linked_active_configuration_count": 14,
+    "grade_configuration_counts": {
+      "essential": 2,
+      "expression": 4,
+      "journey": 4,
+      "extreme": 4
+    },
+    "grade_values": {
+      "essential": 4,
+      "expression": 5,
+      "journey": 5,
+      "extreme": 5
+    },
+    "master_observation_ids": {
+      "first": 8217,
+      "last": 8230
+    }
+  },
+  "summary": {
+    "attribute_added": 1,
+    "scalar_observations_added": 14,
+    "configuration_values_after_import": 8214,
+    "master_rows_after_import": 21603,
+    "canonical_attributes_after_import": 417,
+    "configuration_import_specs_after_import": 163
+  },
+  "policy": {
+    "grade_column_values_projected_only_to_active_source_linked_configurations": true,
+    "no_powertrain_specific_difference_in_source_row": true,
+    "no_existing_observations_overwritten": true,
+    "no_new_category_or_unit_added": true
+  },
+  "import_spec": "data/imports/configuration_values/bigster-page21-youclip-mount-points-20251210.json",
+  "master_tables": [
+    "data/master/attributes.csv",
+    "data/master/configuration_attribute_values.csv"
+  ],
+  "test": "tests/test_bigster_page21_youclip_mount_points.py",
+  "validation": {
+    "source_sha256_verified": true,
+    "all_14_configurations_active_and_linked": true,
+    "values_match_printed_grade_columns": true,
+    "duplicate_slots": 0,
+    "existing_attribute_before_import": false,
+    "master_conflict": false
+  }
+}

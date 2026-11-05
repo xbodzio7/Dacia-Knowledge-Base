@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 1950
+- Tests: 1953
 - Master CSV files: 48
-- Master rows: 21588
-- Configuration values: 8200
-- Configuration import specifications: 162
+- Master rows: 21603
+- Configuration values: 8214
+- Configuration import specifications: 163
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
 - Availability records: 10112
-- Canonical attributes: 416
+- Canonical attributes: 417
 - Attribute categories: 30
 
 ## Current package
 
-**Verified PDF Residual Queue Re-entry Review** — `complete`
+**Bigster Page 21 YouClip Mount Points Import** — `complete`
 
-Reconciled the leading historical residual boundaries against current main and all later imports and closure receipts. The selected evidence codes in the reviewed high-priority equipment and technical reviews are present exactly once in their canonical master tables. Completed imports and deferred conflicts were preserved; no master data was changed.
+Added the exact YouClip mounting-point count from printed page 21 as one canonical integer attribute and 14 source-linked scalar observations: 4 for Essential and 5 for Expression, Journey and Extreme. All targets are active configurations linked to the registered brochure; no existing observations were overwritten.
 
 ## Next package
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Review all 24 pages of the registered official Bigster brochure against its rendered pages and text, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-10-01 official price list and current import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 
 ## Autonomy
 

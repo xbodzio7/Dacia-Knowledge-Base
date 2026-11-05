@@ -228,6 +228,10 @@
     {
       "attribute_code": "wheelbase",
       "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "youclip_mount_points",
+      "fuel_type_code": ""
     }
   ],
   "equipment_attributes": [
