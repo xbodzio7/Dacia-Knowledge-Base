@@ -12,7 +12,7 @@
   "fuel_type_code": "",
   "source_page": 6,
   "source_section": "SILNIKI",
-  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "notes_template": "Source page {page}, section {section}: {source_text}.",
   "rows": [
     {
       "configuration_code": "bigster_expression_tribrid150_4x4_automatic",
