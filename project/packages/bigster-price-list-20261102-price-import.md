@@ -13,7 +13,7 @@ Register the owner-supplied official Dacia Poland Bigster MY26 price list effect
 
 ## Acceptance
 1. One active source registry row with effective/document date 2026-11-02.
-2. Thirteen unique source-to-configuration relationships.
+2. No technical/equipment source relationships; each price row references the source and configuration directly.
 3. Thirteen exact catalogue gross prices from printed page 1.
 4. No historical price row overwritten and no duplicate new record.
 5. Regression test and repository Quality pass on the final PR head.
