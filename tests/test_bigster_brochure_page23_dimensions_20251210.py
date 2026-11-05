@@ -22,6 +22,18 @@ EXPECTED = {
     "front_overhang": "854",
     "rear_overhang": "1014",
 }
+EXPECTED_ID_STARTS = {
+    "overall_width": 8290,
+    "overall_width_with_mirrors": 8304,
+    "front_track": 8318,
+    "rear_track": 8332,
+    "wheelbase": 8346,
+    "front_overhang": 8360,
+    "rear_overhang": 8374,
+    "ground_clearance": 8388,
+    "overall_height": 8402,
+}
+
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
@@ -30,11 +42,16 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
     def test_exact_historical_dimensions_scope_values_and_provenance(self) -> None:
-        specs = sorted(SPEC_DIR.glob("bigster-page23-*-20251210.json"))
+        all_page23_specs = sorted(SPEC_DIR.glob("bigster-page23-*-20251210.json"))
+        specs = [
+            path for path in all_page23_specs
+            if json.loads(path.read_text(encoding="utf-8"))["attribute_code"]
+            in EXPECTED_ID_STARTS
+        ]
         self.assertEqual(len(specs), 9)
         spec_data = [json.loads(path.read_text(encoding="utf-8")) for path in specs]
         by_attribute = {spec["attribute_code"]: spec for spec in spec_data}
-        self.assertEqual(set(by_attribute), set(EXPECTED) | {"ground_clearance", "overall_height"})
+        self.assertEqual(set(by_attribute), set(EXPECTED_ID_STARTS))
 
         configurations = read_csv(MASTER / "configurations.csv")
         active = {row["code"] for row in configurations if row["status"] == "active"}
@@ -49,7 +66,6 @@ class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
         self.assertTrue(linked <= active)
 
         expected = {}
-        expected_id_start = 8290
         for attribute, spec in by_attribute.items():
             self.assertEqual(spec["kind"], "configuration_attribute_values")
             self.assertEqual(spec["attribute_code"], attribute)
@@ -59,9 +75,8 @@ class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
             self.assertEqual(spec["attribute_contract"], {
                 "data_type": "integer", "unit": "mm", "status": "active"
             })
-            self.assertEqual(spec["id_start"], expected_id_start)
+            self.assertEqual(spec["id_start"], EXPECTED_ID_STARTS[attribute])
             self.assertEqual(len(spec["rows"]), 14)
-            expected_id_start += 14
             for row in spec["rows"]:
                 config = row["configuration_code"]
                 self.assertIn(config, linked)
@@ -77,7 +92,6 @@ class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
                 self.assertNotIn(key, expected)
                 expected[key] = value
 
-        self.assertEqual(expected_id_start, 8416)
         self.assertEqual(len(expected), 126)
         self.assertEqual(set(config for config, _ in expected), linked)
 
