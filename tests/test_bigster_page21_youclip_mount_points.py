@@ -46,6 +46,8 @@ class BigsterPage21YouClipMountPointsTests(unittest.TestCase):
         report = json.loads((ROOT / "data" / "reporting" / "bigster_page21_youclip_mount_points_import_closure_20261105.json").read_text(encoding="utf-8"))
         self.assertEqual(report["package_id"], "bigster_page21_youclip_mount_points_import_20261105_001")
         self.assertEqual(report["source"]["sha256"], EXPECTED_SHA)
+        self.assertEqual(report["source"]["pdf_page"], 22)
+        self.assertEqual(report["source"]["printed_page"], 21)
         self.assertEqual(hashlib.sha256(PDF.read_bytes()).hexdigest(), EXPECTED_SHA)
         attribute = [row for row in self.attributes if row["code"] == "youclip_mount_points"]
         self.assertEqual(len(attribute), 1)
