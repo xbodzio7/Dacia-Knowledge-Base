@@ -66,6 +66,7 @@ class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
         self.assertTrue(linked <= active)
 
         expected = {}
+        expected_notes = {}
         for attribute, spec in by_attribute.items():
             self.assertEqual(spec["kind"], "configuration_attribute_values")
             self.assertEqual(spec["attribute_code"], attribute)
@@ -91,6 +92,7 @@ class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
                 key = (config, attribute)
                 self.assertNotIn(key, expected)
                 expected[key] = value
+                expected_notes[key] = f"Source page 23, section WYMIARY: {row['source_text']}"
 
         self.assertEqual(len(expected), 126)
         self.assertEqual(set(config for config, _ in expected), linked)
@@ -112,6 +114,11 @@ class BigsterBrochurePage23DimensionsTests(unittest.TestCase):
             for row in imported
         }
         self.assertEqual(actual, expected)
+        actual_notes = {
+            (row["configuration_code"], row["attribute_code"]): row["notes"]
+            for row in imported
+        }
+        self.assertEqual(actual_notes, expected_notes)
         self.assertEqual(len({row["code"] for row in imported}), 126)
 
         later = [
