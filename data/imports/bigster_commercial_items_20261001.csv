@@ -1,0 +1,3 @@
+code,name,item_type,observation_date,source_code,status,notes
+bigster_metallic_paint_option,Lakier metalizowany,option,2026-10-01,src_pl_bigster_price_my26_20261001,active,Official Bigster MY26 price-list page 4; priced separately from the named exterior-colour palette. Dated prices are stored per configuration and source.
+bigster_two_tone_body_option,Nadwozie dwukolorowe,option,2026-10-01,src_pl_bigster_price_my26_20261001,active,Official Bigster MY26 price-list page 4; optional for Extreme and Journey only and unavailable with black paint. The eligible colour palette remains bounded by the brochure page-14 footnote.

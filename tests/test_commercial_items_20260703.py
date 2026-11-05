@@ -38,16 +38,16 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 56)
+        self.assertEqual(len(self.items), 58)
         self.assertEqual(len(self.members), 103)
-        self.assertEqual(len(self.mappings), 395)
-        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20"})
+        self.assertEqual(len(self.mappings), 567)
+        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
-            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20"},
+            {"", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02"},
         )
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
-        self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard"})
+        self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard", "unknown"})
 
     def test_each_item_has_membership_and_source(self) -> None:
         item_codes = {row["code"] for row in self.items}
@@ -65,6 +65,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
                 "src_pl_spring_commercial_context_20260802",
                 "src_pl_sandero_stepway_exact_configurator_states_20260809",
                 "dacia_catalog_20260920_duster_extreme_tribrid150_4x4",
+                "src_pl_bigster_price_my26_20261001",
             },
         )
         self.assertTrue(all(row["source_text"] for row in self.members))
@@ -75,11 +76,11 @@ class CommercialItems20260703Tests(unittest.TestCase):
             row for row in self.mappings
             if row["commercial_item_code"].startswith("bigster_")
         ]
-        self.assertEqual(len(bigster), 9)
-        self.assertEqual(len(mappings), 66)
+        self.assertEqual(len(bigster), 11)
+        self.assertEqual(len(mappings), 238)
         self.assertEqual({row["commercial_item_code"] for row in mappings}, bigster)
         self.assertTrue(all(row["configuration_code"].startswith("bigster_") for row in mappings))
-        self.assertEqual({row["source_code"] for row in mappings}, {"src_pl_bigster_price_my26_20260703"})
+        self.assertEqual({row["source_code"] for row in mappings}, {"src_pl_bigster_price_my26_20260703", "src_pl_bigster_price_my26_20261001", "src_pl_bigster_price_my26_20261102"})
 
     def test_july_catalog_prices_cover_all_registered_configuration_relationships(self) -> None:
         source_codes = {

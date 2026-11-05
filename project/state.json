@@ -15,9 +15,9 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1964,
+    "tests": 1970,
     "csv_files": 48,
-    "rows": 22062,
+    "rows": 22236,
     "configuration_values": 8399,
     "configuration_import_specs": 189,
     "configuration_value_ranges": 451,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "bigster_brochure_page22_residual_equipment_import_20261105_001",
-    "kind": "configuration_availability_import",
-    "name": "Bigster Brochure Page 22 Historical Equipment Residual Import",
+    "package_id": "bigster_price_list_20261001_20261102_commercial_matrix_import_20261105_001",
+    "kind": "commercial_matrix_import",
+    "name": "Bigster MY26 2026-10-01 / 2026-11-02 Commercial Option and Package Price Reconciliation",
     "status": "complete",
-    "goal": "Added 260 historical availability observations from exact page-22 rows of the 2025-12-10 Bigster brochure across 14 active source-linked configurations, using 20 existing boolean attributes. Preserved the Hybrid 155-only cooled-console qualifier and left composite/package or unsupported facts deferred."
+    "goal": "Added 172 dated commercial item/configuration mappings across the October and November 2026 official price lists, including two paint-price options. Preserved the Hybrid 155-only spare-wheel qualifier with unknown states for nonmatching configurations, without claiming unavailability or overwriting prior observations."
   },
   "next_package": {
     "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
     "kind": "source_gap_closure",
     "name": "Official Bigster Brochure Full Assimilation",
     "status": "active",
-    "goal": "Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–23 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps."
+    "goal": "Continue the 24-page Bigster brochure source-to-master reconciliation by resolving the remaining page-22 semantic/identity gaps and the page-19 accessory-to-catalog crosswalk. Do not repeat page-6 technical scalar values from the 2026-10-01 price list: 22 import specifications and 150 observations are already in master, including Tribrid 150 engine_power=103 kW (IDs 8231–8233; PR #778). The 2026-11-02 price list labels its technical data as of 01.10.2026; no separate dated duplicate is warranted."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

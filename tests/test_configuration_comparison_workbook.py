@@ -163,7 +163,8 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertFalse(overview["ranking_generated"])
         self.assertFalse(overview["recommendations_generated"])
         self.assertFalse(overview["inferred_values_generated"])
-        self.assertEqual(overview["commercial_equipment_as_of"], "2026-09-20")
+        # Snapshot date follows the latest dated commercial source in the repository.
+        self.assertEqual(overview["commercial_equipment_as_of"], "2026-11-02")
 
     def test_scopes_preserve_comparable_and_singleton_groups(self) -> None:
         rows = self._table(self.workbook["Scopes"])

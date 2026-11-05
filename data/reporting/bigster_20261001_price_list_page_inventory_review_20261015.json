@@ -613,5 +613,33 @@
     "Extract page-7 dimensions as candidates and resolve paired 4x2/4x4 measurements before canonical mapping.",
     "Review the full 6 main-only / 20 PR-only commit difference before any integration; main's PDF history includes multiple add/delete/rename operations. Do not merge or sync automatically.",
     "Investigate failed ai-repair-pr465-contracts workflow run 39032799028; the Jobs API returned zero jobs, so the failure cause remains unknown."
-  ]
+  ],
+  "subsequent_closure": {
+    "reviewed_on": "2026-11-05",
+    "pull_request": 778,
+    "commit": "a856cfaf14bfc0fbccc1d10a4da8b2fda20ba704",
+    "status": "closed_and_verified",
+    "technical_source_observations": 150,
+    "import_specifications": 22,
+    "tribrid150_engine_power": {
+      "configuration_codes": [
+        "bigster_expression_tribrid150_4x4_automatic",
+        "bigster_extreme_tribrid150_4x4_automatic",
+        "bigster_journey_tribrid150_4x4_automatic"
+      ],
+      "value_kw": 103,
+      "master_ids": [
+        8231,
+        8232,
+        8233
+      ],
+      "source_text": "103 (140) przy 5 000",
+      "interpretation": "Combustion-engine maximum power from the separate 'Moc maksymalna' row; not the combined hybrid-system value."
+    },
+    "remaining_boundaries": [
+      "Combined hybrid-system power 103 (140) + 10 (13) is not normalized into engine_power.",
+      "Electric-motor component values remain separate until a component-level context is approved."
+    ],
+    "note": "The 2026-11-02 price-list page-6 text labels technical values as current on 01.10.2026. The existing 2026-10-01 source observations cover this scalar subset; no duplicate 2026-11-02 observations are added."
+  }
 }

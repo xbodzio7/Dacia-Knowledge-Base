@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1964
+- Tests: 1970
 - Master CSV files: 48
-- Master rows: 22062
+- Master rows: 22236
 - Configuration values: 8399
 - Configuration import specifications: 189
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster Brochure Page 22 Historical Equipment Residual Import** — `complete`
+**Bigster MY26 2026-10-01 / 2026-11-02 Commercial Option and Package Price Reconciliation** — `complete`
 
-Added 260 historical availability observations from exact page-22 rows of the 2025-12-10 Bigster brochure across 14 active source-linked configurations, using 20 existing boolean attributes. Preserved the Hybrid 155-only cooled-console qualifier and left composite/package or unsupported facts deferred.
+Added 172 dated commercial item/configuration mappings across the October and November 2026 official price lists, including two paint-price options. Preserved the Hybrid 155-only spare-wheel qualifier with unknown states for nonmatching configurations, without claiming unavailability or overwriting prior observations.
 
 ## Next package
 
 **Official Bigster Brochure Full Assimilation** — `active`
 
-Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–23 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps.
+Continue the 24-page Bigster brochure source-to-master reconciliation by resolving the remaining page-22 semantic/identity gaps and the page-19 accessory-to-catalog crosswalk. Do not repeat page-6 technical scalar values from the 2026-10-01 price list: 22 import specifications and 150 observations are already in master, including Tribrid 150 engine_power=103 kW (IDs 8231–8233; PR #778). The 2026-11-02 price list labels its technical data as of 01.10.2026; no separate dated duplicate is warranted.
 
 ## Autonomy
 

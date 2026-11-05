@@ -18,11 +18,17 @@
 
 ## Imported facts
 
-Twenty-two declarative import specifications create 147 dated observations covering displacement, cylinder and total valve counts, explicitly separated engine power where unambiguous, torque and RPM, hybrid battery capacity/voltage, automatic gearbox type/gears, top speed, 0–100 km/h acceleration, standing kilometre, ISO 3832 luggage volumes, kerb/GVW/trailer masses, CO2, combined fuel consumption and fuel tank capacities. Each row preserves source date, page, section, exact configuration, source text and fuel type where applicable.
+Twenty-two declarative import specifications create 150 dated observations after the Tribrid 150 engine-power closure (PR #778) covering displacement, cylinder and total valve counts, explicitly separated engine power where unambiguous, torque and RPM, hybrid battery capacity/voltage, automatic gearbox type/gears, top speed, 0–100 km/h acceleration, standing kilometre, ISO 3832 luggage volumes, kerb/GVW/trailer masses, CO2, combined fuel consumption and fuel tank capacities. Each row preserves source date, page, section, exact configuration, source text and fuel type where applicable.
 
-## Deliberate deferral
+## Tribrid 150 engine-power closure and remaining boundaries
 
-The tribrid source power wording is `103 (140) + 10 (13)`. This package does not normalize a total hybrid-system power and does not place a combined value in `engine_power`. The unambiguous 103 kW engine value is imported only for the mild hybrid-G 140 automatic column. No values are inferred from the 2026-07-03 price list; it was consulted only for existing repository import conventions.
+The page-6 table separates two rows:
+- `Moc maksymalna`: the combustion engine is explicitly `103 (140)` at 5,000 rpm in the Tribrid 150 4x4 column.
+- `Moc maksymalna (układ hybrydowy)`: the combined system is `103 (140) + 10 (13)`.
+
+The three Tribrid 150 4x4 automatic configurations now have `engine_power=103 kW` (IDs 8231–8233), imported from the exact combustion-engine row. This closes the earlier source-to-master gap; do not reimport these observations. Closure: PR #778, commit `a856cfaf14bfc0fbccc1d10a4da8b2fda20ba704`.
+
+The combined hybrid-system power remains deferred and is not normalized into `engine_power`. The separate electric-motor figures (36 kW, 205 Nm at 1,630 rpm) remain component-level evidence and are not flattened into engine-specific attributes without an approved component context. No values are inferred from the 2026-07-03 price list; it was consulted only for existing repository import conventions.
 
 ## Acceptance boundary
 

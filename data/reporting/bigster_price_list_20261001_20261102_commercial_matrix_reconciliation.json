@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "kind": "bigster_price_list_commercial_matrix_reconciliation",
+  "package_id": "bigster_price_list_20261001_20261102_commercial_matrix_import_20261105_001",
+  "reviewed_on": "2026-11-05",
+  "market": "PL",
+  "sources": [
+    {
+      "source_code": "src_pl_bigster_price_my26_20261001",
+      "document_date": "2026-10-01",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/d477c604e8.pdf",
+      "pages": [
+        4,
+        5
+      ],
+      "file_path": "owner_supplied/2026-10-01/d477c604e8.pdf",
+      "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97"
+    },
+    {
+      "source_code": "src_pl_bigster_price_my26_20261102",
+      "document_date": "2026-11-02",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf",
+      "pages": [
+        4,
+        5
+      ],
+      "file_path": null,
+      "sha256": null,
+      "sha256_note": "Raw PDF remains in the user's Library and could not be materialized in the repository runtime; no hash is asserted."
+    }
+  ],
+  "scope": "Printed pages 4–5 commercial option/package price matrix only; no equipment availability or page-6 technical observations imported.",
+  "result": {
+    "commercial_items_added": 2,
+    "commercial_item_configuration_rows_added": 172,
+    "rows_by_source_date": {
+      "2026-10-01": 86,
+      "2026-11-02": 86
+    },
+    "source_configuration_links_added": 0,
+    "existing_rows_overwritten": 0,
+    "duplicate_new_natural_keys": 0
+  },
+  "price_comparison": [
+    {
+      "item": "metallic_paint",
+      "price_2026_10_01": 3000,
+      "price_2026_11_02": 3100,
+      "scope": "13 configurations"
+    },
+    {
+      "item": "two_tone_body",
+      "price_2026_10_01": 1400,
+      "price_2026_11_02": 1500,
+      "scope": "8 Extreme/Journey configurations; not with black paint"
+    },
+    {
+      "item": "19inch_wheels",
+      "price_2026_10_01": 1200,
+      "price_2026_11_02": 1200,
+      "scope": "4 Journey configurations"
+    },
+    {
+      "item": "panoramic_roof",
+      "price_2026_10_01": 4300,
+      "price_2026_11_02": 4300,
+      "scope": "4 Journey configurations; standard in Extreme"
+    },
+    {
+      "item": "powered_tailgate",
+      "price_2026_10_01": 1300,
+      "price_2026_11_02": 1300,
+      "scope": "4 Extreme configurations; standard in Journey"
+    },
+    {
+      "item": "media_nav_live",
+      "price_2026_10_01": 2400,
+      "price_2026_11_02": 2400,
+      "scope": "4 Expression configurations"
+    },
+    {
+      "item": "easy_p1",
+      "price_2026_10_01": 2700,
+      "price_2026_11_02": 2700,
+      "scope": "4 Expression configurations"
+    },
+    {
+      "item": "parking_p2",
+      "price_2026_10_01": 2200,
+      "price_2026_11_02": 2200,
+      "scope": "8 Extreme/Journey configurations"
+    },
+    {
+      "item": "winter_p3",
+      "price_2026_10_01": 1200,
+      "price_2026_11_02": 1200,
+      "scope": "12 Expression/Extreme/Journey configurations"
+    },
+    {
+      "item": "winter_plus_p4",
+      "price_2026_10_01": 2300,
+      "price_2026_11_02": 2300,
+      "scope": "12 Expression/Extreme/Journey configurations"
+    },
+    {
+      "item": "spare_wheel_hybrid155",
+      "price_2026_10_01": 800,
+      "price_2026_11_02": 900,
+      "scope": "3 Hybrid 155 configurations only"
+    }
+  ],
+  "spare_wheel_boundary": {
+    "october_source_qualifier": "mild hybrid 140 4x2 and hybrid 155",
+    "november_source_qualifier": "hybrid 155",
+    "per_source": {
+      "optional_hybrid155": 3,
+      "unknown_nonmatching": 10
+    },
+    "unknown_is_not_unavailable": true,
+    "reason": "The 13 source-listed configurations include Hybrid 155, mild hybrid-G 140 and tribrid 150 but no non-G mild hybrid 140. The printed qualifier is not projected to those different powertrains."
+  },
+  "deferred": [
+    "The 215/70 R16 spare-wheel row qualified to mild hybrid 130 4x4 is not mapped to tribrid 150 4x4 because the powertrain label does not match a canonical configuration.",
+    "No colour-by-colour surcharge is inferred from the generic metallic-paint row; brochure page-14 colour names and two-tone eligibility remain separate evidence.",
+    "No equipment availability observations are imported from pages 4–5 in this commercial-price package.",
+    "The 2026-11-02 page-6 table labels its technical values as of 01.10.2026; the corresponding 2026-10-01 source already has 22 import specifications and 150 scalar observations, including the three Tribrid 150 engine_power=103 kW rows (IDs 8231–8233; PR #778). No duplicate November observations are added. Combined hybrid-system power and electric-motor component values remain separate deferred contexts."
+  ],
+  "policy": {
+    "source_first": true,
+    "exact_configuration_scope": true,
+    "historical_overwrite_forbidden": true,
+    "unknown_not_unavailable": true,
+    "price_only_november_source_links_remain_zero": true
+  },
+  "technical_page6_cross_reference": {
+    "november_table_date_label": "Stan na dzień 01.10.2026",
+    "october_source_code": "src_pl_bigster_price_my26_20261001",
+    "imported_specifications": 22,
+    "imported_observations": 150,
+    "tribrid150_engine_power_ids": [
+      8231,
+      8232,
+      8233
+    ],
+    "no_november_duplicate_observations": true,
+    "closure_pr": 778,
+    "closure_commit": "a856cfaf14bfc0fbccc1d10a4da8b2fda20ba704"
+  }
+}
