@@ -14,7 +14,7 @@
   "scope": "Printed page 1 catalogue gross price matrix only.",
   "result": {
     "source_registry_records_added": 1,
-    "source_configuration_links_added": 13,
+    "source_configuration_links_added": 0,
     "catalogue_price_records_added": 13,
     "existing_price_records_overwritten": 0,
     "duplicate_new_price_records": 0
