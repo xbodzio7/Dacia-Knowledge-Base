@@ -74,7 +74,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1959 testów automatycznych,
+- 1959 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
 - 21802 rekordów danych,
 - 51 relacje między tabelami,
@@ -253,18 +253,3 @@ Captured the exact numeric row from the official Bigster brochure: 4 YouClip mou
 Source page 21, SHA-256 `76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74`. Observation IDs 8217–8230. Three focused tests verify the source receipt, exact manifest, active source-linked configuration set and grade mapping. No existing observations were overwritten.
 
 The broader **Official Bigster Brochure Full Assimilation** package remains active.
-
-
-## Bigster Brochure Page 23 — Historical Dimensions Import (2026-11-05)
-
-Imported 126 historical scalar observations from the rendered page-23 exterior-dimension diagram for the 14 active configurations explicitly linked to the 2025-12-10 brochure. Nine existing integer/mm attributes were used; no attribute definitions or source relationships were added.
-
-The diagram's single-value dimensions were preserved as common source observations within the 14 documented brochure relationships. The explicit `* 4×2/4×4` footnote was applied only to ground clearance (220/219 mm) and overall height (1712/1706 mm). The already imported overall-length rows were reused. Later July/October 2026 price-list observations remain separate; no values were overwritten or averaged.
-
-Durable receipts:
-- `data/reporting/bigster_brochure_page23_dimensions_import_20261105.json`
-- `project/packages/bigster-brochure-page23-dimensions-import-2026-11-05.md`
-- Nine import specs: `data/imports/configuration_values/bigster-page23-*-20251210.json`
-- Focused test: `tests/test_bigster_brochure_page23_dimensions_20251210.py`
-
-Observation IDs 8290–8415. The broader **Official Bigster Brochure Full Assimilation** package remains active; next work must target only remaining exact source-to-master gaps and unresolved conflicts.
