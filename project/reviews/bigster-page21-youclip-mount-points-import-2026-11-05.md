@@ -1,6 +1,6 @@
 # Review — Bigster Page 21 YouClip Mount Points
 
-The printed page 21 equipment matrix contains the numeric row `Punkty mocowania YouClip` with values 4, 5, 5 and 5 under Essential, Expression, Journey and Extreme. This is a scalar count, not a boolean equipment-availability state.
+The printed page 21 equipment matrix (PDF page 22) contains the numeric row `Punkty mocowania YouClip` with values 4, 5, 5 and 5 under Essential, Expression, Journey and Extreme. This is a scalar count, not a boolean equipment-availability state.
 
 The canonical dictionary had `youclip_phone_holder`, but no attribute for the mounting-point count. Reusing the holder attribute would conflate two distinct facts. The new `youclip_mount_points` integer attribute is therefore added under the existing Infotainment category, matching the category already used for YouClip phone-holder functionality.
 
