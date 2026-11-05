@@ -107,7 +107,10 @@ def check():
     got_maps=[r for r in maps if r["source_code"] in DATES]
     if len(items)!=58 or len(maps)!=567 or got_items!=exp_items or got_maps!=exp_maps: raise ContractError("master rows differ from import spec")
     if len({r["code"] for r in maps})!=len(maps): raise ContractError("duplicate mapping code")
-    if len({(r["commercial_item_code"],r["configuration_code"],r["source_code"]) for r in maps})!=len(maps): raise ContractError("duplicate mapping natural key")
+    new_keys={(r["commercial_item_code"],r["configuration_code"],r["source_code"]) for r in got_maps}
+    if len(new_keys)!=len(got_maps): raise ContractError("duplicate natural key in imported rows")
+    existing_keys={(r["commercial_item_code"],r["configuration_code"],r["source_code"]) for r in maps if r["source_code"] not in DATES}
+    if new_keys & existing_keys: raise ContractError("new mapping natural key already exists in historical master rows")
     if sum(r["source_code"]=="src_pl_bigster_price_my26_20260703" for r in maps)!=66: raise ContractError("July history changed")
     if next(r for r in items if r["code"]=="bigster_spare_wheel_option")["notes"]!=SPARE_NOTE: raise ContractError("spare-wheel note mismatch")
     return {"new_items":2,"new_mappings":172,"rows_2026_10_01":86,"rows_2026_11_02":86}
