@@ -15,11 +15,11 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1957,
+    "tests": 1958,
     "csv_files": 48,
-    "rows": 21620,
-    "configuration_values": 8217,
-    "configuration_import_specs": 164,
+    "rows": 21676,
+    "configuration_values": 8273,
+    "configuration_import_specs": 180,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
     "availability_records": 10112,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "bigster_page21_youclip_mount_points_import_20261105_001",
+    "package_id": "bigster_brochure_grade_details_import_20261105_001",
     "kind": "configuration_value_import",
-    "name": "Bigster Page 21 YouClip Mount Points Import",
+    "name": "Bigster Brochure Grade-Specific Cabin Details Import",
     "status": "complete",
-    "goal": "Added the exact YouClip mounting-point count from printed page 21 as one canonical integer attribute and 14 source-linked scalar observations: 4 for Essential and 5 for Expression, Journey and Extreme. All targets are active configurations linked to the registered brochure; no existing observations were overwritten."
+    "goal": "Added 56 historical scalar observations across 14 exact active source-linked configurations for parking-brake type, steering-wheel material, rear-seat folding layout and speaker count from printed pages 14–17. Sixteen import specifications preserve grade/page boundaries and the explicit inheritance chain; no existing observations were overwritten."
   },
   "next_package": {
     "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
     "kind": "source_gap_closure",
     "name": "Official Bigster Brochure Full Assimilation",
     "status": "active",
-    "goal": "Inventory all 24 pages of the registered official Bigster brochure, reuse existing page 20–22 reviews without repeating them, reconcile supported facts against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, check current import specifications, record explicit deferrals, and import only exact unsuperseded gaps."
+    "goal": "Continue the full 24-page Bigster brochure source-to-master reconciliation, reuse completed page 14–22 imports and reviews without repeating them, reconcile against the 2026-11-02 official price list while retaining 2026-10-01 as historical comparison, record exact deferrals, and import only source-backed unsuperseded gaps."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

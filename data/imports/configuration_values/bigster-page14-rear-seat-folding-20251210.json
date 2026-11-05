@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 8262,
+  "attribute_code": "rear_seat_folding",
+  "attribute_contract": {
+    "data_type": "string",
+    "unit": "",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_page": 15,
+  "source_section": "WERSJE WYPOSAŻENIA — ESSENTIAL (printed page 14)",
+  "notes_template": "Official Bigster brochure, PDF page {page}, section {section}: {source_text}.",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "1/3-2/3",
+      "source_text": "Tylna kanapa składana w układzie 1/3 2/3"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "1/3-2/3",
+      "source_text": "Tylna kanapa składana w układzie 1/3 2/3"
+    }
+  ]
+}
