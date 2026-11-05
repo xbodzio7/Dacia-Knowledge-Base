@@ -232,3 +232,14 @@ Next: re-enter the verified PDF residual gap queue and select the next exact sou
 PR #773 was rebuilt on current `main` after the earlier stacked branch diverged, then merged after all required checks passed. Merge commit: `5adfa817a391cdb1e423320d1ab8921c105b048f`. The package adds 12 exact availability observations across nine configurations for Multiview camera and passenger-seat height adjustment. Quality passed on Python 3.10, 3.13, 3.14 and Windows package workflow; all reporting workflows passed.
 
 The state handoff is now the current-main verified PDF residual queue re-entry. Historical candidate priorities must be reconciled against all later review, import and closure receipts before selecting a new package.
+
+
+## Verified PDF Residual Queue Re-entry Review (2026-11-05)
+
+Re-entered the historical 52-package / 1,266-candidate queue against current main and later closure receipts. Sandero technical page 17 is already reconciled; Stepway page 17 and Duster Mini pages 21–22 have exact import closures; Jogger equipment pages 20–21 have current-main reconciliation receipts.
+
+Exact selected-evidence checks found no missing or duplicate codes in the reviewed boundaries: Duster Mini equipment page 23 (393 unique codes), Bigster equipment pages 21–22 (14 and 126), Sandero equipment pages 18–19 (4 each), Sandero Stepway equipment page 18 (1), and Duster Mini technical page 21 (3, checked against the values table). Partial and deferred decisions remain unpromoted. No master data changed in this re-entry review.
+
+The next package is **Official Bigster Brochure Full Assimilation**. It will inventory all 24 pages, reuse existing page 20–22 reviews, reconcile against the 2026-10-01 official price list, preserve conflicts and import only exact unsuperseded gaps.
+
+PR #775 corrected the generated state summary and merged as `d457774820839acf58c0b87920587a710e8e4ace`; its PR Quality run passed all four jobs. The post-merge main Quality run #41937756472 was still in progress at this handoff.
