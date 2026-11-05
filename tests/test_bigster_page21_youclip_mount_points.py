@@ -37,14 +37,15 @@ class BigsterPage21YouClipMountPointsTests(unittest.TestCase):
 
     def test_source_receipt_and_attribute_contract(self) -> None:
         self.assertEqual(self.spec["kind"], "configuration_attribute_values")
-        self.assertEqual(self.spec["package_id"], "bigster_page21_youclip_mount_points_import_20261105_001")
         self.assertEqual(self.spec["id_start"], 8217)
         self.assertEqual(self.spec["attribute_code"], "youclip_mount_points")
         self.assertEqual(self.spec["attribute_contract"], {"data_type": "integer", "unit": "", "status": "active"})
         self.assertEqual(self.spec["observation_date"], "2025-12-10")
         self.assertEqual(self.spec["source_page"], 21)
         self.assertEqual(self.spec["source_section"], "PROWADZENIE I URZĄDZENIA KONTROLNE")
-        self.assertEqual(self.spec["source_sha256"], EXPECTED_SHA)
+        report = json.loads((ROOT / "data" / "reporting" / "bigster_page21_youclip_mount_points_import_closure_20261105.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["package_id"], "bigster_page21_youclip_mount_points_import_20261105_001")
+        self.assertEqual(report["source"]["sha256"], EXPECTED_SHA)
         self.assertEqual(hashlib.sha256(PDF.read_bytes()).hexdigest(), EXPECTED_SHA)
         attribute = [row for row in self.attributes if row["code"] == "youclip_mount_points"]
         self.assertEqual(len(attribute), 1)
