@@ -38,7 +38,7 @@
 
 **Bigster MY26 2026-10-01 / 2026-11-02 Commercial Option and Package Price Reconciliation** — `complete`
 
-Added 172 dated commercial mappings from printed pages 4–5 of the October and November 2026 official Bigster price lists, including metallic-paint and two-tone-body options. Preserved the Hybrid 155-only spare-wheel qualifier with unknown states for nonmatching configurations; historical rows were not overwritten.
+Added 172 dated commercial item/configuration mappings across the October and November 2026 official price lists, including two paint-price options. Preserved the Hybrid 155-only spare-wheel qualifier with unknown states for nonmatching configurations, without claiming unavailability or overwriting prior observations.
 
 ## Next package
 
