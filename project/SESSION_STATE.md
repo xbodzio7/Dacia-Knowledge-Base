@@ -40,16 +40,25 @@ Operational rule: before every continuation, inspect current main, recent merged
 
 ## Current Bigster Brochure Continuation (2026-11-05)
 
-The page-22 residual equipment batch was prepared from the repository ZIP, whose canonical `project/state.json` exactly matches the current main file. The source PDF SHA-256 matches the registered brochure receipt.
+PR #782 is merged into `main` (merge commit `13c58b86d9652ff127516b1d45924b8ca66005b0`). The page-22 residual equipment import added 260 historical availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations. Full Quality passed on Python 3.10, 3.13 and 3.14; Windows validation and the remaining PR checks passed. The temporary Bigster snapshot check was skipped by workflow design.
 
-- Added 260 dated 2025-12-10 availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations.
-- Combined brochure equipment availability coverage: 557 observations (157 page 21, 400 page 22).
-- IDs added: 10113–10372. The Hybrid 155-only cooled-console qualifier is preserved; no states are projected to other powertrains.
-- Focused tests: 33 passed; importer check, repository validation, documentation baseline and project-state checks passed.
-- Full local pytest exceeded the 300-second execution limit; full Quality must be confirmed on the GitHub PR head before merge.
-- The package implementation is complete locally and awaits GitHub PR validation. It does not close the wider 24-page brochure assimilation.
+- Combined page-21/page-22 brochure equipment availability coverage: 557 observations (157 page 21, 400 page 22).
+- Page-22 IDs: 10113–10372.
+- The Hybrid 155-only cooled-console qualifier is preserved; composite/package and unsupported facts remain deferred.
+- Do not repeat page 14–17 grade details, page 20 technical/RPM reconciliation, page 21 YouClip/equipment imports, or page 23 dimensions.
 
-The next package remains `Official Bigster Brochure Full Assimilation`; do not repeat the already closed page 14–17, 20, 21 and 23 imports/reviews.
+## Bigster MY26 Commercial Price Matrix (2026-11-05)
+
+The 2026-10-01 and 2026-11-02 official Bigster MY26 price lists have now been reconciled for printed pages 4–5.
+
+- Added two commercial items: metallic paint and two-tone body.
+- Added 172 dated commercial item/configuration mappings: 86 from 2026-10-01 and 86 from 2026-11-02.
+- Metallic paint: 3000 PLN → 3100 PLN; two-tone body: 1400 PLN → 1500 PLN.
+- Other priced options/packages retain their published prices: 19-inch wheels 1200 PLN, panoramic roof 4300 PLN, powered tailgate 1300 PLN, Media Nav Live 2400 PLN, EASY 2700 PLN, PARKING 2200 PLN, WINTER 1200 PLN, WINTER PLUS 2300 PLN.
+- Spare wheel price is recorded as 800 PLN in October and 900 PLN in November for Hybrid 155 only. Nonmatching powertrains are recorded as `unknown`, not `not_available`, so older generic prices are not presented as current.
+- The legacy 215/70 R16 row labelled for mild hybrid 130 4x4 is not mapped to tribrid 150 4x4. The source's 135/80 R17 row is not projected from non-G mild hybrid 140 to mild hybrid-G 140.
+- The October source PDF hash is verified against the archived repository file. The November source remains in the user's Library; its raw bytes could not be materialized, so no SHA-256 is asserted.
+- The source's 2026-11-02 page-6 technical table remains the next Bigster price-list reconciliation scope.
 
 ## Recovered Work from ZIP Session (2026-11-02)
 

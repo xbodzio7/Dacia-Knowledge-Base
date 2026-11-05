@@ -323,6 +323,25 @@ def collect_commercial_components(
                 key=lambda row: row["attribute_code"],
             )
             selector_mapping = states.get("optional")
+            blocking_states = [
+                states[status]
+                for status in ("not_available", "unknown")
+                if status in states
+            ]
+            blocking_mapping = max(
+                blocking_states,
+                key=lambda row: (row.get("price_date", ""), row.get("code", "")),
+                default=None,
+            )
+            # A later explicit boundary must prevent an older optional price
+            # from being presented as current. Unknown is not unavailable:
+            # it suppresses stale pricing while preserving the uncertainty.
+            if (
+                selector_mapping is not None
+                and blocking_mapping is not None
+                and blocking_mapping.get("price_date", "") > selector_mapping.get("price_date", "")
+            ):
+                selector_mapping = blocking_mapping
             if selector_mapping is None:
                 selector_mapping = max(
                     states.values(),

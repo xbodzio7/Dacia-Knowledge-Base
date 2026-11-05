@@ -21,5 +21,5 @@ Register the owner-supplied official Dacia Poland Bigster MY26 price list effect
 ## Evidence boundary
 The PDF is 8 pages and was text-extracted from the owner-supplied Library item. This package imports only page-1 catalogue gross prices. Promotional/financing claims, option/package prices, and page-6 technical specifications are excluded from this package. No SHA-256 is asserted because raw PDF bytes were not available for hashing in the repository runtime.
 
-## Next
-Continue the canonical `official_bigster_brochure_full_assimilation_20261014_001` package with the page-4/5 equipment and package matrix and page-6 technical table, reusing prior page-20–22 reviews and importing only exact unsuperseded gaps.
+## Follow-up reconciliation
+The page-4/5 commercial option and package price matrix was imported separately for the 2026-10-01 and 2026-11-02 price lists under `bigster_price_list_20261001_20261102_commercial_matrix_import_20261105_001`. This preserves dated prices without overwriting the July history. The 2026-11-02 page-6 technical table remains a separate source-to-master reconciliation.
