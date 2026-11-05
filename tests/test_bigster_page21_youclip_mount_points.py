@@ -93,6 +93,23 @@ class BigsterPage21YouClipMountPointsTests(unittest.TestCase):
         self.assertTrue(target_codes <= active)
         self.assertTrue(target_codes <= linked)
         self.assertEqual(Counter(code.split("_")[1] for code in target_codes), Counter({"essential": 2, "expression": 4, "journey": 4, "extreme": 4}))
+        scope_expectations = {
+            "bigster_mildhybrid140_4x2_manual_completeness.json": True,
+            "bigster_mildhybridg140_4x2_manual_completeness.json": True,
+            "bigster_hybrid155_4x2_automatic_completeness.json": True,
+            "bigster_hybridg150_4x4_automatic_completeness.json": True,
+            "bigster_mildhybridg140_4x2_automatic_completeness.json": False,
+            "bigster_tribrid150_4x4_automatic_completeness.json": False,
+        }
+        for filename, expected_in_scope in scope_expectations.items():
+            scope = json.loads((ROOT / "data" / "reporting" / filename).read_text(encoding="utf-8"))
+            scope_codes = {item["configuration_code"] for item in scope["configurations"]}
+            technical_slots = {item["attribute_code"] for item in scope["technical_slots"]}
+            self.assertEqual("youclip_mount_points" in technical_slots, expected_in_scope, filename)
+            if expected_in_scope:
+                self.assertTrue(scope_codes <= target_codes, filename)
+            else:
+                self.assertFalse(scope_codes & target_codes, filename)
         if shutil.which("pdftotext") is None:
             self.skipTest("pdftotext unavailable")
         page_text = " ".join(_compact_text(value) for _, value in extract_page_candidates(PDF, 21))
