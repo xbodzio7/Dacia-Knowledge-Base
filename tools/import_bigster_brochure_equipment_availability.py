@@ -59,6 +59,39 @@ RULES = {
     "automatic_climate_control": (22, "Dual-zone automatic climate control with rear vents", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
     "dual_zone_climate_control": (22, "Dual-zone automatic climate control with rear vents", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
     "power_tailgate": (22, "Electric tailgate", {"essential": "not_available", "expression": "not_available", "journey": "standard", "extreme": "optional"}, False),
+    "central_locking": (22, "Remote central locking", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "keyless_entry": (22, "Keyless Entry card", {"essential": "not_available", "expression": "not_available", "journey": "standard", "extreme": "standard"}, False),
+    "digital_instrument_cluster": (22, "Digital instrument cluster (7-inch Essential/Expression; 10-inch Journey/Extreme)", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "youclip_phone_holder": (22, "YouClip smartphone holder", {"essential": "not_available", "expression": "not_available", "journey": "standard", "extreme": "standard"}, False),
+    "rear_air_vents": (22, "Dual-zone automatic climate control with rear vents", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "steering_wheel_height_adjustment": (22, "Steering wheel adjustment vertically and horizontally", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "steering_wheel_reach_adjustment": (22, "Steering wheel adjustment vertically and horizontally", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "cargo_cover": (22, "Luggage-compartment cover", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "wireless_charging": (22, "Wireless charging pad", {"essential": "not_available", "expression": "not_available", "journey": "standard", "extreme": "standard"}, False),
+    "boot_12v_socket": (22, "12 V sockets: front and luggage compartment", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "rear_usb_c_ports": (22, "USB-C ports: two front and two rear", {"essential": "not_available", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "media_display_system": (22, "Media Display multimedia system", {"essential": "standard", "expression": "standard", "journey": "not_available", "extreme": "not_available"}, False),
+    "navigation_system": (22, "Media Nav Live with online navigation", {"essential": "not_available", "expression": "optional", "journey": "standard", "extreme": "standard"}, False),
+    "connected_services": (22, "Remote services package (MY Dacia), included for eight years", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "remote_firmware_updates": (22, "FOTA remote software updates", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "touchscreen": (22, "10.1-inch touchscreen in Media Display / Media Nav Live", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "wireless_smartphone_replication": (22, "Smartphone replication by USB or Wi-Fi", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+    "bluetooth_connectivity": (22, "Bluetooth connectivity in Media Display / Media Nav Live", {"essential": "standard", "expression": "standard", "journey": "standard", "extreme": "standard"}, False),
+}
+
+SPECIAL_RULES = {
+    "front_centre_armrest": (22, "Centre console with armrest and storage", {
+        "bigster_expression_mildhybridg140_4x2_manual": "standard",
+        "bigster_expression_mildhybrid140_4x2_manual": "standard",
+        "bigster_expression_hybrid155_4x2_automatic": "standard",
+        "bigster_expression_hybridg150_4x4_automatic": "standard",
+        "bigster_journey_hybrid155_4x2_automatic": "standard",
+        "bigster_extreme_hybrid155_4x2_automatic": "standard",
+    }),
+    "cooled_centre_armrest": (22, "High centre console with cooled storage (Hybrid 155 only)", {
+        "bigster_journey_hybrid155_4x2_automatic": "standard",
+        "bigster_extreme_hybrid155_4x2_automatic": "standard",
+    }),
 }
 
 
@@ -107,8 +140,11 @@ def expected_spec_rows() -> set[tuple[str, str, str, str, str]]:
             if hybrid155_only and "_hybrid155_" not in configuration_code:
                 continue
             expected.add((configuration_code, attribute_code, grade_states[grade], str(page), label))
-    if len(expected) != 297:
-        raise ContractError(f"internal page-21/22 contract expected 297 cells, got {len(expected)}")
+    for attribute_code, (page, label, configuration_states) in SPECIAL_RULES.items():
+        for configuration_code, status in configuration_states.items():
+            expected.add((configuration_code, attribute_code, status, str(page), label))
+    if len(expected) != 557:
+        raise ContractError(f"internal page-21/22 contract expected 557 cells, got {len(expected)}")
     return expected
 
 
@@ -137,7 +173,7 @@ def generated_rows() -> list[dict[str, str]]:
     if any(code not in configurations or configurations[code].get("status") != "active" for code in EXPECTED_CONFIGS):
         raise ContractError("one or more exact Bigster configurations are missing or inactive")
     attributes = {row["code"]: row for row in read_csv(MASTER / "attributes.csv")}
-    for attribute_code in RULES:
+    for attribute_code in (*RULES, *SPECIAL_RULES):
         attribute = attributes.get(attribute_code)
         if not attribute or attribute.get("status") != "active" or attribute.get("data_type") != "boolean":
             raise ContractError(f"attribute is missing, inactive or not boolean: {attribute_code}")
@@ -192,7 +228,7 @@ def main() -> int:
     if args.check:
         if actual_set != expected_set or len(actual) != len(expected):
             raise ContractError(f"stored brochure equipment observations differ from contract (expected={len(expected)}, actual={len(actual)})")
-        print("Bigster brochure equipment availability: PASS (297 direct page-21/22 observations)")
+        print("Bigster brochure equipment availability: PASS (557 direct page-21/22 observations)")
         return 0
     if actual_set == expected_set and len(actual) == len(expected):
         print("Bigster brochure equipment observations already match the contract.")

@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "kind": "configuration_availability_import_closure",
+  "date": "2026-11-05",
+  "status": "complete",
+  "package_id": "bigster_brochure_page22_residual_equipment_import_20261105_001",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "document_date": "2025-12-10",
+    "printed_page": 22,
+    "pdf_page": 22
+  },
+  "scope": {
+    "source_linked_active_configurations": 14,
+    "grade_configuration_counts": {
+      "essential": 2,
+      "expression": 4,
+      "journey": 4,
+      "extreme": 4
+    },
+    "new_observations": 260,
+    "new_attributes": 20,
+    "total_brochure_equipment_observations_after_import": 557,
+    "page21_observations": 157,
+    "page22_observations": 400,
+    "new_master_ids": {
+      "first": 10113,
+      "last": 10372
+    }
+  },
+  "new_attributes": [
+    "central_locking",
+    "keyless_entry",
+    "digital_instrument_cluster",
+    "youclip_phone_holder",
+    "rear_air_vents",
+    "steering_wheel_height_adjustment",
+    "steering_wheel_reach_adjustment",
+    "cargo_cover",
+    "wireless_charging",
+    "boot_12v_socket",
+    "rear_usb_c_ports",
+    "media_display_system",
+    "navigation_system",
+    "connected_services",
+    "remote_firmware_updates",
+    "touchscreen",
+    "wireless_smartphone_replication",
+    "bluetooth_connectivity",
+    "front_centre_armrest",
+    "cooled_centre_armrest"
+  ],
+  "specific_qualifiers": {
+    "cooled_centre_armrest": {
+      "configurations": [
+        "bigster_journey_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic"
+      ],
+      "decision": "Imported only for the two Hybrid 155 configurations explicitly qualified by the brochure. No projection to Hybrid-G 150 or mild-hybrid Journey/Extreme configurations."
+    },
+    "front_centre_armrest": {
+      "configurations": [
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybrid140_4x2_manual",
+        "bigster_expression_hybrid155_4x2_automatic",
+        "bigster_expression_hybridg150_4x4_automatic",
+        "bigster_journey_hybrid155_4x2_automatic",
+        "bigster_extreme_hybrid155_4x2_automatic"
+      ],
+      "decision": "Imported only where the page-22 console rows explicitly include an armrest; other Journey/Extreme powertrains remain unobserved for this brochure source."
+    }
+  },
+  "reconciliation": {
+    "existing_2025_brochure_equipment_rows_before_import": 297,
+    "new_rows_added": 260,
+    "total_after_import": 557,
+    "existing_2026_price_list_observations_preserved": true,
+    "existing_2026_configurator_observations_preserved": true,
+    "no_existing_rows_overwritten": true,
+    "no_duplicate_source_date_configuration_attribute_slots": true
+  },
+  "deferred": [
+    {
+      "item": "Front 12 V socket",
+      "reason": "The existing dictionary attribute represents only the luggage-compartment socket; no front-socket attribute was added."
+    },
+    {
+      "item": "USB-C front/rear distribution and total port count",
+      "reason": "The current count attribute does not distinguish front and rear ports; only the directly represented rear USB-C presence was imported."
+    },
+    {
+      "item": "Folding key",
+      "reason": "No exact active attribute contract exists; key count is not an equivalent representation."
+    },
+    {
+      "item": "7-inch and 10-inch cluster size",
+      "reason": "The boolean digital-cluster attribute records presence only; size variants were retained in source notes and not forced into colour-specific attributes."
+    },
+    {
+      "item": "10.1-inch infotainment screen size",
+      "reason": "Later configurator records use 10-inch values; the brochure 10.1-inch wording is a historical source-specific discrepancy requiring a separate scalar-value import review."
+    },
+    {
+      "item": "Media Nav Live speaker upgrade and Arkamys 3D sound",
+      "reason": "Standard speaker_count observations already represent the base grade state; the optional Expression upgrade requires richer system/option context and was not flattened."
+    },
+    {
+      "item": "EASY, PARKING, WINTER and WINTER PLUS packages",
+      "reason": "Composite package identities and component applicability are not represented by one existing boolean attribute; no component states were inferred from package markers."
+    },
+    {
+      "item": "YouClip 3-in-1 and Extreme-specific boot/floor accessories",
+      "reason": "No exact vehicle-equipment attribute exists; these remain accessory/product-scope facts."
+    },
+    {
+      "item": "USB front ports, speaker system variants and service durations",
+      "reason": "Only directly represented existing attributes were imported; numeric distribution and service-term semantics remain outside this batch."
+    }
+  ],
+  "policy": {
+    "source_sha256_verified": true,
+    "all_target_configurations_active_and_source_linked": true,
+    "all_20_attributes_pre_existing_active_boolean": true,
+    "direct_page_22_rows_only": true,
+    "grade_projection_limited_to_exact_source_linked_configurations": true,
+    "hybrid155_qualifier_preserved": true,
+    "no_new_attributes_or_categories_or_units": true,
+    "no_inference_from_later_price_list": true
+  },
+  "import_spec": "data/imports/bigster_brochure_equipment_availability_20251210.csv",
+  "importer": "tools/import_bigster_brochure_equipment_availability.py",
+  "master_table": "data/master/configuration_attribute_availability.csv",
+  "test": "tests/test_bigster_brochure_page22_residual_import.py",
+  "validation": {
+    "importer_check": "pass",
+    "focused_tests": 33,
+    "focused_tests_passed": 33,
+    "full_test_suite": "not_completed_locally_timeout_after_300_seconds",
+    "full_quality": "pending_github_actions"
+  }
+}
