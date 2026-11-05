@@ -12,7 +12,7 @@
   "fuel_type_code": "",
   "source_page": 21,
   "source_section": "PROWADZENIE I URZĄDZENIA KONTROLNE",
-  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "notes_template": "Source page {page}, section {section}: {source_text}.",
   "rows": [
     {
       "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
