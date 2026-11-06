@@ -58,19 +58,18 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
             row for row in read_rows("configuration_attribute_values.csv")
             if row["source_code"] == source_code
         ]
-        self.assertEqual(len(technical), 96)
+        self.assertEqual(len(technical), 69)
         page4 = [row for row in technical if "page 4" in row["notes"]]
         page5 = [row for row in technical if "page 5" in row["notes"]]
-        self.assertEqual(len(page4), 69)
+        self.assertEqual(len(page4), 42)
         self.assertEqual(len(page5), 27)
         self.assertEqual(
             Counter(row["attribute_code"] for row in page4),
             Counter({
                 "fuel_consumption_combined": 8,
                 "co2_emissions": 9,
-                "fuel_tank_capacity": 18,
                 "cargo_volume_vda": 9,
-                "injection_type": 13,
+                "injection_type": 4,
                 "acceleration_0_100": 4,
                 "electric_motor_torque": 4,
                 "electric_motor_torque_rpm": 4,
@@ -91,12 +90,13 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
                 "ground_clearance": 2,
             }),
         )
-        eco_tank_rows = [
-            row for row in page4
-            if row["attribute_code"] == "fuel_tank_capacity"
-        ]
-        self.assertEqual(Counter((row["fuel_type_code"], row["value"]) for row in eco_tank_rows),
-                         Counter({("lpg", "40"): 9, ("petrol", "50"): 9}))
+        self.assertFalse(
+            any(row["attribute_code"] == "fuel_tank_capacity" for row in page4),
+            "Ambiguous Eco-G LPG total/fillable capacity must remain deferred.",
+        )
+        injection_rows = [row for row in page4 if row["attribute_code"] == "injection_type"]
+        self.assertEqual(len(injection_rows), 4)
+        self.assertTrue(all(row["value"] == "multi_point_injection" for row in injection_rows))
         eco_boot_rows = [row for row in page4 if row["attribute_code"] == "cargo_volume_vda"]
         self.assertEqual(len(eco_boot_rows), 9)
         self.assertTrue(all(row["value"] == "328" for row in eco_boot_rows))
