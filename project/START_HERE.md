@@ -21,12 +21,13 @@ Read the following documents and state resources in exactly this order:
 7. `AI_CONTEXT.md`
 8. `SOURCE_ASSIMILATION_STANDARD.md`
 9. `SOURCE_FIRST_EXTRACTION_WORKFLOW.md`
-10. `DOCUMENTATION_STANDARD.md`
-11. `DOCUMENT_TYPES.md`
-12. `GLOSSARY.md`
-13. `DECISIONS.md`
-14. `SESSION_STATE.md`
-15. `ROADMAP.md`
+10. `QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`
+11. `DOCUMENTATION_STANDARD.md`
+12. `DOCUMENT_TYPES.md`
+13. `GLOSSARY.md`
+14. `DECISIONS.md`
+15. `SESSION_STATE.md`
+16. `ROADMAP.md`
 
 `README.md` may be consulted if additional project context is required.
 
@@ -86,6 +87,8 @@ Before implementation the AI shall:
 - define an exact package scope and acceptance criteria.
 
 Implementation shall not begin before the required analysis has been completed.
+
+The AI shall read and follow `QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` in every new chat/session and at every continuation after a handoff. This is a mandatory startup rule, not an optional checklist and not dependent on the user repeating it. It governs the full package lifecycle, test design, CI failure diagnosis, independent source-fidelity review and PR/merge gates. If this file cannot be read, do not begin implementation; enter recovery/diagnostic mode and report the blocker.
 
 Before using a PDF, brochure, price list, saved configuration, instruction or equivalent documentary source, the AI shall resolve its coverage state under `SOURCE_ASSIMILATION_STANDARD.md` and follow `SOURCE_FIRST_EXTRACTION_WORKFLOW.md`. A registered source, normalized slice or earlier bounded migration must not be presented as a complete document analysis unless every page, table, footnote, symbol and relevant rendered visual has been reviewed and classified.
 

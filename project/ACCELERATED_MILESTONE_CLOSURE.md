@@ -56,16 +56,21 @@ A closure package may contain several closely related sources or the release pre
 
 ## Validation cadence
 
+All packages must also follow `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`. Acceleration changes the timing and batching of validation, never its evidence standard or acceptance criteria. Both technical-integrity and independent source-fidelity gates are mandatory for data packages.
+
 During development:
 
+- produce a source-to-master reconciliation inventory before import, with one disposition for every candidate fact;
 - run focused unit and contract tests;
 - regenerate only affected deterministic outputs;
+- independently compare imported values and applicability mappings against the original source, not only importer output or tests;
 - avoid repeated full-matrix runs after each mechanical correction.
 
 At the final head:
 
 - run all required Linux, Windows and supported-Python checks;
-- run the complete repository quality gate;
+- run the complete repository quality gate on the exact final head SHA;
+- confirm the independent source-fidelity review is complete and unresolved items are explicitly deferred;
 - verify canonical project state;
 - verify release assets when a release is in scope.
 
@@ -79,5 +84,9 @@ An accelerated release may use one Pull Request plus a post-merge publication wo
 - public assets are verified after upload;
 - the workflow records the publication and removes itself;
 - a later commit cannot silently change the already published assets.
+
+## Mandatory failure diagnosis
+
+A failed test or CI job must be diagnosed before any test expectation, importer, data row or validator is changed. Identify the first causal failure, classify its root cause, inspect source and scope, make the smallest justified correction, run the focused reproducer, then rerun the final quality gate on the new exact head. Never treat a green result from an earlier SHA or a subset of jobs as validation of the current head. See `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` for the complete mandatory procedure.
 
 ## End of document

@@ -635,3 +635,14 @@ Until then, this document remains the primary collaboration agreement.
 
 
 
+
+
+## 18. Mandatory quality and source-validation protocol
+
+The AI must read and apply `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` in every new chat/session and every continuation after a handoff. This obligation is permanent and does not depend on the Project Owner repeating the instruction.
+
+`project/START_HERE.md` is the mandatory entry point. Its required reading order includes the protocol. The AI must not begin implementation when the startup contract or protocol cannot be verified.
+
+Every data package requires both technical-integrity validation and independent source-fidelity validation. Tests must primarily assert stable, scoped invariants rather than mutable global catalogue totals. A failing test must be diagnosed to its root cause before changing data, importer logic, validators or test expectations. A green CI result is valid only for the exact head SHA that was tested and does not, by itself, prove source accuracy.
+
+These requirements apply across all models, sources, execution profiles, chats and sessions. They are repository governance, not conversational preferences.
