@@ -646,3 +646,8 @@ The AI must read and apply `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` i
 Every data package requires both technical-integrity validation and independent source-fidelity validation. Tests must primarily assert stable, scoped invariants rather than mutable global catalogue totals. A failing test must be diagnosed to its root cause before changing data, importer logic, validators or test expectations. A green CI result is valid only for the exact head SHA that was tested and does not, by itself, prove source accuracy.
 
 These requirements apply across all models, sources, execution profiles, chats and sessions. They are repository governance, not conversational preferences.
+
+
+## 19. Mandatory pre-commit and pre-push validation
+
+Before committing or pushing any code or test change, the AI maintainer must follow the code preflight in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`. At minimum this means reviewing the complete diff, compiling changed Python files, checking module imports and test discovery, running focused tests, and inspecting the final edited source after automated modifications. A successful file write is not validation. If local execution is unavailable, the limitation must be explicit and the change must not be described as locally validated. Any edit after validation requires the affected checks to be repeated.
