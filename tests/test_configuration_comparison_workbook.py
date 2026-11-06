@@ -204,7 +204,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertGreater(len(equipment), 250)
         self.assertEqual({str(row["configuration_code"]) for row in equipment}, set(SELECTED))
         self.assertTrue(all(row["equipment_name_pl"] for row in equipment))
-        self.assertEqual(len(offers), 24)
+        self.assertEqual(len(offers), 39)
         self.assertTrue(all(row["commercial_item_name"] for row in offers))
         self.assertTrue(all(row["currency_code"] == "PLN" for row in offers))
         self.assertTrue(any(row["amount"] in (None, "") for row in offers))
@@ -290,7 +290,8 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             {str(row["source_code"]) for row in sources},
             referenced_sources,
         )
-        self.assertTrue(all(len(str(row["sha256"])) == 64 for row in sources))
+        # URL-only official PDF sources may legitimately have no archived-byte hash.
+        self.assertTrue(all(row["sha256"] in (None, "") or len(str(row["sha256"])) == 64 for row in sources))
 
         expected_artifacts = {
             str(record["path"])

@@ -132,17 +132,26 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
             row for row in mappings
             if row["commercial_item_code"] == "jogger_drive_package"
         ]
-        self.assertEqual(len(sandero_easy), 12)
+        historical_sandero_easy = [
+            row for row in sandero_easy
+            if row["source_code"] != "src_pl_sandero_stepway_price_my26_20261102"
+        ]
+        current_sandero_easy = [
+            row for row in sandero_easy
+            if row["source_code"] == "src_pl_sandero_stepway_price_my26_20261102"
+        ]
+        self.assertEqual(len(historical_sandero_easy), 12)
+        self.assertEqual(len(current_sandero_easy), 19)
         self.assertEqual(
-            {row["amount"] for row in sandero_easy if row["price_date"] == "2026-07-03"},
+            {row["amount"] for row in historical_sandero_easy if row["price_date"] == "2026-07-03"},
             {"1600"},
         )
         self.assertEqual(
-            {row["amount"] for row in sandero_easy if row["price_date"] == "2026-08-09"},
+            {row["amount"] for row in historical_sandero_easy if row["price_date"] == "2026-08-09"},
             {"1400"},
         )
         self.assertEqual(
-            {row["configuration_code"] for row in sandero_easy},
+            {row["configuration_code"] for row in historical_sandero_easy},
             {
                 "sandero_iii_journey_tce100_manual",
                 "sandero_iii_journey_ecog120_manual",
@@ -151,6 +160,15 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
                 "sandero_stepway_iii_extreme_ecog120_manual",
                 "sandero_stepway_iii_extreme_ecog120_automatic",
             },
+        )
+        current_configurations = {
+            row["configuration_code"]
+            for row in self.rows("source_configurations.csv")
+            if row["source_code"] == "src_pl_sandero_stepway_price_my26_20261102"
+        }
+        self.assertEqual(
+            {row["configuration_code"] for row in current_sandero_easy},
+            current_configurations,
         )
         self.assertEqual(len(jogger_drive), 8)
         self.assertEqual(

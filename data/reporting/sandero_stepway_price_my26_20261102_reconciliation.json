@@ -1,0 +1,159 @@
+{
+  "package": "Sandero / Sandero Stepway MY26 2026-11-02 cennik reconciliation",
+  "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf",
+  "document_date": "2026-11-02",
+  "scope": "Official Polish price list only; no brochure or configurator assimilation.",
+  "catalogue_prices": {
+    "configurations_reviewed": 19,
+    "new_price_observations": 15,
+    "unchanged_confirmed": 4,
+    "changed_values_pln": 500
+  },
+  "commercial_data": {
+    "new_items": 3,
+    "existing_items_reconciled": 8,
+    "configuration_mappings_added": 209,
+    "mapping_status_counts": {
+      "optional": 102,
+      "not_available": 99,
+      "standard": 8
+    }
+  },
+  "commercial_items_added": [
+    {
+      "code": "sandero_metallic_paint_option",
+      "name": "Lakier metalizowany"
+    },
+    {
+      "code": "sandero_special_nonmetallic_paint_option",
+      "name": "Lakier niemetalizowany specjalny"
+    },
+    {
+      "code": "sandero_spare_wheel_option",
+      "name": "Koło zapasowe + podnośnik"
+    }
+  ],
+  "commercial_items_reconciled": [
+    "sandero_rear_view_camera_option",
+    "sandero_media_nav_live_option",
+    "sandero_glass_sunroof_option",
+    "sandero_comfort_auto_package",
+    "sandero_thermo_package",
+    "sandero_winter_package",
+    "sandero_media_nav_live_package",
+    "sandero_easy_package"
+  ],
+  "technical_and_equipment_tables": "All nine pages visually reviewed. Page 4 and page 5 were reconciled against master data; 96 technical/dimension observations were added. Existing equipment states and already-covered technical facts were not duplicated. Pages 6-9 contain separately scoped accessory and commercial material with explicit deferrals.",
+  "source_integrity": "Official PDF URL recorded and all nine rendered pages reviewed. Raw PDF bytes could not be downloaded/archived in this session; SHA-256 remains unavailable and is not fabricated.",
+  "next_package": "Jogger MY26 2026-10-01 price matrix correction: correct 7-seat Eco-G120 grade alignment and complete source-to-configuration relationships.",
+  "technical_data": {
+    "page4_observations_added": 69,
+    "breakdown": {
+      "fuel_consumption_and_co2": 17,
+      "fuel_tank_capacity_fuel_specific": 18,
+      "cargo_volume_vda": 9,
+      "injection_type": 13,
+      "hybrid_acceleration": 4,
+      "hybrid_electric_motor_torque_and_rpm": 8
+    },
+    "reconciliation": "The page-4 technical table was compared with all 19 exact configurations. Existing engine displacement, cylinder/valve counts, engine power/torque, torque/power RPM, top speed, emission standard, gearbox, and already-matching WLTP values were reused without duplicate rows. New observations preserve fuel-specific LPG/petrol scope. The official page-4 VDA cargo value of 328 dm3 replaces earlier 372 dm3 observations for the nine Eco-G 120 configurations in the current dated state. Eco-G tank capacities are explicitly represented as 40 l LPG and 50 l petrol. Hybrid 155 multipoint injection, 0-100 acceleration and electric-motor torque (205 Nm at 7,000 rpm) were added where previously missing.",
+    "conflict_resolution": "For TCe100/TCe110, the 2026-11-02 official cennik values 5.4/122 and 5.7/128 were added with explicit petrol context. This preserves older observations and resolves conflicts with some 2026-08-09 saved configurator PDFs whose values were unqualified by fuel type. For Eco-G, only exact fuel-specific cells that differed from the current master were added."
+  },
+  "dimension_data": {
+    "page5_observations_added": 27,
+    "breakdown": {
+      "later_official_sandero_body_width_confirmations": 7,
+      "missing_sandero_hybrid_dimension_values": 20
+    },
+    "model_scope": "The rendered page-5 diagram is explicitly titled Sandero and is not a Stepway dimension page. It gives 10 model dimensions; two exact Sandero Hybrid 155 configurations lacked these observations and received 10 each. Existing non-hybrid Sandero dimensions were reused except for seven later official 1,853 mm body-width observations.",
+    "width_conflict": "The page-5 diagram explicitly shows 1,853 mm body width and 2,012 mm including mirrors. The repository also contains 1,753 mm overall-width observations from saved configurator PDFs dated 2026-08-09 for Sandero configurations. The 2026-11-02 official cennik confirms 1,853 mm; prior observations were retained and the later official observation was added rather than destructively overwritten."
+  },
+  "page_inventory": [
+    {
+      "page": 1,
+      "section": "Catalogue price matrix and headline commercial messages",
+      "review": "complete_visual_and_text",
+      "classification": "19 configurations reviewed; 15 catalogue prices +500 PLN; four Hybrid 155 prices unchanged. Up to 3,000 PLN catalogue discount and up to 7% MFS benefit recorded as separate commercial messages, not catalogue prices."
+    },
+    {
+      "page": 2,
+      "section": "Model description and promotional feature copy",
+      "review": "complete_visual_and_text",
+      "classification": "Descriptive marketing copy; no new configuration fact or separately priced item imported."
+    },
+    {
+      "page": 3,
+      "section": "Six-grade equipment matrix, individual options and spare wheel",
+      "review": "complete_visual_and_text",
+      "classification": "Equipment applicability reviewed; option rows reconciled in the 209 dated mappings. The combined paint label and printed 2,600/2,800 PLN values retain their exact scope; spare wheel explicitly excludes LPG."
+    },
+    {
+      "page": 4,
+      "section": "Additional equipment, packages and legend",
+      "review": "complete_visual_and_text",
+      "classification": "Rear camera, standalone Media Nav Live, glass sunroof and COMFORT/THERMO/WINTER/MEDIA NAV LIVE/EASY packages reconciled; existing equipment cells reused where already represented. Legend and package-only P states preserved."
+    },
+    {
+      "page": 5,
+      "section": "Technical data",
+      "review": "complete_visual_and_text",
+      "classification": "69 dated technical observations added or reconciled; fuel and model-specific distinctions preserved. Page-level evidence retained in each observation note."
+    },
+    {
+      "page": 6,
+      "section": "Sandero dimension diagram",
+      "review": "complete_visual_and_text",
+      "classification": "27 dated dimension observations added or reconciled for Sandero only; Stepway applicability was not inferred. 1,853 mm body width conflicts with some older saved-configurator 1,753 mm observations; the later official cennik value is retained as a new observation."
+    },
+    {
+      "page": 7,
+      "section": "Sandero accessories presentation",
+      "review": "complete_visual_and_text",
+      "classification": "Accessory descriptions and QR references reviewed. This page contains no accessory prices; it points to a separate accessory price list. No prices or configuration compatibility inferred."
+    },
+    {
+      "page": 8,
+      "section": "Complete winter wheel list and Dacia Service promotion",
+      "review": "complete_visual_and_text",
+      "classification": "Five complete-wheel price rows reviewed. This is a separate accessory price-list component explicitly valid from 2026-09-01, not a new 2026-11-02 configuration-option matrix. Winter-wheel discount campaign has its own 2026-07-01 to 2026-12-31 validity window and is kept separate from catalogue prices."
+    },
+    {
+      "page": 9,
+      "section": "Legal information, financing, lease and Dacia ZEN terms",
+      "review": "complete_visual_and_text",
+      "classification": "Publication date 2026-11-02 and commercial terms reviewed. Consumer lease 890 PLN gross/month and business lease 655 PLN net/month are tied to specified 36-month/30,000-km terms; catalogue discount, MFS benefit and Dacia ZEN warranty remain separate commercial offers, not configuration prices."
+    }
+  ],
+  "deferred_items": [
+    {
+      "page": 7,
+      "subject": "Complete winter wheel accessory list",
+      "status": "Do sprawdzenia",
+      "reason": "The five priced complete-wheel products belong to a separate accessory price-list component valid from 2026-09-01. The current configuration-option model does not yet preserve the full accessory part-number, tyre, rim and vehicle-compatibility context without risky configuration projection.",
+      "next_action": "Reconcile the exact accessory list as a separately dated accessory source and establish a compatible generic accessory structure before import."
+    },
+    {
+      "page": 7,
+      "subject": "Winter wheel discount campaign",
+      "status": "Do sprawdzenia",
+      "reason": "The campaign has a separate 2026-07-01 to 2026-12-31 validity period and model-dependent discount ceiling; it must not be mixed with catalogue or accessory list prices.",
+      "next_action": "Record in a dedicated commercial-campaign history only after the offer data contract is defined."
+    },
+    {
+      "page": 9,
+      "subject": "MFS discount and lease offers",
+      "status": "Do sprawdzenia",
+      "reason": "The page states up to 3,000 PLN catalogue discount, up to 7% financing benefit, 890 PLN gross consumer lease and 655 PLN net business lease; some offers have no explicit end date and lease rates depend on detailed terms.",
+      "next_action": "Keep separate from catalogue prices and add only through a dedicated dated commercial-offer record."
+    },
+    {
+      "page": 7,
+      "subject": "Accessory catalogue page",
+      "status": "Do sprawdzenia",
+      "reason": "The page contains product descriptions and QR references but no item prices or complete compatibility matrix.",
+      "next_action": "Use the separately published accessory price list only when it is explicitly included in the cennik-only source scope."
+    }
+  ],
+  "source_assimilation_status": "fully_assimilated_with_deferrals"
+}

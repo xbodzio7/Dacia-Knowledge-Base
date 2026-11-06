@@ -23,10 +23,10 @@
 
 ## Verified baseline
 
-- Tests: 1971
+- Tests: 1972
 - Master CSV files: 48
-- Master rows: 22325
-- Configuration values: 8399
+- Master rows: 22674
+- Configuration values: 8495
 - Configuration import specifications: 189
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster MY26 2026-11-02 Price List Commercial and Colour Reconciliation** — `complete`
+**Sandero / Sandero Stepway MY26 2026-11-02 Price List and Commercial Matrix Reconciliation** — `complete`
 
-Registered the 2026-11-02 official Duster cennik and linked all 16 configurations/four grades. Added two named non-metallic colour items and 64 dated mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). Updated the spare wheel to 900 PLN for six non-LPG configurations and explicitly marked ten LPG configurations unavailable; limited TECHNO 1 to three automatic Extreme configurations. Reused the unchanged 16 catalogue prices, 391 technical scalar observations, 16 ranges and 1,152 equipment-availability observations without duplicate rows. Deferred the ambiguous metallic-paint 2,800/3,000 pair, accessory wheel list and unbound dimension pairs. No brochure data imported.
+Registered the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02 and linked all 19 configurations and six grades. Added 15 dated catalogue price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings. Completed the nine-page source review and added 96 exact technical/dimension observations (69 from page 4 and 27 from page 5): fuel-specific Eco-G tank capacities, 328 dm3 VDA cargo volume, injection types, Hybrid 155 electric-motor torque and acceleration, and Sandero dimensions. The later official 1,853 mm body width is recorded separately from conflicting older configurator observations. Pages 6-9 were reviewed; accessory list, winter-wheel list and financing/lease campaigns remain explicitly deferred as separate source components. No brochure data imported; PDF bytes and SHA-256 were unavailable for repository archiving.
 
 ## Next package
 
-**Sandero/Sandero Stepway and Jogger MY26 2026-11-02 Price List Reconciliation** — `active`
+**Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction** — `planned`
 
-Reconcile the official Polish 2026-11-02 cenniks for Sandero/Sandero Stepway (https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf) and Jogger (https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf). Compare exact catalogue-price cells, option/package prices, equipment matrices and technical tables against registered sources; import only source-backed deltas and avoid duplicate observations. Defer all brochures.
+Correct the official Jogger MY26 2026-10-01 price matrix. On page 1, the seven-seat Eco-G120 manual row is '-' / 86,550 / 94,400 PLN across Essential / Expression / Extreme. The master currently shifts 86,550 PLN to Essential and 94,400 PLN to Expression; remove the invalid Essential price row, correct Expression to 86,550 PLN and retain Extreme at 94,400 PLN. Add missing source links for all 12 Jogger configurations and three grades to the already archived source. The 02.11.2026 date belongs to the technical data table, not a second seven-seat price effective date. No brochures.
 
 ## Autonomy
 

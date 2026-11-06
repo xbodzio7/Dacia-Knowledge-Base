@@ -21,15 +21,15 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 
 The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. Do not resume Bigster/Duster brochure work while this priority is active.
 
-Official current price-list sources effective 2026-11-02 verified from Dacia model pages:
-- Duster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf — reconciled in the current package.
-- Sandero/Sandero Stepway: https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf — next package.
-- Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package.
+Official Polish price-list sources:
+- Duster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf — reconciled in the Duster MY26 2026-11-02 price-list package.
+- Sandero/Sandero Stepway: https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf — reconciled in the current package.
+- Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package; page 1 price matrix is effective 2026-10-01. The 02.11.2026 date belongs to the technical-data table, not a separate seven-seat price table.
 - Bigster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf — current catalogue/commercial price-list work is already reconciled.
 
-Current completed package: `duster_price_list_20261102_commercial_reconciliation_20261106_001`. It adds two named non-metallic colours and 64 dated commercial mappings, while reusing 16 catalogue prices, 1,152 equipment availability observations, 391 technical scalar observations and 16 ranges without duplication.
+Current completed package: `sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001`. It registered the 2026-11-02 source, linked 19 configurations and six grades, added 15 catalogue-price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings, and added 96 exact technical/dimension observations from pages 4–5. All nine pages were visually reviewed. Pages 6–9 accessory, winter-wheel and commercial-campaign material is explicitly deferred as separately scoped content. No brochure data was imported; raw PDF bytes and SHA-256 were unavailable for archiving.
 
-Next package: `sandero_jogger_price_list_20261102_reconciliation_20261106_001`. Compare the two official 02.11.2026 cenniks against registered price-list sources and import only exact deltas. No brochure work.
+Next package: `jogger_price_matrix_correction_20261001_20261106_001`. Correct the seven-seat Eco-G120 manual price alignment (Essential unavailable; Expression 86,550 PLN; Extreme 94,400 PLN) and add the missing 12 configuration and three grade source relationships to the already archived Jogger cennik. No new source document or brochure work is required.
 
 ## Verified Current Progress (2026-11-05)
 
@@ -110,20 +110,20 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1971 testów automatycznych zakończonych powodzeniem,
+- 1972 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22325 rekordów danych,
+- 22674 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 8399 obserwacji w `configuration_attribute_values.csv`,
+- 8495 obserwacji w `configuration_attribute_values.csv`,
 - 189 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 451 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 10372 rekordów w `configuration_attribute_availability.csv`,
 - 8370 rekordów `standard`, 692 `optional`, 1310 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22325 rekordów,
+- baza SQLite obejmująca 48 tabele i 22674 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
