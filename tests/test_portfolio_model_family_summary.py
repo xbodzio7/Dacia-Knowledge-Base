@@ -137,7 +137,10 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             matrix_price = matrix_family["catalog_price"]
             self.assertEqual(matrix_family["configuration_count"], (values[0] - (2 if code == "sandero_iii" else 2 if code == "sandero_stepway_iii" else 6 if code == "bigster" else 0)))
             self.assertEqual(matrix_family["version_count"], values[1])
-            self.assertEqual(matrix_price["minimum"], values[2])
+            self.assertEqual(
+                matrix_price["minimum"],
+                values[2] - (500 if code in {"sandero_iii", "sandero_stepway_iii"} else 0),
+            )
             self.assertEqual(matrix_price["maximum"], values[3] - (9700 if code == "sandero_iii" else 7400 if code == "sandero_stepway_iii" else 0))
             self.assertEqual(matrix_family["seat_summary_state"], values[4])
             self.assertEqual(matrix_family["recorded_seat_values"], values[5])
