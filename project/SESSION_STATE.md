@@ -27,7 +27,7 @@ Official Polish price-list sources:
 - Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package; page 1 price matrix is effective 2026-10-01. The 02.11.2026 date belongs to the technical-data table, not a separate seven-seat price table.
 - Bigster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf — current catalogue/commercial price-list work is already reconciled.
 
-Current completed package: `sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001`. It registered the 2026-11-02 source, linked 19 configurations and six grades, added 15 catalogue-price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings, and added 69 exact technical/dimension observations from pages 4–5. All nine pages were visually reviewed. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, accessory lists and commercial-campaign material are explicitly deferred as separately scoped content. No brochure data was imported; raw PDF bytes and SHA-256 were unavailable for archiving.
+Current completed package: `sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001`. It registered the 2026-11-02 source, linked 19 configurations and six grades, added 15 catalogue-price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings, and added 24 Hybrid 155 scalar equipment observations, 27 Hybrid 155 availability observations, and corrected four Stepway Expression rear-camera mappings to standard. Added 42 page-4 technical and 27 page-5 Sandero dimension observations. All nine pages were visually reviewed. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, accessory lists and commercial-campaign material are explicitly deferred as separately scoped content. No brochure data was imported; raw PDF bytes and SHA-256 were unavailable for archiving.
 
 Next package: `jogger_price_matrix_correction_20261001_20261106_001`. Correct the seven-seat Eco-G120 manual price alignment (Essential unavailable; Expression 86,550 PLN; Extreme 94,400 PLN) and add the missing 12 configuration and three grade source relationships to the already archived Jogger cennik. No new source document or brochure work is required.
 
@@ -57,7 +57,7 @@ Operational rule: before every continuation, inspect current main, recent merged
 This work is paused under the cennik-only priority above. PR #782 is merged into `main` (merge commit `13c58b86d9652ff127516b1d45924b8ca66005b0`). The page-22 residual equipment import added 260 historical availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations. Full Quality passed on Python 3.10, 3.13 and 3.14; Windows validation and the remaining PR checks passed. The temporary Bigster snapshot check was skipped by workflow design.
 
 - Combined page-21/page-22 brochure equipment availability coverage: 557 observations (157 page 21, 400 page 22).
-- Page-22 IDs: 10113–10372.
+- Page-22 IDs: 10113–10399.
 - The Hybrid 155-only cooled-console qualifier is preserved; composite/package and unsupported facts remain deferred.
 - Do not repeat page 14–17 grade details, page 20 technical/RPM reconciliation, page 21 YouClip/equipment imports, or page 23 dimensions.
 
@@ -112,18 +112,18 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 <!-- dkb:documentation-baseline:session:start -->
 - 1972 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22647 rekordów danych,
+- 22698 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 8468 obserwacji w `configuration_attribute_values.csv`,
+- 8492 obserwacji w `configuration_attribute_values.csv`,
 - 189 wersjonowanych specyfikacji w `data/imports/configuration_values`,
 - 451 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
-- 10372 rekordów w `configuration_attribute_availability.csv`,
+- 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8370 rekordów `standard`, 692 `optional`, 1310 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22647 rekordów,
+- baza SQLite obejmująca 48 tabele i 22698 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
