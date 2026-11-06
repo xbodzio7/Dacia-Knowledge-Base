@@ -34,7 +34,7 @@ def read_spec(name):
     with (SPECS / name).open(encoding="utf-8", newline="") as f: return list(csv.DictReader(f))
 def write(name, rows):
     with (MASTER / name).open("w", encoding="utf-8", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\\n"); w.writeheader(); w.writerows(rows)
+        w=csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n"); w.writeheader(); w.writerows(rows)
 def unique(rows, key="code"):
     result={r[key]:r for r in rows}
     assert len(result)==len(rows), f"duplicate {key}"
