@@ -28,6 +28,7 @@ The canonical state may activate or deactivate the mode. Conversation history al
 2. Combine multiple source reviews only when they form one logical closure package and preserve exact source, configuration, date, fuel, transmission and model-year boundaries.
 3. Stabilize the branch before opening the Pull Request whenever repository tooling permits safe branch-only work.
 4. During implementation run focused tests for the changed paths and contracts.
+   - Before every commit/push, run the mandatory code preflight in `QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`: inspect the full diff, compile changed Python files, verify imports/test discovery, run focused tests and relevant validators. Automated edits must be re-read and inspected before publication. A failed or unavailable preflight blocks publication as validated.
 5. Batch mechanical repairs such as generated snapshots, counters and deterministic manifests before the final quality run.
    - Portfolio provenance tests must derive expected source counts, relationship counts, per-family source coverage and rendered hash counts from the canonical `sources.csv`, `configurations.csv`, `versions.csv` and `source_configurations.csv` inputs. Do not pin live derived totals to manually maintained constants. Keep fixed expectations only for deliberately historical snapshots; test live summaries against independently derived canonical relationships so legitimate source additions do not require editing test counters.
 6. Run the complete required quality matrix once against the final Pull Request head SHA.
