@@ -1295,11 +1295,11 @@ python tools/dkb.py bigster-technical-page20-unresolved-review-chunk2 --verify
 Pakiet zamyka 69-elementową grupę nierozstrzygniętych kandydatów strony 20. Osiem kompletnych wierszy pozostaje `unresolved_signature_mismatch`, ponieważ pakiet nie zawiera żadnej przypiętej sygnatury ani rekordu, a 21 zawiniętych fragmentów, etykiet, przypisów i not źródłowych jest `context_only_non_import`. Wartości są zachowane literalnie — w tym wydrukowana sekwencja `1960**` oraz `2002 / 1981` — bez wymyślania interpretacji, projekcji między napędami lub konfiguracjami i bez zgody na import. Pierwszy fragment `residual_gap_016` pozostaje niezmieniony.
 
 <!-- dkb:documentation-baseline:readme:start -->
-Zweryfikowany model obejmuje 1972 testów, 48 pliki CSV, 22674 rekordów
-danych, 51 relacje między tabelami, 8495 wartości konfiguracji, 189 skalarnych specyfikacji importu, 451 zakresów konfiguracji i 25
+Zweryfikowany model obejmuje 1972 testów, 48 pliki CSV, 22647 rekordów
+danych, 51 relacje między tabelami, 8468 wartości konfiguracji, 189 skalarnych specyfikacji importu, 451 zakresów konfiguracji i 25
 specyfikacji zakresów oraz 10372 rekordów dostępności wyposażenia.
 Katalog zawiera 417 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 48 tabele i 22674 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 48 tabele i 22647 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
