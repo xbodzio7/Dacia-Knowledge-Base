@@ -1,0 +1,87 @@
+{
+  "package": "Jogger MY26 2026-10-01 seven-seat Eco-G 120 price-matrix correction",
+  "source_code": "src_pl_jogger_price_my26_20261001",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf",
+  "source_date": "2026-10-01",
+  "evidence": {
+    "page": 1,
+    "table": "SILNIK / liczba miejsc / essential / expression / extreme",
+    "rows": [
+      {
+        "seats": 7,
+        "engine": "Eco-G 120",
+        "transmission": "manual",
+        "essential": "-",
+        "expression": 86550,
+        "extreme": 94400
+      },
+      {
+        "seats": 7,
+        "engine": "Eco-G 120 auto",
+        "transmission": "automatic",
+        "essential": "-",
+        "expression": "-",
+        "extreme": 101300
+      },
+      {
+        "seats": 7,
+        "engine": "hybrid 155",
+        "transmission": "automatic",
+        "essential": "-",
+        "expression": 108050,
+        "extreme": 115900
+      }
+    ],
+    "note": "The page-1 price matrix is effective 2026-10-01. The separate 02.11.2026 statement belongs to the technical-data / commercial-offer context and does not create a second price-matrix effective date."
+  },
+  "corrections": [
+    {
+      "disposition": "requires_update",
+      "row_id": "176",
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "old_amount": 86550,
+      "new_value": "no price row",
+      "reason": "The source cell for 7-seat Eco-G 120 manual / Essential is a dash."
+    },
+    {
+      "disposition": "requires_update",
+      "row_id": "177",
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "old_amount": 94400,
+      "new_amount": 86550,
+      "reason": "The 86,550 PLN source cell belongs to Expression, not Essential."
+    },
+    {
+      "disposition": "already_correct",
+      "row_id": "178",
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "amount": 94400
+    }
+  ],
+  "source_relationships": {
+    "configurations": [
+      "jogger_essential_5seat_ecog120_manual",
+      "jogger_expression_5seat_ecog120_manual",
+      "jogger_extreme_5seat_ecog120_manual",
+      "jogger_extreme_5seat_ecog120_automatic",
+      "jogger_expression_5seat_hybrid155_automatic",
+      "jogger_extreme_5seat_hybrid155_automatic",
+      "jogger_essential_7seat_ecog120_manual",
+      "jogger_expression_7seat_ecog120_manual",
+      "jogger_extreme_7seat_ecog120_manual",
+      "jogger_extreme_7seat_ecog120_automatic",
+      "jogger_expression_7seat_hybrid155_automatic",
+      "jogger_extreme_7seat_hybrid155_automatic"
+    ],
+    "grades": [
+      "jogger_essential",
+      "jogger_expression",
+      "jogger_extreme"
+    ]
+  },
+  "exclusions": [
+    "Do not infer availability of older 7-seat TCe110 or Journey combinations from omission in this source.",
+    "Preserve 2026-04-01 and 2026-07-03 historical prices.",
+    "No brochures or configurator data."
+  ]
+}
