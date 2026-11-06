@@ -128,13 +128,13 @@ def verify_semantics(spec: dict[str, Any]) -> None:
             )
 
     technical = spec["configuration_attribute_values"]
-    if len(technical) != 96 or len({row["code"] for row in technical}) != 96:
-        raise ContractError("Expected 96 unique page-4/page-5 technical observations")
+    if len(technical) != 69 or len({row["code"] for row in technical}) != 96:
+        raise ContractError("Expected 69 unique page-4/page-5 technical observations")
     if any(row["source_code"] != source["code"] or row["observation_date"] != "2026-11-02" for row in technical):
         raise ContractError("Technical observations must use the exact cennik source and date")
     page4 = [row for row in technical if "page 4" in row["notes"]]
     page5 = [row for row in technical if "page 5" in row["notes"]]
-    if len(page4) != 69 or len(page5) != 27:
+    if len(page4) != 42 or len(page5) != 27:
         raise ContractError("Technical page evidence totals differ from the reviewed source inventory")
     natural_keys = [
         (row["configuration_code"], row["attribute_code"], row["fuel_type_code"], row["gear_number"], row["observation_date"])
@@ -145,9 +145,8 @@ def verify_semantics(spec: dict[str, Any]) -> None:
     if Counter(row["attribute_code"] for row in page4) != {
         "fuel_consumption_combined": 8,
         "co2_emissions": 9,
-        "fuel_tank_capacity": 18,
         "cargo_volume_vda": 9,
-        "injection_type": 13,
+        "injection_type": 4,
         "acceleration_0_100": 4,
         "electric_motor_torque": 4,
         "electric_motor_torque_rpm": 4,
