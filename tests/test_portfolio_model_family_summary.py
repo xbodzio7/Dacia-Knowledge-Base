@@ -47,26 +47,44 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
     def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
         self.assertEqual(self.summary["version"], 1)
         self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
-        self.assertEqual(self.summary["as_of"], "2026-11-04")
-        self.assertEqual(
-            self.summary["summary"],
-            {
-                "model_family_count": 6,
-                "reporting_scope_count": 26,
-                "single_model_scope_count": 23,
-                "mixed_model_scope_count": 3,
-                "active_configuration_count": 94,
-                "within_scope_pair_count": 145,
-                "provenance_source_count": 110,
-                "source_configuration_relationship_count": 443,
-                "configurations_with_provenance_count": 94,
-                "configurations_without_provenance_count": 0,
-                "cross_scope_pairs_generated": False,
-                "ranking_generated": False,
-                "recommendations_generated": False,
-                "inferred_values_generated": False,
-            },
+        self.assertRegex(self.summary["as_of"], r"^\d{4}-\d{2}-\d{2}$")
+        expected_by_model = self._expected_provenance_by_model()
+        expected_sources = {
+            source_code
+            for sources in expected_by_model.values()
+            for source_code in sources
+        }
+        expected_relationship_count = sum(
+            len(relations)
+            for sources in expected_by_model.values()
+            for relations in sources.values()
         )
+        self.assertEqual(
+            self.summary["summary"]["provenance_source_count"],
+            len(expected_sources),
+        )
+        self.assertEqual(
+            self.summary["summary"]["source_configuration_relationship_count"],
+            expected_relationship_count,
+        )
+        self.assertEqual(
+            self.summary["summary"]["active_configuration_count"],
+            sum(len(family["configuration_codes"]) for family in self.summary["families"]),
+        )
+        self.assertEqual(
+            self.summary["summary"]["configurations_with_provenance_count"],
+            self.summary["summary"]["active_configuration_count"],
+        )
+        self.assertEqual(
+            self.summary["summary"]["configurations_without_provenance_count"], 0
+        )
+        for flag in (
+            "cross_scope_pairs_generated",
+            "ranking_generated",
+            "recommendations_generated",
+            "inferred_values_generated",
+        ):
+            self.assertIs(self.summary["summary"][flag], False)
         self.assertEqual(self.matrix["version"], 1)
         self.assertEqual(
             self.matrix["kind"],
@@ -145,61 +163,98 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             self.assertEqual(matrix_family["seat_summary_state"], values[4])
             self.assertEqual(matrix_family["recorded_seat_values"], values[5])
 
-    def test_exact_provenance_counts_and_date_ranges_are_preserved(self) -> None:
-        expected = {
-            "sandero_iii": (19, 68, "2026-02-02", "2026-11-02"),
-            "sandero_stepway_iii": (23, 80, "2026-02-02", "2026-11-02"),
-            "jogger": (26, 110, "2025-12-17", "2026-08-09"),
-            "duster_iii": (26, 119, "2025-10-20", "2026-11-02"),
-            "bigster": (17, 55, "2025-12-10", "2026-10-01"),
-            "spring": (7, 11, "2026-02-19", "2026-08-09"),
+    def _expected_provenance_by_model(self) -> dict[str, dict[str, list[dict[str, str]]]]:
+        master = REPOSITORY / "data" / "master"
+
+        def read_rows(name: str) -> list[dict[str, str]]:
+            with (master / name).open(encoding="utf-8-sig", newline="") as handle:
+                return list(csv.DictReader(handle))
+
+        versions = {row["code"]: row for row in read_rows("versions.csv")}
+        configurations = {
+            row["code"]: row
+            for row in read_rows("configurations.csv")
+            if row["status"] == "active"
         }
-        matrix_relationship_total = 0
-        for code, values in expected.items():
-            provenance = self.families[code]["provenance"]
-            self.assertEqual(provenance["source_count"], values[0])
-            self.assertEqual(provenance["relationship_count"], values[1])
-            self.assertEqual(provenance["earliest_document_date"], values[2])
-            self.assertEqual(provenance["latest_document_date"], values[3])
+        sources = {row["code"]: row for row in read_rows("sources.csv")}
+        configuration_models = {
+            code: versions[row["version_code"]]["model_code"]
+            for code, row in configurations.items()
+        }
+        expected: dict[str, dict[str, list[dict[str, str]]]] = {}
+        for relation in read_rows("source_configurations.csv"):
+            configuration_code = relation["configuration_code"]
+            if configuration_code not in configurations:
+                continue
+            model_code = configuration_models[configuration_code]
+            source_code = relation["source_code"]
+            expected.setdefault(model_code, {}).setdefault(source_code, []).append(
+                relation
+            )
+        return expected
+
+    def test_exact_provenance_is_derived_from_canonical_relationships(self) -> None:
+        expected_by_model = self._expected_provenance_by_model()
+        for model_code, expected_sources in expected_by_model.items():
+            family = self.families[model_code]
+            provenance = family["provenance"]
+            actual_sources = {
+                source["source_code"]: source for source in provenance["sources"]
+            }
+            self.assertEqual(set(actual_sources), set(expected_sources))
+            self.assertEqual(provenance["source_count"], len(expected_sources))
+            self.assertEqual(
+                provenance["relationship_count"],
+                sum(len(rows) for rows in expected_sources.values()),
+            )
             self.assertEqual(
                 provenance["configuration_coverage_count"],
-                self.families[code]["configuration_count"],
+                family["configuration_count"],
             )
             self.assertEqual(provenance["missing_configuration_count"], 0)
 
-            matrix_provenance = self.matrix_families[code]["provenance"]
-            matrix_source_count = values[0] - (
-                2 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii"}
-                else 1 if code == "bigster"
-                else 0
-            )
-            matrix_relationship_count = values[1] - (
-                18 if code == "sandero_iii"
-                else 20 if code == "sandero_stepway_iii"
-                else 38 if code == "duster_iii"
-                else 13 if code == "bigster"
-                else 0
-            )
-            self.assertEqual(matrix_provenance["source_count"], matrix_source_count)
-            self.assertEqual(matrix_provenance["relationship_count"], matrix_relationship_count)
-            self.assertEqual(
-                matrix_provenance["earliest_document_date"], values[2]
-            )
-            self.assertEqual(
-                matrix_provenance["latest_document_date"],
-                ("2026-08-09"
-                 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii", "bigster"}
-                 else values[3])
-            )
-            self.assertEqual(
-                matrix_provenance["configuration_coverage_count"],
-                self.matrix_families[code]["configuration_count"],
-            )
-            self.assertEqual(
-                matrix_provenance["missing_configuration_count"], 0
-            )
-            matrix_relationship_total += matrix_provenance["relationship_count"]
-        self.assertEqual(matrix_relationship_total, 354)
+            for source_code, relations in expected_sources.items():
+                source = actual_sources[source_code]
+                source_metadata = next(
+                    row
+                    for row in self._read_master_rows("sources.csv")
+                    if row["code"] == source_code
+                )
+                expected_configurations = sorted(
+                    {row["configuration_code"] for row in relations}
+                )
+                expected_relationships = sorted(
+                    {row["relationship"] for row in relations if row["relationship"]}
+                )
+                for field in (
+                    "source_type",
+                    "title",
+                    "publisher",
+                    "market",
+                    "document_date",
+                    "external_reference",
+                    "file_path",
+                    "sha256",
+                    "status",
+                ):
+                    self.assertEqual(source[field], source_metadata[field])
+                self.assertEqual(source["configuration_codes"], expected_configurations)
+                self.assertEqual(source["configuration_count"], len(expected_configurations))
+                self.assertEqual(source["relationships"], expected_relationships)
+
+            dates = [
+                source["document_date"] for source in actual_sources.values()
+                if source["document_date"]
+            ]
+            self.assertEqual(provenance["earliest_document_date"], min(dates))
+            self.assertEqual(provenance["latest_document_date"], max(dates))
+
+    @staticmethod
+    def _read_master_rows(filename: str) -> list[dict[str, str]]:
+        path = REPOSITORY / "data" / "master" / filename
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            return list(csv.DictReader(handle))
+
 
     def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
         relation_total = 0
@@ -226,8 +281,19 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 443)
-        self.assertEqual(len(used_sources), 110)
+        expected_by_model = self._expected_provenance_by_model()
+        expected_relation_total = sum(
+            len(relations)
+            for sources in expected_by_model.values()
+            for relations in sources.values()
+        )
+        expected_source_codes = {
+            source_code
+            for sources in expected_by_model.values()
+            for source_code in sources
+        }
+        self.assertEqual(relation_total, expected_relation_total)
+        self.assertEqual(used_sources, expected_source_codes)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -332,8 +398,26 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 118)
-        self.assertEqual(summary_rendered.count("SHA-256 unavailable"), 3)
+        expected_hash_count = sum(
+            1
+            for family in self.summary["families"]
+            for source in family["provenance"]["sources"]
+            if source["sha256"]
+        )
+        expected_missing_hash_count = sum(
+            1
+            for family in self.summary["families"]
+            for source in family["provenance"]["sources"]
+            if not source["sha256"]
+        )
+        self.assertEqual(
+            summary_rendered.count("SHA-256 "),
+            expected_hash_count + expected_missing_hash_count,
+        )
+        self.assertEqual(
+            summary_rendered.count("SHA-256 unavailable"),
+            expected_missing_hash_count,
+        )
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )

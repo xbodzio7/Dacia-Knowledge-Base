@@ -27,9 +27,15 @@ Official Polish price-list sources:
 - Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package; page 1 price matrix is effective 2026-10-01. The 02.11.2026 date belongs to the technical-data table, not a separate seven-seat price table.
 - Bigster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf — current catalogue/commercial price-list work is already reconciled.
 
-Current completed package: `sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001`. It registered the 2026-11-02 source, linked 19 configurations and six grades, added 15 catalogue-price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings, and added 24 Hybrid 155 scalar equipment observations, 27 Hybrid 155 availability observations, and corrected four Stepway Expression rear-camera mappings to standard. Added 42 page-4 technical and 27 page-5 Sandero dimension observations. All nine pages were visually reviewed. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, accessory lists and commercial-campaign material are explicitly deferred as separately scoped content. No brochure data was imported; raw PDF bytes and SHA-256 were unavailable for archiving.
+Latest completed package before the current correction: `sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001`. It registered the 2026-11-02 source, linked 19 configurations and six grades, added 15 catalogue-price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings, and reconciled all nine pages with 24 scalar equipment observations, 27 availability observations, 42 technical observations and 27 Sandero dimension observations. No brochure data was imported; raw PDF bytes and SHA-256 were unavailable for archiving.
 
-Next package: `jogger_price_matrix_correction_20261001_20261106_001`. Correct the seven-seat Eco-G120 manual price alignment (Essential unavailable; Expression 86,550 PLN; Extreme 94,400 PLN) and add the missing 12 configuration and three grade source relationships to the already archived Jogger cennik. No new source document or brochure work is required.
+Current completed package: `jogger_price_matrix_correction_20261001_20261106_001`. Corrected the seven-seat Eco-G 120 manual price alignment: Essential has no catalogue price in the printed matrix, Expression is 86,550 PLN and Extreme is 94,400 PLN. Added source relationships for the 12 printed configurations and three grades. Preserved April/July historical prices. The 01.10.2026 date applies to the page-1 price matrix; 02.11.2026 is the technical-data status date. The source PDF was already archived with SHA-256. No brochure or configurator data imported.
+
+Next package: `sandero_stepway_price_history_mvp_20261106_001`. Implement Stage A of `project/CHANGE_HISTORY_PLAN.md`: a deterministic, source-traceable Sandero/Sandero Stepway catalogue-price timeline. Use existing dated master observations, do not duplicate them, and keep promotions/financing separate from catalogue prices.
+
+## Vehicle Change History Plan (2026-11-06)
+
+The implementation plan is recorded in `project/CHANGE_HISTORY_PLAN.md` and merged through PR #789. The proposed first stage is the Sandero/Sandero Stepway catalogue-price timeline. It is a derived reporting layer, not a second manually maintained master table. Implementation begins after the current cennik reconciliation packages are closed.
 
 ## Verified Current Progress (2026-11-05)
 
@@ -110,9 +116,9 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1972 testów automatycznych zakończonych powodzeniem,
+- 1975 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22698 rekordów danych,
+- 22712 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -123,7 +129,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22698 rekordów,
+- baza SQLite obejmująca 48 tabele i 22712 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->

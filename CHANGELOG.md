@@ -6,7 +6,11 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Reconciled the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02: linked 19 configurations and six grades; added 15 catalogue prices (+500 PLN each) and confirmed four unchanged Hybrid 155 prices; added three commercial items and 209 dated option/package mappings. Completed the nine-page source reconciliation with 24 Hybrid 155 scalar equipment observations, 27 equipment-availability observations, four rear-camera status corrections, 42 technical observations and 27 Sandero dimension observations. Explicitly deferred ambiguous Eco-G injection/LPG-capacity semantics, unmodeled trim/interior dimensions, separately dated accessory/winter-wheel lists and promotional/financing terms. No brochure data imported; the raw PDF bytes and SHA-256 were not archived.\n\n* Reconciled the official Polish Duster MY26 cennik effective 2026-11-02: registered 16 configuration and four grade relationships; added two non-metallic paint options and 64 dated commercial mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). The spare wheel is 900 PLN for six non-LPG configurations and explicitly unavailable for ten LPG configurations; TECHNO 1 is limited to three automatic Extreme configurations. Reused 16 catalogue prices, 1,152 equipment-availability cells, 391 technical scalar observations and 16 ranges without duplicate rows. Deferred the unlabelled metallic-paint 2,800/3,000 PLN pair, winter-wheel accessories and unbound dimension pairs. No brochure data imported.
+* Reconciled the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02: linked 19 configurations and six grades; added 15 catalogue prices (+500 PLN each) and confirmed four unchanged Hybrid 155 prices; added three commercial items and 209 dated option/package mappings. Completed the nine-page source reconciliation with 24 Hybrid 155 scalar equipment observations, 27 equipment-availability observations, four rear-camera status corrections, 42 technical observations and 27 Sandero dimension observations. Explicitly deferred ambiguous Eco-G injection/LPG-capacity semantics, unmodeled trim/interior dimensions, separately dated accessory/winter-wheel lists and promotional/financing terms. No brochure data imported; the raw PDF bytes and SHA-256 were not archived.
+
+* Corrected the official Polish Jogger MY26 2026-10-01 seven-seat Eco-G 120 manual price matrix: removed the erroneous Essential 86,550 PLN row (the source cell is a dash), corrected Expression from 94,400 to 86,550 PLN and retained Extreme at 94,400 PLN. Added source links for all 12 configurations and three grades in the printed matrix; preserved April/July historical prices. The page-1 matrix is effective 2026-10-01; 02.11.2026 is the technical-data status date, not a second price-matrix date. No brochure or configurator data imported.
+
+* Reconciled the official Polish Duster MY26 cennik effective 2026-11-02: registered 16 configuration and four grade relationships; added two non-metallic paint options and 64 dated commercial mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). The spare wheel is 900 PLN for six non-LPG configurations and explicitly unavailable for ten LPG configurations; TECHNO 1 is limited to three automatic Extreme configurations. Reused 16 catalogue prices, 1,152 equipment-availability cells, 391 technical scalar observations and 16 ranges without duplicate rows. Deferred the unlabelled metallic-paint 2,800/3,000 PLN pair, winter-wheel accessories and unbound dimension pairs. No brochure data imported.
 
 * Imported 260 additional historical equipment-availability observations from printed page 22 of the official 2025-12-10 Bigster brochure across 20 existing boolean attributes and 14 exact source-linked configurations. The combined page-21/22 brochure import now covers 557 observations; Hybrid 155-only cooled-console applicability is preserved, and composite package/port-count details remain deferred.
 
@@ -344,9 +348,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1972 tests.
-* The verified master-data baseline now contains 48 CSV files and 22698 rows.
-* SQLite verification now covers 48 tables and 22698 rows.
+* The automated test suite now contains 1975 tests.
+* The verified master-data baseline now contains 48 CSV files and 22712 rows.
+* SQLite verification now covers 48 tables and 22712 rows.
 * Configuration attribute values now contain 8492 dated records.
 * Declarative scalar configuration-value imports now contain 189 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.

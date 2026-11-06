@@ -44,6 +44,7 @@ Repozytorium ma umożliwiać:
 ## 2. Reporting and completeness
 
 - rozwijać porównania konfiguracji, modeli i wersji,
+- utrzymywać źródłową historię zmian cen i wyposażenia według `project/CHANGE_HISTORY_PLAN.md`,
 - poprawiać użyteczność raportów bez zmiany semantyki danych,
 - utrzymywać deterministyczne katalogi kodów, filtrów i kontekstów,
 - publikować artefakty jakościowe możliwe do ponownego odtworzenia.
@@ -144,7 +145,7 @@ Pakiet Spring z 1 sierpnia 2026 r. świadomie wyprzedził planowany import lakie
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 1972 testów automatycznych,
+- 1975 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 
