@@ -48,3 +48,9 @@ Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction
 - Added 12 source-to-configuration relationships and three source-to-grade relationships to the already archived official source.
 - Preserved the 2026-04-01 and 2026-07-03 historical prices; no brochure or configurator data imported.
 - Confirmed that 01.10.2026 is the page-1 price-matrix effective date and 02.11.2026 is the technical-data status date.
+
+
+## 2026-11-06 — Mandatory code preflight safeguards
+
+- Added a fail-fast pre-commit/pre-push procedure to `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`: full diff review, Python syntax compilation, module import and test-discovery checks, focused tests, relevant validators, and final source inspection after automated edits.
+- Made the preflight mandatory in the accelerated milestone workflow and AI working agreement. If execution is unavailable, validation must be reported as blocked rather than assumed.
