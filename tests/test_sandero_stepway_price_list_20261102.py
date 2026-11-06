@@ -58,11 +58,22 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
             row for row in read_rows("configuration_attribute_values.csv")
             if row["source_code"] == source_code
         ]
-        self.assertEqual(len(technical), 69)
+        self.assertEqual(len(technical), 93)
+        page3 = [row for row in technical if "PDF page 3" in row["notes"]]
         page4 = [row for row in technical if "page 4" in row["notes"]]
         page5 = [row for row in technical if "page 5" in row["notes"]]
-        self.assertEqual(len(page4), 42)
-        self.assertEqual(len(page5), 27)
+        self.assertEqual((len(page3), len(page4), len(page5)), (24, 42, 27))
+        self.assertEqual(
+            Counter(row["attribute_code"] for row in page3),
+            Counter({
+                "wheel_size": 4,
+                "wheel_material": 4,
+                "wheel_design": 4,
+                "wheel_finish": 4,
+                "upholstery_variant": 4,
+                "centre_console_variant": 4,
+            }),
+        )
         self.assertEqual(
             Counter(row["attribute_code"] for row in page4),
             Counter({
@@ -104,6 +115,40 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(len(hybrid_motor_torque), 4)
         self.assertTrue(all(row["value"] == "205" for row in hybrid_motor_torque))
 
+        equipment = [
+            row for row in read_rows("configuration_attribute_availability.csv")
+            if row["source_code"] == source_code
+        ]
+        self.assertEqual(len(equipment), 27)
+        self.assertEqual(
+            Counter(row["attribute_code"] for row in equipment),
+            Counter({
+                "rear_view_camera": 1,
+                "360_camera_system": 2,
+                "glass_sunroof": 1,
+                "heated_front_seats": 4,
+                "heated_steering_wheel": 2,
+                "automatic_climate_control": 2,
+                "manual_air_conditioning": 2,
+                "electronic_parking_brake": 1,
+                "front_seat_belt_pretensioners": 4,
+                "rear_seat_belt_pretensioners": 4,
+                "isofix_rear": 4,
+            }),
+        )
+        self.assertEqual(
+            Counter(row["availability_status"] for row in equipment),
+            Counter({"optional": 12, "not_available": 3, "standard": 12}),
+        )
+        self.assertFalse(
+            any(row["attribute_code"] == "fuel_tank_capacity" for row in equipment)
+        )
+        manual_ac = [row for row in equipment if row["attribute_code"] == "manual_air_conditioning"]
+        self.assertTrue(all(row["availability_status"] == "not_available" for row in manual_ac))
+        camera = [row for row in equipment if row["attribute_code"] == "rear_view_camera"]
+        self.assertEqual(len(camera), 1)
+        self.assertEqual(camera[0]["availability_status"], "optional")
+
         old_prices = {
             row["configuration_code"]: int(row["amount"])
             for row in read_rows("configuration_prices.csv")
@@ -144,7 +189,7 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(len(mappings), 209)
         self.assertEqual(
             Counter(row["availability_status"] for row in mappings),
-            Counter({"optional": 102, "not_available": 99, "standard": 8}),
+            Counter({"optional": 98, "not_available": 99, "standard": 12}),
         )
         by_item: dict[str, list[dict[str, str]]] = defaultdict(list)
         for row in mappings:
@@ -156,7 +201,7 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
             "sandero_metallic_paint_option": {"optional": 19},
             "sandero_special_nonmetallic_paint_option": {"optional": 19},
             "sandero_spare_wheel_option": {"optional": 10, "not_available": 9},
-            "sandero_rear_view_camera_option": {"optional": 8, "standard": 8, "not_available": 3},
+            "sandero_rear_view_camera_option": {"optional": 4, "standard": 12, "not_available": 3},
             "sandero_media_nav_live_option": {"optional": 8, "not_available": 11},
             "sandero_glass_sunroof_option": {"optional": 4, "not_available": 15},
             "sandero_comfort_auto_package": {"optional": 2, "not_available": 17},
