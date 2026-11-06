@@ -17,6 +17,20 @@ python tools/dkb.py project-state --check
 
 Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
+## Current User Priority — Cennik-only (2026-11-06)
+
+The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. Do not resume Bigster/Duster brochure work while this priority is active.
+
+Official current price-list sources effective 2026-11-02 verified from Dacia model pages:
+- Duster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf — reconciled in the current package.
+- Sandero/Sandero Stepway: https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf — next package.
+- Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package.
+- Bigster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf — current catalogue/commercial price-list work is already reconciled.
+
+Current completed package: `duster_price_list_20261102_commercial_reconciliation_20261106_001`. It adds two named non-metallic colours and 64 dated commercial mappings, while reusing 16 catalogue prices, 1,152 equipment availability observations, 391 technical scalar observations and 16 ranges without duplication.
+
+Next package: `sandero_jogger_price_list_20261102_reconciliation_20261106_001`. Compare the two official 02.11.2026 cenniks against registered price-list sources and import only exact deltas. No brochure work.
+
 ## Verified Current Progress (2026-11-05)
 
 Latest verified merged work on `main` is newer than the old 2026-10-27 narrative and must be considered before selecting or repeating any package:
@@ -38,9 +52,9 @@ Current open PRs verified from GitHub:
 
 Operational rule: before every continuation, inspect current main, recent merged PRs, open PR heads, and the canonical state. Do not repeat PR #752 source portfolio inventory, PR #767 page anchoring, or the same #754 crosswalk report. The next package must deliver a concrete, source-backed import batch or explicitly move to the highest-impact unblocked data gap for another model family. If no importable batch is possible, state the exact evidence boundary and switch scope; do not loop on a generic blocker.
 
-## Current Bigster Brochure Continuation (2026-11-05)
+## Deferred Bigster Brochure Continuation (paused 2026-11-06)
 
-PR #782 is merged into `main` (merge commit `13c58b86d9652ff127516b1d45924b8ca66005b0`). The page-22 residual equipment import added 260 historical availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations. Full Quality passed on Python 3.10, 3.13 and 3.14; Windows validation and the remaining PR checks passed. The temporary Bigster snapshot check was skipped by workflow design.
+This work is paused under the cennik-only priority above. PR #782 is merged into `main` (merge commit `13c58b86d9652ff127516b1d45924b8ca66005b0`). The page-22 residual equipment import added 260 historical availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations. Full Quality passed on Python 3.10, 3.13 and 3.14; Windows validation and the remaining PR checks passed. The temporary Bigster snapshot check was skipped by workflow design.
 
 - Combined page-21/page-22 brochure equipment availability coverage: 557 observations (157 page 21, 400 page 22).
 - Page-22 IDs: 10113–10372.
