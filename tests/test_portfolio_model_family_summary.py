@@ -116,8 +116,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
             expected_order,
         )
         expected = {
-            "sandero_iii": (9, 3, 63900, 90200, "recorded", [5], 9, 0),
-            "sandero_stepway_iii": (10, 3, 71700, 96800, "recorded", [5], 10, 0),
+            "sandero_iii": (9, 3, 64400, 90200, "recorded", [5], 9, 0),
+            "sandero_stepway_iii": (10, 3, 72200, 96800, "recorded", [5], 10, 0),
             "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
             "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
             "bigster": (20, 4, 101400, 137600, "recorded", [5], 20, 0),
