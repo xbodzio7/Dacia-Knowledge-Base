@@ -116,6 +116,27 @@ At minimum, verify:
 
 The package is not complete until both gates pass or a documented, non-blocking deferral is accepted under project governance.
 
+## 7.1 Mandatory code preflight before commit and push
+
+Every code or test change must pass a fail-fast preflight before it is committed or pushed. This applies even when the change is small, generated mechanically, or appears to be a one-line correction.
+
+Required order:
+
+1. Inspect the complete diff and confirm that every changed path belongs to the package manifest.
+2. Compile every changed Python file (at minimum, run `python -m py_compile <changed-file.py>`; for broad Python changes run `python -m compileall -q tools tests`).
+3. Import the changed production and test modules, then run the repository's test-discovery command or the narrowest equivalent used by CI.
+4. Run the focused test module and the directly affected contract/regression tests.
+5. Run the relevant repository validator and deterministic artifact checks.
+6. Only after all applicable checks pass may the change be committed and pushed.
+
+For test-file changes, syntax compilation and import/discovery are mandatory before running the test itself. A test command that cannot import its module is not a substitute for this preflight; record the import/discovery result explicitly.
+
+Do not use broad text replacement or generated code edits without inspecting the resulting complete changed block and diff. After every automated edit, re-read the edited file from the repository and verify the exact changed lines. Reject literal escape sequences (for example, a textual `\\n` accidentally inserted into Python source) where real source newlines are required.
+
+If local execution is unavailable, do not claim the preflight passed and do not publish the change as validated. Use an available repository CI/check workflow only when it can validate the candidate branch before merge; otherwise record the blocker and leave the change uncommitted/unpublished where possible.
+
+A failed preflight blocks commit/push. Fix the first causal error, repeat the preflight from the beginning for the changed paths, and then run the final quality gate on the exact resulting head SHA. A later edit invalidates earlier validation of that file and requires the relevant checks to be repeated.
+
 ## 7. Efficient validation cadence
 
 To reduce repeated CI failures without weakening quality:
