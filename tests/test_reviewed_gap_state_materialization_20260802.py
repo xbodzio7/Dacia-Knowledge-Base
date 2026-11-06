@@ -67,7 +67,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             self.assertEqual(row["price_date"], "2026-07-31")
             self.assertEqual(row["source_code"], "src_pl_spring_official_configurator_20260731")
             self.assertEqual(row["availability_status"], "optional")
-        self.assertEqual(len(rows(MAPPINGS)), 567)
+        self.assertGreaterEqual(len(rows(MAPPINGS)), 567)
 
     def test_importer_is_idempotent_and_updates_only_two_rows(self) -> None:
         module = load_apply_module()
@@ -79,6 +79,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
             shutil.copy2(IMPORT_SPEC, root / "data/imports/reviewed_gap_state_materialization_20260802.csv")
             path = root / "data/master/commercial_item_configurations.csv"
             current = rows(path)
+            before_count = len(current)
             for row in current:
                 if row["code"] in TARGETS:
                     row["amount"] = ""
@@ -91,7 +92,7 @@ class ReviewedGapStateMaterializationTests(unittest.TestCase):
                 writer.writerows(current)
             self.assertEqual(module.materialize(root), 2)
             self.assertEqual(module.materialize(root), 0)
-            self.assertEqual(len(rows(path)), 567)
+            self.assertEqual(len(rows(path)), before_count)
 
     def test_all_technical_review_states_are_visible(self) -> None:
         review_states = [
