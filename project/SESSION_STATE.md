@@ -21,15 +21,15 @@ Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywa�
 
 The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. Do not resume Bigster/Duster brochure work while this priority is active.
 
-Official current price-list sources effective 2026-11-02 verified from Dacia model pages:
-- Duster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf — reconciled in the current package.
-- Sandero/Sandero Stepway: https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf — next package.
-- Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package.
+Official Polish price-list sources:
+- Duster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf — reconciled in the Duster MY26 2026-11-02 price-list package.
+- Sandero/Sandero Stepway: https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf — reconciled in the current package.
+- Jogger: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf — next package; page 1 price matrix is effective 2026-10-01. The 02.11.2026 date belongs to the technical-data table, not a separate seven-seat price table.
 - Bigster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf — current catalogue/commercial price-list work is already reconciled.
 
-Current completed package: `duster_price_list_20261102_commercial_reconciliation_20261106_001`. It adds two named non-metallic colours and 64 dated commercial mappings, while reusing 16 catalogue prices, 1,152 equipment availability observations, 391 technical scalar observations and 16 ranges without duplication.
+Current completed package: `sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001`. It registered the 2026-11-02 source, linked 19 configurations and six grades, added 15 catalogue-price observations (+500 PLN each), confirmed four unchanged hybrid155 prices, added three commercial items, updated eight existing option/package records and added 209 dated configuration mappings. No brochure data was imported.
 
-Next package: `sandero_jogger_price_list_20261102_reconciliation_20261106_001`. Compare the two official 02.11.2026 cenniks against registered price-list sources and import only exact deltas. No brochure work.
+Next package: `jogger_price_matrix_correction_20261001_20261106_001`. Correct the seven-seat Eco-G120 manual price alignment (Essential unavailable; Expression 86,550 PLN; Extreme 94,400 PLN) and add the missing 12 configuration and three grade source relationships to the already archived Jogger cennik. No new source document or brochure work is required.
 
 ## Verified Current Progress (2026-11-05)
 
