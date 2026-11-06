@@ -46,7 +46,8 @@ Repozytorium ma umożliwiać:
 - rozwijać porównania konfiguracji, modeli i wersji,
 - poprawiać użyteczność raportów bez zmiany semantyki danych,
 - utrzymywać deterministyczne katalogi kodów, filtrów i kontekstów,
-- publikować artefakty jakościowe możliwe do ponownego odtworzenia.
+- publikować artefakty jakościowe możliwe do ponownego odtworzenia,
+- budować deterministyczną, źródłowo udokumentowaną historię zmian cen katalogowych, wyposażenia, pakietów i ofert handlowych zgodnie z `project/PRICE_HISTORY_AND_CHANGELOG_PLAN.md`.
 
 ## 3. Import automation
 

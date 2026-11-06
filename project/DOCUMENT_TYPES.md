@@ -71,6 +71,18 @@ Contents
 
 ---
 
+# PRICE_HISTORY_AND_CHANGELOG_PLAN.md
+
+Purpose
+
+Defines the staged plan for a source-backed history of catalogue prices, equipment, options, packages and commercial campaigns. It does not authorize a data-model change before the existing dated observations have been audited.
+
+Audience
+
+Human + AI.
+
+---
+
 # START_HERE.md
 
 Purpose
