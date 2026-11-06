@@ -12,7 +12,7 @@
     "file_path": "",
     "sha256": "",
     "status": "active",
-    "notes": "Official Polish Sandero/Sandero Stepway MY26 9-page cennik effective 2026-11-02. Pages 1-3: 15 of 19 catalogue prices increase by 500 PLN; four Hybrid 155 prices unchanged; complete six-grade equipment/option/package matrix reconciled. Page 4: 69 source-backed technical observations added/reconciled, including fuel-specific Eco-G tank capacities, VDA luggage volume, injection type, hybrid electric-motor torque and acceleration. Page 5: 27 Sandero dimension observations added/reconciled; later official width 1,853 mm resolves conflicting 1,753 mm configurator values. Pages 6-9 reviewed; accessory catalogue without prices, separate winter-wheel list effective 2026-09-01, and commercial/financing campaigns are explicitly deferred from configuration catalogue data. Raw PDF bytes were not available for archiving; SHA-256 is unavailable."
+    "notes": "Official Polish Sandero/Sandero Stepway MY26 9-page cennik effective 2026-11-02. Pages 1-3: 15 of 19 catalogue prices increase by 500 PLN; four Hybrid 155 prices unchanged; six-grade equipment/options/packages reconciled. Page 4: 42 source-backed technical observations added/reconciled, including VDA luggage volume, Hybrid 155 multipoint injection, acceleration and electric-motor torque; WLTP values reconciled with exact fuel context. Eco-G LPG tank capacity (40 l) and injection type are explicitly deferred because the cennik does not distinguish total/fillable capacity or fuel-specific injection, and another official cennik distinguishes petrol/LPG injection. Page 5: 27 Sandero dimension observations added/reconciled; later official width 1,853 mm resolves conflicting 1,753 mm configurator values. Interior dimension callouts without a safe canonical attribute mapping are deferred. Pages 6-9 reviewed; accessory catalogue without prices, separate winter-wheel list effective 2026-09-01, and commercial/financing campaigns are explicitly deferred. Raw PDF bytes were unavailable for archiving; SHA-256 unavailable."
   },
   "source_configurations": [
     {
@@ -2982,8 +2982,8 @@
       "not_available": 99,
       "standard": 8
     },
-    "technical_scalar_observations": 96,
-    "page4_technical_observations": 69,
+    "technical_scalar_observations": 69,
+    "page4_technical_observations": 42,
     "page5_dimension_observations": 27
   },
   "configuration_attribute_values": [
@@ -3193,30 +3193,6 @@
     },
     {
       "id": "8433",
-      "code": "sandero_iii_expression_ecog120_manual_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_iii_expression_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8434",
-      "code": "sandero_iii_expression_ecog120_manual_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_iii_expression_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8435",
       "code": "sandero_iii_expression_ecog120_manual_cargo_volume_vda_20261102",
       "configuration_code": "sandero_iii_expression_ecog120_manual",
       "attribute_code": "cargo_volume_vda",
@@ -3228,43 +3204,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8436",
-      "code": "sandero_iii_expression_ecog120_manual_injection_type_20261102",
-      "configuration_code": "sandero_iii_expression_ecog120_manual",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8437",
-      "code": "sandero_iii_journey_ecog120_manual_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8438",
-      "code": "sandero_iii_journey_ecog120_manual_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8439",
+      "id": "8434",
       "code": "sandero_iii_journey_ecog120_manual_cargo_volume_vda_20261102",
       "configuration_code": "sandero_iii_journey_ecog120_manual",
       "attribute_code": "cargo_volume_vda",
@@ -3276,43 +3216,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8440",
-      "code": "sandero_iii_journey_ecog120_manual_injection_type_20261102",
-      "configuration_code": "sandero_iii_journey_ecog120_manual",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8441",
-      "code": "sandero_stepway_iii_essential_ecog120_manual_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8442",
-      "code": "sandero_stepway_iii_essential_ecog120_manual_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8443",
+      "id": "8435",
       "code": "sandero_stepway_iii_essential_ecog120_manual_cargo_volume_vda_20261102",
       "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
       "attribute_code": "cargo_volume_vda",
@@ -3324,43 +3228,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8444",
-      "code": "sandero_stepway_iii_essential_ecog120_manual_injection_type_20261102",
-      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8445",
-      "code": "sandero_stepway_iii_expression_ecog120_manual_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8446",
-      "code": "sandero_stepway_iii_expression_ecog120_manual_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8447",
+      "id": "8436",
       "code": "sandero_stepway_iii_expression_ecog120_manual_cargo_volume_vda_20261102",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
       "attribute_code": "cargo_volume_vda",
@@ -3372,43 +3240,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8448",
-      "code": "sandero_stepway_iii_expression_ecog120_manual_injection_type_20261102",
-      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8449",
-      "code": "sandero_stepway_iii_extreme_ecog120_manual_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8450",
-      "code": "sandero_stepway_iii_extreme_ecog120_manual_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8451",
+      "id": "8437",
       "code": "sandero_stepway_iii_extreme_ecog120_manual_cargo_volume_vda_20261102",
       "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
       "attribute_code": "cargo_volume_vda",
@@ -3420,43 +3252,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8452",
-      "code": "sandero_stepway_iii_extreme_ecog120_manual_injection_type_20261102",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8453",
-      "code": "sandero_iii_expression_ecog120_automatic_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_iii_expression_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8454",
-      "code": "sandero_iii_expression_ecog120_automatic_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_iii_expression_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8455",
+      "id": "8438",
       "code": "sandero_iii_expression_ecog120_automatic_cargo_volume_vda_20261102",
       "configuration_code": "sandero_iii_expression_ecog120_automatic",
       "attribute_code": "cargo_volume_vda",
@@ -3468,43 +3264,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8456",
-      "code": "sandero_iii_expression_ecog120_automatic_injection_type_20261102",
-      "configuration_code": "sandero_iii_expression_ecog120_automatic",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8457",
-      "code": "sandero_iii_journey_ecog120_automatic_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_iii_journey_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8458",
-      "code": "sandero_iii_journey_ecog120_automatic_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_iii_journey_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8459",
+      "id": "8439",
       "code": "sandero_iii_journey_ecog120_automatic_cargo_volume_vda_20261102",
       "configuration_code": "sandero_iii_journey_ecog120_automatic",
       "attribute_code": "cargo_volume_vda",
@@ -3516,43 +3276,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8460",
-      "code": "sandero_iii_journey_ecog120_automatic_injection_type_20261102",
-      "configuration_code": "sandero_iii_journey_ecog120_automatic",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8461",
-      "code": "sandero_stepway_iii_expression_ecog120_automatic_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8462",
-      "code": "sandero_stepway_iii_expression_ecog120_automatic_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8463",
+      "id": "8440",
       "code": "sandero_stepway_iii_expression_ecog120_automatic_cargo_volume_vda_20261102",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
       "attribute_code": "cargo_volume_vda",
@@ -3564,43 +3288,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8464",
-      "code": "sandero_stepway_iii_expression_ecog120_automatic_injection_type_20261102",
-      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8465",
-      "code": "sandero_stepway_iii_extreme_ecog120_automatic_fuel_tank_capacity_lpg_20261102",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg",
-      "gear_number": "",
-      "value": "40",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 LPG tank capacity 40 l."
-    },
-    {
-      "id": "8466",
-      "code": "sandero_stepway_iii_extreme_ecog120_automatic_fuel_tank_capacity_petrol_20261102",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
-      "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol",
-      "gear_number": "",
-      "value": "50",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: Eco-G 120 petrol tank capacity 50 l."
-    },
-    {
-      "id": "8467",
+      "id": "8441",
       "code": "sandero_stepway_iii_extreme_ecog120_automatic_cargo_volume_vda_20261102",
       "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
       "attribute_code": "cargo_volume_vda",
@@ -3612,19 +3300,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: luggage-compartment volume 328 dm3 (VDA)."
     },
     {
-      "id": "8468",
-      "code": "sandero_stepway_iii_extreme_ecog120_automatic_injection_type_20261102",
-      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
-      "attribute_code": "injection_type",
-      "fuel_type_code": "",
-      "gear_number": "",
-      "value": "direct_injection",
-      "observation_date": "2026-11-02",
-      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official cennik page 4, DANE TECHNICZNE: injection type for the Eco-G 120 powertrain is stated as direct injection."
-    },
-    {
-      "id": "8469",
+      "id": "8442",
       "code": "sandero_iii_expression_hybrid155_automatic_injection_type_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "injection_type",
@@ -3636,7 +3312,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: Hybrid 155 injection type is multi-point."
     },
     {
-      "id": "8470",
+      "id": "8443",
       "code": "sandero_iii_expression_hybrid155_automatic_acceleration_0_100_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "acceleration_0_100",
@@ -3648,7 +3324,7 @@
       "notes": "Official cennik page 4, OSIĄGI: Hybrid 155 0-100 km/h; 9.8 s Sandero / 10.0 s Stepway."
     },
     {
-      "id": "8471",
+      "id": "8444",
       "code": "sandero_iii_expression_hybrid155_automatic_electric_motor_torque_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "electric_motor_torque",
@@ -3660,7 +3336,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor torque 205 Nm at 7,000 rpm; distinct from the combustion-engine torque."
     },
     {
-      "id": "8472",
+      "id": "8445",
       "code": "sandero_iii_expression_hybrid155_automatic_electric_motor_torque_rpm_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "electric_motor_torque_rpm",
@@ -3672,7 +3348,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor maximum torque is stated at 7,000 rpm."
     },
     {
-      "id": "8473",
+      "id": "8446",
       "code": "sandero_iii_journey_hybrid155_automatic_injection_type_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "injection_type",
@@ -3684,7 +3360,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: Hybrid 155 injection type is multi-point."
     },
     {
-      "id": "8474",
+      "id": "8447",
       "code": "sandero_iii_journey_hybrid155_automatic_acceleration_0_100_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "acceleration_0_100",
@@ -3696,7 +3372,7 @@
       "notes": "Official cennik page 4, OSIĄGI: Hybrid 155 0-100 km/h; 9.8 s Sandero / 10.0 s Stepway."
     },
     {
-      "id": "8475",
+      "id": "8448",
       "code": "sandero_iii_journey_hybrid155_automatic_electric_motor_torque_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "electric_motor_torque",
@@ -3708,7 +3384,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor torque 205 Nm at 7,000 rpm; distinct from the combustion-engine torque."
     },
     {
-      "id": "8476",
+      "id": "8449",
       "code": "sandero_iii_journey_hybrid155_automatic_electric_motor_torque_rpm_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "electric_motor_torque_rpm",
@@ -3720,7 +3396,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor maximum torque is stated at 7,000 rpm."
     },
     {
-      "id": "8477",
+      "id": "8450",
       "code": "sandero_stepway_iii_expression_hybrid155_automatic_injection_type_20261102",
       "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
       "attribute_code": "injection_type",
@@ -3732,7 +3408,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: Hybrid 155 injection type is multi-point."
     },
     {
-      "id": "8478",
+      "id": "8451",
       "code": "sandero_stepway_iii_expression_hybrid155_automatic_acceleration_0_100_20261102",
       "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
       "attribute_code": "acceleration_0_100",
@@ -3744,7 +3420,7 @@
       "notes": "Official cennik page 4, OSIĄGI: Hybrid 155 0-100 km/h; 9.8 s Sandero / 10.0 s Stepway."
     },
     {
-      "id": "8479",
+      "id": "8452",
       "code": "sandero_stepway_iii_expression_hybrid155_automatic_electric_motor_torque_20261102",
       "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
       "attribute_code": "electric_motor_torque",
@@ -3756,7 +3432,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor torque 205 Nm at 7,000 rpm; distinct from the combustion-engine torque."
     },
     {
-      "id": "8480",
+      "id": "8453",
       "code": "sandero_stepway_iii_expression_hybrid155_automatic_electric_motor_torque_rpm_20261102",
       "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
       "attribute_code": "electric_motor_torque_rpm",
@@ -3768,7 +3444,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor maximum torque is stated at 7,000 rpm."
     },
     {
-      "id": "8481",
+      "id": "8454",
       "code": "sandero_stepway_iii_extreme_hybrid155_automatic_injection_type_20261102",
       "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
       "attribute_code": "injection_type",
@@ -3780,7 +3456,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: Hybrid 155 injection type is multi-point."
     },
     {
-      "id": "8482",
+      "id": "8455",
       "code": "sandero_stepway_iii_extreme_hybrid155_automatic_acceleration_0_100_20261102",
       "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
       "attribute_code": "acceleration_0_100",
@@ -3792,7 +3468,7 @@
       "notes": "Official cennik page 4, OSIĄGI: Hybrid 155 0-100 km/h; 9.8 s Sandero / 10.0 s Stepway."
     },
     {
-      "id": "8483",
+      "id": "8456",
       "code": "sandero_stepway_iii_extreme_hybrid155_automatic_electric_motor_torque_20261102",
       "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
       "attribute_code": "electric_motor_torque",
@@ -3804,7 +3480,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor torque 205 Nm at 7,000 rpm; distinct from the combustion-engine torque."
     },
     {
-      "id": "8484",
+      "id": "8457",
       "code": "sandero_stepway_iii_extreme_hybrid155_automatic_electric_motor_torque_rpm_20261102",
       "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
       "attribute_code": "electric_motor_torque_rpm",
@@ -3816,7 +3492,7 @@
       "notes": "Official cennik page 4, DANE TECHNICZNE: electric motor maximum torque is stated at 7,000 rpm."
     },
     {
-      "id": "8485",
+      "id": "8458",
       "code": "sandero_iii_essential_tce100_manual_overall_width_20261102",
       "configuration_code": "sandero_iii_essential_tce100_manual",
       "attribute_code": "overall_width",
@@ -3828,7 +3504,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8486",
+      "id": "8459",
       "code": "sandero_iii_expression_tce100_manual_overall_width_20261102",
       "configuration_code": "sandero_iii_expression_tce100_manual",
       "attribute_code": "overall_width",
@@ -3840,7 +3516,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8487",
+      "id": "8460",
       "code": "sandero_iii_journey_tce100_manual_overall_width_20261102",
       "configuration_code": "sandero_iii_journey_tce100_manual",
       "attribute_code": "overall_width",
@@ -3852,7 +3528,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8488",
+      "id": "8461",
       "code": "sandero_iii_expression_ecog120_manual_overall_width_20261102",
       "configuration_code": "sandero_iii_expression_ecog120_manual",
       "attribute_code": "overall_width",
@@ -3864,7 +3540,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8489",
+      "id": "8462",
       "code": "sandero_iii_journey_ecog120_manual_overall_width_20261102",
       "configuration_code": "sandero_iii_journey_ecog120_manual",
       "attribute_code": "overall_width",
@@ -3876,7 +3552,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8490",
+      "id": "8463",
       "code": "sandero_iii_expression_ecog120_automatic_overall_width_20261102",
       "configuration_code": "sandero_iii_expression_ecog120_automatic",
       "attribute_code": "overall_width",
@@ -3888,7 +3564,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8491",
+      "id": "8464",
       "code": "sandero_iii_journey_ecog120_automatic_overall_width_20261102",
       "configuration_code": "sandero_iii_journey_ecog120_automatic",
       "attribute_code": "overall_width",
@@ -3900,7 +3576,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: body width 1,853 mm. This later official cennik observation resolves the conflicting 1,753 mm value found in saved configurator PDFs; prior observations are retained."
     },
     {
-      "id": "8492",
+      "id": "8465",
       "code": "sandero_iii_expression_hybrid155_automatic_overall_length_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "overall_length",
@@ -3912,7 +3588,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_length = 4102 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8493",
+      "id": "8466",
       "code": "sandero_iii_expression_hybrid155_automatic_overall_width_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "overall_width",
@@ -3924,7 +3600,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_width = 1853 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8494",
+      "id": "8467",
       "code": "sandero_iii_expression_hybrid155_automatic_overall_width_with_mirrors_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "overall_width_with_mirrors",
@@ -3936,7 +3612,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_width_with_mirrors = 2012 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8495",
+      "id": "8468",
       "code": "sandero_iii_expression_hybrid155_automatic_overall_height_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "overall_height",
@@ -3948,7 +3624,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_height = 1496 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8496",
+      "id": "8469",
       "code": "sandero_iii_expression_hybrid155_automatic_front_track_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "front_track",
@@ -3960,7 +3636,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: front_track = 1533 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8497",
+      "id": "8470",
       "code": "sandero_iii_expression_hybrid155_automatic_rear_track_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "rear_track",
@@ -3972,7 +3648,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: rear_track = 1519 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8498",
+      "id": "8471",
       "code": "sandero_iii_expression_hybrid155_automatic_front_overhang_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "front_overhang",
@@ -3984,7 +3660,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: front_overhang = 833 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8499",
+      "id": "8472",
       "code": "sandero_iii_expression_hybrid155_automatic_rear_overhang_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "rear_overhang",
@@ -3996,7 +3672,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: rear_overhang = 665 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8500",
+      "id": "8473",
       "code": "sandero_iii_expression_hybrid155_automatic_wheelbase_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "wheelbase",
@@ -4008,7 +3684,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: wheelbase = 2604 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8501",
+      "id": "8474",
       "code": "sandero_iii_expression_hybrid155_automatic_ground_clearance_20261102",
       "configuration_code": "sandero_iii_expression_hybrid155_automatic",
       "attribute_code": "ground_clearance",
@@ -4020,7 +3696,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: ground_clearance = 162 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8502",
+      "id": "8475",
       "code": "sandero_iii_journey_hybrid155_automatic_overall_length_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "overall_length",
@@ -4032,7 +3708,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_length = 4102 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8503",
+      "id": "8476",
       "code": "sandero_iii_journey_hybrid155_automatic_overall_width_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "overall_width",
@@ -4044,7 +3720,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_width = 1853 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8504",
+      "id": "8477",
       "code": "sandero_iii_journey_hybrid155_automatic_overall_width_with_mirrors_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "overall_width_with_mirrors",
@@ -4056,7 +3732,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_width_with_mirrors = 2012 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8505",
+      "id": "8478",
       "code": "sandero_iii_journey_hybrid155_automatic_overall_height_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "overall_height",
@@ -4068,7 +3744,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: overall_height = 1496 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8506",
+      "id": "8479",
       "code": "sandero_iii_journey_hybrid155_automatic_front_track_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "front_track",
@@ -4080,7 +3756,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: front_track = 1533 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8507",
+      "id": "8480",
       "code": "sandero_iii_journey_hybrid155_automatic_rear_track_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "rear_track",
@@ -4092,7 +3768,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: rear_track = 1519 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8508",
+      "id": "8481",
       "code": "sandero_iii_journey_hybrid155_automatic_front_overhang_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "front_overhang",
@@ -4104,7 +3780,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: front_overhang = 833 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8509",
+      "id": "8482",
       "code": "sandero_iii_journey_hybrid155_automatic_rear_overhang_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "rear_overhang",
@@ -4116,7 +3792,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: rear_overhang = 665 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8510",
+      "id": "8483",
       "code": "sandero_iii_journey_hybrid155_automatic_wheelbase_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "wheelbase",
@@ -4128,7 +3804,7 @@
       "notes": "Official cennik page 5, Sandero dimension diagram: wheelbase = 2604 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
     },
     {
-      "id": "8511",
+      "id": "8484",
       "code": "sandero_iii_journey_hybrid155_automatic_ground_clearance_20261102",
       "configuration_code": "sandero_iii_journey_hybrid155_automatic",
       "attribute_code": "ground_clearance",
