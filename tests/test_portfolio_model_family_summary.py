@@ -398,7 +398,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        expected_hash_count = sum(1 for family in self.summary["families"] for source in family["provenance"]["sources"] if source["sha256"])\n        self.assertEqual(summary_rendered.count("SHA-256 "), expected_hash_count)
+        expected_hash_count = sum(1 for family in self.summary["families"] for source in family["provenance"]["sources"] if source["sha256"])
+        self.assertEqual(summary_rendered.count("SHA-256 "), expected_hash_count)
         self.assertEqual(summary_rendered.count("SHA-256 unavailable"), 3)
         self.assertIn(
             'data-state="recorded"', summary_rendered
