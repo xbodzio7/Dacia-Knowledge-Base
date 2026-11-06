@@ -44,7 +44,7 @@ Registered the 2026-11-02 official Duster cennik and linked all 16 configuration
 
 **Sandero/Sandero Stepway and Jogger MY26 2026-11-02 Price List Reconciliation** — `active`
 
-Reconcile the official Polish 2026-11-02 cenniks for Sandero/Sandero Stepway and Jogger. Compare exact catalogue-price cells, option/package prices, equipment matrices and technical tables against registered sources; import only source-backed deltas and avoid duplicate observations. Defer all brochures.
+Reconcile the official Polish 2026-11-02 cenniks for Sandero/Sandero Stepway (https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf) and Jogger (https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf). Compare exact catalogue-price cells, option/package prices, equipment matrices and technical tables against registered sources; import only source-backed deltas and avoid duplicate observations. Defer all brochures.
 
 ## Autonomy
 
