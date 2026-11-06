@@ -281,8 +281,19 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 455)
-        self.assertEqual(len(used_sources), 110)
+        expected_by_model = self._expected_provenance_by_model()
+        expected_relation_total = sum(
+            len(relations)
+            for sources in expected_by_model.values()
+            for relations in sources.values()
+        )
+        expected_source_codes = {
+            source_code
+            for sources in expected_by_model.values()
+            for source_code in sources
+        }
+        self.assertEqual(relation_total, expected_relation_total)
+        self.assertEqual(used_sources, expected_source_codes)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
