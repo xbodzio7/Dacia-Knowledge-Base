@@ -29,6 +29,7 @@ The canonical state may activate or deactivate the mode. Conversation history al
 3. Stabilize the branch before opening the Pull Request whenever repository tooling permits safe branch-only work.
 4. During implementation run focused tests for the changed paths and contracts.
 5. Batch mechanical repairs such as generated snapshots, counters and deterministic manifests before the final quality run.
+   - Whenever `sources.csv` or `source-configuration` relationship data changes, regenerate/verify the portfolio provenance summary and update its exact regression baseline in the same package. Treat source counts, relationship counts and rendered source-hash counts as affected outputs; do not defer these updates until CI fails.
 6. Run the complete required quality matrix once against the final Pull Request head SHA.
 7. Merge only when the current head is green, mergeable and review-clean.
 8. For a release, build twice from the exact release source commit, prove byte identity, verify the offline workspace and publish immutable assets.
