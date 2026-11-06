@@ -57,8 +57,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                 "mixed_model_scope_count": 3,
                 "active_configuration_count": 94,
                 "within_scope_pair_count": 145,
-                "provenance_source_count": 109,
-                "source_configuration_relationship_count": 424,
+                "provenance_source_count": 110,
+                "source_configuration_relationship_count": 443,
                 "configurations_with_provenance_count": 94,
                 "configurations_without_provenance_count": 0,
                 "cross_scope_pairs_generated": False,
@@ -144,8 +144,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
     def test_exact_provenance_counts_and_date_ranges_are_preserved(self) -> None:
         expected = {
-            "sandero_iii": (18, 59, "2026-02-02", "2026-08-11"),
-            "sandero_stepway_iii": (22, 70, "2026-02-02", "2026-08-11"),
+            "sandero_iii": (19, 68, "2026-02-02", "2026-11-02"),
+            "sandero_stepway_iii": (23, 80, "2026-02-02", "2026-11-02"),
             "jogger": (26, 110, "2025-12-17", "2026-08-09"),
             "duster_iii": (26, 119, "2025-10-20", "2026-11-02"),
             "bigster": (17, 55, "2025-12-10", "2026-10-01"),
@@ -166,13 +166,13 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
             matrix_provenance = self.matrix_families[code]["provenance"]
             matrix_source_count = values[0] - (
-                1 if code in {"sandero_iii", "sandero_stepway_iii", "bigster"}
-                else 2 if code == "duster_iii"
+                2 if code in {"sandero_iii", "sandero_stepway_iii", "duster_iii"}
+                else 1 if code == "bigster"
                 else 0
             )
             matrix_relationship_count = values[1] - (
-                9 if code == "sandero_iii"
-                else 10 if code == "sandero_stepway_iii"
+                18 if code == "sandero_iii"
+                else 20 if code == "sandero_stepway_iii"
                 else 38 if code == "duster_iii"
                 else 13 if code == "bigster"
                 else 0
@@ -223,8 +223,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     source["configuration_count"],
                     len(source["configuration_codes"]),
                 )
-        self.assertEqual(relation_total, 424)
-        self.assertEqual(len(used_sources), 109)
+        self.assertEqual(relation_total, 443)
+        self.assertEqual(len(used_sources), 110)
         self.assertEqual(
             self.matrix_families["spring"]["transmission_values"],
             ["automatic"],
@@ -329,8 +329,8 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        self.assertEqual(summary_rendered.count("SHA-256 "), 116)
-        self.assertEqual(summary_rendered.count("SHA-256 unavailable"), 1)
+        self.assertEqual(summary_rendered.count("SHA-256 "), 118)
+        self.assertEqual(summary_rendered.count("SHA-256 unavailable"), 3)
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )

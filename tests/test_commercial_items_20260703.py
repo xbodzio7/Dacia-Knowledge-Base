@@ -38,9 +38,9 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.availability = read("configuration_attribute_availability.csv")
 
     def test_complete_source_backed_registration_counts(self) -> None:
-        self.assertEqual(len(self.items), 60)
+        self.assertEqual(len(self.items), 63)
         self.assertEqual(len(self.members), 105)
-        self.assertEqual(len(self.mappings), 631)
+        self.assertEqual(len(self.mappings), 840)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},
@@ -67,6 +67,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
                 "dacia_catalog_20260920_duster_extreme_tribrid150_4x4",
                 "src_pl_bigster_price_my26_20261001",
                 "src_pl_duster_price_my26_20261102",
+                "src_pl_sandero_stepway_price_my26_20261102",
             },
         )
         self.assertTrue(all(row["source_text"] for row in self.members))
