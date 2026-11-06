@@ -95,7 +95,7 @@ The first Sandero/Sandero Stepway price-history package is accepted only when:
 
 - the exact source set and coverage state are recorded;
 - every comparable configuration/price pair has one disposition;
-- the 15 November 2026 +500 PLN price changes are reproduced from source observations rather than hard-coded;
+- the 15 price increases effective 2026-11-02 (+500 PLN each) are reproduced from source observations rather than hard-coded;
 - the four unchanged Hybrid 155 prices are classified as unchanged, without duplicate master rows;
 - source gaps and date mismatches are visible and are not interpreted as changes;
 - numeric deltas are correct and deterministic;
