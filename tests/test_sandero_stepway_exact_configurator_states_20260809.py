@@ -86,6 +86,7 @@ class SanderoStepwayExactConfiguratorStatesTests(unittest.TestCase):
             row["configuration_code"]: int(row["amount"])
             for row in self.prices
             if row["price_type"] == "catalog_gross"
+            and row["source_code"] == "src_pl_sandero_stepway_price_my26_20260811"
         }
         self.assertEqual(
             {

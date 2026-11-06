@@ -15,30 +15,30 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1971,
+    "tests": 1972,
     "csv_files": 48,
-    "rows": 22325,
-    "configuration_values": 8399,
+    "rows": 22698,
+    "configuration_values": 8492,
     "configuration_import_specs": 189,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
-    "availability_records": 10372,
+    "availability_records": 10399,
     "attributes": 417,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "duster_price_list_20261102_commercial_reconciliation_20261106_001",
+    "package_id": "sandero_stepway_price_my26_20261102_commercial_reconciliation_20261106_001",
     "kind": "commercial_matrix_import",
-    "name": "Duster MY26 2026-11-02 Price List Commercial and Colour Reconciliation",
+    "name": "Sandero / Sandero Stepway MY26 2026-11-02 Price List and Commercial Matrix Reconciliation",
     "status": "complete",
-    "goal": "Registered the 2026-11-02 official Duster cennik and linked all 16 configurations/four grades. Added two named non-metallic colour items and 64 dated mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). Updated the spare wheel to 900 PLN for six non-LPG configurations and explicitly marked ten LPG configurations unavailable; limited TECHNO 1 to three automatic Extreme configurations. Reused the unchanged 16 catalogue prices, 391 technical scalar observations, 16 ranges and 1,152 equipment-availability observations without duplicate rows. Deferred the ambiguous metallic-paint 2,800/3,000 pair, accessory wheel list and unbound dimension pairs. No brochure data imported."
+    "goal": "Registered the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02 and linked all 19 configurations and six grades. Added 15 dated catalogue price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings. Reconciled the full nine-page source: added 24 Hybrid 155 scalar equipment observations (wheel size/material/design/finish, upholstery and central console), 27 Hybrid 155 availability observations, and corrected four Stepway Expression rear-camera mappings to standard. Added 42 page-4 technical and 27 page-5 Sandero dimension observations. The later official 1,853 mm body width is recorded against conflicting older configurator observations. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, decorative trim descriptors, accessory lists and commercial campaigns remain explicitly deferred. No brochure data imported; raw PDF bytes and SHA-256 were unavailable for repository archiving."
   },
   "next_package": {
-    "package_id": "sandero_jogger_price_list_20261102_reconciliation_20261106_001",
+    "package_id": "jogger_price_matrix_correction_20261001_20261106_001",
     "kind": "source_gap_closure",
-    "name": "Sandero/Sandero Stepway and Jogger MY26 2026-11-02 Price List Reconciliation",
-    "status": "active",
-    "goal": "Reconcile the official Polish 2026-11-02 cenniks for Sandero/Sandero Stepway (https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf) and Jogger (https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf). Compare exact catalogue-price cells, option/package prices, equipment matrices and technical tables against registered sources; import only source-backed deltas and avoid duplicate observations. Defer all brochures."
+    "name": "Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction",
+    "status": "planned",
+    "goal": "Correct the official Jogger MY26 2026-10-01 price matrix. On page 1, the seven-seat Eco-G120 manual row is '-' / 86,550 / 94,400 PLN across Essential / Expression / Extreme. The master currently shifts 86,550 PLN to Essential and 94,400 PLN to Expression; remove the invalid Essential price row, correct Expression to 86,550 PLN and retain Extreme at 94,400 PLN. Add missing source links for all 12 Jogger configurations and three grades to the already archived source. The 02.11.2026 date belongs to the technical data table, not a second seven-seat price effective date. No brochures."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
