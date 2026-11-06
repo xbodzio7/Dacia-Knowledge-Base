@@ -1,3 +1,5 @@
+* Reconciled the official Polish Duster MY26 cennik effective 2026-11-02: registered 16 configuration and four grade relationships; added two non-metallic paint options and 64 dated commercial mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). The spare wheel is 900 PLN for six non-LPG configurations and explicitly unavailable for ten LPG configurations; TECHNO 1 is limited to three automatic Extreme configurations. Reused 16 catalogue prices, 1,152 equipment-availability cells, 391 technical scalar observations and 16 ranges without duplicate rows. Deferred the unlabelled metallic-paint 2,800/3,000 PLN pair, winter-wheel accessories and unbound dimension pairs. No brochure data imported.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
