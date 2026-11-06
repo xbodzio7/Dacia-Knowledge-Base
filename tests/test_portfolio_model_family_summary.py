@@ -47,7 +47,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
     def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
         self.assertEqual(self.summary["version"], 1)
         self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
-        self.assertRegex(self.summary["as_of"], r"^\\d{4}-\\d{2}-\\d{2}$")
+        self.assertRegex(self.summary["as_of"], r"^\d{4}-\d{2}-\d{2}$")
         expected_by_model = self._expected_provenance_by_model()
         expected_sources = {
             source_code
@@ -398,9 +398,26 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
         self.assertEqual(summary_rendered.count('class="family"'), 6)
-        expected_hash_count = sum(1 for family in self.summary["families"] for source in family["provenance"]["sources"] if source["sha256"])
-        self.assertEqual(summary_rendered.count("SHA-256 "), expected_hash_count)
-        self.assertEqual(summary_rendered.count("SHA-256 unavailable"), 3)
+        expected_hash_count = sum(
+            1
+            for family in self.summary["families"]
+            for source in family["provenance"]["sources"]
+            if source["sha256"]
+        )
+        expected_missing_hash_count = sum(
+            1
+            for family in self.summary["families"]
+            for source in family["provenance"]["sources"]
+            if not source["sha256"]
+        )
+        self.assertEqual(
+            summary_rendered.count("SHA-256 "),
+            expected_hash_count + expected_missing_hash_count,
+        )
+        self.assertEqual(
+            summary_rendered.count("SHA-256 unavailable"),
+            expected_missing_hash_count,
+        )
         self.assertIn(
             'data-state="recorded"', summary_rendered
         )
