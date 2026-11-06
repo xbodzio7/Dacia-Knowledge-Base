@@ -21,6 +21,7 @@ TABLES = {
     "source_versions": ("source_versions.csv", "source_versions", ("source_code", "version_code")),
     "configuration_prices": ("configuration_prices.csv", "configuration_prices", ("code",)),
     "configuration_attribute_values": ("configuration_attribute_values.csv", "configuration_attribute_values", ("code",)),
+    "configuration_attribute_availability": ("configuration_attribute_availability.csv", "configuration_attribute_availability", ("code",)),
     "commercial_items": ("commercial_items.csv", "commercial_items", ("code",)),
     "commercial_item_configurations": ("commercial_item_configurations.csv", "commercial_item_configurations", ("code",)),
 }
@@ -128,20 +129,30 @@ def verify_semantics(spec: dict[str, Any]) -> None:
             )
 
     technical = spec["configuration_attribute_values"]
-    if len(technical) != 69 or len({row["code"] for row in technical}) != 69:
-        raise ContractError("Expected 69 unique page-4/page-5 technical observations")
+    if len(technical) != 93 or len({row["code"] for row in technical}) != 93:
+        raise ContractError("Expected 93 unique page-3/page-4/page-5 scalar observations")
     if any(row["source_code"] != source["code"] or row["observation_date"] != "2026-11-02" for row in technical):
-        raise ContractError("Technical observations must use the exact cennik source and date")
+        raise ContractError("Scalar observations must use the exact cennik source and date")
+    page3 = [row for row in technical if "PDF page 3" in row["notes"]]
     page4 = [row for row in technical if "page 4" in row["notes"]]
     page5 = [row for row in technical if "page 5" in row["notes"]]
-    if len(page4) != 42 or len(page5) != 27:
-        raise ContractError("Technical page evidence totals differ from the reviewed source inventory")
+    if (len(page3), len(page4), len(page5)) != (24, 42, 27):
+        raise ContractError("Scalar page evidence totals differ from the reviewed source inventory")
     natural_keys = [
         (row["configuration_code"], row["attribute_code"], row["fuel_type_code"], row["gear_number"], row["observation_date"])
         for row in technical
     ]
     if len(set(natural_keys)) != len(natural_keys):
-        raise ContractError("Duplicate technical observation scope/date in the import specification")
+        raise ContractError("Duplicate scalar observation scope/date in the import specification")
+    if Counter(row["attribute_code"] for row in page3) != {
+        "wheel_size": 4,
+        "wheel_material": 4,
+        "wheel_design": 4,
+        "wheel_finish": 4,
+        "upholstery_variant": 4,
+        "centre_console_variant": 4,
+    }:
+        raise ContractError("Page-3 scalar observation breakdown differs from the source review")
     if Counter(row["attribute_code"] for row in page4) != {
         "fuel_consumption_combined": 8,
         "co2_emissions": 9,
@@ -166,17 +177,58 @@ def verify_semantics(spec: dict[str, Any]) -> None:
     }:
         raise ContractError("Page-5 dimension observation breakdown differs from the source review")
 
+    availability = spec["configuration_attribute_availability"]
+    if len(availability) != 27 or len({row["code"] for row in availability}) != 27:
+        raise ContractError("Expected 27 unique Hybrid 155 equipment availability observations")
+    if any(row["source_code"] != source["code"] or row["observation_date"] != "2026-11-02" for row in availability):
+        raise ContractError("Equipment availability observations must use the exact cennik source and date")
+    availability_keys = [
+        (row["configuration_code"], row["attribute_code"], row["observation_date"])
+        for row in availability
+    ]
+    if len(set(availability_keys)) != len(availability_keys):
+        raise ContractError("Duplicate equipment availability scope/date in the import specification")
+    if Counter(row["attribute_code"] for row in availability) != {
+        "rear_view_camera": 1,
+        "360_camera_system": 2,
+        "glass_sunroof": 1,
+        "heated_front_seats": 4,
+        "heated_steering_wheel": 2,
+        "automatic_climate_control": 2,
+        "manual_air_conditioning": 2,
+        "electronic_parking_brake": 1,
+        "front_seat_belt_pretensioners": 4,
+        "rear_seat_belt_pretensioners": 4,
+        "isofix_rear": 4,
+    }:
+        raise ContractError("Hybrid equipment availability breakdown differs from the source matrix")
+    if Counter(row["availability_status"] for row in availability) != {
+        "optional": 12,
+        "not_available": 3,
+        "standard": 12,
+    }:
+        raise ContractError("Hybrid equipment availability states differ from the source matrix")
+
     mappings = spec["commercial_item_configurations"]
     if len(mappings) != 209:
         raise ContractError("Expected 209 current commercial configuration mappings")
     if Counter(row["availability_status"] for row in mappings) != {
-        "optional": 102,
+        "optional": 98,
         "not_available": 99,
-        "standard": 8,
+        "standard": 12,
     }:
         raise ContractError("Commercial mapping status totals differ from the cennik matrix")
     if len(spec["source_configurations"]) != 19 or len(spec["source_versions"]) != 6:
         raise ContractError("Source relationships must cover 19 configurations and six grades")
+    stepway_expression_camera = [
+        row for row in mappings
+        if row["commercial_item_code"] == "sandero_rear_view_camera_option"
+        and row["configuration_code"].startswith("sandero_stepway_iii_expression_")
+    ]
+    if len(stepway_expression_camera) != 4 or any(
+        row["availability_status"] != "standard" or row["amount"] for row in stepway_expression_camera
+    ):
+        raise ContractError("Stepway Expression rear camera must be standard, not a 700 PLN option")
 
 
 def check(spec: dict[str, Any]) -> None:
