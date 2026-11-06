@@ -12,7 +12,7 @@
     "file_path": "",
     "sha256": "",
     "status": "active",
-    "notes": "Official Polish Sandero/Sandero Stepway MY26 9-page cennik effective 2026-11-02. Pages 1-3: 15 of 19 catalogue prices increase by 500 PLN; four Hybrid 155 prices unchanged; six-grade equipment/options/packages reconciled. Page 4: 42 source-backed technical observations added/reconciled, including VDA luggage volume, Hybrid 155 multipoint injection, acceleration and electric-motor torque; WLTP values reconciled with exact fuel context. Eco-G LPG tank capacity (40 l) and injection type are explicitly deferred because the cennik does not distinguish total/fillable capacity or fuel-specific injection, and another official cennik distinguishes petrol/LPG injection. Page 5: 27 Sandero dimension observations added/reconciled; later official width 1,853 mm resolves conflicting 1,753 mm configurator values. Interior dimension callouts without a safe canonical attribute mapping are deferred. Pages 6-9 reviewed; accessory catalogue without prices, separate winter-wheel list effective 2026-09-01, and commercial/financing campaigns are explicitly deferred. Raw PDF bytes were unavailable for archiving; SHA-256 unavailable."
+    "notes": "Official Polish Sandero/Sandero Stepway MY26 9-page cennik effective 2026-11-02. Pages 1-4: 15 of 19 catalogue prices increase by 500 PLN; four Hybrid 155 prices unchanged; six-grade equipment/options/packages reconciled. Added 27 missing Hybrid 155 equipment availability observations and 24 scalar observations for wheels, upholstery and central console; corrected four Stepway Expression rear-camera mappings to standard. Page 5 technical data: 42 observations added/reconciled, including WLTP, VDA luggage volume and Hybrid 155 injection/acceleration/electric-motor torque. Eco-G injection and LPG tank-capacity semantics are deferred against the Jogger cennik cross-check. Page 6: 27 Sandero dimension observations added/reconciled; 1,853 mm body width resolves conflicting 1,753 mm configurator values; interior callouts without safe attribute mapping deferred. Pages 7-9 reviewed; accessory catalogue without prices, separate winter-wheel list effective 2026-09-01 and commercial/finance campaigns are deferred. Raw PDF bytes unavailable for archiving; SHA-256 unavailable."
   },
   "source_configurations": [
     {
@@ -1133,24 +1133,24 @@
       "code": "sandero_rear_view_camera_option__sandero_stepway_iii_expression_ecog120_automatic__20261102",
       "commercial_item_code": "sandero_rear_view_camera_option",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
-      "availability_status": "optional",
-      "amount": "700",
+      "availability_status": "standard",
+      "amount": "",
       "currency_code": "PLN",
       "price_date": "2026-11-02",
       "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official Polish MY26 cennik, page 3; Kamera cofania. "
+      "notes": "Official cennik PDF page 3, row 'Kamera cofania': standard (●) in Stepway Expression; no separate option charge."
     },
     {
       "id": "693",
       "code": "sandero_rear_view_camera_option__sandero_stepway_iii_expression_ecog120_manual__20261102",
       "commercial_item_code": "sandero_rear_view_camera_option",
       "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
-      "availability_status": "optional",
-      "amount": "700",
+      "availability_status": "standard",
+      "amount": "",
       "currency_code": "PLN",
       "price_date": "2026-11-02",
       "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official Polish MY26 cennik, page 3; Kamera cofania. "
+      "notes": "Official cennik PDF page 3, row 'Kamera cofania': standard (●) in Stepway Expression; no separate option charge."
     },
     {
       "id": "694",
@@ -1253,12 +1253,12 @@
       "code": "sandero_rear_view_camera_option__sandero_stepway_iii_expression_tce110_manual__20261102",
       "commercial_item_code": "sandero_rear_view_camera_option",
       "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
-      "availability_status": "optional",
-      "amount": "700",
+      "availability_status": "standard",
+      "amount": "",
       "currency_code": "PLN",
       "price_date": "2026-11-02",
       "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official Polish MY26 cennik, page 3; Kamera cofania. "
+      "notes": "Official cennik PDF page 3, row 'Kamera cofania': standard (●) in Stepway Expression; no separate option charge."
     },
     {
       "id": "703",
@@ -1301,12 +1301,12 @@
       "code": "sandero_rear_view_camera_option__sandero_stepway_iii_expression_hybrid155_automatic__20261102",
       "commercial_item_code": "sandero_rear_view_camera_option",
       "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
-      "availability_status": "optional",
-      "amount": "700",
+      "availability_status": "standard",
+      "amount": "",
       "currency_code": "PLN",
       "price_date": "2026-11-02",
       "source_code": "src_pl_sandero_stepway_price_my26_20261102",
-      "notes": "Official Polish MY26 cennik, page 3; Kamera cofania. "
+      "notes": "Official cennik PDF page 3, row 'Kamera cofania': standard (●) in Stepway Expression; no separate option charge."
     },
     {
       "id": "707",
@@ -2978,13 +2978,15 @@
     "updated_commercial_items": 8,
     "commercial_mappings": 209,
     "mapping_status_counts": {
-      "optional": 102,
+      "optional": 98,
       "not_available": 99,
-      "standard": 8
+      "standard": 12
     },
-    "technical_scalar_observations": 69,
+    "technical_scalar_observations": 93,
     "page4_technical_observations": 42,
-    "page5_dimension_observations": 27
+    "page5_dimension_observations": 27,
+    "page3_scalar_observations": 24,
+    "equipment_availability_observations": 27
   },
   "configuration_attribute_values": [
     {
@@ -3814,6 +3816,566 @@
       "observation_date": "2026-11-02",
       "source_code": "src_pl_sandero_stepway_price_my26_20261102",
       "notes": "Official cennik page 5, Sandero dimension diagram: ground_clearance = 162 mm. The diagram is explicitly for Sandero (not Stepway) and applies at model level."
+    },
+    {
+      "id": "8485",
+      "code": "sandero_iii_expression_hybrid155_automatic_wheel_size_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_size",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "16\"",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: standard 16-inch wheel specification for the grade."
+    },
+    {
+      "id": "8486",
+      "code": "sandero_iii_expression_hybrid155_automatic_wheel_material_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_material",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "steel",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: steel 16-inch wheel for this grade."
+    },
+    {
+      "id": "8487",
+      "code": "sandero_iii_expression_hybrid155_automatic_wheel_design_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_design",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "ATARA",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel design ATARA."
+    },
+    {
+      "id": "8488",
+      "code": "sandero_iii_expression_hybrid155_automatic_wheel_finish_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_finish",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "stalowe",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel finish/material appearance stalowe."
+    },
+    {
+      "id": "8489",
+      "code": "sandero_iii_expression_hybrid155_automatic_upholstery_variant_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "upholstery_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "materiałowa w kolorze czarnym z wstawkami w kolorze denim",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: upholstery specification for this grade."
+    },
+    {
+      "id": "8490",
+      "code": "sandero_iii_expression_hybrid155_automatic_centre_console_variant_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "centre_console_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "konsola centralna z podłokietnikiem i schowkiem",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: central console with armrest and storage is standard for Expression/Journey/Stepway Expression/Extreme."
+    },
+    {
+      "id": "8491",
+      "code": "sandero_iii_journey_hybrid155_automatic_wheel_size_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "wheel_size",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "16\"",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: standard 16-inch wheel specification for the grade."
+    },
+    {
+      "id": "8492",
+      "code": "sandero_iii_journey_hybrid155_automatic_wheel_material_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "wheel_material",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "alloy",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: alloy 16-inch wheel for this grade."
+    },
+    {
+      "id": "8493",
+      "code": "sandero_iii_journey_hybrid155_automatic_wheel_design_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "wheel_design",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "TAMIA",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel design TAMIA."
+    },
+    {
+      "id": "8494",
+      "code": "sandero_iii_journey_hybrid155_automatic_wheel_finish_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "wheel_finish",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "aluminiowe",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel finish/material appearance aluminiowe."
+    },
+    {
+      "id": "8495",
+      "code": "sandero_iii_journey_hybrid155_automatic_upholstery_variant_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "upholstery_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "materiałowa w kolorze denim",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: upholstery specification for this grade."
+    },
+    {
+      "id": "8496",
+      "code": "sandero_iii_journey_hybrid155_automatic_centre_console_variant_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "centre_console_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "konsola centralna z podłokietnikiem i schowkiem",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: central console with armrest and storage is standard for Expression/Journey/Stepway Expression/Extreme."
+    },
+    {
+      "id": "8497",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_wheel_size_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_size",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "16\"",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: standard 16-inch wheel specification for the Stepway grade."
+    },
+    {
+      "id": "8498",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_wheel_material_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_material",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "steel",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: steel 16-inch wheel for this grade."
+    },
+    {
+      "id": "8499",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_wheel_design_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_design",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "ATARA",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel design ATARA."
+    },
+    {
+      "id": "8500",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_wheel_finish_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "wheel_finish",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "stalowe",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel finish/material appearance stalowe."
+    },
+    {
+      "id": "8501",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_upholstery_variant_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "upholstery_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "materiałowa w kolorze czarnym z geometrycznymi wzorami po bokach i pomarańczowymi przeszyciami",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: upholstery specification for this grade."
+    },
+    {
+      "id": "8502",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_centre_console_variant_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "centre_console_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "konsola centralna z podłokietnikiem i schowkiem",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: central console with armrest and storage is standard for Expression/Journey/Stepway Expression/Extreme."
+    },
+    {
+      "id": "8503",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_wheel_size_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "wheel_size",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "16\"",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: standard 16-inch wheel specification for the Stepway grade."
+    },
+    {
+      "id": "8504",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_wheel_material_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "wheel_material",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "alloy",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: alloy 16-inch wheel for this grade."
+    },
+    {
+      "id": "8505",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_wheel_design_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "wheel_design",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "TAMIA BLACK",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel design TAMIA BLACK."
+    },
+    {
+      "id": "8506",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_wheel_finish_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "wheel_finish",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "czarne aluminiowe",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: wheel finish/material appearance czarne aluminiowe."
+    },
+    {
+      "id": "8507",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_upholstery_variant_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "upholstery_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "specjalna tapicerka dla wersji Extreme",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: upholstery specification for this grade."
+    },
+    {
+      "id": "8508",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_centre_console_variant_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "centre_console_variant",
+      "fuel_type_code": "",
+      "gear_number": "",
+      "value": "konsola centralna z podłokietnikiem i schowkiem",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3 equipment matrix: central console with armrest and storage is standard for Expression/Journey/Stepway Expression/Extreme."
+    }
+  ],
+  "configuration_attribute_availability": [
+    {
+      "id": "10373",
+      "code": "sandero_iii_expression_hybrid155_automatic_rear_view_camera_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "rear_view_camera",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix row 'Kamera cofania': 700 PLN option for Sandero Expression."
+    },
+    {
+      "id": "10374",
+      "code": "sandero_iii_journey_hybrid155_automatic_360_camera_system_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix row 'Multiview kamera': P means available as part of the EASY package, not a separately priced option."
+    },
+    {
+      "id": "10375",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_360_camera_system_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "360_camera_system",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix row 'Multiview kamera': P means available as part of the EASY package, not a separately priced option."
+    },
+    {
+      "id": "10376",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_glass_sunroof_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "glass_sunroof",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment/options table: electric glass sunroof 2,200 PLN for Stepway Extreme."
+    },
+    {
+      "id": "10377",
+      "code": "sandero_iii_expression_hybrid155_automatic_heated_front_seats_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Fotele przednie podgrzewane': P indicates availability through the WINTER/THERMO package, not a standalone option."
+    },
+    {
+      "id": "10378",
+      "code": "sandero_iii_journey_hybrid155_automatic_heated_front_seats_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Fotele przednie podgrzewane': P indicates availability through the WINTER/THERMO package, not a standalone option."
+    },
+    {
+      "id": "10379",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_heated_front_seats_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Fotele przednie podgrzewane': P indicates availability through the WINTER/THERMO package, not a standalone option."
+    },
+    {
+      "id": "10380",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_heated_front_seats_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "heated_front_seats",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Fotele przednie podgrzewane': P indicates availability through the WINTER/THERMO package, not a standalone option."
+    },
+    {
+      "id": "10381",
+      "code": "sandero_iii_journey_hybrid155_automatic_heated_steering_wheel_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "heated_steering_wheel",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Podgrzewana kierownica': P indicates package-only availability."
+    },
+    {
+      "id": "10382",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_heated_steering_wheel_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "heated_steering_wheel",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Podgrzewana kierownica': P indicates package-only availability."
+    },
+    {
+      "id": "10383",
+      "code": "sandero_iii_expression_hybrid155_automatic_automatic_climate_control_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "automatic_climate_control",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Klimatyzacja automatyczna': P indicates package-only availability."
+    },
+    {
+      "id": "10384",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_automatic_climate_control_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "automatic_climate_control",
+      "availability_status": "optional",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix row 'Klimatyzacja automatyczna': P indicates package-only availability."
+    },
+    {
+      "id": "10385",
+      "code": "sandero_iii_journey_hybrid155_automatic_manual_air_conditioning_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "manual_air_conditioning",
+      "availability_status": "not_available",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix: manual A/C is not fitted where automatic climate control is standard."
+    },
+    {
+      "id": "10386",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_manual_air_conditioning_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "manual_air_conditioning",
+      "availability_status": "not_available",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix: manual A/C is not fitted where automatic climate control is standard."
+    },
+    {
+      "id": "10387",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_electronic_parking_brake_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "electronic_parking_brake",
+      "availability_status": "not_available",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 4, equipment matrix footnote: electronic parking brake is excluded for Expression with automatic gearbox."
+    },
+    {
+      "id": "10388",
+      "code": "sandero_iii_expression_hybrid155_automatic_front_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "front_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10389",
+      "code": "sandero_iii_expression_hybrid155_automatic_rear_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "rear_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10390",
+      "code": "sandero_iii_expression_hybrid155_automatic_isofix_rear_20261102",
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "attribute_code": "isofix_rear",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: ISOFIX on the two outer rear seats is standard."
+    },
+    {
+      "id": "10391",
+      "code": "sandero_iii_journey_hybrid155_automatic_front_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "front_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10392",
+      "code": "sandero_iii_journey_hybrid155_automatic_rear_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "rear_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10393",
+      "code": "sandero_iii_journey_hybrid155_automatic_isofix_rear_20261102",
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "attribute_code": "isofix_rear",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: ISOFIX on the two outer rear seats is standard."
+    },
+    {
+      "id": "10394",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_front_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "front_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10395",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_rear_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "rear_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10396",
+      "code": "sandero_stepway_iii_expression_hybrid155_automatic_isofix_rear_20261102",
+      "configuration_code": "sandero_stepway_iii_expression_hybrid155_automatic",
+      "attribute_code": "isofix_rear",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: ISOFIX on the two outer rear seats is standard."
+    },
+    {
+      "id": "10397",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_front_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "front_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10398",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_rear_seat_belt_pretensioners_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "rear_seat_belt_pretensioners",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: pyrotechnic seat-belt pretensioners in rows 1 and 2 are standard."
+    },
+    {
+      "id": "10399",
+      "code": "sandero_stepway_iii_extreme_hybrid155_automatic_isofix_rear_20261102",
+      "configuration_code": "sandero_stepway_iii_extreme_hybrid155_automatic",
+      "attribute_code": "isofix_rear",
+      "availability_status": "standard",
+      "observation_date": "2026-11-02",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "notes": "Official cennik PDF page 3, equipment matrix: ISOFIX on the two outer rear seats is standard."
     }
   ]
 }
