@@ -15,9 +15,9 @@
     "existing_items_reconciled": 8,
     "configuration_mappings_added": 209,
     "mapping_status_counts": {
-      "optional": 102,
+      "optional": 98,
       "not_available": 99,
-      "standard": 8
+      "standard": 12
     }
   },
   "commercial_items_added": [
@@ -44,8 +44,8 @@
     "sandero_media_nav_live_package",
     "sandero_easy_package"
   ],
-  "technical_and_equipment_tables": "All nine pages visually reviewed. Page 4 and page 5 were reconciled against master data; 69 technical/dimension observations were added. Existing equipment states and already-covered technical facts were not duplicated. Eco-G injection and LPG tank-capacity semantics, accessory material and commercial campaigns remain explicitly deferred.",
-  "source_integrity": "Official PDF URL recorded and all nine rendered pages reviewed. Raw PDF bytes could not be downloaded/archived in this session; SHA-256 remains unavailable and is not fabricated. Cross-cennik comparison: the official Jogger 2026-11-02 cennik page 6 explicitly distinguishes Eco-G petrol direct injection/LPG port injection and LPG total/fillable capacity 50/40 l.",
+  "technical_and_equipment_tables": "All nine pages visually reviewed. The six-grade equipment matrix is reconciled across 19 configurations: 27 Hybrid 155 availability observations and 24 Hybrid scalar observations were added; four Stepway Expression rear-camera mappings were corrected to standard. Pages 4 and 5 contributed 42 technical and 27 dimension observations. Eco-G injection and LPG tank-capacity semantics, interior dimension callouts, accessory lists and commercial campaigns remain explicitly deferred.",
+  "source_integrity": "Official PDF URL recorded and all nine rendered pages reviewed. Raw PDF bytes could not be downloaded/archived in this session; SHA-256 remains unavailable and is not fabricated. Cross-cennik comparison: the official Jogger 2026-11-02 cennik page 6 explicitly distinguishes Eco-G petrol direct/LPG port injection and LPG total/fillable capacity 50/40 l.",
   "next_package": "Jogger MY26 2026-10-01 price matrix correction: correct 7-seat Eco-G120 grade alignment and complete source-to-configuration relationships.",
   "technical_data": {
     "page4_observations_added": 42,
@@ -85,13 +85,13 @@
       "page": 3,
       "section": "Six-grade equipment matrix, individual options and spare wheel",
       "review": "complete_visual_and_text",
-      "classification": "Equipment applicability reviewed; option rows reconciled in the 209 dated mappings. The combined paint label and printed 2,600/2,800 PLN values retain their exact scope; spare wheel explicitly excludes LPG."
+      "classification": "Six-grade equipment matrix reconciled against all 19 configurations. Added 27 missing Hybrid 155 availability observations and 24 scalar wheel/upholstery/central-console observations; existing matching cells reused. Four Stepway Expression rear-camera option mappings corrected to standard."
     },
     {
       "page": 4,
       "section": "Additional equipment, packages and legend",
       "review": "complete_visual_and_text",
-      "classification": "Rear camera, standalone Media Nav Live, glass sunroof and COMFORT/THERMO/WINTER/MEDIA NAV LIVE/EASY packages reconciled; existing equipment cells reused where already represented. Legend and package-only P states preserved."
+      "classification": "Rear camera, standalone Media Nav Live, glass sunroof and COMFORT/THERMO/WINTER/MEDIA NAV LIVE/EASY packages reconciled. Package-only P states are preserved as optional-with-package-evidence; automatic/manual climate and electronic parking-brake dependencies were checked against the Hybrid 155 cells."
     },
     {
       "page": 5,
@@ -175,5 +175,43 @@
       "next_action": "Review the rendered diagram against an explicit attribute contract before any import."
     }
   ],
-  "source_assimilation_status": "fully_assimilated_with_deferrals"
+  "source_assimilation_status": "fully_assimilated_with_deferrals",
+  "equipment_matrix": {
+    "page3_scalar_observations_added": 24,
+    "page3_availability_observations_added": 27,
+    "commercial_mapping_corrections": 4,
+    "scope": "Four Hybrid 155 configurations were reconciled against the six-grade equipment matrix. The 24 scalar observations preserve standard wheel size/material/design/finish, upholstery and central-console specification. The 27 availability observations fill missing Hybrid cells and record dated state corrections.",
+    "scalar_breakdown": {
+      "wheel_size": 4,
+      "wheel_material": 4,
+      "wheel_design": 4,
+      "wheel_finish": 4,
+      "upholstery_variant": 4,
+      "centre_console_variant": 4
+    },
+    "availability_breakdown": {
+      "rear_view_camera": 1,
+      "360_camera_system": 2,
+      "glass_sunroof": 1,
+      "heated_front_seats": 4,
+      "heated_steering_wheel": 2,
+      "automatic_climate_control": 2,
+      "manual_air_conditioning": 2,
+      "electronic_parking_brake": 1,
+      "front_seat_belt_pretensioners": 4,
+      "rear_seat_belt_pretensioners": 4,
+      "isofix_rear": 4
+    },
+    "status_breakdown": {
+      "optional": 12,
+      "not_available": 3,
+      "standard": 12
+    },
+    "corrections": [
+      "Four Stepway Expression rear-camera mappings corrected from a 700 PLN option to standard equipment, matching the printed matrix.",
+      "Sandero Expression Hybrid rear camera added as an optional 700 PLN feature.",
+      "Manual air conditioning marked not available where automatic climate control is standard (Sandero Journey Hybrid and Stepway Extreme Hybrid).",
+      "Electronic parking brake marked not available for Stepway Expression Hybrid because the cennik excludes Expression with automatic gearbox."
+    ]
+  }
 }
