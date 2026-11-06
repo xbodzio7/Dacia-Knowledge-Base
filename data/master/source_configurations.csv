@@ -442,3 +442,15 @@ id,source_code,configuration_code,relationship,notes
 442,src_pl_sandero_stepway_price_my26_20261102,sandero_iii_journey_hybrid155_automatic,documents,Explicit configuration in the official 2026-11-02 Sandero/Sandero Stepway price matrix; catalogue and commercial option tables reviewed.
 443,src_pl_sandero_stepway_price_my26_20261102,sandero_stepway_iii_expression_hybrid155_automatic,documents,Explicit configuration in the official 2026-11-02 Sandero/Sandero Stepway price matrix; catalogue and commercial option tables reviewed.
 444,src_pl_sandero_stepway_price_my26_20261102,sandero_stepway_iii_extreme_hybrid155_automatic,documents,Explicit configuration in the official 2026-11-02 Sandero/Sandero Stepway price matrix; catalogue and commercial option tables reviewed.
+445,src_pl_jogger_price_my26_20261001,jogger_essential_5seat_ecog120_manual,documents,Official Polish Jogger MY26 cennik page 1; exact 5-seat catalogue-matrix configuration.
+446,src_pl_jogger_price_my26_20261001,jogger_expression_5seat_ecog120_manual,documents,Official Polish Jogger MY26 cennik page 1; exact 5-seat catalogue-matrix configuration.
+447,src_pl_jogger_price_my26_20261001,jogger_extreme_5seat_ecog120_manual,documents,Official Polish Jogger MY26 cennik page 1; exact 5-seat catalogue-matrix configuration.
+448,src_pl_jogger_price_my26_20261001,jogger_extreme_5seat_ecog120_automatic,documents,Official Polish Jogger MY26 cennik page 1; exact 5-seat catalogue-matrix configuration.
+449,src_pl_jogger_price_my26_20261001,jogger_expression_5seat_hybrid155_automatic,documents,Official Polish Jogger MY26 cennik page 1; exact 5-seat catalogue-matrix configuration.
+450,src_pl_jogger_price_my26_20261001,jogger_extreme_5seat_hybrid155_automatic,documents,Official Polish Jogger MY26 cennik page 1; exact 5-seat catalogue-matrix configuration.
+451,src_pl_jogger_price_my26_20261001,jogger_essential_7seat_ecog120_manual,documents,Official Polish Jogger MY26 cennik page 1; exact 7-seat catalogue-matrix configuration.
+452,src_pl_jogger_price_my26_20261001,jogger_expression_7seat_ecog120_manual,documents,Official Polish Jogger MY26 cennik page 1; exact 7-seat catalogue-matrix configuration.
+453,src_pl_jogger_price_my26_20261001,jogger_extreme_7seat_ecog120_manual,documents,Official Polish Jogger MY26 cennik page 1; exact 7-seat catalogue-matrix configuration.
+454,src_pl_jogger_price_my26_20261001,jogger_extreme_7seat_ecog120_automatic,documents,Official Polish Jogger MY26 cennik page 1; exact 7-seat catalogue-matrix configuration.
+455,src_pl_jogger_price_my26_20261001,jogger_expression_7seat_hybrid155_automatic,documents,Official Polish Jogger MY26 cennik page 1; exact 7-seat catalogue-matrix configuration.
+456,src_pl_jogger_price_my26_20261001,jogger_extreme_7seat_hybrid155_automatic,documents,Official Polish Jogger MY26 cennik page 1; exact 7-seat catalogue-matrix configuration.
