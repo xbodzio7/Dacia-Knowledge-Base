@@ -42,7 +42,7 @@ Registered the official Polish Sandero/Sandero Stepway MY26 price list effective
 
 ## Next package
 
-**Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction** — `ready`
+**Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction** — `planned`
 
 Correct the official Jogger MY26 2026-10-01 price matrix. On page 1, the seven-seat Eco-G120 manual row is '-' / 86,550 / 94,400 PLN across Essential / Expression / Extreme. The master currently shifts 86,550 PLN to Essential and 94,400 PLN to Expression; remove the invalid Essential price row, correct Expression to 86,550 PLN and retain Extreme at 94,400 PLN. Add missing source links for all 12 Jogger configurations and three grades to the already archived source. The 02.11.2026 date belongs to the technical data table, not a second seven-seat price effective date. No brochures.
 
