@@ -82,3 +82,6 @@ id,source_code,version_code,relationship,notes
 81,src_pl_sandero_stepway_price_my26_20261102,sandero_stepway_iii_expression,documents,Equipment grade is an explicit column in the official 2026-11-02 Sandero/Sandero Stepway price list.
 82,src_pl_sandero_stepway_price_my26_20261102,sandero_stepway_iii_extreme,documents,Equipment grade is an explicit column in the official 2026-11-02 Sandero/Sandero Stepway price list.
 83,src_pl_sandero_stepway_price_my26_20261102,sandero_iii_essential,documents,Equipment grade is an explicit column in the official 2026-11-02 Sandero/Sandero Stepway price list.
+84,src_pl_jogger_price_my26_20261001,jogger_essential,documents,Grade column in official Polish Jogger MY26 price matrix page 1.
+85,src_pl_jogger_price_my26_20261001,jogger_expression,documents,Grade column in official Polish Jogger MY26 price matrix page 1.
+86,src_pl_jogger_price_my26_20261001,jogger_extreme,documents,Grade column in official Polish Jogger MY26 price matrix page 1.
