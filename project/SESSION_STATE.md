@@ -121,7 +121,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 451 obserwacji w `configuration_attribute_value_ranges.csv`,
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 10399 rekordów w `configuration_attribute_availability.csv`,
-- 8370 rekordów `standard`, 692 `optional`, 1310 `not_available` i 0 `unknown`,
+- 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
 - baza SQLite obejmująca 48 tabele i 22698 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
