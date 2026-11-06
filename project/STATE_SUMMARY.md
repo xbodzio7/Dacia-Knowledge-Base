@@ -25,8 +25,8 @@
 
 - Tests: 1972
 - Master CSV files: 48
-- Master rows: 22674
-- Configuration values: 8495
+- Master rows: 22647
+- Configuration values: 8468
 - Configuration import specifications: 189
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
@@ -38,7 +38,7 @@
 
 **Sandero / Sandero Stepway MY26 2026-11-02 Price List and Commercial Matrix Reconciliation** — `complete`
 
-Registered the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02 and linked all 19 configurations and six grades. Added 15 dated catalogue price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings. Completed the nine-page source review and added 96 exact technical/dimension observations (69 from page 4 and 27 from page 5): fuel-specific Eco-G tank capacities, 328 dm3 VDA cargo volume, injection types, Hybrid 155 electric-motor torque and acceleration, and Sandero dimensions. The later official 1,853 mm body width is recorded separately from conflicting older configurator observations. Pages 6-9 were reviewed; accessory list, winter-wheel list and financing/lease campaigns remain explicitly deferred as separate source components. No brochure data imported; PDF bytes and SHA-256 were unavailable for repository archiving.
+Registered the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02 and linked all 19 configurations and six grades. Added 15 dated catalogue price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings. Completed the nine-page source review and added 69 exact technical/dimension observations (42 from page 4 and 27 from page 5): fuel-context WLTP values, VDA cargo volume, Hybrid 155 multipoint injection, acceleration and electric-motor torque, plus Sandero dimensions. The later official 1,853 mm body width is recorded against conflicting older configurator observations. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, accessory lists and commercial campaigns remain explicitly deferred. No brochure data imported; raw PDF bytes and SHA-256 were unavailable for repository archiving.
 
 ## Next package
 
