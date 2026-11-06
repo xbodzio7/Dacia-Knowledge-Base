@@ -291,7 +291,7 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
             referenced_sources,
         )
         # URL-only official PDF sources may legitimately have no archived-byte hash.
-        self.assertTrue(all(not str(row["sha256"]) or len(str(row["sha256"])) == 64 for row in sources))
+        self.assertTrue(all(row["sha256"] in (None, "") or len(str(row["sha256"])) == 64 for row in sources))
 
         expected_artifacts = {
             str(record["path"])
