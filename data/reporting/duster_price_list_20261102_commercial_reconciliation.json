@@ -1,0 +1,107 @@
+{
+  "report_id": "duster_price_list_20261102_commercial_reconciliation",
+  "source": {
+    "source_code": "src_pl_duster_price_my26_20261102",
+    "source_type": "configuration_pdf",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-11-02",
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf",
+    "page_count": 10,
+    "raw_pdf_sha256": null,
+    "raw_pdf_repository_path": null
+  },
+  "scope": {
+    "model": "Duster",
+    "configurations": 16,
+    "versions": 4,
+    "reviewed_printed_pages": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "brochure_sources_used": false
+  },
+  "reconciliation": {
+    "catalogue_prices": {
+      "previous_source": "src_pl_duster_price_my26_20260901",
+      "existing_rows_reused": 16,
+      "new_rows_added": 0,
+      "result": "All 16 page-1 catalogue prices match the existing 2026-09-01 master observations."
+    },
+    "equipment_availability": {
+      "previous_source": "src_pl_duster_price_my26_20260901",
+      "existing_observations_reused": 1152,
+      "new_rows_added": 0,
+      "result": "The page-3/4 equipment-availability matrix is unchanged; no duplicate cells were added."
+    },
+    "technical_scalars": {
+      "previous_source": "src_pl_duster_price_my26_20260901",
+      "existing_observations_reused": 391,
+      "new_rows_added": 0,
+      "result": "The page-6 technical values match the existing scalar observations."
+    },
+    "technical_ranges": {
+      "previous_source": "src_pl_duster_price_my26_20260901",
+      "existing_observations_reused": 16,
+      "new_rows_added": 0,
+      "result": "The page-6 maximum-payload ranges match the existing range observations."
+    },
+    "commercial_items_added": 2,
+    "commercial_item_attribute_memberships_added": 2,
+    "dated_commercial_mappings_added": 64,
+    "mapping_counts": {
+      "duster_colour_biel_alpejska": 16,
+      "duster_colour_khaki_lichen": 16,
+      "duster_spare_wheel_option": 16,
+      "duster_techno_1_package": 16
+    },
+    "spare_wheel": {
+      "previous_price_pln": 800,
+      "current_price_pln": 900,
+      "optional_configurations": 6,
+      "not_available_lpg_configurations": 10
+    },
+    "techno_1": {
+      "price_pln": 2900,
+      "optional_configurations": 3,
+      "not_available_configurations": 13,
+      "eligibility": "Extreme grade with automatic transmission only; package includes ACC."
+    },
+    "colour_prices": {
+      "biel_alpejska_pln": 0,
+      "khaki_lichen_pln": 2800
+    },
+    "renamed_powertrain": {
+      "printed_name": "tribrid 150 4X4",
+      "existing_canonical_configuration_family": "hybridg150",
+      "new_configuration_created": false
+    }
+  },
+  "deferred": [
+    {
+      "page": 3,
+      "item": "Lakier metalizowany 2,800 / 3,000 PLN",
+      "reason": "The cennik prints two price values without identifying the corresponding named paint variants; no mapping was inferred."
+    },
+    {
+      "page": 8,
+      "item": "Winter-wheel accessory catalogue",
+      "reason": "Separate accessory list with wheel/part references; not imported as vehicle configuration options."
+    },
+    {
+      "page": 9,
+      "item": "Duster dimensions diagram",
+      "reason": "Several dimensions are shown as paired values without a precise grade/powertrain crosswalk; no configuration-level mapping was inferred."
+    }
+  ],
+  "evidence_notes": [
+    "The page-2 hybrid narrative states a 260 V traction battery while the page-6 technical table states 230 V; the existing discrepancy is preserved without choosing one value.",
+    "The current cennik's page-1 prices, page-3/4 equipment matrix, page-5 package prices and page-6 technical values were compared with the existing 2026-09-01 source. Only the named non-metallic paint surcharges, spare-wheel surcharge and current TECHNO 1 applicability were imported.",
+    "No brochure or configurator evidence was used to create new master observations."
+  ]
+}
