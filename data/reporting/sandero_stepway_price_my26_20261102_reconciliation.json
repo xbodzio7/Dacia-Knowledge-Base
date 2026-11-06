@@ -1,0 +1,50 @@
+{
+  "package": "Sandero / Sandero Stepway MY26 2026-11-02 cennik reconciliation",
+  "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf",
+  "document_date": "2026-11-02",
+  "scope": "Official Polish price list only; no brochure or configurator assimilation.",
+  "catalogue_prices": {
+    "configurations_reviewed": 19,
+    "new_price_observations": 15,
+    "unchanged_confirmed": 4,
+    "changed_values_pln": 500
+  },
+  "commercial_data": {
+    "new_items": 3,
+    "existing_items_reconciled": 8,
+    "configuration_mappings_added": 209,
+    "mapping_status_counts": {
+      "optional": 102,
+      "not_available": 99,
+      "standard": 8
+    }
+  },
+  "commercial_items_added": [
+    {
+      "code": "sandero_metallic_paint_option",
+      "name": "Lakier metalizowany"
+    },
+    {
+      "code": "sandero_special_nonmetallic_paint_option",
+      "name": "Lakier niemetalizowany specjalny"
+    },
+    {
+      "code": "sandero_spare_wheel_option",
+      "name": "Koło zapasowe + podnośnik"
+    }
+  ],
+  "commercial_items_reconciled": [
+    "sandero_rear_view_camera_option",
+    "sandero_media_nav_live_option",
+    "sandero_glass_sunroof_option",
+    "sandero_comfort_auto_package",
+    "sandero_thermo_package",
+    "sandero_winter_package",
+    "sandero_media_nav_live_package",
+    "sandero_easy_package"
+  ],
+  "technical_and_equipment_tables": "Reviewed; no duplicate technical or equipment observations imported where existing master evidence already covers the cells.",
+  "source_integrity": "Official PDF URL recorded. Raw PDF bytes were not archived in this session; SHA-256 is therefore unavailable, consistent with the source assimilation standard requiring a hash when available.",
+  "next_package": "Jogger MY26 2026-10-01 price matrix correction: correct 7-seat Eco-G120 grade alignment and complete source-to-configuration relationships."
+}
