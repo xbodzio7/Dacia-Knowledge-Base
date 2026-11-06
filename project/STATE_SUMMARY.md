@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-05
+- State updated: 2026-11-06
 
 ## Phase
 
-**Dacia Official Documentary Source Gap Closure**
+**Dacia Official Price List Reconciliation**
 
 ## Reference delivery
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1970
+- Tests: 1971
 - Master CSV files: 48
-- Master rows: 22236
+- Master rows: 22325
 - Configuration values: 8399
 - Configuration import specifications: 189
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 / 2026-11-02 Commercial Option and Package Price Reconciliation** — `complete`
+**Duster MY26 2026-11-02 Price List Commercial and Colour Reconciliation** — `complete`
 
-Added 172 dated commercial item/configuration mappings across the October and November 2026 official price lists, including two paint-price options. Preserved the Hybrid 155-only spare-wheel qualifier with unknown states for nonmatching configurations, without claiming unavailability or overwriting prior observations.
+Registered the 2026-11-02 official Duster cennik and linked all 16 configurations/four grades. Added two named non-metallic colour items and 64 dated mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). Updated the spare wheel to 900 PLN for six non-LPG configurations and explicitly marked ten LPG configurations unavailable; limited TECHNO 1 to three automatic Extreme configurations. Reused the unchanged 16 catalogue prices, 391 technical scalar observations, 16 ranges and 1,152 equipment-availability observations without duplicate rows. Deferred the ambiguous metallic-paint 2,800/3,000 pair, accessory wheel list and unbound dimension pairs. No brochure data imported.
 
 ## Next package
 
-**Official Bigster Brochure Full Assimilation** — `active`
+**Sandero/Sandero Stepway and Jogger MY26 2026-11-02 Price List Reconciliation** — `active`
 
-Continue the 24-page Bigster brochure source-to-master reconciliation by resolving the remaining page-22 semantic/identity gaps and the page-19 accessory-to-catalog crosswalk. Do not repeat page-6 technical scalar values from the 2026-10-01 price list: 22 import specifications and 150 observations are already in master, including Tribrid 150 engine_power=103 kW (IDs 8231–8233; PR #778). The 2026-11-02 price list labels its technical data as of 01.10.2026; no separate dated duplicate is warranted.
+Reconcile the official Polish 2026-11-02 cenniks for Sandero/Sandero Stepway (https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf) and Jogger (https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf). Compare exact catalogue-price cells, option/package prices, equipment matrices and technical tables against registered sources; import only source-backed deltas and avoid duplicate observations. Defer all brochures.
 
 ## Autonomy
 

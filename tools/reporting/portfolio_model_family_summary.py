@@ -403,7 +403,7 @@ def render_markdown(summary: Mapping[str, Any]) -> str:
                     date=source["document_date"],
                     kind=source["source_type"],
                     covered=source["configuration_count"],
-                    digest=source["sha256"],
+                    digest=source["sha256"] or "unavailable (raw source bytes not archived)",
                     title=source["title"],
                 )
             )
@@ -438,7 +438,7 @@ def _family_card(family: Mapping[str, Any]) -> str:
                 date=html.escape(str(source["document_date"])),
                 kind=html.escape(str(source["source_type"])),
                 count=source["configuration_count"],
-                digest=html.escape(str(source["sha256"])),
+                digest=html.escape(str(source["sha256"]) or "unavailable (raw source bytes not archived)"),
             )
         )
     return """<article class="family" id="family-{code}">

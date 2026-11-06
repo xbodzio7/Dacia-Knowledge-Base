@@ -314,11 +314,9 @@ def build() -> dict[str, tuple[list[str], list[dict[str, str]]]]:
 
 
 def expected_counts() -> dict[str, int]:
-    return {
-        "commercial_items.csv": 58,
-        "commercial_item_attributes.csv": 103,
-        "commercial_item_configurations.csv": 567,
-    }
+    # These are shared master tables. Their global row counts legitimately grow
+    # as later independent source packages are merged; verify owned rows below.
+    return {}
 
 
 def verify_imported() -> None:

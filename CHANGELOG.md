@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Reconciled the official Polish Duster MY26 cennik effective 2026-11-02: registered 16 configuration and four grade relationships; added two non-metallic paint options and 64 dated commercial mappings (32 colour, 16 spare-wheel, 16 TECHNO 1). The spare wheel is 900 PLN for six non-LPG configurations and explicitly unavailable for ten LPG configurations; TECHNO 1 is limited to three automatic Extreme configurations. Reused 16 catalogue prices, 1,152 equipment-availability cells, 391 technical scalar observations and 16 ranges without duplicate rows. Deferred the unlabelled metallic-paint 2,800/3,000 PLN pair, winter-wheel accessories and unbound dimension pairs. No brochure data imported.
+
 * Imported 260 additional historical equipment-availability observations from printed page 22 of the official 2025-12-10 Bigster brochure across 20 existing boolean attributes and 14 exact source-linked configurations. The combined page-21/22 brochure import now covers 557 observations; Hybrid 155-only cooled-console applicability is preserved, and composite package/port-count details remain deferred.
 
 * Imported 126 historical Bigster exterior-dimension observations from printed page 23 of the official 2025-12-10 brochure across 14 exact source-linked configurations. Nine existing mm attributes and the explicit 4×2/4×4 footnote were used; later dated price-list observations remain separate and unchanged.
@@ -342,9 +344,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1970 tests.
-* The verified master-data baseline now contains 48 CSV files and 22236 rows.
-* SQLite verification now covers 48 tables and 22236 rows.
+* The automated test suite now contains 1971 tests.
+* The verified master-data baseline now contains 48 CSV files and 22325 rows.
+* SQLite verification now covers 48 tables and 22325 rows.
 * Configuration attribute values now contain 8399 dated records.
 * Declarative scalar configuration-value imports now contain 189 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.

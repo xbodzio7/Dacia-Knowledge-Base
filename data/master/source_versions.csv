@@ -72,3 +72,7 @@ id,source_code,version_code,relationship,notes
 71,src_pl_duster_price_my26_20260901,duster_iii_expression,documents,Version column in the 2026-09-01 price matrix.
 72,src_pl_duster_price_my26_20260901,duster_iii_extreme,documents,Version column in the 2026-09-01 price matrix.
 73,src_pl_duster_price_my26_20260901,duster_iii_journey,documents,Version column in the 2026-09-01 price matrix.
+74,src_pl_duster_price_my26_20261102,duster_iii_essential,documents,Version column in the 2026-11-02 catalogue price matrix.
+75,src_pl_duster_price_my26_20261102,duster_iii_expression,documents,Version column in the 2026-11-02 catalogue price matrix.
+76,src_pl_duster_price_my26_20261102,duster_iii_extreme,documents,Version column in the 2026-11-02 catalogue price matrix.
+77,src_pl_duster_price_my26_20261102,duster_iii_journey,documents,Version column in the 2026-11-02 catalogue price matrix.

@@ -105,7 +105,7 @@ def check():
     items=read(MASTER/"commercial_items.csv"); maps=read(MASTER/"commercial_item_configurations.csv")
     got_items=[r for r in items if r["code"] in {x["code"] for x in exp_items}]
     got_maps=[r for r in maps if r["source_code"] in DATES]
-    if len(items)!=58 or len(maps)!=567 or got_items!=exp_items or got_maps!=exp_maps: raise ContractError("master rows differ from import spec")
+    if got_items!=exp_items or got_maps!=exp_maps: raise ContractError("master rows differ from import spec")
     if len({r["code"] for r in maps})!=len(maps): raise ContractError("duplicate mapping code")
     new_keys={(r["commercial_item_code"],r["configuration_code"],r["source_code"]) for r in got_maps}
     if len(new_keys)!=len(got_maps): raise ContractError("duplicate natural key in imported rows")
