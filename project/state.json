@@ -17,12 +17,12 @@
   "baseline": {
     "tests": 1972,
     "csv_files": 48,
-    "rows": 22647,
-    "configuration_values": 8468,
+    "rows": 22698,
+    "configuration_values": 8492,
     "configuration_import_specs": 189,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
-    "availability_records": 10372,
+    "availability_records": 10399,
     "attributes": 417,
     "attribute_categories": 30
   },
@@ -31,7 +31,7 @@
     "kind": "commercial_matrix_import",
     "name": "Sandero / Sandero Stepway MY26 2026-11-02 Price List and Commercial Matrix Reconciliation",
     "status": "complete",
-    "goal": "Registered the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02 and linked all 19 configurations and six grades. Added 15 dated catalogue price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings. Completed the nine-page source review and added 69 exact technical/dimension observations (42 from page 4 and 27 from page 5): fuel-context WLTP values, VDA cargo volume, Hybrid 155 multipoint injection, acceleration and electric-motor torque, plus Sandero dimensions. The later official 1,853 mm body width is recorded against conflicting older configurator observations. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, accessory lists and commercial campaigns remain explicitly deferred. No brochure data imported; raw PDF bytes and SHA-256 were unavailable for repository archiving."
+    "goal": "Registered the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02 and linked all 19 configurations and six grades. Added 15 dated catalogue price observations (+500 PLN each), confirmed four unchanged Hybrid 155 prices, added three commercial items and 209 dated option/package mappings. Reconciled the full nine-page source: added 24 Hybrid 155 scalar equipment observations (wheel size/material/design/finish, upholstery and central console), 27 Hybrid 155 availability observations, and corrected four Stepway Expression rear-camera mappings to standard. Added 42 page-4 technical and 27 page-5 Sandero dimension observations. The later official 1,853 mm body width is recorded against conflicting older configurator observations. Eco-G injection and LPG tank-capacity semantics, unbound interior dimensions, accessory lists and commercial campaigns remain explicitly deferred. No brochure data imported; raw PDF bytes and SHA-256 were unavailable for repository archiving."
   },
   "next_package": {
     "package_id": "jogger_price_matrix_correction_20261001_20261106_001",
