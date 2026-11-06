@@ -128,7 +128,7 @@ def verify_semantics(spec: dict[str, Any]) -> None:
             )
 
     technical = spec["configuration_attribute_values"]
-    if len(technical) != 69 or len({row["code"] for row in technical}) != 96:
+    if len(technical) != 69 or len({row["code"] for row in technical}) != 69:
         raise ContractError("Expected 69 unique page-4/page-5 technical observations")
     if any(row["source_code"] != source["code"] or row["observation_date"] != "2026-11-02" for row in technical):
         raise ContractError("Technical observations must use the exact cennik source and date")
