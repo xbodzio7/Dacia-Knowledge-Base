@@ -44,7 +44,7 @@
     "sandero_media_nav_live_package",
     "sandero_easy_package"
   ],
-  "technical_and_equipment_tables": "All nine pages visually reviewed. The six-grade equipment matrix is reconciled across 19 configurations: 27 Hybrid 155 availability observations and 24 Hybrid scalar observations were added; four Stepway Expression rear-camera mappings were corrected to standard. Pages 4 and 5 contributed 42 technical and 27 dimension observations. Eco-G injection and LPG tank-capacity semantics, interior dimension callouts, accessory lists and commercial campaigns remain explicitly deferred.",
+  "technical_and_equipment_tables": "All nine pages visually reviewed. The six-grade equipment matrix is reconciled across 19 configurations: 27 Hybrid 155 availability observations and 24 Hybrid scalar observations were added; four Stepway Expression rear-camera mappings were corrected to standard. Pages 4 and 5 contributed 42 technical and 27 dimension observations. Eco-G injection and LPG tank-capacity semantics, interior dimension callouts, accessory lists and commercial campaigns remain explicitly deferred. Decorative exterior/interior trim descriptors remain deferred where no exact canonical attribute exists.",
   "source_integrity": "Official PDF URL recorded and all nine rendered pages reviewed. Raw PDF bytes could not be downloaded/archived in this session; SHA-256 remains unavailable and is not fabricated. Cross-cennik comparison: the official Jogger 2026-11-02 cennik page 6 explicitly distinguishes Eco-G petrol direct/LPG port injection and LPG total/fillable capacity 50/40 l.",
   "next_package": "Jogger MY26 2026-10-01 price matrix correction: correct 7-seat Eco-G120 grade alignment and complete source-to-configuration relationships.",
   "technical_data": {
@@ -85,7 +85,7 @@
       "page": 3,
       "section": "Six-grade equipment matrix, individual options and spare wheel",
       "review": "complete_visual_and_text",
-      "classification": "Six-grade equipment matrix reconciled against all 19 configurations. Added 27 missing Hybrid 155 availability observations and 24 scalar wheel/upholstery/central-console observations; existing matching cells reused. Four Stepway Expression rear-camera option mappings corrected to standard."
+      "classification": "Six-grade equipment matrix reconciled against all 19 configurations. Added 27 missing Hybrid 155 availability observations and 24 scalar wheel/upholstery/central-console observations; existing matching cells reused. Four Stepway Expression rear-camera mappings corrected to standard. Decorative grille, mirror-cap, door-handle, skid-plate and decal descriptors are deferred because no exact canonical attributes preserve their distinct meanings."
     },
     {
       "page": 4,
@@ -173,6 +173,13 @@
       "status": "Do sprawdzenia",
       "reason": "The Sandero dimension diagram includes interior/cabin measurements that do not have an unambiguous canonical attribute mapping from the rendered labels. They were not projected into generic interior_width/interior_height fields.",
       "next_action": "Review the rendered diagram against an explicit attribute contract before any import."
+    },
+    {
+      "page": 3,
+      "subject": "Decorative exterior/interior trim descriptors",
+      "status": "Do sprawdzenia",
+      "reason": "The equipment matrix contains grade-specific grille, mirror-cap, door-handle, skid-plate colour, dashboard/door-insert and decal descriptions, but the current canonical attribute model has no exact typed fields for these distinct visual states. They were not collapsed into generic trim or appearance values.",
+      "next_action": "Define or reuse exact canonical attributes before importing these descriptive values."
     }
   ],
   "source_assimilation_status": "fully_assimilated_with_deferrals",
