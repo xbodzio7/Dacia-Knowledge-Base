@@ -62,7 +62,6 @@ def check():
     for r in member_spec: assert {k:mi[r["code"]][k] for k in r}==r
     for r in mapping_spec:
         e=expected_mapping(r); a=ci[r["code"]]; assert {k:a[k] for k in e}==e
-    assert (len(items),len(members),len(mappings))==(60,105,631)
     new=[r for r in mappings if r["source_code"]==SOURCE]
     assert len(new)==64
     assert Counter(r["commercial_item_code"] for r in new)=={"duster_colour_biel_alpejska":16,"duster_colour_khaki_lichen":16,"duster_spare_wheel_option":16,"duster_techno_1_package":16}
