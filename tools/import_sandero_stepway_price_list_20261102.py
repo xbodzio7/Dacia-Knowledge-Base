@@ -142,7 +142,10 @@ def verify_semantics(spec: dict[str, Any]) -> None:
 def check(spec: dict[str, Any]) -> None:
     verify_semantics(spec)
     for table_name, (_, spec_key, _) in TABLES.items():
-        reconcile_table(table_name, spec[spec_key], apply=False)
+        expected_rows = spec[spec_key]
+        if isinstance(expected_rows, dict):
+            expected_rows = [expected_rows]
+        reconcile_table(table_name, expected_rows, apply=False)
     reconcile_item_notes(spec["commercial_item_notes_updates"], apply=False)
 
 
@@ -150,8 +153,11 @@ def apply(spec: dict[str, Any]) -> dict[str, int]:
     verify_semantics(spec)
     results: dict[str, int] = {}
     for table_name, (_, spec_key, _) in TABLES.items():
+        expected_rows = spec[spec_key]
+        if isinstance(expected_rows, dict):
+            expected_rows = [expected_rows]
         results[table_name] = reconcile_table(
-            table_name, spec[spec_key], apply=True
+            table_name, expected_rows, apply=True
         )
     results["commercial_item_notes"] = reconcile_item_notes(
         spec["commercial_item_notes_updates"], apply=True
