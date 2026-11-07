@@ -151,6 +151,30 @@ To reduce repeated CI failures without weakening quality:
 
 Do not repeatedly run the full matrix after each mechanical correction. Do not open a PR merely to discover basic focused-test failures when branch-only validation is available.
 
+## 7.2 Mandatory repository-baseline and generated-documentation preflight
+
+A package that adds, removes, renames or changes tests, tracked data files, source/import specifications, reports or project metadata may change repository-wide counters and generated documentation. The package author must reconcile these derived values before opening or updating a PR.
+
+Required sequence after the final package edits and before PR publication:
+
+1. Run the canonical state updater in check mode first:
+   `python tools/dkb.py project-state --check`.
+2. If the check identifies stale canonical counters or generated state, inspect the exact diff and update the canonical state using the repository-supported workflow:
+   `python tools/dkb.py project-state --apply`.
+3. Regenerate/check the managed documentation baseline:
+   `python tools/dkb.py documentation-baseline --check`.
+   If stale, run `python tools/dkb.py documentation-baseline --apply`, inspect every changed block, then rerun the check.
+4. Rerun both check commands after all changes. Both must pass on the same candidate tree.
+5. Inspect the complete diff and confirm that generated changes are limited to expected managed sections. Do not hand-edit generated summaries or counters when the canonical generator owns them.
+6. Reconcile every changed baseline count with its actual source of truth (for example, discovered test count, tracked CSV inventory, or master-row count). Never copy a count from a prior PR, a conversation summary, or a stale report.
+7. Include the baseline and documentation reconciliation in the PR validation notes. If local execution is unavailable, use a CI workflow that checks the candidate branch before merge; do not claim the checks passed without an observed result.
+
+A test-count increase is not automatically a defect in the test suite. Determine whether the new test is intentional, discoverable and passing, then update the canonical baseline and generated documentation through the supported tooling. Do not delete a valid test, weaken an assertion, or change the expected count merely to make CI green.
+
+The PR must not be considered ready while repository-baseline or generated-documentation checks are stale. A successful unit-test run does not override a failure in these repository consistency contracts.
+
+**Failure-prevention rule:** after any test or tracked-file change, the pre-PR checklist must explicitly include both `project-state --check` and `documentation-baseline --check`; these checks are not optional just because the change appears local or adds only one test.
+
 ## 8. CI failure diagnosis protocol
 
 For every failed job:
