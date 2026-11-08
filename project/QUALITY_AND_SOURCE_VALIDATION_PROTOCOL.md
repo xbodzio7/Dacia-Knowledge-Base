@@ -237,9 +237,16 @@ A generated-file correction, test addition/removal, tracked-file change, merge/r
 
 ### E. CI enforcement expectation
 
-Repository maintainers should implement these gates as explicit required GitHub Actions checks and, where repository permissions/settings permit, required branch-protection or ruleset checks. The workflow should expose distinct named results for the test suite, canonical project-state check and generated-documentation check so failures are attributable and cannot be hidden by an unrelated successful job.
+The repository now defines `.github/workflows/repository-baselines.yml` with two independent GitHub Actions jobs:
 
-Documentation alone does not enforce GitHub branch protection. Until the corresponding workflow and repository rules are verified as active, report this as a documented requirement—not as an already automated or technically enforced control.
+- `Repository state / project-state --check`;
+- `Generated documentation / documentation-baseline --check`.
+
+Both run on pull requests, pushes to `main` and `dev/**`, and manual workflow dispatch. Their separate job names make each result independently visible. The existing `Quality` workflow remains responsible for the broader test and platform matrix.
+
+These workflow definitions provide automatic PR feedback, but a workflow job is not necessarily a merge-blocking required check. Repository administrators must configure the two job checks (and the other required quality jobs) in branch protection/rulesets where permissions allow. Until that repository setting is inspected and verified, do not claim that GitHub technically blocks merges on these checks.
+
+Documentation alone does not enforce branch protection. Report separately whether (a) the workflow exists and ran, and (b) the corresponding check is configured as a required status check.
 
 ### F. No local execution capability
 
