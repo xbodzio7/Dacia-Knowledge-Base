@@ -242,16 +242,24 @@ Before implementation:
 Before PR:
 
 - only in-scope files changed;
-- focused validation completed;
-- generated/documentation state updated where required;
-- commit has one logical responsibility.
+- candidate branch includes the latest target-branch changes;
+- focused validation and the complete applicable pre-PR gate in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` completed;
+- `project-state --check` and `documentation-baseline --check` both pass on the same candidate tree;
+- generated/documentation state is current and the complete diff has been inspected;
+- the tested candidate SHA is recorded;
+- commit has one logical responsibility;
+- if the active profile cannot run required checks, an observable CI workflow must validate the candidate SHA; otherwise the PR remains blocked/unpublished.
 
 Before merge:
 
-- PR is the intended package;
-- required CI/quality checks are green;
+- PR is the intended package and its branch satisfies target-freshness policy;
+- current PR head SHA is exactly the SHA covered by successful required checks;
+- all required CI/quality checks are green, including distinct repository-state and generated-documentation checks;
+- no required check is pending, silently skipped, cancelled or missing;
 - no unresolved review or evidence blocker exists;
 - project state can be advanced consistently.
+
+Any new commit, branch update/rebase, generated-file correction or other relevant change after validation invalidates the affected results. Repeat the applicable checks and the full required final gate on the resulting head before merge.
 
 ---
 
