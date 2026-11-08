@@ -311,3 +311,12 @@ This document supplements, and does not replace:
 ---
 
 # End of document
+
+
+## Test quality and CI interpretation
+
+The workflow profile changes how checks are executed, never what constitutes a valid result. Every profile must preserve the same failure classification, independent source-fidelity review, determinism/idempotency expectations and exact-SHA final gate.
+
+When local execution is unavailable, use a candidate-branch CI workflow only if it can validate the exact branch before merge. Do not claim local tests or generators ran. Separate these outcomes in the session report: feature tests, test discovery/import, canonical baseline, generated documentation, source fidelity, platform matrix and merge-policy enforcement.
+
+Before merging, inspect branch protection/rulesets. A passing/failing workflow is only informative unless GitHub marks its relevant check as required. Where enforcement is absent or cannot be configured by the active connection, keep the procedural no-merge rule and identify the required administrator action.
