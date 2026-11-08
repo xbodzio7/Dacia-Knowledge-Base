@@ -38,15 +38,16 @@ Writes use UTF-8, LF endings and atomic replacement.
 
 ## CI enforcement
 
-Linux and Windows CI run `project-state --check`. The check validates:
+Linux and Windows CI run `project-state --check` as an early preflight before unit/package tests on every supported Python matrix line and the Windows job. GitHub Actions supplies the expected repository name and default branch from the event; a Pull Request targeting a non-default branch is rejected. The check validates:
 
 - the state schema and controlled values,
 - exact agreement between canonical baseline and live repository counters,
 - exact generated `STATE_SUMMARY.md` content,
 - all managed documentation baseline blocks,
-- required startup and autonomy-document references.
+- required startup and autonomy-document references,
+- consistency between `project/state.json` repository metadata and the active GitHub repository/default-branch context.
 
-A Pull Request cannot pass Quality while these surfaces disagree.
+A Pull Request cannot pass Quality while these surfaces disagree. CI is check-only and never applies generated changes. The maintainer must inspect and apply the supported generator in the working branch, then rerun the checks on the exact candidate tree.
 
 ## Narrative documentation boundary
 
@@ -67,6 +68,7 @@ After adding tests, data, attributes or import specifications:
 ```bash
 python tools/dkb.py project-state --apply
 python tools/dkb.py project-state --check
+python tools/dkb.py documentation-baseline --check
 ```
 
-The resulting state and documentation changes belong to the same logical package that changed the baseline. A separate counter-only cleanup Pull Request should normally be unnecessary.
+The resulting state and documentation changes belong to the same logical package that changed the baseline. A separate counter-only cleanup Pull Request should normally be unnecessary. The Windows package tests are isolated in disposable repositories and local bare remotes; their deliberate failed-push and `extra.txt` cases are expected negative-path assertions, not real GitHub pushes.

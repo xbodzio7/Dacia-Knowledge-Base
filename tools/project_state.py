@@ -211,6 +211,55 @@ def validate_state(state: Mapping[str, Any]) -> None:
     )
 
 
+def validate_runtime_metadata(
+    state: Mapping[str, Any],
+    environment: Mapping[str, str] | None = None,
+) -> None:
+    """Compare canonical repository metadata with the active GitHub context."""
+    runtime = os.environ if environment is None else environment
+    repository = _object(state.get("repository"), "state.repository")
+
+    expected_repository = (
+        runtime.get("DKB_EXPECTED_REPOSITORY")
+        or runtime.get("GITHUB_REPOSITORY")
+    )
+    if (
+        expected_repository
+        and str(repository["full_name"]).casefold()
+        != expected_repository.casefold()
+    ):
+        raise StateError(
+            "state.repository.full_name is "
+            f"{repository['full_name']!r}; GitHub repository is "
+            f"{expected_repository!r}"
+        )
+
+    expected_default_branch = runtime.get("DKB_EXPECTED_DEFAULT_BRANCH")
+    if (
+        expected_default_branch
+        and repository["default_branch"] != expected_default_branch
+    ):
+        raise StateError(
+            "state.repository.default_branch is "
+            f"{repository['default_branch']!r}; GitHub default branch is "
+            f"{expected_default_branch!r}"
+        )
+
+    expected_base_branch = (
+        runtime.get("DKB_EXPECTED_BASE_BRANCH")
+        or runtime.get("GITHUB_BASE_REF")
+    )
+    if (
+        expected_base_branch
+        and expected_base_branch != repository["default_branch"]
+    ):
+        raise StateError(
+            f"Pull Request base branch is {expected_base_branch!r}; "
+            "project default branch is "
+            f"{repository['default_branch']!r}"
+        )
+
+
 def live_baseline_payload(
     value: documentation_baseline.Baseline,
 ) -> dict[str, int]:
@@ -462,6 +511,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         state = read_state(state_path)
         validate_state(state)
+        validate_runtime_metadata(state)
         live = documentation_baseline.collect_baseline(repository)
         if arguments.apply:
             state, changed = apply_synchronization(

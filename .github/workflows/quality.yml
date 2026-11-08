@@ -19,6 +19,10 @@ jobs:
   quality:
     name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    env:
+      DKB_EXPECTED_REPOSITORY: ${{ github.repository }}
+      DKB_EXPECTED_DEFAULT_BRANCH: ${{ github.event.pull_request.base.repo.default_branch || github.event.repository.default_branch || 'main' }}
+      DKB_EXPECTED_BASE_BRANCH: ${{ github.event.pull_request.base.ref || '' }}
 
     strategy:
       fail-fast: false
@@ -41,6 +45,9 @@ jobs:
 
       - name: Show Python version
         run: python --version
+
+      - name: Pre-PR state, counters, documentation and metadata checks
+        run: python tools/dkb.py project-state --check
 
       - name: Check Bigster brochure TPMS import contract
         run: python tools/import_bigster_brochure_tpms_availability.py --check
@@ -414,6 +421,10 @@ jobs:
   workflow-windows:
     name: Package workflow / Windows
     runs-on: windows-latest
+    env:
+      DKB_EXPECTED_REPOSITORY: ${{ github.repository }}
+      DKB_EXPECTED_DEFAULT_BRANCH: ${{ github.event.pull_request.base.repo.default_branch || github.event.repository.default_branch || 'main' }}
+      DKB_EXPECTED_BASE_BRANCH: ${{ github.event.pull_request.base.ref || '' }}
 
     steps:
       - name: Check out repository
@@ -429,12 +440,22 @@ jobs:
       - name: Show Python version
         run: python --version
 
-      - name: Run package publishing tests
+      - name: Pre-PR state, counters, documentation and metadata checks
+        run: python tools/dkb.py project-state --check
+
+      - name: Run isolated package workflow tests
+        env:
+          GIT_CONFIG_NOSYSTEM: "1"
+          GIT_TERMINAL_PROMPT: "0"
         run: |
           python -m unittest -q `
             tests.test_package_workflow `
             tests.test_package_receipt `
-            tests.test_package_publish `
+            tests.test_package_publish
+
+      - name: Run Windows CLI and contract tests
+        run: |
+          python -m unittest -q `
             tests.test_dkb_cli `
             tests.test_quality `
             tests.project_state_contract `

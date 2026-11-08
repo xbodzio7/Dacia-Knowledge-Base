@@ -126,6 +126,49 @@ class ProjectStateContractTests(unittest.TestCase):
             [],
         )
 
+    def test_runtime_metadata_accepts_matching_github_context(self) -> None:
+        project_state.validate_runtime_metadata(
+            self.fixture(),
+            {
+                "DKB_EXPECTED_REPOSITORY": "owner/repository",
+                "DKB_EXPECTED_DEFAULT_BRANCH": "main",
+                "DKB_EXPECTED_BASE_BRANCH": "main",
+            },
+        )
+
+    def test_runtime_metadata_rejects_repository_mismatch(self) -> None:
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "GitHub repository",
+        ):
+            project_state.validate_runtime_metadata(
+                self.fixture(),
+                {"DKB_EXPECTED_REPOSITORY": "other/repository"},
+            )
+
+    def test_runtime_metadata_rejects_default_branch_mismatch(self) -> None:
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "GitHub default branch",
+        ):
+            project_state.validate_runtime_metadata(
+                self.fixture(),
+                {"DKB_EXPECTED_DEFAULT_BRANCH": "trunk"},
+            )
+
+    def test_runtime_metadata_rejects_nondefault_pull_request_target(self) -> None:
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "Pull Request base branch",
+        ):
+            project_state.validate_runtime_metadata(
+                self.fixture(),
+                {"DKB_EXPECTED_BASE_BRANCH": "develop"},
+            )
+
+    def test_runtime_metadata_is_optional_without_github_context(self) -> None:
+        project_state.validate_runtime_metadata(self.fixture(), {})
+
     def test_summary_is_deterministic(self) -> None:
         state = self.fixture()
         project_state.validate_state(state)

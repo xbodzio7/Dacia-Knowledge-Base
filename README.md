@@ -72,6 +72,19 @@ Archiwum/            Materiały historyczne
 
 Dodatkowe katalogi modelowe i źródłowe przechowują materiały robocze związane z konkretnymi samochodami.
 
+## Kontrola przed Pull Request
+
+Przed opublikowaniem zmian uruchom z katalogu głównego repozytorium:
+
+```bash
+python tools/dkb.py project-state --check
+python tools/dkb.py documentation-baseline --check
+```
+
+Pierwsza komenda porównuje liczniki z rzeczywistym repozytorium, sprawdza `project/state.json`, generowane podsumowanie i zarządzane bloki dokumentacji w README, CHANGELOG, ROADMAP oraz SESSION_STATE. Druga wykonuje niezależną kontrolę bloków bazowych. Jeśli wynik wskazuje rozbieżność, nie poprawiaj liczników ręcznie: sprawdź źródło różnicy, użyj `python tools/dkb.py project-state --apply`, przejrzyj diff i ponownie uruchom obie kontrole.
+
+GitHub Actions wykonuje ten preflight przed testami na wszystkich wspieranych liniach Pythona oraz Windows i dodatkowo porównuje metadane repozytorium/gałęzi z kontekstem GitHub. PR nie może być gotowy do scalenia, dopóki wymagane kontrole nie przejdą.
+
 ## Główne zbiory danych
 
 Repozytorium zawiera między innymi:
