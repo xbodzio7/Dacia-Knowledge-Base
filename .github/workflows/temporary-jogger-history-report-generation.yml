@@ -1,0 +1,39 @@
+name: Temporary Jogger history report generation
+on:
+  push:
+    branches:
+      - agent/jogger-catalogue-price-history-20261107-001
+permissions:
+  contents: write
+jobs:
+  generate:
+    if: "!contains(github.event.head_commit.message, '[report-bot]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/jogger-catalogue-price-history-20261107-001
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Generate Jogger history outputs
+        run: python tools/jogger_catalogue_price_history.py
+      - name: Verify generated outputs and repository baselines
+        run: |
+          python tools/jogger_catalogue_price_history.py --check
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+      - name: Commit generated reports to this PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -u
+          git add reports/price_history/
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+          else
+            git commit -m "chore: add generated Jogger price history reports [report-bot]"
+            git push origin HEAD:agent/jogger-catalogue-price-history-20261107-001
+          fi
