@@ -76,7 +76,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_essential_tce100_manual_pl_20260811",
       "current_master_observation_code": "sandero_iii_essential_tce100_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -101,7 +100,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_expression_ecog120_automatic_pl_20260811",
       "current_master_observation_code": "sandero_iii_expression_ecog120_automatic_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -126,7 +124,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_expression_ecog120_manual_pl_20260811",
       "current_master_observation_code": "sandero_iii_expression_ecog120_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -151,7 +148,6 @@
       "disposition": "unchanged",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_expression_hybrid155_automatic_pl_20260811",
       "current_master_observation_code": null,
       "notes": "Current price explicitly confirmed unchanged in the reviewed 2026-11-02 source; no duplicate master observation created."
     },
@@ -176,7 +172,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_expression_tce100_manual_pl_20260811",
       "current_master_observation_code": "sandero_iii_expression_tce100_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -201,7 +196,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_journey_ecog120_automatic_pl_20260811",
       "current_master_observation_code": "sandero_iii_journey_ecog120_automatic_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -226,7 +220,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_journey_ecog120_manual_pl_20260811",
       "current_master_observation_code": "sandero_iii_journey_ecog120_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -251,7 +244,6 @@
       "disposition": "unchanged",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_journey_hybrid155_automatic_pl_20260811",
       "current_master_observation_code": null,
       "notes": "Current price explicitly confirmed unchanged in the reviewed 2026-11-02 source; no duplicate master observation created."
     },
@@ -276,7 +268,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_iii_journey_tce100_manual_pl_20260811",
       "current_master_observation_code": "sandero_iii_journey_tce100_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -301,7 +292,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_essential_ecog120_manual_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_essential_ecog120_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -326,7 +316,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_essential_tce110_manual_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_essential_tce110_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -351,7 +340,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_expression_ecog120_automatic_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_expression_ecog120_automatic_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -376,7 +364,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_expression_ecog120_manual_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_expression_ecog120_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -401,7 +388,6 @@
       "disposition": "unchanged",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_expression_hybrid155_automatic_pl_20260811",
       "current_master_observation_code": null,
       "notes": "Current price explicitly confirmed unchanged in the reviewed 2026-11-02 source; no duplicate master observation created."
     },
@@ -426,7 +412,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_expression_tce110_manual_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_expression_tce110_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -451,7 +436,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_extreme_ecog120_automatic_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_extreme_ecog120_automatic_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -476,7 +460,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_extreme_ecog120_manual_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_extreme_ecog120_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     },
@@ -501,7 +484,6 @@
       "disposition": "unchanged",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_extreme_hybrid155_automatic_pl_20260811",
       "current_master_observation_code": null,
       "notes": "Current price explicitly confirmed unchanged in the reviewed 2026-11-02 source; no duplicate master observation created."
     },
@@ -526,7 +508,6 @@
       "disposition": "changed",
       "previous_evidence": "catalogue price matrix, printed page 1",
       "current_evidence": "catalogue price matrix, printed page 1",
-      "previous_master_observation_code": "sandero_stepway_iii_extreme_tce110_manual_pl_20260811",
       "current_master_observation_code": "sandero_stepway_iii_extreme_tce110_manual_pl_20261102",
       "notes": "Both values are explicit dated master observations."
     }
