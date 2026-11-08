@@ -175,6 +175,76 @@ The PR must not be considered ready while repository-baseline or generated-docum
 
 **Failure-prevention rule:** after any test or tracked-file change, the pre-PR checklist must explicitly include both `project-state --check` and `documentation-baseline --check`; these checks are not optional just because the change appears local or adds only one test.
 
+## 7.3 Enforced pre-PR release gate and branch-freshness control
+
+This section converts the baseline/documentation preflight into a publication rule. It applies to every PR, including documentation-only, test-only, generated-data and one-line changes. A PR is not eligible for publication as ready-for-review, merge or release until the applicable checks below have passed on the exact candidate head.
+
+### A. Separate validation layers
+
+Record these outcomes separately; never summarize them as one generic "tests passed" result:
+
+1. **Code/test integrity:** syntax compilation, import/discovery, focused tests and the complete required test suite.
+2. **Repository-state integrity:** `project-state --check` and consistency of canonical counters.
+3. **Generated-documentation integrity:** `documentation-baseline --check` and any other repository-defined generated-file checks.
+4. **Source/domain fidelity:** independent evidence reconciliation under Gate B in section 6.
+5. **CI/platform integrity:** all required workflow jobs, supported Python versions, operating systems and packaging checks.
+
+A pass in one layer does not compensate for a failure or missing result in another. Mark an inapplicable layer explicitly with its reason and approved alternative; do not silently omit it.
+
+### B. Mandatory publication sequence
+
+On the candidate branch, in this order:
+
+1. Fetch the latest target branch and record its exact SHA.
+2. Confirm the candidate branch includes the latest target branch changes. If it does not, update/rebase/merge the target branch using the repository's approved workflow, resolve conflicts, and restart validation for the resulting tree.
+3. Freeze implementation edits for the validation pass. Record the candidate head SHA.
+4. Run syntax compilation, import/discovery, focused tests and directly affected regression/contract tests.
+5. Run the full required test suite and repository validators.
+6. Run `python tools/dkb.py project-state --check`; apply the canonical updater only if required, then rerun the check.
+7. Run `python tools/dkb.py documentation-baseline --check`; apply the supported generator only if required, inspect its diff, then rerun the check.
+8. Run all remaining package-specific deterministic checks and independent source-fidelity review.
+9. Inspect the complete diff, including generated files. Confirm no unexpected paths, stale counters, stale managed documentation, unrelated edits or unreviewed generated changes remain.
+10. Commit/push the candidate and open/update the PR. Record the exact tested SHA and each validation result in the PR.
+11. Confirm CI ran against that exact head SHA and every required job passed. If the head changes, the previous CI result no longer validates the PR; repeat the affected checks and the required full gate.
+12. Recheck target-branch freshness and mergeability immediately before merge. If the target branch advanced and the candidate is no longer current under repository policy, update the branch and repeat validation.
+
+### C. Hard stop conditions
+
+Do not mark a PR ready, request final review, merge, or describe it as validated when any of these is true:
+
+- a required validation layer has failed, has not run, or has no observable result;
+- `project-state --check` or `documentation-baseline --check` reports drift;
+- generated files were changed after the last relevant check;
+- the tested SHA differs from the current PR head SHA;
+- the PR branch is behind the target branch and has not been reconciled;
+- a required CI job is pending, skipped without an approved alternative, cancelled or failed;
+- the complete diff has not been inspected.
+
+Keep the PR in draft/blocked state where supported, or leave it unpublished if the repository workflow allows. State the exact blocker and the command/job needed to clear it. Never bypass a failed check by weakening tests, editing generated counters manually, or treating a partial green run as full success.
+
+### D. Failure recovery and revalidation
+
+When a gate fails:
+
+1. Diagnose the first causal failure using section 8; distinguish a product/test defect from stale repository metadata, generated-documentation drift, branch divergence or infrastructure failure.
+2. Correct the root cause in scope.
+3. Re-run the failed check and all checks invalidated by the correction.
+4. Re-run both repository-state and generated-documentation checks together on the same tree.
+5. Re-run the full required quality matrix on the final candidate SHA.
+6. Verify that the PR head still equals the tested SHA.
+
+A generated-file correction, test addition/removal, tracked-file change, merge/rebase or any other commit after validation invalidates at least the checks affected by that change. When in doubt, repeat the complete gate rather than infer that an earlier result still applies.
+
+### E. CI enforcement expectation
+
+Repository maintainers should implement these gates as explicit required GitHub Actions checks and, where repository permissions/settings permit, required branch-protection or ruleset checks. The workflow should expose distinct named results for the test suite, canonical project-state check and generated-documentation check so failures are attributable and cannot be hidden by an unrelated successful job.
+
+Documentation alone does not enforce GitHub branch protection. Until the corresponding workflow and repository rules are verified as active, report this as a documented requirement—not as an already automated or technically enforced control.
+
+### F. No local execution capability
+
+If the active profile cannot execute the canonical generators or tests, do not fabricate their output, manually guess generated counters, or publish the candidate as validated. Use a verified CI workflow capable of running the checks on the candidate branch. If no such workflow is available, leave the PR blocked/unpublished and record the exact capability blocker.
+
 ## 8. CI failure diagnosis protocol
 
 For every failed job:
