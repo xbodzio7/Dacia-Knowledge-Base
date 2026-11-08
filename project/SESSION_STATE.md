@@ -17,6 +17,18 @@ python tools/dkb.py project-state --check
 
 Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
+## Quality gate diagnosis and safeguards (2026-11-08)
+
+PR #792 (`Add Sandero MY26 catalogue price history MVP`) is merged. Its Quality run #5498 passed on Python 3.10, 3.13, 3.14 and Windows. At that head, the canonical test baseline was 1,976 and the four managed documentation blocks were current.
+
+The later open PR #793 added one discoverable test without synchronizing the canonical baseline and generated documentation. Its Quality run #5500 observed 1,977 discovered tests while `project/state.json` still declared 1,976. The state contract therefore failed on Python 3.10, 3.13 and Windows. On Python 3.14, all 1,977 unit tests and data/SQLite checks passed, then the documentation-baseline step reported drift in exactly `CHANGELOG.md`, `README.md`, `project/ROADMAP.md` and `project/SESSION_STATE.md`. This is a repository-baseline/documentation failure, not evidence that the new Jogger history test is invalid.
+
+The Windows logs also contain deliberate negative-path output from `tests/test_package_publish.py`: a local bare-remote `pre-receive` hook rejects a simulated push, and `extra.txt` is deliberately added to prove that the package manifest rejects out-of-scope files. Those `ERROR` messages are expected when their assertions pass. PR #792's Windows package job passed; in PR #793 the actual failing assertion was the stale test counter, not the simulated push or extra-file cases.
+
+The quality safeguard package on branch `quality/pre-pr-integrity-gates-20261108-001` adds an early state/counter/documentation/metadata preflight to every Linux Python line and Windows, checks GitHub repository/default-branch metadata against `project/state.json`, separates Windows package tests from other contracts, and strengthens assertions that rejected paths/pushes do not advance the isolated bare remote. The canonical generated counters are unchanged by this governance package.
+
+PR #793 remains open and must not be merged until its own branch regenerates `project/state.json`, `project/STATE_SUMMARY.md` and the four managed documentation blocks from its live 1,977-test tree, then passes all required CI on the exact updated head SHA.
+
 ## Current User Priority — Cennik-only (2026-11-06)
 
 The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. Do not resume Bigster/Duster brochure work while this priority is active.

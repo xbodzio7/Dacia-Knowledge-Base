@@ -175,6 +175,22 @@ The PR must not be considered ready while repository-baseline or generated-docum
 
 **Failure-prevention rule:** after any test or tracked-file change, the pre-PR checklist must explicitly include both `project-state --check` and `documentation-baseline --check`; these checks are not optional just because the change appears local or adds only one test.
 
+## 7.3 Automated CI preflight, repository metadata and isolated package tests
+
+Every Pull Request quality run must execute `python tools/dkb.py project-state --check` as an early, read-only preflight on each supported Linux Python line and on Windows, before the unit or package tests. This is deliberately separate from the later full Quality gate: stale repository metadata must fail quickly and consistently rather than being discovered only after a long test run.
+
+The preflight validates the live test/data counters against `project/state.json`, the generated `project/STATE_SUMMARY.md`, all managed baseline blocks in `CHANGELOG.md`, `README.md`, `project/ROADMAP.md` and `project/SESSION_STATE.md`, and the required startup/documentation references. In GitHub Actions it also compares the canonical repository name and default branch with the active GitHub event metadata, and requires a Pull Request to target that default branch. A metadata mismatch is a repository-contract failure, not a test-count or source-data failure.
+
+CI supplies `DKB_EXPECTED_REPOSITORY`, `DKB_EXPECTED_DEFAULT_BRANCH` and, for Pull Requests, `DKB_EXPECTED_BASE_BRANCH`. The CLI remains usable outside GitHub Actions: when these environment values are absent, runtime comparisons are skipped while the canonical state schema and live baseline are still checked.
+
+The preflight is check-only. CI must never rewrite `state.json` or documentation automatically. When a check fails, inspect the actual live counts and generated diff, run `python tools/dkb.py project-state --apply` only in the working branch after review, then rerun both `python tools/dkb.py project-state --check` and `python tools/dkb.py documentation-baseline --check` on the same candidate tree. Never hand-edit generated counter blocks or change a valid test to fit a stale baseline.
+
+Package workflow tests on Windows must run as a distinct CI step. Each test must use its own disposable temporary repository, local bare remote, temporary Git global configuration and a sanitized Git environment; it must not push to the real GitHub repository or share the checked-out repository's Git index. The tests must assert that a rejected path or rejected push leaves the temporary remote unchanged and writes the expected failure handoff.
+
+The package-publishing tests intentionally exercise negative paths. In particular, an injected bare-remote `pre-receive` hook returns a non-zero status to test failed-push handling, and a deliberately created `extra.txt` tests rejection of files outside the package manifest. Their expected `ERROR` log lines are not, by themselves, a failed CI test. Diagnose the unittest assertions, final test summary and GitHub job conclusion; do not mistake an intentionally simulated failure for a production push attempt.
+
+A Pull Request is not ready while the early state/metadata preflight, managed documentation checks, isolated Windows package tests or any other required CI job is failing.
+
 ## 8. CI failure diagnosis protocol
 
 For every failed job:

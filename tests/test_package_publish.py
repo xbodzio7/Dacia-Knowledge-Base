@@ -28,7 +28,10 @@ class PackagePublishTests(unittest.TestCase):
         self.manifest_path = self.root / "package.json"
         self.repo.mkdir()
         self.env = os.environ.copy()
+        for variable in package_workflow.GIT_CONTEXT_VARIABLES:
+            self.env.pop(variable, None)
         self.env["GIT_CONFIG_NOSYSTEM"] = "1"
+        self.env["GIT_TERMINAL_PROMPT"] = "0"
         config = self.root / "gitconfig"
         config.write_text("", encoding="utf-8")
         self.env["GIT_CONFIG_GLOBAL"] = str(config)
@@ -128,6 +131,22 @@ class PackagePublishTests(unittest.TestCase):
         )
 
     def test_publishes_exact_manifest_from_empty_staging(self) -> None:
+        # Every test owns a disposable repository and bare remote under TemporaryDirectory.
+        self.assertEqual(self.repo.parent, self.root)
+        self.assertEqual(self.remote.parent, self.root)
+        self.assertNotEqual(self.repo.resolve(), REPOSITORY.resolve())
+        ambient_git_context = {
+            name: str(self.root / "ambient-git")
+            for name in package_workflow.GIT_CONTEXT_VARIABLES
+        }
+        with mock.patch.dict(os.environ, ambient_git_context, clear=False):
+            sanitized_environment = package_workflow.git_environment()
+        self.assertTrue(
+            all(
+                name not in sanitized_environment
+                for name in package_workflow.GIT_CONTEXT_VARIABLES
+            )
+        )
         self.assertEqual(self.git("diff", "--cached", "--name-only"), "")
         result = self.publish()
         self.assertEqual(result, 0)
@@ -147,6 +166,10 @@ class PackagePublishTests(unittest.TestCase):
         result = self.publish()
         self.assertEqual(result, 1)
         self.assertEqual(self.git("rev-parse", "HEAD"), self.base)
+        self.assertEqual(
+            self.git("ls-remote", "--heads", "origin", "tooling/test"),
+            "",
+        )
         handoff = json.loads(self.handoff_path.read_text(encoding="utf-8"))
         self.assertEqual(handoff["status"], "FAIL")
         self.assertEqual(handoff["phase"], "review")
@@ -158,6 +181,10 @@ class PackagePublishTests(unittest.TestCase):
         self.assertEqual(result, 1)
         self.assertEqual(self.git("rev-parse", "HEAD"), self.base)
         self.assertIn("extra.txt", self.git("diff", "--cached", "--name-only"))
+        self.assertEqual(
+            self.git("ls-remote", "--heads", "origin", "tooling/test"),
+            "",
+        )
 
     def test_reuses_valid_receipt_without_quality(self) -> None:
         with mock.patch.object(
@@ -228,12 +255,21 @@ class PackagePublishTests(unittest.TestCase):
         self.assertLess(self.handoff_path.stat().st_size, 2000)
 
     def test_failed_push_writes_fail_handoff(self) -> None:
+        # The local bare-remote hook deliberately rejects this push; the ERROR log is expected.
         hooks = self.remote / "hooks"
         hook = hooks / "pre-receive"
         hook.write_text("#!/bin/sh\nexit 1\n", encoding="utf-8", newline="\n")
         hook.chmod(0o755)
         result = self.publish(push=True)
         self.assertEqual(result, 1)
+        self.assertEqual(
+            self.git("rev-list", "--count", f"{self.base}..HEAD"),
+            "1",
+        )
+        self.assertEqual(
+            self.git("ls-remote", "--heads", "origin", "tooling/test"),
+            "",
+        )
         handoff = json.loads(self.handoff_path.read_text(encoding="utf-8"))
         self.assertEqual(handoff["status"], "FAIL")
         self.assertEqual(handoff["phase"], "push")

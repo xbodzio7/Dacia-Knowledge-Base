@@ -184,7 +184,9 @@ Pakiet Spring z 1 sierpnia 2026 r. świadomie wyprzedził planowany import lakie
 - dalsza redukcja ręcznego powielania stanu,
 - automatyczne kontrole zgodności dokumentów kontraktowych,
 - czytelniejsze raportowanie przyczyn `ACTION_REQUIRED`,
-- okresowe przeglądy utrzymywalności workflow.
+- okresowe przeglądy utrzymywalności workflow,
+- wczesny preflight CI dla liczników, stanu kanonicznego, czterech bloków dokumentacji i metadanych repozytorium na Linuxie oraz Windows,
+- odrębne testy publikowania pakietów w izolowanych repozytoriach tymczasowych i lokalnych bare remote.
 
 ---
 

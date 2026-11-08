@@ -651,3 +651,12 @@ These requirements apply across all models, sources, execution profiles, chats a
 ## 19. Mandatory pre-commit and pre-push validation
 
 Before committing or pushing any code or test change, the AI maintainer must follow the code preflight in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`. At minimum this means reviewing the complete diff, compiling changed Python files, checking module imports and test discovery, running focused tests, and inspecting the final edited source after automated modifications. A successful file write is not validation. If local execution is unavailable, the limitation must be explicit and the change must not be described as locally validated. Any edit after validation requires the affected checks to be repeated.
+
+
+
+## 20. Mandatory CI preflight and isolated package tests
+
+Every Pull Request must pass the early `project-state --check` gate on the supported Linux Python matrix and Windows before unit/package tests. The gate compares live counters, generated summaries, all four managed documentation blocks and GitHub repository/default-branch metadata. A Pull Request must target the repository's default branch. Stale generated values must be repaired with the canonical project-state tooling, never by weakening tests or editing generated counts by hand.
+
+Windows package publishing tests must use disposable temporary repositories and local bare remotes, with isolated Git configuration and no ambient Git repository/index variables. A simulated rejected `git push` or injected `extra.txt` is an expected negative-path test when its assertions pass; it must never be interpreted as an actual push to GitHub. CI reports package-isolation tests separately from the other Windows contract tests.
+
