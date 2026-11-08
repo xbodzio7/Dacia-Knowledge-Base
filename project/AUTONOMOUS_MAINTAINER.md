@@ -34,14 +34,14 @@ For every package the maintainer should:
 4. Define an exact path manifest and acceptance criteria.
 5. Create a package branch from the verified `main`.
 6. Modify only files belonging to the package.
-7. Run focused tests and the complete quality gate appropriate to the scope.
-8. Publish the package through the repository workflow and structured handoff where local Git execution is available.
-9. Create or update the Pull Request.
-10. Verify base SHA, head SHA, changed paths, commit scope, mergeability and all CI jobs.
-11. Repair in-scope failures and repeat validation without asking for a generic continuation command.
-12. Merge only a current, green and mergeable Pull Request.
-13. Update canonical state and generated documentation.
-14. Continue with the next package.
+7. Run focused tests during implementation, then freeze edits and execute the mandatory pre-PR publication gate in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`, including project-state and generated-documentation checks on the same candidate tree.
+8. Verify the candidate branch includes the latest target-branch SHA; reconcile branch drift before final validation.
+9. Publish only after every applicable local gate has passed, or after an observable CI workflow has passed those checks on the exact candidate SHA. If neither route is available, keep the package blocked and do not claim it is validated.
+10. Create or update the Pull Request and record the tested head SHA plus separate results for tests, repository state, generated documentation, source fidelity and CI/platform jobs.
+11. Verify base SHA, head SHA, changed paths, commit scope, mergeability, branch freshness and all required CI jobs.
+12. Repair in-scope failures and repeat all invalidated checks. Any new commit, rebase, merge or generated-file change invalidates the relevant prior validation; a changed head requires a new full required quality gate.
+13. Merge only when the current PR head is the successfully tested SHA, all required checks pass, source fidelity is accepted and the branch satisfies target-freshness policy.
+14. Update canonical state and generated documentation, then continue with the next package.
 
 ## Accelerated milestone closure mode
 
