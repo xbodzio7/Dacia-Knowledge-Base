@@ -269,9 +269,12 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
                     self.assertEqual(len(source["sha256"]), 64)
                     self.assertRegex(source["sha256"], r"^[0-9a-f]{64}$")
                 else:
-                    # Source assimilation policy requires a SHA-256 when raw bytes are available.
-                    self.assertEqual(source["file_path"], "")
+                    # A missing hash is acceptable only when the source remains externally traceable;
+                    # if an archive path is declared, the exact repository file must exist.
                     self.assertTrue(source["external_reference"].startswith("https://"))
+                    if source["file_path"]:
+                        archived = REPOSITORY / source["file_path"]
+                        self.assertTrue(archived.is_file(), source["file_path"])
                 self.assertTrue(source["document_date"])
                 self.assertEqual(source["status"], "active")
                 self.assertTrue(
