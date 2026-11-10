@@ -159,3 +159,13 @@ Generators and importers should be validated for determinism, idempotency, no-op
 The final quality matrix must validate the exact candidate head SHA. Any subsequent edit, generated-file update, rebase or new commit invalidates the corresponding prior result and requires revalidation. Immediately before merge, re-fetch the PR and verify that the tested SHA is still its current head and that the target branch is current.
 
 CI reporting is not equivalent to merge enforcement. The maintainer must inspect branch protection/rulesets and distinguish workflows that report failures from checks GitHub actually requires. If required checks are not configured, never claim that GitHub blocks unsafe merges; apply the procedural no-merge rule and request administrator configuration of the designated baseline and quality checks.
+
+## Cross-file consistency is a mandatory package responsibility
+
+Before editing, the maintainer must identify dependent source registry rows, import specifications, importers, tests, master data, manifests, archive files, canonical counters and generated documentation. Related updates must be treated as one logical transaction and included in the package scope.
+
+The maintainer must use canonical generators for all derived state and managed documentation. Manual counter copying or hand-editing generated blocks is prohibited. Check mode must be run before and after generator application, and all relevant checks must pass on the same candidate tree.
+
+A PR must not be published as ready until the mandatory pre-PR consistency matrix in project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md has observable results. Unknown or unavailable checks are BLOCKED, not passed. Every new commit or relevant edit invalidates affected checks; the full required final quality matrix must validate the exact current head SHA.
+
+When a test fails, classify the first causal failure and establish which layer is wrong before changing code, data or expectations. Never weaken a correct test or alter generated counters solely to obtain a green CI result. If the canonical generator or required validation cannot be executed or observed, keep the package blocked and state the exact limitation.
