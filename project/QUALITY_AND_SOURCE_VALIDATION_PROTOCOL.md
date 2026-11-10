@@ -399,3 +399,79 @@ A test must not compare a newly generated result to a previous mutable result un
 
 
 ## End of protocol
+
+## 17. Cross-file change transaction and regression-prevention controls
+
+This section is mandatory for every package that changes source registries, import specifications, master data, tests, repository metadata, generated artifacts or documentation. Its purpose is to prevent a valid change in one file from leaving dependent contracts stale elsewhere.
+
+### A. Build the dependency impact list before editing
+
+Before the first edit, identify the complete dependency set for the changed object. At minimum consider:
+
+- source files and their registry rows;
+- source IDs, archive paths, external references and SHA-256 values;
+- import specifications, importer contracts and source-specific tests;
+- master CSVs, manifests, reconciliation reports and derived indexes;
+- canonical counters and project/state.json;
+- generated state summaries and managed documentation blocks;
+- workflow definitions, validation scripts and release artifacts.
+
+Record affected and deliberately unaffected paths in the package manifest. Do not assume a change is local merely because only one source file was initially edited.
+
+### B. Treat related updates as one logical transaction
+
+A source or schema change and its dependent contracts must be updated in the same package/PR unless a documented dependency requires a separate ordered package. Do not leave a known inconsistent intermediate state marked complete.
+
+For every registered archived file:
+- verify that a non-empty repository path resolves to an existing tracked file;
+- compute SHA-256 from the exact original bytes when those bytes are available;
+- never infer or fabricate a digest;
+- distinguish an external source URL, an owner-supplied original, and a repository-archived binary;
+- if binary transfer is unavailable, record the exact limitation and keep the archive state explicitly pending.
+
+For every source-registry/importer/test change, inspect all contracts that assert the affected source ID, path, digest, date, scope or expected status. Update expectations only after verifying the authoritative source and the intended invariant.
+
+### C. Canonical generators own derived state
+
+Never manually synchronize counters or generated baseline blocks by copying numbers between files.
+
+Use the repository's canonical generators/checks for project-state counters and summaries, documentation baseline blocks, generated manifests, snapshots and other deterministic outputs.
+
+Run check mode first, inspect the proposed changes, apply only through the supported generator, then rerun check mode. All relevant checks must pass on the same candidate tree. If the generator cannot run in the active environment, use a CI job that demonstrably runs it on the exact candidate SHA; otherwise mark the package blocked rather than hand-editing generated output and claiming validation.
+
+### D. Diagnose before changing expectations
+
+For every failure, preserve the first causal error and classify it before editing. Determine whether the source, implementation, importer, test expectation, canonical baseline, generated documentation, branch state or CI environment is wrong.
+
+Never change an assertion only to make CI green; compare current generated output with a previous mutable output unless historical compatibility is the explicit contract; weaken a correct invariant to accommodate a defect; treat fixture/setup log messages as failures without checking the test result; or treat a stale count as proof of a functional regression.
+
+When an expectation legitimately changes, cite the source-backed reason in the test or adjacent fixture/report. Prefer stable invariants and independently curated expected values over mutable global totals.
+
+### E. Mandatory pre-PR consistency matrix
+
+Before publishing or updating any PR, record an explicit pass/fail/not-applicable result for each applicable item:
+
+1. Changed-file syntax, import and test discovery.
+2. Focused tests for every changed contract/importer.
+3. Full required test suite on the candidate tree or observable CI equivalent.
+4. Source registry ↔ import specification ↔ importer ↔ tests consistency.
+5. Archive path existence and independently computed hashes where binary bytes are available.
+6. Master data, manifest and reconciliation consistency.
+7. python tools/dkb.py project-state --check.
+8. python tools/dkb.py documentation-baseline --check.
+9. Complete diff and changed-path scope review.
+10. Independent source-fidelity review where source/domain data changed.
+11. Exact candidate HEAD SHA and target-branch freshness.
+12. All required CI jobs on that exact HEAD SHA.
+
+A result is not a pass if it is unknown, assumed, inherited from a different SHA, or represented only by an unverified statement. Use BLOCKED for checks that cannot be run; do not silently mark them not applicable.
+
+### F. Change invalidation rules
+
+Any new commit, edit, generated-file update, source registry change, test addition/removal, rebase or merge invalidates the checks affected by that change. A changed candidate HEAD requires the full required final quality matrix to run against the new SHA. Immediately before merge, fetch the PR again and confirm the tested SHA is still its current head.
+
+### G. Completion and session handoff
+
+A package may be described as complete only when all applicable matrix items have observable passing evidence; source fidelity is accepted or an explicitly approved non-blocking deferral is recorded; the exact tested SHA and PR/commit are recorded; canonical state and generated documentation reflect the durable repository result; and unresolved limitations and the next package are recorded.
+
+Every new chat/session must load this protocol through project/START_HERE.md. A short user instruction such as kontynuuj does not waive any control. If the protocol cannot be read or a mandatory check cannot be verified, enter recovery/diagnostic mode and report the exact blocker.
