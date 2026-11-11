@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-09
+- State updated: 2026-11-11
 
 ## Phase
 
@@ -25,7 +25,7 @@
 
 - Tests: 1978
 - Master CSV files: 48
-- Master rows: 22712
+- Master rows: 22713
 - Configuration values: 8492
 - Configuration import specifications: 189
 - Configuration value ranges: 451
