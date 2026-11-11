@@ -169,3 +169,8 @@ The maintainer must use canonical generators for all derived state and managed d
 A PR must not be published as ready until the mandatory pre-PR consistency matrix in project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md has observable results. Unknown or unavailable checks are BLOCKED, not passed. Every new commit or relevant edit invalidates affected checks; the full required final quality matrix must validate the exact current head SHA.
 
 When a test fails, classify the first causal failure and establish which layer is wrong before changing code, data or expectations. Never weaken a correct test or alter generated counters solely to obtain a green CI result. If the canonical generator or required validation cannot be executed or observed, keep the package blocked and state the exact limitation.
+
+
+## Git Bash operational safety
+
+Whenever local Git Bash is used, the maintainer must follow `project/GIT_BASH_SAFE_OPERATIONS.md`. This includes preflight checks for repository identity, branch and working-tree state; preserving rather than discarding local changes; stopping on failed checkout/pull operations; one-command-at-a-time execution; canonical state regeneration; explicit diff review and path-scoped staging; and exact-branch push verification. Destructive reset/clean operations and blind stash restoration are prohibited as routine recovery. If the local state is ambiguous, stop and request read-only diagnostics before proceeding.
