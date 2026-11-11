@@ -51,7 +51,7 @@ def verify_sources():
     if oct["document_date"]!="2026-10-01" or oct["sha256"]!=OCT_SHA: raise ContractError("October source receipt mismatch")
     if file_hash(ROOT/oct["file_path"])!=OCT_SHA: raise ContractError("October source PDF hash mismatch")
     if nov["document_date"]!="2026-11-02" or nov["external_reference"]!=NOV_URL: raise ContractError("November source receipt mismatch")
-    if nov["file_path"] or nov["sha256"] or "no repository SHA-256 is asserted" not in nov["notes"]: raise ContractError("November Library/hash boundary mismatch")
+    if nov["file_path"] or nov["sha256"]!="592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b" or "SHA-256 verified from uploaded raw bytes" not in nov["notes"] or "repository binary archive remains pending" not in nov["notes"]: raise ContractError("November Library/archive boundary mismatch")
     links=read(MASTER/"source_configurations.csv")
     oct_links={r["configuration_code"] for r in links if r["source_code"]==OCT and r["relationship"]=="documents"}
     nov_links=[r for r in links if r["source_code"]==NOV]

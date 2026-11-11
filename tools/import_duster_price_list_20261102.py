@@ -49,7 +49,7 @@ def check():
     ranges=read("configuration_attribute_value_ranges.csv"); availability=read("configuration_attribute_availability.csv")
     source=unique(sources)["src_pl_duster_price_my26_20261102"]
     assert source["source_type"]=="configuration_pdf" and source["document_date"]=="2026-11-02"
-    assert source["external_reference"]==URL and not source["file_path"] and not source["sha256"]
+    assert source["external_reference"]==URL and source["file_path"]=="owner_supplied/2026-11-02/f07ca0a87f.pdf" and not source["sha256"]
     sv=[r for r in versions if r["source_code"]==SOURCE]; sl=[r for r in links if r["source_code"]==SOURCE]
     assert {r["version_code"] for r in sv}==set(VERSIONS) and len(sv)==4
     assert {r["configuration_code"] for r in sl}==set(CONFIGS) and len(sl)==16

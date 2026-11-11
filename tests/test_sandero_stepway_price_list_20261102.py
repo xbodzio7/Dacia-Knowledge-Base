@@ -39,7 +39,7 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(source["document_date"], "2026-11-02")
         self.assertEqual(source["market"], "PL")
         self.assertTrue(source["external_reference"].endswith("/3b4618d7da.pdf"))
-        self.assertEqual(source["file_path"], "")
+        self.assertEqual(source["file_path"], "owner_supplied/2026-11-02/3b4618d7da.pdf")
         self.assertEqual(source["sha256"], "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c")
 
         source_code = source["code"]

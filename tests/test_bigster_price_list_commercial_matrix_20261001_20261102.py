@@ -20,8 +20,8 @@ class BigsterCommercialMatrixTests(unittest.TestCase):
         sources={r["code"]:r for r in read(MASTER/"sources.csv")}
         self.assertEqual(sources[OCT]["sha256"],importer.OCT_SHA)
         self.assertEqual(sources[NOV]["file_path"],"")
-        self.assertEqual(sources[NOV]["sha256"],"")
-        self.assertIn("no repository SHA-256 is asserted",sources[NOV]["notes"])
+        self.assertEqual(sources[NOV]["sha256"],"592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b")
+        self.assertIn("SHA-256 verified from uploaded raw bytes",sources[NOV]["notes"])
         prices=read(MASTER/"configuration_prices.csv")
         a={r["configuration_code"] for r in prices if r["source_code"]==OCT and r["price_date"]=="2026-10-01"}
         b={r["configuration_code"] for r in prices if r["source_code"]==NOV and r["price_date"]=="2026-11-02"}

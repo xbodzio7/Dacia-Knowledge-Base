@@ -102,8 +102,8 @@ def verify_semantics(spec: dict[str, Any]) -> None:
         raise ContractError("Source date/market does not match the reviewed cennik")
     if not source["external_reference"].endswith("/3b4618d7da.pdf"):
         raise ContractError("Unexpected official PDF reference")
-    if source["file_path"]:
-        raise ContractError("Do not claim a repository archive without a committed binary")
+    if source["file_path"] != "owner_supplied/2026-11-02/3b4618d7da.pdf":
+        raise ContractError("The reviewed source must point to the exact archived original PDF")
     if source["sha256"] != "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c":
         raise ContractError("The owner-supplied original PDF SHA-256 must match the reviewed source")
 
