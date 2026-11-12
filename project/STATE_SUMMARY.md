@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `in_progress`
+**Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction** — `complete`
 
-Build a deterministic report comparing the 13 exact Bigster MY26 configurations priced in both official Polish cenniks dated 01.10.2026 and 02.11.2026. Preserve source observation codes and unchanged values; do not infer equivalence to differently named July configurations or duplicate master facts.
+Corrected the official Polish Jogger MY26 2026-10-01 price matrix. Removed the incorrect 86,550 PLN Essential price observation for the seven-seat Eco-G 120 manual row because the source prints a dash; corrected Expression from 94,400 to 86,550 PLN; retained Extreme at 94,400 PLN. Added source relationships for all 12 configurations and three grades shown in the price matrix. Preserved the 2026-04-01 and 2026-07-03 historical prices. The source PDF is already registered and archived with SHA-256; no brochure or configurator data imported.
 
 ## Next package
 
-**Cross-model Official Polish Cennik Residual Coverage Review (Striker excluded)** — `planned`
+**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `planned`
 
-Reconcile all currently registered official Polish Dacia price lists and their page-level scope against existing source-linked master observations. Identify only exact, importable price-list gaps for active model families; exclude Striker while its price list is unavailable. Do not use brochures or configurator data, infer values from omissions, or repeat already completed model/date packages.
+Generate a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. Preserve unchanged values and exact source observation codes; do not infer equivalence to the differently named 2026-07-03 engine/configuration identifiers, duplicate master observations, or include promotions and financing.
 
 ## Autonomy
 
