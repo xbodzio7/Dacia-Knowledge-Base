@@ -31,7 +31,7 @@ Latest completed package before the current correction: `sandero_stepway_price_m
 
 Current completed package: `jogger_price_matrix_correction_20261001_20261106_001`. Corrected the seven-seat Eco-G 120 manual price alignment: Essential has no catalogue price in the printed matrix, Expression is 86,550 PLN and Extreme is 94,400 PLN. Added source relationships for the 12 printed configurations and three grades. Preserved April/July historical prices. The 01.10.2026 date applies to the page-1 price matrix; 02.11.2026 is the technical-data status date. The source PDF was already archived with SHA-256. No brochure or configurator data imported.
 
-Next package: `sandero_stepway_price_history_mvp_20261106_001`. Implement Stage A of `project/CHANGE_HISTORY_PLAN.md`: a deterministic, source-traceable Sandero/Sandero Stepway catalogue-price timeline. Use existing dated master observations, do not duplicate them, and keep promotions/financing separate from catalogue prices.
+The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. The Striker cennik is temporarily unavailable and is excluded from active work.
 
 ## Vehicle Change History Plan (2026-11-06)
 
@@ -295,3 +295,10 @@ Captured the exact numeric row from the official Bigster brochure: 4 YouClip mou
 Source page 21, SHA-256 `76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74`. Observation IDs 8217–8230. Three focused tests verify the source receipt, exact manifest, active source-linked configuration set and grade mapping. No existing observations were overwritten.
 
 The broader **Official Bigster Brochure Full Assimilation** package remains active.
+
+
+## Bigster MY26 Catalogue Price History (2026-11-12)
+
+The new bounded report compares the 13 exact canonical configurations priced in both official Polish Bigster MY26 cenniks dated 2026-10-01 and 2026-11-02. All 13 prices are unchanged. The report is derived from existing master observations and the source registry; it does not add duplicate master price rows. The 2026-07-03 source is not used as the direct baseline because several engine/configuration identifiers were subsequently renamed or restructured; no cross-identifier equivalence is inferred.
+
+The 2026-11-02 Bigster source has a verified SHA-256 in the source registry, but its raw PDF remains outside the repository archive. Promotions, financing, leasing, accessories and dealer offers are excluded. Striker is explicitly deferred while its cennik is unavailable. The next planned work is a cross-model residual coverage review of official Polish cenniks only; brochures and configurator sources remain out of scope.
