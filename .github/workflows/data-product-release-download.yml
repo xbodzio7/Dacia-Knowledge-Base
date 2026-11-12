@@ -46,6 +46,8 @@ jobs:
       - name: Run consumer guide checks
         run: python tests/data_product_consumer_guide_checks.py -q
       - name: Download immutable public v1.19.1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python tools/dkb.py data-product-release-download --version 1.19.1 --output-directory downloaded-release
       - name: Independently verify downloaded assets
         run: python tools/data_product_release.py --verify --version 1.19.1 --commit-sha e3a43a999a40f920bceab655cdfdac5856119a07 --output-directory downloaded-release/assets
