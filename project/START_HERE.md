@@ -112,6 +112,14 @@ Run this check at session start whenever repository execution is available:
 python tools/dkb.py project-state --check
 ```
 
+Run the fast data-integrity preflight before committing or publishing a package, and after any data CSV/JSON edit:
+
+```bash
+python tools/dkb.py package-preflight
+```
+
+The preflight is also mandatory in the Quality GitHub Actions workflow. It does not replace the full repository validator or the complete quality/source-fidelity gates.
+
 For a package whose canonical `kind` is `residual_review`, prepare the exact review input with:
 
 ```bash
