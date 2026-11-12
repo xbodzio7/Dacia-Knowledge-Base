@@ -140,3 +140,13 @@ When working directly inside the repository, do not reproduce complete files in 
 ---
 
 # End of document
+
+
+## Package-state consistency gate
+
+Every package Pull Request must carry its own canonical state update. Quality
+CI checks that `state.json` identifies the exact PR number as the completed
+current package, that current and next package IDs differ, and that the next
+package is not already complete. After merge, verify the exact merged commit
+and rerun the canonical state and generated-documentation checks before
+continuing. See D-024 in `project/DECISIONS.md`.

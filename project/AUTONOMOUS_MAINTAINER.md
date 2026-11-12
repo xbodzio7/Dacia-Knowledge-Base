@@ -169,3 +169,21 @@ The maintainer must use canonical generators for all derived state and managed d
 A PR must not be published as ready until the mandatory pre-PR consistency matrix in project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md has observable results. Unknown or unavailable checks are BLOCKED, not passed. Every new commit or relevant edit invalidates affected checks; the full required final quality matrix must validate the exact current head SHA.
 
 When a test fails, classify the first causal failure and establish which layer is wrong before changing code, data or expectations. Never weaken a correct test or alter generated counters solely to obtain a green CI result. If the canonical generator or required validation cannot be executed or observed, keep the package blocked and state the exact limitation.
+
+
+## Mandatory package lifecycle gate (D-024)
+
+Every implementation Pull Request must update `project/state.json` and its
+generated `project/STATE_SUMMARY.md` in the same logical change. The
+`current_package` object must identify the package's stable ID, kind, name,
+goal, status `complete`, and exact Pull Request number. The
+`next_package` object must identify a different, unfinished package.
+
+Quality CI validates the package PR number against the canonical state. A
+package PR without this identity match is not eligible for merge. Do not bypass
+the check by weakening the validator or by omitting the package identity.
+
+After merge, re-fetch `main` and verify the exact merge commit, then run
+`project-state --check` and the generated-documentation check before selecting
+the next package. If state and merge evidence disagree, enter recovery mode;
+do not continue from a stale narrative or repeat a completed package.

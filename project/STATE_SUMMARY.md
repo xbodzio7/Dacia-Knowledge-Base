@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `complete`
+**Cross-Document Package-State Consistency Gates** — `complete`
 
-Generated a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. All 13 prices are unchanged; exact source observation codes are retained. No equivalence was inferred to differently named 2026-07-03 engine/configuration identifiers, no master observations were duplicated, and promotions and financing were excluded.
+Implement D-024 lifecycle and cross-document safeguards: stable package identities, reject duplicate or completed next-package selection, require each package PR to identify itself in canonical state, and enforce the identity check in Quality CI.
 
 ## Next package
 
-**Spring MY25 Stock Extreme Electric 100 Exact Cennik Price Observation** — `planned`
+**Jogger MY26 2026-10-01 Official Price List Reconciliation** — `planned`
 
-Close the remaining exact source-link gap for the 85,900 PLN Extreme Electric 100 catalogue-price cell explicitly printed on page 1 of the official Polish Spring MY25 stock cennik effective 2026-07-08. Keep applicability bounded to MY25 dealer stock; do not allocate the 17,000 PLN stock promotion or generalize the price to MY26.
+Continue the cennik-only priority by reconciling remaining exact configuration, catalogue-price and commercial-item relationships against the official Polish Jogger price list effective 2026-10-01. Preserve the separate 02.11.2026 technical-data date and do not use brochures or configurator evidence.
 
 ## Autonomy
 

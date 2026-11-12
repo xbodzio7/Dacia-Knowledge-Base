@@ -95,6 +95,14 @@ jobs:
         if: matrix.python-version != '3.14'
         run: python tools/dkb.py project-state --check
 
+      - name: Require this Pull Request in canonical package state
+        if: github.event_name == 'pull_request' && matrix.python-version != '3.14'
+        env:
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python tools/dkb.py project-state \
+            --pull-request-number "$PULL_REQUEST_NUMBER"
+
       - name: Run full quality gate
         if: matrix.python-version == '3.14'
         run: |
