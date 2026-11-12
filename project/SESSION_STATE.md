@@ -315,3 +315,8 @@ The corrective changes in the PR:
 - record the permanent policy in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`.
 
 The PDF artifact test remains enabled. Do not update the committed candidate ledger to a newer Poppler version without a separately reviewed extraction-difference package. Re-run the full quality matrix on the exact final PR head before considering PR #804 ready or mergeable.
+
+
+## PR #804 Follow-up — Historical PDF CI Contract Alignment (2026-11-12)
+
+The first CI rerun after pinning Poppler exposed a stale assertion in the historical post-cross-model workspace review verifier. It required the former Quality workflow step name and therefore failed on Python 3.10, Python 3.13 and the Windows package-contract suite before the full Quality gate could run. This was a test-contract drift, not a PDF extraction or Bigster data failure. The verifier now requires the current step name and explicitly checks that both `pdftotext` and `pdfinfo` are pinned to 24.02.0. The checks remain strict; no test was removed or skipped. Re-run all required CI checks on the new exact PR head before considering the change ready.
