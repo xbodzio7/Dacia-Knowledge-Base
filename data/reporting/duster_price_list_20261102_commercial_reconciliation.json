@@ -7,9 +7,9 @@
     "market": "PL",
     "document_date": "2026-11-02",
     "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf",
-    "page_count": 10,
+    "page_count": 9,
     "raw_pdf_sha256": null,
-    "raw_pdf_repository_path": null
+    "raw_pdf_repository_path": "owner_supplied/2026-11-02/f07ca0a87f.pdf"
   },
   "scope": {
     "model": "Duster",
@@ -17,10 +17,12 @@
     "versions": 4,
     "reviewed_printed_pages": [
       1,
+      2,
       3,
       4,
       5,
       6,
+      7,
       8,
       9
     ],
@@ -43,7 +45,17 @@
       "previous_source": "src_pl_duster_price_my26_20260901",
       "existing_observations_reused": 391,
       "new_rows_added": 0,
-      "result": "The page-6 technical values match the existing scalar observations."
+      "result": "The 391 previously represented scalar observations were reused, but a source-to-master delta was identified for hybrid_system_voltage: the current page-6 table states 280 V for all three Hybrid 155 configurations, whereas the 2026-09-01 table recorded 230 V. The three current-dated 280 V observations have not yet been materialized; preserve the separate 260 V narrative statement and the historical observations.",
+      "unmaterialized_source_delta": {
+        "attribute_code": "hybrid_system_voltage",
+        "previous_value": 230,
+        "current_value": 280,
+        "unit": "V",
+        "observation_date": "2026-11-02",
+        "affected_configurations": 3,
+        "status": "identified_not_imported",
+        "blocker": "The registered November source has no verified SHA-256; the declarative configuration-value importer requires a hash-verified registered source."
+      }
     },
     "technical_ranges": {
       "previous_source": "src_pl_duster_price_my26_20260901",
@@ -97,11 +109,82 @@
       "page": 9,
       "item": "Duster dimensions diagram",
       "reason": "Several dimensions are shown as paired values without a precise grade/powertrain crosswalk; no configuration-level mapping was inferred."
+    },
+    {
+      "page": 6,
+      "item": "Hybrid 155 hybrid_system_voltage current-table observation",
+      "reason": "The 2026-11-02 technical table states 280 V for the three Hybrid 155 configurations, while the prior 2026-09-01 table states 230 V and the current page-2 narrative states 260 V. These contexts must remain distinct.",
+      "next_action": "Register the November PDF with a verified SHA-256 and add three dated 280 V observations through the declarative import workflow."
+    },
+    {
+      "page": 7,
+      "item": "Accessory presentation and QR links",
+      "reason": "The page provides descriptions and QR links but no item prices or exact vehicle-configuration compatibility.",
+      "next_action": "No configuration import; consider only if a separate official accessory price list is explicitly in scope."
     }
   ],
   "evidence_notes": [
-    "The page-2 hybrid narrative states a 260 V traction battery while the page-6 technical table states 230 V; the existing discrepancy is preserved without choosing one value.",
     "The current cennik's page-1 prices, page-3/4 equipment matrix, page-5 package prices and page-6 technical values were compared with the existing 2026-09-01 source. Only the named non-metallic paint surcharges, spare-wheel surcharge and current TECHNO 1 applicability were imported.",
-    "No brochure or configurator evidence was used to create new master observations."
+    "No brochure or configurator evidence was used to create new master observations.",
+    "Printed page 2 states a 1.4 kWh traction battery at 260 V; printed page 6 technical table states 280 V for Hybrid 155. The previous 2026-09-01 page-6 table stated 230 V. Preserve these as distinct source statements; do not resolve or overwrite.",
+    "Printed page 2 was reviewed: technology/comfort narrative only; no additional configuration price or option matrix was identified.",
+    "Printed page 7 was reviewed: accessory presentation and QR links only; no accessory prices or exact configuration applicability were printed.",
+    "The currently served official PDF contains 9 pages, not 10. Printed page 8 is a separate complete-winter-wheel accessory list and promotion; printed page 9 contains the dimension diagram and legal terms."
+  ],
+  "page_inventory": [
+    {
+      "page": 1,
+      "section": "Catalogue price matrix and commercial headlines",
+      "review": "complete",
+      "classification": "All 16 catalogue prices match the 2026-09-01 observations; current commercial headline claims remain separate from catalogue prices."
+    },
+    {
+      "page": 2,
+      "section": "Technology, comfort and model narrative",
+      "review": "complete",
+      "classification": "Marketing/technology narrative reviewed. Hybrid 155 battery statement is 1.4 kWh and 260 V; retained separately from the page-6 technical table."
+    },
+    {
+      "page": 3,
+      "section": "Grade equipment summaries",
+      "review": "complete",
+      "classification": "Narrative summaries reviewed; detailed availability matrix remains on printed pages 4–5."
+    },
+    {
+      "page": 4,
+      "section": "Equipment matrix — exterior, seats, safety and visibility",
+      "review": "complete",
+      "classification": "Matrix reviewed; no changes beyond the dated commercial mappings already recorded."
+    },
+    {
+      "page": 5,
+      "section": "Equipment matrix — driving, comfort, multimedia and packages",
+      "review": "complete",
+      "classification": "Matrix and package prices reviewed; no duplicate availability or package rows added."
+    },
+    {
+      "page": 6,
+      "section": "Technical specifications",
+      "review": "complete_with_delta",
+      "classification": "Existing technical observations reused except the three Hybrid 155 hybrid_system_voltage values: 280 V in the current table versus 230 V in the 2026-09-01 table. Import remains pending hash-verified source registration."
+    },
+    {
+      "page": 7,
+      "section": "Accessories presentation",
+      "review": "complete",
+      "classification": "Product descriptions and QR links; no prices or safe configuration-option mappings."
+    },
+    {
+      "page": 8,
+      "section": "Complete winter-wheel accessory list and promotion",
+      "review": "complete",
+      "classification": "Four complete-wheel products priced 1,700, 1,555, 1,220 and 1,075 PLN; separate accessory list effective 2026-09-01, not a vehicle configuration-option matrix. Seasonal campaign is separate."
+    },
+    {
+      "page": 9,
+      "section": "Duster dimensions and legal terms",
+      "review": "complete_with_deferrals",
+      "classification": "Paired dimensions are present but not mapped to grades/powertrains without a reliable crosswalk. Legal/promotion terms are not configuration data."
+    }
   ]
 }

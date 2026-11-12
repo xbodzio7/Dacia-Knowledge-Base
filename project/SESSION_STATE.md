@@ -342,3 +342,12 @@ Added a dedicated package-preflight command and automated Quality workflow step.
 - The canonical next package is now a cross-model residual coverage review of official Polish Dacia price lists only. It must reuse existing source-backed reconciliations, isolate exact remaining gaps, and avoid duplicate or historical re-imports.
 - Brochures and configurator evidence remain deferred under the user's cennik-only priority.
 - This is a state/documentation reconciliation only; no master data, source records, or baseline counters are changed.
+
+
+## Duster MY26 Cennik Residual Review — 2026-11-12
+
+The official Duster MY26 cennik effective 2026-11-02 was rechecked directly against the current official PDF and repository source inventory. The current PDF has 9 pages (not 10). Previously unreviewed printed pages 2 and 7 were inspected: page 2 contains narrative technology/comfort claims; page 7 contains accessory descriptions and QR links but no priced configuration options. Page 8 is a separate complete-winter-wheel accessory list; page 9 contains the dimensions diagram and legal terms. No configuration price or option import was identified on pages 2 or 7.
+
+A material technical delta was found for Hybrid 155: page 2 states 1.4 kWh / 260 V, while page 6 states 280 V. The prior 2026-09-01 page-6 table stated 230 V. The master retains the older narrative/table pair for the three Hybrid 155 configurations; three current-dated 280 V table observations are missing. Do not overwrite the 230 V history or merge the 260 V narrative into the table attribute. Import is blocked until the registered November PDF has a verified SHA-256; the declarative importer requires hash-verified source registration. The repository contains the raw PDF at `owner_supplied/2026-11-02/f07ca0a87f.pdf`, but its SHA-256 is not currently recorded.
+
+No master data changed in this review. The exact gap and page inventory are recorded in `data/reporting/duster_price_list_20261102_commercial_reconciliation.json` and its Markdown companion. Brochures and configurator evidence remain out of scope.
