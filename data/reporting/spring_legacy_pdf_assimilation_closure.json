@@ -305,9 +305,9 @@
       }
     },
     "configuration_prices": {
-      "total": 1,
+      "total": 2,
       "by_source": {
-        "src_pl_spring_price_my25_stock_20260708": 1
+        "src_pl_spring_price_my25_stock_20260708": 2
       }
     }
   },

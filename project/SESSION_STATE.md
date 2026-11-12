@@ -116,9 +116,9 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1979 testów automatycznych zakończonych powodzeniem,
+- 1981 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22713 rekordów danych,
+- 22715 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -129,7 +129,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22713 rekordów,
+- baza SQLite obejmująca 48 tabele i 22715 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -320,3 +320,11 @@ The PDF artifact test remains enabled. Do not update the committed candidate led
 ## PR #804 Follow-up — Historical PDF CI Contract Alignment (2026-11-12)
 
 The first CI rerun after pinning Poppler exposed a stale assertion in the historical post-cross-model workspace review verifier. It required the former Quality workflow step name and therefore failed on Python 3.10, Python 3.13 and the Windows package-contract suite before the full Quality gate could run. This was a test-contract drift, not a PDF extraction or Bigster data failure. The verifier now requires the current step name and explicitly checks that both `pdftotext` and `pdfinfo` are pinned to 24.02.0. The checks remain strict; no test was removed or skipped. Re-run all required CI checks on the new exact PR head before considering the change ready.
+
+
+## Cennik-only Follow-up — Bigster and Spring (2026-11-12)
+
+- PR #804 merged: Bigster MY26 catalogue-price history compares 13 exact configurations between official Polish cenniks dated 2026-10-01 and 2026-11-02; all 13 prices are unchanged. The PR also pins the PDF extraction toolchain and aligns the historical review contract with the pinned CI step.
+- Current cennik-only follow-up: Spring MY25 stock price list dated 2026-07-08. The exact 85,900 PLN Extreme Electric 100 catalogue-price cell on printed page 1 was missing from the source-linked master price observations; a bounded source-price observation and source-configuration link are proposed in PR #805.
+- The 17,000 PLN dealer-stock promotion is not allocated to individual configurations. The 2026-07-08 MY25 stock value is not generalized to MY26. Existing 2026-07-31 configurator observation remains a distinct dated source.
+- First PR #805 CI attempt caught a CSV quoting defect: the thousands separator in the source note had not been enclosed in quotes. The note was corrected; all controls must be re-run on the corrected final HEAD. The failure was not a data-value disagreement.
