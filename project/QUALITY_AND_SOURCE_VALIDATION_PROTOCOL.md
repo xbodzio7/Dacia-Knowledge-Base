@@ -489,3 +489,24 @@ For the committed official PDF candidate ledger:
 - compare the freshly generated backend-version metadata with the committed artifact before comparing complete output bytes.
 
 Do not regenerate and commit a PDF-derived artifact merely to accommodate a newer runner. A toolchain change requires a deliberate package: review the extraction differences against the registered source PDFs, update the toolchain contract and documentation, regenerate the artifacts, and independently validate the changed candidate inventory. A mismatch is an environment/toolchain failure until proven otherwise; it is not permission to weaken or skip the artifact test.
+
+
+## 7.4 Fail-fast data package preflight
+
+Before the full test and quality matrix, run:
+
+```bash
+python tools/dkb.py package-preflight
+```
+
+The command performs a read-only structural pass over all CSV and JSON files under `data/`:
+
+- every CSV is parsed with the canonical strict CSV validator, including exact row-width and quoting checks;
+- every JSON file is decoded as UTF-8 and parsed with the standard JSON parser;
+- missing data roots, unreadable files, malformed quoting, unexpected CSV field counts and invalid JSON are fatal.
+
+The Quality GitHub Actions workflow runs this preflight before Python compilation and tests. Run it again after any edit to a data CSV or JSON file. It is a fast structural gate, not a replacement for `python tools/dkb.py validate`, the complete quality gate, repository-state checks, generated-documentation checks or independent source-fidelity review.
+
+All CSV-writing code must use `csv.writer`, `csv.DictWriter` or another standards-compliant CSV serializer. Do not build CSV rows by joining raw values with commas. Tests for a CSV-producing importer or report must include a field containing a comma (and, where relevant, quotes or a newline) so serialization regressions are caught.
+
+When data changes, identify dependent reports, manifests, reconciliation receipts and historical closure summaries before editing. Refresh derived artifacts only through their canonical generator or documented deterministic procedure, then run their verification checks. A successful CSV parse does not prove dependent artifacts are current.
