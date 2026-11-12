@@ -4,7 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.validators.csv_validator import validate_csv\nfrom tools.package_preflight import validate_data_tree
+from tools.package_preflight import validate_data_tree
+from tools.validators.csv_validator import validate_csv
 
 
 class CsvValidatorTests(unittest.TestCase):
@@ -49,12 +50,12 @@ class CsvValidatorTests(unittest.TestCase):
         data_directory = self.root / "data"
         data_directory.mkdir()
         (data_directory / "valid.csv").write_text(
-            'id,note\\n1,"85,900 PLN"\\n',
+            'id,note\n1,"85,900 PLN"\n',
             encoding="utf-8",
             newline="",
         )
         (data_directory / "receipt.json").write_text(
-            '{"source_id": "spring"}\\n',
+            '{"source_id": "spring"}\n',
             encoding="utf-8",
         )
         self.assertEqual(validate_data_tree(self.root), [])
@@ -156,6 +157,17 @@ class CsvValidatorTests(unittest.TestCase):
             ["Line 2: expected 2 columns, got 3"],
         )
 
+        data_directory = self.root / "data"
+        data_directory.mkdir()
+        (data_directory / "invalid.csv").write_text(
+            "id,note\n1,Price includes 85,900 PLN\n",
+            encoding="utf-8",
+            newline="",
+        )
+        preflight_errors = validate_data_tree(self.root)
+        self.assertEqual(len(preflight_errors), 1)
+        self.assertIn("expected 2 columns, got 4", preflight_errors[0])
+
     def test_rejects_empty_data_row(self) -> None:
         path = self.write_text(
             "id,name\n"
@@ -188,7 +200,7 @@ class CsvValidatorTests(unittest.TestCase):
         data_directory = self.root / "data"
         data_directory.mkdir()
         (data_directory / "invalid.json").write_text(
-            '{"source_id": "spring",}\\n',
+            '{"source_id": "spring",}\n',
             encoding="utf-8",
         )
         preflight_errors = validate_data_tree(self.root)
