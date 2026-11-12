@@ -1116,3 +1116,62 @@ Repeated full-matrix runs and repeated Pull Request setup after every small dete
 - public releases remain immutable;
 - the canonical execution policy is stored in `project/state.json`;
 - detailed rules are stored in `project/ACCELERATED_MILESTONE_CLOSURE.md`.
+
+
+## D-024 — Cross-document package-state consistency gates
+
+Status: Accepted
+
+Date: 2026-11-12
+
+### Decision
+
+The canonical package selector in `project/state.json` must be internally
+consistent and must be updated in the same logical package Pull Request as the
+work it describes.
+
+Every current and next package must have a stable, non-empty `package_id`,
+`kind`, `name`, `status` and `goal`. The current and next package IDs must
+differ. A package marked `complete` must never remain selected as
+`next_package`.
+
+Every package Pull Request must identify itself in the canonical state:
+`current_package.pull_request` must equal the actual GitHub Pull Request
+number, and `current_package.status` must be `complete` in the candidate
+branch. This check runs in Quality CI for pull-request events.
+
+The human-readable `STATE_SUMMARY.md` remains generated exclusively from
+`state.json`. Managed counters and documentation blocks must be checked and
+regenerated only by their canonical generators.
+
+### Post-merge and continuation controls
+
+After every merge, before selecting or repeating work, the maintainer must
+re-fetch `main`, verify the merged PR and exact merge/head SHAs, run the
+canonical project-state and documentation checks, and reconcile the next
+package selector against merged package evidence. A package must not be
+repeated merely because an older narrative document still lists it as pending.
+
+If a merged package was not represented in canonical state, the next package
+must be reselected from current repository evidence before further work. The
+maintainer must not guess package IDs or overwrite historical evidence to make
+the state appear current.
+
+### Rationale
+
+The previous state validator checked counters and generated summary text but
+could not detect a package selector that was internally stale after a merge.
+A PR-level identity gate makes the package lifecycle part of the tested change,
+while semantic checks reject duplicate or already-completed next-package
+selectors.
+
+### Consequences
+
+- Package identity and lifecycle are checked by the existing project-state
+  command rather than a parallel validation framework.
+- Quality CI rejects a package PR whose canonical state does not identify that
+  exact PR as the completed current package.
+- A completed package cannot remain the next selected package.
+- Post-merge reconciliation is an explicit mandatory step.
+- No master data or source-evidence rules are changed by this governance
+  decision.
