@@ -70,3 +70,31 @@ python tools/dkb.py project-state --check
 ```
 
 The resulting state and documentation changes belong to the same logical package that changed the baseline. A separate counter-only cleanup Pull Request should normally be unnecessary.
+
+
+## Package lifecycle consistency gate
+
+The existing `project-state` command also validates package lifecycle
+metadata:
+
+- current and next packages have stable IDs and explicit kinds;
+- current and next package IDs are different;
+- `next_package` cannot be marked `complete`;
+- an optional current-package PR number must be a positive integer.
+
+For every GitHub Pull Request, Quality CI additionally runs:
+
+```bash
+python tools/dkb.py project-state --pull-request-number <PR_NUMBER>
+```
+
+The candidate branch must identify that exact PR in
+`current_package.pull_request` and mark the package `complete`. This makes
+the canonical state update part of the package PR rather than a later manual
+cleanup.
+
+After merge, the maintainer must verify the exact merged commit on the current
+`main`, run `project-state --check` and the documentation-baseline check,
+then select the next package from current repository evidence. Historical
+narrative sections are not package selectors and must not reactivate completed
+work.
