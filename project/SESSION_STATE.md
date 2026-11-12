@@ -328,3 +328,8 @@ The first CI rerun after pinning Poppler exposed a stale assertion in the histor
 - Current cennik-only follow-up: Spring MY25 stock price list dated 2026-07-08. The exact 85,900 PLN Extreme Electric 100 catalogue-price cell on printed page 1 was missing from the source-linked master price observations; a bounded source-price observation and source-configuration link are proposed in PR #805.
 - The 17,000 PLN dealer-stock promotion is not allocated to individual configurations. The 2026-07-08 MY25 stock value is not generalized to MY26. Existing 2026-07-31 configurator observation remains a distinct dated source.
 - First PR #805 CI attempt caught a CSV quoting defect: the thousands separator in the source note had not been enclosed in quotes. The note was corrected; all controls must be re-run on the corrected final HEAD. The failure was not a data-value disagreement.
+
+
+## D-017 — Fail-fast package data integrity gates (2026-11-12)
+
+Added a dedicated package-preflight command and automated Quality workflow step. The command scans all repository CSV and JSON files under `data/`, reusing the strict canonical CSV validator and standard JSON parser. It catches malformed quoting, CSV column-count drift and invalid JSON before the full test matrix. CSV-producing code must use a standards-compliant serializer; dependent reports and generated documentation remain subject to their canonical generators and checks. The existing semantic repository validator, source-fidelity review and exact-HEAD CI remain mandatory.

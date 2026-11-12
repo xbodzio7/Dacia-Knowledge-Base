@@ -69,6 +69,9 @@ jobs:
           }
           printf '%s\n%s\n' "$actual_pdftotext" "$actual_pdfinfo"
 
+      - name: Run repository data package preflight
+        run: python tools/dkb.py package-preflight
+
       - name: Compile Python sources
         if: matrix.python-version != '3.14'
         run: python -m compileall -q tools scripts tests

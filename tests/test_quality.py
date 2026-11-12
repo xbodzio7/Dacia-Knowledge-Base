@@ -33,6 +33,7 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(
             labels,
             [
+                "Run repository data package preflight",
                 "Compile Python sources",
                 "Run unit tests",
                 "Check CSV encoding",
@@ -51,6 +52,14 @@ class QualityTests(unittest.TestCase):
         )
 
         commands = dict(steps)
+        self.assertEqual(
+            commands["Run repository data package preflight"],
+            [
+                sys.executable,
+                str(TOOLS_DIRECTORY / "dkb.py"),
+                "package-preflight",
+            ],
+        )
         self.assertEqual(
             commands["Compile Python sources"],
             [
