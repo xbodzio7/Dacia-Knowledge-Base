@@ -53,11 +53,16 @@ class ProjectStateContractTests(unittest.TestCase):
                 "attribute_categories": 2,
             },
             "current_package": {
+                "package_id": "current_package_001",
+                "kind": "reporting",
                 "name": "Current package",
-                "status": "planned",
+                "status": "complete",
+                "pull_request": 12,
                 "goal": "Do the current work.",
             },
             "next_package": {
+                "package_id": "next_package_001",
+                "kind": "source_gap_closure",
                 "name": "Next package",
                 "status": "planned",
                 "goal": "Do the next work.",
@@ -133,6 +138,42 @@ class ProjectStateContractTests(unittest.TestCase):
         self.assertEqual(first, project_state.render_summary(state))
         self.assertIn("Current package", first)
         self.assertIn("ACTION_REQUIRED", first)
+
+    def test_package_ids_must_be_distinct(self) -> None:
+        state = self.fixture()
+        state["next_package"]["package_id"] = state["current_package"]["package_id"]
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "different package_id",
+        ):
+            project_state.validate_state(state)
+
+    def test_completed_package_cannot_remain_next(self) -> None:
+        state = self.fixture()
+        state["next_package"]["status"] = "complete"
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "next_package.status cannot be 'complete'",
+        ):
+            project_state.validate_state(state)
+
+    def test_package_pull_request_must_match_ci_event(self) -> None:
+        state = self.fixture()
+        project_state.validate_pull_request_state(state, 12)
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "must match the current Pull Request #13",
+        ):
+            project_state.validate_pull_request_state(state, 13)
+
+    def test_package_pull_request_must_be_complete(self) -> None:
+        state = self.fixture()
+        state["current_package"]["status"] = "active"
+        with self.assertRaisesRegex(
+            project_state.StateError,
+            "status must be 'complete'",
+        ):
+            project_state.validate_pull_request_state(state, 12)
 
     def test_invalid_sha_is_rejected(self) -> None:
         state = self.fixture()
