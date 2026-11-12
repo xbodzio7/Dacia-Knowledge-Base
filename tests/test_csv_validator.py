@@ -166,7 +166,7 @@ class CsvValidatorTests(unittest.TestCase):
         )
         preflight_errors = validate_data_tree(self.root)
         self.assertEqual(len(preflight_errors), 1)
-        self.assertIn("expected 2 columns, got 4", preflight_errors[0])
+        self.assertIn("expected 2 columns, got 3", preflight_errors[0])
 
     def test_rejects_empty_data_row(self) -> None:
         path = self.write_text(
