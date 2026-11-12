@@ -320,3 +320,8 @@ The PDF artifact test remains enabled. Do not update the committed candidate led
 ## PR #804 Follow-up — Historical PDF CI Contract Alignment (2026-11-12)
 
 The first CI rerun after pinning Poppler exposed a stale assertion in the historical post-cross-model workspace review verifier. It required the former Quality workflow step name and therefore failed on Python 3.10, Python 3.13 and the Windows package-contract suite before the full Quality gate could run. This was a test-contract drift, not a PDF extraction or Bigster data failure. The verifier now requires the current step name and explicitly checks that both `pdftotext` and `pdfinfo` are pinned to 24.02.0. The checks remain strict; no test was removed or skipped. Re-run all required CI checks on the new exact PR head before considering the change ready.
+
+
+## D-017 — Fail-fast package data integrity gates (2026-11-12)
+
+Added a dedicated package-preflight command and automated Quality workflow step. The command scans all repository CSV and JSON files under `data/`, reusing the strict canonical CSV validator and standard JSON parser. It catches malformed quoting, CSV column-count drift and invalid JSON before the full test matrix. CSV-producing code must use a standards-compliant serializer; dependent reports and generated documentation remain subject to their canonical generators and checks. The existing semantic repository validator, source-fidelity review and exact-HEAD CI remain mandatory.
