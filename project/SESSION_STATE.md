@@ -302,3 +302,16 @@ The broader **Official Bigster Brochure Full Assimilation** package remains acti
 The new bounded report compares the 13 exact canonical configurations priced in both official Polish Bigster MY26 cenniks dated 2026-10-01 and 2026-11-02. All 13 prices are unchanged. The report is derived from existing master observations and the source registry; it does not add duplicate master price rows. The 2026-07-03 source is not used as the direct baseline because several engine/configuration identifiers were subsequently renamed or restructured; no cross-identifier equivalence is inferred.
 
 The 2026-11-02 Bigster source has a verified SHA-256 in the source registry, but its raw PDF remains outside the repository archive. Promotions, financing, leasing, accessories and dealer offers are excluded. Striker is explicitly deferred while its cennik is unavailable. The next planned work is a cross-model residual coverage review of official Polish cenniks only; brochures and configurator sources remain out of scope.
+
+## PDF Extraction Toolchain Regression (2026-11-12)
+
+PR #804 exposed a non-deterministic CI environment: the committed official PDF candidate ledger was generated with Poppler 24.02.0, while the moving `ubuntu-latest` runner supplied Poppler 26.01.0. The resulting candidate JSON/Markdown differed even though the registered source PDFs and their hashes were unchanged. This was an environment/toolchain mismatch, not a Bigster price-history defect.
+
+The corrective changes in the PR:
+- pin the Linux quality matrix to `ubuntu-24.04`;
+- verify both `pdftotext` and `pdfinfo` are version 24.02.0 before the PDF quality check;
+- make the candidate-ledger generator reject a different `pdftotext` version rather than silently creating a different canonical artifact;
+- make the existing repository-artifact test report backend-version drift explicitly;
+- record the permanent policy in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`.
+
+The PDF artifact test remains enabled. Do not update the committed candidate ledger to a newer Poppler version without a separately reviewed extraction-difference package. Re-run the full quality matrix on the exact final PR head before considering PR #804 ready or mergeable.
