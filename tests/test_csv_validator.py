@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.validators.csv_validator import validate_csv
+from tools.validators.csv_validator import validate_csv\nfrom tools.package_preflight import validate_data_tree
 
 
 class CsvValidatorTests(unittest.TestCase):
@@ -45,6 +45,19 @@ class CsvValidatorTests(unittest.TestCase):
 
         self.assertTrue(valid)
         self.assertEqual(errors, [])
+
+        data_directory = self.root / "data"
+        data_directory.mkdir()
+        (data_directory / "valid.csv").write_text(
+            'id,note\\n1,"85,900 PLN"\\n',
+            encoding="utf-8",
+            newline="",
+        )
+        (data_directory / "receipt.json").write_text(
+            '{"source_id": "spring"}\\n',
+            encoding="utf-8",
+        )
+        self.assertEqual(validate_data_tree(self.root), [])
 
     def test_accepts_utf8_bom(self) -> None:
         path = self.write_bytes(
@@ -172,6 +185,16 @@ class CsvValidatorTests(unittest.TestCase):
             errors[0].startswith("CSV parse error:")
         )
 
+        data_directory = self.root / "data"
+        data_directory.mkdir()
+        (data_directory / "invalid.json").write_text(
+            '{"source_id": "spring",}\\n',
+            encoding="utf-8",
+        )
+        preflight_errors = validate_data_tree(self.root)
+        self.assertEqual(len(preflight_errors), 1)
+        self.assertIn("invalid JSON", preflight_errors[0])
+
     def test_reports_missing_file(self) -> None:
         path = self.root / "missing.csv"
 
@@ -181,6 +204,9 @@ class CsvValidatorTests(unittest.TestCase):
         self.assertEqual(
             errors,
             [f"File not found: {path}"],
+        )
+        self.assertTrue(
+            validate_data_tree(self.root)[0].startswith("Data directory not found:")
         )
 
 
