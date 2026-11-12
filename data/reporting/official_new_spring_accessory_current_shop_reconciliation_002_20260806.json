@@ -125,7 +125,8 @@
       "retrieval_status": "confirmed_dacia_pl_card",
       "checked_on": "2026-08-06",
       "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711943515",
-      "notes": "Official Polish Dacia Shop card confirms the exact part number and New Spring compatibility. The retrieved card did not expose a catalogue price."
+      "notes": "Official Polish Dacia Shop card confirms the exact part number and New Spring compatibility. The retrieved card did not expose a catalogue price.",
+      "label_drift": "The shop uses a shorter connection-oriented commercial label while preserving the exact part number."
     },
     {
       "batch_position": 7,
