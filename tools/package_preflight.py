@@ -6,7 +6,7 @@ import json
 import sys
 from pathlib import Path
 
-from validators.csv_validator import validate_csv
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))\n\nfrom tools.validators.csv_validator import validate_csv
 
 
 def validate_data_tree(repository: Path) -> list[str]:
