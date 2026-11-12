@@ -209,9 +209,20 @@ def verify_repository() -> None:
     ensure(summary.get("master_observations_imported") == 0, "gap review imported data")
 
     workflow = QUALITY_WORKFLOW.read_text(encoding="utf-8")
-    ensure("Install PDF text extraction backend" in workflow, "PDF CI step missing")
+    ensure(
+        "Install and verify pinned PDF text extraction backend" in workflow,
+        "pinned PDF CI step missing",
+    )
     ensure("poppler-utils" in workflow, "PDF backend package missing")
     ensure("pdftotext -v" in workflow, "PDF backend verification missing")
+    ensure(
+        'expected_pdftotext="pdftotext version 24.02.0"' in workflow,
+        "canonical pdftotext version is not pinned",
+    )
+    ensure(
+        'expected_pdfinfo="pdfinfo version 24.02.0"' in workflow,
+        "canonical pdfinfo version is not pinned",
+    )
 
     cli = DKB.read_text(encoding="utf-8")
     for command in (
