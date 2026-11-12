@@ -6,7 +6,9 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))\n\nfrom tools.validators.csv_validator import validate_csv
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from tools.validators.csv_validator import validate_csv
 
 
 def validate_data_tree(repository: Path) -> list[str]:
@@ -22,21 +24,28 @@ def validate_data_tree(repository: Path) -> list[str]:
     for path in csv_paths:
         valid, file_errors = validate_csv(path)
         if not valid:
-            errors.extend(f"{path.relative_to(repository)}: {error}" for error in file_errors)
+            errors.extend(
+                f"{path.relative_to(repository)}: {error}"
+                for error in file_errors
+            )
 
     for path in json_paths:
         try:
             with path.open("r", encoding="utf-8") as handle:
                 json.load(handle)
         except UnicodeDecodeError:
-            errors.append(f"{path.relative_to(repository)}: file is not valid UTF-8")
+            errors.append(
+                f"{path.relative_to(repository)}: file is not valid UTF-8"
+            )
         except json.JSONDecodeError as exc:
             errors.append(
                 f"{path.relative_to(repository)}: invalid JSON at line "
                 f"{exc.lineno}, column {exc.colno}: {exc.msg}"
             )
         except OSError as exc:
-            errors.append(f"{path.relative_to(repository)}: cannot read file: {exc}")
+            errors.append(
+                f"{path.relative_to(repository)}: cannot read file: {exc}"
+            )
 
     return errors
 
