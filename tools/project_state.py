@@ -153,8 +153,11 @@ def validate_state(state: Mapping[str, Any]) -> None:
     for key in STATE_BASELINE_FIELDS:
         _integer(baseline, key, "state.baseline")
 
+    packages: dict[str, dict[str, Any]] = {}
     for key in ("current_package", "next_package"):
         package = _object(state.get(key), f"state.{key}")
+        _string(package, "package_id", f"state.{key}")
+        _string(package, "kind", f"state.{key}")
         _string(package, "name", f"state.{key}")
         status = _string(package, "status", f"state.{key}")
         if status not in PACKAGE_STATUSES:
@@ -162,6 +165,25 @@ def validate_state(state: Mapping[str, Any]) -> None:
                 f"state.{key}.status must be one of {sorted(PACKAGE_STATUSES)}"
             )
         _string(package, "goal", f"state.{key}")
+        packages[key] = package
+
+    if packages["current_package"]["package_id"] == packages["next_package"]["package_id"]:
+        raise StateError(
+            "state.current_package and state.next_package must have different package_id values"
+        )
+    if packages["next_package"]["status"] == "complete":
+        raise StateError(
+            "state.next_package.status cannot be 'complete'; select an unfinished package"
+        )
+    current_pull_request = packages["current_package"].get("pull_request")
+    if current_pull_request is not None and (
+        not isinstance(current_pull_request, int)
+        or isinstance(current_pull_request, bool)
+        or current_pull_request < 1
+    ):
+        raise StateError(
+            "state.current_package.pull_request must be a positive integer when present"
+        )
 
     autonomy = _object(state.get("autonomy"), "state.autonomy")
     if autonomy.get("mode") != "autonomous_until_action_required":
@@ -209,6 +231,29 @@ def validate_state(state: Mapping[str, Any]) -> None:
         "delete_remote_branches_automatically",
         "state.review_policy",
     )
+
+
+def validate_pull_request_state(
+    state: Mapping[str, Any],
+    pull_request_number: int,
+) -> None:
+    """Require a package PR to publish its own completed canonical state."""
+    if pull_request_number < 1:
+        raise StateError("pull request number must be positive")
+    current = _object(state.get("current_package"), "state.current_package")
+    package_id = _string(current, "package_id", "state.current_package")
+    status = _string(current, "status", "state.current_package")
+    recorded_number = current.get("pull_request")
+    if recorded_number != pull_request_number:
+        raise StateError(
+            "state.current_package.pull_request must match the current "
+            f"Pull Request #{pull_request_number}; found {recorded_number!r}"
+        )
+    if status != "complete":
+        raise StateError(
+            "state.current_package.status must be 'complete' in the package PR; "
+            f"found {status!r} for {package_id}"
+        )
 
 
 def live_baseline_payload(
@@ -446,6 +491,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     mode.add_argument("--apply", action="store_true")
     parser.add_argument("--state", type=Path, default=DEFAULT_STATE)
     parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY)
+    parser.add_argument(
+        "--pull-request-number",
+        type=int,
+        help=(
+            "Require current_package to identify this exact GitHub Pull Request "
+            "and be marked complete; used by pull_request CI."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -462,6 +515,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         state = read_state(state_path)
         validate_state(state)
+        if arguments.pull_request_number is not None:
+            validate_pull_request_state(state, arguments.pull_request_number)
         live = documentation_baseline.collect_baseline(repository)
         if arguments.apply:
             state, changed = apply_synchronization(
