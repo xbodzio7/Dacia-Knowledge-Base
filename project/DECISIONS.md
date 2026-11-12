@@ -1116,3 +1116,32 @@ Repeated full-matrix runs and repeated Pull Request setup after every small dete
 - public releases remain immutable;
 - the canonical execution policy is stored in `project/state.json`;
 - detailed rules are stored in `project/ACCELERATED_MILESTONE_CLOSURE.md`.
+
+
+---
+
+## D-017 — Fail-fast package data integrity gates
+
+Status: Accepted
+
+Date: 2026-11-12
+
+### Decision
+
+Every candidate package must run a read-only data preflight before publication. The preflight validates every repository CSV under `data/` using the canonical strict CSV validator and parses every JSON file under `data/`. The standard Quality workflow runs this check before compilation and tests.
+
+CSV files must be written with Python's standard `csv` module (or an equivalent standards-compliant serializer), never by manually concatenating fields. Fields containing delimiters, quotes or line breaks must be quoted and escaped by the serializer.
+
+The full repository validators remain responsible for semantic checks such as identifiers, uniqueness, references, domain rules and cross-file consistency. The package preflight does not replace them.
+
+### Rationale
+
+Recent CI failures were caused by unquoted commas in CSV notes and by dependent reports not being updated after their source records changed. A fail-fast structural check catches malformed CSV and JSON before the expensive full quality matrix. Reusing the canonical CSV validator avoids a competing parser or divergent CSV rules.
+
+### Consequences
+
+- `python tools/dkb.py package-preflight` is available for local or candidate-branch checks;
+- the Quality workflow executes it on every supported matrix job;
+- malformed CSV row widths, quoting and invalid JSON block the quality run;
+- generated reports and documentation must still be refreshed and checked through their canonical generators;
+- source-to-master fidelity and exact-head CI remain separate mandatory gates.
