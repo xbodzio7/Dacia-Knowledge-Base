@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
+CANONICAL_PDFTOTEXT_VERSION = "pdftotext version 24.02.0"
 DEFAULT_RECEIPT = ROOT / "project" / "sources" / "official-dacia-brochures-20260725.json"
 DEFAULT_JSON = ROOT / "data" / "reporting" / "official_dacia_pdf_candidate_ledger.json"
 DEFAULT_MARKDOWN = ROOT / "data" / "reporting" / "official_dacia_pdf_candidate_ledger.md"
@@ -173,6 +174,11 @@ def pdftotext_version() -> str:
     output = _decode_output(completed.stderr + completed.stdout)
     first_line = next((line.strip() for line in output.splitlines() if line.strip()), "")
     ensure(first_line, "pdftotext version output is empty")
+    ensure(
+        first_line == CANONICAL_PDFTOTEXT_VERSION,
+        "unsupported pdftotext version: "
+        f"expected {CANONICAL_PDFTOTEXT_VERSION}, got {first_line}",
+    )
     return first_line
 
 

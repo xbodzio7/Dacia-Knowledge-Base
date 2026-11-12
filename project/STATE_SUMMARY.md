@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-11
+- State updated: 2026-11-12
 
 ## Phase
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1978
+- Tests: 1979
 - Master CSV files: 48
 - Master rows: 22713
 - Configuration values: 8492
@@ -42,9 +42,9 @@ Corrected the official Polish Jogger MY26 2026-10-01 price matrix. Removed the i
 
 ## Next package
 
-**Sandero / Sandero Stepway 2026 Catalogue Price History MVP** — `planned`
+**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `planned`
 
-Implement Stage A of project/CHANGE_HISTORY_PLAN.md using the existing dated official Polish Sandero/Sandero Stepway cennik observations. Produce a deterministic, source-pair traceable price timeline with previous/current values, PLN and percentage deltas, unchanged Hybrid 155 confirmations, effective dates and explicit non-comparable source intervals. Do not duplicate master facts, mix promotional/financing offers with catalogue prices, or infer changes from missing rows.
+Generate a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. Preserve unchanged values and exact source observation codes; do not infer equivalence to the differently named 2026-07-03 engine/configuration identifiers, duplicate master observations, or include promotions and financing.
 
 ## Autonomy
 

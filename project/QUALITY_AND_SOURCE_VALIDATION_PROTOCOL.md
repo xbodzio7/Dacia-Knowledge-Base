@@ -475,3 +475,17 @@ Any new commit, edit, generated-file update, source registry change, test additi
 A package may be described as complete only when all applicable matrix items have observable passing evidence; source fidelity is accepted or an explicitly approved non-blocking deferral is recorded; the exact tested SHA and PR/commit are recorded; canonical state and generated documentation reflect the durable repository result; and unresolved limitations and the next package are recorded.
 
 Every new chat/session must load this protocol through project/START_HERE.md. A short user instruction such as kontynuuj does not waive any control. If the protocol cannot be read or a mandatory check cannot be verified, enter recovery/diagnostic mode and report the exact blocker.
+
+## 7.3 PDF extraction toolchain reproducibility
+
+Repository-generated PDF text artifacts are byte-sensitive to the Poppler tools used for extraction. A moving runner image or an opportunistic system package upgrade must not silently change canonical extraction output.
+
+For the committed official PDF candidate ledger:
+
+- use the `ubuntu-24.04` GitHub Actions runner for the Linux quality job;
+- use Poppler `pdftotext` and `pdfinfo` version `24.02.0`, matching the committed ledger metadata;
+- verify both executable versions explicitly before running the repository PDF artifact check;
+- make `tools/pdf_candidate_ledger.py` fail closed when `pdftotext` is missing or has a different version;
+- compare the freshly generated backend-version metadata with the committed artifact before comparing complete output bytes.
+
+Do not regenerate and commit a PDF-derived artifact merely to accommodate a newer runner. A toolchain change requires a deliberate package: review the extraction differences against the registered source PDFs, update the toolchain contract and documentation, regenerate the artifacts, and independently validate the changed candidate inventory. A mismatch is an environment/toolchain failure until proven otherwise; it is not permission to weaken or skip the artifact test.

@@ -234,6 +234,12 @@ class PdfCandidateLedgerTests(unittest.TestCase):
     )
     def test_committed_repository_artifacts_match_registered_pdfs(self) -> None:
         result = ledger.build_ledger(REPOSITORY, ledger.DEFAULT_RECEIPT)
+        committed = json.loads(ledger.DEFAULT_JSON.read_text(encoding="utf-8"))
+        self.assertEqual(
+            result["backend_version"],
+            committed["backend_version"],
+            "PDF candidate ledger must be regenerated with its committed Poppler version",
+        )
         self.assertEqual(result["source_count"], 5)
         self.assertEqual(result["page_count"], 114)
         self.assertGreater(result["candidate_count"], 0)
