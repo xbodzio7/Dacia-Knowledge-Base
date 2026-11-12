@@ -1,6 +1,6 @@
 # Project State Summary
 
-> Generated from `project/state.json`. Do not edit manually.
+ > Generated from `project/state.json`. Do not edit manually.
 
 ## Repository
 
@@ -38,7 +38,7 @@
 
 **Cross-Document Package-State Consistency Gates** — `complete`
 
-Implemented D-024 in PR #807: stable package identities, lifecycle validation, rejection of duplicate current/next IDs and completed next-package selection, and a Quality CI check requiring each package PR to identify its exact PR number in canonical state.
+Implement D-024 lifecycle and cross-document safeguards: stable package identities, reject duplicate or completed next-package selection, require each package PR to identify itself in canonical state, and enforce the identity check in Quality CI.
 
 ## Next package
 
