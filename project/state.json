@@ -15,9 +15,9 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1979,
+    "tests": 1981,
     "csv_files": 48,
-    "rows": 22713,
+    "rows": 22715,
     "configuration_values": 8492,
     "configuration_import_specs": 189,
     "configuration_value_ranges": 451,
@@ -27,18 +27,18 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_price_matrix_correction_20261001_20261106_001",
-    "kind": "source_gap_closure",
-    "name": "Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction",
-    "status": "complete",
-    "goal": "Corrected the official Polish Jogger MY26 2026-10-01 price matrix. Removed the incorrect 86,550 PLN Essential price observation for the seven-seat Eco-G 120 manual row because the source prints a dash; corrected Expression from 94,400 to 86,550 PLN; retained Extreme at 94,400 PLN. Added source relationships for all 12 configurations and three grades shown in the price matrix. Preserved the 2026-04-01 and 2026-07-03 historical prices. The source PDF is already registered and archived with SHA-256; no brochure or configurator data imported."
-  },
-  "next_package": {
     "package_id": "bigster_catalogue_price_history_20261001_20261102_20261112_001",
     "kind": "reporting",
     "name": "Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History",
+    "status": "complete",
+    "goal": "Generated a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. All 13 prices are unchanged; exact source observation codes are retained. No equivalence was inferred to differently named 2026-07-03 engine/configuration identifiers, no master observations were duplicated, and promotions and financing were excluded."
+  },
+  "next_package": {
+    "package_id": "spring_my25_stock_extreme100_price_gap_20261112_001",
+    "kind": "source_gap_closure",
+    "name": "Spring MY25 Stock Extreme Electric 100 Exact Cennik Price Observation",
     "status": "planned",
-    "goal": "Generate a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. Preserve unchanged values and exact source observation codes; do not infer equivalence to the differently named 2026-07-03 engine/configuration identifiers, duplicate master observations, or include promotions and financing."
+    "goal": "Close the remaining exact source-link gap for the 85,900 PLN Extreme Electric 100 catalogue-price cell explicitly printed on page 1 of the official Polish Spring MY25 stock cennik effective 2026-07-08. Keep applicability bounded to MY25 dealer stock; do not allocate the 17,000 PLN stock promotion or generalize the price to MY26."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
