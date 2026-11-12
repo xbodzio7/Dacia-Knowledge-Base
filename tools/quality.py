@@ -82,6 +82,10 @@ def quality_steps(
     )
     return [
         (
+            "Run repository data package preflight",
+            [sys.executable, str(dkb), "package-preflight"],
+        ),
+        (
             "Compile Python sources",
             [
                 sys.executable,
