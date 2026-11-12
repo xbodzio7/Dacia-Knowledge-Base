@@ -18,7 +18,7 @@ concurrency:
 jobs:
   quality:
     name: Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: false
@@ -48,14 +48,26 @@ jobs:
       - name: Check Bigster brochure equipment import contract
         run: python tools/import_bigster_brochure_equipment_availability.py --check
 
-      - name: Install PDF text extraction backend
+      - name: Install and verify pinned PDF text extraction backend
         if: matrix.python-version == '3.14'
         run: |
-          if ! command -v pdftotext >/dev/null 2>&1; then
+          if ! command -v pdftotext >/dev/null 2>&1 || ! command -v pdfinfo >/dev/null 2>&1; then
             sudo apt-get update
             sudo apt-get install --yes --no-install-recommends poppler-utils
           fi
-          pdftotext -v
+          expected_pdftotext="pdftotext version 24.02.0"
+          actual_pdftotext="$(pdftotext -v 2>&1 | head -n 1)"
+          expected_pdfinfo="pdfinfo version 24.02.0"
+          actual_pdfinfo="$(pdfinfo -v 2>&1 | head -n 1)"
+          test "$actual_pdftotext" = "$expected_pdftotext" || {
+            echo "Expected $expected_pdftotext, got $actual_pdftotext" >&2
+            exit 1
+          }
+          test "$actual_pdfinfo" = "$expected_pdfinfo" || {
+            echo "Expected $expected_pdfinfo, got $actual_pdfinfo" >&2
+            exit 1
+          }
+          printf '%s\n%s\n' "$actual_pdftotext" "$actual_pdfinfo"
 
       - name: Compile Python sources
         if: matrix.python-version != '3.14'
