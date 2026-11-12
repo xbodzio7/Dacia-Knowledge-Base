@@ -489,3 +489,36 @@ For the committed official PDF candidate ledger:
 - compare the freshly generated backend-version metadata with the committed artifact before comparing complete output bytes.
 
 Do not regenerate and commit a PDF-derived artifact merely to accommodate a newer runner. A toolchain change requires a deliberate package: review the extraction differences against the registered source PDFs, update the toolchain contract and documentation, regenerate the artifacts, and independently validate the changed candidate inventory. A mismatch is an environment/toolchain failure until proven otherwise; it is not permission to weaken or skip the artifact test.
+
+
+## 7.4 Cross-document package lifecycle gate (D-024)
+
+The canonical package state is validated as part of the existing
+`project-state` command; do not create a second state-validation mechanism.
+
+Required invariants:
+
+1. `current_package` and `next_package` have non-empty stable
+   `package_id` and `kind` fields in addition to their existing name,
+   status and goal.
+2. Their package IDs differ.
+3. `next_package.status` is never `complete`.
+4. If `current_package.pull_request` is present, it is a positive integer.
+5. On every pull-request CI event, run
+   `python tools/dkb.py project-state --pull-request-number <PR_NUMBER>`.
+   The current package must be marked `complete` and its recorded PR number
+   must exactly match the event's PR number.
+
+The state update and generated summary belong to the same package PR as the
+implementation. A PR-level mismatch is a blocking Quality failure, not a
+warning and not a reason to bypass the gate.
+
+After merge, the maintainer must re-fetch the current `main`, verify the
+exact PR head and merge commit, check that the merged package is represented
+in canonical state, and run both `project-state --check` and
+`documentation-baseline --check` before selecting or repeating work.
+
+If a merge is not reflected in state, repair the canonical package selector
+from verified repository and PR evidence before continuing. Do not infer
+completion from a stale narrative, do not duplicate a merged package, and do
+not mark a package complete without its durable merged result.
