@@ -333,3 +333,12 @@ The first CI rerun after pinning Poppler exposed a stale assertion in the histor
 ## D-017 — Fail-fast package data integrity gates (2026-11-12)
 
 Added a dedicated package-preflight command and automated Quality workflow step. The command scans all repository CSV and JSON files under `data/`, reusing the strict canonical CSV validator and standard JSON parser. It catches malformed quoting, CSV column-count drift and invalid JSON before the full test matrix. CSV-producing code must use a standards-compliant serializer; dependent reports and generated documentation remain subject to their canonical generators and checks. The existing semantic repository validator, source-fidelity review and exact-HEAD CI remain mandatory.
+
+
+## Cennik-only State Reconciliation — 2026-11-12
+
+- PR #805 is merged (merge commit `8cf8bfc29345ea10e3742ce8708a4fc20181003c`); the Spring MY25 stock Extreme Electric 100 price gap is closed.
+- PR #804's Bigster MY26 catalogue-price history and the existing Jogger MY26 2026-10-01 full-document reconciliation are already present in current `main`; neither is a valid next package.
+- The canonical next package is now a cross-model residual coverage review of official Polish Dacia price lists only. It must reuse existing source-backed reconciliations, isolate exact remaining gaps, and avoid duplicate or historical re-imports.
+- Brochures and configurator evidence remain deferred under the user's cennik-only priority.
+- This is a state/documentation reconciliation only; no master data, source records, or baseline counters are changed.

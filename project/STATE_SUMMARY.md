@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `complete`
+**Spring MY25 Stock Extreme Electric 100 Exact Cennik Price Observation** — `complete`
 
-Generated a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. All 13 prices are unchanged; exact source observation codes are retained. No equivalence was inferred to differently named 2026-07-03 engine/configuration identifiers, no master observations were duplicated, and promotions and financing were excluded.
+Added the exact 85,900 PLN catalogue-gross price printed on page 1 of the official Polish Spring MY25 stock price list effective 2026-07-08 and linked it to spring_extreme_electric100_automatic. Applicability remains limited to MY25 dealer stock; the 17,000 PLN promotion is not allocated and the price is not generalized to MY26.
 
 ## Next package
 
-**Spring MY25 Stock Extreme Electric 100 Exact Cennik Price Observation** — `planned`
+**Cross-Model Residual Coverage Review — Official Polish Dacia Price Lists** — `planned`
 
-Close the remaining exact source-link gap for the 85,900 PLN Extreme Electric 100 catalogue-price cell explicitly printed on page 1 of the official Polish Spring MY25 stock cennik effective 2026-07-08. Keep applicability bounded to MY25 dealer stock; do not allocate the 17,000 PLN stock promotion or generalize the price to MY26.
+Reconcile remaining source-backed configuration-price and commercial-item gaps across active Dacia model families against registered official Polish cenniks. Reuse existing reconciliations for Duster, Sandero/Sandero Stepway, Jogger, Bigster and Spring; identify only exact unrepresented source observations, avoid duplicates and historical re-imports, and keep brochures and configurator evidence out of scope.
 
 ## Autonomy
 
