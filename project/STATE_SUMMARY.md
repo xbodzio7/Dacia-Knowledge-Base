@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1979
+- Tests: 1981
 - Master CSV files: 48
-- Master rows: 22713
+- Master rows: 22715
 - Configuration values: 8492
 - Configuration import specifications: 189
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 2026-10-01 Seven-Seat Price Matrix Correction** — `complete`
+**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `complete`
 
-Corrected the official Polish Jogger MY26 2026-10-01 price matrix. Removed the incorrect 86,550 PLN Essential price observation for the seven-seat Eco-G 120 manual row because the source prints a dash; corrected Expression from 94,400 to 86,550 PLN; retained Extreme at 94,400 PLN. Added source relationships for all 12 configurations and three grades shown in the price matrix. Preserved the 2026-04-01 and 2026-07-03 historical prices. The source PDF is already registered and archived with SHA-256; no brochure or configurator data imported.
+Generated a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. All 13 prices are unchanged; exact source observation codes are retained. No equivalence was inferred to differently named 2026-07-03 engine/configuration identifiers, no master observations were duplicated, and promotions and financing were excluded.
 
 ## Next package
 
-**Bigster MY26 2026-10-01 to 2026-11-02 Catalogue Price History** — `planned`
+**Spring MY25 Stock Extreme Electric 100 Exact Cennik Price Observation** — `planned`
 
-Generate a deterministic source-pair traceable catalogue-price history report from the exact 13 Bigster MY26 configurations explicitly priced in both official Polish cenniks. Preserve unchanged values and exact source observation codes; do not infer equivalence to the differently named 2026-07-03 engine/configuration identifiers, duplicate master observations, or include promotions and financing.
+Close the remaining exact source-link gap for the 85,900 PLN Extreme Electric 100 catalogue-price cell explicitly printed on page 1 of the official Polish Spring MY25 stock cennik effective 2026-07-08. Keep applicability bounded to MY25 dealer stock; do not allocate the 17,000 PLN stock promotion or generalize the price to MY26.
 
 ## Autonomy
 
