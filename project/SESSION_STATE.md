@@ -17,6 +17,15 @@ python tools/dkb.py project-state --check
 
 Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
+## Latest Verified Continuation — 2026-11-12
+
+- PR #804 (Bigster MY26 catalogue-price history) is merged.
+- PR #805 (Spring MY25 stock Extreme Electric 100 price observation) is merged. Its completion supersedes the older Spring entry in the canonical next-package selector.
+- PR #806 (D-017 package preflight integrity gates) remains a separate Draft PR and is monitored independently. This D-024 package does not modify its branch or review state.
+- PR #807 (D-024 cross-document package-state consistency gates) is the current governance package. Its canonical state entry identifies PR #807 and marks the candidate package complete; the generated state summary is synchronized in the same branch.
+- Next selected work: Jogger MY26 official Polish cennik reconciliation, with the page-1 price matrix effective 2026-10-01. Keep the 02.11.2026 technical-data status date separate. Continue cennik-only; defer brochures and configurator evidence.
+- Before continuing after any merge, verify the exact PR head/merge SHA and run `python tools/dkb.py project-state --check` plus the generated-documentation check. Do not repeat completed PR #804 or #805 work.
+
 ## Current User Priority — Cennik-only (2026-11-06)
 
 The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. Do not resume Bigster/Duster brochure work while this priority is active.
