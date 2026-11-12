@@ -294,6 +294,11 @@ SCRIPT_COMMANDS = {
         "Display repository dataset statistics.",
         "",
     ),
+    "package-preflight": (
+        "package_preflight.py",
+        "Fail-fast validation of all repository data CSV and JSON files.",
+        "",
+    ),
     "validate": (
         "validate_dkb.py",
         "Validate repository structure and datasets.",
