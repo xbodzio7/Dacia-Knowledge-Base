@@ -1,0 +1,225 @@
+{
+  "version": 1,
+  "kind": "official_polish_dacia_price_list_cross_model_residual_review",
+  "package_id": "official_polish_cennik_cross_model_residual_review_20261114_001",
+  "reviewed_on": "2026-11-14",
+  "market": "PL",
+  "scope": "Registered official Polish Dacia cenniks only. Catalogue price observations and commercial option/package mappings are reconciled against current master data. Brochures, configurator captures, dealer campaigns and separately distributed accessory catalogues are excluded.",
+  "sources": [
+    {
+      "model": "Duster",
+      "source_code": "src_pl_duster_price_my26_20261102",
+      "document_date": "2026-11-02",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf",
+      "file_path": "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+      "sha256": "dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118",
+      "source_configurations": 16,
+      "catalogue_price_cells": 16,
+      "source_specific_price_rows": 0,
+      "price_disposition": "already_correct_reused_from_existing_price_history",
+      "commercial_mappings": 64,
+      "commercial_status_counts": {
+        "optional": 41,
+        "not_available": 23
+      },
+      "residuals": [
+        "All 16 current matrix prices are represented by existing dated price history; no duplicate rows are needed.",
+        "Preserve page-2 narrative 260 V and page-6 table 230 V as separate contexts; do not add 280 V.",
+        "Printed page 8 winter-wheel/accessory list is separate and not mapped to configurations."
+      ]
+    },
+    {
+      "model": "Bigster",
+      "source_code": "src_pl_bigster_price_my26_20261001",
+      "document_date": "2026-10-01",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/d477c604e8.pdf",
+      "file_path": "owner_supplied/2026-10-01/d477c604e8.pdf",
+      "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+      "source_configurations": 13,
+      "catalogue_price_cells": 13,
+      "source_specific_price_rows": 13,
+      "commercial_mappings": 86,
+      "commercial_status_counts": {
+        "optional": 76,
+        "unknown": 10
+      },
+      "residuals": [
+        "All 13 catalogue prices and 86 commercial mappings are represented.",
+        "Unknown spare-wheel applicability must not be converted to not_available."
+      ]
+    },
+    {
+      "model": "Bigster",
+      "source_code": "src_pl_bigster_price_my26_20261102",
+      "document_date": "2026-11-02",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf",
+      "file_path": null,
+      "sha256": "592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b",
+      "source_configurations": 0,
+      "catalogue_price_cells": 13,
+      "source_specific_price_rows": 13,
+      "commercial_mappings": 86,
+      "commercial_status_counts": {
+        "optional": 76,
+        "unknown": 10
+      },
+      "residuals": [
+        "All 13 catalogue prices and 86 commercial mappings are represented.",
+        "Source SHA-256 is registered, but the original PDF binary is not archived in the repository.",
+        "Technical page is already represented by the October source's 22 import specifications and 150 observations; do not duplicate."
+      ]
+    },
+    {
+      "model": "Sandero / Sandero Stepway",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "document_date": "2026-11-02",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf",
+      "file_path": "owner_supplied/2026-11-02/3b4618d7da.pdf",
+      "sha256": "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c",
+      "source_configurations": 19,
+      "catalogue_price_cells": 15,
+      "source_specific_price_rows": 15,
+      "commercial_mappings": 209,
+      "commercial_status_counts": {
+        "optional": 98,
+        "not_available": 99,
+        "standard": 12
+      },
+      "residuals": [
+        "15 catalogue prices and 209 commercial mappings are represented; four Hybrid 155 prices are unchanged and are not duplicated under November source.",
+        "No accessory catalogue price or configuration mapping is inferred."
+      ]
+    },
+    {
+      "model": "Jogger",
+      "source_code": "src_pl_jogger_price_my26_20261001",
+      "document_date": "2026-10-01",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf",
+      "file_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+      "sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+      "source_configurations": 12,
+      "catalogue_price_cells": 11,
+      "source_specific_price_rows": 11,
+      "commercial_mappings": 0,
+      "commercial_status_counts": {},
+      "residuals": [
+        "Corrected price alignment: 7-seat Eco-G 120 manual is Essential no price, Expression 86,550 PLN, Extreme 94,400 PLN. Master rows already reflect correct values; report was wrong.",
+        "54 option/package mappings are missing: 38 optional and 16 explicitly unavailable.",
+        "One new item is needed: special non-metallic paint at 2,800 PLN for 12 configurations.",
+        "Metallic paint pair 2,800/3,000 PLN cannot be assigned to named colours or grades from this source.",
+        "Extreme heated seats are marked P (part of package); do not add a standalone Extreme heated-seat mapping."
+      ]
+    },
+    {
+      "model": "Spring",
+      "source_code": "src_pl_spring_price_my25_stock_20260708",
+      "document_date": "2026-07-08",
+      "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
+      "file_path": "PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf",
+      "sha256": "809d24ec3710aac02b3f3a2f33e1872689430a1d6887f387936a5ac3ff343ae0",
+      "source_configurations": 2,
+      "catalogue_price_cells": 2,
+      "source_specific_price_rows": 2,
+      "commercial_mappings": 10,
+      "commercial_status_counts": {
+        "optional": 7,
+        "standard": 3
+      },
+      "residuals": [
+        "Two prices and ten mappings apply only to MY25 dealer stock.",
+        "No MY26 Spring cennik is registered; do not generalize MY25 data or promotions."
+      ]
+    }
+  ],
+  "aggregate": {
+    "sources_reviewed": 6,
+    "catalogue_price_cells": 70,
+    "source_specific_price_rows": 54,
+    "reused_price_cells": 16,
+    "commercial_mapping_rows_present": 455,
+    "jogger_commercial_mapping_rows_missing": 54,
+    "jogger_optional_rows_missing": 38,
+    "jogger_not_available_rows_missing": 16,
+    "jogger_new_commercial_items_proposed": 1
+  },
+  "jogger_next_package": {
+    "package_id": "jogger_price_list_20261001_commercial_matrix_import_20261114_001",
+    "proposed_item": {
+      "code": "jogger_special_nonmetallic_paint_option",
+      "name": "Lakier niemetalizowany specjalny",
+      "item_type": "option",
+      "amount_pln": 2800,
+      "configuration_count": 12,
+      "source_page": 3
+    },
+    "mappings": [
+      {
+        "item_code": "jogger_special_nonmetallic_paint_option",
+        "source_page": 3,
+        "optional": 12,
+        "not_available": 0,
+        "total": 12,
+        "notes": "Source row prints 0 / 2,800 PLN for non-metallic / special non-metallic paint; only paid special non-metallic choice is represented."
+      },
+      {
+        "item_code": "jogger_media_nav_option",
+        "source_page": 4,
+        "optional": 10,
+        "not_available": 2,
+        "total": 12
+      },
+      {
+        "item_code": "jogger_heated_front_seats_option",
+        "source_page": 4,
+        "optional": 4,
+        "not_available": 2,
+        "total": 6,
+        "notes": "Expression only; Extreme shows P as included in a package and receives no standalone mapping."
+      },
+      {
+        "item_code": "jogger_winter_package",
+        "source_page": 4,
+        "optional": 6,
+        "not_available": 6,
+        "total": 12,
+        "amount_pln": 1200
+      },
+      {
+        "item_code": "jogger_drive_package",
+        "source_page": 4,
+        "optional": 6,
+        "not_available": 6,
+        "total": 12,
+        "amount_pln": 1400
+      }
+    ],
+    "totals": {
+      "optional": 38,
+      "not_available": 16,
+      "total": 54
+    },
+    "deferred": [
+      "Metallic paint 2,800/3,000 PLN pair: no exact colour/grade mapping established.",
+      "Separate accessory list and removed KOMFORT packages are not imported.",
+      "No standalone Extreme heated-seat price is assigned where source marks P."
+    ]
+  },
+  "limitations": [
+    "Bigster 2026-11-02 PDF binary remains outside repository archive although its source hash is registered.",
+    "Spring MY26 source gap remains unresolved; MY25 stock data are not generalized.",
+    "Jogger metallic paint pair remains unresolved at colour-variant level.",
+    "Separate accessory lists are outside accepted configuration-mapping scope.",
+    "No brochure or configurator evidence is used."
+  ],
+  "policy": {
+    "source_first": true,
+    "exact_configuration_scope": true,
+    "no_inference_from_omission": true,
+    "unknown_not_unavailable": true,
+    "historical_prices_preserved": true,
+    "no_duplicate_price_observations": true,
+    "brochures_out_of_scope": true,
+    "configurator_out_of_scope": true
+  },
+  "next_action": "Implement the bounded Jogger 2026-10-01 commercial matrix completion: add one special non-metallic paint item and 54 exact dated mappings, correct the existing reconciliation report, independently verify printed pages 3–4, and run full Quality on the final exact HEAD."
+}
