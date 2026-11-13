@@ -52,6 +52,9 @@ class DusterPriceList20261102Tests(unittest.TestCase):
         self.assertIn("230 V", report["page_inventory"][5]["classification"])
         self.assertEqual(report["page_inventory"][-1]["page"], 10)
         self.assertEqual(report["page_inventory"][-1]["section"], "Legal and commercial terms")
+        self.assertEqual(report["page_inventory"][5]["review"], "complete_with_contextual_discrepancy")
+        self.assertTrue(any("contains 10 pages" in note for note in report["evidence_notes"]))
+        self.assertFalse(any("contains 9 pages" in note for note in report["evidence_notes"]))
 
 
 if __name__ == "__main__":
