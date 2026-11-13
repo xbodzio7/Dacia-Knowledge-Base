@@ -31,7 +31,8 @@
     "kind": "reporting",
     "name": "Cross-Model Residual Coverage Review — Official Polish Dacia Price Lists",
     "status": "complete",
-    "goal": "Reconciled six registered official Polish Dacia cennik source/date entries against current master data. Identified 70 catalogue price cells (54 source-specific rows and 16 reused cells), 455 existing commercial mappings, and one exact residual: 54 missing Jogger commercial mappings (38 optional, 16 not_available) plus one special non-metallic paint item. Corrected the Jogger report's 7-seat Eco-G 120 price-grade alignment. Brochures and configurator evidence remain out of scope."
+    "goal": "Reconciled six registered official Polish Dacia cennik source/date entries against current master data. Identified 70 catalogue price cells (54 source-specific rows and 16 reused cells), 455 existing commercial mappings, and one exact residual: 54 missing Jogger commercial mappings (38 optional, 16 not_available) plus one special non-metallic paint item. Corrected the Jogger report's 7-seat Eco-G 120 price-grade alignment. Brochures and configurator evidence remain out of scope.",
+    "pull_request": 814
   },
   "next_package": {
     "package_id": "jogger_price_list_20261001_commercial_matrix_import_20261114_001",
