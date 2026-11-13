@@ -597,6 +597,16 @@ For every meaningful work package, the AI shall:
 
 A task is not complete merely because its analysis or implementation was performed in a conversation. It is complete only when its required deliverable is durably stored, its publication state is verified, and its location is documented. If persistence is blocked, the status must remain incomplete/action-required.
 
+## 20. User-supplied source files: persistence and no-repeat rule
+
+The AI must not ask the Project Owner to upload or resend a documentary source before checking existing copies. Search current conversation attachments, persistent Library, Project files/knowledge, repository branches/commits/PRs, and the already registered official source URL, in that order.
+
+For each supplied source intended for DKB, preserve the original in the persistent Library if no identical copy exists; preserve the original binary in the canonical repository source archive when policy permits; register source ID, provenance, canonical path, size and verified SHA-256; compare copies by bytes/hash; reuse identical copies; and state explicitly which persistence destination is unavailable or blocked.
+
+The repository remains the canonical DKB archive; the Library is a secondary durable retrieval location. Do not claim persistence until the exact destination and file are verified. Request another upload only after recovery checks fail and explain what was checked and why the bytes remain unavailable.
+
+This mandatory continuity rule applies to all user-supplied PDFs, brochures, price lists, spreadsheets, ZIPs, images and other source artifacts across sessions.
+
 ## 17. Future Evolution
 
 
