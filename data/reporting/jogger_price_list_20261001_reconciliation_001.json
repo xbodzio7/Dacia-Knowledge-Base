@@ -9,7 +9,7 @@
     "market": "PL",
     "document_date": "2026-10-01",
     "effective_from": "2026-10-01",
-    "external_reference": "https://www.dacia.pl/cenniki.html",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf",
     "supplied_file_name": "f5cdbd7878.pdf",
     "supplied_file_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
     "pages": 9
@@ -47,8 +47,7 @@
     },
     "seats_7": {
       "Eco-G 120": {
-        "essential": 86550,
-        "expression": 94400,
+        "expression": 86550,
         "extreme": 94400
       },
       "Eco-G 120 auto": {
@@ -110,10 +109,10 @@
     "result": "catalogue_and_portfolio_delta_identified",
     "deltas": [
       "5-seat retained configurations keep their 03.07.2026 catalogue prices.",
-      "7-seat Eco-G 120 Essential changes from 82,400 PLN to 86,550 PLN (+4,150 PLN).",
-      "7-seat Eco-G 120 Expression changes from 86,550 PLN to 94,400 PLN (+7,850 PLN).",
-      "7-seat Eco-G 120 Extreme and Eco-G 120 auto Extreme prices are unchanged.",
-      "Hybrid 155 Expression/Extreme prices are unchanged for both 5- and 7-seat versions.",
+      "7-seat Eco-G 120 Essential has no current catalogue price (source cell is a dash); the previous 82,400 PLN observation remains historical only.",
+      "7-seat Eco-G 120 Expression remains 86,550 PLN; no price change.",
+      "7-seat Eco-G 120 Extreme remains 94,400 PLN; no price change.",
+      "7-seat Eco-G 120 auto Extreme and Hybrid 155 Expression/Extreme prices are unchanged.",
       "TCe 110 configurations are absent from the 01.10.2026 catalogue matrix.",
       "Journey configurations are absent from the 01.10.2026 catalogue matrix.",
       "KOMFORT and KOMFORT HEV packages are absent; ZIMOWY and DRIVE remain at 1,200 PLN and 1,400 PLN.",
@@ -121,11 +120,64 @@
     ],
     "master_mutation_required": true,
     "notes": [
-      "Historical configuration and price observations from earlier source dates are retained; the 01.10.2026 source is appended as a new documentary snapshot.",
-      "Current 01.10.2026 catalogue prices were added for the 12 listed Jogger configurations.",
-      "Current option/package mappings were added for the retained current configurations only.",
+      "The 7-seat Eco-G 120 grade alignment is corrected: Essential is a dash, Expression 86,550 PLN, Extreme 94,400 PLN. Existing master price rows already reflect the corrected Expression/Extreme values; the prior report was wrong.",
+      "Historical configuration and price observations from earlier source dates are retained; no historical price is overwritten.",
+      "The current 01.10.2026 catalogue matrix contains 11 priced cells across 12 linked configurations.",
+      "No commercial option/package mappings are currently linked to this source; a separate bounded import of 54 exact mappings is required.",
       "The price list states that it cancels all previous editions."
     ]
   },
-  "next_action": "Reconcile the 01.10.2026 Bigster price list, then run focused tests and full Quality before merge."
+  "commercial_item_reconciliation": {
+    "status": "gap_identified_import_pending",
+    "existing_source_mappings": 0,
+    "new_commercial_items": 1,
+    "new_mappings": 54,
+    "availability_status_counts": {
+      "optional": 38,
+      "not_available": 16
+    },
+    "items": [
+      {
+        "code": "jogger_special_nonmetallic_paint_option",
+        "source_page": 3,
+        "amount_pln": 2800,
+        "optional_configurations": 12
+      },
+      {
+        "code": "jogger_media_nav_option",
+        "source_page": 4,
+        "amount_pln": 1600,
+        "optional_configurations": 10,
+        "not_available_configurations": 2
+      },
+      {
+        "code": "jogger_heated_front_seats_option",
+        "source_page": 4,
+        "amount_pln": 700,
+        "optional_configurations": 4,
+        "not_available_configurations": 2,
+        "extreme_note": "P means part of package; no standalone Extreme mapping."
+      },
+      {
+        "code": "jogger_winter_package",
+        "source_page": 4,
+        "amount_pln": 1200,
+        "optional_configurations": 6,
+        "not_available_configurations": 6
+      },
+      {
+        "code": "jogger_drive_package",
+        "source_page": 4,
+        "amount_pln": 1400,
+        "optional_configurations": 6,
+        "not_available_configurations": 6
+      }
+    ],
+    "deferred": [
+      "Metallic paint 2,800 / 3,000 PLN pair has no source-backed colour/grade mapping.",
+      "No standalone heated-front-seat mapping for Extreme because the source marks P; ZIMOWY package captures the priced bundled offer.",
+      "Separate accessory list and removed KOMFORT packages are outside this matrix."
+    ]
+  },
+  "next_action": "Implement the 54 exact Jogger commercial option/package mappings and one special non-metallic paint item in a separate source-bounded package; independently validate pages 3–4 and run full Quality."
 }
