@@ -118,7 +118,7 @@
     "Printed page 2 states a 1.4 kWh traction battery at 260 V; printed page 6 technical table states 230 V for Hybrid 155, matching the 2026-09-01 page-6 table. Preserve the narrative and technical-table statements as distinct source contexts; no voltage master-data change is warranted.",
     "Printed page 2 was reviewed: technology/comfort narrative only; no additional configuration price or option matrix was identified.",
     "Printed page 7 was reviewed: accessory presentation and QR links only; no accessory prices or exact configuration applicability were printed.",
-    "The currently served official PDF contains 9 pages, not 10. Printed page 8 is a separate complete-winter-wheel accessory list and promotion; printed page 9 contains the dimension diagram and legal terms."
+    "The archived official PDF contains 10 pages. Printed page 8 is a separate complete-winter-wheel accessory list and promotion; printed page 9 contains the dimension diagram; printed page 10 contains legal and commercial terms."
   ],
   "page_inventory": [
     {
@@ -154,7 +154,7 @@
     {
       "page": 6,
       "section": "Technical specifications",
-      "review": "complete_with_delta",
+      "review": "complete_with_contextual_discrepancy",
       "classification": "All existing technical observations match the current table, including 230 V for Hybrid 155. The separate page-2 narrative states 260 V; this source-context discrepancy is retained without a configuration-level import."
     },
     {
