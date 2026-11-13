@@ -100,6 +100,24 @@ The AI stops only at a boundary defined in `AUTONOMOUS_MAINTAINER.md` and must t
 
 ---
 
+## User-supplied source persistence (mandatory)
+
+Before asking the Project Owner to upload or resend any source file, search in this order:
+
+1. current conversation attachments and previously uploaded conversation files;
+2. the user's persistent Library, including prior uploads and alternate filenames;
+3. Project files/knowledge when the source belongs to this project;
+4. the repository across the default branch, relevant branches, commits and pull requests;
+5. the exact official source URL already recorded in the source register, if applicable.
+
+Do not ask for a file again until these locations have been checked. Verify the actual bytes, size and SHA-256 where possible, and compare with repository copies before creating another copy.
+
+Every user-supplied documentary source intended for DKB must be made durable: retain the original in the persistent Library if no identical copy exists; archive the original binary in the canonical repository source location when permitted; register source identity, provenance, canonical path, byte length and verified SHA-256; and explicitly record any blocked persistence step. Never claim a file was archived or retained unless its exact destination is verified.
+
+The repository is the canonical project archive; the Library is a persistent secondary retrieval location. Reuse identical files and record their existing locations instead of creating duplicates. Compare bytes (SHA-256 and size), not filenames alone.
+
+If a source cannot be found or read, report exactly which locations were checked and the remaining blocker. Request a new upload only as the final recovery action, not because session context or an earlier attachment reference was not carried forward.
+
 # Repository First
 
 The repository is the primary source of truth.

@@ -128,6 +128,16 @@ A source-assimilation package is complete only when:
 Every AI session must read this document before working with documentary sources. Conversation memory must never substitute for the source coverage registry or page-level audit artifacts.
 
 
+## User-supplied source intake and persistence
+
+A source upload is not a disposable conversation attachment. Before requesting a repeat upload, search current conversation files, persistent Library, Project files/knowledge and repository branches/commits/PRs. Check the source register and its official URL as well. Do not infer unavailability from the absence of an attachment in the current turn.
+
+For every user-supplied source intended for DKB: (1) identify and verify the actual bytes, filename, byte length and SHA-256; (2) search for identical Library and repository copies; (3) retain the original in the Library if no identical copy exists; (4) archive it at the canonical repository source path when permitted; (5) register source ID, provenance, canonical path, byte length and verified hash; and (6) record any blocked step as action_required with the exact reason.
+
+The repository is the canonical project archive; the Library is secondary. Reuse identical copies; do not create duplicates merely to satisfy a new upload request. A Git blob SHA is not a substitute for the SHA-256 of the original PDF bytes.
+
+**No-repeat rule:** asking the Project Owner to upload a source again is the last recovery step, permitted only after the above locations have been checked and the exact bytes remain unavailable. State what was checked and why recovery failed. Never request a resend merely because session context or an earlier attachment reference was not carried forward.
+
 ## Deferred source gaps — non-value status
 
 An unresolved source fact may be recorded in a source-specific deferred-gap ledger with the exact status **`Do sprawdzenia`**. This is a workflow status meaning that the fact has not yet been established; it is not a vehicle specification, equipment-availability state, price, quantity, or substitute for a missing master-data value.
