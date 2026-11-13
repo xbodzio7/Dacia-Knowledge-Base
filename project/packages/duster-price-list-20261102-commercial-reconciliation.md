@@ -9,7 +9,8 @@ Close the importable commercial-data deltas in the official Polish Duster MY26 p
 - Source code: `src_pl_duster_price_my26_20261102`
 - Official PDF: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf
 - Document date: 2026-11-02
-- Ten printed pages; no raw PDF bytes were available in the repository session, so no SHA-256 is asserted.
+- Ten printed pages, archived at `PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf`.
+- Verified SHA-256: `dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118`.
 
 ## Changes
 
@@ -25,7 +26,7 @@ Close the importable commercial-data deltas in the official Polish Duster MY26 p
 
 - Page-1 catalogue prices: 16 existing observations reused; no new price rows.
 - Equipment matrix: 1,152 existing availability observations reused; no new availability rows.
-- Page-6 technical data: 391 existing scalar observations and 16 ranges reused; no new technical rows.
+- Page-6 technical data: 391 existing scalar observations and 16 ranges reused; no new technical rows. The table states 230 V for Hybrid 155, matching the 2026-09-01 table.
 - The `hybridg150` canonical configuration codes remain unchanged although the current cennik prints “tribrid 150 4X4”.
 
 ## Deferred evidence
@@ -33,7 +34,12 @@ Close the importable commercial-data deltas in the official Polish Duster MY26 p
 - Metallic paint 2,800 / 3,000 PLN: no named colour-to-price mapping in the cennik.
 - Page-8 winter-wheel accessory list: separate accessory catalogue.
 - Page-9 paired dimensions: no exact configuration crosswalk.
-- Battery voltage discrepancy: page 2 narrative 260 V vs page 6 table 230 V; preserve both.
+- Page-2 narrative voltage (260 V) vs page-6 technical-table voltage (230 V): preserve both source contexts. The table agrees with the previous 2026-09-01 value; no new voltage observation is warranted.
+- Page-10 legal and commercial disclosures: reviewed; not configuration-level prices.
+
+## Source review correction
+
+The initial text extraction misread the page-6 table's `230 V` as `280 V`. Visual inspection of the archived PDF confirms `230 V full hybrid`. The earlier report's claimed 280 V delta and missing-source-hash blocker were incorrect; both have been corrected. The PDF has ten pages, including a separate page 10 for legal terms.
 
 ## Reproducibility and validation
 
