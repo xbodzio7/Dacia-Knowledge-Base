@@ -8,8 +8,8 @@
     "effective_date": "2026-11-02",
     "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf",
     "pages": 8,
-    "sha256": null,
-    "sha256_note": "Raw PDF is retained in the user's Library and was not materialized as bytes in this session; no repository SHA-256 is asserted."
+    "sha256": "592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b",
+    "sha256_note": "SHA-256 is verified from the original raw PDF bytes supplied by the project owner and recorded in data/master/sources.csv. The repository binary archive is still pending; this report does not claim that the PDF is present in the repository."
   },
   "scope": "Printed page 1 catalogue gross price matrix only.",
   "result": {
