@@ -1,4 +1,5 @@
 from __future__ import annotations
+import csv
 import json
 import sys
 import unittest
@@ -9,6 +10,7 @@ sys.path.insert(0, str(REPOSITORY / "tools"))
 from import_duster_price_list_20261102 import check  # noqa: E402
 
 REPORT = REPOSITORY / "data" / "reporting" / "duster_price_list_20261102_commercial_reconciliation.json"
+SOURCES = REPOSITORY / "data" / "master" / "sources.csv"
 SOURCE = "src_pl_duster_price_my26_20261102"
 SOURCE_SHA256 = "dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118"
 SOURCE_PATH = "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf"
@@ -34,6 +36,10 @@ class DusterPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(source["page_count"], 10)
         self.assertEqual(source["raw_pdf_sha256"], SOURCE_SHA256)
         self.assertEqual(source["raw_pdf_repository_path"], SOURCE_PATH)
+        with SOURCES.open(encoding="utf-8-sig", newline="") as handle:
+            registered = next(row for row in csv.DictReader(handle) if row["code"] == SOURCE)
+        self.assertIn("Pages 7–10 visually reviewed", registered["notes"])
+        self.assertNotIn("require visual review", registered["notes"])
         self.assertEqual([page["page"] for page in report["page_inventory"]], list(range(1, 11)))
 
     def test_hybrid_155_voltage_preserves_distinct_source_contexts(self) -> None:
