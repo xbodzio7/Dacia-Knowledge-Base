@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY25 Stock Extreme Electric 100 Exact Cennik Price Observation** — `complete`
+**Cross-Model Residual Coverage Review — Official Polish Dacia Price Lists** — `complete`
 
-Added the exact 85,900 PLN catalogue-gross price printed on page 1 of the official Polish Spring MY25 stock price list effective 2026-07-08 and linked it to spring_extreme_electric100_automatic. Applicability remains limited to MY25 dealer stock; the 17,000 PLN promotion is not allocated and the price is not generalized to MY26.
+Reconciled six registered official Polish Dacia cennik source/date entries against current master data. Identified 70 catalogue price cells (54 source-specific rows and 16 reused cells), 455 existing commercial mappings, and one exact residual: 54 missing Jogger commercial mappings (38 optional, 16 not_available) plus one special non-metallic paint item. Corrected the Jogger report's 7-seat Eco-G 120 price-grade alignment. Brochures and configurator evidence remain out of scope.
 
 ## Next package
 
-**Cross-Model Residual Coverage Review — Official Polish Dacia Price Lists** — `planned`
+**Jogger MY26 2026-10-01 Commercial Matrix Completion** — `planned`
 
-Reconcile remaining source-backed configuration-price and commercial-item gaps across active Dacia model families against registered official Polish cenniks. Reuse existing reconciliations for Duster, Sandero/Sandero Stepway, Jogger, Bigster and Spring; identify only exact unrepresented source observations, avoid duplicates and historical re-imports, and keep brochures and configurator evidence out of scope.
+Add one special non-metallic paint item at 2,800 PLN and 54 exact dated commercial mappings (38 optional, 16 not_available) from printed pages 3–4 across the 12 source-linked configurations. Reuse existing Media Nav, heated-seat, ZIMOWY and DRIVE item codes; preserve historical rows; do not infer metallic-paint colour mapping or standalone Extreme heated seats; correct and validate the Jogger reconciliation report.
 
 ## Autonomy
 
