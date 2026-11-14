@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 1983
+- Tests: 1988
 - Master CSV files: 48
-- Master rows: 22715
+- Master rows: 22770
 - Configuration values: 8492
 - Configuration import specifications: 189
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Cross-Model Residual Coverage Review — Official Polish Dacia Price Lists** — `complete`
+**Jogger MY26 2026-10-01 Commercial Matrix Completion** — `complete`
 
-Reconciled six registered official Polish Dacia cennik source/date entries against current master data. Identified 70 catalogue price cells (54 source-specific rows and 16 reused cells), 455 existing commercial mappings, and one exact residual: 54 missing Jogger commercial mappings (38 optional, 16 not_available) plus one special non-metallic paint item. Corrected the Jogger report's 7-seat Eco-G 120 price-grade alignment. Brochures and configurator evidence remain out of scope.
+Imported one special non-metallic paint item and 54 exact dated commercial mappings from printed pages 3–4 across the 12 source-linked configurations: 38 optional and 16 not_available. Reused existing Media Nav, heated-seat, ZIMOWY and DRIVE items; preserved historical rows; kept metallic paint grade/colour assignment deferred and did not create standalone Extreme heated-seat mappings.
 
 ## Next package
 
-**Jogger MY26 2026-10-01 Commercial Matrix Completion** — `planned`
+**Spring MY26 Current Official Cennik Binary Intake** — `planned`
 
-Add one special non-metallic paint item at 2,800 PLN and 54 exact dated commercial mappings (38 optional, 16 not_available) from printed pages 3–4 across the 12 source-linked configurations. Reuse existing Media Nav, heated-seat, ZIMOWY and DRIVE item codes; preserve historical rows; do not infer metallic-paint colour mapping or standalone Extreme heated seats; correct and validate the Jogger reconciliation report.
+Acquire the exact current Spring MY26 PDF bytes from the official CDN URL (the live content identifies MY26/effective 2026-02-06, while the owner-supplied Library PDF at the same URL is MY25/effective 2026-03-03). Compute and verify the MY26 SHA-256, archive the binary as a separate source without overwriting the MY25 record, register the three exact configuration price cells (Essential Electric 70 73,500 PLN; Expression Electric 70 81,500 PLN; Extreme Electric 100 85,900 PLN), preserve the source's catalogue-price heading/footer alongside its 'Cena promocyjna' row labels, and only then assimilate additional cennik commercial data.
 
 ## Autonomy
 

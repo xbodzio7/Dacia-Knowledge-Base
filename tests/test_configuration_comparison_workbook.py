@@ -204,13 +204,14 @@ class ConfigurationComparisonWorkbookTests(unittest.TestCase):
         self.assertGreater(len(equipment), 250)
         self.assertEqual({str(row["configuration_code"]) for row in equipment}, set(SELECTED))
         self.assertTrue(all(row["equipment_name_pl"] for row in equipment))
-        self.assertEqual(len(offers), 39)
+        self.assertEqual(len(offers), 40)
         self.assertTrue(all(row["commercial_item_name"] for row in offers))
         self.assertTrue(all(row["currency_code"] == "PLN" for row in offers))
         self.assertTrue(any(row["amount"] in (None, "") for row in offers))
         self.assertTrue(any(row["amount"] not in (None, "") for row in offers))
         self.assertIn("sandero_comfort_auto_package", {str(row["commercial_item_code"]) for row in offers})
         self.assertIn("jogger_drive_package", {str(row["commercial_item_code"]) for row in offers})
+        self.assertIn("jogger_special_nonmetallic_paint_option", {str(row["commercial_item_code"]) for row in offers})
 
     def test_comparisons_match_all_report_items_and_states(self) -> None:
         expected_count = 0

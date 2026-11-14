@@ -116,9 +116,9 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1983 testów automatycznych zakończonych powodzeniem,
+- 1988 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22715 rekordów danych,
+- 22770 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -129,7 +129,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22715 rekordów,
+- baza SQLite obejmująca 48 tabele i 22770 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -351,3 +351,13 @@ The official Duster MY26 cennik effective 2026-11-02 was rechecked directly agai
 A material technical delta was found for Hybrid 155: page 2 states 1.4 kWh / 260 V, while page 6 states 280 V. The prior 2026-09-01 page-6 table stated 230 V. The master retains the older narrative/table pair for the three Hybrid 155 configurations; three current-dated 280 V table observations are missing. Do not overwrite the 230 V history or merge the 260 V narrative into the table attribute. Import is blocked until the registered November PDF has a verified SHA-256; the declarative importer requires hash-verified source registration. The repository contains the raw PDF at `owner_supplied/2026-11-02/f07ca0a87f.pdf`, but its SHA-256 is not currently recorded.
 
 No master data changed in this review. The exact gap and page inventory are recorded in `data/reporting/duster_price_list_20261102_commercial_reconciliation.json` and its Markdown companion. Brochures and configurator evidence remain out of scope.
+
+
+## Jogger MY26 Cennik Commercial Matrix — 2026-11-14
+
+- PR #814 merged: official Polish cennik cross-model residual review covers six source/date entries and identified the then-open Jogger commercial matrix gap, which is now closed by the package recorded below.
+- Jogger package `jogger_price_list_20261001_commercial_matrix_import_20261114_001`: one special non-metallic paint item and 54 exact dated mappings imported from pages 3–4 (38 optional, 16 not_available) across 12 source-linked configurations.
+- Existing 48 July 2026 Jogger commercial mappings and all catalogue price history remain unchanged. The 7-seat Eco-G 120 manual matrix remains Essential dash, Expression 86,550 PLN, Extreme 94,400 PLN.
+- Extreme heated seats marked `P` are not mapped as a standalone option. The metallic paint 2,800/3,000 PLN pair remains deferred because no exact colour/grade mapping is established.
+- The official PDF source row now uses the direct official asset URL; original PDF remains archived at `owner_supplied/2026-10-01/f5cdbd7878.pdf` with SHA-256 `12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46`.
+- Next cennik-only package: capture and hash the live official Spring MY26 PDF as a distinct source version; preserve the owner-supplied MY25 Library PDF and do not import MY26 prices until the exact binary is archived.
