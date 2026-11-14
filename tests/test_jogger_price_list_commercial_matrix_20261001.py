@@ -27,6 +27,9 @@ class JoggerCommercialMatrix20261001Tests(unittest.TestCase):
         mappings=[r for r in rows("commercial_item_configurations.csv") if r["source_code"]==SOURCE]
         self.assertEqual(len(mappings),54)
         self.assertEqual(Counter(r["availability_status"] for r in mappings),Counter({"optional":38,"not_available":16}))
+        all_rows=rows("commercial_item_configurations.csv")
+        self.assertEqual(len({r["id"] for r in all_rows}),len(all_rows))
+        self.assertEqual(len({r["code"] for r in all_rows}),len(all_rows))
         self.assertEqual(Counter(r["commercial_item_code"] for r in mappings),Counter({
             "jogger_special_nonmetallic_paint_option":12,"jogger_media_nav_option":12,
             "jogger_heated_front_seats_option":6,"jogger_winter_package":12,"jogger_drive_package":12}))
