@@ -128,7 +128,8 @@ def check():
         raise ContractError("master commercial item IDs must be unique and contiguous 1–64")
     if [r for r in items if r["code"]=="jogger_special_nonmetallic_paint_option"] != expected_items:
         raise ContractError("new commercial item differs from import specification")
-    if [r for r in maps if r["source_code"]==SOURCE]!=expected_maps:
+    source_rows=[r for r in maps if r["source_code"]==SOURCE]
+    if source_rows!=expected_maps:
         raise ContractError("Jogger source mappings differ from import specification")
     if len(maps)!=894: raise ContractError("master commercial mapping count must equal 894")
     if len({r["id"] for r in maps})!=len(maps) or {r["id"] for r in maps}!={str(i) for i in range(1,895)}:
