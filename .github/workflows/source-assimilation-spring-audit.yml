@@ -69,8 +69,11 @@ jobs:
               "85 900",
           )
           missing = [marker for marker in markers if marker not in normalized]
-          if page_count != 6:
-              missing.append(f"expected 6 pages, got {page_count}")
+          # The captured PGD distribution copy is seven pages: price list and equipment,
+          # technical data, a dimension drawing page, and final legal/finance terms.
+          # Page 6 contains vehicle dimension drawings (not a blank page); page 7 contains terms.
+          if page_count != 7:
+              missing.append(f"expected 7 pages, got {page_count}")
           if digest == registered_my25_sha256:
               missing.append("downloaded SHA-256 matches the registered MY25 PDF")
           verified = not missing
