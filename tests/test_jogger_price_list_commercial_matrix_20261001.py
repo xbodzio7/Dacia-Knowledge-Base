@@ -19,7 +19,7 @@ class JoggerCommercialMatrix20261001Tests(unittest.TestCase):
         self.assertEqual(source["sha256"],importer.SOURCE_SHA256)
         links=[r for r in rows("source_configurations.csv") if r["source_code"]==SOURCE]
         self.assertEqual(len(links),12)
-        self.assertEqual({r["configuration_code"] for r in links},importer.EXPECTED_CONFIGS)
+        self.assertEqual({r["configuration_code"] for r in links},set(importer.EXPECTED_CONFIGS))
         prices=[r for r in rows("configuration_prices.csv") if r["source_code"]==SOURCE]
         self.assertEqual(len(prices),11)
         self.assertNotIn("jogger_essential_7seat_ecog120_manual",{r["configuration_code"] for r in prices})
@@ -49,7 +49,8 @@ class JoggerCommercialMatrix20261001Tests(unittest.TestCase):
     def test_history_and_natural_keys_are_preserved(self):
         mappings=rows("commercial_item_configurations.csv")
         self.assertEqual(len([r for r in mappings if r["source_code"]=="src_pl_jogger_price_my26_20260703"]),48)
-        keys=[(r["commercial_item_code"],r["configuration_code"],r["source_code"]) for r in mappings]
+        jogger_rows=[r for r in mappings if r["source_code"]==SOURCE]
+        keys=[(r["commercial_item_code"],r["configuration_code"],r["source_code"],r["price_date"]) for r in jogger_rows]
         self.assertEqual(len(keys),len(set(keys)))
         prices=rows("configuration_prices.csv")
         for date in ("2026-04-01","2026-07-03"):

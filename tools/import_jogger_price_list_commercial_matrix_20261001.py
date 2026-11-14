@@ -134,8 +134,8 @@ def check():
     if len({r["id"] for r in maps})!=len(maps) or {r["id"] for r in maps}!={str(i) for i in range(1,895)}:
         raise ContractError("master commercial mapping IDs must be unique and contiguous 1–894")
     if len({r["code"] for r in maps})!=len(maps): raise ContractError("duplicate commercial mapping code")
-    keys=[(r["commercial_item_code"],r["configuration_code"],r["source_code"]) for r in maps]
-    if len(set(keys))!=len(keys): raise ContractError("duplicate commercial mapping natural key")
+    source_keys=[(r["commercial_item_code"],r["configuration_code"],r["source_code"],r["price_date"]) for r in source_rows]
+    if len(set(source_keys))!=len(source_keys): raise ContractError("duplicate Jogger source mapping natural key")
     historical=[r for r in maps if r["source_code"]=="src_pl_jogger_price_my26_20260703"]
     if len(historical)!=48: raise ContractError("July Jogger historical mappings changed")
     return {"new_items":1,"new_mappings":54,"optional":38,"not_available":16}

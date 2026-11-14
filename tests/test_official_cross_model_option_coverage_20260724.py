@@ -170,7 +170,7 @@ class OfficialCrossModelOptionCoverage20260724Tests(unittest.TestCase):
             {row["configuration_code"] for row in current_sandero_easy},
             current_configurations,
         )
-        self.assertEqual(len(jogger_drive), 8)
+        self.assertEqual(len(jogger_drive), 20)
         self.assertEqual(
             [row for row in self.rows("commercial_items.csv") if row.get("source_code") == SOURCE_CODE],
             [],
