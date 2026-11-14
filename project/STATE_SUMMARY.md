@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 2026-10-01 Commercial Matrix Completion** — `complete`
+**Spring MY26 Binary Capture Workflow Setup** — `complete`
 
-Imported one special non-metallic paint item and 54 exact dated commercial mappings from printed pages 3–4 across the 12 source-linked configurations: 38 optional and 16 not_available. Reused existing Media Nav, heated-seat, ZIMOWY and DRIVE items; preserved historical rows; kept metallic paint grade/colour assignment deferred and did not create standalone Extreme heated-seat mappings.
+Extended the existing Spring source-assimilation workflow with a guarded live-PDF download, six-page and MY26 marker verification, SHA-256 recording, a seven-day audit artifact, and a dedicated source-branch commit. The first direct capture run did not verify the expected MY26 marker and therefore committed no binary.
 
 ## Next package
 
-**Spring MY26 Current Official Cennik Binary Intake** — `active`
+**Spring MY26 Live Asset Identity Verification** — `active`
 
-Capture the live official MY26 PDF at the mutable CDN URL as a distinct binary from the owner-supplied MY25 Library PDF. Verify six pages, MY26/effective 2026-02-06 and three exact price cells, compute SHA-256, retain the audit artifact, and push the verified binary plus capture manifest to a dedicated source branch. Do not overwrite the MY25 source.
+Capture and retain diagnostic output from the direct CDN download even when MY26 markers are missing: first-page text, page count, file size, SHA-256, and comparison with the registered MY25 hash. Determine whether the CDN currently serves the MY25 binary, a different version, or MY26 with different text extraction. Commit a PDF only if its MY26 identity is verified; otherwise stop without importing prices.
 
 ## Autonomy
 

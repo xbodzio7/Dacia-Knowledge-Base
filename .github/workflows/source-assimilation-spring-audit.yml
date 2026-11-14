@@ -24,7 +24,8 @@ jobs:
       - name: Install PDF tools
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
 
-      - name: Download and verify live official Spring MY26 cennik
+      - name: Download and diagnose live official Spring PDF identity
+        id: capture
         shell: bash
         run: |
           set -euo pipefail
@@ -34,22 +35,42 @@ jobs:
           mkdir -p "$capture_dir/pages"
           curl --fail --location --retry 3 --retry-delay 2 --max-time 120 "$url" --output "$pdf"
           pdfinfo "$pdf" > "$capture_dir/pdfinfo.txt"
-          page_count="$(awk '/^Pages:/ {print $2}' "$capture_dir/pdfinfo.txt")"
-          [ "$page_count" = "6" ] || { echo "Expected six pages, got $page_count"; exit 1; }
           pdftotext -f 1 -l 1 -layout "$pdf" "$capture_dir/first_page.txt"
-          for marker in "Ceny katalogowe" "ROCZNIK 2026" "Cennik obowiązuje od 06.02.2026" "73 500" "81 500" "85 900"; do
-            grep -Fq "$marker" "$capture_dir/first_page.txt" || { echo "Missing MY26 source marker: $marker"; exit 1; }
-          done
-          sha256sum "$pdf" > "$capture_dir/sha256.txt"
           pdftotext -layout "$pdf" "$capture_dir/document.txt"
+          sha256sum "$pdf" > "$capture_dir/sha256.txt"
           pdftoppm -png -r 120 "$pdf" "$capture_dir/pages/page" >/dev/null 2>&1
           python - <<'PY'
           from datetime import datetime, timezone
           from hashlib import sha256
           from pathlib import Path
           import json
-          pdf = Path("source-assimilation-bundle/live-my26/DACIA SPRING cennik MY26 20260206.pdf")
+          import os
+          import re
+
+          capture_dir = Path("source-assimilation-bundle/live-my26")
+          pdf = capture_dir / "DACIA SPRING cennik MY26 20260206.pdf"
           raw = pdf.read_bytes()
+          first_page = (capture_dir / "first_page.txt").read_text(encoding="utf-8", errors="replace")
+          normalized = " ".join(first_page.split())
+          pdfinfo = (capture_dir / "pdfinfo.txt").read_text(encoding="utf-8", errors="replace")
+          page_match = re.search(r"(?m)^Pages:\s*(\d+)", pdfinfo)
+          page_count = int(page_match.group(1)) if page_match else None
+          digest = sha256(raw).hexdigest()
+          registered_my25_sha256 = "295deb2f8136c2f0ff090c88183579a135e7220a38d628973667a8824c0db5d0"
+          markers = (
+              "Ceny katalogowe",
+              "ROCZNIK 2026",
+              "Cennik obowiązuje od 06.02.2026",
+              "73 500",
+              "81 500",
+              "85 900",
+          )
+          missing = [marker for marker in markers if marker not in normalized]
+          if page_count != 6:
+              missing.append(f"expected 6 pages, got {page_count}")
+          if digest == registered_my25_sha256:
+              missing.append("downloaded SHA-256 matches the registered MY25 PDF")
+          verified = not missing
           manifest = {
               "source_code": "src_pl_spring_price_my26_20260206",
               "document_date": "2026-02-06",
@@ -57,26 +78,38 @@ jobs:
               "market": "PL",
               "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf",
               "file_path": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
-              "sha256": sha256(raw).hexdigest(),
+              "sha256": digest,
               "file_size_bytes": len(raw),
-              "page_count": 6,
+              "page_count": page_count,
+              "registered_my25_sha256": registered_my25_sha256,
+              "matches_registered_my25_sha256": digest == registered_my25_sha256,
+              "verification_status": "verified_my26" if verified else "identity_not_verified",
+              "missing_markers": missing,
+              "first_page_text": first_page,
+              "captured_at_utc": datetime.now(timezone.utc).isoformat(),
+              "expected_first_page_markers": list(markers),
               "price_cells": [
                   {"grade": "Essential", "powertrain": "Electric 70", "amount_pln": 73500},
                   {"grade": "Expression", "powertrain": "Electric 70", "amount_pln": 81500},
                   {"grade": "Extreme", "powertrain": "Electric 100", "amount_pln": 85900}
               ],
-              "price_context": "The page heading/footer state catalogue prices; the matrix row labels say 'Cena promocyjna'. Both printed contexts are retained.",
-              "captured_at_utc": datetime.now(timezone.utc).isoformat(),
-              "verified_first_page_markers": [
-                  "Ceny katalogowe", "ROCZNIK 2026", "Cennik obowiązuje od 06.02.2026",
-                  "73 500", "81 500", "85 900"
-              ],
-              "versioning_note": "The live MY26 PDF is a distinct binary from the owner-supplied MY25 Library PDF previously associated with the same CDN URL. Do not overwrite or relabel the MY25 source."
+              "price_context": "The web-extracted document heading/footer state catalogue prices; the matrix row labels say 'Cena promocyjna'. Both contexts remain distinct.",
+              "versioning_note": "Never overwrite the owner-supplied MY25 Library PDF associated with this same CDN URL."
           }
-          Path("source-assimilation-bundle/live-my26/capture-manifest.json").write_text(
+          (capture_dir / "capture-manifest.json").write_text(
               json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
-          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"verified={str(verified).lower()}\n")
+          print("DOWNLOADED_PDF_SHA256=" + digest)
+          print("DOWNLOADED_PDF_SIZE_BYTES=" + str(len(raw)))
+          print("DOWNLOADED_PDF_PAGE_COUNT=" + str(page_count))
+          print("REGISTERED_MY25_SHA256_MATCH=" + str(digest == registered_my25_sha256))
+          print("MY26_VERIFICATION=" + str(verified))
+          print("MISSING_MARKERS=" + json.dumps(missing, ensure_ascii=False))
+          print("FIRST_PAGE_TEXT_BEGIN")
+          print(first_page)
+          print("FIRST_PAGE_TEXT_END")
           PY
 
       - name: Build page text and rendered page bundle for archived sources
@@ -99,12 +132,14 @@ jobs:
           PDFS
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: spring-source-assimilation-bundle
           path: source-assimilation-bundle
           retention-days: 7
 
       - name: Archive verified MY26 binary on a dedicated source branch
+        if: steps.capture.outputs.verified == 'true'
         shell: bash
         env:
           TARGET_BRANCH: data/spring-my26-cennik-assimilation-20261114-001
@@ -129,3 +164,10 @@ jobs:
                   "data/source_intake/spring_my26_20260206.sha256"
           git commit -m "source(spring): capture official MY26 2026-02-06 cennik PDF"
           git push origin "HEAD:refs/heads/$TARGET_BRANCH"
+
+      - name: Stop without committing if downloaded source is not verified as MY26
+        if: steps.capture.outputs.verified != 'true'
+        shell: bash
+        run: |
+          echo "The downloaded PDF did not pass MY26 identity verification. Diagnostic artifact retained; no binary was committed."
+          exit 1

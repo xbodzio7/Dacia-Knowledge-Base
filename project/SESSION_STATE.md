@@ -369,3 +369,10 @@ No master data changed in this review. The exact gap and page inventory are reco
 - The owner-supplied Library PDF `2e0588c888.pdf` remains MY25/effective 2026-03-03. The same live official CDN URL returns a different MY26 PDF/effective 2026-02-06. These are distinct content versions and must never overwrite one another.
 - Current package `spring_my26_current_official_cennik_binary_intake_20261114_001` updates the existing Spring source-assimilation audit workflow to download and verify the live MY26 PDF, record its SHA-256, upload a short-lived audit artifact, and push the verified binary/manifest to a dedicated source branch.
 - After binary capture, next package is the MY26 Spring price and commercial matrix import; the three price cells are Essential Electric 70 73,500 PLN, Expression Electric 70 81,500 PLN, Extreme Electric 100 85,900 PLN. The printed catalogue-price heading/footer and `Cena promocyjna` row labels must both be preserved.
+
+
+## Spring MY26 Live Asset Identity Verification — 2026-11-14
+
+- PR #816 merged and extended the source-audit workflow. Its first direct GitHub Actions download (run #43534970475) retrieved a 1.35 MB PDF but the extracted first page did not contain the expected `ROCZNIK 2026` marker. No PDF binary was committed.
+- Do not assume the web-extracted MY26 PDF is the same content currently served to GitHub Actions. The CDN URL may resolve differently by cache/location, or text extraction may differ.
+- PR #817 changes the workflow to always retain a diagnostic artifact, print the first-page text, page count, file size and SHA-256, compare the digest with the registered MY25 hash, and commit nothing unless the MY26 identity is verified.
