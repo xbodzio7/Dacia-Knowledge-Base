@@ -31,7 +31,8 @@
     "kind": "commercial_data_import",
     "name": "Jogger MY26 2026-10-01 Commercial Matrix Completion",
     "status": "complete",
-    "goal": "Imported one special non-metallic paint item and 54 exact dated commercial mappings from printed pages 3–4 across the 12 source-linked configurations: 38 optional and 16 not_available. Reused existing Media Nav, heated-seat, ZIMOWY and DRIVE items; preserved historical rows; kept metallic paint grade/colour assignment deferred and did not create standalone Extreme heated-seat mappings."
+    "goal": "Imported one special non-metallic paint item and 54 exact dated commercial mappings from printed pages 3–4 across the 12 source-linked configurations: 38 optional and 16 not_available. Reused existing Media Nav, heated-seat, ZIMOWY and DRIVE items; preserved historical rows; kept metallic paint grade/colour assignment deferred and did not create standalone Extreme heated-seat mappings.",
+    "pull_request": 815
   },
   "next_package": {
     "package_id": "spring_my26_official_polish_cennik_source_recovery_20261114_001",
