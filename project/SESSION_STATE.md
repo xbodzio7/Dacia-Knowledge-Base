@@ -355,7 +355,7 @@ No master data changed in this review. The exact gap and page inventory are reco
 
 ## Jogger MY26 Cennik Commercial Matrix — 2026-11-14
 
-- PR #814 merged: official Polish cennik cross-model residual review covers six source/date entries and records the exact remaining Jogger commercial matrix gap.
+- PR #814 merged: official Polish cennik cross-model residual review covers six source/date entries and identified the then-open Jogger commercial matrix gap, which is now closed by the package recorded below.
 - Jogger package `jogger_price_list_20261001_commercial_matrix_import_20261114_001`: one special non-metallic paint item and 54 exact dated mappings imported from pages 3–4 (38 optional, 16 not_available) across 12 source-linked configurations.
 - Existing 48 July 2026 Jogger commercial mappings and all catalogue price history remain unchanged. The 7-seat Eco-G 120 manual matrix remains Essential dash, Expression 86,550 PLN, Extreme 94,400 PLN.
 - Extreme heated seats marked `P` are not mapped as a standalone option. The metallic paint 2,800/3,000 PLN pair remains deferred because no exact colour/grade mapping is established.

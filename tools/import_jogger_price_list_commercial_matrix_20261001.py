@@ -38,7 +38,7 @@ def write(path,fields,rows):
     fd,tmp=tempfile.mkstemp(prefix=f".{path.name}.",dir=path.parent)
     try:
         with os.fdopen(fd,"w",encoding="utf-8",newline="") as handle:
-            writer=csv.DictWriter(handle,fieldnames=fields,lineterminator="\\n")
+            writer=csv.DictWriter(handle,fieldnames=fields,lineterminator="\n")
             writer.writeheader();writer.writerows(rows)
         os.replace(tmp,path)
     except Exception:
