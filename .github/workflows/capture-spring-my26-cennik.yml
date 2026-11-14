@@ -1,0 +1,96 @@
+name: Capture official Spring MY26 cennik binary
+
+on:
+  push:
+    branches:
+      - source/spring-my26-binary-intake-20261114-001
+    paths:
+      - .github/workflows/capture-spring-my26-cennik.yml
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          persist-credentials: true
+
+      - name: Download official Dacia PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "PDF/Cenniki" "data/source_intake"
+          curl --fail --location --retry 3 --retry-delay 2 --max-time 120 \
+            "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf" \
+            --output "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf"
+
+      - name: Verify model year, effective date, price cells and record SHA-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check pypdf==5.4.0
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from hashlib import sha256
+          from pathlib import Path
+          import json
+          from pypdf import PdfReader
+
+          pdf = Path("PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf")
+          raw = pdf.read_bytes()
+          reader = PdfReader(str(pdf))
+          if len(reader.pages) != 6:
+              raise SystemExit(f"Expected 6 PDF pages, found {len(reader.pages)}")
+          first_page = " ".join((reader.pages[0].extract_text() or "").split())
+          markers = (
+              "Ceny katalogowe",
+              "ROCZNIK 2026",
+              "Cennik obowiązuje od 06.02.2026",
+              "73 500",
+              "81 500",
+              "85 900",
+          )
+          missing = [marker for marker in markers if marker not in first_page]
+          if missing:
+              raise SystemExit("Downloaded PDF is not the expected MY26 cennik; missing markers: " + repr(missing))
+          digest = sha256(raw).hexdigest()
+          manifest = {
+              "source_code": "src_pl_spring_price_my26_20260206",
+              "document_date": "2026-02-06",
+              "model_year": "MY26",
+              "market": "PL",
+              "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf",
+              "file_path": str(pdf),
+              "sha256": digest,
+              "file_size_bytes": len(raw),
+              "page_count": len(reader.pages),
+              "verified_first_page_markers": list(markers),
+              "captured_at_utc": datetime.now(timezone.utc).isoformat(),
+              "note": "Captured live official CDN content as a distinct MY26 binary. Do not overwrite the owner-supplied MY25 PDF that was previously associated with the same URL."
+          }
+          Path("data/source_intake/spring_my26_20260206_capture.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+          Path("data/source_intake/spring_my26_20260206.sha256").write_text(
+              f"{digest}  {pdf.name}\n", encoding="utf-8"
+          )
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Commit the verified source binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf" \
+                  "data/source_intake/spring_my26_20260206_capture.json" \
+                  "data/source_intake/spring_my26_20260206.sha256"
+          git commit -m "source(spring): capture official MY26 2026-02-06 cennik PDF"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
