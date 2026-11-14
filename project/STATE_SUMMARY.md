@@ -42,9 +42,9 @@ Imported one special non-metallic paint item and 54 exact dated commercial mappi
 
 ## Next package
 
-**Spring MY26 Price and Commercial Matrix Assimilation** — `active`
+**Spring MY26 Current Official Cennik Binary Intake** — `active`
 
-Using the separately archived MY26 PDF and verified SHA-256, register the MY26 source as a distinct source version, link the three existing Spring MY26 configurations and grade versions, import the three dated catalogue-price cells while preserving the 'Cena promocyjna' row label and catalogue-price heading/footer, and reconcile exact paid options/packages from the cennik. Preserve the MY25 source record and history unchanged.
+Capture the live official MY26 PDF at the mutable CDN URL as a distinct binary from the owner-supplied MY25 Library PDF. Verify six pages, MY26/effective 2026-02-06 and three exact price cells, compute SHA-256, retain the audit artifact, and push the verified binary plus capture manifest to a dedicated source branch. Do not overwrite the MY25 source.
 
 ## Autonomy
 
