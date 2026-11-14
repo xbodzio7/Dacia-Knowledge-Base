@@ -169,3 +169,73 @@ The maintainer must use canonical generators for all derived state and managed d
 A PR must not be published as ready until the mandatory pre-PR consistency matrix in project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md has observable results. Unknown or unavailable checks are BLOCKED, not passed. Every new commit or relevant edit invalidates affected checks; the full required final quality matrix must validate the exact current head SHA.
 
 When a test fails, classify the first causal failure and establish which layer is wrong before changing code, data or expectations. Never weaken a correct test or alter generated counters solely to obtain a green CI result. If the canonical generator or required validation cannot be executed or observed, keep the package blocked and state the exact limitation.
+
+
+## Source and workflow execution controls
+
+The following controls are mandatory for every source-recovery, source-assimilation or GitHub Actions-driven package. They convert recurring failure modes into explicit gates; they do not relax the package, source-fidelity or exact-HEAD quality requirements above.
+
+### 1. Source preflight — before workflow execution
+
+Before triggering or relying on a source-capture workflow, record and verify:
+
+- the exact source URL and its provenance class (official manufacturer endpoint, dealer/distributor mirror, user-supplied copy or other);
+- the expected model, market, model year, effective date and document identity markers;
+- any already registered source versions and their SHA-256 hashes, so that MY25/MY26 or other revisions cannot be conflated;
+- expected file type, plausible size/page-count range and required first-page/text markers;
+- the intended archive path, source ID, manifest fields and branch/PR deliverables;
+- the workflow's actual trigger conditions, permissions, artifact retention and failure behavior.
+
+Search results, snippets, cached text and a filename are discovery evidence only. They do not establish the identity of downloaded bytes. A mirror must be recorded as a mirror; never relabel it as a live official manufacturer endpoint.
+
+### 2. Workflow capability and trigger preflight
+
+Before promising or attempting an automated run, inspect the workflow file on the current target branch and establish:
+
+- supported events and branch/path filters;
+- whether the workflow is enabled and whether the current actor/tool can invoke the required event;
+- required permissions, secrets, environment approvals and concurrency rules;
+- whether the available GitHub integration exposes the required dispatch/rerun action.
+
+Do not infer that a workflow ran because a PR merged or because its YAML contains `workflow_dispatch`. If the current session cannot invoke the event, state that limitation before asking the Project Owner to perform the single required UI action. Do not ask for manual intervention when an available authorized tool can perform it.
+
+### 3. Capture acceptance gate
+
+A source binary may be archived or imported only after its actual bytes pass the package's identity checks. At minimum, retain and verify:
+
+- exact source URL and provenance;
+- byte length and SHA-256 computed from the downloaded file;
+- PDF page count and first-page identity markers;
+- comparison against known registered versions/hashes;
+- manifest status and explicit missing-marker list;
+- successful presence of the exact binary and manifest at the declared branch/path.
+
+A failed identity check is a valid protective outcome, not a successful capture. Preserve diagnostic artifacts when safe, but do not commit an unverified binary, register guessed metadata, or import its prices/specifications. Page count is an acceptance criterion only when independently established from the source; never hard-code an unverified expectation. When a source has conflicting identity signals, stop at the evidence boundary and retain both the evidence and the uncertainty.
+
+### 4. Post-merge verification gate
+
+After every merge involving a workflow, source registry, source archive or package state:
+
+1. fetch the actual merge commit and confirm the merged paths and content;
+2. query Actions for runs on the merge SHA and for the expected push event (do not rely only on PR-triggered run listings);
+3. verify the expected workflow actually started, its event/branch/SHA, conclusion, jobs and artifacts;
+4. if no run exists, diagnose trigger filters, workflow enablement, permissions and tool capability; do not describe the workflow as successful or assume it ran;
+5. if a run failed, classify whether the cause is source identity, workflow logic, environment/toolchain, permissions or unrelated/legacy workflow behavior;
+6. verify the source branch/commit/archive artifact independently before advancing to data import;
+7. re-read canonical state and generated documentation after the package boundary.
+
+A successful PR quality check is not proof that a separate source-capture workflow ran. A merge is not proof of downstream workflow execution. No later package may depend on an unverified post-merge side effect.
+
+### 5. No-silent-completion and action-required reporting
+
+Every package report must distinguish: implemented, committed, pushed, PR opened, CI validated on exact HEAD, merged, downstream workflow executed, source binary archived, source registered and master data imported. Use only states supported by observed repository/GitHub evidence.
+
+If an operation is blocked, report `ACTION_REQUIRED` with the exact missing capability or user action, why it is required, the smallest action that unblocks work, and the exact resume stage. Never replace a failed or unobserved operation with a claim of completion. Continue all independent work that remains safely possible.
+
+### 6. Tool-capability check
+
+At session start and before a workflow-dependent action, inspect the capabilities actually exposed in the current session. Record whether GitHub read/write, branch/PR operations, Actions run inspection, workflow dispatch/rerun, artifact download and local file execution are available. Do not assume capabilities from another session or from product labels. Prefer an available authorized API action; when it is absent, use the narrowest manual fallback and explain the boundary. Tool absence is not evidence that the underlying GitHub feature is unavailable to the repository owner.
+
+### 7. Durable learning and documentation cadence
+
+When a failure reveals a reusable process lesson, update the existing governing document in the same logical package rather than creating a disconnected note. Reconcile related startup guidance and session notes where necessary. Review canonical state after every few logical changes and at every package boundary; update it only from verified repository facts and use the canonical generator for derived summaries. Do not copy stale PR numbers, SHAs, counters or package statuses into narrative documents as if they were current.

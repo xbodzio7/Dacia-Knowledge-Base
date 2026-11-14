@@ -150,3 +150,20 @@ Rules:
 - Keep the supported observations and their provenance separate from the unresolved item.
 - A package may proceed with explicitly registered deferrals when all other acceptance criteria are met; the deferral itself must not be represented as a resolved source fact.
 - Reopen a deferred item only when its source and exact applicability can be verified, or when the user explicitly prioritizes it.
+
+
+## Source binary identity and capture preflight
+
+Before capturing a documentary source, define its identity independently of its filename or search-engine representation. Record the expected model, market, model year, effective date, source URL, provenance class and distinguishing document markers. Record the SHA-256 and size of every known prior version so a revised source cannot silently overwrite or masquerade as an earlier one.
+
+A live manufacturer URL, a cached/search-index representation and a dealer/distributor mirror are distinct evidence locations. Downloaded bytes determine the binary identity. A mirror may be used when its content is verified and the package permits it, but its actual host and provenance must remain explicit. Do not describe a dealer-hosted copy as a live manufacturer CDN response.
+
+Before using an automated capture workflow, inspect its actual trigger, branch/path filters, permissions, artifact retention and available invocation mechanism. A workflow definition containing a manual-dispatch event does not prove that the current session can dispatch it or that a run occurred. If dispatch is unavailable, report the exact manual action required; do not imply that a merge automatically started the workflow.
+
+For a captured PDF, retain the original bytes and independently verify the SHA-256, byte length, page count, first-page identity markers and comparison with registered versions. Store the verification result and missing-marker list in the capture manifest. A binary that fails identity verification may be retained only as a clearly labelled diagnostic artifact; it must not enter the canonical source archive or feed a master-data import. Do not make page count an acceptance condition until it has been checked against the actual document.
+
+## Workflow completion is not source completion
+
+A successful PR merge, a green PR quality workflow and a successful source-capture workflow are separate events. After merging a workflow or source package, verify Actions runs against the exact merge SHA and expected push event, inspect jobs and artifacts, and independently confirm the source branch, archive file and manifest. If no run exists, diagnose the trigger and permissions; never assume it ran. Source registration and master-data import remain blocked until the exact binary is durably archived and its identity is verified.
+
+Every package report must distinguish implementation, commit, push, PR, exact-HEAD validation, merge, downstream workflow execution, binary archival, source registration and master-data import. Unobserved or failed stages remain incomplete/action-required.
