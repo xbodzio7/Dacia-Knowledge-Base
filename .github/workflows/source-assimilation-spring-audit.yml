@@ -29,7 +29,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          url="https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf"
+          url="https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/95312e9829.pdf"
+          # The previous CDN asset path returned the registered MY25 binary on 2026-11-14.
+          # This alternate official Dacia asset path is independently indexed as the 2026-02-06 MY26 cennik.
           capture_dir="source-assimilation-bundle/live-my26"
           pdf="$capture_dir/DACIA SPRING cennik MY26 20260206.pdf"
           mkdir -p "$capture_dir/pages"
@@ -76,7 +78,7 @@ jobs:
               "document_date": "2026-02-06",
               "model_year": "MY26",
               "market": "PL",
-              "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf",
+              "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/95312e9829.pdf",
               "file_path": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
               "sha256": digest,
               "file_size_bytes": len(raw),
