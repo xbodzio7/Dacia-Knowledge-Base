@@ -126,7 +126,7 @@ def check():
     if len(items)!=64: raise ContractError("master commercial item count must equal 64")
     if len({r["id"] for r in items})!=len(items) or {r["id"] for r in items}!={str(i) for i in range(1,65)}:
         raise ContractError("master commercial item IDs must be unique and contiguous 1–64")
-    if [r for r in items if r["code"]=="jogger_special_nonmetallic_paint_option"]]!=expected_items:
+    if [r for r in items if r["code"]=="jogger_special_nonmetallic_paint_option"] != expected_items:
         raise ContractError("new commercial item differs from import specification")
     if [r for r in maps if r["source_code"]==SOURCE]!=expected_maps:
         raise ContractError("Jogger source mappings differ from import specification")
