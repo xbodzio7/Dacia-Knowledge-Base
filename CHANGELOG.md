@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Hardened Spring MY26 source capture: retain the downloaded PDF and diagnostics even when MY26 identity markers fail; compare its SHA-256 with the registered MY25 binary and never commit an unverified source.
+
 * Extended the Spring source-assimilation audit workflow to capture the live official MY26 cennik as a distinct PDF binary, verify its MY26/effective-date/price markers, compute SHA-256, retain a short-lived audit artifact, and push the verified binary to a dedicated source branch without overwriting the MY25 Library version.
 
 * Identified a mutable official Spring CDN asset URL: the owner-supplied Library PDF is MY25/effective 2026-03-03, while the live official content at the same URL identifies MY26/effective 2026-02-06. Preserve the two content versions separately; MY26 binary capture, SHA-256 and source registration are pending.

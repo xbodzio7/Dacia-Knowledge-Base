@@ -37,3 +37,10 @@ The source page heading/footer call these catalogue prices while the table row l
 - The manifest and SHA-256 are recorded from the exact downloaded bytes.
 - The original PDF is committed to the dedicated source branch with no mutation of the MY25 source record or file.
 - The next package imports the three MY26 prices and cennik commercial matrix only after verifying the captured PDF bytes.
+
+
+## Capture result and follow-up
+
+PR #816 merged the guarded capture workflow. The first direct download run (43534970475) retrieved a 1.35 MB PDF but the extracted first page did not contain ROCZNIK 2026. The workflow stopped before hashing or committing a source binary. No MY26 file or price row was added.
+
+PR #817 changes the workflow to retain a diagnostic artifact even when the identity check fails. It records the first-page text, PDF page count, size, SHA-256 and whether the bytes match the registered MY25 hash. The binary-commit step remains gated on positive MY26 verification.
