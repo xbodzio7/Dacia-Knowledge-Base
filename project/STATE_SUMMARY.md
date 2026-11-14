@@ -42,9 +42,9 @@ Imported one special non-metallic paint item and 54 exact dated commercial mappi
 
 ## Next package
 
-**Spring MY26 Official Polish Price-List Source Recovery** — `planned`
+**Spring MY26 Current Official Cennik Binary Intake** — `planned`
 
-Determine whether an official Polish Spring MY26 price list exists. Search the registered official Dacia price-list endpoints and repository source archive first; if found, preserve and verify the original PDF and reconcile its exact catalogue/commercial scope. If no MY26 list exists, record the verified source gap and do not generalize MY25 stock prices or promotions.
+Acquire the exact current Spring MY26 PDF bytes from the official CDN URL (the live content identifies MY26/effective 2026-02-06, while the owner-supplied Library PDF at the same URL is MY25/effective 2026-03-03). Compute and verify the MY26 SHA-256, archive the binary as a separate source without overwriting the MY25 record, register the three exact configuration price cells (Essential Electric 70 73,500 PLN; Expression Electric 70 81,500 PLN; Extreme Electric 100 85,900 PLN), preserve the source's catalogue-price heading/footer alongside its 'Cena promocyjna' row labels, and only then assimilate additional cennik commercial data.
 
 ## Autonomy
 

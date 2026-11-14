@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Identified a mutable official Spring CDN asset URL: the owner-supplied Library PDF is MY25/effective 2026-03-03, while the live official content at the same URL identifies MY26/effective 2026-02-06. Preserve the two content versions separately; MY26 binary capture, SHA-256 and source registration are pending.
+
 * Completed the Jogger MY26 2026-10-01 commercial matrix from official cennik pages 3–4: added one special non-metallic paint item and 54 dated configuration mappings (38 optional, 16 not_available) across 12 source-linked configurations. Reused existing Media Nav, heated-front-seat, ZIMOWY and DRIVE item codes; preserved all historical rows; deferred the ambiguous metallic-paint price pair and standalone Extreme heated-seat mapping. The importer verifies the archived PDF SHA-256 and exact source/configuration scope.
 
 * Reconciled the official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02: linked 19 configurations and six grades; added 15 catalogue prices (+500 PLN each) and confirmed four unchanged Hybrid 155 prices; added three commercial items and 209 dated option/package mappings. Completed the nine-page source reconciliation with 24 Hybrid 155 scalar equipment observations, 27 equipment-availability observations, four rear-camera status corrections, 42 technical observations and 27 Sandero dimension observations. Explicitly deferred ambiguous Eco-G injection/LPG-capacity semantics, unmodeled trim/interior dimensions, separately dated accessory/winter-wheel lists and promotional/financing terms. No brochure data imported; the raw PDF bytes and SHA-256 were not archived.

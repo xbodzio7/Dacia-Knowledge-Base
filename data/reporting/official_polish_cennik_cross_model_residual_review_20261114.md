@@ -50,7 +50,7 @@ The source-linked master price rows already contain 11 exact catalogue prices. C
 - **Duster:** all 16 November catalogue price cells are represented by existing price history. The technical table's 230 V and narrative 260 V remain separate contexts; do not add 280 V. The winter-wheel list is a separate accessory scope.
 - **Bigster:** both October and November lists have 13 catalogue prices and 86 commercial mappings. The November PDF has a verified source hash but its binary is not archived in the repository. Its technical page is already covered by the October source's 22 import specifications and 150 observations.
 - **Sandero / Stepway:** 15 catalogue prices and 209 commercial mappings are represented. Four Hybrid 155 prices are unchanged and are not duplicated under the November source.
-- **Spring:** two prices and ten commercial mappings are specific to MY25 dealer stock. No MY26 Spring cennik is registered; MY25 stock data and promotions must not be generalized.
+- **Spring:** two prices and ten commercial mappings are specific to MY25 dealer stock. The owner-supplied Library PDF is MY25/effective 2026-03-03. The live official CDN content at the same URL is MY26/effective 2026-02-06, with three candidate price cells. Treat these as distinct binary versions; do not overwrite the MY25 source or import MY26 prices before acquiring and hashing the current PDF.
 
 ## Validation and exclusions
 
@@ -61,4 +61,13 @@ The source-linked master price rows already contain 11 exact catalogue prices. C
 
 ## Next package
 
-Completed in package `jogger_price_list_20261001_commercial_matrix_import_20261114_001`: one special non-metallic paint item and 54 dated mappings were added. Remaining cennik-only work is Spring MY26 source recovery and archival of the registered Bigster 2026-11-02 PDF binary.
+Completed in package `jogger_price_list_20261001_commercial_matrix_import_20261114_001`: one special non-metallic paint item and 54 dated mappings were added. Next cennik-only package: capture and hash the live Spring MY26 PDF as a distinct source version, preserve the MY25 Library source, and reconcile the three candidate price cells. The Bigster 2026-11-02 PDF binary archive gap remains after that.
+
+
+## Spring — mutable CDN URL and source-version identity
+
+The owner-supplied Library PDF `2e0588c888.pdf` (1,419,041 bytes) is the MY25 stock document: its first page says `ROCZNIK 2025` and `Cennik obowiązuje od 03.03.2026`. The registered source record `src_pl_spring_price_my25_stock_20260303` and its recorded SHA-256 remain MY25-bounded.
+
+The same official CDN URL (https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf) currently returns a different PDF titled `S2E_PY26_06.02.2026`: its first page says `ROCZNIK 2026` and `Cennik obowiązuje od 06.02.2026`. It presents three candidate price cells: Essential Electric 70 — 73,500 PLN; Expression Electric 70 — 81,500 PLN; Extreme Electric 100 — 85,900 PLN. The table heading/footer call these catalogue prices, while the row labels read `Cena promocyjna`; retain both source contexts.
+
+The current MY26 PDF binary has not yet been captured into the repository and its SHA-256 is therefore unknown. Do not overwrite the MY25 source record, invent a hash, or import MY26 prices until the exact current bytes are acquired and archived as a separate source.

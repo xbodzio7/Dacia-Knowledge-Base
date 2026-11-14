@@ -360,4 +360,4 @@ No master data changed in this review. The exact gap and page inventory are reco
 - Existing 48 July 2026 Jogger commercial mappings and all catalogue price history remain unchanged. The 7-seat Eco-G 120 manual matrix remains Essential dash, Expression 86,550 PLN, Extreme 94,400 PLN.
 - Extreme heated seats marked `P` are not mapped as a standalone option. The metallic paint 2,800/3,000 PLN pair remains deferred because no exact colour/grade mapping is established.
 - The official PDF source row now uses the direct official asset URL; original PDF remains archived at `owner_supplied/2026-10-01/f5cdbd7878.pdf` with SHA-256 `12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46`.
-- Next cennik-only package: determine whether an official Polish Spring MY26 price list exists; do not generalize MY25 stock prices or promotions.
+- Next cennik-only package: capture and hash the live official Spring MY26 PDF as a distinct source version; preserve the owner-supplied MY25 Library PDF and do not import MY26 prices until the exact binary is archived.

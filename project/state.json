@@ -35,11 +35,11 @@
     "pull_request": 815
   },
   "next_package": {
-    "package_id": "spring_my26_official_polish_cennik_source_recovery_20261114_001",
+    "package_id": "spring_my26_current_official_cennik_binary_intake_20261114_001",
     "kind": "source_recovery",
-    "name": "Spring MY26 Official Polish Price-List Source Recovery",
+    "name": "Spring MY26 Current Official Cennik Binary Intake",
     "status": "planned",
-    "goal": "Determine whether an official Polish Spring MY26 price list exists. Search the registered official Dacia price-list endpoints and repository source archive first; if found, preserve and verify the original PDF and reconcile its exact catalogue/commercial scope. If no MY26 list exists, record the verified source gap and do not generalize MY25 stock prices or promotions."
+    "goal": "Acquire the exact current Spring MY26 PDF bytes from the official CDN URL (the live content identifies MY26/effective 2026-02-06, while the owner-supplied Library PDF at the same URL is MY25/effective 2026-03-03). Compute and verify the MY26 SHA-256, archive the binary as a separate source without overwriting the MY25 record, register the three exact configuration price cells (Essential Electric 70 73,500 PLN; Expression Electric 70 81,500 PLN; Extreme Electric 100 85,900 PLN), preserve the source's catalogue-price heading/footer alongside its 'Cena promocyjna' row labels, and only then assimilate additional cennik commercial data."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

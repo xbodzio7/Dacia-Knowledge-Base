@@ -192,5 +192,5 @@
       "The metallic paint 2,800 / 3,000 PLN pair remains deferred because the source does not assign it to exact colours or grades."
     ]
   },
-  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Remaining cennik-only work is source recovery for the Spring MY26 price-list gap and repository archival of the registered Bigster 2026-11-02 PDF binary."
+  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Next, acquire and hash the live official Spring MY26 PDF as a distinct source version (the same CDN URL currently resolves to MY26 content while the owner-supplied Library PDF is MY25), then close the Bigster 2026-11-02 PDF binary archive gap."
 }

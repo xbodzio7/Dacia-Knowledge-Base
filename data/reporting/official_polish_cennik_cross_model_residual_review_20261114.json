@@ -143,7 +143,9 @@
     "jogger_optional_rows_missing": 0,
     "jogger_not_available_rows_missing": 0,
     "jogger_new_commercial_items_proposed": 0,
-    "jogger_new_commercial_items_imported": 1
+    "jogger_new_commercial_items_imported": 1,
+    "spring_my26_live_asset_candidates": 1,
+    "spring_my26_candidate_price_cells": 3
   },
   "jogger_next_package": {
     "package_id": "jogger_price_list_20261001_commercial_matrix_import_20261114_001",
@@ -217,10 +219,10 @@
   },
   "limitations": [
     "Bigster 2026-11-02 PDF binary remains outside repository archive although its source hash is registered.",
-    "Spring MY26 source gap remains unresolved; MY25 stock data are not generalized.",
     "Jogger metallic paint pair remains unresolved at colour-variant level.",
     "Separate accessory lists are outside accepted configuration-mapping scope.",
-    "No brochure or configurator evidence is used."
+    "No brochure or configurator evidence is used.",
+    "Spring MY26: the live official PDF at the same CDN URL as the owner-supplied MY25 Library file has different content (MY26, effective 2026-02-06). The MY26 binary/hash/repository archive and source registration are pending; no MY26 prices have been imported."
   ],
   "policy": {
     "source_first": true,
@@ -232,5 +234,54 @@
     "brochures_out_of_scope": true,
     "configurator_out_of_scope": true
   },
-  "next_action": "The Jogger cennik commercial matrix is complete. Continue with source recovery for the Spring MY26 cennik gap and archival of the registered Bigster 2026-11-02 PDF binary."
+  "next_action": "Acquire the current Spring MY26 PDF bytes from the official CDN URL, compute and verify SHA-256, archive it as a distinct source without overwriting the MY25 Library source, register the three exact MY26 configuration price cells and reconcile their catalogue/promotion wording. Then close the Bigster 2026-11-02 PDF binary archive gap.",
+  "source_identity_anomalies": [
+    {
+      "model": "Spring",
+      "registered_my25_source_code": "src_pl_spring_price_my25_stock_20260303",
+      "registered_my25_source_date": "2026-03-03",
+      "registered_my25_source_sha256": "295deb2f8136c2f0ff090c88183579a135e7220a38d628973667a8824c0db5d0",
+      "registered_my25_library_file": "2e0588c888.pdf",
+      "registered_my25_library_file_size_bytes": 1419041,
+      "registered_my25_library_page_1": {
+        "model_year": "MY25",
+        "effective_date": "2026-03-03"
+      },
+      "live_official_pdf_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf",
+      "live_official_pdf_title": "S2E_PY26_06.02.2026",
+      "live_official_page_1": {
+        "model_year": "MY26",
+        "effective_date": "2026-02-06"
+      },
+      "live_official_candidate_price_cells": [
+        {
+          "grade": "Essential",
+          "configuration_code": "spring_essential_electric70_automatic",
+          "powertrain": "Electric 70",
+          "amount_pln": 73500
+        },
+        {
+          "grade": "Expression",
+          "configuration_code": "spring_expression_electric70_automatic",
+          "powertrain": "Electric 70",
+          "amount_pln": 81500
+        },
+        {
+          "grade": "Extreme",
+          "configuration_code": "spring_extreme_electric100_automatic",
+          "powertrain": "Electric 100",
+          "amount_pln": 85900
+        }
+      ],
+      "live_official_price_semantics": "The table heading and footer describe catalogue prices, while the row labels say 'Cena promocyjna'. Preserve both printed contexts and record the catalogue-price statement; do not silently normalize the row label.",
+      "live_official_binary_sha256": null,
+      "repository_file_path": null,
+      "status": "binary_capture_and_hash_required",
+      "notes": [
+        "The exact same CDN URL is associated with two different PDF contents: the owner-supplied Library PDF is MY25/effective 2026-03-03; the currently retrievable official CDN PDF identifies MY26/effective 2026-02-06.",
+        "Do not overwrite or relabel the MY25 source record. Register the MY26 content as a separate source only after its exact bytes are acquired, SHA-256 is computed and the binary is archived.",
+        "No MY26 source_configurations, source_versions or configuration_prices rows are currently registered for these three candidate cells."
+      ]
+    }
+  ]
 }
