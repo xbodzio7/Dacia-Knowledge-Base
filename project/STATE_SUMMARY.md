@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 2026-10-01 Commercial Matrix Completion** — `complete`
+**Spring MY26 Current Official Cennik Binary Intake** — `in_progress`
 
-Imported one special non-metallic paint item and 54 exact dated commercial mappings from printed pages 3–4 across the 12 source-linked configurations: 38 optional and 16 not_available. Reused existing Media Nav, heated-seat, ZIMOWY and DRIVE items; preserved historical rows; kept metallic paint grade/colour assignment deferred and did not create standalone Extreme heated-seat mappings.
+Capture the live official MY26 PDF at the mutable CDN URL as a distinct binary from the owner-supplied MY25 Library PDF. Verify six pages, MY26/effective 2026-02-06 and three exact price cells, compute SHA-256, retain the audit artifact, and push the verified binary plus capture manifest to a dedicated source branch. Do not overwrite the MY25 source.
 
 ## Next package
 
-**Spring MY26 Current Official Cennik Binary Intake** — `planned`
+**Spring MY26 Price and Commercial Matrix Assimilation** — `planned`
 
-Acquire the exact current Spring MY26 PDF bytes from the official CDN URL (the live content identifies MY26/effective 2026-02-06, while the owner-supplied Library PDF at the same URL is MY25/effective 2026-03-03). Compute and verify the MY26 SHA-256, archive the binary as a separate source without overwriting the MY25 record, register the three exact configuration price cells (Essential Electric 70 73,500 PLN; Expression Electric 70 81,500 PLN; Extreme Electric 100 85,900 PLN), preserve the source's catalogue-price heading/footer alongside its 'Cena promocyjna' row labels, and only then assimilate additional cennik commercial data.
+Using the separately archived MY26 PDF and verified SHA-256, register the MY26 source as a distinct source version, link the three existing Spring MY26 configurations and grade versions, import the three dated catalogue-price cells while preserving the 'Cena promocyjna' row label and catalogue-price heading/footer, and reconcile exact paid options/packages from the cennik. Preserve the MY25 source record and history unchanged.
 
 ## Autonomy
 

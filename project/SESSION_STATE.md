@@ -361,3 +361,11 @@ No master data changed in this review. The exact gap and page inventory are reco
 - Extreme heated seats marked `P` are not mapped as a standalone option. The metallic paint 2,800/3,000 PLN pair remains deferred because no exact colour/grade mapping is established.
 - The official PDF source row now uses the direct official asset URL; original PDF remains archived at `owner_supplied/2026-10-01/f5cdbd7878.pdf` with SHA-256 `12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46`.
 - Next cennik-only package: capture and hash the live official Spring MY26 PDF as a distinct source version; preserve the owner-supplied MY25 Library PDF and do not import MY26 prices until the exact binary is archived.
+
+
+## Spring MY26 Official Cennik Binary Intake — 2026-11-14
+
+- PR #815 merged successfully; Jogger MY26 2026-10-01 commercial matrix is complete (1 item, 54 mappings; 38 optional, 16 not_available).
+- The owner-supplied Library PDF `2e0588c888.pdf` remains MY25/effective 2026-03-03. The same live official CDN URL returns a different MY26 PDF/effective 2026-02-06. These are distinct content versions and must never overwrite one another.
+- Current package `spring_my26_current_official_cennik_binary_intake_20261114_001` updates the existing Spring source-assimilation audit workflow to download and verify the live MY26 PDF, record its SHA-256, upload a short-lived audit artifact, and push the verified binary/manifest to a dedicated source branch.
+- After binary capture, next package is the MY26 Spring price and commercial matrix import; the three price cells are Essential Electric 70 73,500 PLN, Expression Electric 70 81,500 PLN, Extreme Electric 100 85,900 PLN. The printed catalogue-price heading/footer and `Cena promocyjna` row labels must both be preserved.
