@@ -128,8 +128,8 @@
     ]
   },
   "commercial_item_reconciliation": {
-    "status": "gap_identified_import_pending",
-    "existing_source_mappings": 0,
+    "status": "complete",
+    "existing_source_mappings": 54,
     "new_commercial_items": 1,
     "new_mappings": 54,
     "availability_status_counts": {
@@ -177,7 +177,20 @@
       "Metallic paint 2,800 / 3,000 PLN pair has no source-backed colour/grade mapping.",
       "No standalone heated-front-seat mapping for Extreme because the source marks P; ZIMOWY package captures the priced bundled offer.",
       "Separate accessory list and removed KOMFORT packages are outside this matrix."
+    ],
+    "imported_on": "2026-11-14",
+    "import_artifacts": {
+      "item_spec": "data/imports/jogger_commercial_items_20261001.csv",
+      "mapping_spec": "data/imports/jogger_commercial_item_configurations_20261001.csv",
+      "importer": "tools/import_jogger_price_list_commercial_matrix_20261001.py",
+      "tests": "tests/test_jogger_price_list_commercial_matrix_20261001.py"
+    },
+    "notes": [
+      "The 54 rows were imported for the 12 source-linked configurations: 38 optional and 16 explicitly not_available.",
+      "Special non-metallic paint is one new commercial item at 2,800 PLN across all 12 configurations.",
+      "Extreme heated front seats are not a standalone mapping because page 4 marks them P (part of a package); the priced ZIMOWY package is represented instead.",
+      "The metallic paint 2,800 / 3,000 PLN pair remains deferred because the source does not assign it to exact colours or grades."
     ]
   },
-  "next_action": "Implement the 54 exact Jogger commercial option/package mappings and one special non-metallic paint item in a separate source-bounded package; independently validate pages 3–4 and run full Quality."
+  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Remaining cennik-only work is source recovery for the Spring MY26 price-list gap and repository archival of the registered Bigster 2026-11-02 PDF binary."
 }

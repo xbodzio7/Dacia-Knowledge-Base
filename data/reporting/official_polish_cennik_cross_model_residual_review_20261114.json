@@ -100,14 +100,16 @@
       "source_configurations": 12,
       "catalogue_price_cells": 11,
       "source_specific_price_rows": 11,
-      "commercial_mappings": 0,
-      "commercial_status_counts": {},
+      "commercial_mappings": 54,
+      "commercial_status_counts": {
+        "optional": 38,
+        "not_available": 16
+      },
       "residuals": [
-        "Corrected price alignment: 7-seat Eco-G 120 manual is Essential no price, Expression 86,550 PLN, Extreme 94,400 PLN. Master rows already reflect correct values; report was wrong.",
-        "54 option/package mappings are missing: 38 optional and 16 explicitly unavailable.",
-        "One new item is needed: special non-metallic paint at 2,800 PLN for 12 configurations.",
-        "Metallic paint pair 2,800/3,000 PLN cannot be assigned to named colours or grades from this source.",
-        "Extreme heated seats are marked P (part of package); do not add a standalone Extreme heated-seat mapping."
+        "All 54 option/package mappings have been imported: 38 optional and 16 explicitly unavailable.",
+        "The 7-seat Eco-G 120 manual price alignment in the report is corrected; master price rows were already correct.",
+        "Metallic paint 2,800/3,000 PLN remains unmapped to named colours/grades because the source does not establish that relationship.",
+        "Extreme heated front seats are included in a package (P); no standalone mapping is created."
       ]
     },
     {
@@ -136,11 +138,12 @@
     "catalogue_price_cells": 70,
     "source_specific_price_rows": 54,
     "reused_price_cells": 16,
-    "commercial_mapping_rows_present": 455,
-    "jogger_commercial_mapping_rows_missing": 54,
-    "jogger_optional_rows_missing": 38,
-    "jogger_not_available_rows_missing": 16,
-    "jogger_new_commercial_items_proposed": 1
+    "commercial_mapping_rows_present": 509,
+    "jogger_commercial_mapping_rows_missing": 0,
+    "jogger_optional_rows_missing": 0,
+    "jogger_not_available_rows_missing": 0,
+    "jogger_new_commercial_items_proposed": 0,
+    "jogger_new_commercial_items_imported": 1
   },
   "jogger_next_package": {
     "package_id": "jogger_price_list_20261001_commercial_matrix_import_20261114_001",
@@ -202,7 +205,15 @@
       "Metallic paint 2,800/3,000 PLN pair: no exact colour/grade mapping established.",
       "Separate accessory list and removed KOMFORT packages are not imported.",
       "No standalone Extreme heated-seat price is assigned where source marks P."
-    ]
+    ],
+    "status": "complete",
+    "imported_on": "2026-11-14",
+    "import_result": {
+      "new_items": 1,
+      "new_mappings": 54,
+      "optional": 38,
+      "not_available": 16
+    }
   },
   "limitations": [
     "Bigster 2026-11-02 PDF binary remains outside repository archive although its source hash is registered.",
@@ -221,5 +232,5 @@
     "brochures_out_of_scope": true,
     "configurator_out_of_scope": true
   },
-  "next_action": "Implement the bounded Jogger 2026-10-01 commercial matrix completion: add one special non-metallic paint item and 54 exact dated mappings, correct the existing reconciliation report, independently verify printed pages 3–4, and run full Quality on the final exact HEAD."
+  "next_action": "The Jogger cennik commercial matrix is complete. Continue with source recovery for the Spring MY26 cennik gap and archival of the registered Bigster 2026-11-02 PDF binary."
 }

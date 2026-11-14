@@ -5,7 +5,7 @@
 
 ## Executive result
 
-Six registered source/date entries were reconciled against current master data. One actionable master-data gap remains: the Jogger 2026-10-01 commercial matrix has 54 missing option/package mappings (38 optional, 16 explicitly unavailable) and one missing commercial-item definition for special non-metallic paint.
+Six registered source/date entries were reconciled against current master data. The Jogger 2026-10-01 commercial matrix gap has since been closed: one special non-metallic paint item and 54 option/package mappings (38 optional, 16 explicitly unavailable) were imported on 2026-11-14.
 
 The other reviewed price and commercial records are already represented. No duplicate catalogue-price rows are proposed.
 
@@ -20,11 +20,11 @@ The other reviewed price and commercial records are already represented. No dupl
 | Jogger 2026-10-01 | 11 | 11 | 0 | 54 commercial mappings missing |
 | Spring MY25 stock 2026-07-08 | 2 | 2 | 10 | MY26 source not registered; do not generalize MY25 stock |
 
-Totals: **70 catalogue price cells**, **54 source-specific price rows**, **16 already represented/reused price cells**, and **455 existing commercial mappings**. The 54 missing Jogger mappings are excluded from the existing-mapping total.
+Totals: **70 catalogue price cells**, **54 source-specific price rows**, **16 already represented/reused price cells**, and **509 commercial mappings now present after the Jogger import**. The 54 missing Jogger mappings are excluded from the existing-mapping total.
 
 ## Jogger — exact next import scope
 
-The 2026-10-01 official Jogger cennik pages 3–4 supports this matrix across the 12 source-linked configurations:
+The 2026-10-01 official Jogger cennik pages 3–4 supported this matrix across the 12 source-linked configurations; all 54 mappings and the item definition were imported on 2026-11-14:
 
 | Item | Optional | Not available | Total |
 |---|---:|---:|---:|
@@ -61,4 +61,4 @@ The source-linked master price rows already contain 11 exact catalogue prices. C
 
 ## Next package
 
-Implement the Jogger commercial matrix completion as one bounded package: add one special non-metallic paint item and 54 dated mappings, correct the existing reconciliation report, independently verify every mapping against printed pages 3–4, and run full Quality on the final commit.
+Completed in package `jogger_price_list_20261001_commercial_matrix_import_20261114_001`: one special non-metallic paint item and 54 dated mappings were added. Remaining cennik-only work is Spring MY26 source recovery and archival of the registered Bigster 2026-11-02 PDF binary.
