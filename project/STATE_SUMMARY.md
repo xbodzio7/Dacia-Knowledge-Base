@@ -42,9 +42,9 @@ Imported one special non-metallic paint item and 54 exact dated commercial mappi
 
 ## Next package
 
-**Spring MY26 Current Official Cennik Binary Intake** — `planned`
+**Spring MY26 Current Official Cennik Binary Intake** — `active`
 
-Acquire the exact current Spring MY26 PDF bytes from the official CDN URL (the live content identifies MY26/effective 2026-02-06, while the owner-supplied Library PDF at the same URL is MY25/effective 2026-03-03). Compute and verify the MY26 SHA-256, archive the binary as a separate source without overwriting the MY25 record, register the three exact configuration price cells (Essential Electric 70 73,500 PLN; Expression Electric 70 81,500 PLN; Extreme Electric 100 85,900 PLN), preserve the source's catalogue-price heading/footer alongside its 'Cena promocyjna' row labels, and only then assimilate additional cennik commercial data.
+Capture the live official MY26 PDF at the mutable CDN URL as a distinct binary from the owner-supplied MY25 Library PDF. Verify six pages, MY26/effective 2026-02-06 and three exact price cells, compute SHA-256, retain the audit artifact, and push the verified binary plus capture manifest to a dedicated source branch. Do not overwrite the MY25 source.
 
 ## Autonomy
 

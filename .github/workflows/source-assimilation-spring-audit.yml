@@ -2,21 +2,84 @@ name: Spring Source Assimilation Bundle
 
 on:
   push:
+    branches:
+      - main
     paths:
       - '.github/workflows/source-assimilation-spring-audit.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-audit-bundle:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
       - name: Install PDF tools
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
-      - name: Build page text and rendered page bundle
+
+      - name: Download and verify live official Spring MY26 cennik
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf"
+          capture_dir="source-assimilation-bundle/live-my26"
+          pdf="$capture_dir/DACIA SPRING cennik MY26 20260206.pdf"
+          mkdir -p "$capture_dir/pages"
+          curl --fail --location --retry 3 --retry-delay 2 --max-time 120 "$url" --output "$pdf"
+          pdfinfo "$pdf" > "$capture_dir/pdfinfo.txt"
+          page_count="$(awk '/^Pages:/ {print $2}' "$capture_dir/pdfinfo.txt")"
+          [ "$page_count" = "6" ] || { echo "Expected six pages, got $page_count"; exit 1; }
+          pdftotext -f 1 -l 1 -layout "$pdf" "$capture_dir/first_page.txt"
+          for marker in "Ceny katalogowe" "ROCZNIK 2026" "Cennik obowiązuje od 06.02.2026" "73 500" "81 500" "85 900"; do
+            grep -Fq "$marker" "$capture_dir/first_page.txt" || { echo "Missing MY26 source marker: $marker"; exit 1; }
+          done
+          sha256sum "$pdf" > "$capture_dir/sha256.txt"
+          pdftotext -layout "$pdf" "$capture_dir/document.txt"
+          pdftoppm -png -r 120 "$pdf" "$capture_dir/pages/page" >/dev/null 2>&1
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from hashlib import sha256
+          from pathlib import Path
+          import json
+          pdf = Path("source-assimilation-bundle/live-my26/DACIA SPRING cennik MY26 20260206.pdf")
+          raw = pdf.read_bytes()
+          manifest = {
+              "source_code": "src_pl_spring_price_my26_20260206",
+              "document_date": "2026-02-06",
+              "model_year": "MY26",
+              "market": "PL",
+              "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price.pdf.asset.pdf/2e0588c888.pdf",
+              "file_path": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
+              "sha256": sha256(raw).hexdigest(),
+              "file_size_bytes": len(raw),
+              "page_count": 6,
+              "price_cells": [
+                  {"grade": "Essential", "powertrain": "Electric 70", "amount_pln": 73500},
+                  {"grade": "Expression", "powertrain": "Electric 70", "amount_pln": 81500},
+                  {"grade": "Extreme", "powertrain": "Electric 100", "amount_pln": 85900}
+              ],
+              "price_context": "The page heading/footer state catalogue prices; the matrix row labels say 'Cena promocyjna'. Both printed contexts are retained.",
+              "captured_at_utc": datetime.now(timezone.utc).isoformat(),
+              "verified_first_page_markers": [
+                  "Ceny katalogowe", "ROCZNIK 2026", "Cennik obowiązuje od 06.02.2026",
+                  "73 500", "81 500", "85 900"
+              ],
+              "versioning_note": "The live MY26 PDF is a distinct binary from the owner-supplied MY25 Library PDF previously associated with the same CDN URL. Do not overwrite or relabel the MY25 source."
+          }
+          Path("source-assimilation-bundle/live-my26/capture-manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Build page text and rendered page bundle for archived sources
         shell: bash
         run: |
           set -euo pipefail
@@ -34,8 +97,35 @@ jobs:
           PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf
           PDF/Broszury/DACIA SPRING broszura 20260219.pdf
           PDFS
+
       - uses: actions/upload-artifact@v4
         with:
           name: spring-source-assimilation-bundle
           path: source-assimilation-bundle
           retention-days: 7
+
+      - name: Archive verified MY26 binary on a dedicated source branch
+        shell: bash
+        env:
+          TARGET_BRANCH: data/spring-my26-cennik-assimilation-20261114-001
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
+            echo "Target source branch already exists; refusing to overwrite it."
+            exit 1
+          fi
+          mkdir -p "PDF/Cenniki" "data/source_intake"
+          cp "source-assimilation-bundle/live-my26/DACIA SPRING cennik MY26 20260206.pdf" \
+             "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf"
+          cp "source-assimilation-bundle/live-my26/capture-manifest.json" \
+             "data/source_intake/spring_my26_20260206_capture.json"
+          sha256sum "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf" \
+            > "data/source_intake/spring_my26_20260206.sha256"
+          git checkout -b "$TARGET_BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf" \
+                  "data/source_intake/spring_my26_20260206_capture.json" \
+                  "data/source_intake/spring_my26_20260206.sha256"
+          git commit -m "source(spring): capture official MY26 2026-02-06 cennik PDF"
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"

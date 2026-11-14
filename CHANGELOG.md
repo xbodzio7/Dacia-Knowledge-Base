@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Extended the Spring source-assimilation audit workflow to capture the live official MY26 cennik as a distinct PDF binary, verify its MY26/effective-date/price markers, compute SHA-256, retain a short-lived audit artifact, and push the verified binary to a dedicated source branch without overwriting the MY25 Library version.
+
 * Identified a mutable official Spring CDN asset URL: the owner-supplied Library PDF is MY25/effective 2026-03-03, while the live official content at the same URL identifies MY26/effective 2026-02-06. Preserve the two content versions separately; MY26 binary capture, SHA-256 and source registration are pending.
 
 * Completed the Jogger MY26 2026-10-01 commercial matrix from official cennik pages 3–4: added one special non-metallic paint item and 54 dated configuration mappings (38 optional, 16 not_available) across 12 source-linked configurations. Reused existing Media Nav, heated-front-seat, ZIMOWY and DRIVE item codes; preserved all historical rows; deferred the ambiguous metallic-paint price pair and standalone Extreme heated-seat mapping. The importer verifies the archived PDF SHA-256 and exact source/configuration scope.
