@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "kind": "spring_my26_price_list_source_assimilation_review",
+  "reviewed_on": "2026-11-14",
+  "review_status": "complete",
+  "source": {
+    "source_code": "src_pl_spring_price_my26_20260206",
+    "source_type": "configuration_pdf",
+    "title": "DACIA SPRING cennik MY26 2026-02-06",
+    "publisher": "Dacia",
+    "distribution_host": "PGD dealer website",
+    "provenance_class": "Dacia-branded dealer-hosted distribution copy; not verified as a live manufacturer CDN binary",
+    "market": "PL",
+    "document_date": "2026-02-06",
+    "model_year": "MY26",
+    "source_url": "https://www.dacia.pgd.pl/SiteData/Dacia/images/NowaStrona/Cenniki/2026/kwiecien/Spring.pdf",
+    "repository_path": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
+    "sha256": "ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055",
+    "size_bytes": 1418626,
+    "page_count": 7,
+    "pdf_version": "1.7",
+    "pdf_creation_date": "2026-02-06T13:36:41Z",
+    "verification_status": "verified_my26",
+    "compared_my25_sha256": "295deb2f8136c2f0ff090c88183579a135e7220a38d628973667a8824c0db5d0",
+    "sha_matches_my25": false
+  },
+  "page_review": [
+    {
+      "page": 1,
+      "scope": "Cover, catalogue-price matrix, promotion and financing headline/legal effective-date footer",
+      "findings": [
+        "Electric 70 Essential: 73500 PLN",
+        "Electric 70 Expression: 81500 PLN",
+        "Electric 100 Extreme: 85900 PLN",
+        "Header/footer say catalogue prices while price-matrix row labels say 'Cena promocyjna'; preserve both contexts",
+        "Effective from 2026-02-06; ROCZNIK 2026"
+      ],
+      "migration": "Source registration only; no price observations imported."
+    },
+    {
+      "page": 2,
+      "scope": "Narrative product/charging/interior overview",
+      "findings": [
+        "Narrative claims electric motor 48 kW / 65 KM and traction battery 26.8 kWh",
+        "These values conflict with page 5 technical table; narrative values are not imported"
+      ],
+      "migration": "Retain conflict in source evidence; no scalar import."
+    },
+    {
+      "page": 3,
+      "scope": "Exterior, interior, comfort, driving and control equipment matrix",
+      "findings": [
+        "Grade columns Essential, Expression and Extreme; applicability symbols preserved",
+        "Metallic/non-metallic Khaki Lichen paint option listed at 2300 PLN for all three grades",
+        "Front parking sensors marked P for Extreme; reversing camera P for Expression and standard for Extreme"
+      ],
+      "migration": "No equipment or commercial mappings imported in this source-registration package."
+    },
+    {
+      "page": 4,
+      "scope": "Active/passive safety, multimedia, charging and equipment packages",
+      "findings": [
+        "Equipment applicability matrix across all three grades",
+        "FlexiCharger listed at 1500 PLN for all three grades",
+        "DC charging socket (40 kW) listed at 2750 PLN for Expression and P for Extreme",
+        "TECHNO package 3500 PLN Expression; CITY package 1800 PLN Extreme; POWER package 3000 PLN Extreme",
+        "Legend defines unavailable, standard and optional symbols; dependencies/exclusions noted"
+      ],
+      "migration": "No equipment, option or package mappings imported."
+    },
+    {
+      "page": 5,
+      "scope": "Technical data table for Electric 70 and Electric 100",
+      "findings": [
+        "Both variants: 4 seats, WLTP, 24.3 kWh LFP traction battery, 354 V, 204 kg battery, 137 Nm",
+        "Electric 70: 52 kW, 70 hp; 222/225 km WLTP range with grade footnote; 12.3 s 0-100 km/h",
+        "Electric 100: 75 kW, 100 hp; 225 km WLTP range; 9.6 s 0-100 km/h",
+        "Narrative page 2 conflicts on 48 kW/65 hp and 26.8 kWh",
+        "Technical footnotes distinguish Essential and Expression wheel/mass values"
+      ],
+      "migration": "No technical observations imported pending separate conflict-aware reconciliation."
+    },
+    {
+      "page": 6,
+      "scope": "Dimension diagram",
+      "findings": [
+        "Rendered dimension diagram reviewed; labels are diagram-context measurements and include overall dimensions, wheelbase, overhangs and interior measurements"
+      ],
+      "migration": "No dimensions imported; exact semantic/measurement basis mapping deferred."
+    },
+    {
+      "page": 7,
+      "scope": "Legal, financing and promotional terms",
+      "findings": [
+        "Legal and commercial terms; promotion duration/vehicle-count limitations, VAT and financing conditions",
+        "No additional catalogue configuration matrix"
+      ],
+      "migration": "No commercial/financing claims imported."
+    }
+  ],
+  "registration": {
+    "source_registry_row": 129,
+    "source_model_relationship_row": 38,
+    "relationship": "price_list_for",
+    "model_code": "spring",
+    "registration_status": "proposed_in_branch",
+    "branch": "data/spring-my26-source-registration-20261114-001",
+    "pull_request": null
+  },
+  "decisions": [
+    "Keep MY26 distinct from the registered MY25 stock source.",
+    "Do not claim the PGD-hosted distribution copy is a live Dacia CDN asset.",
+    "Do not use the tested live CDN binaries as MY26: both returned the registered MY25 SHA.",
+    "Preserve catalogue-price header/footer and promotional-price row-label ambiguity.",
+    "Preserve page-2 narrative versus page-5 technical-table conflict; no scalar import.",
+    "Registration does not authorize master-data migration."
+  ],
+  "non_goals": [
+    "No master data imports",
+    "No modification of MY25 records or binaries",
+    "No inference of unprinted grade/powertrain applicability",
+    "No use of configurator to override this dated price list"
+  ]
+}
