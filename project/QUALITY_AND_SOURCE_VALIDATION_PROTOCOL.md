@@ -510,3 +510,39 @@ The Quality GitHub Actions workflow runs this preflight before Python compilatio
 All CSV-writing code must use `csv.writer`, `csv.DictWriter` or another standards-compliant CSV serializer. Do not build CSV rows by joining raw values with commas. Tests for a CSV-producing importer or report must include a field containing a comma (and, where relevant, quotes or a newline) so serialization regressions are caught.
 
 When data changes, identify dependent reports, manifests, reconciliation receipts and historical closure summaries before editing. Refresh derived artifacts only through their canonical generator or documented deterministic procedure, then run their verification checks. A successful CSV parse does not prove dependent artifacts are current.
+
+
+## 18. Semantic contracts for source-verification tests
+
+Tests must validate source facts and machine-readable contracts, not incidental prose.
+
+- Do not assert an entire `notes` sentence, paragraph, punctuation, word order or editorial phrase unless the exact text is itself a controlled identifier or externally mandated literal.
+- For source verification, assert the structured facts that carry meaning: source identity/code, verification state where modeled, SHA-256, byte size, page count, expected source markers, archive path, provenance reference and manifest relationship. Validate only fields that actually exist in the canonical schema; do not invent parallel metadata fields solely to satisfy a test.
+- When a fact is currently represented only in free text, prefer extracting a stable structured field in a separately scoped schema change. Until then, test the necessary evidence using narrowly scoped semantic predicates, and preserve human-readable notes as explanatory provenance rather than a machine interface.
+- Tests must include both positive and negative cases: valid evidence with different wording passes; missing or contradictory integrity/provenance evidence fails.
+- A change to explanatory prose must not require test edits when the underlying source facts are unchanged. Conversely, changing a hash, source identity, archive path or verification result must be detected.
+- Before changing a failing assertion, inspect the producer, canonical data, schema, source artifact and all supported Python versions. Do not weaken a test merely to make CI green.
+
+## 19. Failure classification and regression containment
+
+For each failed CI job, identify the first causal assertion or command and classify it as one of: product/code defect, data/schema defect, stale test contract, generated-artifact drift, environment/dependency failure, or expected negative-test output. Correlated failures across Python versions count as one root cause when they share the same causal assertion.
+
+The correction must be made at the authoritative layer: producer, canonical data, schema, test contract, generator or environment pin. Add a focused regression test for the root cause, then run focused tests before the full required matrix. Record the exact final HEAD SHA and require all mandatory checks to pass on that SHA before merge.
+
+
+## 20. Source archive manifest integrity preflight
+
+The read-only \`python tools/dkb.py package-preflight\` command validates CSV and JSON structure and, for every verified \`data/source_intake/*_capture.json\` manifest, checks the archive contract against the existing repository schema:
+
+- exactly one source-registry row matches \`source_code\`;
+- the registry URL and SHA-256 match the manifest;
+- a populated registry \`file_path\` matches the manifest archive path (an intentionally blank path remains a separately visible registration gap until its source-registration package closes it);
+- the archived binary exists inside the repository, its actual byte length matches \`file_size_bytes\`, and its SHA-256 is recomputed from the actual bytes and matches the manifest;
+- the sibling \`.sha256\` sidecar matches both the manifest digest and archive path;
+- the verification status is explicitly \`verified_*\`, the page count is positive, optional expected hash/size/page-count fields agree, and the recorded first-page markers are present in the captured first-page text with no missing markers.
+
+The check is read-only. It does not rewrite source rows, manifests, PDFs or sidecars. It does not parse the PDF again to independently derive its page count, re-extract first-page text, inspect rendered pages, or establish complete source assimilation. Those remain responsibilities of the capture workflow and the independent source-fidelity review.
+
+Explanatory \`notes\` are not a machine interface. A change to editorial wording must not invalidate source-integrity tests when the structured identity, archive bytes, manifest and registry relationships remain unchanged. Conversely, a changed binary, digest, size, marker state, source identity or archive relationship must fail the preflight.
+
+The Quality workflow runs this check before compilation/tests and runs the focused Bigster source-archive regression on Python 3.14 before the full quality gate. The same focused regression is also included in the standard unit-test discovery on Python 3.10 and 3.13. A successful preflight is not a substitute for the full quality matrix, repository-state/documentation checks or source-fidelity review.
