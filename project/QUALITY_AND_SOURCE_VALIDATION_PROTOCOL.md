@@ -546,3 +546,26 @@ The check is read-only. It does not rewrite source rows, manifests, PDFs or side
 Explanatory \`notes\` are not a machine interface. A change to editorial wording must not invalidate source-integrity tests when the structured identity, archive bytes, manifest and registry relationships remain unchanged. Conversely, a changed binary, digest, size, marker state, source identity or archive relationship must fail the preflight.
 
 The Quality workflow runs this check before compilation/tests and runs the focused Bigster source-archive regression on Python 3.14 before the full quality gate. The same focused regression is also included in the standard unit-test discovery on Python 3.10 and 3.13. A successful preflight is not a substitute for the full quality matrix, repository-state/documentation checks or source-fidelity review.
+
+
+## 21. Unified fail-closed package consistency gate
+
+Every Pull Request must pass one observable, fail-closed repository-consistency gate in addition to the supported Python and Windows quality matrix. The existing required status context `Repository state / project-state --check` now executes these checks in sequence on the same checked-out candidate commit:
+
+1. `python tools/dkb.py package-preflight` — validate every repository data CSV/JSON file and the registered source-capture manifest integrity covered by the canonical preflight;
+2. `python tools/dkb.py project-state --check` — compare live repository counts and canonical state, validate state references, and verify the generated state summary;
+3. `python tools/dkb.py documentation-baseline --check` — verify all managed documentation baseline blocks against live repository data.
+
+The separately required `Generated documentation / documentation-baseline --check` status remains in place as an independent, clearly named check. The additional invocation inside the repository-state job ensures that the repository-state required context cannot pass when any of the three package-consistency layers fails.
+
+The gate is read-only. It must never silently repair a candidate branch in CI. If a check fails, the maintainer diagnoses the first causal discrepancy, applies the canonical generator locally or through an explicitly validated candidate workflow, inspects the complete resulting diff, and reruns all three checks on the same resulting tree. Manual counter copying, hand-edited generated blocks and weakened validators are prohibited.
+
+The gate complements rather than replaces:
+- the full Python and Windows quality matrix;
+- importer-specific focused tests and idempotency checks;
+- independent source-to-master fidelity review;
+- the complete PR diff, exact-head, freshness, conflict and technical-review requirements.
+
+For each package, the PR validation record must state the result of all three subchecks separately. A single green umbrella status does not justify describing an unobserved subcheck or source-fidelity review as passed.
+
+The gate is intentionally wired into an existing required status context. It does not add or rename branch-protection contexts and therefore preserves the repository's six-check single-maintainer merge policy.
