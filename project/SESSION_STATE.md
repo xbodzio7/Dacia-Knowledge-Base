@@ -33,6 +33,20 @@ Current completed package: `jogger_price_matrix_correction_20261001_20261106_001
 
 The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. The Striker cennik is temporarily unavailable and is excluded from active work.
 
+## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
+
+The Bigster MY26 Polish price-list binary effective 2026-11-02 is now archived in `main` through PR #825. The source PDF was downloaded from the official Dacia/Renault Group CDN by the post-merge GitHub Actions workflow and passed exact identity checks:
+
+- SHA-256: `592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b`
+- Size: 1,995,398 bytes; PDF page count: 8.
+- First-page markers include model year 2026, effective date 02.11.2026 and all 13 catalogue-price cells.
+- Manifest: `data/source_intake/bigster_my26_20261102_capture.json`.
+- Sidecar: `data/source_intake/bigster_my26_20261102.sha256`.
+- Archived PDF: `PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf`.
+- `data/master/sources.csv` now points to the archived binary and records the verified provenance.
+
+No prices were re-imported. The next cennik-only task is the Bigster MY26 catalogue-price comparison between the official 2026-10-01 and 2026-11-02 price lists. Keep the comparison source-backed and configuration/grade-aligned; do not infer missing cells. Brochure work remains deferred under the user's cennik-only priority.
+
 ## Vehicle Change History Plan (2026-11-06)
 
 The implementation plan is recorded in `project/CHANGE_HISTORY_PLAN.md` and merged through PR #789. The proposed first stage is the Sandero/Sandero Stepway catalogue-price timeline. It is a derived reporting layer, not a second manually maintained master table. Implementation begins after the current cennik reconciliation packages are closed.
