@@ -1,5 +1,5 @@
 from __future__ import annotations
-import csv,sys,unittest
+import csv,hashlib,json,sys,unittest
 from collections import Counter
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -21,7 +21,21 @@ class BigsterCommercialMatrixTests(unittest.TestCase):
         self.assertEqual(sources[OCT]["sha256"],importer.OCT_SHA)
         self.assertEqual(sources[NOV]["file_path"],"PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf")
         self.assertEqual(sources[NOV]["sha256"],"592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b")
-        self.assertIn("SHA-256 verified from uploaded raw bytes",sources[NOV]["notes"])
+        manifest_path=ROOT/"data"/"source_intake"/"bigster_my26_20261102_capture.json"
+        manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["source_code"],NOV)
+        self.assertEqual(manifest["sha256"],sources[NOV]["sha256"])
+        self.assertEqual(manifest["verification_status"],"verified_my26")
+        self.assertEqual(manifest["missing_markers"],[])
+        self.assertEqual(manifest["file_size_bytes"],1995398)
+        self.assertEqual(manifest["page_count"],8)
+        archive_path=ROOT/manifest["file_path"]
+        self.assertTrue(archive_path.is_file())
+        self.assertEqual(archive_path.stat().st_size,manifest["file_size_bytes"])
+        self.assertEqual(hashlib.sha256(archive_path.read_bytes()).hexdigest(),manifest["sha256"])
+        sidecar_path=ROOT/"data"/"source_intake"/"bigster_my26_20261102.sha256"
+        self.assertIn(manifest["sha256"],sidecar_path.read_text(encoding="utf-8"))
+        self.assertEqual(sources[NOV]["file_path"],manifest["file_path"])
         prices=read(MASTER/"configuration_prices.csv")
         a={r["configuration_code"] for r in prices if r["source_code"]==OCT and r["price_date"]=="2026-10-01"}
         b={r["configuration_code"] for r in prices if r["source_code"]==NOV and r["price_date"]=="2026-11-02"}
