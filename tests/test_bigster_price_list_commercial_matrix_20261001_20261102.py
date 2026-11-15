@@ -1,10 +1,11 @@
 from __future__ import annotations
-import csv,sys,unittest
+import csv,hashlib,json,shutil,sys,tempfile,unittest
 from collections import Counter
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"tools"))
 import import_bigster_price_list_commercial_matrix_20261001_20261102 as importer
+import package_preflight
 from reporting.commercial_offers import collect_commercial_components
 MASTER=ROOT/"data"/"master"
 OCT="src_pl_bigster_price_my26_20261001";NOV="src_pl_bigster_price_my26_20261102"
@@ -21,7 +22,52 @@ class BigsterCommercialMatrixTests(unittest.TestCase):
         self.assertEqual(sources[OCT]["sha256"],importer.OCT_SHA)
         self.assertEqual(sources[NOV]["file_path"],"")
         self.assertEqual(sources[NOV]["sha256"],"592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b")
-        self.assertIn("SHA-256 verified from uploaded raw bytes",sources[NOV]["notes"])
+        manifest_path=ROOT/"data"/"source_intake"/"bigster_my26_20261102_capture.json"
+        manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["source_code"],NOV)
+        self.assertEqual(manifest["sha256"],sources[NOV]["sha256"])
+        self.assertEqual(manifest["verification_status"],"verified_my26")
+        self.assertEqual(manifest["missing_markers"],[])
+        self.assertEqual(manifest["file_size_bytes"],1995398)
+        self.assertEqual(manifest["page_count"],8)
+        archive_path=ROOT/manifest["file_path"]
+        self.assertTrue(archive_path.is_file())
+        self.assertEqual(archive_path.stat().st_size,manifest["file_size_bytes"])
+        self.assertEqual(hashlib.sha256(archive_path.read_bytes()).hexdigest(),manifest["sha256"])
+        if sources[NOV]["file_path"]:
+            self.assertEqual(sources[NOV]["file_path"],manifest["file_path"])
+        self.assertEqual(package_preflight.validate_source_capture_manifests(ROOT),[])
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture=Path(temporary)
+            fixture_paths=(
+                manifest_path.relative_to(ROOT),
+                Path("data/source_intake/bigster_my26_20261102.sha256"),
+                Path(manifest["file_path"]),
+                Path("data/master/sources.csv"),
+            )
+            for relative in fixture_paths:
+                destination=fixture/relative
+                destination.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(ROOT/relative,destination)
+            fixture_sources=read(fixture/"data/master/sources.csv")
+            fixture_sources=[row for row in fixture_sources if row["code"]==NOV]
+            fixture_sources[0]["notes"]="Editorial wording changed; structured evidence is unchanged."
+            with (fixture/"data/master/sources.csv").open("w",encoding="utf-8",newline="") as handle:
+                writer=csv.DictWriter(handle,fieldnames=list(fixture_sources[0]))
+                writer.writeheader()
+                writer.writerows(fixture_sources)
+            self.assertEqual(package_preflight.validate_source_capture_manifests(fixture),[])
+            fixture_manifest_path=fixture/manifest_path.relative_to(ROOT)
+            fixture_manifest["missing_markers"]=["required marker missing"]
+            fixture_manifest_path.write_text(json.dumps(fixture_manifest,indent=2)+"\n",encoding="utf-8")
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("missing_markers" in error for error in errors),errors)
+            fixture_manifest["missing_markers"]=[]
+            fixture_manifest_path.write_text(json.dumps(fixture_manifest,indent=2)+"\n",encoding="utf-8")
+            fixture_archive=fixture/manifest["file_path"]
+            fixture_archive.write_bytes(fixture_archive.read_bytes()+b"tampered")
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("SHA-256 mismatch" in error for error in errors),errors)
         prices=read(MASTER/"configuration_prices.csv")
         a={r["configuration_code"] for r in prices if r["source_code"]==OCT and r["price_date"]=="2026-10-01"}
         b={r["configuration_code"] for r in prices if r["source_code"]==NOV and r["price_date"]=="2026-11-02"}
