@@ -1,7 +1,7 @@
 # Semantic source-verification contracts and CI failure prevention
 
 **Package ID:** `semantic_source_verification_contracts_20261115_001`  
-**Status:** In progress  
+**Status:** Implementation in progress; pending final CI  
 **Date:** 2026-11-15  
 **Base:** `main` at `1895c97731caf35c68dacd910184b00481c29971`
 
@@ -28,14 +28,14 @@ PR #826 exposed a stale assertion requiring the exact phrase `SHA-256 verified f
 
 ## Implementation boundary
 
-This first governance slice records the accepted contract. It deliberately does not modify PR #826 or add speculative fields to the source schema. The next implementation slice must inspect the current source registry/manifest schema and refactor the failing source test to semantic predicates with positive and negative fixtures. The test must verify the archived Bigster PDF's actual registered facts rather than a hard-coded note sentence.
+Implementation uses the existing Bigster source registry row, `bigster_my26_20261102_capture.json`, its `.sha256` sidecar and the archived PDF. The source test now checks the actual binary hash/size and structured manifest fields rather than a hard-coded notes sentence. `package-preflight` validates every verified capture manifest against the source registry, sidecar and actual archived bytes. Regression coverage proves that editorial wording changes pass while missing marker evidence and a modified binary fail. No new source metadata fields are introduced.
 
 ## Acceptance criteria
 
 - [x] Semantic test policy documented in the mandatory quality protocol.
-- [x] Decision D-018 recorded.
-- [ ] Focused semantic regression tests implemented against the existing canonical schema.
-- [ ] Preflight/quality workflow runs the focused contract before the expensive full matrix where practical.
+- [x] Decision D-025 recorded.
+- [x] Focused semantic regression tests implemented against the existing canonical schema.
+- [x] Source archive integrity validation is included in `package-preflight`; the focused regression runs before the Python 3.14 full quality gate.
 - [ ] Documentation/state generators and full quality pass on the final PR head.
 - [ ] PR reviewed; no automatic merge.
 
@@ -45,3 +45,13 @@ This first governance slice records the accepted contract. It deliberately does 
 - No price or source-data re-import.
 - No new source metadata schema fields without a separate evidence-backed design.
 - No changes to master CSV records.
+
+
+## Implementation details
+
+- \`tools/package_preflight.py\`: read-only validation of verified capture manifests, actual archive SHA-256/byte length, sidecar digest/path, first-page marker consistency and source-registry linkage.
+- \`tests/test_bigster_price_list_commercial_matrix_20261001_20261102.py\`: replaces the exact notes assertion with actual Bigster archive/manifest checks and positive/negative fixtures.
+- \`.github/workflows/quality.yml\`: runs the focused source-archive regression before the Python 3.14 full quality gate; Python 3.10 and 3.13 already execute it through unit-test discovery.
+- \`project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md\` and \`project/SOURCE_ASSIMILATION_STANDARD.md\`: define the preflight's exact coverage and limitations.
+
+The source archive preflight deliberately allows a blank \`sources.csv.file_path\` while a source-registration closure is still pending, but if that field is populated it must match the manifest. This preserves the distinction between an archived verified binary and a fully closed source-registry relationship. PR #826 remains untouched; its branch still needs its own exact-head revalidation after the semantic test correction reaches \`main\`.
