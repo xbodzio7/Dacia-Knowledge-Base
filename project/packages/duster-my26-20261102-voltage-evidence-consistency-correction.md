@@ -45,3 +45,13 @@ The earlier 280 V statement was a text-extraction error. The source hash is alre
 ## Validation
 
 Final validation is performed by the PR's six mandatory exact-head checks: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check.
+
+
+## Merge and closure
+
+- Pull Request: [#830](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/830)
+- Exact reviewed PR head: `fa5f25e766fda5e6a211bb35a1b6a99d428d36a4`
+- Required exact-head checks: all six passed.
+- Merge commit: `0ad4a78c9d051116f20d288ef6cffaccb5e7f2ac`
+- Verified merged state: `merged=true`; current `main` points to the merge commit.
+- Canonical project state and generated state summary are handed off to the next Spring MY26 cennik package.
