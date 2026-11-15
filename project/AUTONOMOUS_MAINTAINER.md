@@ -256,3 +256,16 @@ The review checklist is:
 
 Never merge on the strength of a previous green run after the head changes. Do not bypass any required status check or conflict protection. If an exact-head check is missing or failing, if the PR is stale or conflicting, or if a GitHub policy block cannot be resolved safely, do not merge; continue independent work or report ACTION_REQUIRED with the exact blocker.
 
+
+
+## 9. Fail-closed package consistency gate
+
+Before a Pull Request may be considered ready for merge, the maintainer must verify that the required `Repository state / project-state --check` job completed all three checks on the same candidate commit:
+
+1. `package-preflight` for repository CSV/JSON and source-capture manifest integrity;
+2. `project-state --check` for canonical counters, state references and generated state summary;
+3. `documentation-baseline --check` for managed documentation blocks.
+
+The CI job is read-only and blocks on the first failure. Do not repair its output manually in GitHub or claim that the umbrella job proves an individual layer unless its log shows that layer passed. Repair through canonical tooling, inspect all generated changes, and rerun the complete gate after the final edit.
+
+These checks complement, and do not replace, the Python/Windows quality matrix, importer-specific tests, independent source-fidelity review, complete diff review and exact-head merge procedure. The six required status-check names remain unchanged.

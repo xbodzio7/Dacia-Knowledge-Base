@@ -1207,3 +1207,36 @@ The project has a single owner and no second reviewer with write access. Requiri
 - Exact-head, freshness, conflict and post-merge verification remain mandatory.
 - This decision does not authorize automatic merging when any check or review condition is unresolved.
 
+
+
+## D-027 — Unified fail-closed package consistency gate
+
+Status: Accepted
+
+Date: 2026-11-16
+
+### Decision
+
+Every Pull Request must pass a unified, read-only repository-consistency gate on one exact candidate commit. The existing required status context `Repository state / project-state --check` runs, in order:
+
+1. `python tools/dkb.py package-preflight`;
+2. `python tools/dkb.py project-state --check`;
+3. `python tools/dkb.py documentation-baseline --check`.
+
+The separately required generated-documentation check remains enabled. The three subchecks are also executed inside the required repository-state job so that this required context cannot pass while data structure, canonical state or managed documentation is stale.
+
+### Rationale
+
+A recent source-data package exposed that structurally valid imported rows can coexist with stale canonical counters and generated documentation. The individual validators already existed, but the required repository-state context did not combine them into one explicit fail-closed package gate. Running them sequentially on the same checked-out candidate makes the consistency boundary visible and blocks a merge when any layer is stale.
+
+### Consequences
+
+- malformed repository CSV/JSON or source-capture manifest integrity failures block the repository-state required check;
+- stale `state.json`, references or generated state summary block the same check;
+- stale managed documentation baseline blocks the same check;
+- CI performs checks only and never mutates candidate files;
+- repairs use canonical generators, are reviewed in the complete diff, and require all three checks to pass again on the final candidate;
+- the six existing required status-check names remain unchanged;
+- importer idempotency, source-to-master fidelity, full quality and exact-head technical review remain separate mandatory controls.
+
+This decision strengthens technical consistency enforcement; it does not claim that automated structural checks can resolve ambiguous documentary evidence or replace independent source review.

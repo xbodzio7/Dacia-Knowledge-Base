@@ -679,3 +679,10 @@ The repository's six required branch-protection checks remain mandatory:
 
 Removing the independent-approval requirement does not authorize bypassing required checks, merging a stale or conflicting head, ignoring source-evidence gaps, or weakening branch protection. If a required check fails, is missing, or belongs to another SHA, do not merge. If GitHub reports a conflict or policy block, resolve it from repository evidence or stop at ACTION_REQUIRED.
 
+
+
+## 22. Fail-closed package consistency gate
+
+Every PR must pass the existing required repository-state status context after it has run, in order, the canonical package data preflight, project-state validation and generated-documentation baseline validation on the same candidate commit. These checks are read-only in CI and must fail closed. Repairs must use canonical generators, be reviewed as part of the complete diff and be followed by a fresh run of all three checks.
+
+The additional subchecks do not replace the Python/Windows quality matrix, source-fidelity review, importer-specific regression tests or exact-head technical review. They do not change the six required status-check names or permit a merge when any required check is missing, stale or unsuccessful.
