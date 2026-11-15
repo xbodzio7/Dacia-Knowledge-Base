@@ -510,3 +510,25 @@ The Quality GitHub Actions workflow runs this preflight before Python compilatio
 All CSV-writing code must use `csv.writer`, `csv.DictWriter` or another standards-compliant CSV serializer. Do not build CSV rows by joining raw values with commas. Tests for a CSV-producing importer or report must include a field containing a comma (and, where relevant, quotes or a newline) so serialization regressions are caught.
 
 When data changes, identify dependent reports, manifests, reconciliation receipts and historical closure summaries before editing. Refresh derived artifacts only through their canonical generator or documented deterministic procedure, then run their verification checks. A successful CSV parse does not prove dependent artifacts are current.
+
+
+## 12. Semantic contracts for source-verification tests
+
+Tests must validate source facts and machine-readable contracts, not incidental prose.
+
+- Do not assert an entire `notes` sentence, paragraph, punctuation, word order or editorial phrase unless the exact text is itself a controlled identifier or externally mandated literal.
+- For source verification, assert the structured facts that carry meaning: source identity/code, verification state where modeled, SHA-256, byte size, page count, expected source markers, archive path, provenance reference and manifest relationship. Validate only fields that actually exist in the canonical schema; do not invent parallel metadata fields solely to satisfy a test.
+- When a fact is currently represented only in free text, prefer extracting a stable structured field in a separately scoped schema change. Until then, test the necessary evidence using narrowly scoped semantic predicates, and preserve human-readable notes as explanatory provenance rather than a machine interface.
+- Tests must include both positive and negative cases: valid evidence with different wording passes; missing or contradictory integrity/provenance evidence fails.
+- A change to explanatory prose must not require test edits when the underlying source facts are unchanged. Conversely, changing a hash, source identity, archive path or verification result must be detected.
+- Before changing a failing assertion, inspect the producer, canonical data, schema, source artifact and all supported Python versions. Do not weaken a test merely to make CI green.
+
+## 13. Failure classification and regression containment
+
+For each failed CI job, identify the first causal assertion or command and classify it as one of: product/code defect, data/schema defect, stale test contract, generated-artifact drift, environment/dependency failure, or expected negative-test output. Correlated failures across Python versions count as one root cause when they share the same causal assertion.
+
+The correction must be made at the authoritative layer: producer, canonical data, schema, test contract, generator or environment pin. Add a focused regression test for the root cause, then run focused tests before the full required matrix. Record the exact final HEAD SHA and require all mandatory checks to pass on that SHA before merge.
+
+## 14. Preflight coverage boundary
+
+`package-preflight` is a structural gate for CSV and JSON syntax. It does not establish semantic correctness, source fidelity, generated-document freshness, or test-contract quality. Packages that change source metadata, manifests, importers or source-verification tests must additionally run the relevant focused contract tests and canonical project-state/documentation checks. Do not describe structural preflight as a replacement for the full quality gate.
