@@ -65,10 +65,13 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
         for code, contract in expected.items():
             with self.subTest(source=code):
                 record = sources[code]
-                self.assertEqual(record["document_date"], "2026-07-03")
+                self.assertEqual(record["document_date"], "2026-02-06" if code == "src_pl_spring_price_my26_20260206" else "2026-07-03")
                 self.assertEqual(record["file_path"], contract["file"])
                 self.assertEqual(record["sha256"], contract["sha256"])
-                if "url" in contract:\n                    self.assertEqual(record["external_reference"], contract["url"])\n                else:\n                    self.assertTrue(record["external_reference"].startswith("https://cdn.group.renault.com/"))
+                if "url" in contract:
+                    self.assertEqual(record["external_reference"], contract["url"])
+                else:
+                    self.assertTrue(record["external_reference"].startswith("https://cdn.group.renault.com/"))
                 path = REPOSITORY / contract["file"]
                 self.assertTrue(path.is_file())
                 self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), contract["sha256"])
@@ -76,7 +79,12 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
                 self.assertEqual({row["version_code"] for row in version_rows if row["source_code"] == code}, contract["versions"])
                 self.assertEqual(len([row for row in configuration_rows if row["source_code"] == code]), contract["configuration_count"])
 
-        self.assertEqual(spring_my26_importer.check(), {\n            "price_rows": 3,\n            "commercial_mappings": 10,\n            "source_configuration_links": 3,\n            "source_grade_links": 3,\n        })
+        self.assertEqual(spring_my26_importer.check(), {
+            "price_rows": 3,
+            "commercial_mappings": 10,
+            "source_configuration_links": 3,
+            "source_grade_links": 3,
+        })
 
 
 if __name__ == "__main__":
