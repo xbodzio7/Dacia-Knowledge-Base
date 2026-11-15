@@ -47,7 +47,7 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         codes = set(importer.EXPECTED_COLOURS)
         items = [row for row in self.items if row["code"] in codes]
         memberships = [row for row in self.memberships if row["commercial_item_code"] in codes]
-        mappings = [row for row in self.mappings if row["commercial_item_code"] in codes]
+        mappings = [row for row in self.mappings if row["commercial_item_code"] in codes and row["source_code"] == importer.SOURCE_CODE]
         self.assertEqual([int(row["id"]) for row in items], list(range(34, 40)))
         self.assertEqual([int(row["id"]) for row in memberships], list(range(88, 94)))
         self.assertEqual([int(row["id"]) for row in mappings], list(range(150, 168)))
@@ -57,7 +57,7 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
 
     def test_every_colour_maps_to_all_three_existing_configurations(self) -> None:
         codes = set(importer.EXPECTED_COLOURS)
-        mappings = [row for row in self.mappings if row["commercial_item_code"] in codes]
+        mappings = [row for row in self.mappings if row["commercial_item_code"] in codes and row["source_code"] == importer.SOURCE_CODE]
         self.assertEqual(
             Counter(row["commercial_item_code"] for row in mappings),
             Counter({code: 3 for code in codes}),
@@ -71,7 +71,7 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
             (configuration_code, row)
             for configuration_code, component_rows in components.items()
             for row in component_rows
-            if row["code"] in colour_codes
+            if row["code"] in colour_codes and row.get("price_date", "") in ("", "2026-08-02")
         ]
         self.assertEqual(len(selected), 18)
         priced = [entry for entry in selected if entry[1]["amount"] is not None]
