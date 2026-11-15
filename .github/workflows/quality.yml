@@ -71,6 +71,12 @@ jobs:
 
       - name: Run repository data package preflight
         run: python tools/dkb.py package-preflight
+      - name: Run semantic Bigster source archive contract
+        if: matrix.python-version == '3.14'
+        run: |
+          python -m unittest -q \
+            tests.test_bigster_price_list_commercial_matrix_20261001_20261102.BigsterCommercialMatrixTests.test_source_and_config_scope
+
 
       - name: Compile Python sources
         if: matrix.python-version != '3.14'
