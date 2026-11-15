@@ -41,4 +41,4 @@ The master source register row in `data/master/sources.csv` now references the a
 
 ## Next package
 
-Compare Bigster MY26 catalogue prices in the official 2026-10-01 and 2026-11-02 price lists by exact configuration and grade. Treat this as reporting over existing observations; do not re-import prices or infer unavailable cells.
+Proceed with `duster_my26_20261102_hybrid155_voltage_reconciliation_20261115_001` — Duster MY26 2026-11-02 Hybrid 155 Voltage Reconciliation. First verify the SHA-256 of the existing PDF at `owner_supplied/2026-11-02/f07ca0a87f.pdf` against the official source. Only after exact source identity is established may the three current-dated Hybrid 155 table observations explicitly stated as 280 V be reconciled. Preserve the earlier 230 V observations as history and keep the separate 260 V narrative statement distinct; do not infer equivalence, overwrite history, or import data before source verification. The Bigster MY26 2026-10-01 versus 2026-11-02 catalogue-price comparison is already implemented in `tools/bigster_catalogue_price_history.py` and its JSON/Markdown reports; do not schedule or repeat it.
