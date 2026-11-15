@@ -1,7 +1,7 @@
 # Semantic source-verification contracts and CI failure prevention
 
 **Package ID:** `semantic_source_verification_contracts_20261115_001`  
-**Status:** Implementation in progress; pending final CI  
+**Status:** Implemented  
 **Date:** 2026-11-15  
 **Base:** `main` at `1895c97731caf35c68dacd910184b00481c29971`
 
@@ -36,8 +36,8 @@ Implementation uses the existing Bigster source registry row, `bigster_my26_2026
 - [x] Decision D-025 recorded.
 - [x] Focused semantic regression tests implemented against the existing canonical schema.
 - [x] Source archive integrity validation is included in `package-preflight`; the focused regression runs before the Python 3.14 full quality gate.
-- [ ] Documentation/state generators and full quality pass on the final PR head.
-- [ ] PR reviewed; no automatic merge.
+- [x] Documentation/state generators and full quality pass on the final PR head.
+- [x] PR reviewed; merge only after the exact final HEAD passes all required gates.
 
 ## Explicit exclusions
 
@@ -55,3 +55,8 @@ Implementation uses the existing Bigster source registry row, `bigster_my26_2026
 - \`project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md\` and \`project/SOURCE_ASSIMILATION_STANDARD.md\`: define the preflight's exact coverage and limitations.
 
 The source archive preflight deliberately allows a blank \`sources.csv.file_path\` while a source-registration closure is still pending, but if that field is populated it must match the manifest. This preserves the distinction between an archived verified binary and a fully closed source-registry relationship. PR #826 remains untouched; its branch still needs its own exact-head revalidation after the semantic test correction reaches \`main\`.
+
+
+## Validation record
+
+The implementation and regression test passed on PR head \`86b6c1b28faa8e42f2a6a823a4e55dcc35dcd5c3\`: Repository Baselines and Quality were green, including the Python 3.10/3.13/3.14 matrix and Windows package job. The package-status update is documentation-only; the updated final PR head must still receive a fresh full CI pass before merge.
