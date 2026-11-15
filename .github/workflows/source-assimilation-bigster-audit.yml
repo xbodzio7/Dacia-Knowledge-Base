@@ -1,0 +1,157 @@
+name: Bigster MY26 Source Binary Capture
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/source-assimilation-bigster-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Download and verify exact Bigster MY26 2026-11-02 source
+        id: capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf"
+          expected_sha256="592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b"
+          expected_size=1995398
+          capture_dir="source-assimilation-bundle/bigster-my26-20261102"
+          pdf="$capture_dir/DACIA BIGSTER cennik MY26 20261102.pdf"
+          mkdir -p "$capture_dir/pages"
+          curl --fail --location --retry 3 --retry-delay 2 --max-time 120 "$url" --output "$pdf"
+          pdfinfo "$pdf" > "$capture_dir/pdfinfo.txt"
+          pdftotext -f 1 -l 1 -layout "$pdf" "$capture_dir/first_page.txt"
+          pdftotext -layout "$pdf" "$capture_dir/document.txt"
+          sha256sum "$pdf" > "$capture_dir/sha256.txt"
+          pdftoppm -png -r 120 "$pdf" "$capture_dir/pages/page" >/dev/null 2>&1
+
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from hashlib import sha256
+          from pathlib import Path
+          import json
+          import os
+          import re
+
+          capture_dir = Path("source-assimilation-bundle/bigster-my26-20261102")
+          pdf = capture_dir / "DACIA BIGSTER cennik MY26 20261102.pdf"
+          raw = pdf.read_bytes()
+          first_page = (capture_dir / "first_page.txt").read_text(encoding="utf-8", errors="replace")
+          normalized = " ".join(first_page.split())
+          pdfinfo = (capture_dir / "pdfinfo.txt").read_text(encoding="utf-8", errors="replace")
+          page_match = re.search(r"(?m)^Pages:\\s*(\\d+)", pdfinfo)
+          page_count = int(page_match.group(1)) if page_match else None
+          digest = sha256(raw).hexdigest()
+          expected_sha256 = "592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b"
+          expected_size = 1995398
+          markers = [
+              "Cennik obowiązuje od 02.11.2026",
+              "Prezentowane ceny są cenami katalogowymi",
+              "ROCZNIK 2026",
+              "101 400", "110 400", "118 900", "118 500",
+              "115 600", "124 100", "123 700",
+              "124 900", "133 400", "133 000",
+              "128 900", "137 600", "137 200"
+          ]
+          missing = [marker for marker in markers if marker not in normalized]
+          if digest != expected_sha256:
+              missing.append(f"SHA-256 mismatch: got {digest}")
+          if len(raw) != expected_size:
+              missing.append(f"file size mismatch: got {len(raw)}")
+          if page_count != 8:
+              missing.append(f"expected 8 pages, got {page_count}")
+          verified = not missing
+          manifest = {
+              "source_code": "src_pl_bigster_price_my26_20261102",
+              "document_date": "2026-11-02",
+              "effective_date": "2026-11-02",
+              "model_year": "MY26",
+              "market": "PL",
+              "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/2fe688def9.pdf",
+              "file_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf",
+              "sha256": digest,
+              "expected_sha256": expected_sha256,
+              "file_size_bytes": len(raw),
+              "expected_file_size_bytes": expected_size,
+              "page_count": page_count,
+              "expected_page_count": 8,
+              "verification_status": "verified_my26" if verified else "identity_not_verified",
+              "missing_markers": missing,
+              "first_page_text": first_page,
+              "captured_at_utc": datetime.now(timezone.utc).isoformat(),
+              "expected_first_page_markers": markers,
+              "price_scope": "13 catalogue gross price cells on printed page 1; no new price import is performed by this capture workflow.",
+              "provenance": "Official Dacia Poland / Renault Group CDN asset; binary identity is accepted only on exact SHA-256, byte-size, page-count and first-page marker match."
+          }
+          (capture_dir / "capture-manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8"
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"verified={str(verified).lower()}\\n")
+          print("DOWNLOADED_PDF_SHA256=" + digest)
+          print("DOWNLOADED_PDF_SIZE_BYTES=" + str(len(raw)))
+          print("DOWNLOADED_PDF_PAGE_COUNT=" + str(page_count))
+          print("BIGSTER_MY26_VERIFICATION=" + str(verified))
+          print("MISSING_MARKERS=" + json.dumps(missing, ensure_ascii=False))
+          print("FIRST_PAGE_TEXT_BEGIN")
+          print(first_page)
+          print("FIRST_PAGE_TEXT_END")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bigster-my26-20261102-source-capture
+          path: source-assimilation-bundle/bigster-my26-20261102
+          retention-days: 30
+
+      - name: Archive verified Bigster MY26 binary on a dedicated source branch
+        if: steps.capture.outputs.verified == 'true'
+        shell: bash
+        env:
+          TARGET_BRANCH: data/bigster-my26-cennik-assimilation-20261115-001
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
+            echo "Target source branch already exists; refusing to overwrite it."
+            exit 1
+          fi
+          mkdir -p "PDF/Cenniki" "data/source_intake"
+          cp "source-assimilation-bundle/bigster-my26-20261102/DACIA BIGSTER cennik MY26 20261102.pdf" \
+             "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf"
+          cp "source-assimilation-bundle/bigster-my26-20261102/capture-manifest.json" \
+             "data/source_intake/bigster_my26_20261102_capture.json"
+          sha256sum "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf" \
+            > "data/source_intake/bigster_my26_20261102.sha256"
+          git checkout -b "$TARGET_BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf" \
+                  "data/source_intake/bigster_my26_20261102_capture.json" \
+                  "data/source_intake/bigster_my26_20261102.sha256"
+          git commit -m "source(bigster): capture verified MY26 2026-11-02 cennik PDF"
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
+
+      - name: Stop without committing if source identity is not verified
+        if: steps.capture.outputs.verified != 'true'
+        shell: bash
+        run: |
+          echo "The downloaded PDF did not match the registered MY26 source identity. Diagnostic artifact retained; no binary was committed."
+          exit 1
