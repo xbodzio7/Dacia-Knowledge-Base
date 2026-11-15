@@ -529,6 +529,20 @@ For each failed CI job, identify the first causal assertion or command and class
 
 The correction must be made at the authoritative layer: producer, canonical data, schema, test contract, generator or environment pin. Add a focused regression test for the root cause, then run focused tests before the full required matrix. Record the exact final HEAD SHA and require all mandatory checks to pass on that SHA before merge.
 
-## 14. Preflight coverage boundary
 
-`package-preflight` is a structural gate for CSV and JSON syntax. It does not establish semantic correctness, source fidelity, generated-document freshness, or test-contract quality. Packages that change source metadata, manifests, importers or source-verification tests must additionally run the relevant focused contract tests and canonical project-state/documentation checks. Do not describe structural preflight as a replacement for the full quality gate.
+## 14. Source archive manifest integrity preflight
+
+The read-only \`python tools/dkb.py package-preflight\` command validates CSV and JSON structure and, for every verified \`data/source_intake/*_capture.json\` manifest, checks the archive contract against the existing repository schema:
+
+- exactly one source-registry row matches \`source_code\`;
+- the registry URL and SHA-256 match the manifest;
+- a populated registry \`file_path\` matches the manifest archive path (an intentionally blank path remains a separately visible registration gap until its source-registration package closes it);
+- the archived binary exists inside the repository, its actual byte length matches \`file_size_bytes\`, and its SHA-256 is recomputed from the actual bytes and matches the manifest;
+- the sibling \`.sha256\` sidecar matches both the manifest digest and archive path;
+- the verification status is explicitly \`verified_*\`, the page count is positive, optional expected hash/size/page-count fields agree, and the recorded first-page markers are present in the captured first-page text with no missing markers.
+
+The check is read-only. It does not rewrite source rows, manifests, PDFs or sidecars. It does not parse the PDF again to independently derive its page count, re-extract first-page text, inspect rendered pages, or establish complete source assimilation. Those remain responsibilities of the capture workflow and the independent source-fidelity review.
+
+Explanatory \`notes\` are not a machine interface. A change to editorial wording must not invalidate source-integrity tests when the structured identity, archive bytes, manifest and registry relationships remain unchanged. Conversely, a changed binary, digest, size, marker state, source identity or archive relationship must fail the preflight.
+
+The Quality workflow runs this check before compilation/tests and runs the focused Bigster source-archive regression on Python 3.14 before the full quality gate. The same focused regression is also included in the standard unit-test discovery on Python 3.10 and 3.13. A successful preflight is not a substitute for the full quality matrix, repository-state/documentation checks or source-fidelity review.
