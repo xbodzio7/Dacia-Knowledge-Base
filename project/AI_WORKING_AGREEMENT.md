@@ -661,3 +661,21 @@ These requirements apply across all models, sources, execution profiles, chats a
 ## 19. Mandatory pre-commit and pre-push validation
 
 Before committing or pushing any code or test change, the AI maintainer must follow the code preflight in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`. At minimum this means reviewing the complete diff, compiling changed Python files, checking module imports and test discovery, running focused tests, and inspecting the final edited source after automated modifications. A successful file write is not validation. If local execution is unavailable, the limitation must be explicit and the change must not be described as locally validated. Any edit after validation requires the affected checks to be repeated.
+
+## 20. Single-maintainer Pull Request review and merge gate
+
+This repository is maintained by one project owner. An independent approving review is not required when no other reviewer with write access is available. The AI maintainer performs and records a technical review before every merge instead of treating the absence of a GitHub approval as a reason to bypass review.
+
+The technical review must inspect the complete diff and source evidence; verify the exact current head SHA and target-branch freshness; check for conflicts; review relevant tests and generated artifacts; confirm that every required status check passed on that exact head; and reconcile project state and documentation. The review must identify any unresolved risk or scope mismatch before merge.
+
+The repository's six required branch-protection checks remain mandatory:
+
+- Python 3.10;
+- Python 3.13;
+- Python 3.14;
+- Package workflow / Windows;
+- Generated documentation / documentation-baseline --check;
+- Repository state / project-state --check.
+
+Removing the independent-approval requirement does not authorize bypassing required checks, merging a stale or conflicting head, ignoring source-evidence gaps, or weakening branch protection. If a required check fails, is missing, or belongs to another SHA, do not merge. If GitHub reports a conflict or policy block, resolve it from repository evidence or stop at ACTION_REQUIRED.
+
