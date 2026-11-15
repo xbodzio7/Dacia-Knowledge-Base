@@ -38,13 +38,13 @@
 
 **Bigster MY26 2026-11-02 Price List Binary Archive** — `complete`
 
-The official Polish Dacia/Renault Group CDN PDF was downloaded and verified by GitHub Actions. Exact SHA-256, byte size (1,995,398), page count (8), effective date and first-page price/year markers matched. The PDF, capture manifest and SHA-256 sidecar are archived in `main` through PR #825. No catalogue prices were re-imported.
+Archive the original Polish Bigster MY26 price-list PDF effective 2026-11-02. The official CDN binary was downloaded and verified by GitHub Actions against the registered SHA-256, byte size, page count and first-page markers; the PDF, capture manifest and SHA-256 sidecar are present in main. No price cells were re-imported.
 
 ## Next package
 
 **Bigster MY26 Catalogue Price Change Comparison — 2026-10-01 vs 2026-11-02** — `planned`
 
-Compare already reconciled catalogue gross prices by exact configuration and grade, preserving unavailable or non-comparable cells. This is a reporting task; do not re-import existing prices or infer missing values.
+Using the already reconciled official Polish Bigster MY26 price lists effective 2026-10-01 and 2026-11-02, audit the exact configuration-to-grade mapping and produce a source-backed comparison of catalogue gross prices and changes. Preserve unavailable or non-comparable cells explicitly; do not re-import existing prices or infer missing values.
 
 ## Autonomy
 
