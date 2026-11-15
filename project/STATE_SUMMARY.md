@@ -36,15 +36,17 @@
 
 ## Current package
 
-**Bigster MY26 2026-11-02 Price List Binary Archive** — `complete`
+## Current package
 
-Archive the original Polish Bigster MY26 price-list PDF effective 2026-11-02. The official CDN binary was downloaded and verified by GitHub Actions against the registered SHA-256, byte size, page count and first-page markers; the PDF, capture manifest and SHA-256 sidecar are present in main. No price cells were re-imported.
+**Duster MY26 2026-11-02 Hybrid 155 Voltage Evidence Consistency Correction** — `complete`
+
+Correct the Duster MY26 2026-11-02 Markdown reconciliation report using the visually verified archived ten-page official PDF. Page 6 states 230 V for all three Hybrid 155 configurations; page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error. The report and session notes are aligned; no master data, source registry records, or voltage observations were changed.
 
 ## Next package
 
-**Duster MY26 2026-11-02 Hybrid 155 Voltage Evidence Consistency Correction** — `planned`
+**Spring MY26 2026-02-06 Price and Commercial Matrix Import** — `planned`
 
-Correct the remaining Duster voltage documentation inconsistencies. The registered 2026-11-02 official PDF has SHA-256 dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118 and its page-6 technical table states 230 V for all three Hybrid 155 configurations, matching the 2026-09-01 table. Page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error; no 280 V master observations are warranted. Align the stale Markdown reconciliation report and session notes with the corrected package evidence, preserve the 230 V history and 260 V narrative context, and do not import or overwrite voltage observations.
+Import only the three exact MY26 catalogue-price matrix cells and page-3/page-4 commercial options and package mappings from the registered, archived, seven-page Dacia-branded Spring MY26 price list hosted by PGD (source `src_pl_spring_price_my26_20260206`; SHA-256 `ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055`). Preserve the printed catalogue-price header/footer versus “Cena promocyjna” row-label ambiguity. Keep MY26 distinct from MY25 stock and existing dated configurator observations. Reuse the three exact existing Spring configurations; do not duplicate or overwrite historical observations. Preserve the page-2 narrative/page-5 technical conflict and do not import technical or dimension values in this package. Do not infer applicability beyond the explicit grade matrix.
 
 ## Autonomy
 
