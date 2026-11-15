@@ -64,8 +64,18 @@ class BigsterCommercialMatrixTests(unittest.TestCase):
             self.assertTrue(any("missing_markers" in error for error in errors),errors)
             fixture_manifest["missing_markers"]=[]
             fixture_manifest_path.write_text(json.dumps(fixture_manifest,indent=2)+"\n",encoding="utf-8")
+            sidecar_path=fixture/"data/source_intake/bigster_my26_20261102.sha256"
+            original_sidecar=sidecar_path.read_text(encoding="utf-8")
+            sidecar_path.write_text("0"*64+"  "+manifest["file_path"]+"\n",encoding="utf-8")
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("sidecar does not match" in error for error in errors),errors)
+            sidecar_path.write_text(original_sidecar,encoding="utf-8")
             fixture_archive=fixture/manifest["file_path"]
-            fixture_archive.write_bytes(fixture_archive.read_bytes()+b"tampered")
+            original_archive=fixture_archive.read_bytes()
+            fixture_archive.unlink()
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("archived binary is missing" in error for error in errors),errors)
+            fixture_archive.write_bytes(original_archive+b"tampered")
             errors=package_preflight.validate_source_capture_manifests(fixture)
             self.assertTrue(any("SHA-256 mismatch" in error for error in errors),errors)
         prices=read(MASTER/"configuration_prices.csv")
