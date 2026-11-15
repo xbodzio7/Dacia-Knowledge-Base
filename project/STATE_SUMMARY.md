@@ -44,7 +44,7 @@ Archive the original Polish Bigster MY26 price-list PDF effective 2026-11-02. Th
 
 **Duster MY26 2026-11-02 Hybrid 155 Voltage Reconciliation** — `planned`
 
-Verify and register the SHA-256 of the existing repository PDF `owner_supplied/2026-11-02/f07ca0a87f.pdf` against the official Duster MY26 price-list source, then reconcile the three current-dated Hybrid 155 table observations explicitly stated as 280 V. Preserve the earlier 230 V observations as history and keep the separate 260 V narrative statement distinct; do not infer equivalence or overwrite historical values. Import only after exact source identity is verified.
+Verify and register the SHA-256 of the existing repository PDF owner_supplied/2026-11-02/f07ca0a87f.pdf against the official Duster MY26 price-list source, then reconcile the three current-dated Hybrid 155 table observations explicitly stated as 280 V. Preserve the earlier 230 V observations as history and keep the separate 260 V narrative statement distinct; do not infer equivalence or overwrite historical values. Import only after exact source identity is verified.
 
 ## Autonomy
 
