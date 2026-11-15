@@ -167,3 +167,13 @@ For a captured PDF, retain the original bytes and independently verify the SHA-2
 A successful PR merge, a green PR quality workflow and a successful source-capture workflow are separate events. After merging a workflow or source package, verify Actions runs against the exact merge SHA and expected push event, inspect jobs and artifacts, and independently confirm the source branch, archive file and manifest. If no run exists, diagnose the trigger and permissions; never assume it ran. Source registration and master-data import remain blocked until the exact binary is durably archived and its identity is verified.
 
 Every package report must distinguish implementation, commit, push, PR, exact-HEAD validation, merge, downstream workflow execution, binary archival, source registration and master-data import. Unobserved or failed stages remain incomplete/action-required.
+
+## Capture manifest integrity and test boundary
+
+A verified source-capture manifest is the machine-readable record for the captured binary. Its existing fields must be reused as the contract: source code and URL, market/model year/date, archive path, SHA-256, byte size, page count, verification status, expected first-page markers and missing-marker list. A sibling SHA-256 sidecar must identify the same digest and repository-relative archive path.
+
+Before a verified capture is used by a package, \`python tools/dkb.py package-preflight\` checks the actual archived bytes against the manifest digest and byte length, checks the sidecar, and reconciles the manifest with the existing source-registry row. It also checks that the recorded page count is positive and that expected markers agree with the captured first-page text. The check does not re-open the PDF to recompute its page count or replace rendered page-by-page review.
+
+The source registry's \`notes\` field remains human-readable explanatory provenance. Tests must not depend on an exact sentence, punctuation or editorial word order in that field. Test structured source facts and archive relationships instead. If a required fact is not represented in an existing canonical field, use a narrow semantic predicate until a separately reviewed schema change is justified; do not add duplicate metadata merely to satisfy a test.
+
+Positive regression cases must show that equivalent evidence with different explanatory wording still passes. Negative cases must show that a missing marker, mismatched sidecar, missing archive, or altered binary fails. Passing this preflight does not establish that every page has been assimilated or that any price/technical value has been imported correctly.
