@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-14
+- State updated: 2026-11-15
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 2026-02-06 Price List Source Registration** — `complete`
+**Bigster MY26 2026-11-02 Price List Binary Archive** — `complete`
 
-Archive and register the verified seven-page Polish Spring MY26 price list effective 2026-02-06. Complete rendered page review, preserve the PGD-hosted distribution provenance, price-label ambiguity and page-2/page-5 technical conflict. Register the source and Spring model relationship; do not import price, equipment, option, package, technical or dimension observations.
+Archive the original Polish Bigster MY26 price-list PDF effective 2026-11-02. The official CDN binary was downloaded and verified by GitHub Actions against the registered SHA-256, byte size, page count and first-page markers; the PDF, capture manifest and SHA-256 sidecar are present in main. No price cells were re-imported.
 
 ## Next package
 
-**Bigster MY26 2026-11-02 Price List Binary Archive** — `planned`
+**Duster MY26 2026-11-02 Hybrid 155 Voltage Reconciliation** — `planned`
 
-Recover the exact original Bigster MY26 price-list PDF whose SHA-256 is already registered as 592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b. Search persistent Library, conversation/project files and repository branches/commits/PRs before asking for any repeat upload. Verify the original bytes, size and page count, archive without duplicate files, then reconcile the source register; do not re-import already reconciled price cells.
+Verify and register the SHA-256 of the existing repository PDF owner_supplied/2026-11-02/f07ca0a87f.pdf against the official Duster MY26 price-list source, then reconcile the three current-dated Hybrid 155 table observations explicitly stated as 280 V. Preserve the earlier 230 V observations as history and keep the separate 260 V narrative statement distinct; do not infer equivalence or overwrite historical values. Import only after exact source identity is verified.
 
 ## Autonomy
 
