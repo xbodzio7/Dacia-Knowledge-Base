@@ -1173,3 +1173,37 @@ The Bigster MY26 source-archive closure exposed a brittle test that required one
 - `package-preflight` validates CSV/JSON structure and verified archive-manifest integrity; it is not represented as a complete source-fidelity validator.
 - Source/schema/importer/test changes require focused regression checks and final full quality on the exact PR head.
 - No canonical source metadata fields are added by this decision; schema changes require evidence and a separate implementation package.
+
+## D-026 — Single-maintainer technical review in place of independent approval
+
+Status: Accepted
+
+Date: 2026-11-15
+
+### Decision
+
+The repository is maintained by one project owner. An independent approving GitHub review is not required when no other reviewer with write access is available. Before every merge, the AI maintainer performs a technical review of the complete diff, source evidence, package scope, exact head SHA, target-branch freshness, conflicts, tests, generated artifacts, project state and required CI results.
+
+The following six status checks remain mandatory and must pass on the exact current PR head:
+
+- Python 3.10;
+- Python 3.13;
+- Python 3.14;
+- Package workflow / Windows;
+- Generated documentation / documentation-baseline --check;
+- Repository state / project-state --check.
+
+This decision removes only the independent-approval prerequisite. It does not permit bypassing status checks, merging stale or conflicting branches, weakening source evidence, or ignoring repository policy. A changed head invalidates prior exact-head validation; a failed or missing required check blocks merge.
+
+### Rationale
+
+The project has a single owner and no second reviewer with write access. Requiring an independent GitHub approval made otherwise fully validated Pull Requests unmergeable, while the AI maintainer can perform the substantive technical review. The six automated checks provide the mandatory reproducible quality gate; the pre-merge technical review addresses correctness, source fidelity and scope.
+
+### Consequences
+
+- The AI maintainer records a technical review before each merge.
+- Independent approving reviews are not required for the single-maintainer workflow.
+- All six required CI checks remain enabled and mandatory.
+- Exact-head, freshness, conflict and post-merge verification remain mandatory.
+- This decision does not authorize automatic merging when any check or review condition is unresolved.
+
