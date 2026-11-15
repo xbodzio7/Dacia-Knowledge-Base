@@ -1147,7 +1147,7 @@ Recent CI failures were caused by unquoted commas in CSV notes and by dependent 
 - source-to-master fidelity and exact-head CI remain separate mandatory gates.
 
 
-## D-018 — Semantic source-verification test contracts
+## D-025 — Semantic source-verification test contracts
 
 Status: Accepted
 
