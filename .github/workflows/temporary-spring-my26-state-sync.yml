@@ -1,0 +1,80 @@
+name: Temporary Spring MY26 candidate state synchronization
+
+on:
+  push:
+    branches:
+      - data/spring-my26-price-commercial-matrix-import-20261116-001
+
+permissions:
+  contents: write
+
+concurrency:
+  group: spring-my26-candidate-state-sync
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the exact triggering candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.14"
+
+      - name: Validate repository data before synchronization
+        run: python tools/dkb.py package-preflight
+
+      - name: Run canonical state and documentation generators
+        run: python tools/dkb.py project-state --apply
+
+      - name: Verify canonical state and generated documentation
+        run: |
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+
+      - name: Reject changes outside the generated-file allowlist
+        shell: bash
+        run: |
+          python - <<'PY'
+          import subprocess
+          import sys
+
+          allowed = {
+              "project/state.json",
+              "project/STATE_SUMMARY.md",
+              "README.md",
+              "CHANGELOG.md",
+              "project/ROADMAP.md",
+              "project/SESSION_STATE.md",
+          }
+          lines = subprocess.check_output(
+              ["git", "status", "--porcelain", "--untracked-files=all"],
+              text=True,
+          ).splitlines()
+          changed = {line[3:] for line in lines}
+          unexpected = sorted(changed - allowed)
+          if unexpected:
+              print("Unexpected generated changes:", *unexpected, sep="\\n  ")
+              sys.exit(1)
+          print("Generated-file allowlist: PASS")
+          PY
+
+      - name: Commit and push canonical generated state
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add project/state.json project/STATE_SUMMARY.md README.md CHANGELOG.md project/ROADMAP.md project/SESSION_STATE.md
+          if git diff --cached --quiet; then
+            echo "Canonical state and documentation are already synchronized."
+            exit 0
+          fi
+          git commit -m "docs(state): synchronize Spring MY26 candidate baseline"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
