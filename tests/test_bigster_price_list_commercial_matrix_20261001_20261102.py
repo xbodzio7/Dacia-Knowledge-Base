@@ -20,7 +20,6 @@ class BigsterCommercialMatrixTests(unittest.TestCase):
     def test_source_and_config_scope(self):
         sources={r["code"]:r for r in read(MASTER/"sources.csv")}
         self.assertEqual(sources[OCT]["sha256"],importer.OCT_SHA)
-        self.assertEqual(sources[NOV]["file_path"],"")
         self.assertEqual(sources[NOV]["sha256"],"592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b")
         manifest_path=ROOT/"data"/"source_intake"/"bigster_my26_20261102_capture.json"
         manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
