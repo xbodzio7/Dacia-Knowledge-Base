@@ -512,7 +512,7 @@ All CSV-writing code must use `csv.writer`, `csv.DictWriter` or another standard
 When data changes, identify dependent reports, manifests, reconciliation receipts and historical closure summaries before editing. Refresh derived artifacts only through their canonical generator or documented deterministic procedure, then run their verification checks. A successful CSV parse does not prove dependent artifacts are current.
 
 
-## 12. Semantic contracts for source-verification tests
+## 18. Semantic contracts for source-verification tests
 
 Tests must validate source facts and machine-readable contracts, not incidental prose.
 
@@ -523,14 +523,14 @@ Tests must validate source facts and machine-readable contracts, not incidental 
 - A change to explanatory prose must not require test edits when the underlying source facts are unchanged. Conversely, changing a hash, source identity, archive path or verification result must be detected.
 - Before changing a failing assertion, inspect the producer, canonical data, schema, source artifact and all supported Python versions. Do not weaken a test merely to make CI green.
 
-## 13. Failure classification and regression containment
+## 19. Failure classification and regression containment
 
 For each failed CI job, identify the first causal assertion or command and classify it as one of: product/code defect, data/schema defect, stale test contract, generated-artifact drift, environment/dependency failure, or expected negative-test output. Correlated failures across Python versions count as one root cause when they share the same causal assertion.
 
 The correction must be made at the authoritative layer: producer, canonical data, schema, test contract, generator or environment pin. Add a focused regression test for the root cause, then run focused tests before the full required matrix. Record the exact final HEAD SHA and require all mandatory checks to pass on that SHA before merge.
 
 
-## 14. Source archive manifest integrity preflight
+## 20. Source archive manifest integrity preflight
 
 The read-only \`python tools/dkb.py package-preflight\` command validates CSV and JSON structure and, for every verified \`data/source_intake/*_capture.json\` manifest, checks the archive contract against the existing repository schema:
 
