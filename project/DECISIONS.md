@@ -1170,6 +1170,6 @@ The Bigster MY26 source-archive closure exposed a brittle test that required one
 - Source-verification tests distinguish semantic facts from presentation text.
 - Positive and negative regression cases are required for source integrity contracts.
 - Cross-version failures sharing one assertion are reported as one root cause.
-- `package-preflight` remains a structural CSV/JSON check and is not represented as a semantic validator.
+- `package-preflight` validates CSV/JSON structure and verified archive-manifest integrity; it is not represented as a complete source-fidelity validator.
 - Source/schema/importer/test changes require focused regression checks and final full quality on the exact PR head.
 - No canonical source metadata fields are added by this decision; schema changes require evidence and a separate implementation package.
