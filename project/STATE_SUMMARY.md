@@ -25,7 +25,7 @@
 
 - Tests: 1988
 - Master CSV files: 48
-- Master rows: 22770
+- Master rows: 22772
 - Configuration values: 8492
 - Configuration import specifications: 189
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 Binary Capture Workflow Setup** — `complete`
+**Spring MY26 2026-02-06 Price List Source Registration** — `complete`
 
-Extended the existing Spring source-assimilation workflow with a guarded live-PDF download, six-page and MY26 marker verification, SHA-256 recording, a seven-day audit artifact, and a dedicated source-branch commit. The first direct capture run did not verify the expected MY26 marker and therefore committed no binary.
+Archive and register the verified seven-page Polish Spring MY26 price list effective 2026-02-06. Complete rendered page review, preserve the PGD-hosted distribution provenance, price-label ambiguity and page-2/page-5 technical conflict. Register the source and Spring model relationship; do not import price, equipment, option, package, technical or dimension observations.
 
 ## Next package
 
-**Spring MY26 Live Asset Identity Verification** — `active`
+**Bigster MY26 2026-11-02 Price List Binary Archive** — `planned`
 
-Capture and retain diagnostic output from the direct CDN download even when MY26 markers are missing: first-page text, page count, file size, SHA-256, and comparison with the registered MY25 hash. Determine whether the CDN currently serves the MY25 binary, a different version, or MY26 with different text extraction. Commit a PDF only if its MY26 identity is verified; otherwise stop without importing prices.
+Recover the exact original Bigster MY26 price-list PDF whose SHA-256 is already registered as 592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b. Search persistent Library, conversation/project files and repository branches/commits/PRs before asking for any repeat upload. Verify the original bytes, size and page count, archive without duplicate files, then reconcile the source register; do not re-import already reconciled price cells.
 
 ## Autonomy
 
