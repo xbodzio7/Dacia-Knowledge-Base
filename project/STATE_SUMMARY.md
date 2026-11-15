@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-14
+- State updated: 2026-11-15
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 2026-02-06 Price List Source Registration** — `complete`
+**Bigster MY26 2026-11-02 Price List Binary Archive** — `complete`
 
-Archive and register the verified seven-page Polish Spring MY26 price list effective 2026-02-06. Complete rendered page review, preserve the PGD-hosted distribution provenance, price-label ambiguity and page-2/page-5 technical conflict. Register the source and Spring model relationship; do not import price, equipment, option, package, technical or dimension observations.
+Archive the original Polish Bigster MY26 price-list PDF effective 2026-11-02. The official CDN binary was downloaded and verified by GitHub Actions against the registered SHA-256, byte size, page count and first-page markers; the PDF, capture manifest and SHA-256 sidecar are present in main. No price cells were re-imported.
 
 ## Next package
 
-**Bigster MY26 2026-11-02 Price List Binary Archive** — `planned`
+**Duster MY26 2026-11-02 Hybrid 155 Voltage Evidence Consistency Correction** — `planned`
 
-Recover the exact original Bigster MY26 price-list PDF whose SHA-256 is already registered as 592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b. Search persistent Library, conversation/project files and repository branches/commits/PRs before asking for any repeat upload. Verify the original bytes, size and page count, archive without duplicate files, then reconcile the source register; do not re-import already reconciled price cells.
+Correct the remaining Duster voltage documentation inconsistencies. The registered 2026-11-02 official PDF has SHA-256 dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118 and its page-6 technical table states 230 V for all three Hybrid 155 configurations, matching the 2026-09-01 table. Page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error; no 280 V master observations are warranted. Align the stale Markdown reconciliation report and session notes with the corrected package evidence, preserve the 230 V history and 260 V narrative context, and do not import or overwrite voltage observations.
 
 ## Autonomy
 

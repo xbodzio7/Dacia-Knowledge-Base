@@ -33,6 +33,20 @@ Current completed package: `jogger_price_matrix_correction_20261001_20261106_001
 
 The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. The Striker cennik is temporarily unavailable and is excluded from active work.
 
+## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
+
+The Bigster MY26 Polish price-list binary effective 2026-11-02 is now archived in `main` through PR #825. The source PDF was downloaded from the official Dacia/Renault Group CDN by the post-merge GitHub Actions workflow and passed exact identity checks:
+
+- SHA-256: `592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b`
+- Size: 1,995,398 bytes; PDF page count: 8.
+- First-page markers include model year 2026, effective date 02.11.2026 and all 13 catalogue-price cells.
+- Manifest: `data/source_intake/bigster_my26_20261102_capture.json`.
+- Sidecar: `data/source_intake/bigster_my26_20261102.sha256`.
+- Archived PDF: `PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf`.
+- `data/master/sources.csv` now points to the archived binary and records the verified provenance.
+
+No prices were re-imported. The Bigster MY26 catalogue-price comparison between the official 2026-10-01 and 2026-11-02 price lists is already implemented in `tools/bigster_catalogue_price_history.py` and its JSON/Markdown reports; do not repeat it. The next cennik-only task is the Duster MY26 2026-11-02 voltage evidence consistency correction described below. Brochure work remains deferred under the user's cennik-only priority.
+
 ## Vehicle Change History Plan (2026-11-06)
 
 The implementation plan is recorded in `project/CHANGE_HISTORY_PLAN.md` and merged through PR #789. The proposed first stage is the Sandero/Sandero Stepway catalogue-price timeline. It is a derived reporting layer, not a second manually maintained master table. Implementation begins after the current cennik reconciliation packages are closed.
@@ -346,9 +360,9 @@ Added a dedicated package-preflight command and automated Quality workflow step.
 
 ## Duster MY26 Cennik Residual Review — 2026-11-12
 
-The official Duster MY26 cennik effective 2026-11-02 was rechecked directly against the current official PDF and repository source inventory. The current PDF has 9 pages (not 10). Previously unreviewed printed pages 2 and 7 were inspected: page 2 contains narrative technology/comfort claims; page 7 contains accessory descriptions and QR links but no priced configuration options. Page 8 is a separate complete-winter-wheel accessory list; page 9 contains the dimensions diagram and legal terms. No configuration price or option import was identified on pages 2 or 7.
+The official Duster MY26 cennik effective 2026-11-02 was rechecked against the exact ten-page archived PDF and repository source inventory. Printed pages 2 and 7 were inspected: page 2 contains narrative technology/comfort claims; page 7 contains accessory descriptions and QR links but no priced configuration options. Page 8 is a separate complete-winter-wheel accessory list, page 9 contains the dimensions diagram, and page 10 contains legal/commercial terms. No configuration price or option import was identified on pages 2 or 7.
 
-A material technical delta was found for Hybrid 155: page 2 states 1.4 kWh / 260 V, while page 6 states 280 V. The prior 2026-09-01 page-6 table stated 230 V. The master retains the older narrative/table pair for the three Hybrid 155 configurations; three current-dated 280 V table observations are missing. Do not overwrite the 230 V history or merge the 260 V narrative into the table attribute. Import is blocked until the registered November PDF has a verified SHA-256; the declarative importer requires hash-verified source registration. The repository contains the raw PDF at `owner_supplied/2026-11-02/f07ca0a87f.pdf`, but its SHA-256 is not currently recorded.
+The first text-extraction pass incorrectly reported 280 V on page 6 and incorrectly claimed that the source hash was not registered. A later visual review of the exact archived ten-page PDF confirms that printed page 6 states 230 V for all three Hybrid 155 configurations, matching the 2026-09-01 technical table; printed page 2 separately states 260 V in narrative text. The registered source SHA-256 is `dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118`. No three 280 V observations are missing, no 280 V values should be imported, and existing 230 V master observations must not be overwritten. The JSON reconciliation report is correct; its stale Markdown companion is the remaining documentation defect selected for the next package.
 
 No master data changed in this review. The exact gap and page inventory are recorded in `data/reporting/duster_price_list_20261102_commercial_reconciliation.json` and its Markdown companion. Brochures and configurator evidence remain out of scope.
 
@@ -377,6 +391,14 @@ No master data changed in this review. The exact gap and page inventory are reco
 - Do not assume the web-extracted MY26 PDF is the same content currently served to GitHub Actions. The CDN URL may resolve differently by cache/location, or text extraction may differ.
 - PR #817 changes the workflow to always retain a diagnostic artifact, print the first-page text, page count, file size and SHA-256, compare the digest with the registered MY25 hash, and commit nothing unless the MY26 identity is verified.
 
+## Next Cennik-only package — Duster MY26 Hybrid 155 voltage reconciliation
+
+The Bigster MY26 2026-11-02 source archive is closed. The next cennik-only task is documentation consistency correction for the Duster MY26 2026-11-02 Hybrid 155 voltage evidence. The exact source SHA-256 is already registered as `dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118`; page 6 states 230 V for all three Hybrid 155 configurations and page 2 separately states 260 V in narrative text. The former 280 V reading was a text-extraction error. Do not import 280 V or overwrite 230 V; correct the stale Markdown report and align notes only.
+
 ## Single-maintainer Pull Request review policy — 2026-11-15
 
 The project owner confirmed that independent approving GitHub reviews are not required for this single-maintainer repository. The AI maintainer must still perform a documented technical review of every PR before merge. The six required status checks remain mandatory on the exact current PR head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check. Stale heads, conflicts, failed or missing checks, unresolved source evidence, and policy blocks continue to prevent merge. See D-026, AI_WORKING_AGREEMENT.md and AUTONOMOUS_MAINTAINER.md.
+
+## Duster MY26 2026-11-02 voltage evidence correction — 2026-11-15
+
+A later visual review of the archived ten-page official PDF and the completed Duster commercial-reconciliation package supersedes the earlier 280 V statement above. Printed page 6 states 230 V for all three Hybrid 155 configurations, matching the 2026-09-01 technical table; printed page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error, and the claim that the registered source lacked a SHA-256 was stale: the source register records SHA-256 `dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118`. No 280 V observations should be imported, and no existing 230 V observation should be overwritten. A follow-up documentation-consistency package is planned to correct the stale Markdown reconciliation report and align all remaining notes.
