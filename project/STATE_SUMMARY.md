@@ -36,8 +36,6 @@
 
 ## Current package
 
-## Current package
-
 **Duster MY26 2026-11-02 Hybrid 155 Voltage Evidence Consistency Correction** — `complete`
 
 Correct the Duster MY26 2026-11-02 Markdown reconciliation report using the visually verified archived ten-page official PDF. Page 6 states 230 V for all three Hybrid 155 configurations; page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error. The report and session notes are aligned; no master data, source registry records, or voltage observations were changed.
