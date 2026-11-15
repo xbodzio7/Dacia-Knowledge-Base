@@ -239,3 +239,20 @@ At session start and before a workflow-dependent action, inspect the capabilitie
 ### 7. Durable learning and documentation cadence
 
 When a failure reveals a reusable process lesson, update the existing governing document in the same logical package rather than creating a disconnected note. Reconcile related startup guidance and session notes where necessary. Review canonical state after every few logical changes and at every package boundary; update it only from verified repository facts and use the canonical generator for derived summaries. Do not copy stale PR numbers, SHAs, counters or package statuses into narrative documents as if they were current.
+
+## 8. Single-maintainer review and merge procedure
+
+The repository has a single project owner and may have no independent reviewer with write access. Therefore, a separate approving GitHub review is not a required merge prerequisite. This is not a review waiver: the AI maintainer must perform a documented technical review before merging each implementation Pull Request.
+
+The review checklist is:
+
+1. Read the complete PR diff and verify that every changed path belongs to the declared logical package.
+2. Verify source identity, provenance and data correctness for source-backed changes.
+3. Read the current PR metadata and exact head SHA; compare the branch with the current main branch and resolve all conflicts before merge.
+4. Inspect the relevant tests, generated reports, state and documentation. Confirm that generated artifacts were produced by their canonical generators.
+5. Confirm that all six required branch-protection checks succeeded on the exact current PR head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check.
+6. Re-fetch the PR immediately before merge and verify that the head SHA has not moved, the PR is mergeable, and no unresolved source, test, scope or policy issue remains.
+7. Merge using the expected head SHA, then verify the merged state and merge commit.
+
+Never merge on the strength of a previous green run after the head changes. Do not bypass any required status check or conflict protection. If an exact-head check is missing or failing, if the PR is stale or conflicting, or if a GitHub policy block cannot be resolved safely, do not merge; continue independent work or report ACTION_REQUIRED with the exact blocker.
+

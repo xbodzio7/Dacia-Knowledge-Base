@@ -75,7 +75,19 @@
     "review_only_pull_requests": "exception_only",
     "milestone_review_interval_packages": 5,
     "one_logical_package_per_pull_request": true,
-    "delete_remote_branches_automatically": false
+    "delete_remote_branches_automatically": false,
+    "independent_approval_required": false,
+    "technical_review_required": true,
+    "required_status_checks": [
+      "Python 3.10",
+      "Python 3.13",
+      "Python 3.14",
+      "Package workflow / Windows",
+      "Generated documentation / documentation-baseline --check",
+      "Repository state / project-state --check"
+    ],
+    "exact_head_validation_required": true,
+    "merge_conflicts_block_merge": true
   },
   "execution_policy": {
     "mode": "accelerated_milestone_closure",

@@ -376,3 +376,7 @@ No master data changed in this review. The exact gap and page inventory are reco
 - PR #816 merged and extended the source-audit workflow. Its first direct GitHub Actions download (run #43534970475) retrieved a 1.35 MB PDF but the extracted first page did not contain the expected `ROCZNIK 2026` marker. No PDF binary was committed.
 - Do not assume the web-extracted MY26 PDF is the same content currently served to GitHub Actions. The CDN URL may resolve differently by cache/location, or text extraction may differ.
 - PR #817 changes the workflow to always retain a diagnostic artifact, print the first-page text, page count, file size and SHA-256, compare the digest with the registered MY25 hash, and commit nothing unless the MY26 identity is verified.
+
+## Single-maintainer Pull Request review policy — 2026-11-15
+
+The project owner confirmed that independent approving GitHub reviews are not required for this single-maintainer repository. The AI maintainer must still perform a documented technical review of every PR before merge. The six required status checks remain mandatory on the exact current PR head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check. Stale heads, conflicts, failed or missing checks, unresolved source evidence, and policy blocks continue to prevent merge. See D-026, AI_WORKING_AGREEMENT.md and AUTONOMOUS_MAINTAINER.md.
