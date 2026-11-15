@@ -1145,3 +1145,31 @@ Recent CI failures were caused by unquoted commas in CSV notes and by dependent 
 - malformed CSV row widths, quoting and invalid JSON block the quality run;
 - generated reports and documentation must still be refreshed and checked through their canonical generators;
 - source-to-master fidelity and exact-head CI remain separate mandatory gates.
+
+
+## D-018 — Semantic source-verification test contracts
+
+Status: Accepted
+
+Date: 2026-11-15
+
+### Decision
+
+Automated tests shall validate stable, source-backed facts and canonical structured fields rather than incidental explanatory prose. Exact string assertions are permitted only for controlled identifiers, fixed protocol literals, or text whose exact wording is itself the requirement.
+
+Source-verification tests shall prefer the canonical fields already present in the repository schema. They must validate applicable integrity and provenance evidence (including source identity, SHA-256, byte size, page count, markers, archive location and manifest linkage) without inventing duplicate metadata fields. Where a required fact exists only in free text, tests shall use narrow semantic checks until a separately reviewed schema change makes the fact structured.
+
+Tests shall prove both sides of the contract: editorial wording may change without invalidating unchanged facts, while missing, malformed or contradictory source evidence must fail. A failing assertion must be traced to its producer and authoritative data before expectations are changed.
+
+### Rationale
+
+The Bigster MY26 source-archive closure exposed a brittle test that required one exact sentence in a source notes field. The source verification itself was correct; the assertion failed after the explanatory wording was improved. The same root cause failed three Python matrix jobs and delayed an otherwise valid package.
+
+### Consequences
+
+- Source-verification tests distinguish semantic facts from presentation text.
+- Positive and negative regression cases are required for source integrity contracts.
+- Cross-version failures sharing one assertion are reported as one root cause.
+- `package-preflight` remains a structural CSV/JSON check and is not represented as a semantic validator.
+- Source/schema/importer/test changes require focused regression checks and final full quality on the exact PR head.
+- No canonical source metadata fields are added by this decision; schema changes require evidence and a separate implementation package.
