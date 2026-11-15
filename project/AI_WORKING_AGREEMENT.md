@@ -662,7 +662,7 @@ These requirements apply across all models, sources, execution profiles, chats a
 
 Before committing or pushing any code or test change, the AI maintainer must follow the code preflight in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`. At minimum this means reviewing the complete diff, compiling changed Python files, checking module imports and test discovery, running focused tests, and inspecting the final edited source after automated modifications. A successful file write is not validation. If local execution is unavailable, the limitation must be explicit and the change must not be described as locally validated. Any edit after validation requires the affected checks to be repeated.
 
-## 20. Single-maintainer Pull Request review and merge gate
+## 21. Single-maintainer Pull Request review and merge gate
 
 This repository is maintained by one project owner. An independent approving review is not required when no other reviewer with write access is available. The AI maintainer performs and records a technical review before every merge instead of treating the absence of a GitHub approval as a reason to bypass review.
 
