@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import sys
 import unittest
 from pathlib import Path
 
 
 REPOSITORY = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPOSITORY / "tools"))
+import import_spring_my26_price_commercial_matrix_20260206 as spring_my26_importer
 
 
 class OfficialMy26Sources20260703Tests(unittest.TestCase):
@@ -40,6 +43,14 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
                 "versions": {"bigster_essential", "bigster_expression", "bigster_extreme", "bigster_journey"},
                 "configuration_count": 14,
             },
+            "src_pl_spring_price_my26_20260206": {
+                "file": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
+                "sha256": "ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055",
+                "models": {"spring"},
+                "versions": {"spring_essential", "spring_expression", "spring_extreme"},
+                "configuration_count": 3,
+                "url": "https://www.dacia.pgd.pl/SiteData/Dacia/images/NowaStrona/Cenniki/2026/kwiecien/Spring.pdf",
+            },
         }
 
         def rows(name: str) -> list[dict[str, str]]:
@@ -57,13 +68,15 @@ class OfficialMy26Sources20260703Tests(unittest.TestCase):
                 self.assertEqual(record["document_date"], "2026-07-03")
                 self.assertEqual(record["file_path"], contract["file"])
                 self.assertEqual(record["sha256"], contract["sha256"])
-                self.assertTrue(record["external_reference"].startswith("https://cdn.group.renault.com/"))
+                if "url" in contract:\n                    self.assertEqual(record["external_reference"], contract["url"])\n                else:\n                    self.assertTrue(record["external_reference"].startswith("https://cdn.group.renault.com/"))
                 path = REPOSITORY / contract["file"]
                 self.assertTrue(path.is_file())
                 self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), contract["sha256"])
                 self.assertEqual({row["model_code"] for row in model_rows if row["source_code"] == code}, contract["models"])
                 self.assertEqual({row["version_code"] for row in version_rows if row["source_code"] == code}, contract["versions"])
                 self.assertEqual(len([row for row in configuration_rows if row["source_code"] == code]), contract["configuration_count"])
+
+        self.assertEqual(spring_my26_importer.check(), {\n            "price_rows": 3,\n            "commercial_mappings": 10,\n            "source_configuration_links": 3,\n            "source_grade_links": 3,\n        })
 
 
 if __name__ == "__main__":
