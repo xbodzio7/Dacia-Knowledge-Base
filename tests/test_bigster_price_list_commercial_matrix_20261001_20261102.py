@@ -58,6 +58,7 @@ class BigsterCommercialMatrixTests(unittest.TestCase):
                 writer.writerows(fixture_sources)
             self.assertEqual(package_preflight.validate_source_capture_manifests(fixture),[])
             fixture_manifest_path=fixture/manifest_path.relative_to(ROOT)
+            fixture_manifest=json.loads(fixture_manifest_path.read_text(encoding="utf-8"))
             fixture_manifest["missing_markers"]=["required marker missing"]
             fixture_manifest_path.write_text(json.dumps(fixture_manifest,indent=2)+"\n",encoding="utf-8")
             errors=package_preflight.validate_source_capture_manifests(fixture)
