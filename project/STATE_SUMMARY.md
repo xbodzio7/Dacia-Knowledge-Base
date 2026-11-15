@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-14
+- State updated: 2026-11-15
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 2026-02-06 Price List Source Registration** — `complete`
+**Bigster MY26 2026-11-02 Price List Binary Archive** — `complete`
 
-Archive and register the verified seven-page Polish Spring MY26 price list effective 2026-02-06. Complete rendered page review, preserve the PGD-hosted distribution provenance, price-label ambiguity and page-2/page-5 technical conflict. Register the source and Spring model relationship; do not import price, equipment, option, package, technical or dimension observations.
+The official Polish Dacia/Renault Group CDN PDF was downloaded and verified by GitHub Actions. Exact SHA-256, byte size (1,995,398), page count (8), effective date and first-page price/year markers matched. The PDF, capture manifest and SHA-256 sidecar are archived in `main` through PR #825. No catalogue prices were re-imported.
 
 ## Next package
 
-**Bigster MY26 2026-11-02 Price List Binary Archive** — `planned`
+**Bigster MY26 Catalogue Price Change Comparison — 2026-10-01 vs 2026-11-02** — `planned`
 
-Recover the exact original Bigster MY26 price-list PDF whose SHA-256 is already registered as 592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b. Search persistent Library, conversation/project files and repository branches/commits/PRs before asking for any repeat upload. Verify the original bytes, size and page count, archive without duplicate files, then reconcile the source register; do not re-import already reconciled price cells.
+Compare already reconciled catalogue gross prices by exact configuration and grade, preserving unavailable or non-comparable cells. This is a reporting task; do not re-import existing prices or infer missing values.
 
 ## Autonomy
 
