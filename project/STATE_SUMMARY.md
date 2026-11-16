@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-15
+- State updated: 2026-11-16
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Duster MY26 2026-11-02 Hybrid 155 Voltage Evidence Consistency Correction** — `complete`
+**Spring MY26 2026-02-06 Price and Commercial Matrix Import** — `complete`
 
-Correct the Duster MY26 2026-11-02 Markdown reconciliation report using the visually verified archived ten-page official PDF. Page 6 states 230 V for all three Hybrid 155 configurations; page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error. The report and session notes are aligned; no master data, source registry records, or voltage observations were changed.
+Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commercial mappings from the archived seven-page Dacia-branded PGD-hosted source. Preserve the catalogue-price versus 'Cena promocyjna' wording ambiguity and the page-2/page-5 technical conflict; no unsupported applicability or technical values were inferred.
 
 ## Next package
 
-**Spring MY26 2026-02-06 Price and Commercial Matrix Import** — `planned`
+**Dacia Poland MY26 Official Price-List Coverage Gap Assessment** — `planned`
 
-Import only the three exact MY26 catalogue-price matrix cells and page-3/page-4 commercial options and package mappings from the registered, archived, seven-page Dacia-branded Spring MY26 price list hosted by PGD (source src_pl_spring_price_my26_20260206; SHA-256 ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055). Preserve the printed catalogue-price header/footer versus 'Cena promocyjna' row-label ambiguity. Keep MY26 distinct from MY25 stock and existing dated configurator observations. Reuse the three exact existing Spring configurations; do not duplicate or overwrite historical observations. Preserve the page-2 narrative/page-5 technical conflict and do not import technical or dimension values in this package. Do not infer applicability beyond the explicit grade matrix.
+Audit the latest registered Polish Dacia MY26 price lists for Spring, Sandero/Sandero Stepway, Duster, Jogger and Bigster against configuration_prices.csv, commercial_item_configurations.csv, source_configurations.csv and source_versions.csv. Identify exact source-backed price or commercial-matrix gaps and select the next smallest cennik-only import package. Exclude brochures and configurator-derived inference; preserve dated source boundaries and unresolved source conflicts.
 
 ## Autonomy
 
