@@ -28,3 +28,15 @@ The seven-page source was fully reviewed in `data/reporting/spring_my26_price_li
 ## Validation
 
 The importer checks the registered source identity and archived PDF SHA-256, exact three-configuration/three-grade boundaries, all 3 price cells, all 10 priced commercial mappings, uniqueness and preservation of existing history. Focused tests cover source provenance, exact values, applicability, ambiguous-cell exclusion and historical non-overwrite. Final technical and independent source-fidelity gates are required before merge.
+
+
+## Closure
+
+- Status: complete
+- Pull Request: #832
+- Merge commit: `d48a22262d5127108bd139474a8905011a849343`
+- Final PR HEAD: `01788e61bd104232e77001af901f938712ac00bc`
+- Required exact-head CI: passed
+- Independent rendered-PDF source-fidelity review: passed
+- All three page-1 prices and ten page-3/page-4 priced mappings verified.
+- Preserved the catalogue-price / “Cena promocyjna” wording ambiguity, the Extreme DC 40 kW “P” exclusion and the page-2/page-5 technical conflict.
