@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "kind": "spring_my26_price_commercial_matrix_reconciliation",
+  "reviewed_on": "2026-11-16",
+  "source_code": "src_pl_spring_price_my26_20260206",
+  "source": {
+    "document_date": "2026-02-06",
+    "model_year": "MY26",
+    "market": "PL",
+    "repository_path": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
+    "sha256": "ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055",
+    "page_count": 7,
+    "provenance": "Dacia-branded distribution copy hosted by PGD; not represented as a live manufacturer CDN binary"
+  },
+  "scope": {
+    "configurations": [
+      "spring_essential_electric70_automatic",
+      "spring_expression_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ],
+    "price_rows": 3,
+    "commercial_mapping_rows": 10,
+    "source_configuration_links": 3,
+    "source_grade_links": 3
+  },
+  "dispositions": [
+    {
+      "page": 1,
+      "configuration": "spring_essential_electric70_automatic",
+      "fact": "73500 PLN",
+      "disposition": "missing_importable",
+      "master_target": "configuration_prices.csv",
+      "note": "Stored as catalog_gross with explicit note preserving catalogue-header/footer versus Cena promocyjna row-label conflict."
+    },
+    {
+      "page": 1,
+      "configuration": "spring_expression_electric70_automatic",
+      "fact": "81500 PLN",
+      "disposition": "missing_importable",
+      "master_target": "configuration_prices.csv",
+      "note": "Stored as catalog_gross with explicit note preserving catalogue-header/footer versus Cena promocyjna row-label conflict."
+    },
+    {
+      "page": 1,
+      "configuration": "spring_extreme_electric100_automatic",
+      "fact": "85900 PLN",
+      "disposition": "missing_importable",
+      "master_target": "configuration_prices.csv",
+      "note": "Stored as catalog_gross with explicit note preserving catalogue-header/footer versus Cena promocyjna row-label conflict."
+    },
+    {
+      "page": 3,
+      "configuration": "all three exact Spring MY26 configurations",
+      "fact": "Lichen Khaki 2300 PLN",
+      "disposition": "missing_importable",
+      "master_target": "commercial_item_configurations.csv",
+      "note": "Dated source-specific observations; preserve the separate 2026-08-02 Essential observation."
+    },
+    {
+      "page": 4,
+      "configuration": "all three exact Spring MY26 configurations",
+      "fact": "FlexiCharger 1500 PLN",
+      "disposition": "missing_importable",
+      "master_target": "commercial_item_configurations.csv",
+      "note": "Dated source-specific observations; preserve MY25 stock and later exact-current records."
+    },
+    {
+      "page": 4,
+      "configuration": "spring_expression_electric70_automatic",
+      "fact": "DC 40 kW option 2750 PLN",
+      "disposition": "missing_importable",
+      "master_target": "commercial_item_configurations.csv"
+    },
+    {
+      "page": 4,
+      "configuration": "spring_extreme_electric100_automatic",
+      "fact": "DC 40 kW cell marked P",
+      "disposition": "Do sprawdzenia",
+      "master_target": null,
+      "note": "P is not interpreted as optional, standard, unavailable or package-included."
+    },
+    {
+      "page": 4,
+      "configuration": "spring_expression_electric70_automatic",
+      "fact": "TECHNO package 3500 PLN",
+      "disposition": "missing_importable",
+      "master_target": "commercial_item_configurations.csv"
+    },
+    {
+      "page": 4,
+      "configuration": "spring_extreme_electric100_automatic",
+      "fact": "CITY package 1800 PLN",
+      "disposition": "missing_importable",
+      "master_target": "commercial_item_configurations.csv"
+    },
+    {
+      "page": 4,
+      "configuration": "spring_extreme_electric100_automatic",
+      "fact": "POWER package 3000 PLN",
+      "disposition": "missing_importable",
+      "master_target": "commercial_item_configurations.csv"
+    },
+    {
+      "page": 3,
+      "configuration": "grade cells marked P for front sensors/reversing camera",
+      "fact": "P notation",
+      "disposition": "out_of_scope",
+      "master_target": null,
+      "note": "Equipment semantics are not imported in this commercial-price package."
+    },
+    {
+      "page": 2,
+      "configuration": "Spring Electric 70 narrative",
+      "fact": "48 kW / 65 KM / 26.8 kWh",
+      "disposition": "source_conflict",
+      "master_target": null,
+      "note": "Conflicts with page-5 technical table; neither context imported."
+    },
+    {
+      "page": 5,
+      "configuration": "Spring Electric 70 technical table",
+      "fact": "52 kW / 70 hp / 24.3 kWh",
+      "disposition": "source_conflict",
+      "master_target": null,
+      "note": "Conflicts with page-2 narrative; no technical import in this package."
+    },
+    {
+      "page": 5,
+      "configuration": "Spring Electric 100 technical table",
+      "fact": "75 kW / 100 hp / 24.3 kWh",
+      "disposition": "out_of_scope",
+      "master_target": null,
+      "note": "Technical migration deferred to separate conflict-aware package."
+    },
+    {
+      "page": 6,
+      "configuration": "Spring MY26",
+      "fact": "dimension diagram",
+      "disposition": "model_limitation",
+      "master_target": null,
+      "note": "No dimensions imported; exact semantic and measurement-basis mapping deferred."
+    },
+    {
+      "page": 7,
+      "configuration": "Spring MY26",
+      "fact": "promotion, VAT and financing terms",
+      "disposition": "out_of_scope",
+      "master_target": null,
+      "note": "No promotional/financing claims imported."
+    }
+  ],
+  "preservation": {
+    "my25_stock_source_unchanged": true,
+    "existing_2026_07_31_configurator_prices_unchanged": true,
+    "existing_2026_08_02_essential_khaki_observation_unchanged": true,
+    "existing_my25_flexicharger_observation_unchanged": true,
+    "no_master_technical_observations_added": true,
+    "no_ambiguous_P_cells_imported": true,
+    "no_new_commercial_item_definitions": true
+  },
+  "expected_delta": {
+    "configuration_prices": 3,
+    "commercial_item_configurations": 10,
+    "source_configurations": 3,
+    "source_versions": 3
+  },
+  "non_goals": [
+    "No MY25 row overwrite",
+    "No price promotion or financing inference",
+    "No interpretation of P",
+    "No technical or dimension imports",
+    "No use of configurator to override the dated MY26 source",
+    "No additional Spring configuration inferred"
+  ]
+}
