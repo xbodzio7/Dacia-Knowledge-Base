@@ -421,3 +421,14 @@ The next package is `spring_my26_price_and_commercial_matrix_import_20261115_001
 ## Unified package consistency gate — 2026-11-16
 
 D-027 adds a fail-closed sequence to the existing required `Repository state / project-state --check` status context. For every PR it now runs, on the same candidate commit: (1) `package-preflight` for CSV/JSON and source-capture manifest integrity, (2) `project-state --check` for canonical counters, references and generated state summary, and (3) `documentation-baseline --check` for managed documentation. The CI gate is read-only; corrections must use canonical generators and all three checks must be rerun after the final edit. The separately required generated-documentation status and all six existing required status names remain unchanged. See D-027, `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`, `project/AUTONOMOUS_MAINTAINER.md` and `project/AI_WORKING_AGREEMENT.md`.
+
+
+## Spring MY26 price and commercial matrix — PR #832 merged (2026-11-16)
+
+PR #832 was merged into `main` with squash commit `d48a22262d5127108bd139474a8905011a849343`. The archived seven-page Dacia-branded PGD-hosted Spring MY26 price list (source `src_pl_spring_price_my26_20260206`, SHA-256 `ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055`) was independently checked against the imported values and grade applicability. All three page-1 prices and all ten priced page-3/page-4 commercial mappings matched the rendered source. The page-1 catalogue-price header/footer versus “Cena promocyjna” row-label ambiguity remains explicit; the Extreme DC 40 kW “P” cell was not interpreted; the page-2 narrative/page-5 technical conflict remains unresolved and no technical values were imported.
+
+The importer verifies the archived PDF SHA-256, exact configuration/grade scope, uniqueness and master/specification consistency. The six mandatory exact-head CI checks passed on PR head `01788e61bd104232e77001af901f938712ac00bc`; source-fidelity review also passed. No independent approval was available or required under D-026. PR #832 is closed and merged.
+
+Post-merge master baseline: 48 CSV files, 22,791 master rows, 8,492 configuration values, 189 configuration import specifications, 451 value ranges, 25 range import specifications, 10,399 availability records, 417 attributes and 30 attribute categories; test baseline 1,988. The canonical state and generated summary are synchronized in the follow-up state-closure package.
+
+Next: audit current registered Polish MY26 price lists against master price and commercial mappings, keeping the owner's cennik-first priority. Brochures remain deferred; do not use configurator inference to fill price-list gaps.
