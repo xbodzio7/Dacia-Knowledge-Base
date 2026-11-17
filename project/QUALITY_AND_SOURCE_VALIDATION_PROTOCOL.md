@@ -252,6 +252,32 @@ Documentation alone does not enforce branch protection. Report separately whethe
 
 If the active profile cannot execute the canonical generators or tests, do not fabricate their output, manually guess generated counters, or publish the candidate as validated. Use a verified CI workflow capable of running the checks on the candidate branch. If no such workflow is available, leave the PR blocked/unpublished and record the exact capability blocker.
 
+## 7.3 Isolated package-publishing tests
+
+Package-publishing tests must run against disposable temporary repositories and
+local bare remotes. They must not share the checked-out repository's Git index,
+push to the real GitHub repository, or inherit ambient GitHub Actions repository
+and Pull Request context. Each test must clean up its temporary directory.
+
+The test environment must remove all variables listed in
+`package_workflow.GIT_CONTEXT_VARIABLES`, disable system Git configuration,
+use a temporary global Git configuration, and disable terminal prompts.
+Contract tests must verify that `git_environment()` strips ambient GitHub
+context even when such variables are present in the parent process.
+
+Negative-path tests must prove remote safety, not merely inspect the returned
+error code:
+- rejection of an extra untracked path leaves the bare remote branch absent;
+- rejection of an extra staged path leaves the bare remote branch absent;
+- an injected local bare-remote `pre-receive` hook rejects the push, leaves
+  the remote branch absent, and records a single local package commit with a
+  failed-push handoff.
+
+The deliberately injected hook produces an expected error log. Diagnose the
+test assertions and final CI conclusion rather than treating that expected log
+alone as a production push failure. Never replace these isolated tests with a
+push against the live project remote.
+
 ## 8. CI failure diagnosis protocol
 
 For every failed job:
