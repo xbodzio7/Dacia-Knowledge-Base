@@ -614,3 +614,15 @@ class DkbCliTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+    def test_report_freshness_command_is_registered_and_forwarded(self) -> None:
+        self.assertIn("report-freshness", dkb.SCRIPT_COMMANDS)
+        completed = SimpleNamespace(returncode=7)
+        with mock.patch.object(dkb.subprocess, "run", return_value=completed) as run:
+            result = dkb.run_script("report-freshness", ["--registry", "registry.json"])
+        self.assertEqual(result, 7)
+        run.assert_called_once_with(
+            [sys.executable, str(TOOLS_DIRECTORY / "report_freshness.py"), "--registry", "registry.json"],
+            check=False,
+        )
