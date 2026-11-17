@@ -153,8 +153,12 @@ def validate_state(state: Mapping[str, Any]) -> None:
     for key in STATE_BASELINE_FIELDS:
         _integer(baseline, key, "state.baseline")
 
+    packages: dict[str, dict[str, Any]] = {}
     for key in ("current_package", "next_package"):
         package = _object(state.get(key), f"state.{key}")
+        packages[key] = package
+        _string(package, "package_id", f"state.{key}")
+        _string(package, "kind", f"state.{key}")
         _string(package, "name", f"state.{key}")
         status = _string(package, "status", f"state.{key}")
         if status not in PACKAGE_STATUSES:
@@ -162,6 +166,13 @@ def validate_state(state: Mapping[str, Any]) -> None:
                 f"state.{key}.status must be one of {sorted(PACKAGE_STATUSES)}"
             )
         _string(package, "goal", f"state.{key}")
+
+    if packages["current_package"]["package_id"] == packages["next_package"]["package_id"]:
+        raise StateError(
+            "state.current_package and state.next_package must have different package_id values"
+        )
+    if packages["next_package"]["status"] == "complete":
+        raise StateError("state.next_package.status cannot be 'complete'")
 
     autonomy = _object(state.get("autonomy"), "state.autonomy")
     if autonomy.get("mode") != "autonomous_until_action_required":
