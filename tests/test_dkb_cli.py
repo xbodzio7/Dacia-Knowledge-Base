@@ -587,7 +587,10 @@ class DkbCliTests(unittest.TestCase):
         self.assertEqual(result, 0)
         self.assertIn("package-publish", stdout.getvalue())
         self.assertIn("report-freshness", stdout.getvalue())
-        from tests.test_report_freshness import run_contract_cases
+        try:
+            from tests.test_report_freshness import run_contract_cases
+        except ModuleNotFoundError:
+            from test_report_freshness import run_contract_cases
         run_contract_cases()
 
     def test_forwards_package_publish_arguments_and_exit_code(self) -> None:
