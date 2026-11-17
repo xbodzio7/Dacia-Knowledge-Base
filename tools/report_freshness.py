@@ -38,7 +38,7 @@ def _safe_repo_path(repository: Path, value: Any) -> Path | None:
 
 
 def _git_blob_sha(data: bytes) -> str:
-    header = f"blob {len(data)}\\0".encode("ascii")
+    header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
 
 
@@ -95,6 +95,12 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
     for field, valid in required.items():
         if not valid:
             errors.append(f"{report_id}: invalid or missing report_metadata.{field}")
+    expected_repository = os.environ.get("DKB_EXPECTED_REPOSITORY") or os.environ.get("GITHUB_REPOSITORY")
+    if expected_repository and metadata.get("repository") != expected_repository:
+        errors.append(
+            f"{report_id}: report repository {metadata.get('repository')!r} "
+            f"does not match execution repository {expected_repository!r}"
+        )
     if errors:
         return errors
 
@@ -144,7 +150,7 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
                 errors.append(f"{report_id}: duplicate finding_id {finding_id}")
             else:
                 finding_ids.add(finding_id)
-            if finding.get("status") not in FINDING_STATES:
+            if not isinstance(finding.get("status"), str) or finding.get("status") not in FINDING_STATES:
                 errors.append(f"{report_id}: finding {finding_id!r} has invalid status")
             if not isinstance(finding.get("evidence_refs"), list) or not finding.get("evidence_refs"):
                 errors.append(f"{report_id}: finding {finding_id!r} needs evidence_refs")
