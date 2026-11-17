@@ -19,6 +19,10 @@ jobs:
   quality:
     name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-24.04
+    env:
+      DKB_EXPECTED_REPOSITORY: ${{ github.repository }}
+      DKB_EXPECTED_DEFAULT_BRANCH: ${{ github.event.pull_request.base.repo.default_branch || github.event.repository.default_branch || 'main' }}
+      DKB_EXPECTED_BASE_BRANCH: ${{ github.event.pull_request.base.ref || '' }}
 
     strategy:
       fail-fast: false
@@ -435,6 +439,10 @@ jobs:
   workflow-windows:
     name: Package workflow / Windows
     runs-on: windows-latest
+    env:
+      DKB_EXPECTED_REPOSITORY: ${{ github.repository }}
+      DKB_EXPECTED_DEFAULT_BRANCH: ${{ github.event.pull_request.base.repo.default_branch || github.event.repository.default_branch || 'main' }}
+      DKB_EXPECTED_BASE_BRANCH: ${{ github.event.pull_request.base.ref || '' }}
 
     steps:
       - name: Check out repository
