@@ -943,3 +943,8 @@ When a canonical input, source identity or relevant decision changes, dependent 
 A report may be described as current only after its repository identity, input paths and hashes, scope, finding states and JSON/Markdown parity have been verified. A matching input hash alone does not prove that source interpretation or scope remains valid. Existing reports without the metadata contract are legacy and must not be represented as current until reviewed and migrated.
 
 The report freshness validator is a separate follow-up implementation and must be integrated into the existing required package-consistency gate only after positive, negative, legacy-compatibility and tampering tests pass. Do not weaken the existing package-preflight or repository-state checks to accommodate legacy reports.
+
+
+### 22.1 Automated report freshness gate
+
+The required Quality workflow runs `python tools/dkb.py report-freshness` immediately after package preflight. The registry at `data/reporting/report_registry.json` is the explicit inventory of governed analytical reports. New entries are strict by default; legacy compatibility requires an explicit `legacy: true` marker and may never claim current status. Each strict report is checked for required provenance, safe repository-relative paths, exact Git blob SHA-1 and content SHA-256 of every input, stable finding IDs/states/evidence/date, and Markdown companion parity. Contract tests cover valid reports, changed inputs, missing metadata, companion drift and legacy compatibility. Do not add a report to the registry as legacy merely to bypass a failed check; investigate and correct its provenance or explicitly retain it as historical under the standard.
