@@ -1335,3 +1335,27 @@ infrastructure/documentation work.
 - Generated `STATE_SUMMARY.md` continues to derive from canonical
   `state.json`; no hand-edited state summary is permitted.
 - The six existing required CI status-check names remain unchanged.
+
+
+## D-030 — Analytical report provenance and freshness
+
+Status: Accepted
+
+Date: 2026-11-17
+
+### Decision
+
+New and materially refreshed analytical reports must carry exact repository and input provenance, explicit freshness status, scope and stable finding lifecycle states. A report is current only after its input identities, scope, findings and JSON/Markdown parity have been revalidated. Historical reports remain immutable historical evidence and must not be presented as current.
+
+A prior open finding must be rechecked before it is carried into a successor report. A resolved finding may be reopened only on new contradictory evidence. Input hashes are necessary but do not by themselves prove that source interpretation or scope remains valid.
+
+### Rationale
+
+Reports had become stale after later source archival and master-data imports without any automatic indication that their conclusions needed review. Exact provenance and explicit finding states prevent historical limitations from silently becoming current project blockers.
+
+### Consequences
+
+- `project/REPORT_FRESHNESS_STANDARD.md` defines the report contract.
+- Existing reports remain legacy until reviewed; no bulk migration is implied.
+- Automated freshness validation must be implemented with positive, negative, legacy and tampering tests before it becomes a required CI gate.
+- Historical reports are preserved; refreshed analyses receive versioned successor identities.
