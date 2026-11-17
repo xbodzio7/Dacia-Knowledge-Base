@@ -75,6 +75,9 @@ jobs:
 
       - name: Run repository data package preflight
         run: python tools/dkb.py package-preflight
+
+      - name: Validate analytical report freshness
+        run: python tools/dkb.py report-freshness
       - name: Run semantic Bigster source archive contract
         if: matrix.python-version == '3.14'
         run: |
