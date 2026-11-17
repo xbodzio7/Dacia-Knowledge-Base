@@ -18,9 +18,9 @@ class ReportFreshnessTests(unittest.TestCase):
         (self.root / "data" / "reporting").mkdir(parents=True)
         (self.root / "data" / "master").mkdir(parents=True)
         self.input_path = self.root / "data" / "master" / "input.csv"
-        self.input_path.write_text("code,value\\nA,1\\n", encoding="utf-8")
+        self.input_path.write_text("code,value\nA,1\n", encoding="utf-8")
         data = self.input_path.read_bytes()
-        self.blob_sha = hashlib.sha1(f"blob {len(data)}\\0".encode() + data).hexdigest()
+        self.blob_sha = hashlib.sha1(f"blob {len(data)}\0".encode() + data).hexdigest()
         self.sha256 = hashlib.sha256(data).hexdigest()
         self.report_id = "sample_report_001"
         self.json_path = self.root / "data" / "reporting" / "sample.json"
@@ -56,11 +56,11 @@ class ReportFreshnessTests(unittest.TestCase):
             document["report_metadata"] = meta
         self.json_path.write_text(json.dumps(document), encoding="utf-8")
         self.md_path.write_text(
-            f"Report ID: {self.report_id}\\n"
-            f"Generated: {meta['generated_at']}\\n"
-            f"Analysed commit: {meta['base_commit_sha']}\\n"
-            f"Status: {status}\\n"
-            f"Scope: Test scope\\n",
+            f"Report ID: {self.report_id}\n"
+            f"Generated: {meta['generated_at']}\n"
+            f"Analysed commit: {meta['base_commit_sha']}\n"
+            f"Status: {status}\n"
+            f"Scope: Test scope\n",
             encoding="utf-8",
         )
         self.registry_path.write_text(json.dumps({
@@ -76,7 +76,7 @@ class ReportFreshnessTests(unittest.TestCase):
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
     def test_changed_input_is_detected(self) -> None:
-        self.input_path.write_text("code,value\\nA,2\\n", encoding="utf-8")
+        self.input_path.write_text("code,value\nA,2\n", encoding="utf-8")
         errors = validate_registry(self.root, self.registry_path)
         self.assertTrue(any("input Git blob SHA changed" in error for error in errors))
         self.assertTrue(any("input SHA-256 changed" in error for error in errors))
@@ -88,7 +88,7 @@ class ReportFreshnessTests(unittest.TestCase):
 
     def test_markdown_json_parity_is_enforced(self) -> None:
         self._write_report()
-        self.md_path.write_text("Report ID: wrong\\n", encoding="utf-8")
+        self.md_path.write_text("Report ID: wrong\n", encoding="utf-8")
         errors = validate_registry(self.root, self.registry_path)
         self.assertTrue(any("Markdown companion does not match" in error for error in errors))
 
