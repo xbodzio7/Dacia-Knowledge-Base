@@ -569,3 +569,23 @@ The gate complements rather than replaces:
 For each package, the PR validation record must state the result of all three subchecks separately. A single green umbrella status does not justify describing an unobserved subcheck or source-fidelity review as passed.
 
 The gate is intentionally wired into an existing required status context. It does not add or rename branch-protection contexts and therefore preserves the repository's six-check single-maintainer merge policy.
+
+
+## 7.5 Canonical package lifecycle invariants
+
+The existing `project-state --check` gate validates the canonical package
+selector in `project/state.json`. Both `current_package` and
+`next_package` must contain non-empty stable `package_id` and `kind`
+fields, in addition to their name, status and goal. The IDs must be different,
+and `next_package.status` must not be `complete`.
+
+These invariants apply to every candidate tree. They do not require every
+maintenance PR to claim that it completed the current domain package. A
+documentation, tooling, CI or governance PR that does not complete/redefine
+the selected package may leave the package selector unchanged. When a package
+implementation changes the selected package, update `state.json` and its
+generated `STATE_SUMMARY.md` within that logical package PR.
+
+Do not add a global PR-number-to-current-package equality check. If a future
+workflow needs explicit package ownership binding, it must be opt-in and
+activated only for PRs declaring a package manifest/identity. See D-029.
