@@ -118,6 +118,10 @@ The repository is the canonical project archive; the Library is a persistent sec
 
 If a source cannot be found or read, report exactly which locations were checked and the remaining blocker. Request a new upload only as the final recovery action, not because session context or an earlier attachment reference was not carried forward.
 
+# Git Bash Safety
+
+When Git Bash is used for repository operations, follow `project/GIT_BASH_SAFE_OPERATIONS.md` before switching branches, synchronizing, stashing, committing or pushing. Its safeguards supplement the quality protocol and do not authorize destructive recovery commands.
+
 # Repository First
 
 The repository is the primary source of truth.
