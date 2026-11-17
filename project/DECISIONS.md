@@ -1291,3 +1291,47 @@ repository or target.
 - The six existing required status-check names remain unchanged.
 - The guard supplements, and does not replace, package preflight, generated
   documentation checks, exact-head CI or technical review.
+
+## D-029 — Canonical package lifecycle identity invariants
+
+Status: Accepted
+
+Date: 2026-11-17
+
+### Decision
+
+The canonical `current_package` and `next_package` objects in
+`project/state.json` must each carry a non-empty stable `package_id` and
+`kind`, in addition to the existing name, status and goal fields. Their
+identifiers must differ, and `next_package.status` must not be `complete`.
+
+These are repository-state invariants and apply to every candidate tree. They
+do not require every Pull Request to claim ownership of the current package.
+Documentation-only, tooling, CI, and governance maintenance PRs may leave the
+current/next package selector unchanged when they do not complete or redefine
+the selected package.
+
+A package implementation PR must still update canonical state and generated
+summary in the same logical package change when its completion changes the
+current or next package selection. Any stronger PR-to-package binding must be
+opt-in and scoped to explicitly declared package PRs; it must not be a global
+requirement for every pull_request event.
+
+### Rationale
+
+Stable IDs prevent accidental repetition and allow exact package reconciliation.
+Rejecting a completed next package catches stale selectors. However, requiring
+every maintenance PR to mark itself as the completed current package conflates
+repository maintenance with domain-package completion and blocks valid
+infrastructure/documentation work.
+
+### Consequences
+
+- The existing `project-state --check` command enforces the identity,
+  uniqueness and next-status invariants.
+- Positive and negative contract tests cover valid selectors, missing IDs,
+  duplicate IDs and a completed next package.
+- No PR number is required in `current_package` merely because a PR exists.
+- Generated `STATE_SUMMARY.md` continues to derive from canonical
+  `state.json`; no hand-edited state summary is permitted.
+- The six existing required CI status-check names remain unchanged.
