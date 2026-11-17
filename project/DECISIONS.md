@@ -1240,3 +1240,54 @@ A recent source-data package exposed that structurally valid imported rows can c
 - importer idempotency, source-to-master fidelity, full quality and exact-head technical review remain separate mandatory controls.
 
 This decision strengthens technical consistency enforcement; it does not claim that automated structural checks can resolve ambiguous documentary evidence or replace independent source review.
+
+
+## D-028 — GitHub runtime repository metadata guard
+
+Status: Accepted
+
+Date: 2026-11-17
+
+### Decision
+
+The canonical project-state check must fail when the repository identity or
+default-branch metadata recorded in `project/state.json` conflicts with the
+GitHub Actions execution context.
+
+The validator checks, when supplied:
+
+- `DKB_EXPECTED_REPOSITORY` or `GITHUB_REPOSITORY` against
+  `state.repository.full_name` (case-insensitively);
+- `DKB_EXPECTED_DEFAULT_BRANCH` against
+  `state.repository.default_branch`;
+- `DKB_EXPECTED_BASE_BRANCH` or `GITHUB_BASE_REF` against the canonical
+  default branch, preventing a Pull Request targeting a non-default branch
+  from silently passing the project-state gate.
+
+The Quality Linux/Python matrix and required Windows package-workflow job
+must pass the expected repository, default branch and Pull Request base branch
+into the validator. Outside GitHub Actions, absent runtime metadata remains
+optional so local project checks continue to work.
+
+The check runs before baseline collection and before either read-only
+validation or state synchronization. It must not mutate state or infer the
+repository identity from a local directory name.
+
+### Rationale
+
+A valid-looking state file can be copied to another repository or retain a
+stale default-branch declaration. A Pull Request can also target a branch other
+than the canonical default branch. Without checking the live GitHub context,
+all ordinary state and documentation checks may pass against the wrong
+repository or target.
+
+### Consequences
+
+- Repository identity, default-branch and Pull Request-target mismatches fail
+  closed with actionable errors.
+- Positive and negative contract tests cover matching, mismatched and absent
+  GitHub metadata, including native GitHub environment-variable fallbacks.
+- Local execution remains supported when no GitHub context is present.
+- The six existing required status-check names remain unchanged.
+- The guard supplements, and does not replace, package preflight, generated
+  documentation checks, exact-head CI or technical review.
