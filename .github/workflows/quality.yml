@@ -104,6 +104,7 @@ jobs:
             tests.project_state_contract \
             tests.autonomy_policy_contract \
             tests.quality_artifact_manifest_contract \
+            tests.test_report_freshness \
             tests.configuration_comparison_context_filter_contract \
             tests.configuration_comparison_pair_summary_contract
 
@@ -469,6 +470,7 @@ jobs:
             tests.test_package_publish `
             tests.test_dkb_cli `
             tests.test_quality `
+            tests.test_report_freshness `
             tests.project_state_contract `
             tests.autonomy_policy_contract `
             tests.quality_artifact_manifest_contract `
