@@ -88,3 +88,8 @@ This standard supplements, and does not replace:
 - exact-head CI, technical review and source-fidelity review;
 - source archive manifest integrity checks.
 
+
+
+## 9. Automated enforcement
+
+The canonical registry is `data/reporting/report_registry.json`. Every new or materially refreshed analytical report covered by this standard must be registered with its JSON and Markdown companion paths. New entries are strict by default: missing metadata, missing inputs, unsafe paths, malformed hashes, changed inputs, invalid finding states or JSON/Markdown drift fail `python tools/dkb.py report-freshness`. The only compatibility exception is an explicit `legacy: true` entry; a legacy report cannot claim `current` status. Legacy classification is temporary and must be removed when the report is substantively refreshed. The validator checks both Git blob SHA-1 and content SHA-256 for each declared input.
