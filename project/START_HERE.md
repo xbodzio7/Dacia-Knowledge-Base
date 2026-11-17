@@ -43,6 +43,7 @@ Before any project action, the AI shall also perform a **continuity freshness ch
 
 - treat `project/state.json` as the only current package selector;
 - verify that `project/STATE_SUMMARY.md` and any session-state counters agree with `state.json`;
+- run `python tools/dkb.py project-state --check` before selecting or publishing work; in GitHub Actions this also validates canonical repository/default-branch metadata against the workflow repository and Pull Request target;
 - if generated state documentation is stale, repair/regenerate it before selecting or describing the next package;
 - verify that every recently merged package affecting the current milestone is reflected in the canonical state and its reconciliation/manifest before requesting or repeating any user action;
 - never treat a conversation handoff, remembered package number, tab list or previous assistant statement as evidence that a package is still open;
