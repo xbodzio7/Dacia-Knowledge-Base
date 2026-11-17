@@ -932,3 +932,14 @@ generated `STATE_SUMMARY.md` within that logical package PR.
 Do not add a global PR-number-to-current-package equality check. If a future
 workflow needs explicit package ownership binding, it must be opt-in and
 activated only for PRs declaring a package manifest/identity. See D-029.
+
+
+## 22. Analytical report provenance and freshness
+
+Every new or materially refreshed analytical report under `data/reporting/` must follow `project/REPORT_FRESHNESS_STANDARD.md`. Its JSON record must bind the analysis to the exact repository commit and exact input-file identities; its Markdown companion must expose the same report identity, date, commit, status and scope. Missing provenance is a blocker, not an invitation to infer a hash or timestamp.
+
+When a canonical input, source identity or relevant decision changes, dependent reports must be identified and marked for review. Recheck all open and unresolved findings against current canonical data and exact source evidence before carrying them forward. Never copy an old limitation into a new report without revalidation. Preserve old reports as historical records; publish a versioned successor rather than silently rewriting history.
+
+A report may be described as current only after its repository identity, input paths and hashes, scope, finding states and JSON/Markdown parity have been verified. A matching input hash alone does not prove that source interpretation or scope remains valid. Existing reports without the metadata contract are legacy and must not be represented as current until reviewed and migrated.
+
+The report freshness validator is a separate follow-up implementation and must be integrated into the existing required package-consistency gate only after positive, negative, legacy-compatibility and tampering tests pass. Do not weaken the existing package-preflight or repository-state checks to accommodate legacy reports.
