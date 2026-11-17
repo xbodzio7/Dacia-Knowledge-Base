@@ -1359,3 +1359,25 @@ Reports had become stale after later source archival and master-data imports wit
 - Existing reports remain legacy until reviewed; no bulk migration is implied.
 - Automated freshness validation must be implemented with positive, negative, legacy and tampering tests before it becomes a required CI gate.
 - Historical reports are preserved; refreshed analyses receive versioned successor identities.
+
+
+## D-031 — Enforce analytical report provenance in CI
+
+Status: Accepted
+
+Date: 2026-11-17
+
+### Decision
+
+Use `data/reporting/report_registry.json` as the explicit inventory of governed analytical reports and run the report freshness validator in the required Quality workflow. New registry entries fail closed unless they carry the provenance contract. Legacy reports remain readable only through an explicit legacy marker and cannot claim current status. Validate safe paths, required metadata, exact input Git blob SHA-1 and SHA-256, finding lifecycle/evidence metadata and JSON/Markdown parity.
+
+### Rationale
+
+A written standard alone does not prevent a stale report from being merged. A deterministic validator and required CI gate make the contract executable while avoiding an unsafe bulk migration of historical analytical artifacts.
+
+### Consequences
+
+- `python tools/dkb.py report-freshness` is the canonical local check.
+- The required Quality workflow runs the same command after package preflight.
+- New reports must be registered; legacy exceptions must be explicit and cannot be current.
+- The validator checks byte-level input identity but does not replace human/source review of scope or interpretation.
