@@ -569,3 +569,347 @@ The gate complements rather than replaces:
 For each package, the PR validation record must state the result of all three subchecks separately. A single green umbrella status does not justify describing an unobserved subcheck or source-fidelity review as passed.
 
 The gate is intentionally wired into an existing required status context. It does not add or rename branch-protection contexts and therefore preserves the repository's six-check single-maintainer merge policy.
+
+## 7.3 Isolated package-publishing tests
+
+Package-publishing tests must run against disposable temporary repositories and
+local bare remotes. They must not share the checked-out repository's Git index,
+push to the real GitHub repository, or inherit ambient GitHub Actions repository
+and Pull Request context. Each test must clean up its temporary directory.
+
+The test environment must remove all variables listed in
+`package_workflow.GIT_CONTEXT_VARIABLES`, disable system Git configuration,
+use a temporary global Git configuration, and disable terminal prompts.
+Contract tests must verify that `git_environment()` strips ambient GitHub
+context even when such variables are present in the parent process.
+
+Negative-path tests must prove remote safety, not merely inspect the returned
+error code:
+- rejection of an extra untracked path leaves the bare remote branch absent;
+- rejection of an extra staged path leaves the bare remote branch absent;
+- an injected local bare-remote `pre-receive` hook rejects the push, leaves
+  the remote branch absent, and records a single local package commit with a
+  failed-push handoff.
+
+The deliberately injected hook produces an expected error log. Diagnose the
+test assertions and final CI conclusion rather than treating that expected log
+alone as a production push failure. Never replace these isolated tests with a
+push against the live project remote.
+
+## 8. CI failure diagnosis protocol
+
+For every failed job:
+
+1. Capture the exact workflow run ID, job name/ID, commit SHA and failing step.
+2. Read the complete relevant log and identify the first causal error; later failures may be cascading symptoms.
+3. Classify the failure using the six causes in section 5, or as environment/workflow infrastructure failure.
+4. Inspect the exact source, changed paths, test, importer and relevant history.
+5. State the root cause and evidence before editing.
+6. Make the smallest in-scope correction.
+7. Run the focused reproducer first.
+8. Run the full required matrix on the final head.
+9. Confirm the current PR head SHA still equals the SHA tested.
+
+Do not claim CI passed based on a previous head, a partial workflow, a successful subset, or an unverified run.
+
+## 9. Pull Request and merge gate
+
+Before opening/updating a PR, verify:
+- one logical package per PR;
+- exact base and head SHA;
+- only manifest/in-scope paths changed;
+- source reconciliation artifact and acceptance criteria are present;
+- focused checks passed;
+- no unresolved evidence/model blocker is hidden.
+
+Before merge, verify:
+- PR is open and mergeable;
+- current head SHA is the one with successful required CI;
+- both technical-integrity and source-fidelity gates passed;
+- no unresolved review, conflict or policy block exists;
+- state/documentation can be advanced consistently.
+
+A green badge alone is not a merge decision.
+
+## 10. Session-start enforcement and reporting
+
+At the start of every new chat/session and every continuation after a handoff:
+
+- follow project/START_HERE.md from the beginning;
+- read this protocol, not a remembered summary of it;
+- verify canonical state and current GitHub state dynamically;
+- identify the active user priority and package scope from repository state;
+- apply both quality gates to every relevant data package.
+
+If repository access is unavailable, do not pretend the bootstrap or validation happened. Continue only with safe analysis and clearly label it unverified.
+
+Every package handoff/report must distinguish:
+- implemented;
+- focused-tested;
+- source-reconciled;
+- full-quality-tested (exact SHA);
+- committed;
+- pushed/published;
+- PR-open;
+- merged;
+- deferred/blocked.
+
+Never collapse these into a single word such as "done" when their states differ.
+
+## 11. End-of-package review
+
+At each package boundary, ask:
+
+- Did we introduce a test tied to a mutable total that should instead test a scoped invariant?
+- Did any test expectation change without independent source evidence?
+- Did we verify the final data against the original source rather than only the importer?
+- Did we preserve history, dates and exact applicability?
+- Did we accidentally expand scope or duplicate existing facts?
+- Are canonical state and generated documentation consistent?
+- Can the next session resume from repository state without asking the user to repeat context?
+
+Record material lessons and update this protocol only when a durable process change is justified.
+
+
+## 12. Failure classification and test-suite health
+
+A failing check is a diagnostic signal, not by itself proof that the feature under development is defective. Every failure must be classified before any corrective edit.
+
+Use these distinct classes in reports and CI triage:
+
+- **functional/regression failure** — production behavior or a durable business/data invariant is wrong;
+- **test discovery/import failure** — the intended tests were not collected or could not be imported; this is a test-suite execution defect and must not be reported as a feature assertion failure;
+- **test expectation defect** — the assertion encodes an obsolete or incorrectly scoped expectation, established only after reviewing the intended invariant and authoritative evidence;
+- **canonical baseline drift** — a derived repository counter (including test count) is stale relative to the candidate tree;
+- **generated-documentation drift** — a managed generated block is stale and must be regenerated by its canonical tool;
+- **environment/workflow failure** — runner, dependency, permissions or workflow infrastructure prevented a valid check;
+- **source-fidelity failure** — imported facts, mappings or provenance do not match the authoritative source.
+
+Reports must identify the first causal error, not merely list downstream failures. State separately whether functional tests passed, whether all tests were discovered/imported, whether baseline checks passed, whether documentation checks passed, and whether source fidelity was accepted.
+
+A changed discovered-test count is not a functional failure. Confirm the added/removed tests are intentional and discoverable, then update the canonical baseline through the supported generator. Never remove a valid test or weaken an assertion solely to restore a count.
+
+## 13. Generator and test-independence requirements
+
+For every data importer, report generator, baseline updater or documentation generator, add or retain checks for the following properties where applicable:
+
+1. **Determinism:** identical inputs and tool versions produce byte-identical outputs; verify with repeated generation or an explicit check mode.
+2. **Idempotency:** applying the same import/update twice does not create duplicate facts, duplicate events, repeated migrations or further file changes.
+3. **No-op stability:** when inputs are unchanged, check mode succeeds and the working tree remains unchanged.
+4. **Input/output boundary:** tests identify the exact source IDs, fixtures, dates and configuration scope; they do not silently use mutable global totals as local contracts.
+5. **Independent oracle:** at least critical mappings and representative values are checked against source evidence or independently curated fixtures, not only against output produced by the same transformation logic.
+6. **Negative-space safety:** omission, blank cells, explicit dashes and unknown states remain distinct; tests prevent unsupported inference.
+7. **Regression safety:** existing correct records are preserved, and the importer does not overwrite unrelated scopes.
+
+Do not claim that a generator is correct merely because its output matches a snapshot it generated itself. Snapshot tests are useful for deterministic formatting, but source fidelity requires an independent evidence check.
+
+## 14. Candidate-tree and exact-SHA validation discipline
+
+The final validation target is an immutable candidate tree identified by its exact head SHA. The required sequence is:
+
+1. Finish code, tests, data and documentation edits.
+2. Reconcile canonical state and generated documentation using the prescribed check/apply/check sequence.
+3. Inspect the complete diff, including generated blocks and source manifests.
+4. Run focused checks, then the complete required CI matrix on the candidate SHA.
+5. Confirm every required job reports success for that exact SHA; record skipped jobs separately with their workflow-defined reason.
+6. Re-fetch the PR and branch immediately before merge; confirm the current head SHA is unchanged and the target branch is up to date.
+7. If any commit, rebase, generated-file update or other edit changes the candidate tree, invalidate the previous final validation and repeat all affected checks plus the required final matrix.
+
+A successful run on a parent commit, another branch, an earlier PR head or only a subset of jobs does not validate the current candidate. Never infer that a PR is merge-safe from a green badge without checking run SHA, required jobs, source-fidelity result and branch freshness.
+
+## 15. Branch protection and merge enforcement
+
+CI reporting and merge enforcement are separate controls. A workflow that reports failed checks does not block merging unless repository rules require the relevant checks.
+
+At the start of a merge decision, inspect the current branch protection/ruleset state. If the target branch does not require the designated baseline and quality checks, record that as a governance risk; do not describe CI as merge-blocking. Request an authorized repository administrator to configure required status checks for the repository's actual workflow/job names. Do not attempt to bypass or silently weaken repository policy.
+
+Until required checks are enforced by GitHub, the maintainer must apply a procedural no-merge rule: do not merge unless the current exact PR head has passed the full required quality matrix and both technical-integrity and source-fidelity gates. If the maintainer lacks permission to configure branch protection, continue safe work and report the exact administrative action needed.
+
+## 16. Recommended failure-repair sequence
+
+For a failed CI run, use this order and stop at the first causal defect:
+
+1. Verify run ID, workflow, job, runner, branch and exact tested SHA.
+2. Read the failing step and preceding log context; distinguish the first cause from cascades.
+3. Reproduce with the narrowest available check where execution is available.
+4. Classify the failure using section 12.
+5. Inspect the relevant source, test, canonical baseline or generated block.
+6. Correct only the confirmed root cause using the canonical tool where one exists.
+7. Re-run the focused reproducer and all checks invalidated by the edit.
+8. Run final validation on the exact resulting head SHA.
+9. Report the classification, evidence, repair, remaining uncertainty and exact SHA.
+
+A test must not compare a newly generated result to a previous mutable result unless the test is explicitly verifying historical compatibility. Prefer fixed, independently curated fixtures and invariants. Historical comparison is valid only when the historical artifact is an intentional, versioned contract and its role is documented.
+
+
+## End of protocol
+
+## 17. Cross-file change transaction and regression-prevention controls
+
+This section is mandatory for every package that changes source registries, import specifications, master data, tests, repository metadata, generated artifacts or documentation. Its purpose is to prevent a valid change in one file from leaving dependent contracts stale elsewhere.
+
+### A. Build the dependency impact list before editing
+
+Before the first edit, identify the complete dependency set for the changed object. At minimum consider:
+
+- source files and their registry rows;
+- source IDs, archive paths, external references and SHA-256 values;
+- import specifications, importer contracts and source-specific tests;
+- master CSVs, manifests, reconciliation reports and derived indexes;
+- canonical counters and project/state.json;
+- generated state summaries and managed documentation blocks;
+- workflow definitions, validation scripts and release artifacts.
+
+Record affected and deliberately unaffected paths in the package manifest. Do not assume a change is local merely because only one source file was initially edited.
+
+### B. Treat related updates as one logical transaction
+
+A source or schema change and its dependent contracts must be updated in the same package/PR unless a documented dependency requires a separate ordered package. Do not leave a known inconsistent intermediate state marked complete.
+
+For every registered archived file:
+- verify that a non-empty repository path resolves to an existing tracked file;
+- compute SHA-256 from the exact original bytes when those bytes are available;
+- never infer or fabricate a digest;
+- distinguish an external source URL, an owner-supplied original, and a repository-archived binary;
+- if binary transfer is unavailable, record the exact limitation and keep the archive state explicitly pending.
+
+For every source-registry/importer/test change, inspect all contracts that assert the affected source ID, path, digest, date, scope or expected status. Update expectations only after verifying the authoritative source and the intended invariant.
+
+### C. Canonical generators own derived state
+
+Never manually synchronize counters or generated baseline blocks by copying numbers between files.
+
+Use the repository's canonical generators/checks for project-state counters and summaries, documentation baseline blocks, generated manifests, snapshots and other deterministic outputs.
+
+Run check mode first, inspect the proposed changes, apply only through the supported generator, then rerun check mode. All relevant checks must pass on the same candidate tree. If the generator cannot run in the active environment, use a CI job that demonstrably runs it on the exact candidate SHA; otherwise mark the package blocked rather than hand-editing generated output and claiming validation.
+
+### D. Diagnose before changing expectations
+
+For every failure, preserve the first causal error and classify it before editing. Determine whether the source, implementation, importer, test expectation, canonical baseline, generated documentation, branch state or CI environment is wrong.
+
+Never change an assertion only to make CI green; compare current generated output with a previous mutable output unless historical compatibility is the explicit contract; weaken a correct invariant to accommodate a defect; treat fixture/setup log messages as failures without checking the test result; or treat a stale count as proof of a functional regression.
+
+When an expectation legitimately changes, cite the source-backed reason in the test or adjacent fixture/report. Prefer stable invariants and independently curated expected values over mutable global totals.
+
+### E. Mandatory pre-PR consistency matrix
+
+Before publishing or updating any PR, record an explicit pass/fail/not-applicable result for each applicable item:
+
+1. Changed-file syntax, import and test discovery.
+2. Focused tests for every changed contract/importer.
+3. Full required test suite on the candidate tree or observable CI equivalent.
+4. Source registry ↔ import specification ↔ importer ↔ tests consistency.
+5. Archive path existence and independently computed hashes where binary bytes are available.
+6. Master data, manifest and reconciliation consistency.
+7. python tools/dkb.py project-state --check.
+8. python tools/dkb.py documentation-baseline --check.
+9. Complete diff and changed-path scope review.
+10. Independent source-fidelity review where source/domain data changed.
+11. Exact candidate HEAD SHA and target-branch freshness.
+12. All required CI jobs on that exact HEAD SHA.
+
+A result is not a pass if it is unknown, assumed, inherited from a different SHA, or represented only by an unverified statement. Use BLOCKED for checks that cannot be run; do not silently mark them not applicable.
+
+### F. Change invalidation rules
+
+Any new commit, edit, generated-file update, source registry change, test addition/removal, rebase or merge invalidates the checks affected by that change. A changed candidate HEAD requires the full required final quality matrix to run against the new SHA. Immediately before merge, fetch the PR again and confirm the tested SHA is still its current head.
+
+### G. Completion and session handoff
+
+A package may be described as complete only when all applicable matrix items have observable passing evidence; source fidelity is accepted or an explicitly approved non-blocking deferral is recorded; the exact tested SHA and PR/commit are recorded; canonical state and generated documentation reflect the durable repository result; and unresolved limitations and the next package are recorded.
+
+Every new chat/session must load this protocol through project/START_HERE.md. A short user instruction such as kontynuuj does not waive any control. If the protocol cannot be read or a mandatory check cannot be verified, enter recovery/diagnostic mode and report the exact blocker.
+
+## 7.3 PDF extraction toolchain reproducibility
+
+Repository-generated PDF text artifacts are byte-sensitive to the Poppler tools used for extraction. A moving runner image or an opportunistic system package upgrade must not silently change canonical extraction output.
+
+For the committed official PDF candidate ledger:
+
+- use the `ubuntu-24.04` GitHub Actions runner for the Linux quality job;
+- use Poppler `pdftotext` and `pdfinfo` version `24.02.0`, matching the committed ledger metadata;
+- verify both executable versions explicitly before running the repository PDF artifact check;
+- make `tools/pdf_candidate_ledger.py` fail closed when `pdftotext` is missing or has a different version;
+- compare the freshly generated backend-version metadata with the committed artifact before comparing complete output bytes.
+
+Do not regenerate and commit a PDF-derived artifact merely to accommodate a newer runner. A toolchain change requires a deliberate package: review the extraction differences against the registered source PDFs, update the toolchain contract and documentation, regenerate the artifacts, and independently validate the changed candidate inventory. A mismatch is an environment/toolchain failure until proven otherwise; it is not permission to weaken or skip the artifact test.
+
+
+## 7.4 Fail-fast data package preflight
+
+Before the full test and quality matrix, run:
+
+```bash
+python tools/dkb.py package-preflight
+```
+
+The command performs a read-only structural pass over all CSV and JSON files under `data/`:
+
+- every CSV is parsed with the canonical strict CSV validator, including exact row-width and quoting checks;
+- every JSON file is decoded as UTF-8 and parsed with the standard JSON parser;
+- missing data roots, unreadable files, malformed quoting, unexpected CSV field counts and invalid JSON are fatal.
+
+The Quality GitHub Actions workflow runs this preflight before Python compilation and tests. Run it again after any edit to a data CSV or JSON file. It is a fast structural gate, not a replacement for `python tools/dkb.py validate`, the complete quality gate, repository-state checks, generated-documentation checks or independent source-fidelity review.
+
+All CSV-writing code must use `csv.writer`, `csv.DictWriter` or another standards-compliant CSV serializer. Do not build CSV rows by joining raw values with commas. Tests for a CSV-producing importer or report must include a field containing a comma (and, where relevant, quotes or a newline) so serialization regressions are caught.
+
+When data changes, identify dependent reports, manifests, reconciliation receipts and historical closure summaries before editing. Refresh derived artifacts only through their canonical generator or documented deterministic procedure, then run their verification checks. A successful CSV parse does not prove dependent artifacts are current.
+
+
+## 18. Semantic contracts for source-verification tests
+
+Tests must validate source facts and machine-readable contracts, not incidental prose.
+
+- Do not assert an entire `notes` sentence, paragraph, punctuation, word order or editorial phrase unless the exact text is itself a controlled identifier or externally mandated literal.
+- For source verification, assert the structured facts that carry meaning: source identity/code, verification state where modeled, SHA-256, byte size, page count, expected source markers, archive path, provenance reference and manifest relationship. Validate only fields that actually exist in the canonical schema; do not invent parallel metadata fields solely to satisfy a test.
+- When a fact is currently represented only in free text, prefer extracting a stable structured field in a separately scoped schema change. Until then, test the necessary evidence using narrowly scoped semantic predicates, and preserve human-readable notes as explanatory provenance rather than a machine interface.
+- Tests must include both positive and negative cases: valid evidence with different wording passes; missing or contradictory integrity/provenance evidence fails.
+- A change to explanatory prose must not require test edits when the underlying source facts are unchanged. Conversely, changing a hash, source identity, archive path or verification result must be detected.
+- Before changing a failing assertion, inspect the producer, canonical data, schema, source artifact and all supported Python versions. Do not weaken a test merely to make CI green.
+
+## 19. Failure classification and regression containment
+
+For each failed CI job, identify the first causal assertion or command and classify it as one of: product/code defect, data/schema defect, stale test contract, generated-artifact drift, environment/dependency failure, or expected negative-test output. Correlated failures across Python versions count as one root cause when they share the same causal assertion.
+
+The correction must be made at the authoritative layer: producer, canonical data, schema, test contract, generator or environment pin. Add a focused regression test for the root cause, then run focused tests before the full required matrix. Record the exact final HEAD SHA and require all mandatory checks to pass on that SHA before merge.
+
+
+## 20. Source archive manifest integrity preflight
+
+The read-only \`python tools/dkb.py package-preflight\` command validates CSV and JSON structure and, for every verified \`data/source_intake/*_capture.json\` manifest, checks the archive contract against the existing repository schema:
+
+- exactly one source-registry row matches \`source_code\`;
+- the registry URL and SHA-256 match the manifest;
+- a populated registry \`file_path\` matches the manifest archive path (an intentionally blank path remains a separately visible registration gap until its source-registration package closes it);
+- the archived binary exists inside the repository, its actual byte length matches \`file_size_bytes\`, and its SHA-256 is recomputed from the actual bytes and matches the manifest;
+- the sibling \`.sha256\` sidecar matches both the manifest digest and archive path;
+- the verification status is explicitly \`verified_*\`, the page count is positive, optional expected hash/size/page-count fields agree, and the recorded first-page markers are present in the captured first-page text with no missing markers.
+
+The check is read-only. It does not rewrite source rows, manifests, PDFs or sidecars. It does not parse the PDF again to independently derive its page count, re-extract first-page text, inspect rendered pages, or establish complete source assimilation. Those remain responsibilities of the capture workflow and the independent source-fidelity review.
+
+Explanatory \`notes\` are not a machine interface. A change to editorial wording must not invalidate source-integrity tests when the structured identity, archive bytes, manifest and registry relationships remain unchanged. Conversely, a changed binary, digest, size, marker state, source identity or archive relationship must fail the preflight.
+
+The Quality workflow runs this check before compilation/tests and runs the focused Bigster source-archive regression on Python 3.14 before the full quality gate. The same focused regression is also included in the standard unit-test discovery on Python 3.10 and 3.13. A successful preflight is not a substitute for the full quality matrix, repository-state/documentation checks or source-fidelity review.
+
+
+## 21. Unified fail-closed package consistency gate
+
+Every Pull Request must pass one observable, fail-closed repository-consistency gate in addition to the supported Python and Windows quality matrix. The existing required status context `Repository state / project-state --check` now executes these checks in sequence on the same checked-out candidate commit:
+
+1. `python tools/dkb.py package-preflight` — validate every repository data CSV/JSON file and the registered source-capture manifest integrity covered by the canonical preflight;
+2. `python tools/dkb.py project-state --check` — compare live repository counts and canonical state, validate state references, and verify the generated state summary;
+3. `python tools/dkb.py documentation-baseline --check` — verify all managed documentation baseline blocks against live repository data.
+
+The separately required `Generated documentation / documentation-baseline --check` status remains in place as an independent, clearly named check. The additional invocation inside the repository-state job ensures that the repository-state required context cannot pass when any of the three package-consistency layers fails.
+
+The gate is read-only. It must never silently repair a candidate branch in CI. If a check fails, the maintainer diagnoses the first causal discrepancy, applies the canonical generator locally or through an explicitly validated candidate workflow, inspects the complete resulting diff, and reruns all three checks on the same resulting tree. Manual counter copying, hand-edited generated blocks and weakened validators are prohibited.
+
+The gate complements rather than replaces:
+- the full Python and Windows quality matrix;
+- importer-specific focused tests and idempotency checks;
+- independent source-to-master fidelity review;
+- the complete PR diff, exact-head, freshness, conflict and technical-review requirements.
+
+For each package, the PR validation record must state the result of all three subchecks separately. A single green umbrella status does not justify describing an unobserved subcheck or source-fidelity review as passed.
+
+The gate is intentionally wired into an existing required status context. It does not add or rename branch-protection contexts and therefore preserves the repository's six-check single-maintainer merge policy.
