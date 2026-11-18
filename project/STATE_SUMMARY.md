@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-18
+- State updated: 2026-11-19
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 2026-02-06 Price and Commercial Matrix Import** — `complete`
+**Sandero / Sandero Stepway Eco-G 120 Fuel-Specific Capacity Cennik Import** — `complete`
 
-Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commercial mappings from the archived seven-page Dacia-branded PGD-hosted source. Preserve the catalogue-price versus 'Cena promocyjna' wording ambiguity and the page-2/page-5 technical conflict; no unsupported applicability or technical values were inferred.
+Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations.
 
 ## Next package
 
-**Sandero / Sandero Stepway Eco-G 120 Fuel-Specific Capacity Cennik Import** — `active`
+**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `planned`
 
-Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations.
+Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains.
 
 ## Autonomy
 
