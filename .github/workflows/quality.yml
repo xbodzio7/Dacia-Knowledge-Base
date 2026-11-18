@@ -33,10 +33,26 @@ jobs:
           - "3.14"
 
     steps:
-      - name: Check out repository
+      - name: Check out exact pull-request head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
           persist-credentials: false
+
+      - name: Reject pull requests behind the current base branch
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+        run: |
+          git fetch --no-tags origin "refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}"
+          base_sha="$(git rev-parse "refs/remotes/origin/${BASE_BRANCH}")"
+          head_sha="$(git rev-parse HEAD)"
+          if ! git merge-base --is-ancestor "${base_sha}" "${head_sha}"; then
+            echo "PR head ${head_sha} does not contain current base ${base_sha}. Update the branch and rerun validation." >&2
+            exit 1
+          fi
+          echo "Validated exact PR head ${head_sha} contains current base ${base_sha}."
 
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
@@ -45,6 +61,14 @@ jobs:
 
       - name: Show Python version
         run: python --version
+
+      - name: Install pinned Ruff static-analysis tool
+        if: matrix.python-version == '3.14'
+        run: python -m pip install --disable-pip-version-check ruff==0.14.10
+
+      - name: Reject undefined names before running the test suite
+        if: matrix.python-version == '3.14'
+        run: python -m ruff check --select F821 tools scripts tests
 
       - name: Check Bigster brochure TPMS import contract
         run: python tools/import_bigster_brochure_tpms_availability.py --check
