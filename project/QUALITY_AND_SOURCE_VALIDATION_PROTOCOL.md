@@ -948,3 +948,25 @@ The report freshness validator is a separate follow-up implementation and must b
 ### 22.1 Automated report freshness gate
 
 The required Quality workflow runs `python tools/dkb.py report-freshness` immediately after package preflight. The registry at `data/reporting/report_registry.json` is the explicit inventory of governed analytical reports. New entries are strict by default; legacy compatibility requires an explicit `legacy: true` marker and may never claim current status. Each strict report is checked for required provenance, safe repository-relative paths, exact Git blob SHA-1 and content SHA-256 of every input, stable finding IDs/states/evidence/date, and Markdown companion parity. Contract tests cover valid reports, changed inputs, missing metadata, companion drift and legacy compatibility. Do not add a report to the registry as legacy merely to bypass a failed check; investigate and correct its provenance or explicitly retain it as historical under the standard.
+
+## 23. Canonical source metadata and importer preflight
+
+The structured source identity in `data/master/sources.csv` is canonical. Import specifications may repeat source identity fields to make a package independently reviewable, but importers must compare the structured identity fields and must not require byte-for-byte equality of the free-form `notes` field.
+
+Use `tools/source_registry_contract.py` for source-registry identity comparisons. The helper checks the source ID, code, type, title, publisher, market, document date, external reference, archive path, SHA-256 and status. It deliberately excludes `notes`, which is explanatory editorial provenance and may be improved without changing source identity. A mismatch in any structured field remains a hard error. If a source row does not yet exist, the import may create it from the reviewed specification; once registered, the registry row remains authoritative.
+
+Every change to an importer or import-spec contract must include:
+- a positive regression test proving that editorial wording changes do not fail source identity validation;
+- negative regression tests proving that changed SHA-256, archive path, date, market or other structured identity does fail;
+- validation of every applicable import specification, not only the newly added one;
+- exact source-file SHA-256 verification before applying or accepting imported values.
+
+The normal Quality workflow runs the complete unit-test suite on Python 3.10 and 3.13 and the full quality gate on Python 3.14. A green result applies only to the exact commit SHA tested. Do not describe a write or a local code review as a passing test run.
+
+## 24. Stable, scope-based regression tests
+
+Tests for a package must assert the facts owned by that package: exact source IDs, configuration scopes, observation keys, source-page breakdowns and expected values. Do not use a mutable whole-source or whole-repository row count as the only contract when later independent packages may legitimately append observations to the same source.
+
+When a later package adds valid observations under an existing source, earlier package tests must continue to verify their original bounded subset and must separately verify the new package's observations. A total may be asserted only when its scope is explicit and includes all contributing packages. Before changing an expected value after a failure, identify the newly added or changed records and prove that the difference is intended.
+
+CI failures must be classified from the failing assertion and exact HEAD diff. A failure caused by a stale global count must be fixed by narrowing the assertion to the package's ownership boundary, not by deleting the new data or blindly increasing a number.
