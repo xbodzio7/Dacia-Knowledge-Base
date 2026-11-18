@@ -176,3 +176,11 @@ Dokument opisuje wyłącznie sposób przechowywania danych.
 
 Nie opisuje modelu logicznego ani procesu importu danych.
 
+## Fuel-tank capacity semantics
+
+The canonical attribute catalogue distinguishes:
+
+- `fuel_tank_capacity_total`: total physical tank capacity explicitly stated by the source;
+- `fuel_tank_capacity_usable`: usable fuel volume explicitly stated by the source.
+
+Both are decimal litres. The legacy `fuel_tank_capacity` attribute remains available for historical compatibility but must not be used for new observations when the source distinguishes total and usable capacity. A source statement that does not establish which meaning applies must remain unclassified. For bi-fuel configurations, use the existing `fuel_type_code` observation context when the source identifies petrol- and LPG-specific values. See D-019 in `DECISIONS.md`.
