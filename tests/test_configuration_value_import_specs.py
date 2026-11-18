@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import json
 import re
 import sys
 import unittest
@@ -13,6 +15,10 @@ MASTER = ROOT / "data" / "master"
 
 sys.path.insert(0, str(TOOLS))
 import import_configuration_values as importer  # noqa: E402
+from source_registry_contract import (  # noqa: E402
+    source_registry_identity_differences,
+    source_registry_identity_matches,
+)
 
 
 def csv_rows(name: str) -> list[dict[str, str]]:
@@ -126,6 +132,40 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                     spec,
                     verify_text=False,
                 )
+
+        sources = {
+            row["code"]: row
+            for row in csv_rows("sources.csv")
+        }
+        source_specs = sorted(
+            (ROOT / "project" / "sources").glob("*_import_spec.json")
+        )
+        checked = 0
+        for path in source_specs:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            source = payload.get("source")
+            if not isinstance(source, dict):
+                continue
+            code = str(source.get("code", ""))
+            with self.subTest(source_spec=path.name, source=code):
+                self.assertIn(code, sources)
+                registered = sources[code]
+                self.assertTrue(source_registry_identity_matches(source, registered))
+                changed_notes = {**source, "notes": "Editorial wording changed."}
+                self.assertTrue(source_registry_identity_matches(changed_notes, registered))
+                changed_digest = {**source, "sha256": "0" * 64}
+                self.assertEqual(
+                    set(source_registry_identity_differences(changed_digest, registered)),
+                    {"sha256"},
+                )
+                archive = ROOT / registered["file_path"]
+                self.assertTrue(archive.is_file())
+                self.assertEqual(
+                    hashlib.sha256(archive.read_bytes()).hexdigest(),
+                    registered["sha256"],
+                )
+                checked += 1
+        self.assertGreater(checked, 0)
 
     def test_one_off_value_test_is_replaced_by_shared_contract(self) -> None:
         self.assertFalse(
