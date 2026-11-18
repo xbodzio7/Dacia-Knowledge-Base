@@ -10,6 +10,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from source_registry_contract import source_registry_identity_differences
+
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "data" / "master"
 SPEC_PATH = ROOT / "project" / "sources" / "sandero_stepway_price_my26_20261102_import_spec.json"
@@ -65,6 +67,13 @@ def reconcile_table(
         actual = by_key.get(key)
         if actual is None:
             missing.append({field: str(expected.get(field, "")) for field in fieldnames})
+        elif table_name == "source":
+            differences = source_registry_identity_differences(expected, actual)
+            if differences:
+                raise ContractError(
+                    f"{filename}: structured source identity differs for key {key}: "
+                    f"{differences}"
+                )
         elif actual != {field: str(expected.get(field, "")) for field in fieldnames}:
             raise ContractError(f"{filename}: conflicting row for key {key}")
 
