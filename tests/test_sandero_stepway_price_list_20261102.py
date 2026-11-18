@@ -5,10 +5,13 @@ import json
 import subprocess
 import sys
 import unittest
+from unittest import mock
 from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+import import_sandero_stepway_price_list_20261102 as sandero_importer  # noqa: E402
 SPEC_PATH = ROOT / "project" / "sources" / "sandero_stepway_price_my26_20261102_import_spec.json"
 SCRIPT_PATH = ROOT / "tools" / "import_sandero_stepway_price_list_20261102.py"
 MASTER = ROOT / "data" / "master"
@@ -245,6 +248,13 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(spec["expected"]["configurations"], 19)
         self.assertEqual(spec["expected"]["catalogue_price_changes"], 15)
         self.assertEqual(spec["expected"]["commercial_mappings"], 209)
+
+        revised_notes = {**source, "notes": "Revised editorial description; identity fields unchanged."}
+        with mock.patch.object(sandero_importer, "read_csv", return_value=(list(source), [source])):
+            self.assertEqual(sandero_importer.reconcile_table("source", [revised_notes], apply=False), 0)
+            changed_digest = {**revised_notes, "sha256": "0" * 64}
+            with self.assertRaisesRegex(sandero_importer.ContractError, "structured source identity"):
+                sandero_importer.reconcile_table("source", [changed_digest], apply=False)
 
 
 if __name__ == "__main__":
