@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import hashlib
 import unittest
 from collections import Counter
@@ -70,6 +71,22 @@ class BigsterPriceList20261001EquipmentAvailabilityTests(unittest.TestCase):
             self.assertEqual(actual["observation_date"], "2026-10-01", code)
             self.assertEqual(actual["source_code"], SOURCE_CODE, code)
             self.assertEqual(actual["notes"], expected_notes, code)
+
+
+    def test_hill_descent_control_qualifier_remains_explicitly_unresolved(self) -> None:
+        report = json.loads((ROOT / "data" / "reporting" / "bigster_20261001_price_list_page_inventory_review_20261015.json").read_text(encoding="utf-8"))
+        audit = report["cross_checks"]["page4_5_matrix_reconciliation_20261119"]
+        finding = audit["unresolved_findings"]["hill_descent_control"]
+        self.assertEqual(audit["status"], "reviewed_with_one_source_qualification_conflict")
+        self.assertEqual(audit["scope"]["attributes"], 94)
+        self.assertEqual(audit["scope"]["master_observations"], 564)
+        self.assertEqual(audit["outcome"]["attribute_groups_consistent_with_matrix"], 93)
+        self.assertEqual(finding["matrix_by_grade"], {"essential": "not_available", "expression": "standard", "extreme": "standard", "journey": "standard"})
+        self.assertIn("Extreme oraz 4x4", finding["qualifier"])
+        self.assertIn("Do sprawdzenia", finding["disposition"])
+        self.assertEqual(list(finding["existing_statuses_by_configuration"].values()), ["not_available", "not_available", "not_available", "not_available", "standard", "not_available"])
+        self.assertEqual(audit["outcome"]["master_rows_updated"], 0)
+        self.assertEqual(audit["outcome"]["availability_statuses_changed"], 0)
 
 
 if __name__ == "__main__":

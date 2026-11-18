@@ -1,9 +1,9 @@
 {
   "version": 1,
   "kind": "bigster_20261001_price_list_page_inventory_review",
-  "reviewed_on": "2026-10-17",
+  "reviewed_on": "2026-11-19",
   "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
-  "status": "partial_review_text_extracted_all_pages",
+  "status": "partial_review_with_page4_5_matrix_reconciled_and_hdc_qualifier_open",
   "source": {
     "source_code": "src_pl_bigster_price_my26_20261001",
     "document_date": "2026-10-01",
@@ -56,9 +56,9 @@
         "active and passive safety",
         "visibility"
       ],
-      "status": "visual_layout_reviewed_value_comparison_pending",
+      "status": "row_by_row_reviewed_with_one_unresolved_applicability_qualifier",
       "notes": [
-        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. The matrix column order and symbol/package legend are legible. Row-by-row comparison against 564 existing equipment observations remains pending."
+        "Independent row-by-row comparison completed on 2026-11-19 for all 564 existing equipment observations across 94 attributes and six exact configurations. 93 attribute groups are consistent with the printed matrix; hill_descent_control remains unresolved because the grade-level symbols and drivetrain/grade qualifier do not form an unambiguous six-configuration truth table. No master status was changed."
       ]
     },
     {
@@ -68,9 +68,9 @@
         "comfort",
         "remaining equipment matrix"
       ],
-      "status": "visual_layout_reviewed_value_comparison_pending",
+      "status": "row_by_row_reviewed_with_one_unresolved_applicability_qualifier",
       "notes": [
-        "Rendered page visually inspected from the uploaded PDF matching the registered source SHA-256. Package codes and trim markers are legible. Row-by-row comparison against 564 existing equipment observations remains pending."
+        "Independent row-by-row comparison completed on 2026-11-19 for all 564 existing equipment observations across 94 attributes and six exact configurations. 93 attribute groups are consistent with the printed matrix; hill_descent_control remains unresolved because the grade-level symbols and drivetrain/grade qualifier do not form an unambiguous six-configuration truth table. No master status was changed."
       ]
     },
     {
@@ -634,6 +634,84 @@
       "availability_statuses_or_dates_changed": false,
       "master_row_count_changed": false,
       "boundary": "This synchronization aligns existing master notes with the corrected canonical import specification. It does not close the full row-by-row PDF matrix value comparison; page-6 technical observations and page-7 paired dimensions remain separate unresolved scopes."
+    },
+    "page4_5_matrix_reconciliation_20261119": {
+      "status": "reviewed_with_one_source_qualification_conflict",
+      "source_code": "src_pl_bigster_price_my26_20261001",
+      "archived_source": {
+        "path": "owner_supplied/2026-10-01/d477c604e8.pdf",
+        "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+        "effective_date": "2026-10-01",
+        "pages_reviewed": [
+          4,
+          5
+        ]
+      },
+      "independent_official_reference": {
+        "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/8a55d1951b.pdf",
+        "printed_effective_date": "2026-10-01",
+        "content_reviewed": "Official Dacia PDF text and rendered matrix pages 4-5",
+        "archived_binary_sha256_match": "not_verified",
+        "note": "The official CDN URL registered for the archived source (d477c604e8.pdf) currently serves a PDF whose printed effective date is 2026-11-02. A separate official Dacia CDN URL (8a55d1951b.pdf) currently serves a PDF marked effective 2026-10-01. Do not replace the registered external_reference until the candidate PDF bytes are verified against the archived SHA-256."
+      },
+      "scope": {
+        "configurations": [
+          "bigster_expression_mildhybridg140_4x2_automatic",
+          "bigster_extreme_mildhybridg140_4x2_automatic",
+          "bigster_journey_mildhybridg140_4x2_automatic",
+          "bigster_expression_tribrid150_4x4_automatic",
+          "bigster_extreme_tribrid150_4x4_automatic",
+          "bigster_journey_tribrid150_4x4_automatic"
+        ],
+        "attributes": 94,
+        "master_observations": 564,
+        "import_spec_rows": 564,
+        "duplicate_configuration_attribute_keys": 0
+      },
+      "outcome": {
+        "attribute_groups_consistent_with_matrix": 93,
+        "unresolved_attribute_groups": [
+          "hill_descent_control"
+        ],
+        "master_rows_added": 0,
+        "master_rows_updated": 0,
+        "availability_statuses_changed": 0,
+        "import_spec_rows_changed": 0
+      },
+      "unresolved_findings": {
+        "hill_descent_control": {
+          "source_page": 4,
+          "source_label": "HDC - system kontroli zjazdu ze wzniesienia (wyłącznie dla wersji Extreme oraz 4x4)",
+          "matrix_by_grade": {
+            "essential": "not_available",
+            "expression": "standard",
+            "extreme": "standard",
+            "journey": "standard"
+          },
+          "qualifier": "wyłącznie dla wersji Extreme oraz 4x4",
+          "existing_statuses_by_configuration": {
+            "bigster_expression_mildhybridg140_4x2_automatic": "not_available",
+            "bigster_extreme_mildhybridg140_4x2_automatic": "not_available",
+            "bigster_journey_mildhybridg140_4x2_automatic": "not_available",
+            "bigster_expression_tribrid150_4x4_automatic": "not_available",
+            "bigster_extreme_tribrid150_4x4_automatic": "standard",
+            "bigster_journey_tribrid150_4x4_automatic": "not_available"
+          },
+          "issue": "The printed matrix is grade-level and marks Expression, Extreme and Journey as standard, while the row qualifier restricts applicability to Extreme and 4x4. The source does not explicitly state whether the condition means the Extreme 4x4 combination only or a union of Extreme grade and 4x4 drivetrain. The six imported statuses currently implement the strict Extreme AND 4x4 interpretation; do not change them until the source's intended Boolean applicability is confirmed.",
+          "disposition": "Do sprawdzenia; preserve current master values and the exact source qualifier. No inference or cross-configuration propagation."
+        }
+      },
+      "commercial_cross_check": {
+        "source_mappings": 86,
+        "distinct_commercial_items": 11,
+        "spare_wheel": {
+          "mappings": 13,
+          "optional_hybrid155_mappings": 3,
+          "unknown_mappings": 10,
+          "disposition": "Preserve unknown for configurations not explicitly covered by the printed 2026-10-01 powertrain qualifier. The source row says mild hybrid 140 4x2 and hybrid 155; do not silently reinterpret this as mild hybrid-G 140 or tribrid 150 4x4."
+        }
+      },
+      "conclusion": "Pages 4-5 are reconciled for 93 of 94 attribute groups. The HDC source qualifier is retained as an explicit unresolved applicability conflict. The 564 master observations, their IDs, dates and statuses remain unchanged. Existing 86 commercial mappings were checked; no additional mapping is justified from the reviewed evidence. The archived PDF remains the source of truth; the mutable CDN URL is not updated until a candidate binary passes SHA-256 identity verification."
     }
   },
   "decisions": {

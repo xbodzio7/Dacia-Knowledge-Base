@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1995
+- Tests: 1996
 - Master CSV files: 48
 - Master rows: 22809
 - Configuration values: 8510
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero / Sandero Stepway Eco-G 120 Fuel-Specific Capacity Cennik Import** — `complete`
+**Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization** — `complete`
 
-Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations.
+Synchronize 26 stale master evidence notes for the 564 existing page-4/5 equipment-availability observations with the corrected canonical import specification. Preserve all 564 observations, statuses, dates, source codes, IDs and master row counts; do not re-import.
 
 ## Next package
 
-**Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization** — `active`
+**Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation** — `active`
 
-Synchronize the 26 outdated master evidence notes for the 564 already imported page-4/5 equipment-availability observations against the corrected canonical import specification. Preserve all 564 availability statuses, observation dates, source codes, IDs and master row counts; do not re-import. Keep the full row-by-row PDF matrix review and page-6 technical/page-7 dimension reconciliation as separate unresolved scopes.
+Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the "Extreme oraz 4x4" qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.
 
 ## Autonomy
 
