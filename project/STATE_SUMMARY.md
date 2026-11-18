@@ -23,15 +23,15 @@
 
 ## Verified baseline
 
-- Tests: 1990
+- Tests: 1993
 - Master CSV files: 48
-- Master rows: 22793
-- Configuration values: 8492
-- Configuration import specifications: 189
+- Master rows: 22811
+- Configuration values: 8510
+- Configuration import specifications: 190
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
 - Availability records: 10399
-- Canonical attributes: 419
+- Canonical attributes: 417
 - Attribute categories: 30
 
 ## Current package
@@ -42,9 +42,9 @@ Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commerc
 
 ## Next package
 
-**Fuel Tank Total vs Usable Capacity Semantics** — `active`
+**Sandero / Sandero Stepway Eco-G 120 Fuel-Specific Capacity Cennik Import** — `active`
 
-Add separate source-defined attributes for total and usable fuel-tank capacity, retain the legacy attribute unchanged, document D-019 and validate the canonical contracts. Do not import any capacity values in this schema-foundation package.
+Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations.
 
 ## Autonomy
 
