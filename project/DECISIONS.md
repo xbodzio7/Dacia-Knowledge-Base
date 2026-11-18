@@ -1381,3 +1381,36 @@ A written standard alone does not prevent a stale report from being merged. A de
 - The required Quality workflow runs the same command after package preflight.
 - New reports must be registered; legacy exceptions must be explicit and cannot be current.
 - The validator checks byte-level input identity but does not replace human/source review of scope or interpretation.
+
+## D-019 — Distinct total and usable fuel-tank capacities
+
+Status: Accepted
+
+Date: 2026-11-18
+
+### Decision
+
+Fuel-tank capacity is represented by two separate canonical attributes:
+
+- `fuel_tank_capacity_total` — total physical capacity explicitly stated by a source;
+- `fuel_tank_capacity_usable` — usable fuel volume explicitly stated by a source.
+
+Both attributes use the `Capacities` category, decimal values and litres (`L`). The existing `fuel_tank_capacity` attribute is retained unchanged for backward compatibility; new observations that distinguish total from usable volume must use the corresponding new attribute instead.
+
+Where a configuration uses more than one fuel, the existing optional `fuel_type_code` observation context is used to distinguish petrol and LPG values. Fuel context must be populated only when the source associates a value with a particular fuel.
+
+A value stated only as a tank capacity must not be classified as total or usable unless the source wording or an authoritative definition establishes that meaning. Total capacity must never be converted into usable capacity by calculation, assumed reserve, or model-family similarity. A value for one Dacia model or powertrain must not be copied to another without explicit source applicability.
+
+### Rationale
+
+The current generic `fuel_tank_capacity` definition cannot distinguish a physical tank's total volume from the amount of fuel available for use. Bi-fuel vehicles may also report separate petrol and LPG tank values. Treating these as one undifferentiated measurement risks false cross-model comparisons.
+
+The two additive attributes reuse the existing dated, source-linked configuration observation relation and the existing fuel-context field. No new table or observation columns are required.
+
+### Consequences
+
+- Existing records and the legacy attribute remain unchanged.
+- New imports use the total or usable attribute only when that semantic distinction is supported by the exact source.
+- Petrol and LPG observations remain separate through `fuel_type_code` when applicable.
+- Unclassified tank-capacity statements remain deferred; no value is guessed or migrated automatically.
+- Source-data imports are separate from this schema-foundation package and must verify exact configuration applicability and page-level evidence.
