@@ -261,7 +261,8 @@ Nowe atrybuty dodawane są wyłącznie po analizie źródeł i zaakceptowaniu ic
 
 | Code | Name | Type | Unit | Description |
 | ---- | ---- | ---- | ---- | ----------- |
-| `fuel_tank_capacity_total` | Fuel tank capacity (total) | decimal | L | Total physical fuel-tank capacity explicitly stated by the source; not assumed to be usable capacity. |
-| `fuel_tank_capacity_usable` | Fuel tank capacity (usable) | decimal | L | Usable fuel volume explicitly stated by the source; not inferred from total capacity. |
+| `fuel_tank_capacity` | Fuel tank capacity | decimal | L | Fuel tank capacity where the source supplies one undivided value. |
+| `lpg_vessel_capacity_total` | Total LPG vessel capacity | decimal | L | Total internal capacity of the LPG pressure vessel. |
+| `lpg_vessel_filling_capacity` | LPG vessel filling capacity | decimal | L | Source-stated LPG volume available or permitted for filling, distinct from total vessel capacity. |
 
-The legacy `fuel_tank_capacity` attribute is retained unchanged. New source observations must use the semantically precise attribute when the source establishes the distinction. See `DECISIONS.md` D-032.
+For bi-fuel configurations, use `fuel_type_code` where the source explicitly distinguishes fuels. The LPG total and filling attributes must be populated separately only when the source provides both meanings. No generic duplicate total/usable attributes are added. See `DECISIONS.md` D-032.
