@@ -46,6 +46,14 @@ jobs:
       - name: Show Python version
         run: python --version
 
+      - name: Install pinned Ruff static-analysis tool
+        if: matrix.python-version == '3.14'
+        run: python -m pip install --disable-pip-version-check ruff==0.14.10
+
+      - name: Reject undefined names before running the test suite
+        if: matrix.python-version == '3.14'
+        run: python -m ruff check --select F821 tools scripts tests
+
       - name: Check Bigster brochure TPMS import contract
         run: python tools/import_bigster_brochure_tpms_availability.py --check
 
