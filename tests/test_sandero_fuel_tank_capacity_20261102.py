@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -39,6 +40,23 @@ class SanderoEcoGFuelTankCapacity20261102Tests(unittest.TestCase):
             len({row.configuration_code for row in spec.rows}),
             9,
         )
+
+    def test_completeness_specs_cover_both_fuel_contexts(self) -> None:
+        paths = (
+            ROOT / "data" / "reporting" / "configuration_completeness.json",
+            ROOT / "data" / "reporting" / "sandero_ecog120_manual_completeness.json",
+            ROOT / "data" / "reporting" / "sandero_ecog120_automatic_completeness.json",
+            ROOT / "data" / "reporting" / "sandero_stepway_ecog120_automatic_completeness.json",
+        )
+        for path in paths:
+            with self.subTest(spec=path.name):
+                payload = json.loads(path.read_text(encoding="utf-8"))
+                contexts = {
+                    row["fuel_type_code"]
+                    for row in payload["technical_slots"]
+                    if row["attribute_code"] == "fuel_tank_capacity"
+                }
+                self.assertEqual(contexts, {"", "lpg", "petrol"})
 
     def test_import_preserves_older_undifferentiated_observations(self) -> None:
         with (MASTER / "configuration_attribute_values.csv").open(
