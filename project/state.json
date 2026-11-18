@@ -27,18 +27,20 @@
     "attribute_categories": 30
   },
   "current_package": {
+    "package_id": "spring_my26_price_and_commercial_matrix_import_20261115_001",
+    "kind": "source_price_and_commercial_matrix_import",
+    "name": "Spring MY26 2026-02-06 Price and Commercial Matrix Import",
+    "status": "complete",
+    "pull_request": 832,
+    "merge_commit_sha": "d48a22262d5127108bd139474a8905011a849343",
+    "goal": "Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commercial mappings from the archived seven-page Dacia-branded PGD-hosted source. Preserve the catalogue-price versus 'Cena promocyjna' wording ambiguity and the page-2/page-5 technical conflict; no unsupported applicability or technical values were inferred."
+  },
+  "next_package": {
     "package_id": "fuel_tank_capacity_semantics_foundation_20261118_001",
     "kind": "data_model_extension",
     "name": "Fuel Tank Total vs Usable Capacity Semantics",
     "status": "active",
     "goal": "Add separate source-defined attributes for total and usable fuel-tank capacity, retain the legacy attribute unchanged, document D-019 and validate the canonical contracts. Do not import any capacity values in this schema-foundation package."
-  },
-  "next_package": {
-    "package_id": "fuel_tank_capacity_cennik_observation_import_20261118_001",
-    "kind": "source_configuration_value_import",
-    "name": "Cennik-backed Sandero and Jogger Fuel Tank Capacity Observations",
-    "status": "planned",
-    "goal": "Review the exact archived Sandero/Sandero Stepway and Jogger Polish price-list pages and import only fuel-tank capacity observations whose total/usable meaning, fuel context and exact configuration applicability are explicitly supported. Do not infer capacity semantics or transfer values between models."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
