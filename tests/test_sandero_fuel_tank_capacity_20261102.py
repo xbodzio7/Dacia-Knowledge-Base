@@ -71,12 +71,33 @@ class SanderoEcoGFuelTankCapacity20261102Tests(unittest.TestCase):
                         encoding="utf-8"
                     )
                 )
-                contexts = {
-                    row["fuel_type_code"]
+                capacity_slots = [
+                    row
                     for row in completeness["technical_slots"]
                     if row["attribute_code"] == "fuel_tank_capacity"
+                ]
+                historical_contexts = {
+                    row["fuel_type_code"]
+                    for row in capacity_slots
+                    if not row.get("effective_from")
+                    or row["effective_from"] <= evidence["as_of"]
                 }
-                self.assertEqual(contexts, {""})
+                self.assertEqual(historical_contexts, {""})
+                dated_contexts = {
+                    (row["fuel_type_code"], row["effective_from"])
+                    for row in capacity_slots
+                    if row.get("effective_from")
+                }
+                if completeness_name == "configuration_completeness.json":
+                    self.assertEqual(
+                        dated_contexts,
+                        {
+                            ("lpg", spec.observation_date),
+                            ("petrol", spec.observation_date),
+                        },
+                    )
+                else:
+                    self.assertEqual(dated_contexts, set())
                 self.assertLess(evidence["as_of"], spec.observation_date)
 
     def test_import_preserves_older_undifferentiated_observations(self) -> None:
