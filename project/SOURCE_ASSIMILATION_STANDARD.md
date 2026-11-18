@@ -180,6 +180,6 @@ Positive regression cases must show that equivalent evidence with different expl
 
 ## Source-registry metadata comparison
 
-`data/master/sources.csv` is canonical for structured source identity. Import specifications may repeat those fields for reviewability, but importer comparisons must use the shared `tools/source_registry_contract.py` helper and exclude only the free-form `notes` field. Notes are explanatory provenance, not source identity; wording or punctuation edits must not block a valid import. SHA-256, archive path, document date, market, source code and all other structured identity fields remain strict and fail closed.
+The data/master/sources.csv registry is canonical for structured source identity. Import specifications may repeat those fields for reviewability, but importer comparisons must use tools/source_registry_contract.py and exclude only the free-form notes field. Notes are explanatory provenance, not source identity; wording or punctuation edits must not block a valid import. SHA-256, archive path, document date, market, source code and all other structured identity fields remain strict and fail closed.
 
-Add both positive tests (editorial notes differ, structured identity still matches) and negative tests (a changed digest or other identity field is rejected).
+Add positive tests (editorial notes differ, structured identity still matches) and negative tests (a changed digest or other identity field is rejected).

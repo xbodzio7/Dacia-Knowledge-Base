@@ -61,11 +61,26 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
             row for row in read_rows("configuration_attribute_values.csv")
             if row["source_code"] == source_code
         ]
-        self.assertEqual(len(technical), 93)
-        page3 = [row for row in technical if "PDF page 3" in row["notes"]]
-        page4 = [row for row in technical if "page 4" in row["notes"]]
-        page5 = [row for row in technical if "page 5" in row["notes"]]
+        # Keep the historical cennik package contract scoped to its original
+        # 93 observations; later, separately tested imports may legitimately
+        # add observations for the same source without invalidating this test.
+        legacy_technical = [
+            row for row in technical
+            if row["attribute_code"] != "fuel_tank_capacity"
+        ]
+        self.assertEqual(len(technical), 111)
+        self.assertEqual(len(legacy_technical), 93)
+        page3 = [row for row in legacy_technical if "PDF page 3" in row["notes"]]
+        page4 = [row for row in legacy_technical if "page 4" in row["notes"]]
+        page5 = [row for row in legacy_technical if "page 5" in row["notes"]]
         self.assertEqual((len(page3), len(page4), len(page5)), (24, 42, 27))
+        capacity_rows = [
+            row for row in technical
+            if row["attribute_code"] == "fuel_tank_capacity"
+        ]
+        self.assertEqual(len(capacity_rows), 18)
+        self.assertEqual(Counter(row["fuel_type_code"] for row in capacity_rows), Counter({"petrol": 9, "lpg": 9}))
+        self.assertTrue(all("page 5" in row["notes"] for row in capacity_rows))
         self.assertEqual(
             Counter(row["attribute_code"] for row in page3),
             Counter({
@@ -235,32 +250,11 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(spec["expected"]["commercial_mappings"], 209)
 
         revised_notes = {**source, "notes": "Revised editorial description; identity fields unchanged."}
-
-        # Editorial notes may be revised without changing the registered source
-        # identity; a structured digest change must still fail closed.
-        with mock.patch.object(
-            sandero_importer,
-            "read_csv",
-            return_value=(list(source), [source]),
-        ):
-            self.assertEqual(
-                sandero_importer.reconcile_table(
-                    "source",
-                    [revised_notes],
-                    apply=False,
-                ),
-                0,
-            )
+        with mock.patch.object(sandero_importer, "read_csv", return_value=(list(source), [source])):
+            self.assertEqual(sandero_importer.reconcile_table("source", [revised_notes], apply=False), 0)
             changed_digest = {**revised_notes, "sha256": "0" * 64}
-            with self.assertRaisesRegex(
-                sandero_importer.ContractError,
-                "structured source identity",
-            ):
-                sandero_importer.reconcile_table(
-                    "source",
-                    [changed_digest],
-                    apply=False,
-                )
+            with self.assertRaisesRegex(sandero_importer.ContractError, "structured source identity"):
+                sandero_importer.reconcile_table("source", [changed_digest], apply=False)
 
 
 if __name__ == "__main__":

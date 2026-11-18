@@ -50,6 +50,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 "sandero-acceleration-0-100-lpg-20260626.json",
                 "sandero-acceleration-0-100-petrol-20260626.json",
                 "sandero-brochure-elasticity-80-120-20260202.json",
+                "sandero-ecog120-fuel-tank-capacity-20261102.json",
                 "sandero-engine-power-lpg-20260626.json",
                 "sandero-engine-power-petrol-20260626.json",
                 "sandero-engine-torque-lpg-20260626.json",
@@ -133,13 +134,8 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                     verify_text=False,
                 )
 
-        sources = {
-            row["code"]: row
-            for row in csv_rows("sources.csv")
-        }
-        source_specs = sorted(
-            (ROOT / "project" / "sources").glob("*_import_spec.json")
-        )
+        sources = {row["code"]: row for row in csv_rows("sources.csv")}
+        source_specs = sorted((ROOT / "project" / "sources").glob("*_import_spec.json"))
         checked = 0
         for path in source_specs:
             payload = json.loads(path.read_text(encoding="utf-8"))
@@ -154,16 +150,10 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 changed_notes = {**source, "notes": "Editorial wording changed."}
                 self.assertTrue(source_registry_identity_matches(changed_notes, registered))
                 changed_digest = {**source, "sha256": "0" * 64}
-                self.assertEqual(
-                    set(source_registry_identity_differences(changed_digest, registered)),
-                    {"sha256"},
-                )
+                self.assertEqual(set(source_registry_identity_differences(changed_digest, registered)), {"sha256"})
                 archive = ROOT / registered["file_path"]
                 self.assertTrue(archive.is_file())
-                self.assertEqual(
-                    hashlib.sha256(archive.read_bytes()).hexdigest(),
-                    registered["sha256"],
-                )
+                self.assertEqual(hashlib.sha256(archive.read_bytes()).hexdigest(), registered["sha256"])
                 checked += 1
         self.assertGreater(checked, 0)
 

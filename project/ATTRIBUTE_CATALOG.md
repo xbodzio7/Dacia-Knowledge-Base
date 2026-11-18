@@ -257,5 +257,12 @@ Dokument jest rozwijany iteracyjnie.
 
 Nowe atrybuty dodawane są wyłącznie po analizie źródeł i zaakceptowaniu ich miejsca w taksonomii DKB.
 
+## Fuel-tank capacity semantics (D-032)
 
+| Code | Name | Type | Unit | Description |
+| ---- | ---- | ---- | ---- | ----------- |
+| `fuel_tank_capacity` | Fuel tank capacity | decimal | L | Fuel tank capacity where the source supplies one undivided value. |
+| `lpg_vessel_capacity_total` | Total LPG vessel capacity | decimal | L | Total internal capacity of the LPG pressure vessel. |
+| `lpg_vessel_filling_capacity` | LPG vessel filling capacity | decimal | L | Source-stated LPG volume available or permitted for filling, distinct from total vessel capacity. |
 
+For bi-fuel configurations, use `fuel_type_code` where the source explicitly distinguishes fuels. The LPG total and filling attributes must be populated separately only when the source provides both meanings. No generic duplicate total/usable attributes are added. See `DECISIONS.md` D-032.

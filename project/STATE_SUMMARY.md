@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-16
+- State updated: 2026-11-18
 
 ## Phase
 
@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1988
+- Tests: 1994
 - Master CSV files: 48
-- Master rows: 22791
-- Configuration values: 8492
-- Configuration import specifications: 189
+- Master rows: 22809
+- Configuration values: 8510
+- Configuration import specifications: 190
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
 - Availability records: 10399
@@ -42,9 +42,9 @@ Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commerc
 
 ## Next package
 
-**Dacia Poland MY26 Official Price-List Coverage Gap Assessment** — `planned`
+**Sandero / Sandero Stepway Eco-G 120 Fuel-Specific Capacity Cennik Import** — `active`
 
-Audit the latest registered Polish Dacia MY26 price lists for Spring, Sandero/Sandero Stepway, Duster, Jogger and Bigster against configuration_prices.csv, commercial_item_configurations.csv, source_configurations.csv and source_versions.csv. Identify exact source-backed price or commercial-matrix gaps and select the next smallest cennik-only import package. Exclude brochures and configurator-derived inference; preserve dated source boundaries and unresolved source conflicts.
+Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations.
 
 ## Autonomy
 

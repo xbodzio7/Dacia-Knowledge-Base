@@ -252,6 +252,31 @@ Documentation alone does not enforce branch protection. Report separately whethe
 
 If the active profile cannot execute the canonical generators or tests, do not fabricate their output, manually guess generated counters, or publish the candidate as validated. Use a verified CI workflow capable of running the checks on the candidate branch. If no such workflow is available, leave the PR blocked/unpublished and record the exact capability blocker.
 
+## 7.4 Static analysis and report-contract regression gates
+
+The required Quality workflow runs a pinned Ruff static-analysis pass on Python 3.14 before the full test suite:
+
+```bash
+python -m pip install --disable-pip-version-check ruff==0.14.10
+python -m ruff check --select F821 tools scripts tests
+```
+
+This gate rejects undefined names in production code, scripts and tests before runtime test execution. It is deliberately limited to the undefined-name rule in this first rollout so it catches defects such as a test referring to an uninitialised or misspelled variable without introducing unrelated style churn. The check is part of the required `Python 3.14` Quality job; a failure blocks that required status check. Do not suppress a finding unless the code genuinely requires the exception and the suppression is narrowly documented.
+
+For every change to master-data semantics, configuration contexts, report completeness specifications or report-generation behavior, add or update a focused regression test that asserts the exact expected contract—not merely that the report command exits successfully. Where a field is context-dependent (for example, fuel-specific capacity), assert each required context separately and verify that the generated report exposes each expected slot. Preserve a generic slot only when it remains an intentional part of the contract. A successful report generation is not proof that the specification includes every required context.
+
+When a package changes a report specification or the data dimensions it describes, the PR validation notes must name the affected specification, the exact context/item combinations covered, and the regression test that protects them. If no executable contract exists for the affected specification, add one before publication or explicitly block the package pending an approved alternative.
+
+The full test-discovery run remains mandatory: static analysis complements compilation and runtime tests; it does not replace either. The same pinned static-analysis command must be rerun on the final candidate tree after any Python edit.
+
+### 7.4.1 Automatic exact-head and base-freshness gate
+
+The required `Quality` workflow checks out the exact Pull Request head SHA, not GitHub's synthetic merge ref, and fetches the current target branch before validation. It fails closed unless the current target-branch commit is an ancestor of the tested PR head. This prevents a green run on a stale branch from being mistaken for validation of a branch that has not incorporated the current base.
+
+The check runs automatically for every `pull_request` event in the Python quality matrix and does not require a maintainer prompt or manual opt-in. A failure means the branch must be updated from the current target branch; after that update, the complete required matrix must run again on the new exact head. The workflow's checkouts use full history so ancestry is evaluated from Git data, not from a shallow or synthetic merge checkout.
+
+This check closes the time-of-run freshness gap, but it does not eliminate a race where the target branch advances after CI finishes. Immediately before merge, the maintainer must still re-fetch the PR and target branch, verify mergeability and exact current head SHA, and rely on GitHub's required status checks/up-to-date branch policy to block a stale merge.
+
 ## 8. CI failure diagnosis protocol
 
 For every failed job:
@@ -951,22 +976,18 @@ The required Quality workflow runs `python tools/dkb.py report-freshness` immedi
 
 ## 23. Canonical source metadata and importer preflight
 
-The structured source identity in `data/master/sources.csv` is canonical. Import specifications may repeat source identity fields to make a package independently reviewable, but importers must compare the structured identity fields and must not require byte-for-byte equality of the free-form `notes` field.
+The structured source identity in data/master/sources.csv is canonical. Import specifications may repeat source identity fields to make a package independently reviewable, but importers must compare structured identity fields and must not require byte-for-byte equality of the free-form notes field.
 
-Use `tools/source_registry_contract.py` for source-registry identity comparisons. The helper checks the source ID, code, type, title, publisher, market, document date, external reference, archive path, SHA-256 and status. It deliberately excludes `notes`, which is explanatory editorial provenance and may be improved without changing source identity. A mismatch in any structured field remains a hard error. If a source row does not yet exist, the import may create it from the reviewed specification; once registered, the registry row remains authoritative.
+Use tools/source_registry_contract.py for source-registry identity comparisons. The helper checks source ID, code, type, title, publisher, market, document date, external reference, archive path, SHA-256 and status. It deliberately excludes notes, which is explanatory editorial provenance. A mismatch in any structured field remains a hard error. If a source row does not yet exist, the import may create it from the reviewed specification; once registered, the registry row remains authoritative.
 
-Every change to an importer or import-spec contract must include:
-- a positive regression test proving that editorial wording changes do not fail source identity validation;
-- negative regression tests proving that changed SHA-256, archive path, date, market or other structured identity does fail;
-- validation of every applicable import specification, not only the newly added one;
-- exact source-file SHA-256 verification before applying or accepting imported values.
+Every importer/import-spec contract change must include positive regression tests for editorial wording changes, negative tests for changed SHA-256/archive path/date/market/other identity fields, validation of every applicable import specification, and exact source-file SHA-256 verification.
 
-The normal Quality workflow runs the complete unit-test suite on Python 3.10 and 3.13 and the full quality gate on Python 3.14. A green result applies only to the exact commit SHA tested. Do not describe a write or a local code review as a passing test run.
+The normal Quality workflow runs the complete unit-test suite on Python 3.10 and 3.13 and the full quality gate on Python 3.14. A green result applies only to the exact commit SHA tested.
 
 ## 24. Stable, scope-based regression tests
 
-Tests for a package must assert the facts owned by that package: exact source IDs, configuration scopes, observation keys, source-page breakdowns and expected values. Do not use a mutable whole-source or whole-repository row count as the only contract when later independent packages may legitimately append observations to the same source.
+Tests must assert facts owned by the package: exact source IDs, configuration scopes, observation keys, source-page breakdowns and expected values. Do not use a mutable whole-source or whole-repository row count as the only contract when later packages may append observations to the same source.
 
-When a later package adds valid observations under an existing source, earlier package tests must continue to verify their original bounded subset and must separately verify the new package's observations. A total may be asserted only when its scope is explicit and includes all contributing packages. Before changing an expected value after a failure, identify the newly added or changed records and prove that the difference is intended.
+When a later package adds valid observations under an existing source, earlier tests must continue to verify their original bounded subset and separately verify the new package's observations. A total may be asserted only when its scope is explicit. Before changing an expected value after a failure, identify newly added or changed records and prove the difference is intended.
 
-CI failures must be classified from the failing assertion and exact HEAD diff. A failure caused by a stale global count must be fixed by narrowing the assertion to the package's ownership boundary, not by deleting the new data or blindly increasing a number.
+A failure caused by a stale global count must be fixed by narrowing the assertion to the package ownership boundary, not by deleting new data or blindly increasing a number.
