@@ -15,15 +15,15 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1990,
+    "tests": 1993,
     "csv_files": 48,
-    "rows": 22793,
-    "configuration_values": 8492,
-    "configuration_import_specs": 189,
+    "rows": 22811,
+    "configuration_values": 8510,
+    "configuration_import_specs": 190,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
     "availability_records": 10399,
-    "attributes": 419,
+    "attributes": 417,
     "attribute_categories": 30
   },
   "current_package": {
@@ -36,11 +36,11 @@
     "goal": "Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commercial mappings from the archived seven-page Dacia-branded PGD-hosted source. Preserve the catalogue-price versus 'Cena promocyjna' wording ambiguity and the page-2/page-5 technical conflict; no unsupported applicability or technical values were inferred."
   },
   "next_package": {
-    "package_id": "fuel_tank_capacity_semantics_foundation_20261118_001",
-    "kind": "data_model_extension",
-    "name": "Fuel Tank Total vs Usable Capacity Semantics",
+    "package_id": "sandero_ecog120_fuel_tank_capacity_cennik_import_20261118_001",
+    "kind": "source_configuration_value_import",
+    "name": "Sandero / Sandero Stepway Eco-G 120 Fuel-Specific Capacity Cennik Import",
     "status": "active",
-    "goal": "Add separate source-defined attributes for total and usable fuel-tank capacity, retain the legacy attribute unchanged, document D-019 and validate the canonical contracts. Do not import any capacity values in this schema-foundation package."
+    "goal": "Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
