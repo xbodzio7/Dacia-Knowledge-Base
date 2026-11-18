@@ -299,6 +299,11 @@ SCRIPT_COMMANDS = {
         "Fail-fast validation of all repository data CSV and JSON files.",
         "",
     ),
+    "report-freshness": (
+        "report_freshness.py",
+        "Validate registered analytical report provenance, input hashes and companion parity.",
+        "[--registry FILE]",
+    ),
     "validate": (
         "validate_dkb.py",
         "Validate repository structure and datasets.",
