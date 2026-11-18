@@ -252,6 +252,23 @@ Documentation alone does not enforce branch protection. Report separately whethe
 
 If the active profile cannot execute the canonical generators or tests, do not fabricate their output, manually guess generated counters, or publish the candidate as validated. Use a verified CI workflow capable of running the checks on the candidate branch. If no such workflow is available, leave the PR blocked/unpublished and record the exact capability blocker.
 
+## 7.4 Static analysis and report-contract regression gates
+
+The required Quality workflow runs a pinned Ruff static-analysis pass on Python 3.14 before the full test suite:
+
+```bash
+python -m pip install --disable-pip-version-check ruff==0.14.10
+python -m ruff check --select F821 tools scripts tests
+```
+
+This gate rejects undefined names in production code, scripts and tests before runtime test execution. It is deliberately limited to the undefined-name rule in this first rollout so it catches defects such as a test referring to an uninitialised or misspelled variable without introducing unrelated style churn. The check is part of the required `Python 3.14` Quality job; a failure blocks that required status check. Do not suppress a finding unless the code genuinely requires the exception and the suppression is narrowly documented.
+
+For every change to master-data semantics, configuration contexts, report completeness specifications or report-generation behavior, add or update a focused regression test that asserts the exact expected contract—not merely that the report command exits successfully. Where a field is context-dependent (for example, fuel-specific capacity), assert each required context separately and verify that the generated report exposes each expected slot. Preserve a generic slot only when it remains an intentional part of the contract. A successful report generation is not proof that the specification includes every required context.
+
+When a package changes a report specification or the data dimensions it describes, the PR validation notes must name the affected specification, the exact context/item combinations covered, and the regression test that protects them. If no executable contract exists for the affected specification, add one before publication or explicitly block the package pending an approved alternative.
+
+The full test-discovery run remains mandatory: static analysis complements compilation and runtime tests; it does not replace either. The same pinned static-analysis command must be rerun on the final candidate tree after any Python edit.
+
 ## 8. CI failure diagnosis protocol
 
 For every failed job:
