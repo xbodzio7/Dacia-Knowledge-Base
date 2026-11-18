@@ -178,9 +178,10 @@ Nie opisuje modelu logicznego ani procesu importu danych.
 
 ## Fuel-tank capacity semantics
 
-The canonical attribute catalogue distinguishes:
+The existing master attribute catalogue already distinguishes:
 
-- `fuel_tank_capacity_total`: total physical tank capacity explicitly stated by the source;
-- `fuel_tank_capacity_usable`: usable fuel volume explicitly stated by the source.
+- `fuel_tank_capacity` — one undivided fuel-tank capacity value;
+- `lpg_vessel_capacity_total` — total internal LPG pressure-vessel capacity;
+- `lpg_vessel_filling_capacity` — source-stated LPG volume available or permitted for filling, distinct from total vessel capacity.
 
-Both are decimal litres. The legacy `fuel_tank_capacity` attribute remains available for historical compatibility but must not be used for new observations when the source distinguishes total and usable capacity. A source statement that does not establish which meaning applies must remain unclassified. For bi-fuel configurations, use the existing `fuel_type_code` observation context when the source identifies petrol- and LPG-specific values. See D-032 in `DECISIONS.md`.
+For bi-fuel configurations, use the existing `fuel_type_code` observation context only when the source identifies the fuel. Use the two LPG-specific attributes only when the source explicitly distinguishes total and filling capacity. Do not infer either value from the other or transfer values between models. See D-032 in `DECISIONS.md`.
