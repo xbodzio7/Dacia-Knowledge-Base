@@ -77,8 +77,7 @@ Operational rule: before every continuation, inspect current main, recent merged
 This work is paused under the cennik-only priority above. PR #782 is merged into `main` (merge commit `13c58b86d9652ff127516b1d45924b8ca66005b0`). The page-22 residual equipment import added 260 historical availability observations across 20 existing boolean attributes and 14 exact active source-linked configurations. Full Quality passed on Python 3.10, 3.13 and 3.14; Windows validation and the remaining PR checks passed. The temporary Bigster snapshot check was skipped by workflow design.
 
 - Combined page-21/page-22 brochure equipment availability coverage: 557 observations (157 page 21, 400 page 22).
-- Page-22 IDs: 10113–10399.
-- The Hybrid 155-only cooled-console qualifier is preserved; composite/package and unsupported facts remain deferred.
+- Page-22 IDs: 10113–10399.- The Hybrid 155-only cooled-console qualifier is preserved; composite/package and unsupported facts remain deferred.
 - Do not repeat page 14–17 grade details, page 20 technical/RPM reconciliation, page 21 YouClip/equipment imports, or page 23 dimensions.
 
 ## Bigster MY26 Commercial Price Matrix (2026-11-05)
@@ -158,7 +157,6 @@ Strona 21 minibroszury Dustera została rozliczona w dwóch paczkach:
 
 - `residual_gap_018`: 40 kandydatów — 14 `context_only_non_import` i 26 `unresolved_signature_mismatch`;
 - `residual_gap_019`: 21 kandydatów — 19 `context_only_non_import` i 2 `unresolved_signature_mismatch`.
-
 Łącznie są to 61 kandydatów, zero wybranych sygnatur dowodowych, zero wybranych rekordów, zero zatwierdzeń importu i brak zmian w `data/master`. Identyfikatory `000P-27614`, `000P-27615` i `000P-27616` nie są kanonicznymi identyfikatorami tej kolejki i nie mogą być używane do ponownego otwarcia strony bez nowego, bezpośredniego dowodu źródłowego.
 
 ## Working Mode
@@ -237,7 +235,6 @@ Granica migracji i lokalizacja pozostałych zapisów historycznych są opisane w
 
 
 ## Current Main Residual Reconciliation (2026-11-02)
-
 The stable residual queue had selected Sandero brochure page 17 (packages `residual_gap_004`, `026`, `027`) because no later current-main reconciliation was recorded. This page is now reconciled:
 
 - 46 candidates reviewed: 5 ambiguous and 41 unresolved.
@@ -318,7 +315,6 @@ The new bounded report compares the 13 exact canonical configurations priced in 
 The 2026-11-02 Bigster source has a verified SHA-256 in the source registry, but its raw PDF remains outside the repository archive. Promotions, financing, leasing, accessories and dealer offers are excluded. Striker is explicitly deferred while its cennik is unavailable. The next planned work is a cross-model residual coverage review of official Polish cenniks only; brochures and configurator sources remain out of scope.
 
 ## PDF Extraction Toolchain Regression (2026-11-12)
-
 PR #804 exposed a non-deterministic CI environment: the committed official PDF candidate ledger was generated with Poppler 24.02.0, while the moving `ubuntu-latest` runner supplied Poppler 26.01.0. The resulting candidate JSON/Markdown differed even though the registered source PDFs and their hashes were unchanged. This was an environment/toolchain mismatch, not a Bigster price-history defect.
 
 The corrective changes in the PR:
@@ -398,7 +394,6 @@ The Bigster MY26 2026-11-02 source archive is closed. The next cennik-only task 
 ## Single-maintainer Pull Request review policy — 2026-11-15
 
 The project owner confirmed that independent approving GitHub reviews are not required for this single-maintainer repository. The AI maintainer must still perform a documented technical review of every PR before merge. The six required status checks remain mandatory on the exact current PR head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check. Stale heads, conflicts, failed or missing checks, unresolved source evidence, and policy blocks continue to prevent merge. See D-026, AI_WORKING_AGREEMENT.md and AUTONOMOUS_MAINTAINER.md.
-
 ## Duster MY26 2026-11-02 voltage evidence correction — 2026-11-15
 
 A later visual review of the archived ten-page official PDF and the completed Duster commercial-reconciliation package supersedes the earlier 280 V statement above. Printed page 6 states 230 V for all three Hybrid 155 configurations, matching the 2026-09-01 technical table; printed page 2 separately states 260 V in narrative text. The earlier 280 V reading was a text-extraction error, and the claim that the registered source lacked a SHA-256 was stale: the source register records SHA-256 `dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118`. No 280 V observations should be imported, and no existing 230 V observation should be overwritten. A follow-up documentation-consistency package is planned to correct the stale Markdown reconciliation report and align all remaining notes.
@@ -432,3 +427,11 @@ The importer verifies the archived PDF SHA-256, exact configuration/grade scope,
 Post-merge master baseline: 48 CSV files, 22,791 master rows, 8,492 configuration values, 189 configuration import specifications, 451 value ranges, 25 range import specifications, 10,399 availability records, 417 attributes and 30 attribute categories; test baseline 1,988. The canonical state and generated summary are synchronized in the follow-up state-closure package.
 
 Next: audit current registered Polish MY26 price lists against master price and commercial mappings, keeping the owner's cennik-first priority. Brochures remain deferred; do not use configurator inference to fill price-list gaps.
+
+## Sandero Eco-G 120 Fuel Capacity — PR #845 merged; state closure (2026-11-19)
+
+PR #845 was merged into `main` with squash commit `4cd0d14be0665dce393889d673ad64c615d85147`. It imported 18 source-backed fuel-tank-capacity observations from the official 2026-11-02 Sandero/Sandero Stepway cennik page 5: petrol 50 L and LPG 40 L across nine exact Eco-G 120 configurations. The existing `fuel_tank_capacity` attribute and explicit `fuel_type_code` are used. Older undifferentiated observations remain unchanged; the source does not distinguish total LPG vessel capacity from filling capacity, so no such classification was inferred.
+
+The PR updated the live baseline to 1,994 tests, 48 master CSV files, 22,809 rows, 8,510 configuration values and 190 import specifications, but did not transition `current_package` / `next_package`. The follow-up state-closure PR synchronizes `project/state.json` and the generated `project/STATE_SUMMARY.md`: Sandero Eco-G 120 is recorded as complete with PR #845 and its exact merge commit. The next cennik-only package is a bounded residual coverage assessment of technical/equipment values in the latest official Polish MY26 price lists. The five-model catalogue-price/commercial-matrix audit found no confirmed missing current price or commercial mapping records. Brochures and configurator inference remain deferred.
+
+The post-merge Quality workflow for PR #846 is run #44417134605 on exact main commit `89f205ed4c214d56ca8d79fab218c6391679ba79`; do not describe it as complete until all Python and Windows jobs finish. Repository Baselines run #44417134619 completed successfully, including project-state and generated-documentation checks.
