@@ -416,5 +416,3 @@ id,code,category,name,data_type,unit,description,status
 422,dab_radio,Infotainment,DAB radio,boolean,,Digital Audio Broadcasting radio explicitly stated by the source.,active
 423,interface_language_source_stated,Infotainment,Source-stated interface language,string,,Vehicle interface or message language explicitly stated by the source.,active
 424,youclip_mount_points,Infotainment,YouClip mounting points,integer,,Number of YouClip mounting points explicitly stated for a configuration.,active
-425,fuel_tank_capacity_total,Capacities,Fuel tank capacity (total),decimal,L,Total physical fuel-tank capacity explicitly stated by the source; not assumed to be usable capacity.,active
-426,fuel_tank_capacity_usable,Capacities,Fuel tank capacity (usable),decimal,L,Usable fuel volume explicitly stated by the source; not inferred from total capacity.,active
