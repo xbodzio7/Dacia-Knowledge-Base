@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Fuel Tank Total vs Usable Capacity Semantics** — `active`
+**Spring MY26 2026-02-06 Price and Commercial Matrix Import** — `complete`
 
-Add separate source-defined attributes for total and usable fuel-tank capacity, retain the legacy attribute unchanged, document D-019 and validate the canonical contracts. Do not import any capacity values in this schema-foundation package.
+Import the three exact MY26 page-1 prices and ten explicit page-3/page-4 commercial mappings from the archived seven-page Dacia-branded PGD-hosted source. Preserve the catalogue-price versus 'Cena promocyjna' wording ambiguity and the page-2/page-5 technical conflict; no unsupported applicability or technical values were inferred.
 
 ## Next package
 
-**Cennik-backed Sandero and Jogger Fuel Tank Capacity Observations** — `planned`
+**Fuel Tank Total vs Usable Capacity Semantics** — `active`
 
-Review the exact archived Sandero/Sandero Stepway and Jogger Polish price-list pages and import only fuel-tank capacity observations whose total/usable meaning, fuel context and exact configuration applicability are explicitly supported. Do not infer capacity semantics or transfer values between models.
+Add separate source-defined attributes for total and usable fuel-tank capacity, retain the legacy attribute unchanged, document D-019 and validate the canonical contracts. Do not import any capacity values in this schema-foundation package.
 
 ## Autonomy
 
