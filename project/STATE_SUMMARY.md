@@ -44,7 +44,7 @@ Synchronize 26 stale master evidence notes for the 564 existing page-4/5 equipme
 
 **Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation** — `active`
 
-Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the "Extreme oraz 4x4" qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.
+Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the 'Extreme oraz 4x4' qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.
 
 ## Autonomy
 
