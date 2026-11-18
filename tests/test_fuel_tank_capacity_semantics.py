@@ -54,6 +54,17 @@ class FuelTankCapacitySemanticsTests(unittest.TestCase):
             {row["configuration_code"] for row in filling["rows"]},
         )
 
+    def test_completeness_spec_declares_fuel_specific_tank_capacity_slots(self) -> None:
+        spec_path = ROOT / "data" / "reporting" / "configuration_completeness.json"
+        spec = json.loads(spec_path.read_text(encoding="utf-8"))
+        slots = {
+            (item["attribute_code"], item.get("fuel_type_code", ""))
+            for item in spec["technical_slots"]
+        }
+        self.assertIn(("fuel_tank_capacity", ""), slots)
+        self.assertIn(("fuel_tank_capacity", "petrol"), slots)
+        self.assertIn(("fuel_tank_capacity", "lpg"), slots)
+
     def test_jogger_generic_capacity_rows_keep_petrol_context_separate(self) -> None:
         spec = read_spec("jogger-page6-fuel-tank-capacity-20260401.json")
         ecog_rows = [
