@@ -1382,7 +1382,7 @@ A written standard alone does not prevent a stale report from being merged. A de
 - New reports must be registered; legacy exceptions must be explicit and cannot be current.
 - The validator checks byte-level input identity but does not replace human/source review of scope or interpretation.
 
-## D-019 — Distinct total and usable fuel-tank capacities
+## D-032 — Distinct total and usable fuel-tank capacities
 
 Status: Accepted
 
