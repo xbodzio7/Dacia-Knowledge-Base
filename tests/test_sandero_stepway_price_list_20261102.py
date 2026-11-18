@@ -4,7 +4,6 @@ import csv
 import json
 import subprocess
 import sys
-import tempfile
 import unittest
 from unittest import mock
 from collections import Counter, defaultdict
@@ -237,37 +236,29 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
 
         # Editorial notes may be revised without changing the registered source
         # identity; a structured digest change must still fail closed.
-        with tempfile.TemporaryDirectory() as temporary:
-            temporary_master = Path(temporary)
-            registry_path = temporary_master / "sources.csv"
-            with registry_path.open("w", encoding="utf-8", newline="") as handle:
-                writer = csv.DictWriter(
-                    handle,
-                    fieldnames=list(source),
-                    lineterminator="\\n",
+        with mock.patch.object(
+            sandero_importer,
+            "read_csv",
+            return_value=(list(source), [source]),
+        ):
+            self.assertEqual(
+                sandero_importer.reconcile_table(
+                    "source",
+                    [revised_notes],
+                    apply=False,
+                ),
+                0,
+            )
+            changed_digest = {**revised_notes, "sha256": "0" * 64}
+            with self.assertRaisesRegex(
+                sandero_importer.ContractError,
+                "structured source identity",
+            ):
+                sandero_importer.reconcile_table(
+                    "source",
+                    [changed_digest],
+                    apply=False,
                 )
-                writer.writeheader()
-                writer.writerow(source)
-            revised_notes = {**source, "notes": source["notes"] + " Editorial revision."}
-            with mock.patch.object(sandero_importer, "MASTER", temporary_master):
-                self.assertEqual(
-                    sandero_importer.reconcile_table(
-                        "source",
-                        [revised_notes],
-                        apply=False,
-                    ),
-                    0,
-                )
-                changed_digest = {**revised_notes, "sha256": "0" * 64}
-                with self.assertRaisesRegex(
-                    sandero_importer.ContractError,
-                    "structured source identity",
-                ):
-                    sandero_importer.reconcile_table(
-                        "source",
-                        [changed_digest],
-                        apply=False,
-                    )
 
 
 if __name__ == "__main__":
