@@ -41,7 +41,6 @@ class SanderoEcoGFuelTankCapacity20261102Tests(unittest.TestCase):
             9,
         )
 
-    def test_completeness_specs_cover_both_fuel_contexts(self) -> None:
         paths = (
             ROOT / "data" / "reporting" / "configuration_completeness.json",
             ROOT / "data" / "reporting" / "sandero_ecog120_manual_completeness.json",
@@ -49,7 +48,7 @@ class SanderoEcoGFuelTankCapacity20261102Tests(unittest.TestCase):
             ROOT / "data" / "reporting" / "sandero_stepway_ecog120_automatic_completeness.json",
         )
         for path in paths:
-            with self.subTest(spec=path.name):
+            with self.subTest(completeness_spec=path.name):
                 payload = json.loads(path.read_text(encoding="utf-8"))
                 contexts = {
                     row["fuel_type_code"]
