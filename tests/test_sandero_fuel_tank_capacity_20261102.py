@@ -41,21 +41,43 @@ class SanderoEcoGFuelTankCapacity20261102Tests(unittest.TestCase):
             9,
         )
 
-        paths = (
-            ROOT / "data" / "reporting" / "configuration_completeness.json",
-            ROOT / "data" / "reporting" / "sandero_ecog120_manual_completeness.json",
-            ROOT / "data" / "reporting" / "sandero_ecog120_automatic_completeness.json",
-            ROOT / "data" / "reporting" / "sandero_stepway_ecog120_automatic_completeness.json",
+        historical_specs = (
+            (
+                "configuration_completeness.json",
+                "configuration_gap_evidence.json",
+            ),
+            (
+                "sandero_ecog120_manual_completeness.json",
+                "sandero_ecog120_manual_gap_evidence.json",
+            ),
+            (
+                "sandero_ecog120_automatic_completeness.json",
+                "sandero_ecog120_automatic_gap_evidence.json",
+            ),
+            (
+                "sandero_stepway_ecog120_automatic_completeness.json",
+                "sandero_stepway_ecog120_automatic_gap_evidence.json",
+            ),
         )
-        for path in paths:
-            with self.subTest(completeness_spec=path.name):
-                payload = json.loads(path.read_text(encoding="utf-8"))
+        for completeness_name, evidence_name in historical_specs:
+            with self.subTest(completeness_spec=completeness_name):
+                completeness = json.loads(
+                    (ROOT / "data" / "reporting" / completeness_name).read_text(
+                        encoding="utf-8"
+                    )
+                )
+                evidence = json.loads(
+                    (ROOT / "data" / "reporting" / evidence_name).read_text(
+                        encoding="utf-8"
+                    )
+                )
                 contexts = {
                     row["fuel_type_code"]
-                    for row in payload["technical_slots"]
+                    for row in completeness["technical_slots"]
                     if row["attribute_code"] == "fuel_tank_capacity"
                 }
-                self.assertEqual(contexts, {"", "lpg", "petrol"})
+                self.assertEqual(contexts, {""})
+                self.assertLess(evidence["as_of"], spec.observation_date)
 
     def test_import_preserves_older_undifferentiated_observations(self) -> None:
         with (MASTER / "configuration_attribute_values.csv").open(
