@@ -157,11 +157,13 @@
     },
     {
       "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "lpg"
+      "fuel_type_code": "lpg",
+      "effective_from": "2026-11-02"
     },
     {
       "attribute_code": "fuel_tank_capacity",
-      "fuel_type_code": "petrol"
+      "fuel_type_code": "petrol",
+      "effective_from": "2026-11-02"
     },
     {
       "attribute_code": "fuel_type",
