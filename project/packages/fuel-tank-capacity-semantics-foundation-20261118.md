@@ -25,7 +25,7 @@ No missing current catalogue-price or commercial-matrix rows were identified in 
 - Source code: `src_pl_sandero_stepway_price_my26_20261102`
 - Archived binary: `owner_supplied/2026-11-02/3b4618d7da.pdf`
 - SHA-256: `8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c`
-- PDF page 5 (technical-data table; printed page 4 in the package's page references), row `Pojemność zbiornika paliwa (l)`.
+- PDF page 5 (technical-data table), row `Pojemność zbiornika paliwa (l)`.
 - The row explicitly distinguishes `LPG: 40` and `Ben: 50` for both Eco-G 120 manual and Eco-G 120 automatic powertrain columns.
 
 ## Imported observations
