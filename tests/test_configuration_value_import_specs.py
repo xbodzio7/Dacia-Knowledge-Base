@@ -44,6 +44,7 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 "sandero-acceleration-0-100-lpg-20260626.json",
                 "sandero-acceleration-0-100-petrol-20260626.json",
                 "sandero-brochure-elasticity-80-120-20260202.json",
+                "sandero-ecog120-fuel-tank-capacity-20261102.json",
                 "sandero-engine-power-lpg-20260626.json",
                 "sandero-engine-power-petrol-20260626.json",
                 "sandero-engine-torque-lpg-20260626.json",
