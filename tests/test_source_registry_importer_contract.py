@@ -54,7 +54,10 @@ class SourceRegistryImporterTests(unittest.TestCase):
     def test_source_sha_mismatch_still_blocks_import(self) -> None:
         expected = {**self.registered, "sha256": "b" * 64}
         with mock.patch.object(sandero_importer, "MASTER", self.master):
-            with self.assertRaisesRegex(sandero_importer.ContractError, "structured source identity"):
+            with self.assertRaisesRegex(
+                sandero_importer.ContractError,
+                "structured source identity",
+            ):
                 sandero_importer.reconcile_table("source", [expected], apply=False)
 
 
