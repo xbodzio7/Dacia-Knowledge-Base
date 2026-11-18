@@ -234,6 +234,8 @@ class SanderoStepwayPriceList20261102Tests(unittest.TestCase):
         self.assertEqual(spec["expected"]["catalogue_price_changes"], 15)
         self.assertEqual(spec["expected"]["commercial_mappings"], 209)
 
+        revised_notes = {**source, "notes": "Revised editorial description; identity fields unchanged."}
+
         # Editorial notes may be revised without changing the registered source
         # identity; a structured digest change must still fail closed.
         with mock.patch.object(
