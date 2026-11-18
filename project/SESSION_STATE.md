@@ -130,7 +130,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1995 testów automatycznych zakończonych powodzeniem,
+- 1996 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
 - 22809 rekordów danych,
 - 51 relacje między tabelami,
@@ -448,3 +448,15 @@ The official eight-page Bigster MY26 cennik effective 2026-10-01 is archived at 
 A direct master/spec comparison found 538 exact rows and 26 note-only mismatches. All 564 rows, IDs 8720–9283, configuration/attribute keys, availability statuses, observation dates and source codes were already present and correct. This package updates only the 26 stale `notes` fields to the exact generated text from `data/imports/bigster_equipment_availability_20261001.csv`; no observation is added, removed or reclassified. Status distribution remains 465 standard, 46 optional and 53 not_available. A regression test checks the archived source hash and exact master/spec parity for all 564 rows.
 
 This is a note-synchronization closure only. The full row-by-row PDF value comparison for pages 4–5 remains open, as do the 147 page-6 technical observations and page-7 paired-dimension mapping. Do not treat this package as approval to infer technical values or dimension semantics.
+
+## Bigster MY26 2026-10-01 Equipment Evidence Note Synchronization — merged 2026-11-19
+
+PR #849 was merged to main as `bafdfb20a5f4a029dfef2a1ce7d552c4bb86fbbf`. The package synchronized exactly 26 master evidence notes to the corrected canonical import specification for 564 existing page-4/5 equipment observations. All IDs 8720–9283, source codes, dates and availability statuses were preserved; no observations were re-imported. Six required checks passed on the exact PR head.
+
+## Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation — active 2026-11-19
+
+The official archived eight-page cennik has SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`. Pages 4–5 were independently reviewed against the 564 existing observations (six exact configurations × 94 attributes). 93 attribute groups are consistent with the printed matrix. The HDC row remains unresolved: the grade-level matrix marks Expression, Extreme and Journey standard, while its qualifier says "wyłącznie dla wersji Extreme oraz 4x4". The source does not explicitly define whether that is a strict Extreme-4x4 conjunction or a union of Extreme grade and 4x4 drivetrain. Preserve the current six master statuses until this is clarified.
+
+The existing 86 dated commercial mappings across 11 items were checked. Spare-wheel applicability remains unknown where the October source qualifier does not exactly match the registered configuration label; do not project the Hybrid 155 or older mild-hybrid 130 4x4 price to other powertrains.
+
+Source-link drift was also detected: the registered CDN URL currently returns a PDF marked effective 2026-11-02, while a separate official Dacia CDN URL returns the 2026-10-01 edition. Do not replace the registered URL until the candidate binary is verified against the archived SHA-256. The archived PDF remains canonical.
