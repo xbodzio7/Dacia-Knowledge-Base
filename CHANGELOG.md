@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Synchronized 26 stale Bigster MY26 2026-10-01 equipment evidence notes with the corrected source import specification. All 564 existing observations, availability statuses, IDs and dates were preserved; no master rows were added. Added a regression test for exact master/spec parity and the archived PDF SHA-256.
+
 * Hardened Spring MY26 source capture: retain the downloaded PDF and diagnostics even when MY26 identity markers fail; compare its SHA-256 with the registered MY25 binary and never commit an unverified source.
 
 * Extended the Spring source-assimilation audit workflow to capture the live official MY26 cennik as a distinct PDF binary, verify its MY26/effective-date/price markers, compute SHA-256, retain a short-lived audit artifact, and push the verified binary to a dedicated source branch without overwriting the MY25 Library version.
@@ -356,7 +358,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 1994 tests.
+* The automated test suite now contains 1995 tests.
 * The verified master-data baseline now contains 48 CSV files and 22809 rows.
 * SQLite verification now covers 48 tables and 22809 rows.
 * Configuration attribute values now contain 8510 dated records.

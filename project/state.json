@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1994,
+    "tests": 1995,
     "csv_files": 48,
     "rows": 22809,
     "configuration_values": 8510,
@@ -36,11 +36,11 @@
     "goal": "Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine source-linked Eco-G 120 configurations: petrol 50 L and LPG 40 L. Use the existing fuel_tank_capacity attribute with explicit fuel_type_code; do not classify the LPG value as total or filling capacity because the Sandero source does not distinguish those semantics. Preserve all older undifferentiated observations."
   },
   "next_package": {
-    "package_id": "dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001",
-    "kind": "source_price_list_coverage_assessment",
-    "name": "Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment",
-    "status": "planned",
-    "goal": "Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains."
+    "package_id": "bigster_my26_20261001_equipment_evidence_note_sync_20261119_001",
+    "kind": "source_equipment_availability_note_reconciliation",
+    "name": "Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization",
+    "status": "active",
+    "goal": "Synchronize the 26 outdated master evidence notes for the 564 already imported page-4/5 equipment-availability observations against the corrected canonical import specification. Preserve all 564 availability statuses, observation dates, source codes, IDs and master row counts; do not re-import. Keep the full row-by-row PDF matrix review and page-6 technical/page-7 dimension reconciliation as separate unresolved scopes."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -114,7 +114,7 @@
     "tests_rerun": false,
     "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness.",
     "current_main_reconciliation": "completed",
-    "next_package_selection": "Dacia MY26 official cennik technical and equipment residual coverage assessment",
-    "rationale": "The five-model MY26 catalogue-price and commercial-matrix audit found no confirmed missing current price or commercial mapping records, and the Sandero Eco-G 120 fuel-capacity gap has now been imported. Continue the owner's cennik-only priority by auditing remaining exact technical/equipment gaps in the latest registered official price lists; brochures remain deferred."
+    "next_package_selection": "Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization",
+    "rationale": "The 564 Bigster MY26 2026-10-01 equipment-availability observations already exist in master from PR #733. PR #758 corrected the canonical import-spec evidence notes, but 26 master notes remained stale. Synchronize only those notes and lock full master/spec parity with a regression test; do not re-import. Full page-4/5 PDF value review and page-6/page-7 reconciliation remain separate open scopes."
   }
 }
