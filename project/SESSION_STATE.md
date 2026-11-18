@@ -130,9 +130,9 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1988 testów automatycznych zakończonych powodzeniem,
+- 1990 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22791 rekordów danych,
+- 22793 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -142,8 +142,8 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
-- 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22791 rekordów,
+- 419 kanonicznych atrybutów w 30 kategoriach,
+- baza SQLite obejmująca 48 tabele i 22793 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
