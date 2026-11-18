@@ -156,6 +156,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol"
+    },
+    {
       "attribute_code": "fuel_type",
       "fuel_type_code": "",
       "effective_from": "2026-08-09"
@@ -183,10 +191,6 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "ground_clearance",
-      "fuel_type_code": ""
-    },
-    {
       "attribute_code": "ground_clearance_laden",
       "fuel_type_code": "",
       "effective_from": "2026-08-09"
@@ -195,6 +199,10 @@
       "attribute_code": "ground_clearance_unladen",
       "fuel_type_code": "",
       "effective_from": "2026-08-09"
+    },
+    {
+      "attribute_code": "ground_clearance",
+      "fuel_type_code": ""
     },
     {
       "attribute_code": "height_with_tailgate_open",
@@ -267,24 +275,24 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_height",
-      "fuel_type_code": ""
-    },
-    {
       "attribute_code": "overall_height_source_stated",
       "fuel_type_code": "",
       "effective_from": "2026-08-09"
+    },
+    {
+      "attribute_code": "overall_height",
+      "fuel_type_code": ""
     },
     {
       "attribute_code": "overall_length",
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width",
+      "attribute_code": "overall_width_with_mirrors",
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "overall_width_with_mirrors",
+      "attribute_code": "overall_width",
       "fuel_type_code": ""
     },
     {
@@ -364,11 +372,11 @@
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "turning_circle",
+      "attribute_code": "turning_circle_between_kerbs",
       "fuel_type_code": ""
     },
     {
-      "attribute_code": "turning_circle_between_kerbs",
+      "attribute_code": "turning_circle",
       "fuel_type_code": ""
     },
     {
