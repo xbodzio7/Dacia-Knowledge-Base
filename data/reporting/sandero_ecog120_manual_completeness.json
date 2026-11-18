@@ -123,6 +123,14 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "fuel_type_code": "petrol"
+    },
+    {
       "attribute_code": "gear_count",
       "fuel_type_code": ""
     },
