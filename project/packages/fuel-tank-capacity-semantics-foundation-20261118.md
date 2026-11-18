@@ -3,7 +3,7 @@
 **Package ID:** `fuel_tank_capacity_semantics_foundation_20261118_001`  
 **Date:** 2026-11-18  
 **Status:** Implementation prepared; pending exact-HEAD CI validation and merge  
-**Architecture decision:** D-019
+**Architecture decision:** D-032
 
 ## Objective
 
@@ -15,7 +15,7 @@ Represent total physical fuel-tank capacity separately from explicitly stated us
 - Added `fuel_tank_capacity_usable` (decimal litres) to the canonical `Capacities` attribute category.
 - Preserved the legacy `fuel_tank_capacity` attribute unchanged.
 - Reused the existing optional `fuel_type_code` observation context for source-stated petrol/LPG-specific values.
-- Recorded D-019 in `project/DECISIONS.md`.
+- Recorded D-032 in `project/DECISIONS.md`.
 - Updated `project/DATA_SCHEMA.md` and `project/ATTRIBUTE_CATALOG.md`.
 - Added contract tests for the two new definitions and legacy compatibility.
 - Refreshed canonical project state and generated documentation baseline counters.
