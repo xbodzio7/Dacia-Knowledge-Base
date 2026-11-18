@@ -252,6 +252,14 @@ Documentation alone does not enforce branch protection. Report separately whethe
 
 If the active profile cannot execute the canonical generators or tests, do not fabricate their output, manually guess generated counters, or publish the candidate as validated. Use a verified CI workflow capable of running the checks on the candidate branch. If no such workflow is available, leave the PR blocked/unpublished and record the exact capability blocker.
 
+## 7.5 Automatic exact-head and base-freshness gate
+
+The required `Quality` workflow checks out the exact Pull Request head SHA, not GitHub's synthetic merge ref, and fetches the current target branch before validation. It fails closed unless the current target-branch commit is an ancestor of the tested PR head. This prevents a green run on a stale branch from being mistaken for validation of a branch that has not incorporated the current base.
+
+The check runs automatically for every `pull_request` event in the Python quality matrix and does not require a maintainer prompt or manual opt-in. A failure means the branch must be updated from the current target branch; after that update, the complete required matrix must run again on the new exact head. The workflow's checkouts use full history so ancestry is evaluated from Git data, not from a shallow or synthetic merge checkout.
+
+This check closes the time-of-run freshness gap, but it does not eliminate a race where the target branch advances after CI finishes. Immediately before merge, the maintainer must still re-fetch the PR and target branch, verify mergeability and exact current head SHA, and rely on GitHub's required status checks/up-to-date branch policy to block a stale merge.
+
 ## 7.4 Static analysis and report-contract regression gates
 
 The required Quality workflow runs a pinned Ruff static-analysis pass on Python 3.14 before the full test suite:
