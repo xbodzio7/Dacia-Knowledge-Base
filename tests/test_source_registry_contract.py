@@ -57,7 +57,9 @@ class SourceRegistryContractTests(unittest.TestCase):
     def test_notes_are_not_a_structured_identity_field(self) -> None:
         self.assertNotIn("notes", SOURCE_REGISTRY_IDENTITY_FIELDS)
 
-    def test_embedded_source_specs_match_canonical_registry_and_archived_hash(self) -> None:
+    def test_embedded_source_specs_match_canonical_registry_and_archived_hash(
+        self,
+    ) -> None:
         registry_path = ROOT / "data" / "master" / "sources.csv"
         with registry_path.open("r", encoding="utf-8-sig", newline="") as handle:
             registry = {row["code"]: row for row in csv.DictReader(handle)}
