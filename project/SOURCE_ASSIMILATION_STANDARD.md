@@ -177,3 +177,9 @@ Before a verified capture is used by a package, \`python tools/dkb.py package-pr
 The source registry's \`notes\` field remains human-readable explanatory provenance. Tests must not depend on an exact sentence, punctuation or editorial word order in that field. Test structured source facts and archive relationships instead. If a required fact is not represented in an existing canonical field, use a narrow semantic predicate until a separately reviewed schema change is justified; do not add duplicate metadata merely to satisfy a test.
 
 Positive regression cases must show that equivalent evidence with different explanatory wording still passes. Negative cases must show that a missing marker, mismatched sidecar, missing archive, or altered binary fails. Passing this preflight does not establish that every page has been assimilated or that any price/technical value has been imported correctly.
+
+## Source-registry metadata comparison
+
+`data/master/sources.csv` is canonical for structured source identity. Import specifications may repeat those fields for reviewability, but importer comparisons must use the shared `tools/source_registry_contract.py` helper and exclude only the free-form `notes` field. Notes are explanatory provenance, not source identity; wording or punctuation edits must not block a valid import. SHA-256, archive path, document date, market, source code and all other structured identity fields remain strict and fail closed.
+
+Add both positive tests (editorial notes differ, structured identity still matches) and negative tests (a changed digest or other identity field is rejected).
