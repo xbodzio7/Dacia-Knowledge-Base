@@ -130,7 +130,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 1994 testów automatycznych zakończonych powodzeniem,
+- 1995 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
 - 22809 rekordów danych,
 - 51 relacje między tabelami,
@@ -440,3 +440,11 @@ PR #845 was merged into `main` with squash commit `4cd0d14be0665dce393889d673ad6
 The PR updated the live baseline to 1,994 tests, 48 master CSV files, 22,809 rows, 8,510 configuration values and 190 import specifications, but did not transition `current_package` / `next_package`. The follow-up state-closure PR synchronizes `project/state.json` and the generated `project/STATE_SUMMARY.md`: Sandero Eco-G 120 is recorded as complete with PR #845 and its exact merge commit. The next cennik-only package is a bounded residual coverage assessment of technical/equipment values in the latest official Polish MY26 price lists. The five-model catalogue-price/commercial-matrix audit found no confirmed missing current price or commercial mapping records. Brochures and configurator inference remain deferred.
 
 The post-merge Quality workflow for PR #846 is run #44417134605 on exact main commit `89f205ed4c214d56ca8d79fab218c6391679ba79`; at this checkpoint, Python 3.10, Python 3.13 and Windows have passed, while Python 3.14 is still running the full quality gate. Repository Baselines run #44417134619 completed successfully, including project-state and generated-documentation checks.
+
+## Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization — 2026-11-19
+
+The official eight-page Bigster MY26 cennik effective 2026-10-01 is archived at `owner_supplied/2026-10-01/d477c604e8.pdf` with registered SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`. PR #733 imported 564 equipment-availability observations for six exact automatic configurations (94 attributes each). PR #758 later corrected the canonical source import specification's evidence notes, but the already-imported master rows were not synchronized.
+
+A direct master/spec comparison found 538 exact rows and 26 note-only mismatches. All 564 rows, IDs 8720–9283, configuration/attribute keys, availability statuses, observation dates and source codes were already present and correct. This package updates only the 26 stale `notes` fields to the exact generated text from `data/imports/bigster_equipment_availability_20261001.csv`; no observation is added, removed or reclassified. Status distribution remains 465 standard, 46 optional and 53 not_available. A regression test checks the archived source hash and exact master/spec parity for all 564 rows.
+
+This is a note-synchronization closure only. The full row-by-row PDF value comparison for pages 4–5 remains open, as do the 147 page-6 technical observations and page-7 paired-dimension mapping. Do not treat this package as approval to infer technical values or dimension semantics.

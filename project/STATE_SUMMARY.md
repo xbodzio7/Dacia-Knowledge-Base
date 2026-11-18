@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 1994
+- Tests: 1995
 - Master CSV files: 48
 - Master rows: 22809
 - Configuration values: 8510
@@ -42,9 +42,9 @@ Import the exact 2026-11-02 cennik page-5 fuel-tank capacity values for all nine
 
 ## Next package
 
-**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `planned`
+**Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization** — `active`
 
-Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains.
+Synchronize the 26 outdated master evidence notes for the 564 already imported page-4/5 equipment-availability observations against the corrected canonical import specification. Preserve all 564 availability statuses, observation dates, source codes, IDs and master row counts; do not re-import. Keep the full row-by-row PDF matrix review and page-6 technical/page-7 dimension reconciliation as separate unresolved scopes.
 
 ## Autonomy
 
