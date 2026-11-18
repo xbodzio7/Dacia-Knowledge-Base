@@ -257,11 +257,11 @@ Dokument jest rozwijany iteracyjnie.
 
 Nowe atrybuty dodawane są wyłącznie po analizie źródeł i zaakceptowaniu ich miejsca w taksonomii DKB.
 
-## Fuel-tank capacity semantics (D-019)
+## Fuel-tank capacity semantics (D-032)
 
 | Code | Name | Type | Unit | Description |
 | ---- | ---- | ---- | ---- | ----------- |
 | `fuel_tank_capacity_total` | Fuel tank capacity (total) | decimal | L | Total physical fuel-tank capacity explicitly stated by the source; not assumed to be usable capacity. |
 | `fuel_tank_capacity_usable` | Fuel tank capacity (usable) | decimal | L | Usable fuel volume explicitly stated by the source; not inferred from total capacity. |
 
-The legacy `fuel_tank_capacity` attribute is retained unchanged. New source observations must use the semantically precise attribute when the source establishes the distinction. See `DECISIONS.md` D-019.
+The legacy `fuel_tank_capacity` attribute is retained unchanged. New source observations must use the semantically precise attribute when the source establishes the distinction. See `DECISIONS.md` D-032.
