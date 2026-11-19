@@ -3,7 +3,8 @@
 Report ID: bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001
 Generated: 2026-11-19T18:56:00Z
 Analysed commit: c18f5e704a27edee2e55615fc7138e3e4038bcf3
-Status: closed with explicit source ambiguity
+Status: current
+Scope: Bigster MY26 Polish cennik effective 2026-10-01, printed page 4; HDC applicability across the six exact source-linked configurations and comparison with the grade-level equipment matrix.
 
 ## Scope and provenance
 
@@ -39,6 +40,8 @@ The qualifier does not define whether the conditions “Extreme” and “4x4”
 | Journey tribrid 150 4x4 automatic | not_available |
 
 These six values currently implement the strict “Extreme AND 4x4” interpretation. That interpretation is plausible but not proven by the printed cennik. A disjunctive interpretation would produce a different truth table; the grade-level matrix also conflicts with the restrictive qualifier.
+
+Review disposition: complete evidence assessment; underlying HDC applicability remains unresolved and marked Do sprawdzenia.
 
 ## Decision
 
