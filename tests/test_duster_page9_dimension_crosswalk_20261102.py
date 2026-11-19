@@ -6,6 +6,8 @@ import json
 import unittest
 from pathlib import Path
 
+from tools.import_configuration_values import load_spec, verify_import
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "src_pl_duster_price_my26_20261102"
 SOURCE_SHA = "dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118"
@@ -140,6 +142,14 @@ class DusterPage9DimensionCrosswalkTests(unittest.TestCase):
             for key in target_keys
         }
         self.assertTrue(all(count == 1 for count in actual_counts.values()))
+
+    def test_generic_importer_verifies_all_three_specs(self) -> None:
+        for attribute in EXPECTED:
+            path = SPEC_DIR / f"duster-page9-{attribute.replace('_', '-')}-20261102.json"
+            plan = verify_import(ROOT, load_spec(path))
+            self.assertEqual(len(plan.expected_rows), 6)
+            self.assertEqual(len(plan.existing_rows), 6)
+            self.assertFalse(plan.missing_rows)
 
     def test_report_preserves_non_inference_boundaries(self) -> None:
         report = json.loads(
