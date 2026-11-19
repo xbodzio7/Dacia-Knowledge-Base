@@ -74,5 +74,39 @@
     "data/reporting/bigster_20261001_price_list_page_inventory_review_20261015.json",
     "data/imports/bigster_equipment_availability_20261001.csv",
     "tests/test_bigster_price_list_20261001_equipment_availability.py"
+  ],
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
+    "generated_at": "2026-11-19T18:56:00Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "c18f5e704a27edee2e55615fc7138e3e4038bcf3",
+    "input_files": [
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "536fc427138907a2ff9ba6c824c253cf0e079f76",
+        "sha256": "48b9d27f7243d9af9c1673cc742e69ceeea3bb87c0d4703b5c256ccb9ca4cf46"
+      },
+      {
+        "path": "data/master/source_configurations.csv",
+        "git_blob_sha": "9f35ab5fbeeb41aa9ed4e974fc17c5a2988476be",
+        "sha256": "874e70e2f071f3c43f10d05f87a2075f002faedac5d7db15b81b6b39c997062b"
+      }
+    ],
+    "scope": "Bigster MY26 Polish cennik effective 2026-10-01, printed page 4; HDC applicability across the six exact source-linked configurations and comparison with the grade-level equipment matrix.",
+    "status": "current"
+  },
+  "findings": [
+    {
+      "finding_id": "bigster-october-hdc-applicability",
+      "status": "needs_review",
+      "detail": "The qualifier 'Extreme oraz 4x4' and the grade-level matrix do not establish a unique configuration-level truth table; retain all six existing statuses and mark the fact Do sprawdzenia.",
+      "evidence_refs": [
+        "owner_supplied/2026-10-01/d477c604e8.pdf",
+        "data/imports/bigster_equipment_availability_20261001.csv",
+        "tests/test_bigster_price_list_20261001_equipment_availability.py"
+      ],
+      "last_verified_at": "2026-11-19T18:56:00Z"
+    }
   ]
 }
