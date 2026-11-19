@@ -179,3 +179,26 @@ Before relying on a report under `data/reporting/` or `project/packages/`, check
 
 
 The report freshness contract is now enforced by the required Quality workflow. Maintain `data/reporting/report_registry.json` whenever adding or materially refreshing an analytical report; run `python tools/dkb.py report-freshness` before proposing the package. Only explicitly registered historical reports may use the legacy exception, and they must never be described as current.
+
+## Remote-main and post-merge continuity (mandatory)
+
+For every continuation, the remote GitHub default branch and its exact commit SHA are authoritative. Local files and generated counters are not canonical until the local HEAD is verified against that remote revision.
+
+Before work:
+- verify the current remote main SHA and read project/state.json from that revision;
+- inspect recent merges and open PRs before selecting or repeating a package;
+- if local execution is used, verify branch, HEAD, upstream and working-tree status first;
+- never treat output from local project-state --apply as a GitHub update: it only changes the local working tree;
+- distinguish automatic CI triggered by PR/push from manual workflow dispatch supported by the current tool connection.
+
+After every merge:
+- verify the PR's merged status, exact head SHA, merge commit and changed paths;
+- verify the merge commit is present on remote main;
+- reconcile current_package and next_package in canonical project/state.json;
+- regenerate STATE_SUMMARY.md only with python tools/dkb.py project-state --apply;
+- run project-state --check and documentation-baseline --check on the same candidate tree;
+- submit and validate the state/documentation reconciliation through a PR;
+- reread remote state before choosing the next package.
+
+Never hand-edit generated summaries or copy counters from stale local output. If the canonical generator cannot be executed or validated, record the exact blocker and do not claim state synchronization or silently select work from the stale queue.
+

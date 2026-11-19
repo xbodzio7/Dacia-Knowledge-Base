@@ -281,3 +281,28 @@ Before a Pull Request may be considered ready for merge, the maintainer must ver
 The CI job is read-only and blocks on the first failure. Do not repair its output manually in GitHub or claim that the umbrella job proves an individual layer unless its log shows that layer passed. Repair through canonical tooling, inspect all generated changes, and rerun the complete gate after the final edit.
 
 These checks complement, and do not replace, the Python/Windows quality matrix, importer-specific tests, independent source-fidelity review, complete diff review and exact-head merge procedure. The six required status-check names remain unchanged.
+
+## 10. Remote repository continuity and post-merge closure (mandatory)
+
+The remote GitHub default branch is the authority for project state. A local checkout is only a candidate workspace until its branch and exact HEAD SHA are verified against remote main.
+
+At the start of every continuation:
+- fetch the current remote default-branch SHA and inspect canonical project/state.json from that revision;
+- inspect open/recent PRs and recent merges that may have changed the active package, source inventory, tests or generated documentation;
+- record the remote SHA used for decisions; do not promote a local project-state --apply result to canonical status;
+- if local tools are used, prove local HEAD, upstream and clean/dirty status before running generators; label results with that exact tree SHA;
+- distinguish GitHub Actions automatic PR/push checks from manual workflow dispatch. Missing dispatch capability in the current connector is not a CI outage when normal PR workflows trigger and report checks.
+
+After every merged package, perform a mandatory post-merge closure:
+1. Verify PR merged status, final tested head SHA, merge commit SHA and changed paths.
+2. Verify the merge commit is present on remote default branch.
+3. Update canonical project/state.json so the completed package and next package accurately reflect the merged repository. Use the canonical state workflow; do not rely on the PR description or chat memory as the only queue update.
+4. Run project-state --apply only on the verified current candidate tree, then inspect its complete diff and rerun project-state --check plus documentation-baseline --check.
+5. Never hand-edit STATE_SUMMARY.md, copy counters from an old local run, or claim generator completion when the generator was not run.
+6. Include the state and generated-documentation reconciliation in a reviewed PR. Confirm that its checks ran on the exact final head before merge.
+7. Re-read remote state after that merge before selecting the next package.
+
+If the state transaction cannot be completed because execution/generator access is unavailable, explicitly mark the state repair as blocked, preserve the exact remote SHA and pending package transition, and do not silently continue from an obsolete package queue.
+
+A package may be reported as complete only when its result is durably merged and the post-merge state transaction is either verified complete or explicitly recorded as a separate blocking follow-up. A green PR alone does not update canonical project state.
+

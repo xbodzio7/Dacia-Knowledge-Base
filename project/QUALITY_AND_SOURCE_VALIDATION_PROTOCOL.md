@@ -991,3 +991,49 @@ Tests must assert facts owned by the package: exact source IDs, configuration sc
 When a later package adds valid observations under an existing source, earlier tests must continue to verify their original bounded subset and separately verify the new package's observations. A total may be asserted only when its scope is explicit. Before changing an expected value after a failure, identify newly added or changed records and prove the difference is intended.
 
 A failure caused by a stale global count must be fixed by narrowing the assertion to the package ownership boundary, not by deleting new data or blindly increasing a number.
+
+## 25. Remote-main authority, package closure and post-merge state transaction
+
+This section is mandatory for every session and package, including documentation-only work. It prevents local-checkout drift, stale package queues and false completion after a successful merge.
+
+### A. Verify the remote before using any local state
+
+1. Resolve the repository's actual default branch and fetch its current commit SHA from GitHub.
+2. Record the exact remote main SHA used for the session and the exact SHA of every PR head under review.
+3. Treat files read from GitHub's current default branch as authoritative. A local checkout, stash, generated output, previous tool result or conversation summary is only a snapshot until its commit SHA is proven to match the intended remote revision.
+4. Never use project-state --apply on an unverified or stale local checkout and then describe its output as the current GitHub state. The command changes only the working tree; it does not update GitHub.
+5. If local execution is used, first prove the local branch, HEAD SHA, upstream and working-tree status. If local HEAD differs from remote main, either synchronize safely or explicitly label all local results as belonging to that older candidate. Do not mix results from different trees.
+6. If the current session has GitHub read/write but no local execution, use GitHub as the repository surface and rely only on observable CI for executable validation. State the exact capability boundary; do not imply that a missing manual workflow-dispatch operation means GitHub Actions or automatic PR CI is unavailable.
+
+### B. Close every package as one canonical state transaction
+
+A package is not durably complete merely because its PR is merged. After each merge:
+
+1. Re-fetch the PR and verify merged=true, the merge commit SHA, the final PR head SHA and the changed-file list.
+2. Re-fetch the default branch and verify that it contains the merge commit.
+3. Reconcile the merged package against project/state.json. Update current_package to the completed package with its exact PR/merge reference where the schema supports it; select the next package from the merged result and current repository evidence, not from an old handoff or PR description alone.
+4. Update project/state.json through the canonical project workflow. Then run project-state --check and documentation-baseline --check on the same candidate tree. The generated project/STATE_SUMMARY.md must be produced by python tools/dkb.py project-state --apply; never hand-edit or independently reconstruct it.
+5. Verify the full generated diff. Confirm that counters are derived from the candidate repository, not copied from a previous run or conversation.
+6. Include the canonical state, generated summary and any managed documentation changes in the same logical state-reconciliation PR when they belong to one closure transaction. Do not leave a merged package permanently represented as the next planned package.
+7. If the canonical generator cannot be executed and no CI workflow can apply it to a candidate branch, do not fabricate generated files or claim the state transaction is complete. Record the exact blocker and continue only with work that does not depend on the unresolved state.
+
+### C. Candidate and merge SHA discipline
+
+- Every validation result must be associated with an exact commit SHA.
+- A green check on an earlier head does not validate a later head, even if the later change is documentation-only.
+- Before merge, re-fetch the PR and compare current head SHA, base SHA, mergeability, changed paths and all required checks.
+- After merge, verify the actual merge commit on remote main; do not infer successful publication from a create/update response alone.
+- If main advances while a candidate is being prepared, reconcile the branch with the new base and rerun every invalidated gate.
+
+### D. Report state and capability truthfully
+
+Every continuation report must distinguish:
+- remote main SHA and local HEAD SHA (if local execution was used);
+- canonical package state before and after the work;
+- PR head SHA, merge commit and current merge status;
+- observed CI checks on the exact head;
+- checks not run, unavailable or blocked, with the reason;
+- whether state and generated documentation were actually committed and verified.
+
+Do not use phrases such as state synchronized, package closed or CI unavailable unless the corresponding remote evidence supports that exact claim.
+
