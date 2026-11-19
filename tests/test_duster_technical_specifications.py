@@ -76,6 +76,7 @@ class DusterTechnicalSpecificationTests(unittest.TestCase):
             spec
             for path, spec in zip(self.spec_paths, self.specs)
             if path.name.startswith(("duster-page8-", "duster-page9-"))
+            and all(row["source_code"] == SOURCE for row in spec["rows"])
         ]
         self.assertEqual(len(legacy_specs), 33)
         expected = []
