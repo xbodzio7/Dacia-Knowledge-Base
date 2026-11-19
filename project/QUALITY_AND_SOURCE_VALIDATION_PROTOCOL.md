@@ -204,7 +204,7 @@ On the candidate branch, in this order:
 7. Run `python tools/dkb.py documentation-baseline --check`; apply the supported generator only if required, inspect its diff, then rerun the check.
 8. If the package adds or materially refreshes any registered analytical report, run `python tools/dkb.py report-freshness` after the final JSON, Markdown, registry and finding edits. Resolve every reported error locally before commit/push; do not rely on the later CI run as the first report-contract check.
 9. Run all remaining package-specific deterministic checks and independent source-fidelity review.
-9. Inspect the complete diff, including generated files. Confirm no unexpected paths, stale counters, stale managed documentation, unrelated edits or unreviewed generated changes remain.
+10. Inspect the complete diff, including generated files. Confirm no unexpected paths, stale counters, stale managed documentation, unrelated edits or unreviewed generated changes remain.
 10. Commit/push the candidate and open/update the PR. Record the exact tested SHA and each validation result in the PR.
 11. Confirm CI ran against that exact head SHA and every required job passed. If the head changes, the previous CI result no longer validates the PR; repeat the affected checks and the required full gate.
 12. Recheck target-branch freshness and mergeability immediately before merge. If the target branch advanced and the candidate is no longer current under repository policy, update the branch and repeat validation.
