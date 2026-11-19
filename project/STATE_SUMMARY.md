@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation** — `complete`
+**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `complete`
 
-Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the 'Extreme oraz 4x4' qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.
+Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. The assessment found no additional technical or equipment rows that were both missing and safely importable; no master data changed. Remaining exact ambiguities are retained as named deferrals in the current report.
 
 ## Next package
 
-**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `planned`
+**Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review** — `planned`
 
-Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains.
+Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous.
 
 ## Autonomy
 
