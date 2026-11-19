@@ -120,7 +120,7 @@ class SanderoEcoG120SemanticsReviewTests(unittest.TestCase):
         )
         self.assertTrue(all(item["status"] == "needs_review" for item in findings.values()))
         self.assertIn("Do not transfer", findings["sandero-ecog120-fuel-specific-injection"]["detail"])
-        self.assertIn("Do not convert", findings["sandero-ecog120-lpg-total-versus-fillable-capacity"]["detail"])
+        self.assertIn("do not migrate", findings["sandero-ecog120-lpg-total-versus-fillable-capacity"]["detail"].lower())
 
         metadata = report["report_metadata"]
         self.assertEqual(metadata["report_id"], report["report_id"])
