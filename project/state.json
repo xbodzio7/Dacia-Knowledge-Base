@@ -27,29 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
-    "kind": "source_dimension_diagram_crosswalk_review",
-    "name": "Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review",
-    "status": "complete",
-    "goal": "Reconcile the official Polish Duster MY26 2026-11-02 printed page 9 against all 16 exact source-linked configurations. Import only the 18 precisely applicable exterior-dimension observations; preserve ambiguous interior and tailgate callouts as explicit exclusions.",
-    "pull_request": 855,
-    "merge_commit_sha": "c18f5e704a27edee2e55615fc7138e3e4038bcf3"
-  },
-  "next_package": {
     "package_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
     "kind": "source_equipment_applicability_evidence_review",
     "name": "Bigster MY26 2026-10-01 HDC Applicability Evidence Review",
+    "status": "complete",
+    "goal": "Review the official Polish Bigster MY26 2026-10-01 cennik page 4 HDC row against the grade-level matrix and six exact source-linked configurations. The qualifier 'Extreme oraz 4x4' does not establish whether the two conditions are conjunctive or disjunctive; preserve all six existing statuses and close the evidence review without master-data changes.",
+    "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
+    "report_path": "data/reporting/bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001.json",
+    "pull_request": null,
+    "master_data_changed": false
+  },
+  "next_package": {
+    "package_id": "sandero_my26_20261102_ecog120_injection_and_lpg_capacity_semantics_review_20261119_001",
+    "kind": "source_technical_semantics_evidence_review",
+    "name": "Sandero / Sandero Stepway MY26 2026-11-02 Eco-G 120 Injection and LPG Capacity Semantics Review",
     "status": "active",
-    "goal": "Resolve the exact configuration applicability of the Bigster MY26 2026-10-01 cennik HDC equipment row, whose qualifier 'Extreme oraz 4x4' leaves six existing availability states unresolved. Reconcile the printed row, symbols, configuration scope and existing source-linked observations; change master data only if the source establishes a complete unambiguous truth table, otherwise preserve all six unresolved states and record the precise evidence boundary.",
+    "goal": "Reconcile the exact official cennik wording for Eco-G 120 injection type and LPG/petrol tank capacities against the 18 existing fuel-specific capacity observations. Determine only what the source explicitly establishes; do not infer separate fuel-system injection methods or total-versus-fillable LPG capacity. Preserve source-stated values and record any unresolved semantic boundary.",
     "source_report": "data/reporting/official_polish_dacia_my26_cennik_residual_coverage_20261119.md",
-    "source_finding": "bigster-october-hdc-applicability",
+    "source_finding": "sandero-ecog120-injection-and-lpg-capacity-semantics",
     "scope": {
-      "source_date": "2026-10-01",
-      "model": "Bigster",
-      "attribute": "Hill Descent Control (HDC)",
-      "unresolved_availability_states": 6,
-      "equipment_attribute_groups_reviewed": 94,
-      "aligned_equipment_attribute_groups": 93
+      "source_date": "2026-11-02",
+      "model": "Sandero / Sandero Stepway",
+      "engine": "Eco-G 120",
+      "source_page": 5,
+      "existing_fuel_capacity_observations": 18,
+      "review_only_if_no_new_source_fact": true
     }
   },
   "autonomy": {
