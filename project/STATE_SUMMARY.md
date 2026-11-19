@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 Cennik Equipment Evidence Note Synchronization** — `complete`
+**Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation** — `complete`
 
-Synchronize 26 stale master evidence notes for the 564 existing page-4/5 equipment-availability observations with the corrected canonical import specification. Preserve all 564 observations, statuses, dates, source codes, IDs and master row counts; do not re-import.
+Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the 'Extreme oraz 4x4' qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.
 
 ## Next package
 
-**Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation** — `active`
+**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `planned`
 
-Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the 'Extreme oraz 4x4' qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.
+Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains.
 
 ## Autonomy
 
