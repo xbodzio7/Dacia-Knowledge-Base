@@ -453,10 +453,15 @@ This is a note-synchronization closure only. The full row-by-row PDF value compa
 
 PR #849 was merged to main as `bafdfb20a5f4a029dfef2a1ce7d552c4bb86fbbf`. The package synchronized exactly 26 master evidence notes to the corrected canonical import specification for 564 existing page-4/5 equipment observations. All IDs 8720–9283, source codes, dates and availability statuses were preserved; no observations were re-imported. Six required checks passed on the exact PR head.
 
-## Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation — active 2026-11-19
+## Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation — PR #850 merged (2026-11-19)
 
 The official archived eight-page cennik has SHA-256 `0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97`. Pages 4–5 were independently reviewed against the 564 existing observations (six exact configurations × 94 attributes). 93 attribute groups are consistent with the printed matrix. The HDC row remains unresolved: the grade-level matrix marks Expression, Extreme and Journey standard, while its qualifier says "wyłącznie dla wersji Extreme oraz 4x4". The source does not explicitly define whether that is a strict Extreme-4x4 conjunction or a union of Extreme grade and 4x4 drivetrain. Preserve the current six master statuses until this is clarified.
 
 The existing 86 dated commercial mappings across 11 items were checked. Spare-wheel applicability remains unknown where the October source qualifier does not exactly match the registered configuration label; do not project the Hybrid 155 or older mild-hybrid 130 4x4 price to other powertrains.
 
 Source-link drift was also detected: the registered CDN URL currently returns a PDF marked effective 2026-11-02, while a separate official Dacia CDN URL returns the 2026-10-01 edition. Do not replace the registered URL until the candidate binary is verified against the archived SHA-256. The archived PDF remains canonical.
+
+
+PR #850 was merged to `main` as `07e3d38d678e9d5af75d089f9c3f6050257c672d`. The six mandatory exact-head checks passed: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Repository state / project-state --check, and Generated documentation / documentation-baseline --check. The Temporary Bigster Repository Snapshot workflow was skipped and is not a required check.
+
+The canonical state-closure follow-up records this package as complete with PR #850 and its exact merge commit. It selects `dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001` as the next planned package: a bounded reconciliation of remaining technical/equipment gaps in the latest registered official Polish MY26 cenniks across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Continue cennik-only; brochures and configurator inference remain deferred. No master data, source identity, HDC status or Bigster observation was changed by this state closure.
