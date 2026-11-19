@@ -27,20 +27,20 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "bigster_my26_20261001_equipment_matrix_reconciliation_20261119_001",
-    "kind": "source_equipment_availability_matrix_reconciliation",
-    "name": "Bigster MY26 2026-10-01 Cennik Equipment Matrix Reconciliation",
-    "status": "complete",
-    "goal": "Independently reconcile the 564 existing Bigster MY26 2026-10-01 page-4/5 equipment observations against the archived official cennik. 93 of 94 attribute groups match; keep hill_descent_control unresolved because the printed grade-level matrix and the 'Extreme oraz 4x4' qualifier do not establish an unambiguous configuration truth table. Verify existing 86 commercial mappings and preserve unknown spare-wheel applicability. Do not change master statuses or the archived source URL without exact evidence.",
-    "pull_request": 850,
-    "merge_commit_sha": "07e3d38d678e9d5af75d089f9c3f6050257c672d"
-  },
-  "next_package": {
     "package_id": "dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001",
     "kind": "source_price_list_coverage_assessment",
     "name": "Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment",
+    "status": "complete",
+    "goal": "Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. The assessment found no additional technical or equipment rows that were both missing and safely importable; no master data changed. Remaining exact ambiguities are retained as named deferrals in the current report.",
+    "pull_request": 852,
+    "merge_commit_sha": "206d1b46814a5e7a38e79438af0956f65b95db25"
+  },
+  "next_package": {
+    "package_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
+    "kind": "source_dimension_diagram_crosswalk_review",
+    "name": "Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review",
     "status": "planned",
-    "goal": "Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains."
+    "goal": "Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
