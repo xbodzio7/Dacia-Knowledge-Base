@@ -12,6 +12,11 @@
       "json_path": "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.json",
       "markdown_path": "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.md",
       "legacy": true
+    },
+    {
+      "report_id": "official_polish_dacia_my26_cennik_residual_coverage_20261119_001",
+      "json_path": "data/reporting/official_polish_dacia_my26_cennik_residual_coverage_20261119.json",
+      "markdown_path": "data/reporting/official_polish_dacia_my26_cennik_residual_coverage_20261119.md"
     }
   ]
 }
