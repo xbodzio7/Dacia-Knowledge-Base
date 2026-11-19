@@ -70,7 +70,8 @@
         "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
         "data/master/attributes.csv"
       ],
-      "required_outcome": "Preserve source-page labels and diagram context; do not create scalar observations until each callout has an exact canonical measurement meaning and configuration scope."
+      "required_outcome": "Preserve source-page labels and diagram context; do not create scalar observations until each callout has an exact canonical measurement meaning and configuration scope.",
+      "last_verified_at": "2026-11-19T21:38:00Z"
     },
     {
       "finding_id": "sandero-decorative-trim-descriptors",
@@ -80,7 +81,8 @@
         "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
         "data/master/attributes.csv"
       ],
-      "required_outcome": "Keep grade-level source descriptions as reviewed evidence; do not collapse distinct decorative finishes into upholstery, centre-console, wheel or generic appearance attributes."
+      "required_outcome": "Keep grade-level source descriptions as reviewed evidence; do not collapse distinct decorative finishes into upholstery, centre-console, wheel or generic appearance attributes.",
+      "last_verified_at": "2026-11-19T21:38:00Z"
     }
   ],
   "outcome": {
