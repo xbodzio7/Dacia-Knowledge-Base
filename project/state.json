@@ -39,8 +39,11 @@
     "package_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
     "kind": "source_dimension_diagram_crosswalk_review",
     "name": "Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review",
-    "status": "planned",
-    "goal": "Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous."
+    "status": "active",
+    "goal": "Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous.",
+    "pull_request": 855,
+    "branch": "data/duster-my26-page9-dimensions-20261119-001",
+    "head_sha": "574ab5fce0aa3e3e835d97cca3314dee7e74448e"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
