@@ -27,22 +27,30 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001",
-    "kind": "source_price_list_coverage_assessment",
-    "name": "Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment",
-    "status": "complete",
-    "goal": "Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. The assessment found no additional technical or equipment rows that were both missing and safely importable; no master data changed. Remaining exact ambiguities are retained as named deferrals in the current report.",
-    "pull_request": 852,
-    "merge_commit_sha": "206d1b46814a5e7a38e79438af0956f65b95db25"
-  },
-  "next_package": {
     "package_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
     "kind": "source_dimension_diagram_crosswalk_review",
     "name": "Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review",
-    "status": "active",
-    "goal": "Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous.",
+    "status": "complete",
+    "goal": "Reconcile the official Polish Duster MY26 2026-11-02 printed page 9 against all 16 exact source-linked configurations. Import only the 18 precisely applicable exterior-dimension observations; preserve ambiguous interior and tailgate callouts as explicit exclusions.",
     "pull_request": 855,
-    "branch": "data/duster-my26-page9-dimensions-20261119-001"
+    "merge_commit_sha": "c18f5e704a27edee2e55615fc7138e3e4038bcf3"
+  },
+  "next_package": {
+    "package_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
+    "kind": "source_equipment_applicability_evidence_review",
+    "name": "Bigster MY26 2026-10-01 HDC Applicability Evidence Review",
+    "status": "active",
+    "goal": "Resolve the exact configuration applicability of the Bigster MY26 2026-10-01 cennik HDC equipment row, whose qualifier 'Extreme oraz 4x4' leaves six existing availability states unresolved. Reconcile the printed row, symbols, configuration scope and existing source-linked observations; change master data only if the source establishes a complete unambiguous truth table, otherwise preserve all six unresolved states and record the precise evidence boundary.",
+    "source_report": "data/reporting/official_polish_dacia_my26_cennik_residual_coverage_20261119.md",
+    "source_finding": "bigster-october-hdc-applicability",
+    "scope": {
+      "source_date": "2026-10-01",
+      "model": "Bigster",
+      "attribute": "Hill Descent Control (HDC)",
+      "unresolved_availability_states": 6,
+      "equipment_attribute_groups_reviewed": 94,
+      "aligned_equipment_attribute_groups": 93
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
