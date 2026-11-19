@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
+  "generated_at": "2026-11-19T19:40:00Z",
+  "analysed_commit_sha": "d2a1df8bbfe49e442354517ad4f3371a45b6f658",
+  "status": "closed_with_explicit_source_ambiguity",
+  "scope": {
+    "model": "Sandero / Sandero Stepway",
+    "market": "PL",
+    "model_year": 2026,
+    "source_date": "2026-11-02",
+    "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+    "source_path": "owner_supplied/2026-11-02/3b4618d7da.pdf",
+    "source_sha256": "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c",
+    "source_page": 5,
+    "configurations": [
+      "sandero_iii_expression_ecog120_manual",
+      "sandero_iii_journey_ecog120_manual",
+      "sandero_stepway_iii_essential_ecog120_manual",
+      "sandero_stepway_iii_expression_ecog120_automatic",
+      "sandero_stepway_iii_expression_ecog120_manual",
+      "sandero_stepway_iii_extreme_ecog120_automatic",
+      "sandero_stepway_iii_extreme_ecog120_manual",
+      "sandero_iii_expression_ecog120_automatic",
+      "sandero_iii_journey_ecog120_automatic"
+    ],
+    "configuration_count": 9,
+    "existing_fuel_capacity_observations": 18,
+    "observation_id_range": [
+      8509,
+      8526
+    ]
+  },
+  "comparison_source": {
+    "source_code": "src_pl_jogger_price_my26_20261001",
+    "source_date": "2026-10-01",
+    "source_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+    "source_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "printed_page": 6
+  },
+  "evidence": {
+    "sandero": {
+      "printed_fuel_type": "benzyna + LPG",
+      "engine_displacement_cm3": 1199,
+      "cylinders_and_valves": "3 / 12",
+      "injection_label": "bezpośredni",
+      "injection_label_scope": "One unqualified value in the Eco-G 120 engine column; the table does not separate petrol and LPG injection systems.",
+      "tank_capacity_l": {
+        "lpg": 40,
+        "petrol": 50
+      },
+      "tank_capacity_wording": "Pojemność zbiornika paliwa (l): LPG: 40; Ben: 50",
+      "power": {
+        "lpg": "90 kW (122 KM) at 4,500 rpm",
+        "petrol": "84 kW (114 KM) at 4,500 rpm"
+      }
+    },
+    "jogger": {
+      "printed_fuel_type": "benzyna + LPG",
+      "engine_displacement_cm3": 1199,
+      "cylinders_and_valves": "3 / 12",
+      "injection_label": "benzyna bezpośredni / LPG pośredni",
+      "tank_capacity_l": {
+        "lpg_total": 50,
+        "lpg_fillable": 40,
+        "petrol": 50
+      },
+      "tank_capacity_wording": "LPG: całkowita pojemność / pojemność napełniania: 50/40; Ben: 50",
+      "power": {
+        "lpg": "90 kW (122 KM)",
+        "petrol": "84 kW (114 KM)"
+      }
+    },
+    "repository_engine_identity": {
+      "engines_registry_has_eco_g120": false,
+      "model_engine_registry_has_eco_g120_mapping": false,
+      "legacy_eco_g100_records_are_not_identity_proof": true
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "sandero-ecog120-fuel-specific-injection",
+      "status": "needs_review",
+      "detail": "The Sandero page-5 table labels Eco-G 120 injection as one unqualified 'bezpośredni' value, while the Jogger page-6 table explicitly distinguishes petrol direct injection and LPG indirect injection. The two cenniks show matching Eco-G 120 labels, 1,199 cm3 displacement, 3/12 cylinders/valves and the same fuel-specific power figures, but the repository has no normalized Eco-G 120 engine record or model-engine relationship linking Sandero/Stepway and Jogger. Do not transfer or split the injection value until exact shared-powertrain identity is established.",
+      "evidence_refs": [
+        "owner_supplied/2026-11-02/3b4618d7da.pdf",
+        "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+        "data/master/engines.csv",
+        "data/master/model_engines.csv",
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json"
+      ],
+      "last_verified_at": "2026-11-19T19:40:00Z"
+    },
+    {
+      "finding_id": "sandero-ecog120-lpg-total-versus-fillable-capacity",
+      "status": "needs_review",
+      "detail": "The Sandero cennik states LPG 40 l and petrol 50 l without identifying LPG total vessel capacity versus filling capacity. The Jogger cennik states LPG total/fillable capacity 50/40 l; the matching 40 l figure is consistent with the Jogger fillable value but is not sufficient evidence to classify the Sandero value by cross-model inference. Preserve the 18 existing generic fuel_tank_capacity observations and do not migrate them to lpg_vessel_capacity_total or lpg_vessel_filling_capacity.",
+      "evidence_refs": [
+        "owner_supplied/2026-11-02/3b4618d7da.pdf",
+        "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+        "data/master/configuration_attribute_values.csv",
+        "data/master/attributes.csv"
+      ],
+      "last_verified_at": "2026-11-19T19:40:00Z"
+    }
+  ],
+  "outcome": {
+    "master_rows_added": 0,
+    "master_rows_updated": 0,
+    "existing_capacity_observations_preserved": 18,
+    "injection_type_observations_added": 0,
+    "lpg_total_or_fillable_classifications_added": 0,
+    "import_spec_rows_changed": 0,
+    "source_binary_changed": false,
+    "master_data_changed": false
+  },
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
+    "generated_at": "2026-11-19T19:40:00Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "d2a1df8bbfe49e442354517ad4f3371a45b6f658",
+    "input_files": [
+      {
+        "path": "owner_supplied/2026-11-02/3b4618d7da.pdf",
+        "git_blob_sha": "193f0bb418de1ddcdb2f5f26a4a9c73bdf3bf5b6",
+        "sha256": "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c"
+      },
+      {
+        "path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+        "git_blob_sha": "1de5422e6c2ea211f0c6afd17f4e7b2130616b59",
+        "sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
+        "git_blob_sha": "a266ba57206c82eb7b1ec90f66ffd2ff9bbe26bb",
+        "sha256": "3ac9a41a808fca5058154abbfaf397332e2b659da8088f68efeb57138c085b52"
+      },
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "536fc427138907a2ff9ba6c824c253cf0e079f76",
+        "sha256": "48b9d27f7243d9af9c1673cc742e69ceeea3bb87c0d4703b5c256ccb9ca4cf46"
+      },
+      {
+        "path": "data/master/attributes.csv",
+        "git_blob_sha": "6e1efb5d7531f855aa8a086a9fd7b8bc779aadf5",
+        "sha256": "d24a2b19d5da75e26957dc240acb09d1955f856fbd42b9e6d6fe7d5b7e8d4db1"
+      },
+      {
+        "path": "data/master/engines.csv",
+        "git_blob_sha": "75b3e51ed433091ad49013e49d69e854199e6ead",
+        "sha256": "703e3c33da99c44d05760bfac4c387ca31ee4166e71433021563bf5a117d2be3"
+      },
+      {
+        "path": "data/master/model_engines.csv",
+        "git_blob_sha": "cd9a0d4b560c300265d134171e25cdea62077cc9",
+        "sha256": "dfc972b6a9217cbbdc482a77bab1e4d8fe904239f7f51d3ae7b4d5067db82d07"
+      }
+    ],
+    "scope": "Sandero and Sandero Stepway MY26 official Polish cennik effective 2026-11-02, printed page 5; Eco-G 120 injection wording and LPG/petrol tank-capacity semantics across the nine exact source-linked Eco-G 120 configurations, compared with the official Jogger MY26 cennik effective 2026-10-01, printed page 6.",
+    "status": "current"
+  }
+}

@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 2001
+- Tests: 2005
 - Master CSV files: 48
 - Master rows: 22827
 - Configuration values: 8528
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Bigster MY26 2026-10-01 HDC Applicability Evidence Review** — `complete`
+**Sandero / Sandero Stepway MY26 2026-11-02 Eco-G 120 Injection and LPG Capacity Semantics Review** — `complete`
 
-Review the official Polish Bigster MY26 2026-10-01 cennik page 4 HDC row against the grade-level matrix and six exact source-linked configurations. The qualifier 'Extreme oraz 4x4' does not establish whether the two conditions are conjunctive or disjunctive; preserve all six existing statuses and close the evidence review without master-data changes.
+Review the official Polish Sandero/Sandero Stepway MY26 2026-11-02 cennik page 5 against the official Jogger MY26 2026-10-01 page 6. The Sandero source does not distinguish petrol/LPG injection or LPG total/fillable capacity, and the repository has no normalized Eco-G 120 engine identity linking the models; preserve all 18 existing capacity observations without master-data changes.
 
 ## Next package
 
-**Sandero / Sandero Stepway MY26 2026-11-02 Eco-G 120 Injection and LPG Capacity Semantics Review** — `active`
+**Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review** — `active`
 
-Reconcile the exact official cennik wording for Eco-G 120 injection type and LPG/petrol tank capacities against the 18 existing fuel-specific capacity observations. Determine only what the source explicitly establishes; do not infer separate fuel-system injection methods or total-versus-fillable LPG capacity. Preserve source-stated values and record any unresolved semantic boundary.
+Review the exact interior dimension callouts and decorative trim descriptors in the official 2026-11-02 Sandero/Sandero Stepway cennik against the canonical attribute catalogue. Preserve labels and source context; import nothing unless each measurement or descriptor has an exact canonical meaning and configuration scope.
 
 ## Autonomy
 
