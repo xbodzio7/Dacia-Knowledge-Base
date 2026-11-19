@@ -1020,6 +1020,24 @@ For any package that adds or changes an import spec, master row, observation or 
 
 If a shared-source regression is found, do not merely add the new package's count to an old expected total. Correct the ownership boundary, retain the old package's invariant, and assert the new package's exact records independently. A broad assertion may remain only if the entire source inventory is intentionally frozen and versioned as a fixture.
 
+
+### 24.2 Semantic assertions and editorial wording stability
+
+Tests for reports, findings, documentation and other human-readable content must verify the intended invariant or meaning, not an incidental sentence chosen by an author. Editorial wording may be clarified or paraphrased without changing the underlying decision; a test that requires one exact phrase can therefore fail even when the report remains correct.
+
+Mandatory rules:
+
+1. **Prefer structured contracts.** Where available, assert stable identifiers, finding/status codes, scope, source references, applicability, explicit outcome fields and permitted/prohibited data changes. These are stronger contracts than a sentence in a free-form `detail` or `notes` field.
+2. **Treat prose as explanatory unless declared otherwise.** Do not use exact whole-sentence or phrase matching for editorial descriptions, rationale, notes or report summaries merely to prove a domain decision. A wording change alone must not break a test when the structured meaning and required behavior remain unchanged.
+3. **Use exact text assertions only for real text contracts.** Exact matching is appropriate for stable machine-facing values and intentionally fixed external contracts, such as identifiers, enum literals, schema keys, command names, protocol tokens, or user-visible text whose exact wording is itself a requirement. State that reason in the test.
+4. **When prose is the only available evidence, test the semantic boundary.** Check stable finding identity and status, required source/evidence references, and the presence/absence of the consequential behavior or classification. If a textual check is still needed, normalize harmless case/whitespace differences and assert the smallest meaningful condition; do not pin the test to one complete sentence or a single editorial formulation.
+5. **Do not make a failing test pass by deleting or weakening its invariant.** First inspect the source evidence and the full report/finding. Decide whether the implementation's meaning changed or only its wording. If the meaning changed, correct the report/data and its tests together. If only wording changed, update the brittle assertion to the stable semantic contract and retain positive and negative checks for the intended behavior.
+6. **Review the resulting test, not just the replacement line.** Confirm that the revised assertion would still fail for the prohibited or incorrect outcome. Include a regression case for the negative boundary where practical.
+
+For example, a report finding that defers an unsupported classification should be tested through its stable `finding_id`, `needs_review` status, source scope and unchanged/no-migration outcome. A test should not require one exact editorial phrase such as “Do not convert” if the report expresses the same prohibition as “do not migrate”. Conversely, if an exact phrase is part of a published interface or legal/contractual wording, exact matching remains appropriate.
+
+This rule applies to tests of JSON/Markdown reports, source-review findings, generated documentation and explanatory metadata. It supplements sections 5, 7.1 and 8; it does not permit a weaker evidence standard or a test that accepts an incorrect domain outcome.
+
 ## 25. Remote-main authority, package closure and post-merge state transaction
 
 This section is mandatory for every session and package, including documentation-only work. It prevents local-checkout drift, stale package queues and false completion after a successful merge.
