@@ -180,7 +180,7 @@ When working directly inside the repository, do not reproduce complete files in 
 Before relying on a report under `data/reporting/` or `project/packages/`, check its provenance and freshness under `project/REPORT_FRESHNESS_STANDARD.md`. A report without exact input identities is historical/legacy, not proof of current state. Recheck old findings against current master data and source evidence; never ask the Project Owner to repeat an upload or action based only on an old report. When source/master data changes, identify dependent reports and refresh or explicitly retain them as historical. The automated freshness gate must be used once integrated into the required repository consistency workflow.
 
 
-The report freshness contract is now enforced by the required Quality workflow. Maintain `data/reporting/report_registry.json` whenever adding or materially refreshing an analytical report; run `python tools/dkb.py report-freshness` before proposing the package. Only explicitly registered historical reports may use the legacy exception, and they must never be described as current.
+The report freshness contract is now enforced by the required Quality workflow. Maintain `data/reporting/report_registry.json` whenever adding or materially refreshing an analytical report; run `python tools/dkb.py report-freshness` before proposing the package. Only explicitly registered historical reports may use the legacy exception, and they must never be described as current. Run this check locally after the final report JSON, Markdown, registry and finding edits, and before committing/pushing; CI is the independent final gate, not the first place to discover report-contract defects.
 
 ## Remote-main and post-merge continuity (mandatory)
 
