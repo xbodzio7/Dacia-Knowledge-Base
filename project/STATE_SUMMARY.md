@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `complete`
+**Bigster MY26 2026-10-01 HDC Applicability Evidence Review** — `complete`
 
-Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. The assessment found no additional technical or equipment rows that were both missing and safely importable; no master data changed. Remaining exact ambiguities are retained as named deferrals in the current report.
+Review the official Polish Bigster MY26 2026-10-01 cennik page 4 HDC row against the grade-level matrix and six exact source-linked configurations. The qualifier 'Extreme oraz 4x4' does not establish whether the two conditions are conjunctive or disjunctive; preserve all six existing statuses and close the evidence review without master-data changes.
 
 ## Next package
 
-**Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review** — `active`
+**Sandero / Sandero Stepway MY26 2026-11-02 Eco-G 120 Injection and LPG Capacity Semantics Review** — `active`
 
-Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous.
+Reconcile the exact official cennik wording for Eco-G 120 injection type and LPG/petrol tank capacities against the 18 existing fuel-specific capacity observations. Determine only what the source explicitly establishes; do not infer separate fuel-system injection methods or total-versus-fillable LPG capacity. Preserve source-stated values and record any unresolved semantic boundary.
 
 ## Autonomy
 
