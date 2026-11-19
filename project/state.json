@@ -34,7 +34,7 @@
     "goal": "Review the official Polish Bigster MY26 2026-10-01 cennik page 4 HDC row against the grade-level matrix and six exact source-linked configurations. The qualifier 'Extreme oraz 4x4' does not establish whether the two conditions are conjunctive or disjunctive; preserve all six existing statuses and close the evidence review without master-data changes.",
     "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
     "report_path": "data/reporting/bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001.json",
-    "pull_request": null,
+    "pull_request": 856,
     "master_data_changed": false
   },
   "next_package": {
