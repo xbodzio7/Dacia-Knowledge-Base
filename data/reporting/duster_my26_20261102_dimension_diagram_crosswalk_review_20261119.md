@@ -1,5 +1,11 @@
 # Duster MY26 2026-11-02 — Page 9 Dimension Diagram Crosswalk Review
 
+Report ID: duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001
+Generated: 2026-11-19T18:40:04+01:00
+Analysed commit: f0c616d38f3ebd3f94bf16f1e43a51b350d7a189
+Status: current
+Scope: Duster MY26 printed page 9 exterior-dimension diagram; all 16 exact source-linked configurations, with six missing 4x2/4x4 targets imported. Interior/seat callouts and tailgate-open height are explicitly excluded.
+
 ## Result
 
 The page-9 diagram was reconciled against the exact 16 configurations linked to the official Polish Duster MY26 cennik effective 2026-11-02. The review supports **18 missing scalar observations** across six configurations: front track, rear track and ground clearance. No existing observation was overwritten or duplicated.
