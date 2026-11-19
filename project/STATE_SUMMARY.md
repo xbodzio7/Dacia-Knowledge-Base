@@ -23,11 +23,11 @@
 
 ## Verified baseline
 
-- Tests: 1996
+- Tests: 2001
 - Master CSV files: 48
-- Master rows: 22809
-- Configuration values: 8510
-- Configuration import specifications: 190
+- Master rows: 22827
+- Configuration values: 8528
+- Configuration import specifications: 193
 - Configuration value ranges: 451
 - Configuration range import specifications: 25
 - Availability records: 10399
@@ -42,7 +42,7 @@ Reconcile the latest registered official Polish MY26 Dacia price lists against c
 
 ## Next package
 
-**Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review** — `planned`
+**Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review** — `active`
 
 Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous.
 
