@@ -81,7 +81,15 @@ def check():
     assert len([r for r in values if r["source_code"]==PREVIOUS])==391
     assert len([r for r in ranges if r["source_code"]==PREVIOUS])==16
     assert len([r for r in availability if r["source_code"]==PREVIOUS])==1152
-    assert not [r for r in values+ranges+availability if r["source_code"]==SOURCE]
+    current_source_dimensions = [
+        r for r in values
+        if r["source_code"] == SOURCE
+        and r["observation_date"] == "2026-11-02"
+        and r["attribute_code"] in {"front_track", "rear_track", "ground_clearance"}
+    ]
+    assert len(current_source_dimensions) == 18
+    assert not [r for r in values if r["source_code"] == SOURCE and r not in current_source_dimensions]
+    assert not [r for r in ranges + availability if r["source_code"] == SOURCE]
     for code,note in ITEM_NOTES.items(): assert ii[code]["notes"]==note
     return {"source_code":SOURCE,"configurations":16,"versions":4,"new_items":2,"new_memberships":2,"dated_commercial_mappings":64,"catalogue_price_rows_reused":16,"technical_scalar_observations_reused":391,"technical_ranges_reused":16,"equipment_availability_observations_reused":1152}
 

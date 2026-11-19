@@ -992,6 +992,34 @@ When a later package adds valid observations under an existing source, earlier t
 
 A failure caused by a stale global count must be fixed by narrowing the assertion to the package ownership boundary, not by deleting new data or blindly increasing a number.
 
+### 24.1 Shared-source and cross-package regression protection
+
+A canonical source may be extended by more than one bounded package over time. The source code identifies the document, not the package that owns every row imported from it. Tests and importers must therefore distinguish **source identity**, **package ownership**, **observation scope** and **expected records**.
+
+Mandatory rules:
+
+1. **Do not select legacy/package specs by filename prefix alone.** A broad glob or prefix such as `duster-page9-*` may capture later packages that use the same source page. Select the intended inventory using explicit package manifest membership and/or structured fields such as source code, observation date, attribute code and configuration set. If filenames are used as an additional selector, prove that the selector excludes future package specs by design.
+2. **Do not assert that a source has no records when the intended rule is that a package adds no duplicates.** Replace whole-source absence assertions with an exact allowed-set contract: enumerate the expected records for the new package (source, date, attributes, configurations and values), assert that each exists exactly once, and reject unexpected records only within the clearly defined scope being tested.
+3. **Preserve prior package contracts.** When a later package appends observations to an existing source, earlier tests must continue to validate their original records and original applicability, while a new focused test validates the appended records. Neither test should depend on the other's mutable total.
+4. **Use structured observation keys.** Where available, compare a stable key composed of source ID/code, observation date, attribute, configuration, fuel/gearbox/applicability dimensions and validity scope. Do not use a bare source code as a unique fact key.
+5. **Keep exact counts local.** An exact count is valid for a fixed package manifest, fixture or enumerated source/configuration subset. It is not valid as an unqualified count of all repository specs or all rows sharing a source code if later packages are allowed to extend them.
+6. **Test coexistence, not only isolated success.** When adding a spec under a previously used source, run the new focused tests together with the existing source-family regression tests. The combined run must prove that old rows remain unchanged, new rows are present exactly once, and unrelated rows are untouched.
+7. **Review all shared-source consumers before changing expectations.** Search tests, importers, reports and workflows for the affected source code, file prefix, attribute code and count assertion. Record the affected tests and their ownership boundary in the package validation notes.
+
+### Required pre-commit shared-source regression checklist
+
+For any package that adds or changes an import spec, master row, observation or report under a source code already used by another package:
+
+- [ ] Enumerate all existing specs and master observations for that source before editing.
+- [ ] Identify which tests assert totals, absence, or filename-prefix membership for that source.
+- [ ] Verify each such test is scoped to its own package/source-date/configuration contract.
+- [ ] Add or update an exact positive test for the new package records and an exact negative test for duplicates/unexpected scope.
+- [ ] Run the new test and every affected pre-existing source-family test in the same command.
+- [ ] Compare the candidate branch diff against its base and confirm prior records were not removed or rewritten.
+- [ ] Run the full repository test discovery and required quality matrix after the final edit.
+
+If a shared-source regression is found, do not merely add the new package's count to an old expected total. Correct the ownership boundary, retain the old package's invariant, and assert the new package's exact records independently. A broad assertion may remain only if the entire source inventory is intentionally frozen and versioned as a fixture.
+
 ## 25. Remote-main authority, package closure and post-merge state transaction
 
 This section is mandatory for every session and package, including documentation-only work. It prevents local-checkout drift, stale package queues and false completion after a successful merge.

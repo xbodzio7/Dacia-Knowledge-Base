@@ -15,11 +15,11 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 1996,
+    "tests": 2001,
     "csv_files": 48,
-    "rows": 22809,
-    "configuration_values": 8510,
-    "configuration_import_specs": 190,
+    "rows": 22827,
+    "configuration_values": 8528,
+    "configuration_import_specs": 193,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
     "availability_records": 10399,
@@ -39,8 +39,10 @@
     "package_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
     "kind": "source_dimension_diagram_crosswalk_review",
     "name": "Duster MY26 2026-11-02 Dimension Diagram Crosswalk Review",
-    "status": "planned",
-    "goal": "Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous."
+    "status": "active",
+    "goal": "Reconcile every rendered label and paired measurement on Duster MY26 2026-11-02 printed page 9 against the exact 16-configuration scope and existing dimension observations. Import nothing unless the source establishes precise applicability; preserve the current deferral if the crosswalk remains ambiguous.",
+    "pull_request": 855,
+    "branch": "data/duster-my26-page9-dimensions-20261119-001"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

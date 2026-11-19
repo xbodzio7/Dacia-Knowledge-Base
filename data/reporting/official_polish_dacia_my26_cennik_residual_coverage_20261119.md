@@ -3,10 +3,13 @@
 Report ID: official_polish_dacia_my26_cennik_residual_coverage_20261119_001
 Generated: 2026-11-19T10:00:15.033Z
 Analysed commit: 5a6e5f317e7d163efd0a26e2ca619daa81894ab2
-Status: current
+Status: historical
 Scope: Latest registered official Polish MY26 Dacia cenniks for Sandero/Sandero Stepway, Duster, Jogger, Bigster and Spring reconciled against current source links, catalogue prices, commercial mappings, scalar technical values, equipment availability and value ranges. No brochure or configurator extraction was performed; previously registered observations were treated only as existing master history. Separate accessory catalogues, promotions and financing offers are excluded.
 
 ## Result
+
+**Historical snapshot:** this assessment describes the repository at its recorded analysed commit. Its Duster page-9 dimension gap was subsequently resolved in report `duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001`.
+
 
 Six registered MY26 cennik source/date entries across five model families were reconciled against current source relationships and master records. The review found **no additional technical or equipment rows that are both missing and safely importable**. No master data changed.
 
