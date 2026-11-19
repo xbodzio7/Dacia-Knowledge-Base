@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "kind": "duster_my26_page9_dimension_diagram_crosswalk_review",
+  "reviewed_on": "2026-11-19",
+  "status": "complete",
+  "method": "visual_pdf_diagram_review_with_exact_source_configuration_crosswalk",
+  "source": {
+    "source_code": "src_pl_duster_price_my26_20261102",
+    "source_date": "2026-11-02",
+    "source_page": 9,
+    "source_file": "owner_supplied/2026-11-02/f07ca0a87f.pdf",
+    "registered_file": "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+    "sha256": "dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118",
+    "official_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf"
+  },
+  "scope": {
+    "source_configurations": 16,
+    "configurations_4x2": 13,
+    "configurations_4x4": 3,
+    "source_relationship": "documents",
+    "import_eligible_configurations": 6,
+    "imported_scalar_values": 18
+  },
+  "crosswalk": [
+    {
+      "attribute_code": "roof_height_with_rails",
+      "unit": "mm",
+      "values": {
+        "4x2": 1656,
+        "4x4": 1661
+      },
+      "disposition": "already represented for all 16 configurations; no duplicate observations"
+    },
+    {
+      "attribute_code": "front_track",
+      "unit": "mm",
+      "values": {
+        "4x2": 1574,
+        "4x4": 1573
+      },
+      "disposition": "imported for three Eco-G 120 automatic 4x2 configurations and three hybrid-G 150 4x4 configurations; existing ten 4x2 observations retained"
+    },
+    {
+      "attribute_code": "rear_track",
+      "unit": "mm",
+      "values": {
+        "4x2": 1547,
+        "4x4": 1562
+      },
+      "disposition": "imported for the six configurations missing this attribute"
+    },
+    {
+      "attribute_code": "ground_clearance",
+      "unit": "mm",
+      "values": {
+        "4x2": 209,
+        "4x4": 217
+      },
+      "disposition": "imported for the six configurations missing this attribute; 4x4 mapping follows the previously reviewed Duster 4x2/4x4 visual crosswalk. The diagram prints the pair in 217/209 order, so order is not assumed to be uniform across slash pairs."
+    },
+    {
+      "attribute_code": "overall_width",
+      "unit": "mm",
+      "values": {
+        "all": 1813
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "unit": "mm",
+      "values": {
+        "all": 2069
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "front_overhang",
+      "unit": "mm",
+      "values": {
+        "all": 857
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "wheelbase",
+      "unit": "mm",
+      "values": {
+        "4x2": 2657,
+        "4x4": 2658
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "unit": "mm",
+      "values": {
+        "4x2": 828,
+        "4x4": 827
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "overall_length",
+      "unit": "mm",
+      "values": {
+        "all": 4343
+      },
+      "disposition": "already represented; no duplicate observations"
+    }
+  ],
+  "imported_configurations": [
+    "duster_iii_expression_ecog120_4x2_automatic",
+    "duster_iii_extreme_ecog120_4x2_automatic",
+    "duster_iii_journey_ecog120_4x2_automatic",
+    "duster_iii_expression_hybridg150_4x4_automatic",
+    "duster_iii_extreme_hybridg150_4x4_automatic",
+    "duster_iii_journey_hybridg150_4x4_automatic"
+  ],
+  "imported_attributes": [
+    "front_track",
+    "rear_track",
+    "ground_clearance"
+  ],
+  "imported_id_range": [
+    8527,
+    8544
+  ],
+  "exclusions": [
+    {
+      "visual_values": [
+        "1443",
+        "1432"
+      ],
+      "reason": "Interior width callouts lack a sufficiently precise canonical attribute and exact measurement basis."
+    },
+    {
+      "visual_values": [
+        "907",
+        "894",
+        "14°"
+      ],
+      "reason": "Seat/interior geometry callouts are not mapped to an existing canonical dimension; 14° is not an approach/departure angle."
+    },
+    {
+      "visual_values": [
+        "2092"
+      ],
+      "reason": "Tailgate-open height callout is not imported from this diagram; it is already represented in exact configurator observations and is not a normal closed-vehicle overall height."
+    }
+  ],
+  "decisions": [
+    "The source relationship to all 16 exact MY26 configurations resolves the earlier source-relationship limitation on the 4x4 diagram mapping.",
+    "Only missing configuration/attribute pairs were imported; existing historical and exact configurator observations were not overwritten or duplicated.",
+    "No new attributes, source relationships, or inferred grade-level splits were created.",
+    "The source PDF is archived and SHA-256 verified."
+  ],
+  "next_package": "Complete package-level CI and repository-state closure; do not select a new data package until this PR is merged and canonical state is refreshed."
+}
