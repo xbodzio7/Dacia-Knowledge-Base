@@ -124,7 +124,7 @@
       }
     ],
     "scope": "Latest registered official Polish MY26 Dacia cenniks for Sandero/Sandero Stepway, Duster, Jogger, Bigster and Spring reconciled against current source links, catalogue prices, commercial mappings, scalar technical values, equipment availability and value ranges. No brochure or configurator extraction was performed; previously registered observations were treated only as existing master history. Separate accessory catalogues, promotions and financing offers are excluded.",
-    "status": "current"
+    "status": "historical"
   },
   "aggregate": {
     "sources_reviewed": 6,
@@ -370,5 +370,6 @@
     "The Bigster 2026-11-02 source has zero source_configuration links by an explicit importer/test contract; its 13 prices and 86 commercial mappings remain source-linked directly in their respective master tables.",
     "Spring MY26 and Bigster November 2026 binaries are archived and hash-verified; older residual reports describing these as unarchived are historical."
   ],
-  "next_action": "The next cennik-only package is Duster MY26 2026-11-02 page-9 dimension-diagram crosswalk review. Reconcile each rendered label and paired measurement against the exact 16 configuration scope and existing dimension observations; import nothing unless the source establishes the precise applicability. Preserve the current paired-value deferral if the crosswalk remains ambiguous."
+  "next_action": "The next cennik-only package is Duster MY26 2026-11-02 page-9 dimension-diagram crosswalk review. Reconcile each rendered label and paired measurement against the exact 16 configuration scope and existing dimension observations; import nothing unless the source establishes the precise applicability. Preserve the current paired-value deferral if the crosswalk remains ambiguous.",
+  "superseded_by": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001"
 }
