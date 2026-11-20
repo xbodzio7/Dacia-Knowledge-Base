@@ -58,3 +58,11 @@ The following eight exterior measurements from the diagram are already represent
 The CSV changes are limited to two new rows with IDs 8545–8546. Existing rows and IDs are preserved. The source registry note is updated to describe the bounded import and the preserved source conflicts. A focused regression test verifies exact configuration/source/date/value mappings, exclusion of Essential, and preservation of existing configurator observations.
 
 GitHub Actions is the execution environment for package preflight, test discovery, focused and full quality checks, project-state synchronization and generated-documentation validation. No local test execution is claimed.
+
+## Downstream report freshness revalidation
+
+The repository's report-freshness contract fingerprints shared input files as whole files. Updating the Spring source-register note and adding two Spring observations therefore invalidated the recorded fingerprints of five current reports whose scopes are unrelated to Spring.
+
+The following exact non-Spring scopes were rechecked against the candidate tree: Duster MY26 page-9 dimensions (16 Duster configurations), Bigster MY26 HDC (six Bigster configurations), Sandero/Sandero Stepway Eco-G 120 injection and LPG semantics (nine configurations), Sandero/Sandero Stepway interior dimensions and trim semantics (19 source-linked configurations), and Jogger MY26 paint/heated-seat applicability (12 configurations). The changed source-register row and the two added observations are Spring-only; none of these reports contains Spring configuration/source references. Their findings and dispositions remain unchanged.
+
+Only their provenance metadata was refreshed: input Git blob SHA-1/SHA-256 fingerprints, analysis commit reference, and generation timestamp. The Duster report's configuration-value input was also refreshed; its Duster-scoped observations were unchanged. The canonical `report-freshness` validator passed in GitHub Actions run [#44821547139](https://github.com/xbodzio7/Dacia-Knowledge-Base/actions/runs/44821547139).
