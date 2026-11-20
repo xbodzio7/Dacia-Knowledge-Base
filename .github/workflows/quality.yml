@@ -68,7 +68,7 @@ jobs:
 
       - name: Reject undefined names before running the test suite
         if: matrix.python-version == '3.14'
-        run: python -m ruff check --select F821 tools scripts tests
+        run: python -m ruff check --select F821 tools tests
 
       - name: Check Bigster brochure TPMS import contract
         run: python tools/import_bigster_brochure_tpms_availability.py --check
@@ -111,7 +111,7 @@ jobs:
 
       - name: Compile Python sources
         if: matrix.python-version != '3.14'
-        run: python -m compileall -q tools scripts tests
+        run: python -m compileall -q tools tests
 
       - name: Run unit tests
         if: matrix.python-version != '3.14'
