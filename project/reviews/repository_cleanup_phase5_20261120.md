@@ -26,7 +26,7 @@ These describe an earlier Sandero/Stepway-centred project structure and old purc
 - `project/DECISION_TEMPLATE.md` — old ADR-XXXX template inconsistent with the current D-### decision register.
 - `project/NAMING_CONVENTIONS.md` — early naming and branch examples that are not reliable current repository guidance.
 - `project/PROJECT_LIFECYCLE.md` — generic lifecycle duplicated and superseded by the current startup, package and quality contracts.
-- `project/CHANGELOG_PROJECT.md` — partial project log; its recent package notes are represented in the canonical root `CHANGELOG.md`, while early project-history notes are retained in the archive.
+- `project/CHANGELOG_PROJECT.md` — partial project log; some package notes overlap with the canonical root `CHANGELOG.md`, while early project-history and preflight notes are retained as a historical supplement.
 
 The active documents identified as replacements are recorded in `Archiwum/old_documentation/README.md`. The root `CHANGELOG.md` remains the canonical project-wide change history. A targeted reference review of the current startup/governance documents, README and relevant documentation tests found no active references to the five superseded guidance files. This was not represented as a complete repository-wide dependency scan; GitHub code search did not provide reliable coverage.
 
