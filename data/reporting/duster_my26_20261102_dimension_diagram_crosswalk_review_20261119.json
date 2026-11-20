@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "duster_my26_page9_dimension_diagram_crosswalk_review",
-  "reviewed_on": "2026-11-19",
+  "reviewed_on": "2026-11-20",
   "status": "complete",
   "method": "visual_pdf_diagram_review_with_exact_source_configuration_crosswalk",
   "source": {
@@ -159,10 +159,10 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
-    "generated_at": "2026-11-19T18:40:04+01:00",
+    "generated_at": "2026-11-20T21:34:50Z",
     "reviewed_on": "2026-11-19",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "f0c616d38f3ebd3f94bf16f1e43a51b350d7a189",
+    "base_commit_sha": "cfdc2f0c3e345271a43f18b917c726d2feb0da22",
     "input_files": [
       {
         "path": "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
@@ -171,8 +171,8 @@
       },
       {
         "path": "data/master/sources.csv",
-        "git_blob_sha": "536fc427138907a2ff9ba6c824c253cf0e079f76",
-        "sha256": "48b9d27f7243d9af9c1673cc742e69ceeea3bb87c0d4703b5c256ccb9ca4cf46"
+        "git_blob_sha": "597d1e9bd9a3fafaa5e5b054f25ba33bfccefeb9",
+        "sha256": "513c2693a72c690b705cacc11d25da2cde4614bc80d1711f987262597011e970"
       },
       {
         "path": "data/master/source_configurations.csv",
@@ -191,8 +191,8 @@
       },
       {
         "path": "data/master/configuration_attribute_values.csv",
-        "git_blob_sha": "0e522acd905e181a9a8f5b54baccc6f421a88dd7",
-        "sha256": "9126bbc8a07c4eec181403f6b8cad88403cc9a8f46c0f24a3b846ba4614f2f71"
+        "git_blob_sha": "f0d7723789e8ba30580ebc9d22b8c984d8fbcd85",
+        "sha256": "34af9f5ca36107d1b4a5795ed614208295bd0a02ddf34e70d318a6adcf19e1e8"
       },
       {
         "path": "data/reporting/brochure_generic_dimensions_semantic_mapping_review.json",

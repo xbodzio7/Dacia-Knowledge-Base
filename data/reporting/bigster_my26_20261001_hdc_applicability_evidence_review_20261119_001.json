@@ -2,7 +2,7 @@
   "schema_version": 1,
   "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
   "generated_at": "2026-11-19T18:56:00Z",
-  "analysed_commit_sha": "c18f5e704a27edee2e55615fc7138e3e4038bcf3",
+  "analysed_commit_sha": "cfdc2f0c3e345271a43f18b917c726d2feb0da22",
   "status": "closed_with_explicit_source_ambiguity",
   "scope": {
     "model": "Bigster",
@@ -78,14 +78,14 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
-    "generated_at": "2026-11-19T18:56:00Z",
+    "generated_at": "2026-11-20T21:34:50Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "c18f5e704a27edee2e55615fc7138e3e4038bcf3",
+    "base_commit_sha": "cfdc2f0c3e345271a43f18b917c726d2feb0da22",
     "input_files": [
       {
         "path": "data/master/sources.csv",
-        "git_blob_sha": "536fc427138907a2ff9ba6c824c253cf0e079f76",
-        "sha256": "48b9d27f7243d9af9c1673cc742e69ceeea3bb87c0d4703b5c256ccb9ca4cf46"
+        "git_blob_sha": "597d1e9bd9a3fafaa5e5b054f25ba33bfccefeb9",
+        "sha256": "513c2693a72c690b705cacc11d25da2cde4614bc80d1711f987262597011e970"
       },
       {
         "path": "data/master/source_configurations.csv",
