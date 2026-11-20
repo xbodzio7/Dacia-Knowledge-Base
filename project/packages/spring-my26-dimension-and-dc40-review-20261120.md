@@ -74,3 +74,7 @@ The new `ground_clearance` observations are now declared in both existing Spring
 - `spring_electric100_automatic_completeness.json` (Extreme Electric 100).
 
 This keeps the comparison/release scope aligned with the new source-backed attribute without broadening the configuration set. A focused regression test verifies that both scopes declare the observed technical slot. This also addresses the downstream comparison-bundle and data-product-release regression detected on the first PR validation attempt.
+
+## Final repository baseline
+
+After adding the comparison-scope regression test, the canonical project-state generator was rerun in GitHub Actions run [#44822188292](https://github.com/xbodzio7/Dacia-Knowledge-Base/actions/runs/44822188292). It passed both `project-state --check` and `documentation-baseline --check`. The synchronized baseline is **2,017 tests, 22,829 master rows and 8,530 configuration values** (48 master CSV files; other baseline counters unchanged).
