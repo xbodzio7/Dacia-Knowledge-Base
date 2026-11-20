@@ -1,8 +1,8 @@
 # Duster MY26 2026-11-02 — Page 9 Dimension Diagram Crosswalk Review
 
 Report ID: duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001
-Generated: 2026-11-20T21:34:50Z
-Analysed commit: cfdc2f0c3e345271a43f18b917c726d2feb0da22
+Generated: 2026-11-20T21:35:05Z
+Analysed commit: 8bcc724454adf90f9d022864010f2b76e6286edc
 Status: current
 Scope: Duster MY26 printed page 9 exterior-dimension diagram; all 16 exact source-linked configurations, with six missing 4x2/4x4 targets imported. Interior/seat callouts and tailgate-open height are explicitly excluded.
 
