@@ -96,6 +96,8 @@ class SpringMy26DimensionAndDc40ReviewTests(unittest.TestCase):
             specification = json.loads(path.read_text(encoding="utf-8"))
             slots = {row["attribute_code"] for row in specification["technical_slots"]}
             self.assertIn("ground_clearance", slots)
+            clearance = next(row for row in specification["technical_slots"] if row["attribute_code"] == "ground_clearance")
+            self.assertEqual(clearance["source_code"], SOURCE)
 
         evidence = json.loads(
             (ROOT / "data/reporting/spring_electric70_automatic_gap_evidence.spec").read_text(encoding="utf-8")
