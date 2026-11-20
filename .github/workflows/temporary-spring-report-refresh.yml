@@ -74,11 +74,11 @@ jobs:
                   report["analysed_commit_sha"] = base_sha
               if isinstance(report.get("reviewed_on"), str):
                   report["reviewed_on"] = "2026-11-20"
-              json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+              json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
               markdown = markdown_path.read_text(encoding="utf-8")
               markdown = re.sub(r"(?m)^Generated: .*?$", f"Generated: {generated}", markdown)
               markdown = re.sub(r"(?m)^Analysed commit: .*?$", f"Analysed commit: {base_sha}", markdown)
-              markdown_path.write_text(markdown, encoding="utf-8", newline="\n")
+              markdown_path.write_text(markdown, encoding="utf-8")
           PY
       - name: Validate refreshed analytical reports
         run: python tools/dkb.py report-freshness
