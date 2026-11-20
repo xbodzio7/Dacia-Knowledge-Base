@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 2005
+- Tests: 2009
 - Master CSV files: 48
 - Master rows: 22827
 - Configuration values: 8528
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero / Sandero Stepway MY26 2026-11-02 Eco-G 120 Injection and LPG Capacity Semantics Review** — `complete`
+**Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review** — `complete`
 
-Review the official Polish Sandero/Sandero Stepway MY26 2026-11-02 cennik page 5 against the official Jogger MY26 2026-10-01 page 6. The Sandero source does not distinguish petrol/LPG injection or LPG total/fillable capacity, and the repository has no normalized Eco-G 120 engine identity linking the models; preserve all 18 existing capacity observations without master-data changes.
+Review official Polish cennik pages 2, 3 and 6 against canonical attributes. Preserve ambiguous cabin callouts and component-specific trim descriptors as needs_review; do not overload generic attributes or add unsupported master rows.
 
 ## Next package
 
-**Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review** — `active`
+**Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review** — `active`
 
-Review the exact interior dimension callouts and decorative trim descriptors in the official 2026-11-02 Sandero/Sandero Stepway cennik against the canonical attribute catalogue. Preserve labels and source context; import nothing unless each measurement or descriptor has an exact canonical meaning and configuration scope.
+Review the official Polish Jogger MY26 2026-10-01 cennik's metallic paint price pair (2,800/3,000 PLN) and Extreme heated-seat P marker. Establish exact colour/grade/configuration applicability and package dependency; do not create commercial mappings without an explicit source crosswalk.
 
 ## Autonomy
 
