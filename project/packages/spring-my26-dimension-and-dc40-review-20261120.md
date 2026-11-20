@@ -80,3 +80,7 @@ This keeps the comparison/release scope aligned with the new source-backed attri
 After adding the comparison-scope regression test, the canonical project-state generator was rerun in GitHub Actions run [#44822188292](https://github.com/xbodzio7/Dacia-Knowledge-Base/actions/runs/44822188292). It passed both `project-state --check` and `documentation-baseline --check`. The synchronized baseline is **2,017 tests, 22,829 master rows and 8,530 configuration values** (48 master CSV files; other baseline counters unchanged).
 
 The Electric 70 comparison scope also records the Essential `ground_clearance` slot as `not_stated` for this source: the cennik qualifies 155 mm to 15-inch wheels, while Essential is specified with 14-inch wheels and no 14-inch value is printed. This is an explicit evidence disposition, not a claim that the attribute is physically inapplicable. The Extreme Electric 100 scope has the source-backed 155 mm observation and no corresponding gap.
+
+## Source-specific comparison slot
+
+The added `ground_clearance` comparison slot is explicitly scoped to `src_pl_spring_price_my26_20260206`. It must not reopen historical brochure or configurator source-gap queues: the same configuration may have multiple dated sources, and a slot introduced by one source is not automatically a missing slot for every other source. The missing-data analysis now honours optional `source_code` on technical slots and counts a source-specific slot only against the matching configuration-source reference.

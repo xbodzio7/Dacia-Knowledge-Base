@@ -23,7 +23,8 @@
     },
     {
       "attribute_code": "ground_clearance",
-      "fuel_type_code": ""
+      "fuel_type_code": "",
+      "source_code": "src_pl_spring_price_my26_20260206"
     },
     {
       "attribute_code": "overall_height",
