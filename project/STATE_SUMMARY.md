@@ -38,13 +38,13 @@
 
 **Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review** — `complete`
 
-Review the official Polish Jogger MY26 cennik pages 3–4. Preserve the unresolved metallic-paint 2,800/3,000 PLN applicability pair; confirm Extreme heated seats as part of the ZIMOWY package. Verify all 54 existing mappings; no master-data changes.
+Review the official Polish Jogger MY26 2026-10-01 cennik's metallic-paint price pair and Extreme heated-seat P marker. Preserve the unresolved metallic applicability pair; resolve Extreme heated seats as part of the ZIMOWY package. No master data changed.
 
 ## Next package
 
 **Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review** — `active`
 
-Review the official Polish Spring MY26 cennik page-4 Extreme DC 40 kW P marker and page-6 dimension diagram against exact source-linked configurations and canonical semantics. Do not infer package inclusion, availability or measurement meaning.
+Review the Spring MY26 official Polish cennik page-4 Extreme DC 40 kW P marker and page-6 dimension diagram against the three exact source-linked configurations and canonical attribute semantics. Do not infer package inclusion, availability or dimensions without explicit source evidence.
 
 ## Autonomy
 
