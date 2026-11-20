@@ -68,17 +68,17 @@ jobs:
                   path = item["path"]
                   if path in {"data/master/sources.csv", "data/master/configuration_attribute_values.csv"}:
                       data = (root / path).read_bytes()
-                      item["git_blob_sha"] = hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\\0" + data).hexdigest()
+                      item["git_blob_sha"] = hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
                       item["sha256"] = hashlib.sha256(data).hexdigest()
               if isinstance(report.get("analysed_commit_sha"), str):
                   report["analysed_commit_sha"] = base_sha
               if isinstance(report.get("reviewed_on"), str):
                   report["reviewed_on"] = "2026-11-20"
-              json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8", newline="\\n")
+              json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
               markdown = markdown_path.read_text(encoding="utf-8")
               markdown = re.sub(r"(?m)^Generated: .*?$", f"Generated: {generated}", markdown)
               markdown = re.sub(r"(?m)^Analysed commit: .*?$", f"Analysed commit: {base_sha}", markdown)
-              markdown_path.write_text(markdown, encoding="utf-8", newline="\\n")
+              markdown_path.write_text(markdown, encoding="utf-8", newline="\n")
           PY
       - name: Validate refreshed analytical reports
         run: python tools/dkb.py report-freshness
