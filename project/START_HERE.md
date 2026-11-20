@@ -75,6 +75,19 @@ Before any project action, the AI shall:
 
 The previous conversation is context only. It cannot select, override or reactivate a workflow profile. If the bootstrap cannot be completed, enter `RECOVERY` or diagnostic mode and report the exact blocker.
 
+## Recorded GitHub `main` branch-protection baseline
+
+The Project Owner confirmed on 2026-11-20 that the `main` branch protection rule requires all six status checks:
+
+1. `Package workflow / Windows`
+2. `Repository state / project-state --check`
+3. `Generated documentation / documentation-baseline --check`
+4. `Python 3.10`
+5. `Python 3.13`
+6. `Python 3.14`
+
+The setting **Require branches to be up to date before merging** is enabled. This is a durable, owner-confirmed repository fact. Do not ask the Project Owner to reconfirm it in future sessions merely because the current GitHub connector cannot inspect the setting (including a 403 response). Verify the six checks and branch freshness on each exact PR head as usual. Reconfirm with the Project Owner only if concrete evidence indicates that the protection rule has changed; otherwise, any available API re-check should be silent.
+
 ---
 
 # Mandatory Rules
