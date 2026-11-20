@@ -4,7 +4,7 @@ Report ID: jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261
 Generated: 2026-11-20T09:10:00Z
 Analysed commit: 053a96054fe387754f3eb2c4f53e1de5672c669c
 Status: current
-Scope: Official Polish Jogger MY26 cennik effective 2026-10-01, printed pages 3–4; metallic-paint price applicability and Extreme heated-front-seat package marker across all 12 source-linked configurations.
+Scope: Official Polish Jogger MY26 cennik effective 2026-10-01, printed pages 3–4; review of metallic-paint price applicability and Extreme heated-front-seat package marker against all 12 source-linked configurations and existing dated commercial mappings.
 
 ## Source and provenance
 
