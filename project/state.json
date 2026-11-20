@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-11-19",
+  "updated_on": "2026-11-20",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 2009,
+    "tests": 2012,
     "csv_files": 48,
     "rows": 22827,
     "configuration_values": 8528,
@@ -27,31 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
-    "kind": "source_dimension_and_trim_semantics_review",
-    "name": "Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review",
-    "status": "complete",
-    "goal": "Review official Polish cennik pages 2, 3 and 6 against canonical attributes. Preserve ambiguous cabin callouts and component-specific trim descriptors as needs_review; do not overload generic attributes or add unsupported master rows.",
-    "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
-    "report_path": "data/reporting/sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001.json",
-    "master_data_changed": false
-  },
-  "next_package": {
     "package_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
     "kind": "source_commercial_applicability_review",
     "name": "Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review",
+    "status": "complete",
+    "goal": "Review the official Polish Jogger MY26 2026-10-01 cennik's metallic-paint price pair and Extreme heated-seat P marker. Preserve the unresolved metallic applicability pair; resolve Extreme heated seats as part of the ZIMOWY package. No master data changed.",
+    "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
+    "report_path": "data/reporting/jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001.json",
+    "master_data_changed": false
+  },
+  "next_package": {
+    "package_id": "spring_my26_20260206_dimension_and_dc40_package_marker_review_20261120_001",
+    "kind": "source_semantic_applicability_review",
+    "name": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "status": "active",
-    "goal": "Review the official Polish Jogger MY26 2026-10-01 cennik's metallic paint price pair (2,800/3,000 PLN) and Extreme heated-seat P marker. Establish exact colour/grade/configuration applicability and package dependency; do not create commercial mappings without an explicit source crosswalk.",
-    "source_report": "data/reporting/official_polish_dacia_my26_cennik_residual_coverage_20261119.json",
-    "source_finding": "jogger-paint-variant-applicability",
+    "goal": "Review the Spring MY26 official Polish cennik page-4 Extreme DC 40 kW P marker and page-6 dimension diagram against the three exact source-linked configurations and canonical attribute semantics. Do not infer package inclusion, availability or dimensions without explicit source evidence.",
+    "source_report": "data/reporting/spring_my26_price_commercial_matrix_reconciliation_20261116.json",
     "scope": {
-      "source_date": "2026-10-01",
-      "model": "Jogger",
+      "source_date": "2026-02-06",
+      "model": "Spring",
       "source_pages": [
-        3,
-        4
+        4,
+        6
       ],
-      "review_only_if_no_exact_applicability_mapping": true
+      "source_code": "src_pl_spring_price_my26_20260206",
+      "review_only_if_no_exact_applicability_or_measurement_mapping": true
     }
   },
   "autonomy": {
@@ -115,7 +115,7 @@
     "active_profile": null
   },
   "recovery_checkpoint": {
-    "updated_on": "2026-11-19",
+    "updated_on": "2026-11-20",
     "policy": "continuity_persistence_recovery",
     "result": "completed",
     "recovered_artifacts_path": "reports/recovered/",
@@ -126,7 +126,7 @@
     "tests_rerun": false,
     "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness.",
     "current_main_reconciliation": "completed",
-    "next_package_selection": "Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review",
-    "rationale": "The Sandero interior dimension and trim review is complete with explicit non-inference boundaries and no master-data changes. Continue the cennik-only priority by reviewing the remaining Jogger metallic-paint applicability and Extreme heated-seat package marker; preserve unknown grade/colour/configuration links rather than guessing."
+    "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
+    "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   }
 }

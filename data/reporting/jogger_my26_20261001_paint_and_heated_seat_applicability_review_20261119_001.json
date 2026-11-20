@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
+  "generated_at": "2026-11-20T09:10:00Z",
+  "analysed_commit_sha": "053a96054fe387754f3eb2c4f53e1de5672c669c",
+  "status": "closed_with_explicit_source_ambiguity",
+  "scope": {
+    "model": "Jogger",
+    "market": "PL",
+    "model_year": 2026,
+    "source_date": "2026-10-01",
+    "source_code": "src_pl_jogger_price_my26_20261001",
+    "source_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+    "source_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "printed_pages": [
+      3,
+      4
+    ],
+    "source_configurations_reviewed": 12,
+    "grades": [
+      "essential",
+      "expression",
+      "extreme"
+    ]
+  },
+  "evidence": {
+    "page_3": {
+      "classification": "commercial_paint_price_matrix",
+      "rows": [
+        {
+          "label": "Lakier niemetalizowany / niemetalizowany specjalny",
+          "grade_cells": [
+            "0 / 2800",
+            "0 / 2800",
+            "0 / 2800"
+          ],
+          "existing_mapping": "Distinct special non-metallic 2,800 PLN item already represented across all 12 configurations."
+        },
+        {
+          "label": "Lakier metalizowany",
+          "grade_cells": [
+            "2800 / 3000",
+            "2800 / 3000",
+            "2800 / 3000"
+          ],
+          "existing_mapping": "No dedicated metallic-paint commercial item or dated configuration mapping exists."
+        }
+      ],
+      "boundary": "The printed page repeats the 2,800/3,000 PLN pair under all three grades but does not identify named colours or define the applicability represented by each amount. Do not infer a 5-seat/7-seat split, named-colour crosswalk, grade distinction or exact configuration mapping. Keep this distinct from the separately priced special non-metallic paint item."
+    },
+    "page_4": {
+      "classification": "commercial_option_and_package_matrix",
+      "heated_front_seats": {
+        "essential": "not_available",
+        "expression": {
+          "status": "optional",
+          "amount": 700,
+          "currency": "PLN"
+        },
+        "extreme": "package_marker_P"
+      },
+      "legend": "P = element pakietu",
+      "winter_package": {
+        "name": "Pakiet ZIMOWY",
+        "amount": 1200,
+        "currency": "PLN",
+        "grade_applicability": "Extreme",
+        "contents": [
+          "przednie fotele podgrzewane",
+          "podgrzewana kierownica"
+        ]
+      },
+      "boundary": "The Extreme P marker is explicitly resolved by the ZIMOWY package contents. It is not a standalone 700 PLN Extreme option."
+    }
+  },
+  "existing_master_crosswalk": {
+    "source_configurations": 12,
+    "commercial_mapping_rows": 54,
+    "heated_front_seats": {
+      "optional_expression_configurations": 4,
+      "amount_pln": 700,
+      "not_available_essential_configurations": 2,
+      "standalone_extreme_mappings": 0
+    },
+    "winter_package": {
+      "optional_extreme_configurations": 6,
+      "amount_pln": 1200,
+      "not_available_non_extreme_configurations": 6
+    },
+    "special_nonmetallic_paint": {
+      "item_code": "jogger_special_nonmetallic_paint_option",
+      "optional_configurations": 12,
+      "amount_pln": 2800
+    },
+    "metallic_paint": {
+      "dedicated_item_code": null,
+      "dated_configuration_mappings": 0
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "jogger-metallic-paint-price-pair",
+      "status": "needs_review",
+      "detail": "The repeated 2,800/3,000 PLN metallic-paint pair has no source-defined colour or exact applicability crosswalk. Preserve the source evidence; do not create commercial item/configuration mappings or equate it with the separate special non-metallic paint row.",
+      "evidence_refs": [
+        "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+        "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
+        "data/master/commercial_item_configurations.csv"
+      ],
+      "last_verified_at": "2026-11-20T09:10:00Z"
+    },
+    {
+      "finding_id": "jogger-extreme-heated-seat-package-dependency",
+      "status": "resolved",
+      "detail": "The page-4 P legend means part of a package. The Extreme heated-front-seat marker is accounted for by the 1,200 PLN ZIMOWY package, whose printed contents explicitly include heated front seats and a heated steering wheel. The six exact Extreme package mappings already exist; no standalone Extreme heated-seat mapping is warranted.",
+      "evidence_refs": [
+        "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+        "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
+        "data/master/commercial_item_configurations.csv"
+      ],
+      "last_verified_at": "2026-11-20T09:10:00Z"
+    }
+  ],
+  "outcome": {
+    "source_pages_reviewed": 2,
+    "source_configurations_reviewed": 12,
+    "existing_commercial_mappings_verified": 54,
+    "master_rows_added": 0,
+    "master_rows_updated": 0,
+    "commercial_items_added": 0,
+    "commercial_mappings_added": 0,
+    "commercial_mappings_updated": 0,
+    "source_binary_changed": false,
+    "master_data_changed": false
+  },
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
+    "generated_at": "2026-11-20T09:10:00Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "053a96054fe387754f3eb2c4f53e1de5672c669c",
+    "input_files": [
+      {
+        "path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+        "git_blob_sha": "1de5422e6c2ea211f0c6afd17f4e7b2130616b59",
+        "sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46"
+      },
+      {
+        "path": "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
+        "git_blob_sha": "9d1ecaa8b70d1ea900417c9e4dbbc48c21b34d7a",
+        "sha256": "e47512c026785305e2004cfa0e3fab1bf4d8861f79983e6326ee545da06ccc11"
+      },
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "536fc427138907a2ff9ba6c824c253cf0e079f76",
+        "sha256": "48b9d27f7243d9af9c1673cc742e69ceeea3bb87c0d4703b5c256ccb9ca4cf46"
+      },
+      {
+        "path": "data/master/commercial_items.csv",
+        "git_blob_sha": "627d6a35e0ef45046f426922f6b3825afae7b9f9",
+        "sha256": "d02a6fc0c96d8335d938538d0716ce0025c494bab8458c7bf74046349f788fda"
+      },
+      {
+        "path": "data/master/commercial_item_configurations.csv",
+        "git_blob_sha": "0727b5d49beda751672bec50524c84c57f9bec1c",
+        "sha256": "5d5d6161dbbbcbb37bb60a67968473993a39e21803ec856885f21383e6496300"
+      }
+    ],
+    "scope": "Official Polish Jogger MY26 cennik effective 2026-10-01, printed pages 3–4; review of metallic-paint price applicability and Extreme heated-front-seat package marker against all 12 source-linked configurations and existing dated commercial mappings.",
+    "status": "current"
+  }
+}

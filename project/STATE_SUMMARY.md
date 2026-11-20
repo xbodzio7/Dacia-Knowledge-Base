@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-19
+- State updated: 2026-11-20
 
 ## Phase
 
@@ -23,7 +23,7 @@
 
 ## Verified baseline
 
-- Tests: 2009
+- Tests: 2012
 - Master CSV files: 48
 - Master rows: 22827
 - Configuration values: 8528
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review** — `complete`
+**Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review** — `complete`
 
-Review official Polish cennik pages 2, 3 and 6 against canonical attributes. Preserve ambiguous cabin callouts and component-specific trim descriptors as needs_review; do not overload generic attributes or add unsupported master rows.
+Review the official Polish Jogger MY26 2026-10-01 cennik's metallic-paint price pair and Extreme heated-seat P marker. Preserve the unresolved metallic applicability pair; resolve Extreme heated seats as part of the ZIMOWY package. No master data changed.
 
 ## Next package
 
-**Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review** — `active`
+**Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review** — `active`
 
-Review the official Polish Jogger MY26 2026-10-01 cennik's metallic paint price pair (2,800/3,000 PLN) and Extreme heated-seat P marker. Establish exact colour/grade/configuration applicability and package dependency; do not create commercial mappings without an explicit source crosswalk.
+Review the Spring MY26 official Polish cennik page-4 Extreme DC 40 kW P marker and page-6 dimension diagram against the three exact source-linked configurations and canonical attribute semantics. Do not infer package inclusion, availability or dimensions without explicit source evidence.
 
 ## Autonomy
 
