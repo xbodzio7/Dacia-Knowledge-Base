@@ -2,7 +2,7 @@
   "schema_version": 1,
   "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
   "generated_at": "2026-11-19T21:38:00Z",
-  "analysed_commit_sha": "43f68b3d32e499da823970507ad4187d00b026b4",
+  "analysed_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
   "status": "closed_with_explicit_source_ambiguity",
   "scope": {
     "model": "Sandero / Sandero Stepway",
@@ -100,9 +100,9 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
-    "generated_at": "2026-11-20T21:35:27Z",
+    "generated_at": "2026-11-20T21:35:43Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "43f68b3d32e499da823970507ad4187d00b026b4",
+    "base_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
     "input_files": [
       {
         "path": "owner_supplied/2026-11-02/3b4618d7da.pdf",
