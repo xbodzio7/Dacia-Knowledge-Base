@@ -13,6 +13,7 @@ This directory contains early or superseded Dacia Knowledge Base documentation r
 | `DECISION_TEMPLATE.md` | Old ADR-XXXX template inconsistent with the current D-### decision register | `project/DECISIONS.md` and the current decision conventions recorded there |
 | `NAMING_CONVENTIONS.md` | Early examples and branch patterns no longer reliable as repository-wide guidance | Current repository conventions, `project/STANDARDS.md`, and `project/DOCUMENTATION_STANDARD.md` |
 | `PROJECT_LIFECYCLE.md` | Generic lifecycle duplicated and superseded by the current startup, package and quality contracts | `project/START_HERE.md`, `project/AUTONOMOUS_MAINTAINER.md`, and `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` |
+| `CHANGELOG_PROJECT.md` | Partial project log with early entries and package notes already covered by the canonical changelog | Root `CHANGELOG.md` (canonical project-wide change history); retained here for its historical notes |
 
 The archived Sandero/Stepway descriptions and recommendations reflect an earlier project scope and may be outdated. Do not use them to populate current data or guide current vehicle recommendations without checking current official sources.
 
