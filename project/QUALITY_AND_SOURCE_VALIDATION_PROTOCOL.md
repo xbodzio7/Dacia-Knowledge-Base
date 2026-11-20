@@ -244,9 +244,9 @@ The repository now defines `.github/workflows/repository-baselines.yml` with two
 
 Both run on pull requests, pushes to `main` and `dev/**`, and manual workflow dispatch. Their separate job names make each result independently visible. The existing `Quality` workflow remains responsible for the broader test and platform matrix.
 
-These workflow definitions provide automatic PR feedback, but a workflow job is not necessarily a merge-blocking required check. Repository administrators must configure the two job checks (and the other required quality jobs) in branch protection/rulesets where permissions allow. Until that repository setting is inspected and verified, do not claim that GitHub technically blocks merges on these checks.
+These workflow definitions provide automatic PR feedback, but a workflow job is not necessarily a merge-blocking required check. The Project Owner confirmed on 2026-11-20 that the `main` branch protection rule requires all six status checks listed in section 15 and has **Require branches to be up to date before merging** enabled. Treat this owner-confirmed configuration as the standing repository baseline; do not ask the Project Owner to reconfirm it in later sessions. If direct API inspection is unavailable or returns a permissions error, retain this recorded confirmation rather than treating the setting as unknown. Re-check silently when an authorized inspection path is available, and ask the Project Owner again only if concrete evidence indicates that the rule may have changed.
 
-Documentation alone does not enforce branch protection. Report separately whether (a) the workflow exists and ran, and (b) the corresponding check is configured as a required status check.
+Documentation alone does not enforce branch protection. Continue to verify that the required workflows actually ran successfully on the exact current PR head; the recorded protection rule does not replace exact-SHA CI validation.
 
 ### F. No local execution capability
 
@@ -402,9 +402,22 @@ A successful run on a parent commit, another branch, an earlier PR head or only 
 
 CI reporting and merge enforcement are separate controls. A workflow that reports failed checks does not block merging unless repository rules require the relevant checks.
 
-At the start of a merge decision, inspect the current branch protection/ruleset state. If the target branch does not require the designated baseline and quality checks, record that as a governance risk; do not describe CI as merge-blocking. Request an authorized repository administrator to configure required status checks for the repository's actual workflow/job names. Do not attempt to bypass or silently weaken repository policy.
+### Recorded `main` protection baseline — Project Owner confirmed 2026-11-20
 
-Until required checks are enforced by GitHub, the maintainer must apply a procedural no-merge rule: do not merge unless the current exact PR head has passed the full required quality matrix and both technical-integrity and source-fidelity gates. If the maintainer lacks permission to configure branch protection, continue safe work and report the exact administrative action needed.
+The Project Owner explicitly confirmed that the `main` branch protection rule requires all six checks below and has **Require branches to be up to date before merging** enabled:
+
+1. `Package workflow / Windows`
+2. `Repository state / project-state --check`
+3. `Generated documentation / documentation-baseline --check`
+4. `Python 3.10`
+5. `Python 3.13`
+6. `Python 3.14`
+
+This is a durable owner-confirmed repository fact. Future maintainers must use it as the default baseline and must not ask the Project Owner to repeat the confirmation merely because the GitHub API/connector cannot read branch-protection settings. A 403/permission limitation is an inspection limitation, not evidence that the rule is absent or unknown. If an authorized API inspection later becomes available, verify the rule without interrupting the Project Owner. Request reconfirmation only when concrete repository evidence suggests that the protection rule has changed or been removed.
+
+The recorded configuration does not replace per-PR verification: immediately before merge, confirm that all six required checks succeeded on the exact current PR head and that the branch is up to date with `main`. If a PR is behind, update/rebase it and rerun the complete required matrix on the resulting exact head. Never bypass or silently weaken repository policy.
+
+If future direct evidence shows that any required check or the up-to-date requirement is missing, treat that as a governance regression and apply the procedural no-merge rule until an authorized administrator restores the recorded baseline.
 
 ## 16. Recommended failure-repair sequence
 
@@ -746,9 +759,22 @@ A successful run on a parent commit, another branch, an earlier PR head or only 
 
 CI reporting and merge enforcement are separate controls. A workflow that reports failed checks does not block merging unless repository rules require the relevant checks.
 
-At the start of a merge decision, inspect the current branch protection/ruleset state. If the target branch does not require the designated baseline and quality checks, record that as a governance risk; do not describe CI as merge-blocking. Request an authorized repository administrator to configure required status checks for the repository's actual workflow/job names. Do not attempt to bypass or silently weaken repository policy.
+### Recorded `main` protection baseline — Project Owner confirmed 2026-11-20
 
-Until required checks are enforced by GitHub, the maintainer must apply a procedural no-merge rule: do not merge unless the current exact PR head has passed the full required quality matrix and both technical-integrity and source-fidelity gates. If the maintainer lacks permission to configure branch protection, continue safe work and report the exact administrative action needed.
+The Project Owner explicitly confirmed that the `main` branch protection rule requires all six checks below and has **Require branches to be up to date before merging** enabled:
+
+1. `Package workflow / Windows`
+2. `Repository state / project-state --check`
+3. `Generated documentation / documentation-baseline --check`
+4. `Python 3.10`
+5. `Python 3.13`
+6. `Python 3.14`
+
+This is a durable owner-confirmed repository fact. Future maintainers must use it as the default baseline and must not ask the Project Owner to repeat the confirmation merely because the GitHub API/connector cannot read branch-protection settings. A 403/permission limitation is an inspection limitation, not evidence that the rule is absent or unknown. If an authorized API inspection later becomes available, verify the rule without interrupting the Project Owner. Request reconfirmation only when concrete repository evidence suggests that the protection rule has changed or been removed.
+
+The recorded configuration does not replace per-PR verification: immediately before merge, confirm that all six required checks succeeded on the exact current PR head and that the branch is up to date with `main`. If a PR is behind, update/rebase it and rerun the complete required matrix on the resulting exact head. Never bypass or silently weaken repository policy.
+
+If future direct evidence shows that any required check or the up-to-date requirement is missing, treat that as a governance regression and apply the procedural no-merge rule until an authorized administrator restores the recorded baseline.
 
 ## 16. Recommended failure-repair sequence
 
