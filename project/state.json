@@ -15,7 +15,7 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 2005,
+    "tests": 2009,
     "csv_files": 48,
     "rows": 22827,
     "configuration_values": 8528,
@@ -27,33 +27,31 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
-    "kind": "source_technical_semantics_evidence_review",
-    "name": "Sandero / Sandero Stepway MY26 2026-11-02 Eco-G 120 Injection and LPG Capacity Semantics Review",
-    "status": "complete",
-    "goal": "Review the official Polish Sandero/Sandero Stepway MY26 2026-11-02 cennik page 5 against the official Jogger MY26 2026-10-01 page 6. The Sandero source does not distinguish petrol/LPG injection or LPG total/fillable capacity, and the repository has no normalized Eco-G 120 engine identity linking the models; preserve all 18 existing capacity observations without master-data changes.",
-    "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
-    "report_path": "data/reporting/sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001.json",
-    "pull_request": 857,
-    "master_data_changed": false
-  },
-  "next_package": {
     "package_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
     "kind": "source_dimension_and_trim_semantics_review",
     "name": "Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review",
+    "status": "complete",
+    "goal": "Review official Polish cennik pages 2, 3 and 6 against canonical attributes. Preserve ambiguous cabin callouts and component-specific trim descriptors as needs_review; do not overload generic attributes or add unsupported master rows.",
+    "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
+    "report_path": "data/reporting/sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001.json",
+    "master_data_changed": false
+  },
+  "next_package": {
+    "package_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
+    "kind": "source_commercial_applicability_review",
+    "name": "Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review",
     "status": "active",
-    "goal": "Review the exact interior dimension callouts and decorative trim descriptors in the official 2026-11-02 Sandero/Sandero Stepway cennik against the canonical attribute catalogue. Preserve labels and source context; import nothing unless each measurement or descriptor has an exact canonical meaning and configuration scope.",
+    "goal": "Review the official Polish Jogger MY26 2026-10-01 cennik's metallic paint price pair (2,800/3,000 PLN) and Extreme heated-seat P marker. Establish exact colour/grade/configuration applicability and package dependency; do not create commercial mappings without an explicit source crosswalk.",
     "source_report": "data/reporting/official_polish_dacia_my26_cennik_residual_coverage_20261119.json",
-    "source_finding": "sandero-interior-dimensions-and-trim-semantics",
+    "source_finding": "jogger-paint-variant-applicability",
     "scope": {
-      "source_date": "2026-11-02",
-      "model": "Sandero / Sandero Stepway",
+      "source_date": "2026-10-01",
+      "model": "Jogger",
       "source_pages": [
-        2,
         3,
-        6
+        4
       ],
-      "review_only_if_no_exact_attribute_mapping": true
+      "review_only_if_no_exact_applicability_mapping": true
     }
   },
   "autonomy": {
@@ -128,7 +126,7 @@
     "tests_rerun": false,
     "note": "Recovered historical audit/report artifacts and added continuity/persistence/recovery rules. Reports are not master data and must not be treated as current portfolio completeness.",
     "current_main_reconciliation": "completed",
-    "next_package_selection": "Sandero / Sandero Stepway MY26 2026-11-02 Interior Dimensions and Trim Semantics Review",
-    "rationale": "The Eco-G 120 injection and LPG capacity semantics review is complete with explicit non-inference boundaries and no master-data changes. Continue the cennik-only priority by reconciling remaining Sandero interior dimension callouts and decorative trim descriptors against canonical attributes; preserve unresolved labels rather than creating generic or misleading fields."
+    "next_package_selection": "Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review",
+    "rationale": "The Sandero interior dimension and trim review is complete with explicit non-inference boundaries and no master-data changes. Continue the cennik-only priority by reviewing the remaining Jogger metallic-paint applicability and Extreme heated-seat package marker; preserve unknown grade/colour/configuration links rather than guessing."
   }
 }

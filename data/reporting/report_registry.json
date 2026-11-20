@@ -33,6 +33,11 @@
       "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
       "json_path": "data/reporting/sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001.json",
       "markdown_path": "data/reporting/sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001.md"
+    },
+    {
+      "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
+      "json_path": "data/reporting/sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001.json",
+      "markdown_path": "data/reporting/sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001.md"
     }
   ]
 }
