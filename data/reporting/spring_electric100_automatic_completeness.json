@@ -22,6 +22,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "ground_clearance",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "overall_height",
       "fuel_type_code": ""
     },
