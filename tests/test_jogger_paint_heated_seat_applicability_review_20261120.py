@@ -42,7 +42,7 @@ class JoggerPaintHeatedSeatApplicabilityReviewTests(unittest.TestCase):
         self.assertIn("jogger_special_nonmetallic_paint_option", items)
         self.assertNotIn("jogger_metallic_paint_option", items)
         mappings = read_csv(MASTER / "commercial_item_configurations.csv")
-        metallic = [row for row in mappings if row["source_code"] == SOURCE_CODE and "metallic_paint" in row["commercial_item_code"]]
+        metallic = [row for row in mappings if row["source_code"] == SOURCE_CODE and row["commercial_item_code"] == "jogger_metallic_paint_option"]
         self.assertEqual(metallic, [])
         self.assertEqual(report["outcome"]["commercial_mappings_added"], 0)
 
