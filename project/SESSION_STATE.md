@@ -130,7 +130,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 2009 testów automatycznych zakończonych powodzeniem,
+- 2012 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
 - 22827 rekordów danych,
 - 51 relacje między tabelami,

@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Completed the Jogger MY26 2026-10-01 commercial applicability review: verified all 54 existing page-3/page-4 mappings across 12 configurations; confirmed Extreme heated front seats are included in the 1,200 PLN ZIMOWY package; preserved the metallic-paint 2,800/3,000 PLN pair as unresolved because the source does not provide an exact colour/configuration crosswalk. No master-data changes.
+
 * Completed an independent page-4/5 audit of the Bigster MY26 2026-10-01 cennik: 93 of 94 equipment attribute groups match all 564 existing observations; the HDC grade/drivetrain qualifier remains explicitly unresolved. Verified 86 existing commercial mappings without adding duplicates. Recorded CDN source-link drift and retained the archived PDF as canonical pending SHA-256 verification.
 
 * Synchronized 26 stale Bigster MY26 2026-10-01 equipment evidence notes with the corrected source import specification. All 564 existing observations, availability statuses, IDs and dates were preserved; no master rows were added. Added a regression test for exact master/spec parity and the archived PDF SHA-256.
@@ -360,7 +362,7 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 2009 tests.
+* The automated test suite now contains 2012 tests.
 * The verified master-data baseline now contains 48 CSV files and 22827 rows.
 * SQLite verification now covers 48 tables and 22827 rows.
 * Configuration attribute values now contain 8528 dated records.
