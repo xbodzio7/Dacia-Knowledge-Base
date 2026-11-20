@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - agent/spring-my26-dimension-dc40-review-20261120-001
-    paths:
-      - "data/master/configuration_attribute_values.csv"
 
 permissions:
   contents: write
