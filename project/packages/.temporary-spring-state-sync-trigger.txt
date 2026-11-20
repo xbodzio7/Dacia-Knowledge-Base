@@ -1,0 +1,1 @@
+Temporary trigger for the isolated Spring package branch state synchronization. This file must be removed before the PR is opened.
