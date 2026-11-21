@@ -1,0 +1,160 @@
+{
+  "source_code": "src_pl_jogger_price_my26_20261102",
+  "source_type": "configuration_pdf",
+  "document_date": "2026-11-02",
+  "effective_date": "2026-11-02",
+  "model_year": "MY26",
+  "market": "PL",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
+  "file_path": "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf",
+  "sha256": "94324e97d00e825ed537b525052dacfc436b57984880585e087852411b65a5da",
+  "expected_sha256": "94324e97d00e825ed537b525052dacfc436b57984880585e087852411b65a5da",
+  "file_size_bytes": 2119710,
+  "expected_file_size_bytes": 2119710,
+  "page_count": 9,
+  "expected_page_count": 9,
+  "verification_status": "verified_my26",
+  "missing_markers": [],
+  "captured_at_utc": "2026-11-21T20:51:25.869401+00:00",
+  "expected_first_page_markers": [
+    "Cennik obowiązuje od 02.11.2026",
+    "Prezentowane ceny są cenami katalogowymi",
+    "77 900",
+    "82 050",
+    "89 900",
+    "96 800",
+    "103 550",
+    "111 400",
+    "86 550",
+    "94 400",
+    "101 300",
+    "108 050",
+    "115 900"
+  ],
+  "expected_document_markers": [
+    "Stan oferty na dzień 02.11.2026",
+    "Rodzaj wtrysku",
+    "benzyna bezpośredni/LPG pośredni",
+    "50/40"
+  ],
+  "first_page_text": "SILNIK                          liczba miejsc             essential                  expression               extreme\n\nEco-G 120                                                 77 900 zł                   82 050 zł               89 900 zł\nEco-G 120 auto                     5 miejsc                     -                           -                 96 800 zł\nhybrid 155                                                      -                    103 550 zł               111 400 zł\nEco-G 120                                                       -                     86 550 zł               94 400 zł\nEco-G 120 auto                     7 miejsc                     -                           -                 101 300 zł\nhybrid 155                                                      -                    108 050 zł               115 900 zł\n\n\n             Rabat do 8 500 zł od ceny katalogowej(1)\nCennik obowiązuje od 01.10.2026. Prezentowane ceny są cenami katalogowymi.\n\n\n\n   Skorzystaj z finansowania MFS z korzyścią do 7%(2)\n               Dacia Jogger dla Ciebie                                         Dacia Jogger dla Twojej Firmy\n\n już od   1080 zł brutto miesięcznie                                     już od   815 zł netto miesięcznie\n                        w Najmie(3)                                                             w Najmie(4)\n\n\n\n\n         Sprawdź również ofertę\n              Dacia ZEN(5)\nCennik obowiązuje od 02.11.2026. Prezentowane ceny są cenami katalogowymi. Szczegóły w salonach.                   Confidential C",
+  "comparison_source": {
+    "source_code": "src_pl_jogger_price_my26_20261001",
+    "file_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+    "sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "expected_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "page_count": 9
+  },
+  "comparison": {
+    "changed_pages_by_extracted_text": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "page_text_hashes": [
+      {
+        "page": 1,
+        "old_text_sha256": "fe4b818b38f4377dd92c15cdb87588879bbd8f485df50b5362cfbaae722f5c97",
+        "new_text_sha256": "16ab06fbdf8dcd482e578847f61e82d9c3aee15a6f56e85c95032993ed39534f",
+        "text_changed": true
+      },
+      {
+        "page": 2,
+        "old_text_sha256": "d5291f8e4aad9c66b37588cf82f87fbad4d32f5674fe77dbd94b74d780edec92",
+        "new_text_sha256": "d5291f8e4aad9c66b37588cf82f87fbad4d32f5674fe77dbd94b74d780edec92",
+        "text_changed": false
+      },
+      {
+        "page": 3,
+        "old_text_sha256": "adc2c300aa72255d0ebc01b9d79a7a72a280c402349eaa7bbda98404ff13ec11",
+        "new_text_sha256": "f509228f66f79d0366f952aaca7bdd40e00c0a9c58467f30e464cd41c251374b",
+        "text_changed": true
+      },
+      {
+        "page": 4,
+        "old_text_sha256": "ef1722244bcc44b17639c37750d6a94f0b923b37b83bc26ab191306ca616deb1",
+        "new_text_sha256": "ef1722244bcc44b17639c37750d6a94f0b923b37b83bc26ab191306ca616deb1",
+        "text_changed": false
+      },
+      {
+        "page": 5,
+        "old_text_sha256": "9611592127c492b94348ef93c30d7b57ba269e08fa2e2f14ec766bcbabe60f7c",
+        "new_text_sha256": "c3f8e24bd4fa376ff1fa089a2edac412a09e0a26e2fd92a316caab7900683f4d",
+        "text_changed": true
+      },
+      {
+        "page": 6,
+        "old_text_sha256": "e765819b590472492af20d96114766a4eecfcedbd56b4bb8d9da0d29e2a1552f",
+        "new_text_sha256": "e765819b590472492af20d96114766a4eecfcedbd56b4bb8d9da0d29e2a1552f",
+        "text_changed": false
+      },
+      {
+        "page": 7,
+        "old_text_sha256": "223dd5e01b026d72c97c4b00432000c3e692d676585146cf8183413a3c93a5aa",
+        "new_text_sha256": "223dd5e01b026d72c97c4b00432000c3e692d676585146cf8183413a3c93a5aa",
+        "text_changed": false
+      },
+      {
+        "page": 8,
+        "old_text_sha256": "223dd5e01b026d72c97c4b00432000c3e692d676585146cf8183413a3c93a5aa",
+        "new_text_sha256": "223dd5e01b026d72c97c4b00432000c3e692d676585146cf8183413a3c93a5aa",
+        "text_changed": false
+      },
+      {
+        "page": 9,
+        "old_text_sha256": "27dbd628c8c1ba4aba300071315132e4810f1ffccda285f76d78e0e1ca374f73",
+        "new_text_sha256": "1c13a5ecd71f452f32ba86d98817461d3f2313f7b7a5fcad3b6906d23bd60a52",
+        "text_changed": true
+      }
+    ],
+    "price_cells": 11,
+    "catalogue_prices_match_previous_edition": true,
+    "master_price_import_performed": false,
+    "visual_review": {
+      "new_source_pages": [
+        1,
+        3,
+        5,
+        9
+      ],
+      "unchanged_text_pages": [
+        2,
+        4,
+        6,
+        7,
+        8
+      ],
+      "page_1_visible_effective_date": "2026-11-02",
+      "page_3_new_values": {
+        "special_nonmetallic_paint_pln": 2800,
+        "metallic_paint_pair_pln": [
+          2800,
+          3000
+        ]
+      },
+      "page_5_offer_status_date": "2026-11-02",
+      "page_9_offer_status_date": "2026-11-02"
+    },
+    "historical_paint_delta": {
+      "status": "Do sprawdzenia",
+      "archived_2026_10_01_page3_text_extraction": {
+        "special_nonmetallic_paint_pln": 2700,
+        "metallic_paint_pair_pln": [
+          2700,
+          2900
+        ]
+      },
+      "previous_visual_review_and_master_mapping": {
+        "special_nonmetallic_paint_pln": 2800,
+        "metallic_paint_pair_pln": [
+          2800,
+          3000
+        ]
+      },
+      "reason": "The archived 2026-10-01 page-3 render could not be retrieved through the Library reader in this session; do not overwrite the historical mapping until visual re-verification."
+    },
+    "page_1_text_layer_note": "The extracted text layer retains an earlier 01.10.2026 date string elsewhere on page 1; the rendered page visibly states 02.11.2026."
+  },
+  "provenance": "Official Dacia Poland / Renault Group CDN asset. Immutable SHA-256, byte size, nine-page count, first-page markers and document markers verified by GitHub Actions. The original 2026-10-01 binary is compared by its archived SHA-256; the external URL is mutable and must not replace the archived historical bytes."
+}

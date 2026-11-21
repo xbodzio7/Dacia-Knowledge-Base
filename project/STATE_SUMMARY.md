@@ -25,7 +25,7 @@
 
 - Tests: 2018
 - Master CSV files: 48
-- Master rows: 22829
+- Master rows: 22857
 - Configuration values: 8530
 - Configuration import specifications: 193
 - Configuration value ranges: 451
@@ -42,9 +42,9 @@ Complete the review of the official Polish Spring MY26 cennik: resolve the Extre
 
 ## Next package
 
-**Jogger MY26 2026-11-02 Official Price List Source Capture** — `active`
+**Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation** — `active`
 
-Capture the official Polish Jogger MY26 cennik effective 2026-11-02, verify its nine-page binary identity, compare all pages with the archived 2026-10-01 edition and register the new source version. The 11 page-1 catalogue prices match the prior edition; do not duplicate unchanged master price rows or re-import unchanged commercial/technical data. Do not use configurator evidence.
+Register the verified official Polish Jogger MY26 cennik effective 2026-11-02, link its 12 exact configurations and three grades, and add 12 special non-metallic paint mappings at 2,800 PLN. The 11 catalogue vehicle prices are unchanged and are not duplicated. Preserve the 2026-10-01 paint mapping pending visual re-verification of its archived page 3; the metallic paint pair remains unmapped. No configurator evidence is used.
 
 ## Autonomy
 

@@ -1,40 +1,38 @@
-# Jogger MY26 2026-11-02 — Official Price List Source Capture
+# Jogger MY26 2026-11-02 — Official Price List Capture and Reconciliation
 
 ## Purpose
 
-Capture and verify the official Polish Dacia Jogger MY26 price list effective 2026-11-02. This is a source-intake package only; it does not alter master prices, equipment, commercial items, or technical observations.
+Capture, archive and register the official Polish Dacia Jogger MY26 price list effective 2026-11-02, compare all nine pages with the archived 2026-10-01 edition, and import only the new, source-supported commercial observation.
 
-## Source
+## Verified source identity
 
-- Official Dacia / Renault Group CDN: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf
-- Effective date printed on page 1: 2026-11-02
-- Expected document length: 9 pages
-- Previous registered edition: `src_pl_jogger_price_my26_20261001`
-- Previous archived binary: `owner_supplied/2026-10-01/f5cdbd7878.pdf`
-- Previous binary SHA-256: `12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46`
+- Source code: `src_pl_jogger_price_my26_20261102`
+- Official URL: https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf
+- Effective date: 2026-11-02
+- Archive path: `PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf`
+- SHA-256: `94324e97d00e825ed537b525052dacfc436b57984880585e087852411b65a5da`
+- File size: 2,119,710 bytes
+- Page count: 9
+- Capture workflow: #44948446147
+- Archive PR: #873, merged as `1b1ff883d713a5aab4d182b9f7d0172425e1ba3c`
+- Source manifest: `data/source_intake/jogger_my26_20261102_capture.json`
 
-## Initial source review
+## Page-by-page result
 
-The new official page-1 matrix contains 11 catalogue-price cells. All 11 amounts match the registered 2026-10-01 edition:
+- Page 1: all 11 catalogue price cells are unchanged. The visible effective date is 02.11.2026. The text layer also retains an earlier 01.10.2026 string elsewhere on the page; this is recorded as a text-layer artifact.
+- Pages 2, 4, 6, 7 and 8: extracted text is identical to the archived 2026-10-01 edition.
+- Page 3: the 2026-11-02 source visibly lists special non-metallic paint at 2,800 PLN and metallic paint as a 2,800 / 3,000 PLN pair. Twelve special non-metallic mappings were added for the exact source-linked configurations. The metallic pair remains unmapped because no exact colour/configuration crosswalk is provided.
+- Page 5: technical table content is unchanged; offer-status date is 02.11.2026.
+- Page 9: legal/offer-status date is 02.11.2026.
 
-- 5 seats: 77,900; 82,050; 89,900; 96,800; 103,550; 111,400 PLN
-- 7 seats: 86,550; 94,400; 101,300; 108,050; 115,900 PLN
+No duplicate catalogue price rows were added because all 11 vehicle-price cells are unchanged. No technical or equipment rows were added.
 
-The document's technical section also states an offer status date of 2026-11-02 and repeats the explicit Eco-G 120 injection and LPG tank-capacity wording already captured in the 2026-10-01 edition. No master price rows are to be duplicated solely to attach unchanged values to a later document.
+## Historical paint-price delta — Do sprawdzenia
 
-## Capture and acceptance
+The archived 2026-10-01 PDF text extraction returns 0 / 2,700 PLN and 2,700 / 2,900 PLN on page 3. The earlier visual review and current master mapping record 0 / 2,800 PLN and 2,800 / 3,000 PLN. The old CDN URL is mutable and currently returns the newer 02.11.2026 document. The archived old page-3 image could not be retrieved through the Library reader in this session.
 
-The dedicated workflow:
+The 2026-10-01 historical mapping remains unchanged at 2,800 PLN. Do not overwrite it until the archived page-3 render is visually reverified. The new 2026-11-02 special non-metallic 2,800 PLN observation is registered independently.
 
-1. Downloads the PDF from the official CDN.
-2. Checks the exact 2026-11-02 date, all 11 price values, technical markers, and nine-page structure.
-3. Verifies the archived comparison PDF against its registered SHA-256.
-4. Extracts and compares all nine pages against the 2026-10-01 PDF, recording changed page numbers and text hashes.
-5. Computes the new binary SHA-256 and file size.
-6. Archives only the PDF and SHA-256 sidecar on a dedicated source branch if the source markers and document structure pass. The full capture manifest, extracted page text, page diffs and rendered page images remain in the workflow diagnostic artifact. The manifest is promoted to `data/source_intake` only in the follow-up registration package, together with its matching `data/master/sources.csv` row, so the package preflight cannot encounter an orphaned verified manifest.
+## Striker boundary
 
-The follow-up data package must inspect the page-by-page comparison before deciding whether any master data changed. Do not re-import unchanged catalogue prices, options, equipment or technical values. Do not use the configurator for this source review.
-
-## Scope boundary
-
-This package does not include Dacia Striker. The Project Owner has deferred Striker until price-list reconciliation is complete for all model families already represented in the master data. Do not begin Striker source capture, model/configuration creation or data import before that milestone is complete.
+Striker remains deferred until price-list reconciliation is complete for all model families already represented in the master data. No Striker source capture, model/configuration creation or data import is part of this package.

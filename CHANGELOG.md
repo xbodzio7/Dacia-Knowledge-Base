@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Archived and registered the official Jogger MY26 2026-11-02 nine-page cennik (PR #873); added 12 dated special non-metallic paint mappings without duplicating the 11 unchanged catalogue prices. The 2026-10-01 paint delta remains `Do sprawdzenia` pending visual re-verification of the archived page 3.
+
 * Completed the Spring MY26 2026-02-06 dimension/DC 40 kW review in PR #870: resolved the Extreme DC 40 kW P marker as a POWER-package component; added two source-specific 155 mm ground-clearance observations for Expression Electric 70 and Extreme Electric 100; retained Essential as `not_stated` because the source qualifies 155 mm to 15-inch wheels; preserved unresolved diagram semantics. Added source-scoped technical comparison requirements so source-bound slots do not reopen gaps for unrelated source editions.
 
 * Completed the Jogger MY26 2026-10-01 commercial applicability review: verified all 54 existing page-3/page-4 mappings across 12 configurations; confirmed Extreme heated front seats are included in the 1,200 PLN ZIMOWY package; preserved the metallic-paint 2,800/3,000 PLN pair as unresolved because the source does not provide an exact colour/configuration crosswalk. No master-data changes.
@@ -365,8 +367,8 @@ All notable changes to this project will be documented in this file.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
 * The automated test suite now contains 2018 tests.
-* The verified master-data baseline now contains 48 CSV files and 22829 rows.
-* SQLite verification now covers 48 tables and 22829 rows.
+* The verified master-data baseline now contains 48 CSV files and 22857 rows.
+* SQLite verification now covers 48 tables and 22857 rows.
 * Configuration attribute values now contain 8530 dated records.
 * Declarative scalar configuration-value imports now contain 193 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.

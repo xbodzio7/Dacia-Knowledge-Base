@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
+  "generated_at": "2026-11-21T21:10:00Z",
+  "status": "complete_with_deferrals",
+  "scope": {
+    "model": "Jogger",
+    "model_year": "MY26",
+    "market": "PL",
+    "source_date": "2026-11-02",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "source_configurations_reviewed": 12,
+    "configurator_used": false
+  },
+  "source": {
+    "source_code": "src_pl_jogger_price_my26_20261102",
+    "title": "DACIA JOGGER cennik MY26 2026-11-02",
+    "publisher": "Dacia / Renault Group",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
+    "file_path": "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf",
+    "sha256": "94324e97d00e825ed537b525052dacfc436b57984880585e087852411b65a5da",
+    "file_size_bytes": 2119710,
+    "page_count": 9,
+    "verification_status": "verified_my26",
+    "archive_pr": 873,
+    "archive_merge_commit": "1b1ff883d713a5aab4d182b9f7d0172425e1ba3c"
+  },
+  "comparison": {
+    "previous_source_code": "src_pl_jogger_price_my26_20261001",
+    "previous_archive_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+    "previous_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "previous_binary_size_bytes": 2119272,
+    "changed_pages_by_extracted_text": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "unchanged_pages": [
+      2,
+      4,
+      6,
+      7,
+      8
+    ],
+    "catalogue_price_cells": 11,
+    "catalogue_prices_match_previous_edition": true,
+    "duplicate_catalogue_price_rows_added": 0
+  },
+  "page_review": [
+    {
+      "page": 1,
+      "disposition": "reviewed",
+      "detail": "All 11 catalogue vehicle-price cells match the 2026-10-01 edition. Rendered effective date is 02.11.2026. Extracted text retains an earlier 01.10.2026 string elsewhere on the page; treat it as a text-layer artifact, not the visible date."
+    },
+    {
+      "page": 2,
+      "disposition": "unchanged",
+      "detail": "Extracted page text is identical to the archived 2026-10-01 edition."
+    },
+    {
+      "page": 3,
+      "disposition": "reviewed_with_historical_delta_deferral",
+      "detail": "New source visibly prices special non-metallic paint at 2,800 PLN (0 / 2,800 across grades) and prints a 2,800 / 3,000 PLN metallic pair. Archived 2026-10-01 page text extraction yields 0 / 2,700 and 2,700 / 2,900, but the previous visual review/master records 2,800 and 2,800 / 3,000. The old archived page-3 render was not available through the Library reader; historical delta remains Do sprawdzenia."
+    },
+    {
+      "page": 4,
+      "disposition": "unchanged",
+      "detail": "Extracted page text is identical to the archived 2026-10-01 edition; existing 54 commercial mappings remain valid."
+    },
+    {
+      "page": 5,
+      "disposition": "reviewed",
+      "detail": "Rendered technical table content is unchanged; offer status date is 02.11.2026."
+    },
+    {
+      "page": 6,
+      "disposition": "unchanged",
+      "detail": "Extracted page text is identical to the archived 2026-10-01 edition."
+    },
+    {
+      "page": 7,
+      "disposition": "unchanged",
+      "detail": "Extracted page text is identical to the archived 2026-10-01 edition."
+    },
+    {
+      "page": 8,
+      "disposition": "unchanged",
+      "detail": "Extracted page text is identical to the archived 2026-10-01 edition."
+    },
+    {
+      "page": 9,
+      "disposition": "reviewed",
+      "detail": "Legal/offer-status text updates the offer date to 02.11.2026; no master-data fact changes."
+    }
+  ],
+  "source_registration": {
+    "source_registry_row_id": 130,
+    "source_configuration_links": 12,
+    "source_grade_links": 3,
+    "manifest_path": "data/source_intake/jogger_my26_20261102_capture.json",
+    "sha256_sidecar": "data/source_intake/jogger_my26_20261102.sha256"
+  },
+  "commercial_reconciliation": {
+    "existing_item_code": "jogger_special_nonmetallic_paint_option",
+    "new_item_created": false,
+    "new_dated_mappings": 12,
+    "amount_pln": 2800,
+    "configuration_scope": [
+      "jogger_essential_5seat_ecog120_manual",
+      "jogger_essential_7seat_ecog120_manual",
+      "jogger_expression_5seat_ecog120_manual",
+      "jogger_expression_5seat_hybrid155_automatic",
+      "jogger_expression_7seat_ecog120_manual",
+      "jogger_expression_7seat_hybrid155_automatic",
+      "jogger_extreme_5seat_ecog120_manual",
+      "jogger_extreme_5seat_ecog120_automatic",
+      "jogger_extreme_5seat_hybrid155_automatic",
+      "jogger_extreme_7seat_ecog120_manual",
+      "jogger_extreme_7seat_ecog120_automatic",
+      "jogger_extreme_7seat_hybrid155_automatic"
+    ],
+    "source_page": 3,
+    "metallic_paint_pair_pln": [
+      2800,
+      3000
+    ],
+    "metallic_mapping_created": false,
+    "old_2026_10_01_mappings_changed": 0,
+    "old_mapping_status": "preserved_pending_visual_reverification",
+    "notes": "The 2026-11-02 special non-metallic paint amount is explicitly represented for all 12 source-linked configurations. The old 2026-10-01 mapping is not overwritten because archived page-3 text extraction conflicts with the earlier visual review/master amount and the archived render was unavailable in this session."
+  },
+  "source_url_drift": {
+    "old_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf",
+    "observed_current_response": "The old URL currently returns a document titled RI1 11.2026 with the 02.11.2026 effective date and newer page-3 values.",
+    "rule": "The archived binary and SHA-256 are authoritative for the 2026-10-01 source. Never re-download a historical source from a mutable URL and assume it is the original binary."
+  },
+  "findings": [
+    {
+      "id": "jogger_20261102_special_nonmetallic_paint",
+      "status": "imported",
+      "detail": "The 2026-11-02 cennik page 3 explicitly lists the special non-metallic finish at 2,800 PLN across all three grades; 12 dated mappings added."
+    },
+    {
+      "id": "jogger_20261001_paint_price_delta",
+      "status": "Do sprawdzenia",
+      "detail": "Archived 2026-10-01 page-3 text extraction conflicts with the previous visual review and current master mapping. Preserve the old 2,800 PLN mapping until the archived page image can be visually reverified."
+    },
+    {
+      "id": "jogger_metallic_paint_applicability",
+      "status": "deferred",
+      "detail": "The 2,800 / 3,000 PLN metallic pair does not establish exact colour or configuration applicability. No metallic item/mapping is created."
+    },
+    {
+      "id": "jogger_catalogue_prices",
+      "status": "already_represented",
+      "detail": "All 11 catalogue vehicle-price cells are unchanged. No duplicate price rows are added."
+    }
+  ],
+  "outcome": {
+    "source_rows_added": 1,
+    "source_configuration_links_added": 12,
+    "source_grade_links_added": 3,
+    "commercial_items_added": 0,
+    "commercial_mappings_added": 12,
+    "commercial_mappings_updated": 0,
+    "catalogue_price_rows_added": 0,
+    "technical_rows_added": 0,
+    "equipment_rows_added": 0,
+    "tests_added": 0,
+    "master_data_changed": true
+  },
+  "validation": {
+    "new_source_commercial_mapping_check": "tools/import_jogger_price_list_20261102.py --check",
+    "no_duplicate_catalogue_price_rows": true,
+    "source_manifest_registry_match": true
+  }
+}

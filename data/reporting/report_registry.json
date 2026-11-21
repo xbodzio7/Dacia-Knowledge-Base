@@ -43,6 +43,11 @@
       "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
       "json_path": "data/reporting/jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001.json",
       "markdown_path": "data/reporting/jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001.md"
+    },
+    {
+      "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
+      "json_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.json",
+      "markdown_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.md"
     }
   ]
 }

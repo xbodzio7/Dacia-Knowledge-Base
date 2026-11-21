@@ -3,8 +3,12 @@
 Report ID: jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001
 Generated: 2026-11-20T21:35:43Z
 Analysed commit: 0c7dfab2882ea401c5a9053ac974c5c684b4abd8
-Status: current
+Status: superseded_pending_visual_reverification
 Scope: Official Polish Jogger MY26 cennik effective 2026-10-01, printed pages 3–4; review of metallic-paint price applicability and Extreme heated-front-seat package marker against all 12 source-linked configurations and existing dated commercial mappings.
+
+## Revalidation status
+
+This review is superseded for page-3 paint-price history by `jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001`. The original 2026-10-01 CDN URL is mutable and now returns the 2026-11-02 document. The archived 2026-10-01 PDF text extraction returns 0 / 2,700 PLN and 2,700 / 2,900 PLN, conflicting with this review and the current master mapping. The archived page-3 render was not available through the Library reader during revalidation. Preserve the historical mapping and mark the price delta `Do sprawdzenia` until the archived visual page is verified.
 
 ## Source and provenance
 

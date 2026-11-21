@@ -176,7 +176,8 @@
     "deferred": [
       "Metallic paint 2,800 / 3,000 PLN pair has no source-backed colour/grade mapping.",
       "No standalone heated-front-seat mapping for Extreme because the source marks P; ZIMOWY package captures the priced bundled offer.",
-      "Separate accessory list and removed KOMFORT packages are outside this matrix."
+      "Separate accessory list and removed KOMFORT packages are outside this matrix.",
+      "Historical 2026-10-01 paint values remain Do sprawdzenia: archived PDF text extraction conflicts with the previous visual review and master mapping; do not overwrite until the archived page-3 render is visually reverified."
     ],
     "imported_on": "2026-11-14",
     "import_artifacts": {
@@ -192,5 +193,11 @@
       "The metallic paint 2,800 / 3,000 PLN pair remains deferred because the source does not assign it to exact colours or grades."
     ]
   },
-  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Next, acquire and hash the live official Spring MY26 PDF as a distinct source version (the same CDN URL currently resolves to MY26 content while the owner-supplied Library PDF is MY25), then close the Bigster 2026-11-02 PDF binary archive gap."
+  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Next, acquire and hash the live official Spring MY26 PDF as a distinct source version (the same CDN URL currently resolves to MY26 content while the owner-supplied Library PDF is MY25), then close the Bigster 2026-11-02 PDF binary archive gap.",
+  "source_url_drift_review": {
+    "status": "Do sprawdzenia",
+    "archived_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+    "archived_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "note": "The old 2026-10-01 CDN URL now resolves to the 2026-11-02 document. The archived binary is the historical source of truth. Its page-3 text extraction conflicts with the previous visual review/master mapping; preserve the existing historical value until the archived page-3 image is visually reverified."
+  }
 }

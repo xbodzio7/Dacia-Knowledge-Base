@@ -17,7 +17,7 @@
   "baseline": {
     "tests": 2018,
     "csv_files": 48,
-    "rows": 22829,
+    "rows": 22857,
     "configuration_values": 8530,
     "configuration_import_specs": 193,
     "configuration_value_ranges": 451,
@@ -40,15 +40,15 @@
     "merged_head_sha": "7d3210639c5a6aa8cc3409b16aeab940c27d819c"
   },
   "next_package": {
-    "package_id": "jogger_my26_20261102_source_binary_capture_20261121_001",
-    "kind": "source_binary_capture",
-    "name": "Jogger MY26 2026-11-02 Official Price List Source Capture",
+    "package_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
+    "kind": "source_registration_and_commercial_reconciliation",
+    "name": "Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation",
     "status": "active",
-    "goal": "Capture the official Polish Jogger MY26 cennik effective 2026-11-02, verify its nine-page binary identity, compare all pages with the archived 2026-10-01 edition and register the new source version. The 11 page-1 catalogue prices match the prior edition; do not duplicate unchanged master price rows or re-import unchanged commercial/technical data. Do not use configurator evidence.",
+    "goal": "Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.",
     "source_code": "src_pl_jogger_price_my26_20261102",
     "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
     "package_path": "project/packages/jogger-my26-20261102-source-capture.md",
-    "pull_request": 872,
+    "pull_request": 874,
     "scope": {
       "source_date": "2026-11-02",
       "model": "Jogger",
@@ -64,10 +64,13 @@
         9
       ],
       "source_configurations": 12,
+      "source_grade_links": 3,
+      "new_special_nonmetallic_mappings": 12,
       "catalogue_price_cells": 11,
-      "comparison_source_code": "src_pl_jogger_price_my26_20261001",
-      "archive_binary_before_registration": true,
-      "no_duplicate_price_rows": true
+      "duplicate_catalogue_price_rows": 0,
+      "historical_paint_delta": "Do sprawdzenia",
+      "metallic_paint_pair": "deferred",
+      "configurator_used": false
     }
   },
   "autonomy": {
