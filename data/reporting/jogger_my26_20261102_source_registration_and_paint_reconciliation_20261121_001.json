@@ -154,7 +154,7 @@
         "data/source_intake/jogger_my26_20261102_capture.json",
         "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf#page=3"
       ],
-      "last_verified_at": "2026-11-21T21:40:00Z"
+      "last_verified_at": "2026-11-21T21:12:29Z"
     },
     {
       "finding_id": "jogger_20261001_paint_price_delta",
@@ -164,7 +164,7 @@
         "data/source_intake/jogger_my26_20261102_capture.json",
         "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf#page=3"
       ],
-      "last_verified_at": "2026-11-21T21:40:00Z"
+      "last_verified_at": "2026-11-21T21:12:29Z"
     },
     {
       "finding_id": "jogger_metallic_paint_applicability",
@@ -174,7 +174,7 @@
         "data/source_intake/jogger_my26_20261102_capture.json",
         "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf#page=3"
       ],
-      "last_verified_at": "2026-11-21T21:40:00Z"
+      "last_verified_at": "2026-11-21T21:12:29Z"
     },
     {
       "finding_id": "jogger_catalogue_prices",
@@ -184,7 +184,7 @@
         "data/source_intake/jogger_my26_20261102_capture.json",
         "data/master/configuration_prices.csv"
       ],
-      "last_verified_at": "2026-11-21T21:40:00Z"
+      "last_verified_at": "2026-11-21T21:12:29Z"
     }
   ],
   "outcome": {
