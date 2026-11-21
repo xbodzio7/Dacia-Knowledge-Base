@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Completed the Spring MY26 2026-02-06 dimension/DC 40 kW review in PR #870: resolved the Extreme DC 40 kW P marker as a POWER-package component; added two source-specific 155 mm ground-clearance observations for Expression Electric 70 and Extreme Electric 100; retained Essential as `not_stated` because the source qualifies 155 mm to 15-inch wheels; preserved unresolved diagram semantics. Added source-scoped technical comparison requirements so source-bound slots do not reopen gaps for unrelated source editions.
+
 * Completed the Jogger MY26 2026-10-01 commercial applicability review: verified all 54 existing page-3/page-4 mappings across 12 configurations; confirmed Extreme heated front seats are included in the 1,200 PLN ZIMOWY package; preserved the metallic-paint 2,800/3,000 PLN pair as unresolved because the source does not provide an exact colour/configuration crosswalk. No master-data changes.
 
 * Completed an independent page-4/5 audit of the Bigster MY26 2026-10-01 cennik: 93 of 94 equipment attribute groups match all 564 existing observations; the HDC grade/drivetrain qualifier remains explicitly unresolved. Verified 86 existing commercial mappings without adding duplicates. Recorded CDN source-link drift and retained the archived PDF as canonical pending SHA-256 verification.

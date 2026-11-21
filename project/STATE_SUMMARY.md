@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-20
+- State updated: 2026-11-21
 
 ## Phase
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review** — `complete`
+**Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review** — `complete`
 
-Review the official Polish Jogger MY26 2026-10-01 cennik's metallic-paint price pair and Extreme heated-seat P marker. Preserve the unresolved metallic applicability pair; resolve Extreme heated seats as part of the ZIMOWY package. No master data changed.
+Complete the review of the official Polish Spring MY26 cennik: resolve the Extreme DC 40 kW P marker as part of the POWER package; add source-specific 155 mm ground-clearance observations only for Expression Electric 70 and Extreme Electric 100; retain Essential as not_stated and preserve all other unresolved dimension semantics. Two master observations were added; no unsupported mappings were inferred.
 
 ## Next package
 
-**Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review** — `active`
+**Jogger MY26 2026-11-02 Official Price List Source Capture** — `active`
 
-Review the Spring MY26 official Polish cennik page-4 Extreme DC 40 kW P marker and page-6 dimension diagram against the three exact source-linked configurations and canonical attribute semantics. Do not infer package inclusion, availability or dimensions without explicit source evidence.
+Capture the official Polish Jogger MY26 cennik effective 2026-11-02, verify its nine-page binary identity, compare all pages with the archived 2026-10-01 edition and register the new source version. The 11 page-1 catalogue prices match the prior edition; do not duplicate unchanged master price rows or re-import unchanged commercial/technical data. Do not use configurator evidence.
 
 ## Autonomy
 

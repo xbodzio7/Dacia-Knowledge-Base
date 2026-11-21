@@ -1,0 +1,209 @@
+name: Jogger MY26 2026-11-02 Source Binary Capture
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/source-assimilation-jogger-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Install PDF tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Download and compare exact Jogger MY26 2026-11-02 source
+        id: capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf"
+          old_pdf="owner_supplied/2026-10-01/f5cdbd7878.pdf"
+          expected_old_sha256="12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46"
+          capture_dir="source-assimilation-bundle/jogger-my26-20261102"
+          pdf="$capture_dir/DACIA JOGGER cennik MY26 20261102.pdf"
+          mkdir -p "$capture_dir/pages" "$capture_dir/page-text"
+          test -f "$old_pdf"
+          old_sha256="$(sha256sum "$old_pdf" | cut -d' ' -f1)"
+          test "$old_sha256" = "$expected_old_sha256"
+          curl --fail --location --retry 3 --retry-delay 2 --max-time 120 "$url" --output "$pdf"
+          pdfinfo "$pdf" > "$capture_dir/pdfinfo.txt"
+          pdftotext -f 1 -l 1 -layout "$pdf" "$capture_dir/first_page.txt"
+          pdftotext -layout "$pdf" "$capture_dir/document.txt"
+          sha256sum "$pdf" > "$capture_dir/sha256.txt"
+          for page in $(seq 1 9); do
+            printf -v page_name "%02d" "$page"
+            pdftotext -f "$page" -l "$page" -layout "$old_pdf" "$capture_dir/page-text/old-$page_name.txt"
+            pdftotext -f "$page" -l "$page" -layout "$pdf" "$capture_dir/page-text/new-$page_name.txt"
+            if ! cmp -s "$capture_dir/page-text/old-$page_name.txt" "$capture_dir/page-text/new-$page_name.txt"; then
+              diff -u "$capture_dir/page-text/old-$page_name.txt" "$capture_dir/page-text/new-$page_name.txt" \
+                > "$capture_dir/page-text/page-$page_name.diff" || true
+            fi
+          done
+          pdftoppm -png -r 120 "$pdf" "$capture_dir/pages/page" >/dev/null 2>&1
+
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from hashlib import sha256
+          from pathlib import Path
+          import json
+          import os
+          import re
+
+          capture_dir = Path("source-assimilation-bundle/jogger-my26-20261102")
+          pdf = capture_dir / "DACIA JOGGER cennik MY26 20261102.pdf"
+          old_pdf = Path("owner_supplied/2026-10-01/f5cdbd7878.pdf")
+          raw = pdf.read_bytes()
+          old_raw = old_pdf.read_bytes()
+          first_page = (capture_dir / "first_page.txt").read_text(encoding="utf-8", errors="replace")
+          document = (capture_dir / "document.txt").read_text(encoding="utf-8", errors="replace")
+          normalized_first = " ".join(first_page.split())
+          old_first_page = (capture_dir / "page-text" / "old-01.txt").read_text(encoding="utf-8", errors="replace")
+          normalized_old_first = " ".join(old_first_page.split())
+          normalized_document = " ".join(document.split())
+          pdfinfo = (capture_dir / "pdfinfo.txt").read_text(encoding="utf-8", errors="replace")
+          page_match = re.search(r"(?m)^Pages:\s*(\d+)", pdfinfo)
+          page_count = int(page_match.group(1)) if page_match else None
+          digest = sha256(raw).hexdigest()
+          old_digest = sha256(old_raw).hexdigest()
+          expected_old_sha256 = "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46"
+          first_markers = [
+              "Cennik obowiązuje od 02.11.2026",
+              "Prezentowane ceny są cenami katalogowymi",
+              "77 900", "82 050", "89 900", "96 800", "103 550", "111 400",
+              "86 550", "94 400", "101 300", "108 050", "115 900"
+          ]
+          technical_markers = [
+              "Stan oferty na dzień 02.11.2026",
+              "Rodzaj wtrysku",
+              "benzyna bezpośredni/LPG pośredni",
+              "50/40"
+          ]
+          missing = [marker for marker in first_markers if marker not in normalized_first]
+          missing.extend(marker for marker in technical_markers if marker not in normalized_document)
+          if old_digest != expected_old_sha256:
+              missing.append(f"comparison-source SHA-256 mismatch: got {old_digest}")
+          if page_count != 9:
+              missing.append(f"expected 9 pages, got {page_count}")
+          changed_pages = []
+          page_hashes = []
+          for page in range(1, 10):
+              page_name = f"{page:02d}"
+              old_text = (capture_dir / "page-text" / f"old-{page_name}.txt").read_text(encoding="utf-8", errors="replace")
+              new_text = (capture_dir / "page-text" / f"new-{page_name}.txt").read_text(encoding="utf-8", errors="replace")
+              if old_text != new_text:
+                  changed_pages.append(page)
+              page_hashes.append({
+                  "page": page,
+                  "old_text_sha256": sha256(old_text.encode("utf-8")).hexdigest(),
+                  "new_text_sha256": sha256(new_text.encode("utf-8")).hexdigest(),
+                  "text_changed": old_text != new_text
+              })
+          verified = not missing
+          manifest = {
+              "source_code": "src_pl_jogger_price_my26_20261102",
+              "source_type": "configuration_pdf",
+              "document_date": "2026-11-02",
+              "effective_date": "2026-11-02",
+              "model_year": "MY26",
+              "market": "PL",
+              "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
+              "file_path": "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf",
+              "sha256": digest,
+              "expected_sha256": None,
+              "file_size_bytes": len(raw),
+              "expected_file_size_bytes": None,
+              "page_count": page_count,
+              "expected_page_count": 9,
+              "verification_status": "captured_pending_registration" if verified else "identity_not_verified",
+              "registry_status": "pending_source_registry_row",
+              "missing_markers": missing,
+              "first_page_text": first_page,
+              "captured_at_utc": datetime.now(timezone.utc).isoformat(),
+              "expected_first_page_markers": first_markers,
+              "expected_document_markers": technical_markers,
+              "comparison_source": {
+                  "source_code": "src_pl_jogger_price_my26_20261001",
+                  "file_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+                  "sha256": old_digest,
+                  "expected_sha256": expected_old_sha256,
+                  "page_count": 9
+              },
+              "comparison": {
+                  "changed_pages_by_extracted_text": changed_pages,
+                  "page_text_hashes": page_hashes,
+                  "price_cells": 11,
+                  "catalogue_prices_match_previous_edition": all(
+                      marker in normalized_first and marker in normalized_old_first
+                      for marker in ["77 900", "82 050", "89 900", "96 800", "103 550", "111 400",
+                                     "86 550", "94 400", "101 300", "108 050", "115 900"]
+                  ),
+                  "master_price_import_performed": False
+              },
+              "provenance": "Official Dacia Poland / Renault Group CDN asset. First capture records the immutable SHA-256, file size, nine-page count, exact effective-date and price markers; all pages are text-compared with the archived 2026-10-01 source before data reconciliation."
+          }
+          (capture_dir / "capture-manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"verified={str(verified).lower()}\n")
+          print("DOWNLOADED_PDF_SHA256=" + digest)
+          print("DOWNLOADED_PDF_SIZE_BYTES=" + str(len(raw)))
+          print("DOWNLOADED_PDF_PAGE_COUNT=" + str(page_count))
+          print("JOGGER_MY26_VERIFICATION=" + str(verified))
+          print("CHANGED_PAGES_BY_TEXT=" + json.dumps(changed_pages))
+          print("MISSING_MARKERS=" + json.dumps(missing, ensure_ascii=False))
+          print("FIRST_PAGE_TEXT_BEGIN")
+          print(first_page)
+          print("FIRST_PAGE_TEXT_END")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jogger-my26-20261102-source-capture
+          path: source-assimilation-bundle/jogger-my26-20261102
+          retention-days: 30
+
+      - name: Archive verified Jogger MY26 binary on a dedicated source branch
+        if: steps.capture.outputs.verified == 'true'
+        shell: bash
+        env:
+          TARGET_BRANCH: data/jogger-my26-cennik-20261102-capture-001
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
+            echo "Target source branch already exists; refusing to overwrite it."
+            exit 1
+          fi
+          mkdir -p "PDF/Cenniki"
+          cp "source-assimilation-bundle/jogger-my26-20261102/DACIA JOGGER cennik MY26 20261102.pdf" \
+             "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf"
+          sha256sum "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf" \
+            > "data/source_intake/jogger_my26_20261102.sha256"
+          git checkout -b "$TARGET_BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf" \
+                  "data/source_intake/jogger_my26_20261102.sha256"
+          git commit -m "source(jogger): capture verified MY26 2026-11-02 cennik PDF"
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
+
+      - name: Stop without committing if source identity is not verified
+        if: steps.capture.outputs.verified != 'true'
+        shell: bash
+        run: |
+          echo "The downloaded PDF did not match the expected MY26 source identity markers. Diagnostic artifact retained; no binary was committed."
+          exit 1
