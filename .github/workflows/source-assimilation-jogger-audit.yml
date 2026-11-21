@@ -190,15 +190,12 @@ jobs:
           mkdir -p "PDF/Cenniki"
           cp "source-assimilation-bundle/jogger-my26-20261102/DACIA JOGGER cennik MY26 20261102.pdf" \
              "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf"
-          cp "source-assimilation-bundle/jogger-my26-20261102/capture-manifest.json" \
-             "data/source_intake/jogger_my26_20261102_capture.json"
           sha256sum "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf" \
             > "data/source_intake/jogger_my26_20261102.sha256"
           git checkout -b "$TARGET_BRANCH"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf" \
-                  "data/source_intake/jogger_my26_20261102_capture.json" \
                   "data/source_intake/jogger_my26_20261102.sha256"
           git commit -m "source(jogger): capture verified MY26 2026-11-02 cennik PDF"
           git push origin "HEAD:refs/heads/$TARGET_BRANCH"
