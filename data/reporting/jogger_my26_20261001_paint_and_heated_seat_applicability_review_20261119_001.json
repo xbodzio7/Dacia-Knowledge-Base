@@ -139,7 +139,7 @@
     "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
     "generated_at": "2026-11-21T21:12:29Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
+    "base_commit_sha": "053a96054fe387754f3eb2c4f53e1de5672c669c",
     "input_files": [
       {
         "path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
@@ -158,8 +158,8 @@
       },
       {
         "path": "data/master/commercial_items.csv",
-        "git_blob_sha": "343628e6b4fe858baeab869b258a651946e036d1",
-        "sha256": "4738ca0036b254644fee9afb486c7c648b65f6226f5f38709b6065435689d4a4"
+        "git_blob_sha": "627d6a35e0ef45046f426922f6b3825afae7b9f9",
+        "sha256": "bd9e9707a5607ad9e88a1615897e06325f3ad6588e4bac3032b9619ea8a769b3"
       },
       {
         "path": "data/master/commercial_item_configurations.csv",
