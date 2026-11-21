@@ -27,50 +27,22 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
-    "kind": "source_registration_and_commercial_reconciliation",
-    "name": "Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation",
-    "status": "complete",
-    "goal": "Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.",
-    "source_code": "src_pl_jogger_price_my26_20261102",
-    "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
-    "package_path": "project/packages/jogger-my26-20261102-source-capture.md",
-    "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
-    "report_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.json",
-    "pull_request": 874,
-    "merge_commit_sha": "6e6a73882c7e46d6993f177532b3c3e099ccbf30",
-    "merged_head_sha": "f56a9b63279bdfaf270e11f0d472d12b10814ed4",
-    "master_data_changed": true,
-    "scope": {
-      "source_date": "2026-11-02",
-      "model": "Jogger",
-      "source_pages": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "source_configurations": 12,
-      "source_grade_links": 3,
-      "new_special_nonmetallic_mappings": 12,
-      "catalogue_price_cells": 11,
-      "duplicate_catalogue_price_rows": 0,
-      "historical_paint_delta": "Do sprawdzenia",
-      "metallic_paint_pair": "deferred",
-      "configurator_used": false
-    }
-  },
-  "next_package": {
-    "package_id": "dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001",
+    "package_id": "dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001",
     "kind": "source_price_list_coverage_assessment",
     "name": "Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment",
-    "status": "planned",
-    "goal": "Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains."
+    "status": "complete",
+    "goal": "Reconcile the latest registered official Polish MY26 cenniks across all five model families already represented in the master data. Confirmed 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further technical/equipment facts are both missing and safely importable; preserve explicit evidence deferrals. No brochure or configurator extraction.",
+    "report_id": "dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001",
+    "report_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001.json",
+    "pull_request": 875,
+    "master_data_changed": false
+  },
+  "next_package": {
+    "package_id": "striker_my26_official_cennik_model_family_addition_20261121_001",
+    "kind": "model_family_scope_expansion",
+    "name": "Striker MY26 Official Cennik Assimilation — Owner Approval Required",
+    "status": "blocked",
+    "goal": "The official Polish Striker MY26 cennik effective 2026-10-13 is available. Striker is a new model family not represented in the master data. The five existing model families are now reconciled; do not create Striker configurations, source links or master-data rows until the Project Owner explicitly approves this scope expansion."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
