@@ -102,13 +102,14 @@ class SpringMy26DimensionAndDc40ReviewTests(unittest.TestCase):
         evidence = json.loads(
             (ROOT / "data/reporting/spring_electric70_automatic_gap_evidence.spec").read_text(encoding="utf-8")
         )
-        essential_gap = next(
-            row for row in evidence["decisions"]
-            if row["configuration_code"] == "spring_essential_electric70_automatic"
-            and row["attribute_code"] == "ground_clearance"
+        self.assertFalse(
+            any(
+                row["configuration_code"] == "spring_essential_electric70_automatic"
+                and row["attribute_code"] == "ground_clearance"
+                and row.get("source_code") == SOURCE
+                for row in evidence["decisions"]
+            )
         )
-        self.assertEqual(essential_gap["classification"], "not_stated")
-        self.assertEqual(essential_gap["source_code"], SOURCE)
 
 
 if __name__ == "__main__":
