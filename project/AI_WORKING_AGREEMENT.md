@@ -686,3 +686,17 @@ Removing the independent-approval requirement does not authorize bypassing requi
 Every PR must pass the existing required repository-state status context after it has run, in order, the canonical package data preflight, project-state validation and generated-documentation baseline validation on the same candidate commit. These checks are read-only in CI and must fail closed. Repairs must use canonical generators, be reviewed as part of the complete diff and be followed by a fresh run of all three checks.
 
 The additional subchecks do not replace the Python/Windows quality matrix, source-fidelity review, importer-specific regression tests or exact-head technical review. They do not change the six required status-check names or permit a merge when any required check is missing, stale or unsuccessful.
+
+
+
+## 23. Protected main and required-check integrity
+
+The `main` branch is protected. The AI must treat branch protection as a safety contract, not as a convenience setting. Never disable protection, bypass required checks, force-push, or push directly to `main` to resolve a blocked merge.
+
+A successful GitHub Actions check run is not automatically proof that a required status context has been satisfied. Before merge, match every required check to the exact current PR head SHA and verify its context/name, conclusion and source application where available. Inspect classic commit statuses separately when a merge rejection indicates a required-status problem. Record inaccessible branch-protection API responses as an access limitation, not as proof that protection is absent.
+
+If GitHub rejects a merge, preserve the exact HTTP status and error message, stop repeated attempts on an unchanged head, and diagnose stale branch, missing/failed check, required-context/app mismatch, conflict, policy restriction or unknown cause. Do not change protection settings based only on correlation or guesswork. A branch being behind `main` is a freshness fact; it is not, by itself, proof of why a required status context was rejected.
+
+The six required checks remain mandatory: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check. Do not remove or weaken them to make a PR mergeable. Any temporary protection change requires explicit owner approval, a proven cause, narrow scope, rollback plan and verification that the original protection was restored.
+
+The detailed operational procedure is maintained in `project/AUTONOMOUS_MAINTAINER.md`. These safeguards apply to every execution profile and every continuation.
