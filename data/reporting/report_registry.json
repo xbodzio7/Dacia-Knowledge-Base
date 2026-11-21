@@ -48,6 +48,11 @@
       "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
       "json_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.json",
       "markdown_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.md"
+    },
+    {
+      "report_id": "dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001",
+      "json_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_20261121_001.json",
+      "markdown_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_20261121_001.md"
     }
   ]
 }
