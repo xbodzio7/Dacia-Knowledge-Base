@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
-  "generated_at": "2026-11-21T21:10:00Z",
+  "generated_at": "2026-11-21T21:40:00Z",
   "status": "complete_with_deferrals",
   "scope": {
     "model": "Jogger",
@@ -147,24 +147,44 @@
   },
   "findings": [
     {
-      "id": "jogger_20261102_special_nonmetallic_paint",
-      "status": "imported",
-      "detail": "The 2026-11-02 cennik page 3 explicitly lists the special non-metallic finish at 2,800 PLN across all three grades; 12 dated mappings added."
+      "finding_id": "jogger_20261102_special_nonmetallic_paint",
+      "status": "resolved",
+      "detail": "The 2026-11-02 cennik page 3 explicitly lists the special non-metallic finish at 2,800 PLN across all three grades; 12 dated mappings added.",
+      "evidence_refs": [
+        "data/source_intake/jogger_my26_20261102_capture.json",
+        "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf#page=3"
+      ],
+      "last_verified_at": "2026-11-21T21:40:00Z"
     },
     {
-      "id": "jogger_20261001_paint_price_delta",
-      "status": "Do sprawdzenia",
-      "detail": "Archived 2026-10-01 page-3 text extraction conflicts with the previous visual review and current master mapping. Preserve the old 2,800 PLN mapping until the archived page image can be visually reverified."
+      "finding_id": "jogger_20261001_paint_price_delta",
+      "status": "needs_review",
+      "detail": "Archived 2026-10-01 page-3 text extraction conflicts with the previous visual review and current master mapping. Preserve the old 2,800 PLN mapping until the archived page image can be visually reverified.",
+      "evidence_refs": [
+        "data/source_intake/jogger_my26_20261102_capture.json",
+        "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf#page=3"
+      ],
+      "last_verified_at": "2026-11-21T21:40:00Z"
     },
     {
-      "id": "jogger_metallic_paint_applicability",
-      "status": "deferred",
-      "detail": "The 2,800 / 3,000 PLN metallic pair does not establish exact colour or configuration applicability. No metallic item/mapping is created."
+      "finding_id": "jogger_metallic_paint_applicability",
+      "status": "needs_review",
+      "detail": "The 2,800 / 3,000 PLN metallic pair does not establish exact colour or configuration applicability. No metallic item/mapping is created.",
+      "evidence_refs": [
+        "data/source_intake/jogger_my26_20261102_capture.json",
+        "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf#page=3"
+      ],
+      "last_verified_at": "2026-11-21T21:40:00Z"
     },
     {
-      "id": "jogger_catalogue_prices",
-      "status": "already_represented",
-      "detail": "All 11 catalogue vehicle-price cells are unchanged. No duplicate price rows are added."
+      "finding_id": "jogger_catalogue_prices",
+      "status": "resolved",
+      "detail": "All 11 catalogue vehicle-price cells are unchanged. No duplicate price rows are added.",
+      "evidence_refs": [
+        "data/source_intake/jogger_my26_20261102_capture.json",
+        "data/master/configuration_prices.csv"
+      ],
+      "last_verified_at": "2026-11-21T21:40:00Z"
     }
   ],
   "outcome": {
@@ -184,5 +204,57 @@
     "new_source_commercial_mapping_check": "tools/import_jogger_price_list_20261102.py --check",
     "no_duplicate_catalogue_price_rows": true,
     "source_manifest_registry_match": true
+  },
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
+    "generated_at": "2026-11-21T21:40:00Z",
+    "reviewed_on": "2026-11-21",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
+    "input_files": [
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
+      },
+      {
+        "path": "data/master/source_configurations.csv",
+        "git_blob_sha": "a8395b7d415c656a623c567ac8c0620a22b5c498",
+        "sha256": "45ddf9d70fafca49214e510bb13035f8ac34afa82fd5f26b44e3a96d7b104ceb"
+      },
+      {
+        "path": "data/master/source_versions.csv",
+        "git_blob_sha": "fa4aede20993f5dd433f24838214c5dd5dd41640",
+        "sha256": "d109fe0271a262efa89cf05f8b40f9f8f56bf3da5ccf87e8663dde03a96f5d0e"
+      },
+      {
+        "path": "data/master/commercial_items.csv",
+        "git_blob_sha": "343628e6b4fe858baeab869b258a651946e036d1",
+        "sha256": "1a682579a77ed3012f7659e6ffbd237a42811ed6b301fe631bfafdc3fac78fc6"
+      },
+      {
+        "path": "data/master/commercial_item_configurations.csv",
+        "git_blob_sha": "d6b6203932da32aadcb38cf4d16a73f2407cfc72",
+        "sha256": "bda41082d65c11157587991f9910b2756aa66423cd5e2b45690fb21af4234331"
+      },
+      {
+        "path": "data/master/configuration_prices.csv",
+        "git_blob_sha": "3d38566c2e7168e10cfea9cf0c847ff9962ec8e6",
+        "sha256": "2a772793e059e308d3cb3aaec4258163c92837fd198212b84c25b0c4f02092a4"
+      },
+      {
+        "path": "data/source_intake/jogger_my26_20261102_capture.json",
+        "git_blob_sha": "9a1094c192f275180fa1060e7a77423cbc4fb0d4",
+        "sha256": "86dfe994d2b8fdc065e10d06f2391061e2be3ce5d01a8d47af5472b705322961"
+      },
+      {
+        "path": "data/master/configurations.csv",
+        "git_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
+        "sha256": "15670f52c6a84490afb7c007cd00e187434e36a63214704b33bcce466beba0cf"
+      }
+    ],
+    "scope": "Official Polish Jogger MY26 cennik effective 2026-11-02; all nine pages compared with the archived 2026-10-01 binary; 12 exact configurations; no configurator or brochure evidence. Historical page-3 paint delta and metallic applicability remain explicitly deferred.",
+    "status": "current"
   }
 }

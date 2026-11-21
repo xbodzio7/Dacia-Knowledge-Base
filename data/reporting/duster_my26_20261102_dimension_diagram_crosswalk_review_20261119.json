@@ -159,10 +159,10 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
-    "generated_at": "2026-11-20T21:35:43Z",
-    "reviewed_on": "2026-11-19",
+    "generated_at": "2026-11-21T21:40:00Z",
+    "reviewed_on": "2026-11-21",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
+    "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
     "input_files": [
       {
         "path": "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
@@ -171,18 +171,18 @@
       },
       {
         "path": "data/master/sources.csv",
-        "git_blob_sha": "597d1e9bd9a3fafaa5e5b054f25ba33bfccefeb9",
-        "sha256": "513c2693a72c690b705cacc11d25da2cde4614bc80d1711f987262597011e970"
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
       },
       {
         "path": "data/master/source_configurations.csv",
-        "git_blob_sha": "9f35ab5fbeeb41aa9ed4e974fc17c5a2988476be",
-        "sha256": "874e70e2f071f3c43f10d05f87a2075f002faedac5d7db15b81b6b39c997062b"
+        "git_blob_sha": "a8395b7d415c656a623c567ac8c0620a22b5c498",
+        "sha256": "45ddf9d70fafca49214e510bb13035f8ac34afa82fd5f26b44e3a96d7b104ceb"
       },
       {
         "path": "data/master/configurations.csv",
         "git_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
-        "sha256": "98eabf251f6a0c605a20bea347c09896e565a1ec6bb3c148bb84be785c18acea"
+        "sha256": "15670f52c6a84490afb7c007cd00e187434e36a63214704b33bcce466beba0cf"
       },
       {
         "path": "data/master/attributes.csv",
@@ -201,7 +201,7 @@
       }
     ],
     "scope": "Duster MY26 printed page 9 exterior-dimension diagram; all 16 exact source-linked configurations, with six missing 4x2/4x4 targets imported. Interior/seat callouts and tailgate-open height are explicitly excluded.",
-    "status": "current"
+    "status": "needs_review"
   },
   "findings": [
     {

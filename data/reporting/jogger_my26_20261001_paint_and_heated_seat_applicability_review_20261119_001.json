@@ -137,9 +137,9 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
-    "generated_at": "2026-11-20T21:35:43Z",
+    "generated_at": "2026-11-21T21:40:00Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
+    "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
     "input_files": [
       {
         "path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
@@ -148,27 +148,28 @@
       },
       {
         "path": "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
-        "git_blob_sha": "9d1ecaa8b70d1ea900417c9e4dbbc48c21b34d7a",
-        "sha256": "e47512c026785305e2004cfa0e3fab1bf4d8861f79983e6326ee545da06ccc11"
+        "git_blob_sha": "ef54069fd0a51545b229b91fa00acdde417859b2",
+        "sha256": "e818da10d7891eb5d5e0b201ea00918c13cc1bfd88d4460809591c39b16b75d1"
       },
       {
         "path": "data/master/sources.csv",
-        "git_blob_sha": "597d1e9bd9a3fafaa5e5b054f25ba33bfccefeb9",
-        "sha256": "513c2693a72c690b705cacc11d25da2cde4614bc80d1711f987262597011e970"
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
       },
       {
         "path": "data/master/commercial_items.csv",
-        "git_blob_sha": "627d6a35e0ef45046f426922f6b3825afae7b9f9",
-        "sha256": "d02a6fc0c96d8335d938538d0716ce0025c494bab8458c7bf74046349f788fda"
+        "git_blob_sha": "343628e6b4fe858baeab869b258a651946e036d1",
+        "sha256": "1a682579a77ed3012f7659e6ffbd237a42811ed6b301fe631bfafdc3fac78fc6"
       },
       {
         "path": "data/master/commercial_item_configurations.csv",
-        "git_blob_sha": "0727b5d49beda751672bec50524c84c57f9bec1c",
-        "sha256": "5d5d6161dbbbcbb37bb60a67968473993a39e21803ec856885f21383e6496300"
+        "git_blob_sha": "d6b6203932da32aadcb38cf4d16a73f2407cfc72",
+        "sha256": "bda41082d65c11157587991f9910b2756aa66423cd5e2b45690fb21af4234331"
       }
     ],
     "scope": "Official Polish Jogger MY26 cennik effective 2026-10-01, printed pages 3–4; review of metallic-paint price applicability and Extreme heated-front-seat package marker against all 12 source-linked configurations and existing dated commercial mappings.",
-    "status": "current"
+    "status": "needs_review",
+    "reviewed_on": "2026-11-21"
   },
   "superseded_by": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
   "revalidation_note": "The old CDN URL is mutable and now resolves to the 2026-11-02 document. The archived 2026-10-01 PDF text extraction returns 0/2700 and 2700/2900 on page 3, while this prior review and current master mappings record 0/2800 and 2800/3000. The archived page-3 render was not available through the Library reader in the revalidation session; do not use this report to overwrite historical mappings until the archived visual is reverified."

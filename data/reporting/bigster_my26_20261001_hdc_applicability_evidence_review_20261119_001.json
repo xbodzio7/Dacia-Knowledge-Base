@@ -78,23 +78,24 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
-    "generated_at": "2026-11-20T21:35:43Z",
+    "generated_at": "2026-11-21T21:40:00Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
-    "base_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
+    "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
     "input_files": [
       {
         "path": "data/master/sources.csv",
-        "git_blob_sha": "597d1e9bd9a3fafaa5e5b054f25ba33bfccefeb9",
-        "sha256": "513c2693a72c690b705cacc11d25da2cde4614bc80d1711f987262597011e970"
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
       },
       {
         "path": "data/master/source_configurations.csv",
-        "git_blob_sha": "9f35ab5fbeeb41aa9ed4e974fc17c5a2988476be",
-        "sha256": "874e70e2f071f3c43f10d05f87a2075f002faedac5d7db15b81b6b39c997062b"
+        "git_blob_sha": "a8395b7d415c656a623c567ac8c0620a22b5c498",
+        "sha256": "45ddf9d70fafca49214e510bb13035f8ac34afa82fd5f26b44e3a96d7b104ceb"
       }
     ],
     "scope": "Bigster MY26 Polish cennik effective 2026-10-01, printed page 4; HDC applicability across the six exact source-linked configurations and comparison with the grade-level equipment matrix.",
-    "status": "current"
+    "status": "needs_review",
+    "reviewed_on": "2026-11-21"
   },
   "findings": [
     {
