@@ -320,3 +320,15 @@ The workflow profile changes how checks are executed, never what constitutes a v
 When local execution is unavailable, use a candidate-branch CI workflow only if it can validate the exact branch before merge. Do not claim local tests or generators ran. Separate these outcomes in the session report: feature tests, test discovery/import, canonical baseline, generated documentation, source fidelity, platform matrix and merge-policy enforcement.
 
 Before merging, inspect branch protection/rulesets. A passing/failing workflow is only informative unless GitHub marks its relevant check as required. Where enforcement is absent or cannot be configured by the active connection, keep the procedural no-merge rule and identify the required administrator action.
+
+
+
+## Protected-main merge-block checkpoint
+
+All execution profiles must use the same merge-policy diagnosis. A profile with GitHub write access does not gain authority to weaken branch protection.
+
+When a merge is rejected, do not immediately retry or change repository settings. Capture the exact PR head SHA and current target SHA; compare branch freshness; inspect each required check on that exact head including context/name, conclusion and source GitHub App; inspect classic commit status contexts separately; and retain GitHub's exact rejection response. A check-run success and a required status-context success are distinct facts and must not be conflated.
+
+Classify the observed blocker before acting. Update a stale branch only when staleness is established, then rerun the complete required matrix on the new head. For a context/App mismatch, obtain the minimum administrator-level correction while preserving all six required checks. If evidence does not establish the cause, keep the PR unmerged and record the blocker as unknown. Never disable branch protection, bypass checks or remove required contexts as a diagnostic experiment.
+
+Before merge, re-fetch the PR and target branch, confirm exact-head check success, target freshness under the configured rule, mergeability and technical review. Any head or target movement requires re-evaluation; any changed head requires a fresh complete required quality matrix.
