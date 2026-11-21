@@ -81,6 +81,11 @@ class ReportFreshnessTests(unittest.TestCase):
         self.assertTrue(any("input Git blob SHA changed" in error for error in errors))
         self.assertTrue(any("input SHA-256 changed" in error for error in errors))
 
+    def case_stale_input_is_allowed_only_when_needs_review(self) -> None:
+        self._write_report(status="needs_review")
+        self.input_path.write_text("code,value\\nA,2\\n", encoding="utf-8")
+        self.assertEqual(validate_registry(self.root, self.registry_path), [])
+
     def case_missing_metadata_fails_closed(self) -> None:
         self._write_report(metadata=False)
         errors = validate_registry(self.root, self.registry_path)
@@ -113,6 +118,7 @@ def run_contract_cases() -> None:
     methods = (
         "case_valid_report_passes",
         "case_changed_input_is_detected",
+        "case_stale_input_is_allowed_only_when_needs_review",
         "case_missing_metadata_fails_closed",
         "case_markdown_json_parity_is_enforced",
         "case_legacy_report_is_allowed_but_not_current",
