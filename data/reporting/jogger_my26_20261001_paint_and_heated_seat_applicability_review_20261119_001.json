@@ -159,7 +159,7 @@
       {
         "path": "data/master/commercial_items.csv",
         "git_blob_sha": "627d6a35e0ef45046f426922f6b3825afae7b9f9",
-        "sha256": "bd9e9707a5607ad9e88a1615897e06325f3ad6588e4bac3032b9619ea8a769b3"
+        "sha256": "d02a6fc0c96d8335d938538d0716ce0025c494bab8458c7bf74046349f788fda"
       },
       {
         "path": "data/master/commercial_item_configurations.csv",
