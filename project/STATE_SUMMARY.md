@@ -25,7 +25,7 @@
 
 - Tests: 2018
 - Master CSV files: 48
-- Master rows: 22857
+- Master rows: 22859
 - Configuration values: 8530
 - Configuration import specifications: 193
 - Configuration value ranges: 451
