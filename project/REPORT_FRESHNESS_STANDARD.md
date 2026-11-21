@@ -36,7 +36,7 @@ A report is current only when all of the following are true:
 5. its unresolved findings have been rechecked against current canonical data and source evidence;
 6. the Markdown companion agrees with the machine-readable report.
 
-A changed input makes the report `needs_review`; it does not automatically make every conclusion false. The report must be re-evaluated before it can return to `current`.
+A changed input makes the report `needs_review`; it does not automatically make every conclusion false. Preserve the original input fingerprints and analysed commit while the report is awaiting review. The validator must accept changed input hashes only when `report_metadata.status` is explicitly `needs_review`; all other statuses fail closed. Re-evaluate the report before it can return to `current`.
 
 A report whose inputs remain unchanged may still require review when source identity, interpretation, scope or a referenced decision changes. Input hashes are necessary but not sufficient evidence of freshness.
 
@@ -92,4 +92,4 @@ This standard supplements, and does not replace:
 
 ## 9. Automated enforcement
 
-The canonical registry is `data/reporting/report_registry.json`. Every new or materially refreshed analytical report covered by this standard must be registered with its JSON and Markdown companion paths. New entries are strict by default: missing metadata, missing inputs, unsafe paths, malformed hashes, changed inputs, invalid finding states or JSON/Markdown drift fail `python tools/dkb.py report-freshness`. The only compatibility exception is an explicit `legacy: true` entry; a legacy report cannot claim `current` status. Legacy classification is temporary and must be removed when the report is substantively refreshed. The validator checks both Git blob SHA-1 and content SHA-256 for each declared input.
+The canonical registry is `data/reporting/report_registry.json`. Every new or materially refreshed analytical report covered by this standard must be registered with its JSON and Markdown companion paths. New entries are strict by default: missing metadata, missing inputs, unsafe paths, malformed hashes, changed inputs on reports not marked `needs_review`, invalid finding states or JSON/Markdown drift fail `python tools/dkb.py report-freshness`. A report marked `needs_review` may retain its original stale input fingerprints; do not rewrite those hashes or the analysed commit until the report has actually been re-evaluated. The only compatibility exception is an explicit `legacy: true` entry; a legacy report cannot claim `current` status. Legacy classification is temporary and must be removed when the report is substantively refreshed. The validator checks both Git blob SHA-1 and content SHA-256 for each declared input.
