@@ -457,6 +457,49 @@ class ConfigurationComparisonTests(unittest.TestCase):
             "20",
         )
 
+    def test_source_scoped_technical_slot_limits_missing_evidence(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            repository, completeness, evidence = self.fixture(
+                Path(directory)
+            )
+            completeness_payload = json.loads(
+                completeness.read_text(encoding="utf-8")
+            )
+            for slot in completeness_payload["technical_slots"]:
+                if slot["attribute_code"] == "vehicle_height":
+                    slot["source_code"] = "src_a"
+            completeness.write_text(
+                json.dumps(completeness_payload, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            evidence_payload = json.loads(
+                evidence.read_text(encoding="utf-8")
+            )
+            evidence_payload["decisions"] = [
+                decision
+                for decision in evidence_payload["decisions"]
+                if not (
+                    decision["domain"] == "technical"
+                    and decision["configuration_code"] == "cfg_b"
+                    and decision["attribute_code"] == "vehicle_height"
+                )
+            ]
+            evidence.write_text(
+                json.dumps(evidence_payload, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            report = comparison.collect_report(
+                repository,
+                completeness,
+                evidence,
+            )
+
+        self.assertEqual(report["evidence_summary"]["total"], 2)
+        self.assertEqual(report["evidence_summary"]["not_stated"], 2)
+        self.assertEqual(report["evidence_summary"]["out_of_scope"], 0)
+
     def test_deterministic_json_and_markdown(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, completeness, evidence = self.fixture(

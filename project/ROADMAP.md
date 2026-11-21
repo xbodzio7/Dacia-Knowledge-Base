@@ -146,7 +146,7 @@ Pakiet Spring z 1 sierpnia 2026 r. świadomie wyprzedził planowany import lakie
 ## Verified tooling baseline
 
 <!-- dkb:documentation-baseline:roadmap:start -->
-- 2012 testów automatycznych,
+- 2018 testów automatycznych,
 - deterministyczna komenda `documentation-baseline` z kontrolą bieżących podsumowań,
 <!-- dkb:documentation-baseline:roadmap:end -->
 

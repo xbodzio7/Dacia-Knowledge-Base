@@ -77,8 +77,8 @@ class SpringCommonTechnicalMigrationTest(unittest.TestCase):
 
     def test_reporting_scopes_include_all_common_technical_slots(self) -> None:
         expected_counts = {
-            "spring_electric70_automatic_completeness.json": 31,
-            "spring_electric100_automatic_completeness.json": 12,
+            "spring_electric70_automatic_completeness.json": 32,
+            "spring_electric100_automatic_completeness.json": 13,
         }
         expected = {(attribute, "") for attribute in ATTRIBUTES}
         for filename, count in expected_counts.items():

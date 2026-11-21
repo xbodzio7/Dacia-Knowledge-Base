@@ -217,6 +217,7 @@ def parse_scope(
         )
 
     technical_slots: list[tuple[str, str]] = []
+    technical_slot_sources: dict[tuple[str, str], str] = {}
     for item in spec["technical_slots"]:
         if not isinstance(item, dict):
             raise ComparisonError("invalid technical slot in spec")
@@ -229,11 +230,18 @@ def parse_scope(
             str(item.get("attribute_code", "")),
             str(item.get("fuel_type_code", "")),
         )
+        source_code = str(item.get("source_code", ""))
         if not slot[0] or slot in technical_slots:
             raise ComparisonError(
                 "invalid or duplicate technical slot in spec"
             )
+        if source_code and source_code not in source_rows:
+            raise ComparisonError(
+                f"inactive or missing technical slot source: {source_code}"
+            )
         technical_slots.append(slot)
+        if source_code:
+            technical_slot_sources[slot] = source_code
     technical_slots.sort()
 
     equipment_attributes = sorted(
@@ -277,10 +285,28 @@ def parse_scope(
         if isinstance(item, dict)
     }
 
+    configuration_source_map: dict[str, set[str]] = {
+        code: {source} for code, source in configuration_sources.items()
+    }
+    source_configurations_path = master / "source_configurations.csv"
+    if source_configurations_path.is_file():
+        for row in read_csv(source_configurations_path):
+            configuration = row.get("configuration_code", "")
+            source = row.get("source_code", "")
+            if configuration and source:
+                configuration_source_map.setdefault(
+                    configuration, set()
+                ).add(source)
+
     technical_scope = {
         (configuration, attribute, fuel)
         for configuration in active_rows
         for attribute, fuel in technical_slots
+        if (
+            (attribute, fuel) not in technical_slot_sources
+            or technical_slot_sources[(attribute, fuel)]
+            in configuration_source_map[configuration]
+        )
     }
     equipment_scope = {
         (configuration, attribute)
@@ -832,8 +858,10 @@ def collect_report(
                     else ""
                 )
 
-                if left_key in scope["technical_na"]:
-                    left_state: dict[str, Any] = {"state": "not_applicable"}
+                if left_key not in scope["technical_scope"]:
+                    left_state: dict[str, Any] = {"state": "out_of_scope"}
+                elif left_key in scope["technical_na"]:
+                    left_state = {"state": "not_applicable"}
                 elif signature in left_group:
                     left_row = left_group[signature]
                     left_state = (
@@ -851,8 +879,10 @@ def collect_report(
                     left_state["cargo_context"] = dict(cargo_context)
                     left_state["cargo_context_signature"] = cargo_signature
 
-                if right_key in scope["technical_na"]:
-                    right_state: dict[str, Any] = {"state": "not_applicable"}
+                if right_key not in scope["technical_scope"]:
+                    right_state: dict[str, Any] = {"state": "out_of_scope"}
+                elif right_key in scope["technical_na"]:
+                    right_state = {"state": "not_applicable"}
                 elif signature in right_group:
                     right_row = right_group[signature]
                     right_state = (
