@@ -31,7 +31,7 @@ The dedicated workflow:
 3. Verifies the archived comparison PDF against its registered SHA-256.
 4. Extracts and compares all nine pages against the 2026-10-01 PDF, recording changed page numbers and text hashes.
 5. Computes the new binary SHA-256 and file size.
-6. Archives the PDF, checksum and capture manifest on a dedicated source branch only if the source markers and document structure pass.
+6. Archives only the PDF and SHA-256 sidecar on a dedicated source branch if the source markers and document structure pass. The full capture manifest, extracted page text, page diffs and rendered page images remain in the workflow diagnostic artifact. The manifest is promoted to `data/source_intake` only in the follow-up registration package, together with its matching `data/master/sources.csv` row, so the package preflight cannot encounter an orphaned verified manifest.
 
 The follow-up data package must inspect the page-by-page comparison before deciding whether any master data changed. Do not re-import unchanged catalogue prices, options, equipment or technical values. Do not use the configurator for this source review.
 
