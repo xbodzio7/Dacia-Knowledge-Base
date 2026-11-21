@@ -187,7 +187,7 @@ jobs:
             echo "Target source branch already exists; refusing to overwrite it."
             exit 1
           fi
-          mkdir -p "PDF/Cenniki" "data/source_intake"
+          mkdir -p "PDF/Cenniki"
           cp "source-assimilation-bundle/jogger-my26-20261102/DACIA JOGGER cennik MY26 20261102.pdf" \
              "PDF/Cenniki/DACIA JOGGER cennik MY26 20261102.pdf"
           cp "source-assimilation-bundle/jogger-my26-20261102/capture-manifest.json" \
