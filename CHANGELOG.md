@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Completed the MY26 official Polish cennik technical/equipment residual assessment across the five existing model families. The current coverage includes 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further safe technical/equipment import remains; evidence ambiguities are explicitly deferred. Striker remains blocked pending explicit scope approval.
+* Completed the MY26 official Polish cennik technical/equipment residual assessment across the five existing model families. The current coverage includes 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further safe technical/equipment import remains; evidence ambiguities are explicitly deferred. Striker scope was approved on 2026-11-21; source registration and model-family bootstrap are tracked in PR #877.
 
 
 * Archived and registered the official Jogger MY26 2026-11-02 nine-page cennik (PR #873); added 12 dated special non-metallic paint mappings without duplicating the 11 unchanged catalogue prices. The 2026-10-01 paint delta remains `Do sprawdzenia` pending visual re-verification of the archived page 3.
