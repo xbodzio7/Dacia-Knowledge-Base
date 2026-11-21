@@ -94,7 +94,7 @@
       }
     ],
     "scope": "Latest registered official Polish MY26 Dacia cenniks across the five model families already represented in the master data: Sandero/Sandero Stepway, Duster, Jogger, Bigster and Spring. Reconcile catalogue-price cells, source links, commercial mappings, technical scalar values and equipment availability; exclude brochures, configurator inference, accessories, promotions and financing.",
-    "status": "current"
+    "status": "needs_review"
   },
   "coverage": {
     "model_families": 5,
