@@ -155,7 +155,7 @@ jobs:
               json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write(f"verified={str(verified).lower()}\\n")
+              output.write(f"verified={str(verified).lower()}\n")
           print("DOWNLOADED_PDF_SHA256=" + digest)
           print("DOWNLOADED_PDF_SIZE_BYTES=" + str(len(raw)))
           print("DOWNLOADED_PDF_PAGE_COUNT=" + str(page_count))
