@@ -34,7 +34,7 @@
     "goal": "Reconcile the latest registered official Polish MY26 cenniks across all five model families already represented in the master data. Confirmed 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further technical/equipment facts are both missing and safely importable; preserve explicit evidence deferrals. No brochure or configurator extraction.",
     "report_id": "dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001",
     "report_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001.json",
-    "pull_request": 875,
+    "pull_request": 876,
     "master_data_changed": false
   },
   "next_package": {
