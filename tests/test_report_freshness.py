@@ -83,7 +83,7 @@ class ReportFreshnessTests(unittest.TestCase):
 
     def case_stale_input_is_allowed_only_when_needs_review(self) -> None:
         self._write_report(status="needs_review")
-        self.input_path.write_text("code,value\\nA,2\\n", encoding="utf-8")
+        self.input_path.write_text("code,value\nA,2\n", encoding="utf-8")
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
     def case_missing_metadata_fails_closed(self) -> None:
