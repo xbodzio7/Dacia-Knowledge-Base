@@ -44,7 +44,7 @@ Complete the review of the official Polish Spring MY26 cennik: resolve the Extre
 
 **Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation** — `active`
 
-Register the verified official Polish Jogger MY26 cennik effective 2026-11-02, link its 12 exact configurations and three grades, and add 12 special non-metallic paint mappings at 2,800 PLN. The 11 catalogue vehicle prices are unchanged and are not duplicated. Preserve the 2026-10-01 paint mapping pending visual re-verification of its archived page 3; the metallic paint pair remains unmapped. No configurator evidence is used.
+Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.
 
 ## Autonomy
 
