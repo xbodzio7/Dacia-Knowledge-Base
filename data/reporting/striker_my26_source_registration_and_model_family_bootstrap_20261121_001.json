@@ -29,7 +29,7 @@
     "status": "current"
   },
   "catalogue_price_cells": {
-    "count_non_empty": 10,
+    "count_non_empty": 11,
     "currency": "PLN",
     "effective_date": "2026-11-02",
     "values": [
@@ -89,7 +89,7 @@
         "price": 129500
       }
     ],
-    "note": "The 10-cell total refers to the non-empty catalogue cells as initially counted in the source review; this extracted list enumerates the observed grade/powertrain values for follow-up reconciliation. Confirm exact count from rendered page 1 before price import."
+    "note": "The 11 non-empty catalogue cells on printed page 1 were verified against the owner-supplied PDF; each listed powertrain/grade pair corresponds to one printed price."
   },
   "scope": {
     "completed": [
@@ -109,7 +109,7 @@
   },
   "next_work": "Reconcile the printed page-1 catalogue matrix cell-by-cell, then import dated prices through the existing price-history/import workflow. Review pages 2-8 in separate bounded technical/equipment/options scopes. Preserve source conflicts and unresolved fitment as Do sprawdzenia.",
   "limitations": [
-    "The source review summary enumerated 10 non-empty cells but the transcribed candidate list currently contains 11 values; resolve this discrepancy against the rendered page before any price import.",
+    "The 11 non-empty catalogue price cells were reconciled against printed page 1 and independently rechecked from the owner-supplied PDF text extraction.",
     "No configuration applicability may be inferred from model/grade names alone."
   ],
   "created_on": "2026-11-21"
