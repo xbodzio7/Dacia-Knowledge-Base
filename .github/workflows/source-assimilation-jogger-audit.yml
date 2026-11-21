@@ -72,7 +72,7 @@ jobs:
           normalized_first = " ".join(first_page.split())
           normalized_document = " ".join(document.split())
           pdfinfo = (capture_dir / "pdfinfo.txt").read_text(encoding="utf-8", errors="replace")
-          page_match = re.search(r"(?m)^Pages:\\s*(\\d+)", pdfinfo)
+          page_match = re.search(r"(?m)^Pages:\s*(\d+)", pdfinfo)
           page_count = int(page_match.group(1)) if page_match else None
           digest = sha256(raw).hexdigest()
           old_digest = sha256(old_raw).hexdigest()
@@ -152,7 +152,7 @@ jobs:
               "provenance": "Official Dacia Poland / Renault Group CDN asset. First capture records the immutable SHA-256, file size, nine-page count, exact effective-date and price markers; all pages are text-compared with the archived 2026-10-01 source before data reconciliation."
           }
           (capture_dir / "capture-manifest.json").write_text(
-              json.dumps(manifest, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8"
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"verified={str(verified).lower()}\\n")
