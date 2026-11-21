@@ -70,6 +70,8 @@ jobs:
           first_page = (capture_dir / "first_page.txt").read_text(encoding="utf-8", errors="replace")
           document = (capture_dir / "document.txt").read_text(encoding="utf-8", errors="replace")
           normalized_first = " ".join(first_page.split())
+          old_first_page = (capture_dir / "page-text" / "old-01.txt").read_text(encoding="utf-8", errors="replace")
+          normalized_old_first = " ".join(old_first_page.split())
           normalized_document = " ".join(document.split())
           pdfinfo = (capture_dir / "pdfinfo.txt").read_text(encoding="utf-8", errors="replace")
           page_match = re.search(r"(?m)^Pages:\s*(\d+)", pdfinfo)
@@ -143,7 +145,7 @@ jobs:
                   "page_text_hashes": page_hashes,
                   "price_cells": 11,
                   "catalogue_prices_match_previous_edition": all(
-                      marker in normalized_first and marker in normalized_document
+                      marker in normalized_first and marker in normalized_old_first
                       for marker in ["77 900", "82 050", "89 900", "96 800", "103 550", "111 400",
                                      "86 550", "94 400", "101 300", "108 050", "115 900"]
                   ),
