@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
-  "generated_at": "2026-11-21T21:40:00Z",
+  "generated_at": "2026-11-21T21:12:29Z",
   "status": "complete_with_deferrals",
   "scope": {
     "model": "Jogger",
@@ -208,7 +208,7 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
-    "generated_at": "2026-11-21T21:40:00Z",
+    "generated_at": "2026-11-21T21:12:29Z",
     "reviewed_on": "2026-11-21",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
     "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",

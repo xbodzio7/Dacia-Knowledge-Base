@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
-  "generated_at": "2026-11-19T21:38:00Z",
+  "generated_at": "2026-11-21T21:12:29Z",
   "analysed_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
   "status": "closed_with_explicit_source_ambiguity",
   "scope": {
@@ -100,7 +100,7 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
-    "generated_at": "2026-11-21T21:40:00Z",
+    "generated_at": "2026-11-21T21:12:29Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
     "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
     "input_files": [

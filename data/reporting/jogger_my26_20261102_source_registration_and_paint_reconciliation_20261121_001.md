@@ -1,7 +1,7 @@
 # Jogger MY26 2026-11-02 — Source Registration and Paint Reconciliation
 
 Report ID: jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001
-Generated: 2026-11-21T21:40:00Z
+Generated: 2026-11-21T21:12:29Z
 Analysed commit: 63a91e55438de42d422c552ed580762d5a627ffc
 Status: current
 Assessment status: complete_with_deferrals

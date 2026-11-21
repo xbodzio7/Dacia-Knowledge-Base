@@ -1,7 +1,7 @@
 # Bigster MY26 2026-10-01 HDC Applicability Evidence Review
 
 Report ID: bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001
-Generated: 2026-11-21T21:40:00Z
+Generated: 2026-11-21T21:12:29Z
 Analysed commit: 63a91e55438de42d422c552ed580762d5a627ffc
 Status: needs_review
 Scope: Bigster MY26 Polish cennik effective 2026-10-01, printed page 4; HDC applicability across the six exact source-linked configurations and comparison with the grade-level equipment matrix.
