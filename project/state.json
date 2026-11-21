@@ -38,11 +38,15 @@
     "master_data_changed": false
   },
   "next_package": {
-    "package_id": "striker_my26_official_cennik_model_family_addition_20261121_001",
-    "kind": "model_family_scope_expansion",
-    "name": "Striker MY26 Official Cennik Assimilation — Owner Approval Required",
-    "status": "blocked",
-    "goal": "The official Polish Striker MY26 cennik effective 2026-10-13 is available. Striker is a new model family not represented in the master data. The five existing model families are now reconciled; do not create Striker configurations, source links or master-data rows until the Project Owner explicitly approves this scope expansion."
+    "package_id": "striker_my26_source_registration_and_model_family_bootstrap_20261121_001",
+    "kind": "source_price_list_assimilation",
+    "name": "Striker MY26 Official Cennik — Source Registration and Model-Family Bootstrap",
+    "status": "planned",
+    "goal": "Project Owner approved adding Striker on 2026-11-21. Archive and verify the official Polish MY26 cennik effective 2026-11-02, register its immutable source evidence and add the Striker model family. Then extract the 10 catalogue price cells and review technical/equipment/options pages in separate source-backed packages; do not infer configuration applicability.",
+    "report_id": "striker_my26_source_registration_and_model_family_bootstrap_20261121_001",
+    "report_path": "data/reporting/striker_my26_source_registration_and_model_family_bootstrap_20261121_001.json",
+    "pull_request": null,
+    "master_data_changed": true
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -118,5 +122,7 @@
     "current_main_reconciliation": "completed",
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
-  }
+  },
+  "next_package_selection": "Striker MY26 official price list source registration and model-family bootstrap",
+  "rationale": "The Project Owner explicitly approved Striker scope expansion on 2026-11-21. The exact 2026-11-02 official cennik is now supplied and its original binary is available for repository archiving. Start with immutable source registration and the model-family record; only then import the printed catalogue price matrix and review technical/equipment evidence."
 }
