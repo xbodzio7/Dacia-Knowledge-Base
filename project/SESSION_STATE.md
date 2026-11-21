@@ -31,7 +31,7 @@ Latest completed package before the current correction: `sandero_stepway_price_m
 
 Current completed package: `jogger_price_matrix_correction_20261001_20261106_001`. Corrected the seven-seat Eco-G 120 manual price alignment: Essential has no catalogue price in the printed matrix, Expression is 86,550 PLN and Extreme is 94,400 PLN. Added source relationships for the 12 printed configurations and three grades. Preserved April/July historical prices. The 01.10.2026 date applies to the page-1 price matrix; 02.11.2026 is the technical-data status date. The source PDF was already archived with SHA-256. No brochure or configurator data imported.
 
-The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. The Striker cennik is temporarily unavailable and is excluded from active work.
+The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. At the time of this 2026-11-06 note, the Striker cennik was unavailable. This was superseded on 2026-11-21 when the Project Owner supplied the exact official 2026-11-02 MY26 PDF and approved adding Striker; source registration/model bootstrap is tracked in PR #877.
 
 ## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
 
@@ -509,8 +509,8 @@ The Duster page-9 review added 18 exact 4x2/4x4 dimension observations. The Spri
 
 No additional technical/equipment facts are both missing and safely importable from the reviewed cenniks. Remaining evidence boundaries are preserved: Sandero Eco-G injection/LPG semantics and interior/trim meanings; Duster interior/seat callouts; Jogger historical 2026-10-01 paint amount and metallic-paint applicability; Bigster HDC applicability and extra dimensions; Spring power/battery conflict and ambiguous dimension callouts. Do not infer missing values or reopen resolved mappings without new source evidence.
 
-The user has explicitly deferred Striker until existing model families are reconciled. That condition is now met, but Striker is a new model-family scope expansion. Its official 2026-10-13 cennik is available; do not add Striker configurations or data without explicit owner approval.
+Historical note superseded on 2026-11-21: after all five existing model families' cennik reconciliation was closed, the Project Owner explicitly approved Striker and supplied the official MY26 cennik effective 2026-11-02. PR #877 registers the exact PDF/source and model family; price/configuration imports remain separate follow-up packages.
 
 ## Next scope — Striker (owner approval required)
 
-The next candidate is `striker_my26_official_cennik_model_family_addition_20261121_001`. It is blocked pending the Project Owner's explicit approval to add a new model family. No Striker source capture, model/configuration creation or master-data import has begun.
+The Striker source-registration/model-family package is active in PR #877 following explicit owner approval. The exact 2026-11-02 official PDF is archived and SHA-256 verified; its 11 catalogue price cells are identified. No Striker price observations or configurations have yet been imported.
