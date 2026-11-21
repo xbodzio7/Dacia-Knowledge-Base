@@ -499,6 +499,18 @@ Two matters remain explicitly unresolved: the 2026-10-01 archived page-3 text ex
 
 The source assimilation standard now guards against mutable CDN URLs: archived binary and SHA-256, not the current response from a historical URL, define the source edition. Striker remains deferred until price-list reconciliation is complete for all model families already represented in the master data.
 
-## Next package — Dacia MY26 official cennik residual technical and equipment coverage
+## Verified Cennik Residual Coverage Closure (2026-11-21)
 
-The next planned package is `dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001`. It will reconcile the latest registered official Polish MY26 cenniks against source-linked technical and equipment observations across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Only exact values explicitly supported by cennik pages are in scope; brochures and configurator inference remain excluded. Each source date, configuration boundary and ambiguity must be preserved. The package may conclude that no safe import remains.
+The official Polish MY26 cennik reconciliation is complete for the five model families already represented in the master data: Sandero/Sandero Stepway, Duster, Jogger, Bigster and Spring.
+
+The current assessment covers seven source/date entries, 75 source-configuration links (the Bigster 2026-11-02 price/commercial-only source intentionally has zero configuration links), 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations.
+
+The Duster page-9 review added 18 exact 4x2/4x4 dimension observations. The Spring review added two 155 mm ground-clearance observations for the two exact 15-inch-wheel configurations and resolved the Extreme DC 40 kW P marker as part of the POWER package. The Jogger 2026-11-02 source is registered and adds 12 special non-metallic paint mappings without duplicating its 11 unchanged catalogue prices.
+
+No additional technical/equipment facts are both missing and safely importable from the reviewed cenniks. Remaining evidence boundaries are preserved: Sandero Eco-G injection/LPG semantics and interior/trim meanings; Duster interior/seat callouts; Jogger historical 2026-10-01 paint amount and metallic-paint applicability; Bigster HDC applicability and extra dimensions; Spring power/battery conflict and ambiguous dimension callouts. Do not infer missing values or reopen resolved mappings without new source evidence.
+
+The user has explicitly deferred Striker until existing model families are reconciled. That condition is now met, but Striker is a new model-family scope expansion. Its official 2026-10-13 cennik is available; do not add Striker configurations or data without explicit owner approval.
+
+## Next scope — Striker (owner approval required)
+
+The next candidate is `striker_my26_official_cennik_model_family_addition_20261121_001`. It is blocked pending the Project Owner's explicit approval to add a new model family. No Striker source capture, model/configuration creation or master-data import has begun.
