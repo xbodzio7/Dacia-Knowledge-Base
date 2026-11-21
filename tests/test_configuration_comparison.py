@@ -469,7 +469,7 @@ class ConfigurationComparisonTests(unittest.TestCase):
                 if slot["attribute_code"] == "vehicle_height":
                     slot["source_code"] = "src_a"
             completeness.write_text(
-                json.dumps(completeness_payload, indent=2) + "\\n",
+                json.dumps(completeness_payload, indent=2) + "\n",
                 encoding="utf-8",
             )
 
@@ -486,7 +486,7 @@ class ConfigurationComparisonTests(unittest.TestCase):
                 )
             ]
             evidence.write_text(
-                json.dumps(evidence_payload, indent=2) + "\\n",
+                json.dumps(evidence_payload, indent=2) + "\n",
                 encoding="utf-8",
             )
 
