@@ -17,7 +17,7 @@
   "baseline": {
     "tests": 2018,
     "csv_files": 48,
-    "rows": 22857,
+    "rows": 22859,
     "configuration_values": 8530,
     "configuration_import_specs": 193,
     "configuration_value_ranges": 451,
@@ -42,7 +42,7 @@
     "kind": "source_price_list_assimilation",
     "name": "Striker MY26 Official Cennik — Source Registration and Model-Family Bootstrap",
     "status": "planned",
-    "goal": "Project Owner approved adding Striker on 2026-11-21. Archive and verify the official Polish MY26 cennik effective 2026-11-02, register its immutable source evidence and add the Striker model family. Then extract the 10 catalogue price cells and review technical/equipment/options pages in separate source-backed packages; do not infer configuration applicability.",
+    "goal": "Project Owner approved adding Striker on 2026-11-21. Archive and verify the official Polish MY26 cennik effective 2026-11-02, register its immutable source evidence and add the Striker model family. Then extract the 11 catalogue price cells and review technical/equipment/options pages in separate source-backed packages; do not infer configuration applicability.",
     "report_id": "striker_my26_source_registration_and_model_family_bootstrap_20261121_001",
     "report_path": "data/reporting/striker_my26_source_registration_and_model_family_bootstrap_20261121_001.json",
     "pull_request": null,
