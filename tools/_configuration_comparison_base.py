@@ -285,14 +285,27 @@ def parse_scope(
         if isinstance(item, dict)
     }
 
+    configuration_source_map: dict[str, set[str]] = {
+        code: {source} for code, source in configuration_sources.items()
+    }
+    source_configurations_path = master / "source_configurations.csv"
+    if source_configurations_path.is_file():
+        for row in read_csv(source_configurations_path):
+            configuration = row.get("configuration_code", "")
+            source = row.get("source_code", "")
+            if configuration and source:
+                configuration_source_map.setdefault(
+                    configuration, set()
+                ).add(source)
+
     technical_scope = {
         (configuration, attribute, fuel)
         for configuration in active_rows
         for attribute, fuel in technical_slots
         if (
             (attribute, fuel) not in technical_slot_sources
-            or configuration_sources[configuration]
-            == technical_slot_sources[(attribute, fuel)]
+            or technical_slot_sources[(attribute, fuel)]
+            in configuration_source_map[configuration]
         )
     }
     equipment_scope = {
@@ -845,8 +858,10 @@ def collect_report(
                     else ""
                 )
 
-                if left_key in scope["technical_na"]:
-                    left_state: dict[str, Any] = {"state": "not_applicable"}
+                if left_key not in scope["technical_scope"]:
+                    left_state: dict[str, Any] = {"state": "out_of_scope"}
+                elif left_key in scope["technical_na"]:
+                    left_state = {"state": "not_applicable"}
                 elif signature in left_group:
                     left_row = left_group[signature]
                     left_state = (
@@ -864,8 +879,10 @@ def collect_report(
                     left_state["cargo_context"] = dict(cargo_context)
                     left_state["cargo_context_signature"] = cargo_signature
 
-                if right_key in scope["technical_na"]:
-                    right_state: dict[str, Any] = {"state": "not_applicable"}
+                if right_key not in scope["technical_scope"]:
+                    right_state: dict[str, Any] = {"state": "out_of_scope"}
+                elif right_key in scope["technical_na"]:
+                    right_state = {"state": "not_applicable"}
                 elif signature in right_group:
                     right_row = right_group[signature]
                     right_state = (
