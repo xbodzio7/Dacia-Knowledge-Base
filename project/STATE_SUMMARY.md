@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation** — `complete`
+**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `complete`
 
-Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.
+Reconcile the latest registered official Polish MY26 cenniks across all five model families already represented in the master data. Confirmed 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further technical/equipment facts are both missing and safely importable; preserve explicit evidence deferrals. No brochure or configurator extraction.
 
 ## Next package
 
-**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `planned`
+**Striker MY26 Official Cennik Assimilation — Owner Approval Required** — `blocked`
 
-Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains.
+The official Polish Striker MY26 cennik effective 2026-10-13 is available. Striker is a new model family not represented in the master data. The five existing model families are now reconciled; do not create Striker configurations, source links or master-data rows until the Project Owner explicitly approves this scope expansion.
 
 ## Autonomy
 
