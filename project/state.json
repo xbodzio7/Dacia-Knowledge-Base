@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_on": "2026-11-20",
+  "updated_on": "2026-11-21",
   "repository": {
     "full_name": "xbodzio7/Dacia-Knowledge-Base",
     "default_branch": "main",
@@ -27,31 +27,47 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
-    "kind": "source_commercial_applicability_review",
-    "name": "Jogger MY26 2026-10-01 Metallic Paint and Heated Seat Applicability Review",
-    "status": "complete",
-    "goal": "Review the official Polish Jogger MY26 2026-10-01 cennik's metallic-paint price pair and Extreme heated-seat P marker. Preserve the unresolved metallic applicability pair; resolve Extreme heated seats as part of the ZIMOWY package. No master data changed.",
-    "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
-    "report_path": "data/reporting/jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001.json",
-    "master_data_changed": false
-  },
-  "next_package": {
     "package_id": "spring_my26_20260206_dimension_and_dc40_package_marker_review_20261120_001",
     "kind": "source_semantic_applicability_review",
     "name": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
+    "status": "complete",
+    "goal": "Complete the review of the official Polish Spring MY26 cennik: resolve the Extreme DC 40 kW P marker as part of the POWER package; add source-specific 155 mm ground-clearance observations only for Expression Electric 70 and Extreme Electric 100; retain Essential as not_stated and preserve all other unresolved dimension semantics. Two master observations were added; no unsupported mappings were inferred.",
+    "report_id": "spring_my26_20260206_dimension_and_dc40_package_marker_review_20261120_001",
+    "report_path": "project/packages/spring-my26-dimension-and-dc40-review-20261120.md",
+    "master_data_changed": true,
+    "pull_request": 870,
+    "merge_commit_sha": "285cf33151a489dafdce53b45434b22ad76717e1",
+    "merged_head_sha": "7d3210639c5a6aa8cc3409b16aeab940c27d819c"
+  },
+  "next_package": {
+    "package_id": "jogger_my26_20261102_source_binary_capture_20261121_001",
+    "kind": "source_binary_capture",
+    "name": "Jogger MY26 2026-11-02 Official Price List Source Capture",
     "status": "active",
-    "goal": "Review the Spring MY26 official Polish cennik page-4 Extreme DC 40 kW P marker and page-6 dimension diagram against the three exact source-linked configurations and canonical attribute semantics. Do not infer package inclusion, availability or dimensions without explicit source evidence.",
-    "source_report": "data/reporting/spring_my26_price_commercial_matrix_reconciliation_20261116.json",
+    "goal": "Capture the official Polish Jogger MY26 cennik effective 2026-11-02, verify its nine-page binary identity, compare all pages with the archived 2026-10-01 edition and register the new source version. The 11 page-1 catalogue prices match the prior edition; do not duplicate unchanged master price rows or re-import unchanged commercial/technical data. Do not use configurator evidence.",
+    "source_code": "src_pl_jogger_price_my26_20261102",
+    "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
+    "package_path": "project/packages/jogger-my26-20261102-source-capture.md",
+    "pull_request": 872,
     "scope": {
-      "source_date": "2026-02-06",
-      "model": "Spring",
+      "source_date": "2026-11-02",
+      "model": "Jogger",
       "source_pages": [
+        1,
+        2,
+        3,
         4,
-        6
+        5,
+        6,
+        7,
+        8,
+        9
       ],
-      "source_code": "src_pl_spring_price_my26_20260206",
-      "review_only_if_no_exact_applicability_or_measurement_mapping": true
+      "source_configurations": 12,
+      "catalogue_price_cells": 11,
+      "comparison_source_code": "src_pl_jogger_price_my26_20261001",
+      "archive_binary_before_registration": true,
+      "no_duplicate_price_rows": true
     }
   },
   "autonomy": {
