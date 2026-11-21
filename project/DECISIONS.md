@@ -1414,3 +1414,35 @@ The accepted requirement is therefore met by reusing the existing canonical attr
 - Sandero/Sandero Stepway LPG capacity remains deferred unless its own cennik clearly identifies total versus filling capacity and exact configuration applicability.
 - No capacity is inferred from the Jogger cennik for Sandero or another model.
 - Contract tests protect the existing attribute definitions and the exact source-backed Jogger import semantics.
+
+
+
+## D-033 — Fail-closed protected-main merge diagnosis
+
+Status: Accepted
+
+Date: 2026-11-21
+
+### Decision
+
+The `main` branch protection and all six required status checks are safety controls and must not be disabled, bypassed or weakened to resolve a blocked Pull Request. A merge attempt must be based on a freshly verified PR head SHA and target-branch SHA, with all required checks successful on that exact head and the branch satisfying the configured freshness rule.
+
+GitHub Actions check runs, classic commit statuses and required branch-protection status contexts are distinct evidence surfaces. A successful check run does not, by itself, prove that GitHub recognizes the corresponding required status context. Merge rejection diagnostics must capture the exact GitHub error, HTTP status, PR/target SHAs, required context names, exact-head conclusions, source GitHub App where available, classic statuses and branch freshness. An inaccessible protection endpoint must be reported as an access limitation.
+
+A merge rejection must be classified before any retry or configuration change. Stale-branch remediation requires updating the branch and rerunning the complete required quality matrix on the new exact head. Context/App mismatch requires administrator-level diagnosis or correction while preserving all six required checks. If the cause remains unknown, the PR stays unmerged.
+
+Any temporary protection adjustment requires explicit Project Owner approval, a demonstrated root cause, narrow reversible scope, a rollback plan and post-change verification. Disabling all protection is not an acceptable routine workaround.
+
+### Rationale
+
+In November 2026, several PRs showed successful GitHub Actions check runs for all six required names, yet GitHub rejected merge with HTTP 405 and reported that six required status checks were expected. The owner-provided branch-protection screenshot confirmed that all six checks were selected under GitHub Actions and that requiring branches to be up to date was enabled. The available connector could not read the protection endpoint (403). A PR branch being behind `main` was also observed, but this alone does not establish the cause of the required-status rejection. The evidence therefore demonstrates a mismatch between observed check-run success and merge enforcement, while the precise underlying mechanism remains unresolved.
+
+### Consequences
+
+- The exact-head, exact-context merge diagnostic is mandatory.
+- The six required status checks remain unchanged and mandatory.
+- Repeated merge attempts on an unchanged head are prohibited after a deterministic policy rejection.
+- Stale-branch updates invalidate prior head validation and require a fresh complete quality matrix.
+- Protection changes require explicit approval and a rollback/verification record.
+- Unknown merge blockers remain blocked; no speculative bypass is permitted.
+- Operational steps are defined in `project/AUTONOMOUS_MAINTAINER.md` and `project/WORKFLOW_PROFILES.md`.
