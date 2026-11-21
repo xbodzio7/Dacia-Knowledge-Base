@@ -42,9 +42,9 @@ Reconcile the latest registered official Polish MY26 cenniks across all five mod
 
 ## Next package
 
-**Striker MY26 Official Cennik Assimilation — Owner Approval Required** — `blocked`
+**Striker MY26 Official Cennik — Source Registration and Model-Family Bootstrap** — `planned`
 
-The official Polish Striker MY26 cennik effective 2026-10-13 is available. Striker is a new model family not represented in the master data. The five existing model families are now reconciled; do not create Striker configurations, source links or master-data rows until the Project Owner explicitly approves this scope expansion.
+The Project Owner approved adding Striker on 2026-11-21. The official Polish MY26 cennik effective 2026-11-02 has been archived and verified; source registration and the Striker model-family record are prepared in PR #877. The source audit reconciles all 11 non-empty page-1 catalogue price cells. No prices, configurations, technical observations or equipment mappings have been imported; those remain separate source-backed packages.
 
 ## Autonomy
 
