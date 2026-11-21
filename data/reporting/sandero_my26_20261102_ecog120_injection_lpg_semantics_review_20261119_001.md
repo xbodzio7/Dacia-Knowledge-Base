@@ -1,8 +1,8 @@
 # Sandero / Sandero Stepway MY26 Eco-G 120 Injection and LPG Capacity Semantics Review
 
 Report ID: sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001
-Generated: 2026-11-19T19:40:00Z
-Analysed commit: d2a1df8bbfe49e442354517ad4f3371a45b6f658
+Generated: 2026-11-20T21:35:43Z
+Analysed commit: 0c7dfab2882ea401c5a9053ac974c5c684b4abd8
 Status: current
 Scope: Sandero and Sandero Stepway MY26 official Polish cennik effective 2026-11-02, printed page 5; Eco-G 120 injection wording and LPG/petrol tank-capacity semantics across the nine exact source-linked Eco-G 120 configurations, compared with the official Jogger MY26 cennik effective 2026-10-01, printed page 6.
 

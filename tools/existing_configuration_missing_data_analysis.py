@@ -163,14 +163,7 @@ def collect(
 
     for path in scope_files:
         payload = json.loads(path.read_text(encoding="utf-8"))
-        technical = [
-            slot_key(item)
-            for item in payload.get("technical_slots", [])
-            if not scope_as_of_value
-            or not isinstance(item, dict)
-            or not item.get("effective_from")
-            or str(item.get("effective_from")) <= scope_as_of_value
-        ]
+        technical_slots = payload.get("technical_slots", [])
         equipment = [str(item) for item in payload.get("equipment_attributes", [])]
         not_applicable = payload.get("not_applicable", {})
         technical_na = na_keys(
@@ -192,9 +185,26 @@ def collect(
                 source = str(ref.get("source_code", ""))
             if code not in configurations:
                 continue
+            # A technical slot may be source-specific. Count it only against
+            # the exact source named by this configuration reference.
+            applicable_technical = [
+                slot_key(item)
+                for item in technical_slots
+                if (
+                    not isinstance(item, dict)
+                    or not item.get("effective_from")
+                    or not scope_as_of_value
+                    or str(item.get("effective_from")) <= scope_as_of_value
+                )
+                and (
+                    not isinstance(item, dict)
+                    or not item.get("source_code")
+                    or str(item.get("source_code")) == source
+                )
+            ]
             missing_technical = [
                 slot
-                for slot in technical
+                for slot in applicable_technical
                 if slot not in technical_na
                 and (code, *slot) not in scalar
                 and (code, *slot) not in ranges
@@ -219,7 +229,7 @@ def collect(
                     "model_code": model,
                     "source_code": source,
                     "scope_file": path.name,
-                    "expected_technical": len(technical) - len(technical_na),
+                    "expected_technical": len(applicable_technical) - len(technical_na),
                     "missing_technical": len(missing_technical),
                     "missing_technical_slots": [
                         {

@@ -83,8 +83,8 @@ COMMON_TECHNICAL_SLOTS = (
     "overall_length",
 )
 EXPECTED_SCOPE_SLOT_COUNTS = {
-    "spring_electric70_automatic": 31,
-    "spring_electric100_automatic": 12,
+    "spring_electric70_automatic": 32,
+    "spring_electric100_automatic": 13,
 }
 EXPECTED_SCOPE_CONFIGURATIONS = {
     "spring_electric70_automatic": {

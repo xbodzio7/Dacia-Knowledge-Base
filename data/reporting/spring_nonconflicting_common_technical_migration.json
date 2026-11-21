@@ -20,8 +20,8 @@
     "traction_battery_type": "lithium_iron_phosphate"
   },
   "completeness_specs_updated": {
-    "spring_electric100_automatic": 12,
-    "spring_electric70_automatic": 31
+    "spring_electric100_automatic": 13,
+    "spring_electric70_automatic": 32
   },
   "dependent_reports_updated": [
     "data/reporting/existing_configuration_missing_data_analysis.json",

@@ -15,10 +15,10 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 2012,
+    "tests": 2017,
     "csv_files": 48,
-    "rows": 22827,
-    "configuration_values": 8528,
+    "rows": 22829,
+    "configuration_values": 8530,
     "configuration_import_specs": 193,
     "configuration_value_ranges": 451,
     "configuration_range_import_specs": 25,
