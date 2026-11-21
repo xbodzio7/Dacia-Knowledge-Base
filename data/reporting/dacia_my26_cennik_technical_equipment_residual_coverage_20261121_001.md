@@ -3,7 +3,7 @@
 Report ID: dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001
 Generated: 2026-11-21T21:39:00Z
 Analysed commit: 2fb6e52bc40a387c91f2c292af8af238d2b3df92
-Status: current
+Status: needs_review
 Scope: Latest registered official Polish MY26 Dacia cenniks across the five model families already represented in the master data: Sandero/Sandero Stepway, Duster, Jogger, Bigster and Spring. Reconcile catalogue-price cells, source links, commercial mappings, technical scalar values and equipment availability; exclude brochures, configurator inference, accessories, promotions and financing.
 
 ## Result
