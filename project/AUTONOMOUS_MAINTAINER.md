@@ -306,3 +306,35 @@ If the state transaction cannot be completed because execution/generator access 
 
 A package may be reported as complete only when its result is durably merged and the post-merge state transaction is either verified complete or explicitly recorded as a separate blocking follow-up. A green PR alone does not update canonical project state.
 
+
+
+
+## 10. Branch protection and merge-block diagnosis (mandatory)
+
+Branch protection is a safety boundary, not an obstacle to work around. Never disable the protection of `main`, bypass required checks, force-push, or push directly to the protected branch to make a Pull Request mergeable.
+
+Before any merge attempt, record the exact current target-branch SHA, PR base SHA, PR head SHA, mergeability/conflict state, and the six required check results on that exact head. Re-fetch these values immediately before merging. A check result from another SHA is not evidence for the current candidate.
+
+Interpret GitHub's evidence precisely:
+
+- A workflow run and a commit check run are related but not interchangeable with the required status context GitHub enforces.
+- For each required check, verify exact context/name, conclusion, head SHA, check suite and source GitHub App where exposed.
+- Inspect both Checks API data and classic commit status data when diagnosing a required-check rejection. An empty classic status list does not prove that GitHub Actions check runs are absent; conversely, successful check runs do not prove that branch protection recognizes the required context.
+- Read the actual branch-protection/ruleset configuration when permissions allow. If the API returns 403 or omits the configuration, record it as inaccessible; do not claim that the rule has been independently verified through the API. Owner-provided screenshots are evidence of the displayed settings at the time supplied.
+- Preserve the exact GitHub merge error and HTTP status. Do not infer the cause from a single correlated fact (for example, a branch being one commit behind).
+
+When GitHub rejects a merge despite apparently successful checks:
+
+1. Stop repeated merge attempts against the same unchanged head.
+2. Capture the exact PR head SHA, target SHA, all required check contexts and conclusions, check-suite/app identity, classic status contexts, branch freshness and full rejection message.
+3. Classify the blocker as stale branch, missing/failed required check, context/app mismatch, merge conflict, policy/permission restriction, or unresolved/unknown. Multiple causes may coexist.
+4. Do not change branch protection merely to test a hypothesis. First establish the causal mechanism from GitHub evidence or an owner-confirmed controlled change.
+5. If the cause is stale branch, update the PR branch using the repository's supported non-destructive method, then rerun the full required quality matrix on the resulting exact head.
+6. If the cause is a required-context or GitHub App mismatch, request the minimum administrator investigation/correction. Preserve all six required checks and their quality meaning; do not weaken the rule by removing checks or switching to unverified contexts.
+7. If the cause cannot be established, leave the PR unmerged and report the precise unknown plus the smallest action needed.
+
+A passing CI workflow is necessary but not sufficient for merge. The final merge gate still requires technical review, exact-head success for all six required checks, target freshness as configured, no conflicts, and a successful merge response. Never retry merge after any head or target change without repeating the relevant checks.
+
+### Temporary protection changes
+
+Any proposed temporary change to branch protection requires a demonstrated root cause, explicit Project Owner approval, a written scope, a rollback condition and a verification plan. Prefer the narrowest reversible adjustment. Never recommend disabling all protection as a routine workaround. If a setting is changed, record the before/after state and restore the original protection immediately after the bounded operation; verify restoration. No standing authorization permits changing repository security settings.
