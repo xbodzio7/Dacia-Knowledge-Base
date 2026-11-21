@@ -27,28 +27,20 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "spring_my26_20260206_dimension_and_dc40_package_marker_review_20261120_001",
-    "kind": "source_semantic_applicability_review",
-    "name": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
-    "status": "complete",
-    "goal": "Complete the review of the official Polish Spring MY26 cennik: resolve the Extreme DC 40 kW P marker as part of the POWER package; add source-specific 155 mm ground-clearance observations only for Expression Electric 70 and Extreme Electric 100; retain Essential as not_stated and preserve all other unresolved dimension semantics. Two master observations were added; no unsupported mappings were inferred.",
-    "report_id": "spring_my26_20260206_dimension_and_dc40_package_marker_review_20261120_001",
-    "report_path": "project/packages/spring-my26-dimension-and-dc40-review-20261120.md",
-    "master_data_changed": true,
-    "pull_request": 870,
-    "merge_commit_sha": "285cf33151a489dafdce53b45434b22ad76717e1",
-    "merged_head_sha": "7d3210639c5a6aa8cc3409b16aeab940c27d819c"
-  },
-  "next_package": {
     "package_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
     "kind": "source_registration_and_commercial_reconciliation",
     "name": "Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation",
-    "status": "active",
+    "status": "complete",
     "goal": "Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.",
     "source_code": "src_pl_jogger_price_my26_20261102",
     "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf",
     "package_path": "project/packages/jogger-my26-20261102-source-capture.md",
+    "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
+    "report_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.json",
     "pull_request": 874,
+    "merge_commit_sha": "6e6a73882c7e46d6993f177532b3c3e099ccbf30",
+    "merged_head_sha": "f56a9b63279bdfaf270e11f0d472d12b10814ed4",
+    "master_data_changed": true,
     "scope": {
       "source_date": "2026-11-02",
       "model": "Jogger",
@@ -72,6 +64,13 @@
       "metallic_paint_pair": "deferred",
       "configurator_used": false
     }
+  },
+  "next_package": {
+    "package_id": "dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001",
+    "kind": "source_price_list_coverage_assessment",
+    "name": "Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment",
+    "status": "planned",
+    "goal": "Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

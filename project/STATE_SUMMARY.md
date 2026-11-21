@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review** — `complete`
+**Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation** — `complete`
 
-Complete the review of the official Polish Spring MY26 cennik: resolve the Extreme DC 40 kW P marker as part of the POWER package; add source-specific 155 mm ground-clearance observations only for Expression Electric 70 and Extreme Electric 100; retain Essential as not_stated and preserve all other unresolved dimension semantics. Two master observations were added; no unsupported mappings were inferred.
+Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.
 
 ## Next package
 
-**Jogger MY26 2026-11-02 Source Registration and Paint Price Reconciliation** — `active`
+**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `planned`
 
-Register the verified 2026-11-02 official Jogger source, link its 12 exact configurations and three grades, add 12 special non-metallic paint mappings at 2,800 PLN, and preserve all 11 unchanged catalogue price rows. Keep the 2026-10-01 paint-price delta Do sprawdzenia until the archived page-3 render is visually reverified; do not map the metallic pair.
+Reconcile the latest registered official Polish MY26 Dacia price lists against current source-linked technical and equipment observations, after the catalogue-price and commercial-matrix audit and the Sandero Eco-G 120 capacity import. Identify only exact, still-missing values explicitly supported by cennik pages across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Preserve each source date, configuration scope and ambiguity; do not use brochures or configurator inference. Produce a bounded, evidence-backed import candidate or document why no safe import remains.
 
 ## Autonomy
 

@@ -472,7 +472,7 @@ PR #870 was merged into `main` as `285cf33151a489dafdce53b45434b22ad76717e1` fro
 
 The Spring MY26 2026-02-06 cennik review resolved the Extreme DC 40 kW P marker as part of the POWER package, not a standalone option. It added exactly two source-specific 155 mm ground-clearance observations for Expression Electric 70 and Extreme Electric 100. Essential remains explicitly `not_stated` because its 14-inch wheels do not meet the source's 15-inch qualifier. Other dimension callouts remain excluded where applicability or measurement semantics are not explicit. The source-scoped technical comparison logic ensures that a slot bound to one source is not treated as a missing observation for unrelated source editions.
 
-Final baseline: 2,018 tests, 48 master CSV files, 22,829 master rows, 8,530 configuration values, 193 configuration import specifications, 451 value ranges, 25 range import specifications, 10,399 availability records, 417 attributes and 30 attribute categories.
+Final baseline: 2,018 tests, 48 master CSV files, 22,857 master rows, 8,530 configuration values, 193 configuration import specifications, 451 value ranges, 25 range import specifications, 10,399 availability records, 417 attributes and 30 attribute categories.
 
 ## PR portfolio cleanup — 2026-11-21
 
@@ -488,3 +488,17 @@ The old CDN URL ending in `f5cdbd7878.pdf` now resolves to the newer 02.11.2026 
 
 Striker remains deferred until price-list reconciliation is complete for all model families already represented in the master data.
 
+
+## Jogger MY26 2026-11-02 — source registration and paint reconciliation closed
+
+PR #874 was merged into `main` as `6e6a73882c7e46d6993f177532b3c3e099ccbf30` from the exact reviewed head `f56a9b63279bdfaf270e11f0d472d12b10814ed4`. All six required checks passed on that head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, generated documentation baseline and repository state.
+
+The official nine-page Jogger MY26 cennik effective 2026-11-02 is archived and registered as `src_pl_jogger_price_my26_20261102`. Twelve exact configuration links and three grade links were added. The 12 special non-metallic paint mappings at 2,800 PLN were added using the existing commercial item. All 11 catalogue vehicle-price cells match the previous edition, so no duplicate catalogue price rows were created. No technical or equipment rows were added.
+
+Two matters remain explicitly unresolved: the 2026-10-01 archived page-3 text extraction conflicts with the prior visual review/master mapping (2,700/2,900 PLN versus 2,800/3,000 PLN), so the historical mapping remains unchanged and the delta is `Do sprawdzenia` pending visual re-verification; the 2026-11-02 metallic-paint pair 2,800/3,000 PLN remains unmapped because the cennik does not provide an exact colour/configuration crosswalk.
+
+The source assimilation standard now guards against mutable CDN URLs: archived binary and SHA-256, not the current response from a historical URL, define the source edition. Striker remains deferred until price-list reconciliation is complete for all model families already represented in the master data.
+
+## Next package — Dacia MY26 official cennik residual technical and equipment coverage
+
+The next planned package is `dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001`. It will reconcile the latest registered official Polish MY26 cenniks against source-linked technical and equipment observations across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Only exact values explicitly supported by cennik pages are in scope; brochures and configurator inference remain excluded. Each source date, configuration boundary and ambiguity must be preserved. The package may conclude that no safe import remains.
