@@ -37,4 +37,4 @@ The follow-up data package must inspect the page-by-page comparison before decid
 
 ## Scope boundary
 
-This package does not include Dacia Striker, which is a separate model-family addition and requires a distinct scope decision and source-intake package.
+This package does not include Dacia Striker. The Project Owner has deferred Striker until price-list reconciliation is complete for all model families already represented in the master data. Do not begin Striker source capture, model/configuration creation or data import before that milestone is complete.
