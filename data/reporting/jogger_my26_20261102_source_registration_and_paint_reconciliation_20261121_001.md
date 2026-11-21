@@ -3,7 +3,7 @@
 Report ID: jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001
 Generated: 2026-11-21T21:12:29Z
 Analysed commit: 63a91e55438de42d422c552ed580762d5a627ffc
-Status: current
+Status: needs_review
 Assessment status: complete_with_deferrals
 Scope: Official Polish Jogger MY26 cennik effective 2026-11-02; all nine pages compared with the archived 2026-10-01 binary; 12 exact configurations; no configurator or brochure evidence. Historical page-3 paint delta and metallic applicability remain explicitly deferred.
 
