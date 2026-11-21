@@ -31,5 +31,6 @@
     "129 500"
   ],
   "price_scope": "11 non-empty gross catalogue price cells on printed page 1; no price import performed by this source-capture commit.",
-  "provenance": "Official Dacia Poland / Renault Group CDN asset supplied by the Project Owner. Binary SHA-256, byte size, eight-page count and PDF identity were independently checked against the owner-supplied original and the archived GitHub blob. Do not replace the archived binary with bytes fetched from a mutable external URL."
+  "provenance": "Official Dacia Poland / Renault Group CDN asset supplied by the Project Owner. Binary SHA-256, byte size, eight-page count and PDF identity were independently checked against the owner-supplied original and the archived GitHub blob. Do not replace the archived binary with bytes fetched from a mutable external URL.",
+  "first_page_text": "Cennik obowiązuje od 02.11.2026.\nROCZNIK 2026 STRIKER\nSILNIK NAPĘD essential expression extreme journey\nmild hybrid-G 140 4x2 92 900 zł 99 900 zł - -\nmild hybrid-G 140 auto 4x2 - 106 900 zł 115 500 zł 115 500 zł\nhybrid 155 4x2 - 113 000 zł 121 500 zł 121 500 zł\nhybrid 150 4X4 - 120 900 zł 129 500 zł 129 500 zł\nPrezentowane ceny są cenami katalogowymi."
 }
