@@ -1299,7 +1299,7 @@ Zweryfikowany model obejmuje 2018 testów, 48 pliki CSV, 22857 rekordów
 danych, 51 relacje między tabelami, 8530 wartości konfiguracji, 193 skalarnych specyfikacji importu, 451 zakresów konfiguracji i 25
 specyfikacji zakresów oraz 10399 rekordów dostępności wyposażenia.
 Katalog zawiera 417 kanonicznych atrybutów i 30 kategorii atrybutów. Baza
-SQLite obejmuje 48 tabele i 22829 rekordów, pozostaje zgodna z CSV, a wszystkie
+SQLite obejmuje 48 tabele i 22857 rekordów, pozostaje zgodna z CSV, a wszystkie
 źródłowe pliki CSV są zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:readme:end -->
 
