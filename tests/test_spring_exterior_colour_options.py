@@ -139,7 +139,7 @@ class SpringExteriorColourOptionsTests(unittest.TestCase):
         models = read(MASTER / "models.csv")
         versions = read(MASTER / "versions.csv")
         configurations = read(MASTER / "configurations.csv")
-        self.assertEqual(len(models), 19)
+        self.assertEqual(len(models), 20)
         self.assertEqual(
             {row["code"] for row in versions if row["code"].startswith("spring_")},
             {"spring_essential", "spring_expression", "spring_extreme"},
