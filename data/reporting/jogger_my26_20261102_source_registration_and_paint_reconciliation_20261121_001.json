@@ -216,42 +216,42 @@
       {
         "path": "data/master/sources.csv",
         "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
-        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
       },
       {
         "path": "data/master/source_configurations.csv",
         "git_blob_sha": "a8395b7d415c656a623c567ac8c0620a22b5c498",
-        "sha256": "45ddf9d70fafca49214e510bb13035f8ac34afa82fd5f26b44e3a96d7b104ceb"
+        "sha256": "305ac28869a475510160b60380266574927ff8810862b1b992636605c7173198"
       },
       {
         "path": "data/master/source_versions.csv",
         "git_blob_sha": "fa4aede20993f5dd433f24838214c5dd5dd41640",
-        "sha256": "d109fe0271a262efa89cf05f8b40f9f8f56bf3da5ccf87e8663dde03a96f5d0e"
+        "sha256": "70bb447749d48dc679361b50fea907382381730c3ac1607afb9034a27fcb8059"
       },
       {
         "path": "data/master/commercial_items.csv",
         "git_blob_sha": "343628e6b4fe858baeab869b258a651946e036d1",
-        "sha256": "1a682579a77ed3012f7659e6ffbd237a42811ed6b301fe631bfafdc3fac78fc6"
+        "sha256": "4738ca0036b254644fee9afb486c7c648b65f6226f5f38709b6065435689d4a4"
       },
       {
         "path": "data/master/commercial_item_configurations.csv",
         "git_blob_sha": "d6b6203932da32aadcb38cf4d16a73f2407cfc72",
-        "sha256": "bda41082d65c11157587991f9910b2756aa66423cd5e2b45690fb21af4234331"
+        "sha256": "edeb0c8321b0b9474de14a9f848072f0563f1698970e9a5c1f6d10bbca363d81"
       },
       {
         "path": "data/master/configuration_prices.csv",
         "git_blob_sha": "3d38566c2e7168e10cfea9cf0c847ff9962ec8e6",
-        "sha256": "2a772793e059e308d3cb3aaec4258163c92837fd198212b84c25b0c4f02092a4"
+        "sha256": "9ccbffcd9026e910626fc062c8b7900b110b92871082aafd171b40ae31990d55"
       },
       {
         "path": "data/source_intake/jogger_my26_20261102_capture.json",
         "git_blob_sha": "9a1094c192f275180fa1060e7a77423cbc4fb0d4",
-        "sha256": "86dfe994d2b8fdc065e10d06f2391061e2be3ce5d01a8d47af5472b705322961"
+        "sha256": "bfa430aae78f160eb6d48229d653ee97c287247aba29e72d6d2203fc7849ddbc"
       },
       {
         "path": "data/master/configurations.csv",
         "git_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
-        "sha256": "15670f52c6a84490afb7c007cd00e187434e36a63214704b33bcce466beba0cf"
+        "sha256": "98eabf251f6a0c605a20bea347c09896e565a1ec6bb3c148bb84be785c18acea"
       }
     ],
     "scope": "Official Polish Jogger MY26 cennik effective 2026-11-02; all nine pages compared with the archived 2026-10-01 binary; 12 exact configurations; no configurator or brochure evidence. Historical page-3 paint delta and metallic applicability remain explicitly deferred.",

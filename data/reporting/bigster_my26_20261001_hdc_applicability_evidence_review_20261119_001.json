@@ -85,12 +85,12 @@
       {
         "path": "data/master/sources.csv",
         "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
-        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
       },
       {
         "path": "data/master/source_configurations.csv",
         "git_blob_sha": "a8395b7d415c656a623c567ac8c0620a22b5c498",
-        "sha256": "45ddf9d70fafca49214e510bb13035f8ac34afa82fd5f26b44e3a96d7b104ceb"
+        "sha256": "305ac28869a475510160b60380266574927ff8810862b1b992636605c7173198"
       }
     ],
     "scope": "Bigster MY26 Polish cennik effective 2026-10-01, printed page 4; HDC applicability across the six exact source-linked configurations and comparison with the grade-level equipment matrix.",

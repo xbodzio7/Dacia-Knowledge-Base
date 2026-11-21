@@ -149,22 +149,22 @@
       {
         "path": "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
         "git_blob_sha": "ef54069fd0a51545b229b91fa00acdde417859b2",
-        "sha256": "e818da10d7891eb5d5e0b201ea00918c13cc1bfd88d4460809591c39b16b75d1"
+        "sha256": "88fe9c2712ba46d45e3dec925bbc71b86c2d4d6495474b7acee3d8d2f2fcd87f"
       },
       {
         "path": "data/master/sources.csv",
         "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
-        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
       },
       {
         "path": "data/master/commercial_items.csv",
         "git_blob_sha": "343628e6b4fe858baeab869b258a651946e036d1",
-        "sha256": "1a682579a77ed3012f7659e6ffbd237a42811ed6b301fe631bfafdc3fac78fc6"
+        "sha256": "4738ca0036b254644fee9afb486c7c648b65f6226f5f38709b6065435689d4a4"
       },
       {
         "path": "data/master/commercial_item_configurations.csv",
         "git_blob_sha": "d6b6203932da32aadcb38cf4d16a73f2407cfc72",
-        "sha256": "bda41082d65c11157587991f9910b2756aa66423cd5e2b45690fb21af4234331"
+        "sha256": "edeb0c8321b0b9474de14a9f848072f0563f1698970e9a5c1f6d10bbca363d81"
       }
     ],
     "scope": "Official Polish Jogger MY26 cennik effective 2026-10-01, printed pages 3–4; review of metallic-paint price applicability and Extreme heated-front-seat package marker against all 12 source-linked configurations and existing dated commercial mappings.",

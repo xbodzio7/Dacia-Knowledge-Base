@@ -139,7 +139,7 @@
       {
         "path": "data/master/sources.csv",
         "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
-        "sha256": "d0efe2e729386022de78d010d75f2a54117a78ff7098f1d5b3a3ba66eaa8eb97"
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
       },
       {
         "path": "data/master/attributes.csv",
