@@ -1,7 +1,7 @@
 # Sandero / Sandero Stepway MY26 Interior Dimensions and Trim Semantics Review — 2026-11-19
 
 Report ID: sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001
-Generated: 2026-11-20T21:35:43Z
+Generated: 2026-11-21T21:12:29Z
 Analysed commit: 0c7dfab2882ea401c5a9053ac974c5c684b4abd8
 Status: current
 Scope: Official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02, printed pages 2, 3 and 6; review of interior dimension callouts and decorative trim descriptors against the canonical attribute catalogue. Review-only where exact semantic mapping or configuration applicability is not established.

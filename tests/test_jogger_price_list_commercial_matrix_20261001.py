@@ -7,11 +7,13 @@ MASTER=ROOT/"data"/"master"
 SOURCE="src_pl_jogger_price_my26_20261001"
 sys.path.insert(0,str(ROOT/"tools"))
 import import_jogger_price_list_commercial_matrix_20261001 as importer
+import import_jogger_price_list_20261102 as importer_20261102
 def rows(name):
     with (MASTER/name).open(encoding="utf-8-sig",newline="") as handle:return list(csv.DictReader(handle))
 class JoggerCommercialMatrix20261001Tests(unittest.TestCase):
     def test_importer_contract_and_exact_totals(self):
         self.assertEqual(importer.check(),{"new_items":1,"new_mappings":54,"optional":38,"not_available":16})
+        self.assertEqual(importer_20261102.check(), {"new_mappings": 12, "optional": 12, "not_available": 0, "catalogue_price_rows": 0})
     def test_source_identity_and_configuration_boundary(self):
         source=next(r for r in rows("sources.csv") if r["code"]==SOURCE)
         self.assertEqual(source["external_reference"],importer.SOURCE_URL)

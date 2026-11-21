@@ -45,6 +45,21 @@ For prices, standard equipment, optional equipment, unavailable equipment, packa
 
 For technical specifications, a configurator field must first be checked against the assimilated documentary source. If the source already contains the specification, the configurator observation is a cross-check rather than a new master fact. If the specification is genuinely absent, the configurator may supply it when applicability and provenance are explicit.
 
+## Mutable external source URLs
+
+An external source URL is a locator, not an immutable source identity. A publisher or CDN may replace the bytes at the same URL while retaining the same filename or path.
+
+For every dated source already archived in the repository:
+
+1. The archived binary, its SHA-256 and its recorded file path are authoritative for that historical source.
+2. Never re-download a historical edition from its old URL and assume the returned bytes are the original edition.
+3. If a previously registered URL returns a different SHA-256, page count, effective date or source markers, treat the response as a distinct source/version and register it separately.
+4. Preserve the original external reference for provenance, but record observed URL drift in the source notes and source-specific report.
+5. Compare source versions using the exact archived binaries, not the current response from a mutable URL.
+6. Do not overwrite historical master observations until the archived source bytes and relevant rendered page have been reverified.
+
+A source registration check must fail closed when the manifest SHA-256, archive SHA-256, file size, document date or source registry identity disagree. A successful HTTP response or matching URL is never sufficient proof of historical source identity.
+
 ## Source lifecycle
 
 Each documentary source has one of these coverage states:

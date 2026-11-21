@@ -132,7 +132,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 <!-- dkb:documentation-baseline:session:start -->
 - 2018 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22829 rekordów danych,
+- 22857 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -143,7 +143,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22829 rekordów,
+- baza SQLite obejmująca 48 tabele i 22857 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -478,8 +478,13 @@ Final baseline: 2,018 tests, 48 master CSV files, 22,829 master rows, 8,530 conf
 
 PR #769 (Jogger page-21 reconciliation), #770 (recovered CSV headers) and #772 (Duster Mini availability plus Stepway ranges) were closed as superseded after exact Git blob comparisons confirmed that their substantive data/artifacts are already present on current `main`. No stale branches were merged and no remote branches were deleted. PR #754 and #634 remain drafts; PRs #673 and #675 retain unique historical configurator research and remain unmerged/deferred.
 
-## Next cennik-only package — Jogger MY26 2026-11-02 source capture
+## Jogger MY26 2026-11-02 — source capture, archive and registration
 
-A separate official Dacia Poland / Renault Group CDN PDF is now published at `https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf`, effective 2026-11-02. The registered 2026-10-01 edition remains archived and hash-verified. The new page-1 matrix has 11 catalogue price cells whose amounts match the prior edition; no duplicate price rows are planned. PR #872 prepares a guarded GitHub Actions capture that will compute the new SHA-256, verify the nine-page structure and compare all pages against the archived prior edition before the binary is committed. No master data has changed in PR #872.
+PR #872 introduced the guarded source-capture workflow and was merged as `dc98fd015af7142a8e30644e0ff480415435dc76`. Post-merge workflow run #44948446147 captured the official nine-page PDF. PR #873 archived the PDF and SHA-256 sidecar and was merged as `1b1ff883d713a5aab4d182b9f7d0172425e1ba3c`. The source SHA-256 is `94324e97d00e825ed537b525052dacfc436b57984880585e087852411b65a5da`; file size 2,119,710 bytes. All 11 catalogue price cells match the 2026-10-01 edition, so no duplicate catalogue-price rows are added.
 
-A current official Striker cennik has also become publicly available (effective 2026-10-13), but Striker is not yet represented as a model/configuration family in the master data. The Project Owner has explicitly deferred Striker until price-list reconciliation is complete for all model families already represented in the master data. Do not start Striker source capture, model/configuration creation or data import before that milestone is complete; revisit it only after the existing-model backlog is closed.
+PR #874 registers the new source, 12 exact configuration links, three grade links and 12 dated special non-metallic paint mappings at 2,800 PLN. The metallic 2,800/3,000 PLN pair remains unmapped because the cennik gives no exact colour/configuration crosswalk. The old 2026-10-01 mapping remains unchanged pending visual re-verification: archived PDF text extraction returns 2,700/2,900 PLN, conflicting with the prior visual review and current master mapping at 2,800/3,000 PLN. The archived page-3 image could not be retrieved through the Library reader in this session; classify the historical delta as `Do sprawdzenia`.
+
+The old CDN URL ending in `f5cdbd7878.pdf` now resolves to the newer 02.11.2026 document. The archived binary and SHA-256 remain authoritative for the historical 01.10.2026 source. The source assimilation standard now explicitly guards against mutable external URLs.
+
+Striker remains deferred until price-list reconciliation is complete for all model families already represented in the master data.
+

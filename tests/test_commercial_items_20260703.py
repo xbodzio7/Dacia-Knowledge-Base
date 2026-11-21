@@ -40,7 +40,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
     def test_complete_source_backed_registration_counts(self) -> None:
         self.assertEqual(len(self.items), 64)
         self.assertEqual(len(self.members), 105)
-        self.assertEqual(len(self.mappings), 904)
+        self.assertEqual(len(self.mappings), 916)
         self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02"})
         self.assertEqual(
             {row["price_date"] for row in self.mappings},

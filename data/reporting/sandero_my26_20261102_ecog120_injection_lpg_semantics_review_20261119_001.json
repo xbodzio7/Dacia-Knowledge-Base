@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
-  "generated_at": "2026-11-19T19:40:00Z",
+  "generated_at": "2026-11-21T21:12:29Z",
   "analysed_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
   "status": "closed_with_explicit_source_ambiguity",
   "scope": {
@@ -117,7 +117,7 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
-    "generated_at": "2026-11-20T21:35:43Z",
+    "generated_at": "2026-11-21T21:12:29Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
     "base_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
     "input_files": [
@@ -138,8 +138,8 @@
       },
       {
         "path": "data/master/sources.csv",
-        "git_blob_sha": "597d1e9bd9a3fafaa5e5b054f25ba33bfccefeb9",
-        "sha256": "513c2693a72c690b705cacc11d25da2cde4614bc80d1711f987262597011e970"
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
       },
       {
         "path": "data/master/attributes.csv",
@@ -158,6 +158,7 @@
       }
     ],
     "scope": "Sandero and Sandero Stepway MY26 official Polish cennik effective 2026-11-02, printed page 5; Eco-G 120 injection wording and LPG/petrol tank-capacity semantics across the nine exact source-linked Eco-G 120 configurations, compared with the official Jogger MY26 cennik effective 2026-10-01, printed page 6.",
-    "status": "current"
+    "status": "current",
+    "reviewed_on": "2026-11-21"
   }
 }
