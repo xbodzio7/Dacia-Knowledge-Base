@@ -465,3 +465,21 @@ Source-link drift was also detected: the registered CDN URL currently returns a 
 PR #850 was merged to `main` as `07e3d38d678e9d5af75d089f9c3f6050257c672d`. The six mandatory exact-head checks passed: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Repository state / project-state --check, and Generated documentation / documentation-baseline --check. The Temporary Bigster Repository Snapshot workflow was skipped and is not a required check.
 
 The canonical state-closure follow-up records this package as complete with PR #850 and its exact merge commit. It selects `dacia_my26_cennik_residual_technical_coverage_assessment_20261119_001` as the next planned package: a bounded reconciliation of remaining technical/equipment gaps in the latest registered official Polish MY26 cenniks across Sandero/Sandero Stepway, Duster, Bigster, Jogger and Spring. Continue cennik-only; brochures and configurator inference remain deferred. No master data, source identity, HDC status or Bigster observation was changed by this state closure.
+
+## Spring MY26 Dimension Diagram and DC 40 kW Package Marker Review — PR #870 merged (2026-11-21)
+
+PR #870 was merged into `main` as `285cf33151a489dafdce53b45434b22ad76717e1` from exact reviewed head `7d3210639c5a6aa8cc3409b16aeab940c27d819c`. All six mandatory exact-head checks passed: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Repository state / project-state --check, and Generated documentation / documentation-baseline --check.
+
+The Spring MY26 2026-02-06 cennik review resolved the Extreme DC 40 kW P marker as part of the POWER package, not a standalone option. It added exactly two source-specific 155 mm ground-clearance observations for Expression Electric 70 and Extreme Electric 100. Essential remains explicitly `not_stated` because its 14-inch wheels do not meet the source's 15-inch qualifier. Other dimension callouts remain excluded where applicability or measurement semantics are not explicit. The source-scoped technical comparison logic ensures that a slot bound to one source is not treated as a missing observation for unrelated source editions.
+
+Final baseline: 2,018 tests, 48 master CSV files, 22,829 master rows, 8,530 configuration values, 193 configuration import specifications, 451 value ranges, 25 range import specifications, 10,399 availability records, 417 attributes and 30 attribute categories.
+
+## PR portfolio cleanup — 2026-11-21
+
+PR #769 (Jogger page-21 reconciliation), #770 (recovered CSV headers) and #772 (Duster Mini availability plus Stepway ranges) were closed as superseded after exact Git blob comparisons confirmed that their substantive data/artifacts are already present on current `main`. No stale branches were merged and no remote branches were deleted. PR #754 and #634 remain drafts; PRs #673 and #675 retain unique historical configurator research and remain unmerged/deferred.
+
+## Next cennik-only package — Jogger MY26 2026-11-02 source capture
+
+A separate official Dacia Poland / Renault Group CDN PDF is now published at `https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/d0a86dff46.pdf`, effective 2026-11-02. The registered 2026-10-01 edition remains archived and hash-verified. The new page-1 matrix has 11 catalogue price cells whose amounts match the prior edition; no duplicate price rows are planned. PR #872 prepares a guarded GitHub Actions capture that will compute the new SHA-256, verify the nine-page structure and compare all pages against the archived prior edition before the binary is committed. No master data has changed in PR #872.
+
+A current official Striker cennik has also become publicly available (effective 2026-10-13). Striker is not yet represented as a model/configuration family in the master data. Treat adding it as a separate model-family scope decision; do not create configurations or import data until the owner confirms that this previously deferred family should be included.
