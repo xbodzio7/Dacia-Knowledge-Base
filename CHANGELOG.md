@@ -41,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 * Added 297 dated historical equipment-availability observations from printed pages 21–22 of the official Bigster brochure dated 2025-12-10: 14 TPMS cells plus 283 directly mapped equipment cells across 22 boolean attributes and 14 exact brochure-linked configurations. The guarded importer validates the source SHA-256, grade states, attribute contracts and source links; unresolved composite/quantity rows remain deferred. Master row count is now 21546 and availability records 10100.
 
-* Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.
+* Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker was subsequently approved by the Project Owner on 2026-11-21; the official MY26 cennik source and model family are being registered in PR #877, with price/configuration imports deferred to separate packages.
 
 * Closed the 43-line configurator-PDF `400 m ze startu zatrzymanego` residual: 40 numeric candidates match existing exact observations, seven `17.0`/`17,0` displays are equivalent, and three `nd` markers remain non-observations. The deferred-observation count is corrected from 170 to 130; no master rows were added.
 
