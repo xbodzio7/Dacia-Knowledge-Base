@@ -217,6 +217,7 @@ def parse_scope(
         )
 
     technical_slots: list[tuple[str, str]] = []
+    technical_slot_sources: dict[tuple[str, str], str] = {}
     for item in spec["technical_slots"]:
         if not isinstance(item, dict):
             raise ComparisonError("invalid technical slot in spec")
@@ -229,11 +230,18 @@ def parse_scope(
             str(item.get("attribute_code", "")),
             str(item.get("fuel_type_code", "")),
         )
+        source_code = str(item.get("source_code", ""))
         if not slot[0] or slot in technical_slots:
             raise ComparisonError(
                 "invalid or duplicate technical slot in spec"
             )
+        if source_code and source_code not in source_rows:
+            raise ComparisonError(
+                f"inactive or missing technical slot source: {source_code}"
+            )
         technical_slots.append(slot)
+        if source_code:
+            technical_slot_sources[slot] = source_code
     technical_slots.sort()
 
     equipment_attributes = sorted(
@@ -281,6 +289,11 @@ def parse_scope(
         (configuration, attribute, fuel)
         for configuration in active_rows
         for attribute, fuel in technical_slots
+        if (
+            (attribute, fuel) not in technical_slot_sources
+            or configuration_sources[configuration]
+            == technical_slot_sources[(attribute, fuel)]
+        )
     }
     equipment_scope = {
         (configuration, attribute)
