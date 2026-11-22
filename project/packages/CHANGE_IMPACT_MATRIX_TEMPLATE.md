@@ -24,7 +24,9 @@ Copy this file to `project/packages/CHANGE_IMPACT_MATRIX_<package-id>.md` and co
 
 ## Change-impact matrix
 
-| Area | Required evidence | Result (PASS / FAIL / N/A) | Exact command or artifact | Notes / unresolved items |
+For each row, use `command: <exact command>` or `artifact: <repository-relative file path>` in the evidence column. Artifact paths must exist in the candidate repository tree. A command entry records the exact command used; the row's result and notes must state its observed outcome.
+
+| Area | Required evidence | Result (PASS / FAIL / N/A) | Evidence (command: ... / artifact: ...) | Notes / unresolved items |
 |---|---|---|---|---|
 | Canonical registries | Exact IDs and referential integrity | | | |
 | Configuration inventory | Active/inactive classification and source-backed applicability | | | |
