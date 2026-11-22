@@ -6,6 +6,7 @@ from pathlib import Path
 
 from tools.change_impact_matrix import (
     REQUIRED_AREAS,
+    REQUIRED_TEST_CONTRACT_ITEMS,
     requires_matrix,
     validate_change_impact,
     validate_matrix_text,
@@ -19,7 +20,7 @@ def matrix_text(result: str = "PASS") -> str:
     ]
     for area in REQUIRED_AREAS:
         note = "Not applicable: no affected surface in this package" if result == "N/A" else "Verified against candidate tree"
-        rows.append(f"| {area} | required evidence | {result} | tests/quality.log | {note} |")
+        rows.append(f"| {area} | required evidence | {result} | command: python -m unittest tests.test_change_impact_matrix | {note} |")
     return "\n".join([
         "# Change-impact matrix",
         "## Package identity",
@@ -29,7 +30,7 @@ def matrix_text(result: str = "PASS") -> str:
         "## Change-impact matrix",
         *rows,
         "## Test-contract review",
-        *[f"- [x] reviewed contract item {index}" for index in range(10)],
+        *[f"- [x] {item}" for item in REQUIRED_TEST_CONTRACT_ITEMS],
         "## Failure classification",
         "| Failure | Category |",
         "## Closure",
@@ -78,12 +79,12 @@ class ChangeImpactMatrixTests(unittest.TestCase):
             "| Portfolio summaries | required evidence | PASS | tests/quality.log | Verified against candidate tree |\n",
             "",
         ).replace(
-            "| Canonical registries | required evidence | PASS | tests/quality.log | Verified against candidate tree |",
+            "| Canonical registries | required evidence | PASS | command: python -m unittest | Verified against candidate tree |",
             "| Canonical registries | required evidence | PASS | | Verified against candidate tree |",
         )
         errors = validate_matrix_text(content)
         self.assertTrue(any("missing required area: Portfolio summaries" in error for error in errors))
-        self.assertTrue(any("exact command or artifact evidence is required" in error for error in errors))
+        self.assertTrue(any("evidence must use" in error for error in errors))
 
     def test_failed_or_unjustified_not_applicable_rows_fail(self) -> None:
         content = matrix_text().replace(
@@ -97,7 +98,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
         self.assertTrue(any("Tooling: result must be PASS or justified N/A" in error for error in errors))
         self.assertTrue(any("CI: N/A requires a reason" in error for error in errors))
 
-        unchecked = matrix_text().replace("- [x] reviewed contract item 4", "- [ ] reviewed contract item 4")
+        unchecked = matrix_text().replace(f"- [x] {REQUIRED_TEST_CONTRACT_ITEMS[4]}", f"- [ ] {REQUIRED_TEST_CONTRACT_ITEMS[4]}")
         self.assertTrue(any(
             "all ten Test-contract review items must be checked" in error
             for error in validate_matrix_text(unchecked)
@@ -107,6 +108,44 @@ class ChangeImpactMatrixTests(unittest.TestCase):
             "CI: duplicate matrix row" in error
             for error in validate_matrix_text(duplicate)
         ))
+
+    def test_checklist_must_match_the_exact_template_items(self) -> None:
+        content = matrix_text().replace(
+            f"- [x] {REQUIRED_TEST_CONTRACT_ITEMS[0]}",
+            "- [x] an unrelated but checked statement",
+        )
+        self.assertTrue(any(
+            "ten exact template items" in error
+            for error in validate_matrix_text(content)
+        ))
+
+    def test_artifact_evidence_must_exist_and_stay_inside_repository(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            matrix = root / "project/packages/CHANGE_IMPACT_MATRIX_test.md"
+            matrix.parent.mkdir(parents=True)
+            content = matrix_text().replace(
+                "command: python -m unittest tests.test_change_impact_matrix",
+                "artifact: reports/quality.log",
+            )
+            matrix.write_text(content, encoding="utf-8")
+            errors = validate_change_impact(
+                ["data/master/configurations.csv", "project/packages/CHANGE_IMPACT_MATRIX_test.md"],
+                root,
+            )
+            self.assertTrue(any(
+                "referenced evidence artifact does not exist" in error
+                for error in errors
+            ))
+            (root / "reports").mkdir()
+            (root / "reports/quality.log").write_text("PASS\\n", encoding="utf-8")
+            self.assertEqual(
+                validate_change_impact(
+                    ["data/master/configurations.csv", "project/packages/CHANGE_IMPACT_MATRIX_test.md"],
+                    root,
+                ),
+                [],
+            )
 
 
 if __name__ == "__main__":
