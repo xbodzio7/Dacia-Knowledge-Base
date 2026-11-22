@@ -182,7 +182,7 @@ class ReportFreshnessTests(unittest.TestCase):
         grandchild_id = "grandchild_report_001"
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
 
-        def write_report(report_id: str, filename: str) -> None:
+        def write_report(report_id: str, filename: str) -> dict[str, str]:
             payload = json.loads(self.json_path.read_text(encoding="utf-8"))
             payload["report_metadata"]["report_id"] = report_id
             json_path = self.root / "data" / "reporting" / f"{filename}.json"
