@@ -1,6 +1,6 @@
 # Change-impact matrix template
 
-Copy this file into the package directory and complete it before requesting review for any change to a model, version, configuration, source registry, shared source or reporting scope.
+Copy this file to `project/packages/CHANGE_IMPACT_MATRIX_<package-id>.md` and complete it before requesting review for any change to a model, version, configuration, source registry, shared source or reporting scope. The filename convention is enforced by the Quality workflow.
 
 ## Package identity
 
