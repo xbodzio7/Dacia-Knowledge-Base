@@ -102,14 +102,17 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          allowed=$'CHANGELOG.md\\nREADME.md\\nproject/ROADMAP.md\\nproject/SESSION_STATE.md\\nproject/state.json\\nproject/STATE_SUMMARY.md'
           changed="$(git status --short --untracked-files=all | sed -E 's/^...//')"
           while IFS= read -r path; do
             [[ -z "$path" ]] && continue
-            grep -Fqx -- "$path" <<< "$allowed" || {
-              echo "Unexpected generated path: $path" >&2
-              exit 1
-            }
+            case "$path" in
+              CHANGELOG.md|README.md|project/ROADMAP.md|project/SESSION_STATE.md|project/state.json|project/STATE_SUMMARY.md)
+                ;;
+              *)
+                echo "Unexpected generated path: $path" >&2
+                exit 1
+                ;;
+            esac
           done <<< "$changed"
           [[ -n "$changed" ]] || {
             echo "No baseline changes were generated; nothing to repair."
