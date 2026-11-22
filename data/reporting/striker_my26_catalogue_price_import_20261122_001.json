@@ -119,5 +119,13 @@
     "No promotional, financing, lease or dealer-discount amounts are imported.",
     "No options, packages, equipment availability or other technical observations are imported.",
     "No configurations outside the 11 explicit price cells are inferred."
-  ]
+  ],
+  "comparison_scope": {
+    "completeness_spec": "data/reporting/striker_my26_catalogue_completeness.json",
+    "evidence_spec": "data/reporting/striker_my26_catalogue_gap_evidence.spec",
+    "configuration_count": 11,
+    "technical_slots": 0,
+    "equipment_attributes": 0,
+    "note": "The scope keeps all active Striker configurations visible to repository comparison/export tooling while limiting this price-import package to catalogue-price observations. Technical/equipment slots will be added only in their own source-backed packages."
+  }
 }
