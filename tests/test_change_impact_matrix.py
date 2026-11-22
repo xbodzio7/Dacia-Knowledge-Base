@@ -89,7 +89,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
 
         empty = matrix_text().replace(
             "Observed: all focused assertions passed",
-            "Observed: ",
+            "Observed:",
         )
         errors = validate_matrix_text(empty)
         self.assertTrue(any(
