@@ -69,6 +69,7 @@ class ReportFreshnessTests(unittest.TestCase):
                 "report_id": self.report_id,
                 "json_path": "data/reporting/sample.json",
                 "markdown_path": "data/reporting/sample.md",
+                "depends_on": [],
             }],
         }), encoding="utf-8")
 
@@ -176,6 +177,62 @@ class ReportFreshnessTests(unittest.TestCase):
         errors = validate_registry(self.root, self.registry_path)
         self.assertTrue(any("report dependency cycle" in error for error in errors))
 
+    def case_transitive_dependency_freshness_propagates_to_grandchild(self) -> None:
+        dependent_id = "dependent_report_001"
+        grandchild_id = "grandchild_report_001"
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+
+        def write_report(report_id: str, filename: str) -> None:
+            payload = json.loads(self.json_path.read_text(encoding="utf-8"))
+            payload["report_metadata"]["report_id"] = report_id
+            json_path = self.root / "data" / "reporting" / f"{filename}.json"
+            md_path = self.root / "data" / "reporting" / f"{filename}.md"
+            json_path.write_text(json.dumps(payload), encoding="utf-8")
+            md_path.write_text(
+                f"Report ID: {report_id}\n"
+                "Generated: 2026-11-17T10:00:00+01:00\n"
+                f"Analysed commit: {'a' * 40}\n"
+                "Status: current\nScope: Test scope\n",
+                encoding="utf-8",
+            )
+            return {
+                "report_id": report_id,
+                "json_path": f"data/reporting/{filename}.json",
+                "markdown_path": f"data/reporting/{filename}.md",
+            }
+
+        dependent = write_report(dependent_id, "dependent")
+        dependent["depends_on"] = [self.report_id]
+        grandchild = write_report(grandchild_id, "grandchild")
+        grandchild["depends_on"] = [dependent_id]
+        registry["reports"].extend([dependent, grandchild])
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        self.md_path.write_text("Report ID: broken\n", encoding="utf-8")
+
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "dependent_report_001: one or more report dependencies are invalid or stale" in error
+            for error in errors
+        ))
+        self.assertTrue(any(
+            "grandchild_report_001: one or more report dependencies are invalid or stale" in error
+            for error in errors
+        ))
+
+    def case_duplicate_dependency_is_rejected(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on"] = [self.report_id, self.report_id]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any("depends_on contains duplicate report IDs" in error for error in errors))
+
+    def case_self_dependency_is_rejected(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on"] = [self.report_id]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any("report cannot depend on itself" in error for error in errors))
+
     def case_legacy_report_cannot_claim_current(self) -> None:
         self._write_report(status="current")
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
@@ -183,6 +240,11 @@ class ReportFreshnessTests(unittest.TestCase):
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         errors = validate_registry(self.root, self.registry_path)
         self.assertTrue(any("legacy registry entry cannot claim current" in error for error in errors))
+
+
+class ReportFreshnessContractTests(unittest.TestCase):
+    def test_dependency_contract_cases_are_executed_by_unittest(self) -> None:
+        run_contract_cases()
 
 
 def run_contract_cases() -> None:
@@ -197,6 +259,9 @@ def run_contract_cases() -> None:
         "case_legacy_report_cannot_claim_current",
         "case_dependency_declaration_is_required",
         "case_dependency_freshness_propagates_to_consumers",
+        "case_transitive_dependency_freshness_propagates_to_grandchild",
+        "case_duplicate_dependency_is_rejected",
+        "case_self_dependency_is_rejected",
         "case_unknown_dependency_fails_closed",
         "case_dependency_cycle_fails_closed",
     )
