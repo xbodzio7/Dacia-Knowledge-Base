@@ -102,7 +102,34 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          allowed=$'CHANGELOG.md\\nREADME.md\\nproject/ROADMAP.md\\nproject/SESSION_STATE.md\\nproject/state.json\\nproject/STATE_SUMMARY.md'
+          allowed=
+          changed="$(git status --short --untracked-files=all | sed -E 's/^...//')"
+          while IFS= read -r path; do
+            [[ -z "$path" ]] && continue
+            grep -Fqx -- "$path" <<< "$allowed" || {
+              echo "Unexpected generated path: $path" >&2
+              exit 1
+            }
+          done <<< "$changed"
+          [[ -n "$changed" ]] || {
+            echo "No baseline changes were generated; nothing to repair."
+            exit 1
+          }
+
+      - name: Upload canonical generated files for reviewed write-back
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: canonical-baseline-repair
+          path: |
+            CHANGELOG.md
+            README.md
+            project/ROADMAP.md
+            project/SESSION_STATE.md
+            project/state.json
+            project/STATE_SUMMARY.md
+          if-no-files-found: error
+          retention-days: 1
+CHANGELOG.md\nREADME.md\nproject/ROADMAP.md\nproject/SESSION_STATE.md\nproject/state.json\nproject/STATE_SUMMARY.md'
           changed="$(git status --short --untracked-files=all | sed -E 's/^...//')"
           while IFS= read -r path; do
             [[ -z "$path" ]] && continue
