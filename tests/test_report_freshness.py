@@ -104,6 +104,68 @@ class ReportFreshnessTests(unittest.TestCase):
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
+    def case_dependency_freshness_propagates_to_consumers(self) -> None:
+        dependent_id = "dependent_report_001"
+        dependent_json = self.root / "data" / "reporting" / "dependent.json"
+        dependent_md = self.root / "data" / "reporting" / "dependent.md"
+        payload = json.loads(self.json_path.read_text(encoding="utf-8"))
+        payload["report_metadata"]["report_id"] = dependent_id
+        dependent_json.write_text(json.dumps(payload), encoding="utf-8")
+        dependent_md.write_text(
+            f"Report ID: {dependent_id}\\n"
+            "Generated: 2026-11-17T10:00:00+01:00\\n"
+            f"Analysed commit: {'a' * 40}\\n"
+            "Status: current\\nScope: Test scope\\n",
+            encoding="utf-8",
+        )
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"].append({
+            "report_id": dependent_id,
+            "json_path": "data/reporting/dependent.json",
+            "markdown_path": "data/reporting/dependent.md",
+            "depends_on": [self.report_id],
+        })
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        self.md_path.write_text("Report ID: broken\\n", encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "dependent_report_001: one or more report dependencies are invalid or stale" in error
+            for error in errors
+        ))
+
+    def case_unknown_dependency_fails_closed(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on"] = ["missing_report_001"]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any("unknown report dependency missing_report_001" in error for error in errors))
+
+    def case_dependency_cycle_fails_closed(self) -> None:
+        dependent_id = "dependent_report_001"
+        dependent_json = self.root / "data" / "reporting" / "dependent.json"
+        dependent_md = self.root / "data" / "reporting" / "dependent.md"
+        payload = json.loads(self.json_path.read_text(encoding="utf-8"))
+        payload["report_metadata"]["report_id"] = dependent_id
+        dependent_json.write_text(json.dumps(payload), encoding="utf-8")
+        dependent_md.write_text(
+            f"Report ID: {dependent_id}\\n"
+            "Generated: 2026-11-17T10:00:00+01:00\\n"
+            f"Analysed commit: {'a' * 40}\\n"
+            "Status: current\\nScope: Test scope\\n",
+            encoding="utf-8",
+        )
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on"] = [dependent_id]
+        registry["reports"].append({
+            "report_id": dependent_id,
+            "json_path": "data/reporting/dependent.json",
+            "markdown_path": "data/reporting/dependent.md",
+            "depends_on": [self.report_id],
+        })
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any("report dependency cycle" in error for error in errors))
+
     def case_legacy_report_cannot_claim_current(self) -> None:
         self._write_report(status="current")
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
@@ -123,6 +185,9 @@ def run_contract_cases() -> None:
         "case_markdown_json_parity_is_enforced",
         "case_legacy_report_is_allowed_but_not_current",
         "case_legacy_report_cannot_claim_current",
+        "case_dependency_freshness_propagates_to_consumers",
+        "case_unknown_dependency_fails_closed",
+        "case_dependency_cycle_fails_closed",
     )
     for method_name in methods:
         case = ReportFreshnessTests()
