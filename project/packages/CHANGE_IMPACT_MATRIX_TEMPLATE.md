@@ -1,6 +1,6 @@
 # Change-impact matrix template
 
-Copy this file into the package directory and complete it before requesting review for any change to a model, version, configuration, source registry, shared source or reporting scope.
+Copy this file to `project/packages/CHANGE_IMPACT_MATRIX_<package-id>.md` and complete it before requesting review for any change to a model, version, configuration, source registry, shared source or reporting scope. The filename convention is enforced by the Quality workflow.
 
 ## Package identity
 
@@ -24,7 +24,9 @@ Copy this file into the package directory and complete it before requesting revi
 
 ## Change-impact matrix
 
-| Area | Required evidence | Result (PASS / FAIL / N/A) | Exact command or artifact | Notes / unresolved items |
+For each row, use `command: <exact command>` or `artifact: <repository-relative file path>` in the evidence column. Artifact paths must exist in the candidate repository tree. A command entry records the exact command used. For every `PASS`, the Notes column must begin with `Observed: ` and state the concrete result actually seen (for example, the reconciled count, successful assertion group, or report status); generic statements such as “verified” are not sufficient. For `N/A`, provide a specific reason.
+
+| Area | Required evidence | Result (PASS / FAIL / N/A) | Evidence (command: ... / artifact: ...) | Notes / unresolved items |
 |---|---|---|---|---|
 | Canonical registries | Exact IDs and referential integrity | | | |
 | Configuration inventory | Active/inactive classification and source-backed applicability | | | |
@@ -62,7 +64,7 @@ Do not mass-update expected counts or refresh report fingerprints until the chan
 
 ## Closure
 
-- Final tested head SHA:
+- Final tested head SHA: (record in PR description/review after the final commit; do not self-reference inside this file)
 - Required checks:
 - Unresolved findings:
 - Merge decision and evidence:
