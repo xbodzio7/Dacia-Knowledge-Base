@@ -33,8 +33,11 @@ class ConfigurationCompletenessTests(unittest.TestCase):
         )
         self.write_csv(
             master / 'sources.csv',
-            ['id', 'code', 'status'],
-            [['1', 'src_a', 'active'], ['2', 'src_b', 'active']],
+            ['id', 'code', 'document_date', 'status'],
+            [
+                ['1', 'src_a', '2026-01-01', 'active'],
+                ['2', 'src_b', '2026-01-01', 'active'],
+            ],
         )
         self.write_csv(
             master / 'attributes.csv',
@@ -135,7 +138,7 @@ class ConfigurationCompletenessTests(unittest.TestCase):
         self.assertEqual(report['technical']['present'], 1)
         self.assertEqual(report['equipment']['recorded'], 0)
 
-    def test_as_of_excludes_future_effective_slots(self) -> None:
+    def test_as_of_excludes_future_effective_slots_and_fails_closed_for_undated_scope(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             repository, spec = self.fixture(Path(directory))
             payload = json.loads(spec.read_text(encoding='utf-8'))
@@ -145,6 +148,23 @@ class ConfigurationCompletenessTests(unittest.TestCase):
         self.assertEqual(report['technical']['denominator'], 4)
         self.assertEqual(report['technical']['applicable'], 3)
         self.assertEqual(report['technical']['present'], 1)
+
+        with tempfile.TemporaryDirectory() as directory:
+            repository, spec = self.fixture(Path(directory))
+            sources = repository / 'data' / 'master' / 'sources.csv'
+            self.write_csv(
+                sources,
+                ['id', 'code', 'document_date', 'status'],
+                [
+                    ['1', 'src_a', '2026-01-01', 'active'],
+                    ['2', 'src_b', '2026-06-01', 'active'],
+                ],
+            )
+            with self.assertRaisesRegex(
+                completeness.CompletenessError,
+                r'historical scope data/reporting/configuration_completeness.json.*src_b.*effective_from',
+            ):
+                completeness.collect_report(repository, spec, '2026-02-01')
 
     def test_rejects_scope_drift(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
