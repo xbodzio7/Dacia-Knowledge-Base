@@ -175,6 +175,8 @@ The PR must not be considered ready while repository-baseline or generated-docum
 
 **Failure-prevention rule:** after any test or tracked-file change, the pre-PR checklist must explicitly include both `project-state --check` and `documentation-baseline --check`; these checks are not optional just because the change appears local or adds only one test.
 
+**Remote repair rule:** when local execution is unavailable, use the guarded GitHub Actions procedure in `project/BASELINE_REPAIR_WORKFLOW.md`. The workflow must verify an open same-repository PR and its exact head SHA, run canonical generators in a read-only job, restrict generated output to the six documented paths, and commit through a separate write-enabled job that does not execute PR code. It is a repair mechanism only; both baseline checks and the complete required CI matrix must pass again on the resulting exact PR head. Never hand-edit generated counters or weaken branch protection to make the repair work.
+
 ## 7.3 Enforced pre-PR release gate and branch-freshness control
 
 This section converts the baseline/documentation preflight into a publication rule. It applies to every PR, including documentation-only, test-only, generated-data and one-line changes. A PR is not eligible for publication as ready-for-review, merge or release until the applicable checks below have passed on the exact candidate head.
