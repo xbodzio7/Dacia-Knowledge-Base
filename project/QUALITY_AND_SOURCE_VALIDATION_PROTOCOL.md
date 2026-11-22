@@ -1163,4 +1163,4 @@ For any change that adds or materially changes a model, version, configuration o
 | Tooling | Isolated package/release lifecycle tests pass without real remote access |
 | CI | All required checks pass on the exact final head SHA |
 
-The matrix is not complete when it merely lists commands. It must record the observed result, exact commit SHA and any unresolved item. An unresolved required row blocks PR readiness and merge.
+Use the copy-ready template at project/packages/CHANGE_IMPACT_MATRIX_TEMPLATE.md. The matrix is not complete when it merely lists commands. It must record the observed result, exact commit SHA and any unresolved item. An unresolved required row blocks PR readiness and merge.
