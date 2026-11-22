@@ -33,6 +33,10 @@ Current completed package: `jogger_price_matrix_correction_20261001_20261106_001
 
 The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. At the time of this 2026-11-06 note, the Striker cennik was unavailable. This was superseded on 2026-11-21 when the Project Owner supplied the exact official 2026-11-02 MY26 PDF and approved adding Striker. Source registration/model bootstrap was merged in PR #877; the 11 catalogue prices are tracked in PR #878.
 
+## Quality Gate Before Further Model Data (2026-11-22)
+
+The Project Owner explicitly requires completion of all portfolio-wide, historical-scope, report-dependency and test-isolation safeguards before any further model-data assimilation. The next Striker priced-options/packages package is blocked in `project/state.json`; do not start it or any other model-data package until the guardrail closure is documented and all required CI checks pass.
+
 ## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
 
 The Bigster MY26 Polish price-list binary effective 2026-11-02 is now archived in `main` through PR #825. The source PDF was downloaded from the official Dacia/Renault Group CDN by the post-merge GitHub Actions workflow and passed exact identity checks:

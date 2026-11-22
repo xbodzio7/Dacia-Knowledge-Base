@@ -70,6 +70,7 @@ class ReportFreshnessTests(unittest.TestCase):
                 "json_path": "data/reporting/sample.json",
                 "markdown_path": "data/reporting/sample.md",
                 "depends_on": [],
+                "depends_on_paths": [],
             }],
         }), encoding="utf-8")
 
@@ -105,6 +106,80 @@ class ReportFreshnessTests(unittest.TestCase):
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
+    def case_dependency_path_declaration_is_required(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0].pop("depends_on_paths", None)
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "depends_on_paths must be explicitly declared" in error
+            for error in errors
+        ))
+
+    def case_unregistered_report_input_requires_path_dependency(self) -> None:
+        upstream_path = self.root / "data" / "reporting" / "upstream.json"
+        upstream_bytes = b'{"kind":"upstream_review","status":"complete"}\n'
+        upstream_path.write_bytes(upstream_bytes)
+        document = json.loads(self.json_path.read_text(encoding="utf-8"))
+        document["report_metadata"]["input_files"].append({
+            "path": "data/reporting/upstream.json",
+            "git_blob_sha": hashlib.sha1(
+                f"blob {len(upstream_bytes)}\\0".encode() + upstream_bytes
+            ).hexdigest(),
+            "sha256": hashlib.sha256(upstream_bytes).hexdigest(),
+        })
+        self.json_path.write_text(json.dumps(document), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "unregistered report input data/reporting/upstream.json is missing from depends_on_paths" in error
+            for error in errors
+        ))
+
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on_paths"] = ["data/reporting/upstream.json"]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        self.assertEqual(validate_registry(self.root, self.registry_path), [])
+
+    def case_registered_report_input_requires_report_id_dependency(self) -> None:
+        upstream_id = "upstream_report_001"
+        upstream_json = self.root / "data" / "reporting" / "upstream.json"
+        upstream_md = self.root / "data" / "reporting" / "upstream.md"
+        payload = json.loads(self.json_path.read_text(encoding="utf-8"))
+        payload["report_metadata"]["report_id"] = upstream_id
+        upstream_json.write_text(json.dumps(payload), encoding="utf-8")
+        upstream_md.write_text(
+            f"Report ID: {upstream_id}\n"
+            "Generated: 2026-11-17T10:00:00+01:00\n"
+            f"Analysed commit: {'a' * 40}\n"
+            "Status: current\nScope: Test scope\n",
+            encoding="utf-8",
+        )
+        upstream_entry = {
+            "report_id": upstream_id,
+            "json_path": "data/reporting/upstream.json",
+            "markdown_path": "data/reporting/upstream.md",
+            "depends_on": [],
+            "depends_on_paths": [],
+        }
+        document = json.loads(self.json_path.read_text(encoding="utf-8"))
+        upstream_bytes = upstream_json.read_bytes()
+        document["report_metadata"]["input_files"].append({
+            "path": "data/reporting/upstream.json",
+            "git_blob_sha": hashlib.sha1(
+                f"blob {len(upstream_bytes)}\\0".encode() + upstream_bytes
+            ).hexdigest(),
+            "sha256": hashlib.sha256(upstream_bytes).hexdigest(),
+        })
+        self.json_path.write_text(json.dumps(document), encoding="utf-8")
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"].append(upstream_entry)
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            f"registered report input {upstream_id} is missing from depends_on" in error
+            for error in errors
+        ))
+
     def case_dependency_declaration_is_required(self) -> None:
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
         registry["reports"][0].pop("depends_on", None)
@@ -135,6 +210,7 @@ class ReportFreshnessTests(unittest.TestCase):
             "json_path": "data/reporting/dependent.json",
             "markdown_path": "data/reporting/dependent.md",
             "depends_on": [self.report_id],
+            "depends_on_paths": [],
         })
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         self.md_path.write_text("Report ID: broken\n", encoding="utf-8")
@@ -172,6 +248,7 @@ class ReportFreshnessTests(unittest.TestCase):
             "json_path": "data/reporting/dependent.json",
             "markdown_path": "data/reporting/dependent.md",
             "depends_on": [self.report_id],
+            "depends_on_paths": [],
         })
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         errors = validate_registry(self.root, self.registry_path)
@@ -258,6 +335,9 @@ def run_contract_cases() -> None:
         "case_legacy_report_is_allowed_but_not_current",
         "case_legacy_report_cannot_claim_current",
         "case_dependency_declaration_is_required",
+        "case_dependency_path_declaration_is_required",
+        "case_unregistered_report_input_requires_path_dependency",
+        "case_registered_report_input_requires_report_id_dependency",
         "case_dependency_freshness_propagates_to_consumers",
         "case_transitive_dependency_freshness_propagates_to_grandchild",
         "case_duplicate_dependency_is_rejected",
