@@ -118,7 +118,15 @@ class DusterEcoG120AutomaticStock20260724Tests(unittest.TestCase):
 
     def test_browser_catalog_contains_new_configurations_and_current_mirror_states(self) -> None:
         catalog = collect_browser_catalog(REPOSITORY, ShortlistCriteria())
-        self.assertEqual(len(catalog["configurations"]), 94)
+        active_codes = {
+            row["code"]
+            for row in self.rows("configurations.csv")
+            if row["status"] == "active"
+        }
+        catalog_codes = {
+            item["configuration_code"] for item in catalog["configurations"]
+        }
+        self.assertEqual(catalog_codes, active_codes)
         selected = {
             item["configuration_code"]: item
             for item in catalog["configurations"]
