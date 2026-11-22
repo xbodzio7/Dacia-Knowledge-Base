@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-21
+- State updated: 2026-11-22
 
 ## Phase
 
@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 2018
+- Tests: 2021
 - Master CSV files: 48
-- Master rows: 22859
+- Master rows: 22901
 - Configuration values: 8530
 - Configuration import specifications: 193
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Dacia MY26 Official Cennik Technical and Equipment Residual Coverage Assessment** — `complete`
+**Striker MY26 2026-11-02 Catalogue Price Matrix Import** — `complete`
 
-Reconcile the latest registered official Polish MY26 cenniks across all five model families already represented in the master data. Confirmed 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further technical/equipment facts are both missing and safely importable; preserve explicit evidence deferrals. No brochure or configurator extraction.
+Import all 11 non-empty catalogue price cells from page 1 of the official Polish Striker MY26 cennik effective 2026-11-02. Register four exact grades, 11 source-linked grade/powertrain configurations and dated catalog_gross prices. Cross-check transmission classification against page 5; do not import promotions, financing, option/package prices, equipment or other technical observations in this package.
 
 ## Next package
 
-**Striker MY26 Official Cennik — Source Registration and Model-Family Bootstrap** — `planned`
+**Striker MY26 Priced Options and Packages Matrix Review** — `planned`
 
-Project Owner approved adding Striker on 2026-11-21. Archive and verify the official Polish MY26 cennik effective 2026-11-02, register its immutable source evidence and add the Striker model family. Then extract the 11 catalogue price cells and review technical/equipment/options pages in separate source-backed packages; do not infer configuration applicability.
+Review the explicitly priced option and package cells in the archived official Polish Striker MY26 cennik. Reconcile printed prices and exact grade applicability as a separate commercial-data package; preserve P/package markers and all unpriced/ambiguous cells without inference. Do not import promotional, financing or dealer-lease claims.
 
 ## Autonomy
 

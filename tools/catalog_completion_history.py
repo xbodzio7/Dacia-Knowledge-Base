@@ -43,6 +43,17 @@ LATER_CONFIGURATION_CODES = frozenset(
         "bigster_expression_tribrid150_4x4_automatic",
         "bigster_extreme_tribrid150_4x4_automatic",
         "bigster_journey_tribrid150_4x4_automatic",
+        "striker_essential_mildhybridg140_4x2_manual",
+        "striker_expression_mildhybridg140_4x2_manual",
+        "striker_expression_mildhybridg140_4x2_automatic",
+        "striker_extreme_mildhybridg140_4x2_automatic",
+        "striker_journey_mildhybridg140_4x2_automatic",
+        "striker_expression_hybrid155_4x2_automatic",
+        "striker_extreme_hybrid155_4x2_automatic",
+        "striker_journey_hybrid155_4x2_automatic",
+        "striker_expression_hybrid150_4x4_automatic",
+        "striker_extreme_hybrid150_4x4_automatic",
+        "striker_journey_hybrid150_4x4_automatic",
     }
 )
 LATER_SCOPE_SLUGS = frozenset(
@@ -50,6 +61,7 @@ LATER_SCOPE_SLUGS = frozenset(
         "spring_electric70_automatic",
         "spring_electric100_automatic",
         "duster_hybridg150_4x4",
+        "striker_my26_catalogue",
     }
 )
 

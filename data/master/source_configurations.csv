@@ -470,3 +470,14 @@ id,source_code,configuration_code,relationship,notes
 470,src_pl_jogger_price_my26_20261102,jogger_extreme_7seat_ecog120_manual,documents,Official 2026-11-02 Jogger MY26 cennik page 1; exact configuration is represented in the five-seat/seven-seat catalogue matrix and pages 3–4 grade-level commercial matrix.
 471,src_pl_jogger_price_my26_20261102,jogger_extreme_7seat_ecog120_automatic,documents,Official 2026-11-02 Jogger MY26 cennik page 1; exact configuration is represented in the five-seat/seven-seat catalogue matrix and pages 3–4 grade-level commercial matrix.
 472,src_pl_jogger_price_my26_20261102,jogger_extreme_7seat_hybrid155_automatic,documents,Official 2026-11-02 Jogger MY26 cennik page 1; exact configuration is represented in the five-seat/seven-seat catalogue matrix and pages 3–4 grade-level commercial matrix.
+473,src_pl_striker_price_my26_20261102,striker_essential_mildhybridg140_4x2_manual,documents,"Exact page-1 catalogue price cell; page-5 transmission table reviewed."
+474,src_pl_striker_price_my26_20261102,striker_expression_mildhybridg140_4x2_manual,documents,"Exact page-1 catalogue price cell; page-5 transmission table reviewed."
+475,src_pl_striker_price_my26_20261102,striker_expression_mildhybridg140_4x2_automatic,documents,"Exact page-1 catalogue price cell; page-5 transmission table reviewed."
+476,src_pl_striker_price_my26_20261102,striker_extreme_mildhybridg140_4x2_automatic,documents,"Exact page-1 catalogue price cell; page-5 transmission table reviewed."
+477,src_pl_striker_price_my26_20261102,striker_journey_mildhybridg140_4x2_automatic,documents,"Exact page-1 catalogue price cell; page-5 transmission table reviewed."
+478,src_pl_striker_price_my26_20261102,striker_expression_hybrid155_4x2_automatic,documents,"Exact page-1 catalogue price cell; page-5 technical table identifies Multi-mode automatic transmission."
+479,src_pl_striker_price_my26_20261102,striker_extreme_hybrid155_4x2_automatic,documents,"Exact page-1 catalogue price cell; page-5 technical table identifies Multi-mode automatic transmission."
+480,src_pl_striker_price_my26_20261102,striker_journey_hybrid155_4x2_automatic,documents,"Exact page-1 catalogue price cell; page-5 technical table identifies Multi-mode automatic transmission."
+481,src_pl_striker_price_my26_20261102,striker_expression_hybrid150_4x4_automatic,documents,"Exact page-1 catalogue price cell; page-5 technical table confirms 4x4 and six-speed dual-clutch automatic."
+482,src_pl_striker_price_my26_20261102,striker_extreme_hybrid150_4x4_automatic,documents,"Exact page-1 catalogue price cell; page-5 technical table confirms 4x4 and six-speed dual-clutch automatic."
+483,src_pl_striker_price_my26_20261102,striker_journey_hybrid150_4x4_automatic,documents,"Exact page-1 catalogue price cell; page-5 technical table confirms 4x4 and six-speed dual-clutch automatic."

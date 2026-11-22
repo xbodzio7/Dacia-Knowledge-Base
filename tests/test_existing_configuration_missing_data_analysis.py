@@ -90,6 +90,18 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                 item["missing_equipment"],
             )
 
+    def test_future_striker_price_only_scope_is_excluded_from_historical_analysis(self) -> None:
+        scope_path = ROOT / "data/reporting/striker_my26_catalogue_completeness.json"
+        scope = json.loads(scope_path.read_text(encoding="utf-8"))
+        self.assertEqual(scope["effective_from"], "2026-11-02")
+        historical = analysis.collect(ROOT, scope_as_of_value="2026-08-01")
+        self.assertFalse(
+            any(
+                item["configuration_code"].startswith("striker_")
+                for item in historical["configurations"]
+            )
+        )
+
     def test_rendering_and_checked_outputs_are_deterministic(self) -> None:
         self.assertEqual(
             analysis.render_markdown(self.payload),
