@@ -76,7 +76,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
 
     def test_missing_area_and_missing_evidence_fail(self) -> None:
         content = matrix_text().replace(
-            "| Portfolio summaries | required evidence | PASS | tests/quality.log | Verified against candidate tree |\n",
+            "| Portfolio summaries | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |\n",
             "",
         ).replace(
             "| Canonical registries | required evidence | PASS | command: python -m unittest | Verified against candidate tree |",
@@ -88,11 +88,11 @@ class ChangeImpactMatrixTests(unittest.TestCase):
 
     def test_failed_or_unjustified_not_applicable_rows_fail(self) -> None:
         content = matrix_text().replace(
-            "| Tooling | required evidence | PASS | tests/quality.log | Verified against candidate tree |",
-            "| Tooling | required evidence | FAIL | tests/quality.log | Failure unresolved |",
+            "| Tooling | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |",
+            "| Tooling | required evidence | FAIL | command: python -m unittest tests.test_change_impact_matrix | Failure unresolved |",
         ).replace(
-            "| CI | required evidence | PASS | tests/quality.log | Verified against candidate tree |",
-            "| CI | required evidence | N/A | tests/quality.log | |",
+            "| CI | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |",
+            "| CI | required evidence | N/A | command: python -m unittest tests.test_change_impact_matrix | |",
         )
         errors = validate_matrix_text(content)
         self.assertTrue(any("Tooling: result must be PASS or justified N/A" in error for error in errors))
@@ -100,7 +100,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
 
         unchecked = matrix_text().replace(f"- [x] {REQUIRED_TEST_CONTRACT_ITEMS[4]}", f"- [ ] {REQUIRED_TEST_CONTRACT_ITEMS[4]}")
         self.assertTrue(any(
-            "all ten Test-contract review items must be checked" in error
+            "ten exact template items" in error
             for error in validate_matrix_text(unchecked)
         ))
         duplicate = matrix_text() + "\n| CI | required evidence | PASS | tests/quality.log | Duplicate row |"
