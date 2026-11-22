@@ -157,9 +157,14 @@ class ConfigurationCompletenessTests(unittest.TestCase):
                 ['id', 'code', 'document_date', 'status'],
                 [
                     ['1', 'src_a', '2026-01-01', 'active'],
-                    ['2', 'src_b', '2026-06-01', 'active'],
+                    ['2', 'src_b', '2026-07-01', 'active'],
                 ],
             )
+            with self.assertRaisesRegex(
+                completeness.CompletenessError,
+                r'historical scope data/reporting/configuration_completeness.json.*src_b.*effective_from',
+            ):
+                completeness.collect_report(repository, spec)
             with self.assertRaisesRegex(
                 completeness.CompletenessError,
                 r'historical scope data/reporting/configuration_completeness.json.*src_b.*effective_from',
