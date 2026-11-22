@@ -124,7 +124,7 @@ class ReportFreshnessTests(unittest.TestCase):
         document["report_metadata"]["input_files"].append({
             "path": "data/reporting/upstream.json",
             "git_blob_sha": hashlib.sha1(
-                f"blob {len(upstream_bytes)}\\0".encode() + upstream_bytes
+                f"blob {len(upstream_bytes)}\0".encode() + upstream_bytes
             ).hexdigest(),
             "sha256": hashlib.sha256(upstream_bytes).hexdigest(),
         })
@@ -166,7 +166,7 @@ class ReportFreshnessTests(unittest.TestCase):
         document["report_metadata"]["input_files"].append({
             "path": "data/reporting/upstream.json",
             "git_blob_sha": hashlib.sha1(
-                f"blob {len(upstream_bytes)}\\0".encode() + upstream_bytes
+                f"blob {len(upstream_bytes)}\0".encode() + upstream_bytes
             ).hexdigest(),
             "sha256": hashlib.sha256(upstream_bytes).hexdigest(),
         })
