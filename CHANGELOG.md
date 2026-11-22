@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Completed the MY26 official Polish cennik technical/equipment residual assessment across the five existing model families. The current coverage includes 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further safe technical/equipment import remains; evidence ambiguities are explicitly deferred. Striker scope was approved on 2026-11-21; source registration and model-family bootstrap are tracked in PR #877.
+* Imported all 11 catalogue price cells from the official Striker MY26 cennik effective 2026-11-02 in PR #878, with 11 exact configurations and page-5 transmission cross-checks. The source/model-family bootstrap was merged in PR #877. Priced options and packages remain a separate next package.
 
 
 * Archived and registered the official Jogger MY26 2026-11-02 nine-page cennik (PR #873); added 12 dated special non-metallic paint mappings without duplicating the 11 unchanged catalogue prices. The 2026-10-01 paint delta remains `Do sprawdzenia` pending visual re-verification of the archived page 3.
@@ -369,9 +369,9 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 2018 tests.
-* The verified master-data baseline now contains 48 CSV files and 22859 rows.
-* SQLite verification now covers 48 tables and 22859 rows.
+* The automated test suite now contains 2019 tests.
+* The verified master-data baseline now contains 48 CSV files and 22901 rows.
+* SQLite verification now covers 48 tables and 22901 rows.
 * Configuration attribute values now contain 8530 dated records.
 * Declarative scalar configuration-value imports now contain 193 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.
