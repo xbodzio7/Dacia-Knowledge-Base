@@ -75,6 +75,8 @@ Before any project action, the AI shall:
 
 The previous conversation is context only. It cannot select, override or reactivate a workflow profile. If the bootstrap cannot be completed, enter `RECOVERY` or diagnostic mode and report the exact blocker.
 
+For remote-only regeneration of canonical counters and managed documentation, follow `project/BASELINE_REPAIR_WORKFLOW.md`. Its write-back is restricted to an exact, revalidated same-repository PR head and a six-file generated-output allowlist; it does not replace the normal required CI or merge gates.
+
 ## Recorded GitHub `main` branch-protection baseline
 
 The Project Owner confirmed on 2026-11-20 that the `main` branch protection rule requires all six status checks:
