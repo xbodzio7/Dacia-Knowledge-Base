@@ -31,7 +31,7 @@ Latest completed package before the current correction: `sandero_stepway_price_m
 
 Current completed package: `jogger_price_matrix_correction_20261001_20261106_001`. Corrected the seven-seat Eco-G 120 manual price alignment: Essential has no catalogue price in the printed matrix, Expression is 86,550 PLN and Extreme is 94,400 PLN. Added source relationships for the 12 printed configurations and three grades. Preserved April/July historical prices. The 01.10.2026 date applies to the page-1 price matrix; 02.11.2026 is the technical-data status date. The source PDF was already archived with SHA-256. No brochure or configurator data imported.
 
-The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. At the time of this 2026-11-06 note, the Striker cennik was unavailable. This was superseded on 2026-11-21 when the Project Owner supplied the exact official 2026-11-02 MY26 PDF and approved adding Striker; source registration/model bootstrap is tracked in PR #877.
+The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. At the time of this 2026-11-06 note, the Striker cennik was unavailable. This was superseded on 2026-11-21 when the Project Owner supplied the exact official 2026-11-02 MY26 PDF and approved adding Striker. Source registration/model bootstrap was merged in PR #877; the 11 catalogue prices are tracked in PR #878.
 
 ## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
 
@@ -130,9 +130,9 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 2019 testów automatycznych zakończonych powodzeniem,
+- 2022 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22859 rekordów danych,
+- 22901 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -143,7 +143,7 @@ No master data was changed in this state-reconciliation step. Tests/Quality were
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22859 rekordów,
+- baza SQLite obejmująca 48 tabele i 22901 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
