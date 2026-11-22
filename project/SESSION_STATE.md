@@ -35,7 +35,7 @@ The Sandero/Sandero Stepway catalogue-price history has been implemented and mer
 
 ## Quality Gate Before Further Model Data (2026-11-22)
 
-The Project Owner explicitly requires completion of all portfolio-wide, historical-scope, report-dependency and test-isolation safeguards before any further model-data assimilation. The next Striker priced-options/packages package is blocked in `project/state.json`; do not start it or any other model-data package until the guardrail closure is documented and all required CI checks pass.
+The Project Owner explicitly requires completion of all portfolio-wide, historical-scope, report-dependency and test-isolation safeguards before any further model-data assimilation. The next Striker priced-options/packages package is blocked in `project/state.json`; do not start it or any other model-data package until the guardrail closure is documented and all required CI checks pass. Historical completeness reports also fail closed when a scope has no `effective_from` but references a source document dated after the report's as-of cutoff.
 
 ## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
 

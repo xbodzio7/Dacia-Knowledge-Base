@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import shutil
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -101,6 +103,30 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                 for item in historical["configurations"]
             )
         )
+
+        # Missing temporal metadata must not silently pull a future source
+        # into an earlier snapshot. The collector fails closed instead.
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_root = Path(temporary)
+            shutil.copytree(ROOT / "data" / "master", temporary_root / "data" / "master")
+            shutil.copytree(ROOT / "data" / "reporting", temporary_root / "data" / "reporting")
+            copied_scope = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "striker_my26_catalogue_completeness.json"
+            )
+            copied_payload = json.loads(copied_scope.read_text(encoding="utf-8"))
+            copied_payload.pop("effective_from")
+            copied_scope.write_text(
+                json.dumps(copied_payload, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "effective_from is required"):
+                analysis.collect(
+                    temporary_root,
+                    scope_as_of_value="2026-08-01",
+                )
 
     def test_rendering_and_checked_outputs_are_deterministic(self) -> None:
         self.assertEqual(
