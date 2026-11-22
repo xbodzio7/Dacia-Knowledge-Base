@@ -310,6 +310,32 @@ class ReportFreshnessTests(unittest.TestCase):
         errors = validate_registry(self.root, self.registry_path)
         self.assertTrue(any("report cannot depend on itself" in error for error in errors))
 
+    def case_legacy_report_metadata_still_closes_report_inputs(self) -> None:
+        upstream_path = self.root / "data" / "reporting" / "legacy-upstream.json"
+        upstream_path.write_text('{"kind":"historical_review"}\n', encoding="utf-8")
+        document = json.loads(self.json_path.read_text(encoding="utf-8"))
+        document["report_metadata"]["input_files"].append({
+            "path": "data/reporting/legacy-upstream.json",
+            "git_blob_sha": "b" * 40,
+            "sha256": "c" * 64,
+        })
+        self.json_path.write_text(json.dumps(document), encoding="utf-8")
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["legacy"] = True
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "unregistered report input data/reporting/legacy-upstream.json is missing from depends_on_paths" in error
+            for error in errors
+        ))
+
+        registry["reports"][0]["depends_on_paths"] = [
+            "data/reporting/legacy-upstream.json"
+        ]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        self.assertEqual(validate_registry(self.root, self.registry_path), [])
+
     def case_legacy_report_cannot_claim_current(self) -> None:
         self._write_report(status="current")
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
@@ -333,6 +359,7 @@ def run_contract_cases() -> None:
         "case_missing_metadata_fails_closed",
         "case_markdown_json_parity_is_enforced",
         "case_legacy_report_is_allowed_but_not_current",
+        "case_legacy_report_metadata_still_closes_report_inputs",
         "case_legacy_report_cannot_claim_current",
         "case_dependency_declaration_is_required",
         "case_dependency_path_declaration_is_required",

@@ -25,7 +25,14 @@
       "depends_on": [
         "spring_my26_price_list_source_assimilation_review_20261114_001"
       ],
-      "depends_on_paths": []
+      "depends_on_paths": [
+        "data/reporting/bigster_20261001_price_list_page_inventory_review_20261015.json",
+        "data/reporting/bigster_price_list_20261001_20261102_commercial_matrix_reconciliation.json",
+        "data/reporting/duster_price_list_20261102_commercial_reconciliation.json",
+        "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
+        "data/reporting/spring_my26_price_commercial_matrix_reconciliation_20261116.json"
+      ]
     },
     {
       "report_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",

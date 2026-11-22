@@ -293,8 +293,6 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
                     f"{report_id}: registered report dependency {relative} must use depends_on report ID"
                 )
 
-        if entry.get("legacy") is True:
-            continue
         json_path = _safe_repo_path(repository, entry.get("json_path"))
         if json_path is None or not json_path.is_file():
             continue
@@ -303,7 +301,11 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
         except (OSError, UnicodeDecodeError, json.JSONDecodeError):
             continue
         metadata = document.get("report_metadata") if isinstance(document, dict) else None
-        input_files = metadata.get("input_files") if isinstance(metadata, dict) else None
+        if not isinstance(metadata, dict):
+            if entry.get("legacy") is True:
+                continue
+            continue
+        input_files = metadata.get("input_files")
         if not isinstance(input_files, list):
             continue
         input_paths = {
