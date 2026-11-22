@@ -102,7 +102,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
             "all ten Test-contract review items must be checked" in error
             for error in validate_matrix_text(unchecked)
         ))
-        duplicate = matrix_text() + "\\n| CI | required evidence | PASS | tests/quality.log | Duplicate row |"
+        duplicate = matrix_text() + "\n| CI | required evidence | PASS | tests/quality.log | Duplicate row |"
         self.assertTrue(any(
             "CI: duplicate matrix row" in error
             for error in validate_matrix_text(duplicate)
