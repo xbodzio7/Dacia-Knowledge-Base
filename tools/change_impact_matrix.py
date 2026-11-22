@@ -121,12 +121,12 @@ def validate_matrix_text(content: str, repository: Path | None = None) -> list[s
                 "'artifact: <repository-relative file path>'"
             )
         notes = cells[4]
-        if result == "PASS" and not notes.startswith("Observed: "):
+        if result == "PASS" and not notes.startswith("Observed:"):
             errors.append(
                 f"{area}: PASS requires an observed outcome in Notes / unresolved items "
                 "using 'Observed: <specific result>'"
             )
-        elif result == "PASS" and not notes.removeprefix("Observed: ").strip():
+        elif result == "PASS" and not notes.removeprefix("Observed:").strip():
             errors.append(f"{area}: PASS observed outcome must not be empty")
         if result == "N/A" and not notes:
             errors.append(f"{area}: N/A requires a reason in Notes / unresolved items")
