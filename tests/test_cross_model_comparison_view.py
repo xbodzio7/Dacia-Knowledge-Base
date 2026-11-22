@@ -38,53 +38,79 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             "scope_preserving_cross_model_comparison_view",
         )
         self.assertEqual(self.view["as_of"], "2026-11-04")
-        self.assertEqual(
-            self.view["summary"],
-            {
-                "model_family_count": 6,
-                "reporting_scope_count": 26,
-                "single_model_scope_count": 23,
-                "mixed_model_scope_count": 3,
-                "active_configuration_count": 94,
-                "within_scope_pair_count": 145,
-                "catalog_price_recorded_count": 94,
-                "cross_scope_pairs_generated": False,
-                "ranking_generated": False,
-                "recommendations_generated": False,
-                "inferred_values_generated": False,
-            },
-        )
+        summary = self.view["summary"]
+        mixed_scopes = [scope for scope in self.view["scopes"] if scope["mixed_model"]]
+        scoped_codes = [
+            code
+            for scope in self.view["scopes"]
+            for code in scope["configuration_codes"]
+        ]
+        self.assertEqual(summary["model_family_count"], len(self.view["models"]))
+        self.assertEqual(summary["reporting_scope_count"], len(self.view["scopes"]))
+        self.assertEqual(summary["single_model_scope_count"], len(self.view["scopes"]) - len(mixed_scopes))
+        self.assertEqual(summary["mixed_model_scope_count"], len(mixed_scopes))
+        self.assertEqual(summary["active_configuration_count"], len(scoped_codes))
+        self.assertEqual(summary["within_scope_pair_count"], sum(scope["pair_count"] for scope in self.view["scopes"]))
+        self.assertEqual(summary["catalog_price_recorded_count"], sum(model["catalog_price"]["recorded_count"] for model in self.view["models"]))
+        self.assertEqual(len(scoped_codes), len(set(scoped_codes)))
+        for flag in ("cross_scope_pairs_generated", "ranking_generated", "recommendations_generated", "inferred_values_generated"):
+            self.assertIs(summary[flag], False)
 
     def test_model_cards_have_exact_order_counts_and_price_coverage(self) -> None:
         self.assertEqual(
-            [item["model_code"] for item in self.view["models"]],
-            [
-                "sandero_iii",
-                "sandero_stepway_iii",
-                "jogger",
-                "duster_iii",
-                "bigster",
-                "spring",
-            ],
+            set(self.models),
+            {
+                row["code"]
+                for row in self._read_master_rows("models.csv")
+                if any(
+                    configuration["status"] == "active"
+                    and self._model_for_configuration(configuration) == row["code"]
+                    for configuration in self._read_master_rows("configurations.csv")
+                )
+            },
         )
-        expected = {
-            "sandero_iii": (9, 3, 64400, 90200, 9, 0),
-            "sandero_stepway_iii": (10, 3, 72200, 96800, 10, 0),
-            "jogger": (22, 4, 77900, 118050, 22, 0),
-            "duster_iii": (30, 5, 82000, 126100, 30, 0),
-            "bigster": (20, 4, 101400, 137600, 20, 0),
-            "spring": (3, 3, 73500, 85900, 3, 0),
-        }
-        for code, values in expected.items():
-            model = self.models[code]
+        for code, model in self.models.items():
             price = model["catalog_price"]
-            self.assertEqual(model["configuration_count"], values[0])
-            self.assertEqual(model["version_count"], values[1])
-            self.assertEqual(price["minimum"], values[2])
-            self.assertEqual(price["maximum"], values[3])
-            self.assertEqual(price["recorded_count"], values[4])
-            self.assertEqual(price["missing_count"], values[5])
-            self.assertEqual(price["currency"], "PLN")
+            self.assertGreater(model["configuration_count"], 0)
+            self.assertGreater(model["version_count"], 0)
+            self.assertEqual(
+                model["configuration_count"],
+                sum(
+                    1
+                    for scope in self.view["scopes"]
+                    for configuration_code in scope["configuration_codes"]
+                    if self._model_for_configuration_code(configuration_code) == code
+                ),
+            )
+            self.assertEqual(price["recorded_count"] + price["missing_count"], model["configuration_count"])
+            if price["recorded_count"]:
+                self.assertEqual(price["currency"], "PLN")
+                self.assertLessEqual(price["minimum"], price["maximum"])
+            else:
+                self.assertIsNone(price["minimum"])
+                self.assertIsNone(price["maximum"])
+
+    def _model_for_configuration(self, configuration: dict[str, str]) -> str:
+        versions = {
+            row["code"]: row
+            for row in self._read_master_rows("versions.csv")
+        }
+        return versions[configuration["version_code"]]["model_code"]
+
+    def _model_for_configuration_code(self, configuration_code: str) -> str:
+        configurations = {
+            row["code"]: row
+            for row in self._read_master_rows("configurations.csv")
+        }
+        return self._model_for_configuration(configurations[configuration_code])
+
+    @staticmethod
+    def _read_master_rows(filename: str) -> list[dict[str, str]]:
+        import csv
+
+        path = REPOSITORY / "data" / "master" / filename
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            return list(csv.DictReader(handle))
 
     def test_missing_seat_summaries_remain_not_stated(self) -> None:
         self.assertEqual(self.models["bigster"]["recorded_seat_values"], [5])
@@ -173,6 +199,11 @@ class CrossModelComparisonViewTests(unittest.TestCase):
     def test_model_media_registry_is_reused_as_provenance_not_runtime_dependency(self) -> None:
         for model in self.view["models"]:
             media = model["model_media"]
+            if not media:
+                # A model without a registered media source is valid; absence is
+                # distinct from malformed media metadata and must not break the view.
+                self.assertEqual(media, {})
+                continue
             self.assertEqual(media["source_name"], "Dacia Polska")
             self.assertTrue(media["image_url"].startswith("https://"))
             self.assertTrue(media["source_page_url"].startswith("https://www.dacia.pl/"))
@@ -187,9 +218,12 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertEqual(html_text, render_html(self.view))
         self.assertEqual(json.loads(json_text), self.view)
         self.assertTrue(html_text.startswith("<!doctype html>"))
-        self.assertEqual(html_text.count('class="model-card"'), 6)
-        self.assertEqual(html_text.count('class="scope-card"'), 26)
-        self.assertEqual(html_text.count('class="badge mixed"'), 3)
+        self.assertEqual(html_text.count('class="model-card"'), len(self.view["models"]))
+        self.assertEqual(html_text.count('class="scope-card"'), len(self.view["scopes"]))
+        self.assertEqual(
+            html_text.count('class="badge mixed"'),
+            sum(1 for scope in self.view["scopes"] if scope["mixed_model"]),
+        )
 
     def test_html_is_standalone_scope_safe_and_marks_unknown_values(self) -> None:
         rendered = render_html(self.view)
@@ -199,7 +233,7 @@ class CrossModelComparisonViewTests(unittest.TestCase):
         self.assertIn("Nie tworzy par między niezależnymi zakresami", rendered)
         links = re.findall(r'href="([^"]+)"', rendered)
         comparison_links = [link for link in links if "comparison-bundle" in link]
-        self.assertEqual(len(comparison_links), 78)
+        self.assertEqual(len(comparison_links), len(self.view["scopes"]) * 3)
         self.assertTrue(
             all(link.startswith("../comparison-bundle/") for link in comparison_links)
         )

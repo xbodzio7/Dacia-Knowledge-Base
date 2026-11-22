@@ -19,6 +19,7 @@ _MODEL_ORDER = {
     "duster_iii": 40,
     "bigster": 50,
     "spring": 60,
+    "striker": 70,
 }
 _TRANSMISSION_LABELS = {
     "manual": "manualna",
@@ -475,7 +476,7 @@ def render_html(view: Mapping[str, Any]) -> str:
 <header>
 <p class="eyebrow">Dacia Knowledge Base · stan {html.escape(str(view.get("as_of", "")))}</p>
 <h1>Modele i bezpieczne zakresy porównań</h1>
-<p class="lead">Ten widok porządkuje pięć rodzin modeli i prowadzi do istniejących raportów. Nie tworzy par między niezależnymi zakresami, rankingu ani rekomendacji.</p>
+<p class="lead">Ten widok porządkuje {summary.get("model_family_count")} rodzin modeli i prowadzi do istniejących raportów. Nie tworzy par między niezależnymi zakresami, rankingu ani rekomendacji.</p>
 <div class="summary">
 <div><strong>{summary.get("model_family_count")}</strong>rodzin modeli</div>
 <div><strong>{summary.get("reporting_scope_count")}</strong>zakresów</div>
