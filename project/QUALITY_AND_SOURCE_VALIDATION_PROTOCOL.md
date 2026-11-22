@@ -1110,3 +1110,57 @@ Every continuation report must distinguish:
 
 Do not use phrases such as state synchronized, package closed or CI unavailable unless the corresponding remote evidence supports that exact claim.
 
+
+
+### 24.3 Portfolio-wide and cross-model regression protection
+
+Adding a model, version, configuration, source or reporting scope is a portfolio change. It may legitimately change aggregate outputs, but it must not silently rewrite the contracts of earlier packages.
+
+Mandatory rules:
+
+1. **No unexplained live portfolio literals.** Tests must not pin mutable repository-wide totals (model count, configuration count, version count, scope count, card count, pair count or generated-row count) to a bare integer. A fixed value is permitted only when it belongs to a named immutable fixture, a versioned release baseline, or an explicitly frozen contract. The test must identify that owner and scope in its name or comments.
+2. **Use two complementary contracts.** For a portfolio-wide view, derive the current expected inventory from canonical registries and assert internal consistency (every eligible entity appears once, no ineligible entity appears, references resolve, and aggregates reconcile). Separately use a small immutable fixture to assert stable ordering, rendering and representative values. Do not use a current whole-repository count as a substitute for either contract.
+3. **Preserve package-level history.** Historical package tests must use package-owned manifests or frozen fixtures. They must not silently inherit new models or rows from the current live registry. Conversely, current portfolio tests must include all active models and configurations discovered from canonical registries.
+4. **Model onboarding contract.** Every new model package must test the full propagation path: model registry -> model/version/configuration registries -> source mappings -> comparison/reporting scopes -> HTML/JSON/workbook/export outputs. The test must assert the new model is present exactly once in each applicable output and absent only where an explicit applicability rule excludes it.
+5. **Aggregate reconciliation.** For each generated view, assert that summary counts equal the number of emitted records/cards/groups and that pair/scope totals reconcile with their underlying memberships. Prefer deriving both sides independently from canonical data rather than copying the same literal into the test and generator.
+6. **No blind expected-value refresh.** When a test fails after a portfolio change, inspect the diff from the target branch and classify each changed record as added, removed, modified or unchanged. Update a fixed expectation only after proving its ownership and intended change. Never mass-replace old counts with new counts.
+7. **Historical snapshots are immutable.** Release-preparation and historical baseline tests must read a named, versioned snapshot. Updating the current registry must not regenerate or mutate historical fixture data to make old tests pass.
+
+### 24.4 Report dependency and freshness closure
+
+A data or registry change must trigger a bounded dependency review before publication.
+
+1. Each analytical report must declare its actual input paths and scope. Prefer narrow, explicit dependencies over hashing a broad registry file when the report only consumes a subset. If a broad file is genuinely consumed, any change to it must mark the report needs_review until re-evaluated.
+2. The package change-impact inventory must enumerate affected reports, tests, generated outputs and release artifacts. The inventory must distinguish directly changed inputs from transitive consumers.
+3. A report marked needs_review remains visibly stale. It must not be silently returned to current, have its original fingerprints rewritten, or be excluded from a check merely to obtain a green build.
+4. A refreshed report must be regenerated from its canonical structured input where a generator exists; JSON/Markdown parity, input fingerprints, scope and findings must be checked together.
+5. The pre-PR gate must fail with a list of unresolved affected reports and consumers. It must not merely report a generic stale-baseline error.
+
+### 24.5 Test-tooling isolation and failure classification
+
+Tests of package/release tools must be hermetic and must not depend on a developer's or runner's real GitHub remote, credentials, current branch or ambient working tree.
+
+1. Run package lifecycle tests in a fresh temporary repository and staging directory. Create a local bare Git remote when push behavior must be tested; never push to the real project remote from a unit test.
+2. Assert staging-directory emptiness and exact path manifests before and after each lifecycle step. Clean up in finally/fixture teardown, and prove that an injected unexpected file is rejected without contaminating later tests.
+3. Stub or inject external commands at the process boundary. A test that expects a failure must assert the exact error category and cleanup result, not only a non-zero exit code.
+4. Keep negative-path tests isolated from the success-path fixture. An intentional extra file, version mismatch or simulated push failure must not leak into another test's workspace.
+5. CI summaries must separate product-code failures, stale generated artifacts/reports, test-fixture defects, external-service failures and environment/toolchain failures. A green platform packaging job does not cancel a failing package-tool unit test.
+6. Before changing package tooling, run its focused tests in isolation, then the full quality suite on the exact candidate tree. Re-run all required checks after every new commit.
+
+### 24.6 Required change-impact matrix for model and portfolio changes
+
+For any change that adds or materially changes a model, version, configuration or source registry entry, the package validation record must contain a matrix with at least these rows:
+
+| Area | Required evidence |
+|---|---|
+| Canonical registries | Exact added/changed IDs and referential integrity |
+| Configuration inventory | Active/inactive classification and source-backed applicability |
+| Portfolio summaries | Derived counts reconcile with emitted model/configuration records |
+| Comparison scopes | New model included only in supported comparable scopes; pair totals reconcile |
+| Reports | Direct and transitive consumers reviewed; stale reports re-evaluated or explicitly needs_review |
+| Exports and release assets | Model/version/configuration coverage and deterministic output checks |
+| Historical tests | Prior package fixtures remain unchanged and pass |
+| Tooling | Isolated package/release lifecycle tests pass without real remote access |
+| CI | All required checks pass on the exact final head SHA |
+
+Use the copy-ready template at project/packages/CHANGE_IMPACT_MATRIX_TEMPLATE.md. The matrix is not complete when it merely lists commands. It must record the observed result, exact commit SHA and any unresolved item. An unresolved required row blocks PR readiness and merge.
