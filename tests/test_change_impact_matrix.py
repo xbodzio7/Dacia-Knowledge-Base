@@ -79,7 +79,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
             "| Portfolio summaries | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |\n",
             "",
         ).replace(
-            "| Canonical registries | required evidence | PASS | | Verified against candidate tree |",
+            "| Canonical registries | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |",
             "| Canonical registries | required evidence | PASS | | Verified against candidate tree |",
         )
         errors = validate_matrix_text(content)
