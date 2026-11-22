@@ -21,3 +21,7 @@ id,code,model_code,name,status,notes
 20,spring_essential,spring,Essential,active,Source-backed current Spring grade from the official Polish brochure and configurator snapshot observed 2026-07-31.
 21,spring_expression,spring,Expression,active,Source-backed current Spring grade from the official Polish brochure and configurator snapshot observed 2026-07-31.
 22,spring_extreme,spring,Extreme,active,Source-backed current Spring grade from the official Polish brochure and exact configurator snapshot observed 2026-07-31.
+23,striker_essential,striker,Essential,active,"Grade printed in the official Polish Striker MY26 price matrix effective 2026-11-02."
+24,striker_expression,striker,Expression,active,"Grade printed in the official Polish Striker MY26 price matrix effective 2026-11-02."
+25,striker_extreme,striker,Extreme,active,"Grade printed in the official Polish Striker MY26 price matrix effective 2026-11-02."
+26,striker_journey,striker,Journey,active,"Grade printed in the official Polish Striker MY26 price matrix effective 2026-11-02."
