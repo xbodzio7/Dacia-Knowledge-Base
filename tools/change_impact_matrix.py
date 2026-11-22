@@ -108,8 +108,13 @@ def validate_matrix_text(content: str, repository: Path | None = None) -> list[s
             artifact_path = Path(artifact)
             if not artifact or artifact_path.is_absolute() or ".." in artifact_path.parts:
                 errors.append(f"{area}: artifact evidence must be a safe repository-relative path")
-            elif repository is not None and not (repository / artifact_path).is_file():
-                errors.append(f"{area}: referenced evidence artifact does not exist: {artifact}")
+            elif repository is not None:
+                repository_root = repository.resolve()
+                resolved_artifact = (repository_root / artifact_path).resolve()
+                if not resolved_artifact.is_relative_to(repository_root):
+                    errors.append(f"{area}: artifact evidence resolves outside the repository")
+                elif not resolved_artifact.is_file():
+                    errors.append(f"{area}: referenced evidence artifact does not exist: {artifact}")
         else:
             errors.append(
                 f"{area}: evidence must use 'command: <exact command>' or "
