@@ -54,16 +54,16 @@ jobs:
           fi
           echo "Validated exact PR head ${head_sha} contains current base ${base_sha}."
 
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: ${{ matrix.python-version }}
+
       - name: Enforce change-impact matrix for source and master-data changes
         if: github.event_name == 'pull_request' && matrix.python-version == '3.14'
         env:
           BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
         run: python tools/change_impact_matrix.py --base-ref "origin/${BASE_BRANCH}" --head-ref HEAD
-
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
-        with:
-          python-version: ${{ matrix.python-version }}
 
       - name: Show Python version
         run: python --version

@@ -104,7 +104,7 @@ def changed_paths(base_ref: str, head_ref: str, repository: Path) -> list[str]:
     if completed.returncode != 0:
         detail = (completed.stderr or completed.stdout).strip()
         raise RuntimeError(f"cannot determine PR changed paths: {detail}")
-    return [path for path in completed.stdout.split("\\0") if path]
+    return [path for path in completed.stdout.split("\0") if path]
 
 
 def main(argv: Sequence[str] | None = None) -> int:
