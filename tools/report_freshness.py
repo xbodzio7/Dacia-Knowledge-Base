@@ -193,8 +193,10 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
     reports = registry.get("reports")
     if not isinstance(reports, list) or not reports:
         return ["report registry must contain a non-empty reports list"]
+
     errors: list[str] = []
-    seen: set[str] = set()
+    entries: dict[str, dict[str, Any]] = {}
+    errors_by_id: dict[str, list[str]] = {}
     for entry in reports:
         if not isinstance(entry, dict):
             errors.append("each report registry entry must be an object")
@@ -203,11 +205,81 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
         if not isinstance(report_id, str) or not report_id.strip():
             errors.append("report registry entry is missing report_id")
             continue
-        if report_id in seen:
+        if report_id in entries:
             errors.append(f"duplicate report registry id: {report_id}")
             continue
-        seen.add(report_id)
-        errors.extend(validate_report(repository, entry))
+        entries[report_id] = entry
+        errors_by_id[report_id] = validate_report(repository, entry)
+
+    graph: dict[str, list[str]] = {}
+    for report_id, entry in entries.items():
+        dependencies = entry.get("depends_on", [])
+        if not isinstance(dependencies, list):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on must be an array of report IDs"
+            )
+            graph[report_id] = []
+            continue
+        if any(not isinstance(item, str) or not item.strip() for item in dependencies):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on entries must be non-empty report IDs"
+            )
+        valid_dependencies = [
+            item for item in dependencies
+            if isinstance(item, str) and item.strip()
+        ]
+        if len(valid_dependencies) != len(set(valid_dependencies)):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on contains duplicate report IDs"
+            )
+        for dependency in valid_dependencies:
+            if dependency == report_id:
+                errors_by_id[report_id].append(
+                    f"{report_id}: report cannot depend on itself"
+                )
+            elif dependency not in entries:
+                errors_by_id[report_id].append(
+                    f"{report_id}: unknown report dependency {dependency}"
+                )
+        graph[report_id] = [
+            dependency for dependency in valid_dependencies
+            if dependency in entries and dependency != report_id
+        ]
+
+    visiting: set[str] = set()
+    visited: set[str] = set()
+
+    def visit(report_id: str, trail: list[str]) -> None:
+        if report_id in visiting:
+            cycle = trail[trail.index(report_id):] + [report_id]
+            message = "report dependency cycle: " + " -> ".join(cycle)
+            for member in set(cycle):
+                errors_by_id[member].append(message)
+            return
+        if report_id in visited:
+            return
+        visiting.add(report_id)
+        for dependency in graph.get(report_id, []):
+            visit(dependency, trail + [dependency])
+        visiting.remove(report_id)
+        visited.add(report_id)
+
+    for report_id in graph:
+        visit(report_id, [report_id])
+
+    # A consumer is stale whenever any direct or transitive dependency is invalid.
+    changed = True
+    while changed:
+        changed = False
+        for report_id, dependencies in graph.items():
+            if any(errors_by_id.get(dependency) for dependency in dependencies):
+                message = f"{report_id}: one or more report dependencies are invalid or stale"
+                if message not in errors_by_id[report_id]:
+                    errors_by_id[report_id].append(message)
+                    changed = True
+
+    for report_errors in errors_by_id.values():
+        errors.extend(report_errors)
     return errors
 
 

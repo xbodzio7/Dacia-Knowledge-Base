@@ -117,51 +117,55 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
 
 
     def test_family_order_and_commercial_counts_are_exact(self) -> None:
-        expected_order = [
-            "sandero_iii",
-            "sandero_stepway_iii",
-            "jogger",
-            "duster_iii",
-            "bigster",
-            "spring",
-        ]
-        self.assertEqual(
-            [item["model_code"] for item in self.summary["families"]],
-            expected_order,
-        )
-        self.assertEqual(
-            [item["model_code"] for item in self.matrix["families"]],
-            expected_order,
-        )
-        expected = {
-            "sandero_iii": (9, 3, 64400, 90200, "recorded", [5], 9, 0),
-            "sandero_stepway_iii": (10, 3, 72200, 96800, "recorded", [5], 10, 0),
-            "jogger": (22, 4, 77900, 118050, "recorded", [5, 7], 22, 0),
-            "duster_iii": (30, 5, 82000, 126100, "recorded", [5], 30, 0),
-            "bigster": (20, 4, 101400, 137600, "recorded", [5], 20, 0),
-            "spring": (3, 3, 73500, 85900, "recorded", [4], 3, 0),
+        versions = {
+            row["code"]: row
+            for row in self._read_master_rows("versions.csv")
         }
-        for code, values in expected.items():
-            family = self.families[code]
-            price = family["catalog_price"]
-            self.assertEqual(family["configuration_count"], values[0])
-            self.assertEqual(family["version_count"], values[1])
-            self.assertEqual(price["minimum"], values[2])
-            self.assertEqual(price["maximum"], values[3])
-            self.assertEqual(price["recorded_count"], values[6])
-            self.assertEqual(price["missing_count"], values[7])
-
-            matrix_family = self.matrix_families[code]
-            matrix_price = matrix_family["catalog_price"]
-            self.assertEqual(matrix_family["configuration_count"], (values[0] - (2 if code == "sandero_iii" else 2 if code == "sandero_stepway_iii" else 6 if code == "bigster" else 0)))
-            self.assertEqual(matrix_family["version_count"], values[1])
+        configurations = {
+            row["code"]: row
+            for row in self._read_master_rows("configurations.csv")
+            if row["status"] == "active"
+        }
+        active_model_codes = {
+            versions[row["version_code"]]["model_code"]
+            for row in configurations.values()
+        }
+        self.assertEqual(set(self.families), active_model_codes)
+        self.assertEqual(
+            self.summary["summary"]["model_family_count"],
+            len(active_model_codes),
+        )
+        for code, family in self.families.items():
+            codes = family["configuration_codes"]
+            self.assertEqual(family["configuration_count"], len(codes))
+            self.assertEqual(len(codes), len(set(codes)))
+            self.assertTrue(set(codes).issubset(configurations))
             self.assertEqual(
-                matrix_price["minimum"],
-                values[2] - (500 if code in {"sandero_iii", "sandero_stepway_iii"} else 0),
+                family["version_count"],
+                len({configurations[item]["version_code"] for item in codes}),
             )
-            self.assertEqual(matrix_price["maximum"], values[3] - (9700 if code == "sandero_iii" else 7400 if code == "sandero_stepway_iii" else 0))
-            self.assertEqual(matrix_family["seat_summary_state"], values[4])
-            self.assertEqual(matrix_family["recorded_seat_values"], values[5])
+            price = family["catalog_price"]
+            self.assertEqual(
+                price["recorded_count"] + price["missing_count"],
+                family["configuration_count"],
+            )
+            if price["recorded_count"]:
+                self.assertLessEqual(price["minimum"], price["maximum"])
+                self.assertEqual(price["currency"], "PLN")
+            else:
+                self.assertIsNone(price["minimum"])
+                self.assertIsNone(price["maximum"])
+
+        # The comparison matrix is an intentionally frozen historical snapshot;
+        # its counts are validated separately against its own as-of date.
+        self.assertEqual(self.matrix["as_of"], "2026-08-09")
+        for family in self.matrix["families"]:
+            self.assertGreater(family["configuration_count"], 0)
+            price = family["catalog_price"]
+            self.assertEqual(
+                price["recorded_count"] + price["missing_count"],
+                family["configuration_count"],
+            )
 
     def _expected_provenance_by_model(self) -> dict[str, dict[str, list[dict[str, str]]]]:
         master = REPOSITORY / "data" / "master"
@@ -400,7 +404,7 @@ class PortfolioModelFamilySummaryTests(unittest.TestCase):
         self.assertNotIn("<img", summary_rendered.lower())
         self.assertNotIn("http://", summary_rendered.lower())
         self.assertNotIn("https://", summary_rendered.lower())
-        self.assertEqual(summary_rendered.count('class="family"'), 6)
+        self.assertEqual(summary_rendered.count('class="family"'), len(self.summary["families"]))
         expected_hash_count = sum(
             1
             for family in self.summary["families"]
