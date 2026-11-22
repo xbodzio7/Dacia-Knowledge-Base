@@ -62,7 +62,7 @@ Do not mass-update expected counts or refresh report fingerprints until the chan
 
 ## Closure
 
-- Final tested head SHA:
+- Final tested head SHA: (record in PR description/review after the final commit; do not self-reference inside this file)
 - Required checks:
 - Unresolved findings:
 - Merge decision and evidence:
