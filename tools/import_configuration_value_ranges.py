@@ -415,6 +415,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
+    if args.apply and args.skip_source_files:
+        print(
+            "ERROR: --skip-source-files cannot be combined with --apply",
+            file=sys.stderr,
+        )
+        return 1
     repository = args.repository.expanduser().resolve() if args.repository else Path(__file__).resolve().parents[1]
     try:
         spec = load_spec(args.spec.expanduser().resolve())
