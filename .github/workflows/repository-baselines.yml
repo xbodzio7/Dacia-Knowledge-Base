@@ -12,6 +12,10 @@ on:
         description: "Open same-repository PR number to repair"
         required: true
         type: number
+      pr_branch:
+        description: "Exact same-repository PR head branch"
+        required: true
+        type: string
       expected_head_sha:
         description: "Exact current 40-character PR head SHA"
         required: true
@@ -67,7 +71,7 @@ jobs:
 
   generate-baseline-repair:
     name: Generate canonical baseline repair (read-only)
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -83,6 +87,10 @@ jobs:
           script: |
             const number = Number(context.payload.inputs.pr_number);
             const expected = String(context.payload.inputs.expected_head_sha || "");
+            const expectedBranch = String(context.payload.inputs.pr_branch || "");
+            if (!/^[A-Za-z0-9._/-]{1,200}$/.test(expectedBranch) || expectedBranch.startsWith("-") || expectedBranch.includes("..")) {
+              throw new Error("Provide a valid PR branch name.");
+            }
             if (!Number.isInteger(number) || number < 1 || !/^[0-9a-f]{40}$/.test(expected)) {
               throw new Error("Provide a valid PR number and exact 40-character lowercase head SHA.");
             }
@@ -94,6 +102,9 @@ jobs:
             }
             if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== `${context.repo.owner}/${context.repo.repo}`.toLowerCase()) {
               throw new Error("Fork PRs are not eligible for a write-back repair.");
+            }
+            if (pr.head.ref !== expectedBranch) {
+              throw new Error(`Branch mismatch: supplied ${expectedBranch}, current PR branch is ${pr.head.ref}.`);
             }
             if (pr.head.sha !== expected) {
               throw new Error(`Stale SHA: supplied ${expected}, current PR head is ${pr.head.sha}.`);
@@ -159,7 +170,7 @@ jobs:
 
   commit-baseline-repair:
     name: Commit allowlisted generated files to the same PR
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     needs: generate-baseline-repair
     runs-on: ubuntu-latest
     permissions:
