@@ -162,12 +162,12 @@ class ConfigurationCompletenessTests(unittest.TestCase):
             )
             with self.assertRaisesRegex(
                 completeness.CompletenessError,
-                r'historical scope data/reporting/configuration_completeness.json.*src_b.*effective_from',
+                r'historical scope data/reporting/configuration_completeness.json.*effective_from.*src_b',
             ):
                 completeness.collect_report(repository, spec)
             with self.assertRaisesRegex(
                 completeness.CompletenessError,
-                r'historical scope data/reporting/configuration_completeness.json.*src_b.*effective_from',
+                r'historical scope data/reporting/configuration_completeness.json.*effective_from.*src_b',
             ):
                 completeness.collect_report(repository, spec, '2026-02-01')
 
