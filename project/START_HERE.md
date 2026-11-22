@@ -75,7 +75,7 @@ Before any project action, the AI shall:
 
 The previous conversation is context only. It cannot select, override or reactivate a workflow profile. If the bootstrap cannot be completed, enter `RECOVERY` or diagnostic mode and report the exact blocker.
 
-For remote-only regeneration of canonical counters and managed documentation, follow `project/BASELINE_REPAIR_WORKFLOW.md`. Its write-back is restricted to an exact, revalidated same-repository PR head and a six-file generated-output allowlist; it does not replace the normal required CI or merge gates.
+For remote-only regeneration of canonical counters and managed documentation, follow `project/BASELINE_REPAIR_WORKFLOW.md`. The write-enabled workflow must be dispatched from the trusted `main` branch, never from the PR branch; it is usable only after its workflow definition has landed on `main`, so it cannot safely repair the PR that first introduces it. Its write-back is restricted to an exact, revalidated same-repository PR head and a six-file generated-output allowlist; it does not replace the normal required CI or merge gates.
 
 ## Recorded GitHub `main` branch-protection baseline
 
