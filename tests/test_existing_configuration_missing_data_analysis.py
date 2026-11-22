@@ -119,7 +119,7 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
             copied_payload = json.loads(copied_scope.read_text(encoding="utf-8"))
             copied_payload.pop("effective_from")
             copied_scope.write_text(
-                json.dumps(copied_payload, ensure_ascii=False, indent=2) + "\\n",
+                json.dumps(copied_payload, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8",
             )
             with self.assertRaisesRegex(ValueError, "effective_from is required"):
