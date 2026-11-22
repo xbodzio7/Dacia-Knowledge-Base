@@ -19,7 +19,7 @@ def matrix_text(result: str = "PASS") -> str:
         "|---|---|---|---|---|",
     ]
     for area in REQUIRED_AREAS:
-        note = "Not applicable: no affected surface in this package" if result == "N/A" else "Verified against candidate tree"
+        note = "Not applicable: no affected surface in this package" if result == "N/A" else "Observed: all focused assertions passed"
         rows.append(f"| {area} | required evidence | {result} | command: python -m unittest tests.test_change_impact_matrix | {note} |")
     return "\n".join([
         "# Change-impact matrix",
@@ -76,9 +76,30 @@ class ChangeImpactMatrixTests(unittest.TestCase):
                 [],
             )
 
+    def test_pass_requires_an_explicit_observed_outcome(self) -> None:
+        generic = matrix_text().replace(
+            "Observed: all focused assertions passed",
+            "Verified against candidate tree",
+        )
+        errors = validate_matrix_text(generic)
+        self.assertTrue(any(
+            "PASS requires an observed outcome" in error
+            for error in errors
+        ))
+
+        empty = matrix_text().replace(
+            "Observed: all focused assertions passed",
+            "Observed: ",
+        )
+        errors = validate_matrix_text(empty)
+        self.assertTrue(any(
+            "PASS observed outcome must not be empty" in error
+            for error in errors
+        ))
+
     def test_missing_area_and_missing_evidence_fail(self) -> None:
         content = matrix_text().replace(
-            "| Portfolio summaries | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |\n",
+            "| Portfolio summaries | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Observed: all focused assertions passed |\n",
             "",
         ).replace(
             "command: python -m unittest tests.test_change_impact_matrix",
@@ -91,10 +112,10 @@ class ChangeImpactMatrixTests(unittest.TestCase):
 
     def test_failed_or_unjustified_not_applicable_rows_fail(self) -> None:
         content = matrix_text().replace(
-            "| Tooling | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |",
+            "| Tooling | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Observed: all focused assertions passed |",
             "| Tooling | required evidence | FAIL | command: python -m unittest tests.test_change_impact_matrix | Failure unresolved |",
         ).replace(
-            "| CI | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |",
+            "| CI | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Observed: all focused assertions passed |",
             "| CI | required evidence | N/A | command: python -m unittest tests.test_change_impact_matrix | |",
         )
         errors = validate_matrix_text(content)
