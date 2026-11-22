@@ -1,0 +1,131 @@
+name: Baseline Repair
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Open same-repository PR number to repair"
+        required: true
+        type: number
+      pr_branch:
+        description: "Exact same-repository PR head branch"
+        required: true
+        type: string
+      expected_head_sha:
+        description: "Exact current 40-character PR head SHA"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: baseline-repair-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate-baseline-repair:
+    name: Generate canonical baseline repair (read-only)
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      branch: ${{ steps.verify.outputs.branch }}
+      head_sha: ${{ steps.verify.outputs.head_sha }}
+    steps:
+      - name: Verify exact open same-repository PR head
+        id: verify
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
+        with:
+          script: |
+            const number = Number(context.payload.inputs.pr_number);
+            const expected = String(context.payload.inputs.expected_head_sha || "");
+            const expectedBranch = String(context.payload.inputs.pr_branch || "");
+            if (!/^[A-Za-z0-9._/-]{1,200}$/.test(expectedBranch) || expectedBranch.startsWith("-") || expectedBranch.includes("..")) {
+              throw new Error("Provide a valid PR branch name.");
+            }
+            if (!Number.isInteger(number) || number < 1 || !/^[0-9a-f]{40}$/.test(expected)) {
+              throw new Error("Provide a valid PR number and exact 40-character lowercase head SHA.");
+            }
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: number
+            });
+            if (pr.state !== "open" || pr.base.ref !== "main") {
+              throw new Error("Target must be an open PR against main.");
+            }
+            if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== `${context.repo.owner}/${context.repo.repo}`.toLowerCase()) {
+              throw new Error("Fork PRs are not eligible for a baseline repair.");
+            }
+            if (pr.head.ref !== expectedBranch) {
+              throw new Error(`Branch mismatch: supplied ${expectedBranch}, current PR branch is ${pr.head.ref}.`);
+            }
+            if (pr.head.sha !== expected) {
+              throw new Error(`Stale SHA: supplied ${expected}, current PR head is ${pr.head.sha}.`);
+            }
+            core.setOutput("branch", pr.head.ref);
+            core.setOutput("head_sha", pr.head.sha);
+
+      - name: Check out the verified immutable PR head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ steps.verify.outputs.head_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.14"
+
+      - name: Apply canonical project-state generator
+        env:
+          DKB_EXPECTED_REPOSITORY: ${{ github.repository }}
+          DKB_EXPECTED_DEFAULT_BRANCH: main
+          DKB_EXPECTED_BASE_BRANCH: main
+        run: python tools/dkb.py project-state --apply
+
+      - name: Apply canonical documentation baseline generator
+        run: python tools/dkb.py documentation-baseline --apply
+
+      - name: Recheck both generated baselines
+        env:
+          DKB_EXPECTED_REPOSITORY: ${{ github.repository }}
+          DKB_EXPECTED_DEFAULT_BRANCH: main
+          DKB_EXPECTED_BASE_BRANCH: main
+        run: |
+          python tools/dkb.py project-state --check
+          python tools/dkb.py documentation-baseline --check
+
+      - name: Reject unexpected generated paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          allowed=$'CHANGELOG.md\\nREADME.md\\nproject/ROADMAP.md\\nproject/SESSION_STATE.md\\nproject/state.json\\nproject/STATE_SUMMARY.md'
+          changed="$(git status --short --untracked-files=all | sed -E 's/^...//')"
+          while IFS= read -r path; do
+            [[ -z "$path" ]] && continue
+            grep -Fqx -- "$path" <<< "$allowed" || {
+              echo "Unexpected generated path: $path" >&2
+              exit 1
+            }
+          done <<< "$changed"
+          [[ -n "$changed" ]] || {
+            echo "No baseline changes were generated; nothing to repair."
+            exit 1
+          }
+
+      - name: Upload canonical generated files for reviewed write-back
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: canonical-baseline-repair
+          path: |
+            CHANGELOG.md
+            README.md
+            project/ROADMAP.md
+            project/SESSION_STATE.md
+            project/state.json
+            project/STATE_SUMMARY.md
+          if-no-files-found: error
+          retention-days: 1
