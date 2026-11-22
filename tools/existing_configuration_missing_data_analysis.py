@@ -127,16 +127,31 @@ def collect(
 
     config_results: list[dict[str, object]] = []
     candidates: dict[tuple[str, str], Counter[str]] = defaultdict(Counter)
+    source_document_dates = {
+        row["code"]: str(row.get("document_date", ""))
+        for row in rows(master / "sources.csv")
+    }
     scope_files: list[Path] = []
     for path in sorted(reporting.glob("*_completeness.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         effective_from = payload.get("effective_from")
-        if (
-            scope_as_of_value
-            and effective_from
-            and str(effective_from) > scope_as_of_value
-        ):
-            continue
+        if scope_as_of_value and effective_from:
+            if str(effective_from) > scope_as_of_value:
+                continue
+        elif scope_as_of_value:
+            future_sources = sorted({
+                str(ref["source_code"])
+                for ref in payload.get("configurations", [])
+                if isinstance(ref, dict)
+                and isinstance(ref.get("source_code"), str)
+                and source_document_dates.get(ref["source_code"], "") > scope_as_of_value
+            })
+            if future_sources:
+                raise ValueError(
+                    f"{path.name}: effective_from is required because linked source "
+                    f"document dates are later than analysis cutoff {scope_as_of_value}: "
+                    + ", ".join(future_sources)
+                )
         if path.name in {
             "bigster_mildhybridg140_4x2_automatic_completeness.json",
             "bigster_tribrid150_4x4_automatic_completeness.json",
