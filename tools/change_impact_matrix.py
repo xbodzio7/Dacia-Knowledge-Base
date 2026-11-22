@@ -45,13 +45,37 @@ def validate_matrix_text(content: str) -> list[str]:
     for section in REQUIRED_SECTIONS:
         if section not in content:
             errors.append(f"matrix is missing required section: {section}")
+    lines = content.splitlines()
+    checklist_start = next(
+        (index for index, line in enumerate(lines) if line.strip() == "## Test-contract review"),
+        None,
+    )
+    if checklist_start is None:
+        checklist_lines: list[str] = []
+    else:
+        checklist_lines = []
+        for line in lines[checklist_start + 1:]:
+            if line.strip().startswith("## "):
+                break
+            if line.strip().startswith("- ["):
+                checklist_lines.append(line.strip())
+    if len(checklist_lines) != 10:
+        errors.append(
+            "Test-contract review must contain all ten template checklist items; "
+            f"found {len(checklist_lines)}"
+        )
+    if any(not line.startswith("- [x]") for line in checklist_lines):
+        errors.append("all ten Test-contract review items must be checked after review")
+
     rows: dict[str, list[str]] = {}
-    for line in content.splitlines():
+    for line in lines:
         stripped = line.strip()
         if not stripped.startswith("|"):
             continue
         cells = [cell.strip() for cell in stripped.strip("|").split("|")]
         if cells and cells[0] in REQUIRED_AREAS:
+            if cells[0] in rows:
+                errors.append(f"{cells[0]}: duplicate matrix row")
             rows[cells[0]] = cells
     for area in REQUIRED_AREAS:
         cells = rows.get(area)
@@ -93,7 +117,7 @@ def validate_change_impact(changed_paths: Sequence[str], repository: Path) -> li
 
 def changed_paths(base_ref: str, head_ref: str, repository: Path) -> list[str]:
     completed = subprocess.run(
-        ["git", "diff", "--name-only", "-z", f"{base_ref}...{head_ref}"],
+        ["git", "diff", "--no-renames", "--name-only", "-z", f"{base_ref}...{head_ref}"],
         cwd=repository,
         check=False,
         capture_output=True,

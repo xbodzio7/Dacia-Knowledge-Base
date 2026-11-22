@@ -29,7 +29,7 @@ def matrix_text(result: str = "PASS") -> str:
         "## Change-impact matrix",
         *rows,
         "## Test-contract review",
-        "- [x] reviewed",
+        *[f"- [x] reviewed contract item {index}" for index in range(10)],
         "## Failure classification",
         "| Failure | Category |",
         "## Closure",
@@ -96,6 +96,17 @@ class ChangeImpactMatrixTests(unittest.TestCase):
         errors = validate_matrix_text(content)
         self.assertTrue(any("Tooling: result must be PASS or justified N/A" in error for error in errors))
         self.assertTrue(any("CI: N/A requires a reason" in error for error in errors))
+
+        unchecked = matrix_text().replace("- [x] reviewed contract item 4", "- [ ] reviewed contract item 4")
+        self.assertTrue(any(
+            "all ten Test-contract review items must be checked" in error
+            for error in validate_matrix_text(unchecked)
+        ))
+        duplicate = matrix_text() + "\\n| CI | required evidence | PASS | tests/quality.log | Duplicate row |"
+        self.assertTrue(any(
+            "CI: duplicate matrix row" in error
+            for error in validate_matrix_text(duplicate)
+        ))
 
 
 if __name__ == "__main__":
