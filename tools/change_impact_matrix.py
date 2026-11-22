@@ -21,7 +21,7 @@ REQUIRED_AREAS = (
     "CI",
 )
 MATRIX_PREFIX = "project/packages/CHANGE_IMPACT_MATRIX_"
-SENSITIVE_PREFIXES = ("data/master/", "data/source_intake/", "PDF/")
+SENSITIVE_PREFIXES = ("data/imports/", "data/master/", "data/source_intake/", "PDF/", "owner_supplied/")
 REQUIRED_SECTIONS = (
     "## Package identity",
     "## Change inventory",
