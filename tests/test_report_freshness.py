@@ -112,10 +112,10 @@ class ReportFreshnessTests(unittest.TestCase):
         payload["report_metadata"]["report_id"] = dependent_id
         dependent_json.write_text(json.dumps(payload), encoding="utf-8")
         dependent_md.write_text(
-            f"Report ID: {dependent_id}\\n"
-            "Generated: 2026-11-17T10:00:00+01:00\\n"
-            f"Analysed commit: {'a' * 40}\\n"
-            "Status: current\\nScope: Test scope\\n",
+            f"Report ID: {dependent_id}\n"
+            "Generated: 2026-11-17T10:00:00+01:00\n"
+            f"Analysed commit: {'a' * 40}\n"
+            "Status: current\nScope: Test scope\n",
             encoding="utf-8",
         )
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
@@ -126,7 +126,7 @@ class ReportFreshnessTests(unittest.TestCase):
             "depends_on": [self.report_id],
         })
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
-        self.md_path.write_text("Report ID: broken\\n", encoding="utf-8")
+        self.md_path.write_text("Report ID: broken\n", encoding="utf-8")
         errors = validate_registry(self.root, self.registry_path)
         self.assertTrue(any(
             "dependent_report_001: one or more report dependencies are invalid or stale" in error
@@ -148,10 +148,10 @@ class ReportFreshnessTests(unittest.TestCase):
         payload["report_metadata"]["report_id"] = dependent_id
         dependent_json.write_text(json.dumps(payload), encoding="utf-8")
         dependent_md.write_text(
-            f"Report ID: {dependent_id}\\n"
-            "Generated: 2026-11-17T10:00:00+01:00\\n"
-            f"Analysed commit: {'a' * 40}\\n"
-            "Status: current\\nScope: Test scope\\n",
+            f"Report ID: {dependent_id}\n"
+            "Generated: 2026-11-17T10:00:00+01:00\n"
+            f"Analysed commit: {'a' * 40}\n"
+            "Status: current\nScope: Test scope\n",
             encoding="utf-8",
         )
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
