@@ -155,11 +155,11 @@ class CrossModelComparisonViewTests(unittest.TestCase):
             for scope in self.view["scopes"]
             for code in scope["configuration_codes"]
         ]
-        self.assertEqual(len(codes), 94)
+        self.assertEqual(len(codes), self.view["summary"]["active_configuration_count"])
         self.assertEqual(len(codes), len(set(codes)))
         self.assertEqual(
             sum(scope["pair_count"] for scope in self.view["scopes"]),
-            145,
+            self.view["summary"]["within_scope_pair_count"],
         )
         self.assertTrue(
             all(

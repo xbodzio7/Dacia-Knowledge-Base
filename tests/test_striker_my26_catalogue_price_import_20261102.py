@@ -16,6 +16,14 @@ def rows(path: Path) -> list[dict[str, str]]:
 
 
 class StrikerMy26CataloguePriceImportTests(unittest.TestCase):
+    def test_price_only_scope_has_explicit_effective_date(self) -> None:
+        scope = json.loads(
+            (ROOT / "data/reporting/striker_my26_catalogue_completeness.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(scope["effective_from"], "2026-11-02")
+        self.assertEqual(scope["technical_slots"], [])
+        self.assertEqual(scope["equipment_attributes"], [])
+
     def test_all_eleven_page_one_prices_are_linked_to_exact_grade_and_powertrain(self) -> None:
         expected = {
             "striker_essential_mildhybridg140_4x2_manual": ("striker_essential", "mild hybrid-G 140 4x2", "manual", 92900),
