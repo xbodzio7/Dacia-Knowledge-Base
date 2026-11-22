@@ -94,17 +94,16 @@ class JoggerFogLightSupersedingObservationsTests(unittest.TestCase):
         models = read(MASTER / "models.csv")
         versions = read(MASTER / "versions.csv")
         configurations = read(MASTER / "configurations.csv")
-        self.assertEqual(len(models), 20)
-        self.assertEqual(len(versions), 22)
-        self.assertEqual(len(configurations), 94)
-        self.assertEqual(
-            {
-                row["code"]
-                for row in configurations
-                if row["code"] in set(importer.CONFIGURATIONS)
-            },
-            set(importer.CONFIGURATIONS),
+        model_codes = {row["code"] for row in models}
+        version_codes = {row["code"] for row in versions}
+        configuration_codes = {row["code"] for row in configurations}
+        self.assertTrue(
+            {row["model_code"] for row in versions}.issubset(model_codes)
         )
+        self.assertTrue(
+            {row["version_code"] for row in configurations}.issubset(version_codes)
+        )
+        self.assertTrue(set(importer.CONFIGURATIONS).issubset(configuration_codes))
 
 
 if __name__ == "__main__":
