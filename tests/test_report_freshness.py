@@ -311,6 +311,7 @@ class ReportFreshnessTests(unittest.TestCase):
         self.assertTrue(any("report cannot depend on itself" in error for error in errors))
 
     def case_legacy_report_metadata_still_closes_report_inputs(self) -> None:
+        self._write_report(status="historical")
         upstream_path = self.root / "data" / "reporting" / "legacy-upstream.json"
         upstream_path.write_text('{"kind":"historical_review"}\n', encoding="utf-8")
         document = json.loads(self.json_path.read_text(encoding="utf-8"))
