@@ -104,6 +104,16 @@ class ReportFreshnessTests(unittest.TestCase):
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
+    def case_dependency_declaration_is_required(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0].pop("depends_on", None)
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "depends_on must be explicitly declared" in error
+            for error in errors
+        ))
+
     def case_dependency_freshness_propagates_to_consumers(self) -> None:
         dependent_id = "dependent_report_001"
         dependent_json = self.root / "data" / "reporting" / "dependent.json"
@@ -185,6 +195,7 @@ def run_contract_cases() -> None:
         "case_markdown_json_parity_is_enforced",
         "case_legacy_report_is_allowed_but_not_current",
         "case_legacy_report_cannot_claim_current",
+        "case_dependency_declaration_is_required",
         "case_dependency_freshness_propagates_to_consumers",
         "case_unknown_dependency_fails_closed",
         "case_dependency_cycle_fails_closed",
