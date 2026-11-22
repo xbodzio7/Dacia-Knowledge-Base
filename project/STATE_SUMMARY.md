@@ -42,9 +42,9 @@ Import all 11 non-empty catalogue price cells from page 1 of the official Polish
 
 ## Next package
 
-**Striker MY26 Priced Options and Packages Matrix Review** — `planned`
+**Striker MY26 Priced Options and Packages Matrix Review** — `blocked`
 
-Review the explicitly priced option and package cells in the archived official Polish Striker MY26 cennik. Reconcile printed prices and exact grade applicability as a separate commercial-data package; preserve P/package markers and all unpriced/ambiguous cells without inference. Do not import promotional, financing or dealer-lease claims.
+BLOCKED by Project Owner priority (2026-11-22): do not begin any model-data assimilation until all portfolio-wide, historical-scope and report-dependency quality safeguards are implemented, documented and pass required CI. The Striker MY26 priced options/packages review remains deferred; resume it only after the quality-guardrail closure is verified. Original scope: Review the explicitly priced option and package cells in the archived official Polish Striker MY26 cennik. Reconcile printed prices and exact grade applicability as a separate commercial-data package; preserve P/package markers and all unpriced/ambiguous cells without inference. Do not import promotional, financing or dealer-lease claims.
 
 ## Autonomy
 

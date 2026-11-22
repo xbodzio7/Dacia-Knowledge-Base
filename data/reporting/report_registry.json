@@ -6,14 +6,16 @@
       "json_path": "data/reporting/official_polish_cennik_cross_model_residual_review_20261114.json",
       "markdown_path": "data/reporting/official_polish_cennik_cross_model_residual_review_20261114.md",
       "legacy": true,
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": []
     },
     {
       "report_id": "spring_my26_price_list_source_assimilation_review_20261114_001",
       "json_path": "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.json",
       "markdown_path": "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.md",
       "legacy": true,
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": []
     },
     {
       "report_id": "official_polish_dacia_my26_cennik_residual_coverage_20261119_001",
@@ -22,49 +24,72 @@
       "legacy": true,
       "depends_on": [
         "spring_my26_price_list_source_assimilation_review_20261114_001"
+      ],
+      "depends_on_paths": [
+        "data/reporting/bigster_20261001_price_list_page_inventory_review_20261015.json",
+        "data/reporting/bigster_price_list_20261001_20261102_commercial_matrix_reconciliation.json",
+        "data/reporting/duster_price_list_20261102_commercial_reconciliation.json",
+        "data/reporting/jogger_price_list_20261001_reconciliation_001.json",
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
+        "data/reporting/spring_my26_price_commercial_matrix_reconciliation_20261116.json"
       ]
     },
     {
       "report_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
       "json_path": "data/reporting/duster_my26_20261102_dimension_diagram_crosswalk_review_20261119.json",
       "markdown_path": "data/reporting/duster_my26_20261102_dimension_diagram_crosswalk_review_20261119.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": [
+        "data/reporting/brochure_generic_dimensions_semantic_mapping_review.json"
+      ]
     },
     {
       "report_id": "bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001",
       "json_path": "data/reporting/bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001.json",
       "markdown_path": "data/reporting/bigster_my26_20261001_hdc_applicability_evidence_review_20261119_001.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": []
     },
     {
       "report_id": "sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001",
       "json_path": "data/reporting/sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001.json",
       "markdown_path": "data/reporting/sandero_my26_20261102_ecog120_injection_lpg_semantics_review_20261119_001.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": [
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json"
+      ]
     },
     {
       "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
       "json_path": "data/reporting/sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001.json",
       "markdown_path": "data/reporting/sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": [
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json"
+      ]
     },
     {
       "report_id": "jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001",
       "json_path": "data/reporting/jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001.json",
       "markdown_path": "data/reporting/jogger_my26_20261001_paint_and_heated_seat_applicability_review_20261119_001.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": [
+        "data/reporting/jogger_price_list_20261001_reconciliation_001.json"
+      ]
     },
     {
       "report_id": "jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001",
       "json_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.json",
       "markdown_path": "data/reporting/jogger_my26_20261102_source_registration_and_paint_reconciliation_20261121_001.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": []
     },
     {
       "report_id": "dacia_my26_cennik_technical_equipment_residual_coverage_assessment_20261121_001",
       "json_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_20261121_001.json",
       "markdown_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_20261121_001.md",
-      "depends_on": []
+      "depends_on": [],
+      "depends_on_paths": []
     }
   ]
 }

@@ -250,6 +250,98 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             if dependency in entries and dependency != report_id
         ]
 
+    json_path_to_id = {
+        str(entry["json_path"]): report_id
+        for report_id, entry in entries.items()
+        if isinstance(entry.get("json_path"), str)
+    }
+    for report_id, entry in entries.items():
+        if "depends_on_paths" not in entry:
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_paths must be explicitly declared (use [] when none)"
+            )
+        dependency_paths = entry.get("depends_on_paths", [])
+        if not isinstance(dependency_paths, list):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_paths must be an array of report JSON paths"
+            )
+            continue
+        if any(not isinstance(item, str) or not item.strip() for item in dependency_paths):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_paths entries must be non-empty paths"
+            )
+        valid_paths = [
+            item for item in dependency_paths
+            if isinstance(item, str) and item.strip()
+        ]
+        if len(valid_paths) != len(set(valid_paths)):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_paths contains duplicate paths"
+            )
+        for relative in valid_paths:
+            path = _safe_repo_path(repository, relative)
+            if path is None:
+                errors_by_id[report_id].append(
+                    f"{report_id}: unsafe report dependency path {relative!r}"
+                )
+            elif not path.is_file():
+                errors_by_id[report_id].append(
+                    f"{report_id}: report dependency file is missing: {relative}"
+                )
+            if relative in json_path_to_id:
+                errors_by_id[report_id].append(
+                    f"{report_id}: registered report dependency {relative} must use depends_on report ID"
+                )
+
+        json_path = _safe_repo_path(repository, entry.get("json_path"))
+        if json_path is None or not json_path.is_file():
+            continue
+        try:
+            document = _read_json(json_path)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            continue
+        metadata = document.get("report_metadata") if isinstance(document, dict) else None
+        if not isinstance(metadata, dict):
+            if entry.get("legacy") is True:
+                continue
+            continue
+        input_files = metadata.get("input_files")
+        if not isinstance(input_files, list):
+            continue
+        input_paths = {
+            item.get("path")
+            for item in input_files
+            if isinstance(item, dict) and isinstance(item.get("path"), str)
+        }
+        direct_report_inputs = {
+            relative
+            for relative in input_paths
+            if relative.startswith("data/reporting/") and relative.endswith(".json")
+        }
+        expected_registered = {
+            json_path_to_id[relative]
+            for relative in direct_report_inputs
+            if relative in json_path_to_id and json_path_to_id[relative] != report_id
+        }
+        declared_registered = set(
+            item for item in entry.get("depends_on", [])
+            if isinstance(item, str)
+        )
+        for dependency in sorted(expected_registered - declared_registered):
+            errors_by_id[report_id].append(
+                f"{report_id}: registered report input {dependency} is missing from depends_on"
+            )
+        expected_paths = direct_report_inputs - set(json_path_to_id)
+        declared_paths = set(valid_paths)
+        for relative in sorted(expected_paths - declared_paths):
+            errors_by_id[report_id].append(
+                f"{report_id}: unregistered report input {relative} is missing from depends_on_paths"
+            )
+        for relative in sorted(declared_paths - expected_paths):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_paths entry is not a direct report input: {relative}"
+            )
+
     visiting: set[str] = set()
     visited: set[str] = set()
 
