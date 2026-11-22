@@ -18,7 +18,7 @@ import unicodedata
 from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal, InvalidOperation
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Any, Iterable, Mapping, Sequence
 
 try:
@@ -704,13 +704,40 @@ def extract_page_candidates(path: Path, page: int) -> list[tuple[str, str]]:
     return unique
 
 
+def _registered_source_path(repository: Path, source: Mapping[str, str]) -> Path:
+    """Resolve a registered archive path without allowing repository escape."""
+    raw_path = source.get("file_path", "")
+    _ensure(
+        isinstance(raw_path, str) and raw_path.strip() and "\x00" not in raw_path,
+        f"registered source {source.get('code', '')!r} has no valid archive path",
+    )
+    normalized = raw_path.replace("\\", "/")
+    relative_path = Path(normalized)
+    windows_path = PureWindowsPath(raw_path)
+    _ensure(
+        not relative_path.is_absolute()
+        and not windows_path.is_absolute()
+        and not windows_path.drive
+        and ".." not in relative_path.parts,
+        f"registered source path must stay inside the repository: {raw_path!r}",
+    )
+    root = repository.resolve()
+    resolved = (root / relative_path).resolve()
+    _ensure(
+        resolved.is_relative_to(root),
+        f"registered source path resolves outside the repository: {raw_path!r}",
+    )
+    _ensure(resolved.is_file(), f"registered source file is missing: {resolved}")
+    return resolved
+
+
 def verify_registered_sources(
     repository: Path,
     spec: ImportSpec,
     *,
     verify_text: bool = True,
 ) -> None:
-    """Verify registry metadata, file hashes and optional page text."""
+    """Verify registry metadata, safe archive paths, file hashes and page text."""
     master = repository / "data" / "master"
     _, sources = read_csv(master / "sources.csv")
     sources_by_code = {row["code"]: row for row in sources}
@@ -718,11 +745,15 @@ def verify_registered_sources(
     for row in spec.rows:
         source = sources_by_code.get(row.source_code)
         _ensure(source is not None, f"unknown source {row.source_code!r}")
-        path = repository / source["file_path"]
-        _ensure(path.is_file(), f"registered source file is missing: {path}")
+        path = _registered_source_path(repository, source)
+        expected_sha = source.get("sha256", "")
+        _ensure(
+            re.fullmatch(r"[0-9a-f]{64}", expected_sha) is not None,
+            f"registered source has invalid SHA-256: {row.source_code!r}",
+        )
         actual = _file_sha256(path)
         _ensure(
-            actual == source["sha256"],
+            actual == expected_sha,
             f"registered source SHA-256 differs: {path.name}",
         )
         if not verify_text:
@@ -783,6 +814,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     arguments = parse_args(argv)
+    if arguments.apply and arguments.skip_source_files:
+        print(
+            "ERROR: --skip-source-files cannot be combined with --apply",
+            file=sys.stderr,
+        )
+        return 1
     repository = (
         arguments.repository.expanduser().resolve()
         if arguments.repository is not None
