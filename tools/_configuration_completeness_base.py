@@ -163,6 +163,55 @@ def collect_report(
     if bad_sources:
         raise CompletenessError(f'inactive or missing sources in spec: {bad_sources}')
 
+    # Historical completeness must not silently use a scope whose source
+    # evidence post-dates the requested cutoff when the scope itself has no
+    # explicit effective_from date. A dated scope is filtered below; an
+    # undated scope with future or undated source evidence fails closed.
+    if as_of_value is not None:
+        missing_effective_slots = [
+            item for item in spec['technical_slots']
+            if not str(item.get('effective_from', '')).strip()
+        ]
+        if missing_effective_slots:
+            source_rows_by_code = {
+                row.get('code', ''): row
+                for row in sources
+                if row.get('code')
+            }
+            unbounded_sources: list[str] = []
+            for source_code in sorted(set(configuration_sources.values())):
+                source_row = source_rows_by_code.get(source_code)
+                if source_row is None:
+                    continue
+                document_date_value = str(source_row.get('document_date', '')).strip()
+                if not document_date_value:
+                    unbounded_sources.append(f'{source_code} (missing document_date)')
+                    continue
+                document_date = iso_date(
+                    document_date_value,
+                    f'source {source_code} document_date',
+                )
+                if document_date > as_of:
+                    unbounded_sources.append(
+                        f'{source_code} ({document_date.isoformat()})'
+                    )
+            if unbounded_sources:
+                try:
+                    scope_name = spec_path.relative_to(repository).as_posix()
+                except ValueError:
+                    scope_name = spec_path.name
+                affected_slots = ', '.join(
+                    f"{item.get('attribute_code', '<unknown>')}"
+                    f"[{item.get('fuel_type_code', '')}]"
+                    for item in missing_effective_slots
+                )
+                raise CompletenessError(
+                    f'historical scope {scope_name} has technical slots without '
+                    f'effective_from and source evidence later than or undated '
+                    f'against --as-of {as_of}: {", ".join(unbounded_sources)}; '
+                    f'affected slots: {affected_slots}'
+                )
+
     registered_sources: dict[str, set[str]] = defaultdict(set)
     for row in source_configurations:
         configuration = row.get('configuration_code', '')
