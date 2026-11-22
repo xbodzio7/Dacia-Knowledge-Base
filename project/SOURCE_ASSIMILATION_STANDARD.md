@@ -60,6 +60,14 @@ For every dated source already archived in the repository:
 
 A source registration check must fail closed when the manifest SHA-256, archive SHA-256, file size, document date or source registry identity disagree. A successful HTTP response or matching URL is never sufficient proof of historical source identity.
 
+## Import-time archive integrity and path containment
+
+A source used by a declarative master-data import must resolve to an archived file inside the repository. The importer must reject absolute paths, URL locators, parent-directory traversal, Windows drive/UNC paths and symlinks that resolve outside the repository. It must verify the exact archived bytes against the registered lowercase SHA-256 before planning, applying or verifying imported records.
+
+The diagnostic flag `--skip-source-files` may be used only for non-mutating planning or controlled diagnostic/test workflows. It must never be combined with `--apply`. Skipping PDF text extraction does not skip archive-path or SHA-256 verification.
+
+A source whose binary archive is pending or unavailable remains evidence-only until its exact bytes are archived and verified. A valid external URL, a hash recorded from an owner-supplied file, or a populated `file_path` field does not prove that the repository archive exists.
+
 ## Source lifecycle
 
 Each documentary source has one of these coverage states:
