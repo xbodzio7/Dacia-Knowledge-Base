@@ -47,3 +47,7 @@ The 11 configuration rows are the exact non-empty grade/powertrain cells from pa
 
 No dealer promotions, financing/lease values, option prices, package prices, equipment availability or further technical observations are included. These remain separate source-backed packages.
 
+
+## Comparison scope compatibility
+
+Added an explicit price-only comparison scope for all 11 active Striker configurations. It declares no technical slots or equipment attributes yet, so the repository can include Striker in comparison/export tooling without implying that technical or equipment data have been assimilated. Future Striker source-backed packages can extend the scope when their evidence is reviewed.
