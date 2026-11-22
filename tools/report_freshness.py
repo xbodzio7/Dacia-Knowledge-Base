@@ -213,6 +213,10 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
 
     graph: dict[str, list[str]] = {}
     for report_id, entry in entries.items():
+        if "depends_on" not in entry:
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on must be explicitly declared (use [] when none)"
+            )
         dependencies = entry.get("depends_on", [])
         if not isinstance(dependencies, list):
             errors_by_id[report_id].append(
