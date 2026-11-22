@@ -15,7 +15,7 @@ from tools.change_impact_matrix import (
 
 def matrix_text(result: str = "PASS") -> str:
     rows = [
-        "| Area | Required evidence | Result (PASS / FAIL / N/A) | Exact command or artifact | Notes / unresolved items |",
+        "| Area | Required evidence | Result (PASS / FAIL / N/A) | Evidence (command: ... / artifact: ...) | Notes / unresolved items |",
         "|---|---|---|---|---|",
     ]
     for area in REQUIRED_AREAS:
@@ -79,7 +79,7 @@ class ChangeImpactMatrixTests(unittest.TestCase):
             "| Portfolio summaries | required evidence | PASS | command: python -m unittest tests.test_change_impact_matrix | Verified against candidate tree |\n",
             "",
         ).replace(
-            "| Canonical registries | required evidence | PASS | command: python -m unittest | Verified against candidate tree |",
+            "| Canonical registries | required evidence | PASS | | Verified against candidate tree |",
             "| Canonical registries | required evidence | PASS | | Verified against candidate tree |",
         )
         errors = validate_matrix_text(content)
