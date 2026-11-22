@@ -175,7 +175,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(bundle["comparable_scope_count"], 26)
         self.assertEqual(bundle["singleton_scope_count"], 1)
         self.assertFalse(bundle["cross_scope_pairs_generated"])
-        self.assertEqual(len(bundle["groups"]), 26)
+        self.assertEqual(len(bundle["groups"]), 27)
         self.assertEqual(
             sum(group["status"] == "comparable" for group in bundle["groups"]),
             25,
@@ -210,7 +210,7 @@ class DataProductReleaseTests(unittest.TestCase):
         self.assertEqual(view["summary"]["within_scope_pair_count"], 200)
         self.assertFalse(view["summary"]["cross_scope_pairs_generated"])
         self.assertEqual(rendered.count('class="model-card"'), 7)
-        self.assertEqual(rendered.count('class="scope-card"'), 26)
+        self.assertEqual(rendered.count('class="scope-card"'), 27)
         self.assertNotIn("<script", rendered.lower())
 
     def test_manifest_matches_every_archive_member(self) -> None:
