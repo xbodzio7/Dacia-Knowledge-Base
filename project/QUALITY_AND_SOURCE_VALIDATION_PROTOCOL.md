@@ -1128,7 +1128,7 @@ Mandatory rules:
 6. **No blind expected-value refresh.** When a test fails after a portfolio change, inspect the diff from the target branch and classify each changed record as added, removed, modified or unchanged. Update a fixed expectation only after proving its ownership and intended change. Never mass-replace old counts with new counts.
 7. **Historical snapshots are immutable.** Release-preparation and historical baseline tests must read a named, versioned snapshot. Updating the current registry must not regenerate or mutate historical fixture data to make old tests pass.
 
-8. **Historical scope dates fail closed.** An as-of report excludes a scope whose explicit `effective_from` is later than the cutoff. If `effective_from` is absent but any configuration in that scope is linked to a source whose `document_date` is later than the cutoff, generation must fail with the scope and source codes; it must never silently include that future evidence. New source scopes must record `effective_from` whenever their effective period is known.
+8. **Historical scope dates fail closed.** An as-of report excludes a scope whose explicit `effective_from` is later than the cutoff. If `effective_from` is absent but any configuration in that scope is linked to a source whose `document_date` is later than the cutoff, generation must fail with the scope and source codes; it must never silently include that future evidence. A missing `document_date` is also unbounded evidence and fails closed; a malformed date is a validation error. New source scopes must record `effective_from` whenever their effective period is known.
 
 ### 24.4 Report dependency and freshness closure
 
