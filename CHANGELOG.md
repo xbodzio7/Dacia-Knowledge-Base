@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Completed the MY26 official Polish cennik technical/equipment residual assessment across the five existing model families. The current coverage includes 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further safe technical/equipment import remains; evidence ambiguities are explicitly deferred. Striker remains blocked pending explicit scope approval.
+* Completed the MY26 official Polish cennik technical/equipment residual assessment across the five existing model families. The current coverage includes 82 catalogue price cells, 55 source-specific price rows, 521 commercial mappings, 281 technical scalar observations and 591 equipment-availability observations. No further safe technical/equipment import remains; evidence ambiguities are explicitly deferred. Striker scope was approved on 2026-11-21; source registration and model-family bootstrap are tracked in PR #877.
 
 
 * Archived and registered the official Jogger MY26 2026-11-02 nine-page cennik (PR #873); added 12 dated special non-metallic paint mappings without duplicating the 11 unchanged catalogue prices. The 2026-10-01 paint delta remains `Do sprawdzenia` pending visual re-verification of the archived page 3.
@@ -41,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 * Added 297 dated historical equipment-availability observations from printed pages 21–22 of the official Bigster brochure dated 2025-12-10: 14 TPMS cells plus 283 directly mapped equipment cells across 22 boolean attributes and 14 exact brochure-linked configurations. The guarded importer validates the source SHA-256, grade states, attribute contracts and source links; unresolved composite/quantity rows remain deferred. Master row count is now 21546 and availability records 10100.
 
-* Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker is recorded as an unregistered future source candidate, not imported.
+* Reconciled the six currently registered official Polish-market brochure sources. All six remain `partial_review` until complete page-by-page and source-to-master coverage is demonstrated; source hashes and current official download URLs are cross-checked, and no master rows were added. Striker was subsequently approved by the Project Owner on 2026-11-21; the official MY26 cennik source and model family are being registered in PR #877, with price/configuration imports deferred to separate packages.
 
 * Closed the 43-line configurator-PDF `400 m ze startu zatrzymanego` residual: 40 numeric candidates match existing exact observations, seven `17.0`/`17,0` displays are equivalent, and three `nd` markers remain non-observations. The deferred-observation count is corrected from 170 to 130; no master rows were added.
 
@@ -370,8 +370,8 @@ All notable changes to this project will be documented in this file.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
 * The automated test suite now contains 2018 tests.
-* The verified master-data baseline now contains 48 CSV files and 22857 rows.
-* SQLite verification now covers 48 tables and 22857 rows.
+* The verified master-data baseline now contains 48 CSV files and 22859 rows.
+* SQLite verification now covers 48 tables and 22859 rows.
 * Configuration attribute values now contain 8530 dated records.
 * Declarative scalar configuration-value imports now contain 193 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.

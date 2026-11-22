@@ -68,7 +68,7 @@ class SanderoInteriorTrimSemanticsReviewTests(unittest.TestCase):
         metadata = report["report_metadata"]
         self.assertEqual(metadata["report_id"], report["report_id"])
         self.assertEqual(metadata["base_commit_sha"], report["analysed_commit_sha"])
-        self.assertEqual(metadata["status"], "current")
+        self.assertEqual(metadata["status"], "needs_review")
         self.assertTrue(metadata["input_files"])
 
     def test_report_registry_contains_the_exact_report_artifacts(self) -> None:

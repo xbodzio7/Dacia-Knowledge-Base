@@ -126,7 +126,7 @@
       }
     ],
     "scope": "Official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02, printed pages 2, 3 and 6; review of interior dimension callouts and decorative trim descriptors against the canonical attribute catalogue. Review-only where exact semantic mapping or configuration applicability is not established.",
-    "status": "current",
+    "status": "needs_review",
     "reviewed_on": "2026-11-21"
   }
 }

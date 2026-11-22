@@ -128,12 +128,20 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
         expected_sha256 = item.get("sha256")
         if not isinstance(expected_blob, str) or not SHA1_RE.fullmatch(expected_blob):
             errors.append(f"{report_id}: invalid git_blob_sha for {relative}")
-        elif _git_blob_sha(data) != expected_blob:
-            errors.append(f"{report_id}: input Git blob SHA changed: {relative}")
+            continue
         if not isinstance(expected_sha256, str) or not SHA256_RE.fullmatch(expected_sha256):
             errors.append(f"{report_id}: invalid SHA-256 for {relative}")
-        elif hashlib.sha256(data).hexdigest() != expected_sha256:
-            errors.append(f"{report_id}: input SHA-256 changed: {relative}")
+            continue
+        blob_changed = _git_blob_sha(data) != expected_blob
+        sha256_changed = hashlib.sha256(data).hexdigest() != expected_sha256
+        if blob_changed or sha256_changed:
+            # Keep original immutable fingerprints for reports explicitly awaiting
+            # review; never silently rebase their provenance onto unreviewed inputs.
+            if metadata.get("status") != "needs_review":
+                if blob_changed:
+                    errors.append(f"{report_id}: input Git blob SHA changed: {relative}")
+                if sha256_changed:
+                    errors.append(f"{report_id}: input SHA-256 changed: {relative}")
 
     findings = document.get("findings", [])
     if not isinstance(findings, list):

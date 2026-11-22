@@ -25,7 +25,7 @@
 
 - Tests: 2018
 - Master CSV files: 48
-- Master rows: 22857
+- Master rows: 22859
 - Configuration values: 8530
 - Configuration import specifications: 193
 - Configuration value ranges: 451
@@ -42,9 +42,9 @@ Reconcile the latest registered official Polish MY26 cenniks across all five mod
 
 ## Next package
 
-**Striker MY26 Official Cennik Assimilation — Owner Approval Required** — `blocked`
+**Striker MY26 Official Cennik — Source Registration and Model-Family Bootstrap** — `planned`
 
-The official Polish Striker MY26 cennik effective 2026-10-13 is available. Striker is a new model family not represented in the master data. The five existing model families are now reconciled; do not create Striker configurations, source links or master-data rows until the Project Owner explicitly approves this scope expansion.
+Project Owner approved adding Striker on 2026-11-21. Archive and verify the official Polish MY26 cennik effective 2026-11-02, register its immutable source evidence and add the Striker model family. Then extract the 11 catalogue price cells and review technical/equipment/options pages in separate source-backed packages; do not infer configuration applicability.
 
 ## Autonomy
 

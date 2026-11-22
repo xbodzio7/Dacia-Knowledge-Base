@@ -125,7 +125,7 @@ class SanderoEcoG120SemanticsReviewTests(unittest.TestCase):
         metadata = report["report_metadata"]
         self.assertEqual(metadata["report_id"], report["report_id"])
         self.assertEqual(metadata["base_commit_sha"], report["analysed_commit_sha"])
-        self.assertEqual(metadata["status"], "current")
+        self.assertEqual(metadata["status"], "needs_review")
         self.assertEqual(metadata["scope"], report["report_metadata"]["scope"])
         self.assertTrue(metadata["input_files"])
 

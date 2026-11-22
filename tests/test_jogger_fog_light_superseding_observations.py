@@ -94,7 +94,7 @@ class JoggerFogLightSupersedingObservationsTests(unittest.TestCase):
         models = read(MASTER / "models.csv")
         versions = read(MASTER / "versions.csv")
         configurations = read(MASTER / "configurations.csv")
-        self.assertEqual(len(models), 19)
+        self.assertEqual(len(models), 20)
         self.assertEqual(len(versions), 22)
         self.assertEqual(len(configurations), 94)
         self.assertEqual(
