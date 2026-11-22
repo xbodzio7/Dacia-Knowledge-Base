@@ -30,6 +30,18 @@ REQUIRED_SECTIONS = (
     "## Failure classification",
     "## Closure",
 )
+REQUIRED_TEST_CONTRACT_ITEMS = (
+    "Mutable portfolio-wide counts are derived from canonical registries, not copied into tests as unexplained literals.",
+    "Exact counts are limited to immutable fixtures or explicitly frozen, versioned contracts.",
+    "Existing package tests remain bounded to their own manifests and source/configuration scopes.",
+    "New package records are asserted exactly once, with explicit negative checks for duplicates/out-of-scope records.",
+    "Aggregate counts are reconciled independently against emitted records.",
+    "Historical snapshots and release baselines were not regenerated from current live data.",
+    "Changed report dependencies are reviewed; stale reports remain needs_review until re-evaluated.",
+    "Package lifecycle tests use fresh temporary repositories/staging areas and a local bare remote if push behavior is tested.",
+    "Negative-path fixtures cannot contaminate success-path tests.",
+    "The final diff was reviewed against the exact base SHA.",
+)
 
 
 def requires_matrix(path: str) -> bool:
@@ -40,7 +52,7 @@ def requires_matrix(path: str) -> bool:
     )
 
 
-def validate_matrix_text(content: str) -> list[str]:
+def validate_matrix_text(content: str, repository: Path | None = None) -> list[str]:
     errors: list[str] = []
     for section in REQUIRED_SECTIONS:
         if section not in content:
@@ -59,13 +71,12 @@ def validate_matrix_text(content: str) -> list[str]:
                 break
             if line.strip().startswith("- ["):
                 checklist_lines.append(line.strip())
-    if len(checklist_lines) != 10:
+    expected_checklist = [f"- [x] {item}" for item in REQUIRED_TEST_CONTRACT_ITEMS]
+    if checklist_lines != expected_checklist:
         errors.append(
-            "Test-contract review must contain all ten template checklist items; "
-            f"found {len(checklist_lines)}"
+            "Test-contract review must contain the ten exact template items, in order, "
+            "and every item must be checked"
         )
-    if any(not line.startswith("- [x]") for line in checklist_lines):
-        errors.append("all ten Test-contract review items must be checked after review")
 
     rows: dict[str, list[str]] = {}
     for line in lines:
@@ -88,8 +99,22 @@ def validate_matrix_text(content: str) -> list[str]:
         result = cells[2].upper()
         if result not in {"PASS", "N/A"}:
             errors.append(f"{area}: result must be PASS or justified N/A, got {cells[2]!r}")
-        if not cells[3]:
-            errors.append(f"{area}: exact command or artifact evidence is required")
+        evidence = cells[3]
+        if evidence.startswith("command: "):
+            if not evidence.removeprefix("command: ").strip():
+                errors.append(f"{area}: command evidence must not be empty")
+        elif evidence.startswith("artifact: "):
+            artifact = evidence.removeprefix("artifact: ").strip()
+            artifact_path = Path(artifact)
+            if not artifact or artifact_path.is_absolute() or ".." in artifact_path.parts:
+                errors.append(f"{area}: artifact evidence must be a safe repository-relative path")
+            elif repository is not None and not (repository / artifact_path).is_file():
+                errors.append(f"{area}: referenced evidence artifact does not exist: {artifact}")
+        else:
+            errors.append(
+                f"{area}: evidence must use 'command: <exact command>' or "
+                "'artifact: <repository-relative file path>'"
+            )
         if result == "N/A" and not cells[4]:
             errors.append(f"{area}: N/A requires a reason in Notes / unresolved items")
     return errors
@@ -112,7 +137,7 @@ def validate_change_impact(changed_paths: Sequence[str], repository: Path) -> li
     matrix_path = repository / matrices[0]
     if not matrix_path.is_file():
         return [f"change-impact matrix file does not exist: {matrices[0]}"]
-    return validate_matrix_text(matrix_path.read_text(encoding="utf-8"))
+    return validate_matrix_text(matrix_path.read_text(encoding="utf-8"), repository)
 
 
 def changed_paths(base_ref: str, head_ref: str, repository: Path) -> list[str]:
