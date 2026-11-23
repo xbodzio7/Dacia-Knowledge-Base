@@ -718,6 +718,7 @@ def _registered_source_path(repository: Path, source: Mapping[str, str]) -> Path
         not relative_path.is_absolute()
         and not windows_path.is_absolute()
         and not windows_path.drive
+        and re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", raw_path) is None
         and ".." not in relative_path.parts,
         f"registered source path must stay inside the repository: {raw_path!r}",
     )

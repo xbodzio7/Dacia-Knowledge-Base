@@ -491,6 +491,9 @@ class ImportConfigurationValuesTests(unittest.TestCase):
             for unsafe_path in (
                 f"../{outside.name}",
                 f"..\\{outside.name}",
+                "https://example.invalid/source.pdf",
+                "file:///etc/passwd",
+                "s3://bucket/source.pdf",
             ):
                 with self.subTest(path=unsafe_path):
                     self._rewrite_source_path(unsafe_path)
