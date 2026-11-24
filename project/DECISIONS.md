@@ -1458,7 +1458,7 @@ Date: 2026-11-24
 
 The canonical Baseline Repair workflow shall automatically apply its generated six-file artifact to the exact target PR branch after a successful generation. The workflow must use two isolated jobs: a read-only generation job that executes the repository's canonical generators, and a write-back job that receives the minimum write permissions only after generation succeeds.
 
-The write-back job must re-verify that the target is the same open, same-repository PR against `main`, with the exact branch and head SHA captured before generation. It must reject missing/extra artifact paths and symbolic links, stage only the six explicit generated files, use a normal non-force push, and fail closed on branch races. It must not execute code from the PR branch while write credentials are available.
+The write-back job must re-verify that the target is the same open, same-repository PR against `main`, with the exact branch, head SHA and current `main` base SHA captured before generation. It must reject missing/extra artifact paths and symbolic links, stage only the six explicit generated files, use a normal non-force push, and fail closed on branch races or target-branch drift. It must not execute code from the PR branch while write credentials are available.
 
 After a successful write-back, it must explicitly dispatch the required Quality and Repository Baselines workflows on the updated PR branch. A green result on the pre-repair SHA is never sufficient; all six required checks must pass on the post-repair exact head.
 

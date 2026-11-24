@@ -342,7 +342,7 @@ Any proposed temporary change to branch protection requires a demonstrated root 
 
 ## Trusted baseline-repair write-back
 
-The canonical Baseline Repair workflow is started from `main` with the target PR number, exact branch name and exact 40-character head SHA. It uses two isolated jobs:
+The canonical Baseline Repair workflow is started from `main` with the target PR number, exact branch name and exact 40-character head SHA. It also captures and rechecks the exact `main` base SHA, refusing to write back if the PR or `main` advances during generation. It uses two isolated jobs:
 
 1. The generation job checks the PR identity and immutable head, checks out that SHA without write credentials, runs both canonical generators, validates their outputs and uploads only the six-file allowlist.
 2. The write-back job runs only after generation succeeds. It re-verifies that the same same-repository PR is still open against `main` and still points to the exact original head. It downloads the artifact, rejects symbolic links and any missing, extra or unexpected file, and stages only `CHANGELOG.md`, `README.md`, `project/ROADMAP.md`, `project/SESSION_STATE.md`, `project/state.json` and `project/STATE_SUMMARY.md`.
