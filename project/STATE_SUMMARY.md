@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 2035
+- Tests: 2042
 - Master CSV files: 48
-- Master rows: 22901
+- Master rows: 23033
 - Configuration values: 8530
 - Configuration import specifications: 193
 - Configuration value ranges: 451
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Striker MY26 2026-11-02 Catalogue Price Matrix Import** — `complete`
+**Striker MY26 2026-11-02 Priced Options and Packages Matrix** — `active`
 
-Import all 11 non-empty catalogue price cells from page 1 of the official Polish Striker MY26 cennik effective 2026-11-02. Register four exact grades, 11 source-linked grade/powertrain configurations and dated catalog_gross prices. Cross-check transmission classification against page 5; do not import promotions, financing, option/package prices, equipment or other technical observations in this package.
+Reconcile the 11 printed Striker MY26 option/package rows on page 5 of the official Polish cennik effective 2026-11-02 against all 11 exact source-linked configurations. Register 11 commercial items and 121 dated grade/configuration mappings: 60 optional, three standard, 51 explicitly not_available and seven unknown P markers. Preserve exact prices and grade applicability. The P marker for heated washer nozzles and windscreen is retained as unknown; no standalone price or package membership is inferred. Do not import package-component equipment, promotions, financing or unrelated technical observations in this package.
 
 ## Next package
 
-**Striker MY26 Priced Options and Packages Matrix Review** — `planned`
+**Striker MY26 P-Marker and Package Composition Evidence Review** — `planned`
 
-Quality-guardrail closure verified on remote main before resuming model-data assimilation. Portfolio-wide and transitive report regression guardrails, explicit report dependency declarations and input closure, historical-scope effective-date and future-source fail-closed checks, CI change-impact matrices, canonical baseline repair workflow and explicit allowlist, plus import-time source archive path and SHA-256 integrity gates are implemented in merged PRs #879–#889. All six required CI checks passed on the exact heads of PRs #879–#889, and the post-merge Quality and Repository Baselines workflows passed on main commit f44544a0038173d9789db137c69bd0d552a66734. Resume only the original cennik-only scope: review explicitly priced Striker MY26 options and packages from the archived official Polish cennik. Preserve P/package markers, exact grade applicability, and unresolved/blank cells; do not infer promotions, financing, dealer offers, equipment or technical data.
+Review the literal P cells for heated washer nozzles and windscreen and package-component descriptions in the official 2026-11-02 Striker MY26 cennik. Preserve exact markers and distinguish package contents from standalone equipment without inferring applicability beyond the source. Remain cennik-only; no configurator or brochure evidence.
 
 ## Autonomy
 

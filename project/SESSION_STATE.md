@@ -141,9 +141,9 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 2035 testów automatycznych zakończonych powodzeniem,
+- 2042 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 22901 rekordów danych,
+- 23033 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -154,7 +154,7 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 22901 rekordów,
+- baza SQLite obejmująca 48 tabele i 23033 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -525,3 +525,16 @@ Historical note superseded on 2026-11-21: after all five existing model families
 ## Next scope — Striker (owner approval required)
 
 The Striker source-registration/model-family package is active in PR #877 following explicit owner approval. The exact 2026-11-02 official PDF is archived and SHA-256 verified; its 11 catalogue price cells are identified. No Striker price observations or configurations have yet been imported.
+
+
+## Striker MY26 priced options and packages — active 2026-11-24
+
+The quality-guardrail gate is satisfied: post-merge Quality and Repository Baselines both passed on main SHA `99df129aed048b4f1ac2c58c19084143f1ebfe15`. Model-data work may resume within the owner's cennik-only scope.
+
+The official Polish Striker MY26 price list effective 2026-11-02 is registered as `src_pl_striker_price_my26_20261102`, archived at `PDF/Cenniki/striker-price.pdf`, SHA-256 `d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35`, size 1,615,585 bytes, eight pages. Its source capture manifest and SHA-256 sidecar are under `data/source_intake/`. The original owner-supplied PDF was recovered from the persistent Library; its first-page text and visual matrix match the registered source markers.
+
+Active package: `striker_my26_priced_options_packages_matrix_20261124_001`. Printed page 5 contains 11 priced option/package rows. The package adds 11 commercial items and 121 dated mappings across the 11 exact source-linked configurations: 60 optional, three standard, 51 explicit dashes (`not_available`) and seven literal `P` markers represented as `unknown`. The P marker for heated washer nozzles and windscreen is deliberately not interpreted as a standalone option or package membership. Package descriptions are retained in source labels/notes but not imported as equipment attributes.
+
+The rows cover metallic paint (3,100 PLN all grades); 18-inch all-season tyres (1,000 PLN Extreme/Journey); 19-inch alloy wheels (1,200 PLN Extreme/Journey); panoramic glass roof (standard Extreme, 4,300 PLN Journey); heated washer nozzles/windscreen (1,000 PLN Journey; P in Expression/Extreme); Zimowy (1,200 PLN Expression/Extreme); Zimowy Plus (2,300 PLN Expression/Extreme); Techno (1,300 PLN Expression); Techno 2 (1,300 PLN Extreme); City (2,200 PLN Expression); City 2 (2,200 PLN Extreme/Journey). No promotions, finance instalments, brochure data, equipment imports or technical values are included.
+
+Next: review the literal P marker and package-component semantics from the same cennik without broadening into configurator or brochure sources.
