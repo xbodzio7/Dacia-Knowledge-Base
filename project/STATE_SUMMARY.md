@@ -38,7 +38,7 @@
 
 **Striker MY26 Matrix Marker Semantics Correction** — `complete`
 
-Apply the Project Owner's explicit interpretation of Striker MY26 2026-11-02 matrix symbols: ● standard, - unavailable, o paid option, P package. Added the `package` status to the shared controlled dictionary and reclassified seven P mappings from `unknown` to `package` in the importer specification and master data. The specific named package remains unidentified.
+Apply the Project Owner's explicit interpretation of Striker MY26 2026-11-02 matrix symbols: ● standard, - unavailable, o paid option, P package. Add the package status to the shared controlled dictionary and reclassify the seven P mappings from unknown to package in the import specification and master data, without inferring the specific named package.
 
 ## Next package
 
