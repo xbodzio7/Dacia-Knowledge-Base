@@ -35,6 +35,7 @@ jobs:
       branch: ${{ steps.verify.outputs.branch }}
       head_sha: ${{ steps.verify.outputs.head_sha }}
       pr_number: ${{ steps.verify.outputs.pr_number }}
+      base_sha: ${{ steps.verify.outputs.base_sha }}
     steps:
       - name: Verify exact open same-repository PR head
         id: verify
@@ -65,9 +66,16 @@ jobs:
             if (pr.head.sha !== expected) {
               throw new Error(`Stale SHA: supplied ${expected}, current PR head is ${pr.head.sha}.`);
             }
+            const { data: mainRef } = await github.rest.git.getRef({
+              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+            });
+            if (pr.base.sha !== mainRef.object.sha) {
+              throw new Error(`PR base is stale: PR uses ${pr.base.sha}, current main is ${mainRef.object.sha}. Update the PR branch first.`);
+            }
             core.setOutput("branch", pr.head.ref);
             core.setOutput("head_sha", pr.head.sha);
             core.setOutput("pr_number", String(number));
+            core.setOutput("base_sha", mainRef.object.sha);
 
       - name: Check out the verified immutable PR head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -152,25 +160,32 @@ jobs:
           PR_NUMBER: ${{ needs.generate-baseline-repair.outputs.pr_number }}
           PR_BRANCH: ${{ needs.generate-baseline-repair.outputs.branch }}
           EXPECTED_HEAD_SHA: ${{ needs.generate-baseline-repair.outputs.head_sha }}
+          EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
         with:
           script: |
             const number = Number(process.env.PR_NUMBER);
             const branch = String(process.env.PR_BRANCH || "");
             const expected = String(process.env.EXPECTED_HEAD_SHA || "");
+            const expectedBase = String(process.env.EXPECTED_BASE_SHA || "");
             if (!Number.isInteger(number) || number < 1 ||
                 !/^[A-Za-z0-9._/-]{1,200}$/.test(branch) ||
                 branch.startsWith("-") || branch.includes("..") ||
-                !/^[0-9a-f]{40}$/.test(expected)) {
+                !/^[0-9a-f]{40}$/.test(expected) ||
+                !/^[0-9a-f]{40}$/.test(expectedBase)) {
               throw new Error("Invalid verified PR write-back inputs.");
             }
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner, repo: context.repo.repo, pull_number: number
             });
-            if (pr.state !== "open" || pr.base.ref !== "main" ||
+            const { data: mainRef } = await github.rest.git.getRef({
+              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+            });
+            if (pr.state !== "open" || pr.base.ref !== "main" || pr.base.sha !== expectedBase ||
+                mainRef.object.sha !== expectedBase ||
                 !pr.head.repo ||
                 pr.head.repo.full_name.toLowerCase() !== `${context.repo.owner}/${context.repo.repo}`.toLowerCase() ||
                 pr.head.ref !== branch || pr.head.sha !== expected) {
-              throw new Error("PR identity or exact head changed; refusing baseline write-back.");
+              throw new Error("PR identity, base or exact head changed; refusing baseline write-back.");
             }
             core.setOutput("branch", branch);
             core.setOutput("head_sha", expected);
@@ -194,10 +209,20 @@ jobs:
         shell: bash
         env:
           EXPECTED_HEAD_SHA: ${{ steps.verify.outputs.head_sha }}
+          EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
         run: |
           set -euo pipefail
           [[ "$(git rev-parse HEAD)" == "$EXPECTED_HEAD_SHA" ]] || {
             echo "Checked-out commit does not match the verified PR head." >&2
+            exit 1
+          }
+          git fetch --no-tags origin "refs/heads/main:refs/remotes/origin/main"
+          [[ "$(git rev-parse refs/remotes/origin/main)" == "$EXPECTED_BASE_SHA" ]] || {
+            echo "The main branch advanced during baseline generation; refusing a stale write-back." >&2
+            exit 1
+          }
+          git merge-base --is-ancestor refs/remotes/origin/main HEAD || {
+            echo "The PR head does not contain the current main commit." >&2
             exit 1
           }
           [[ -z "$(git status --porcelain --untracked-files=all)" ]] || {
@@ -233,12 +258,14 @@ jobs:
             project/state.json \
             project/STATE_SUMMARY.md
           staged="$(git diff --cached --name-only | LC_ALL=C sort)"
-          while IFS= read -r path; do
-            case "$path" in
-              CHANGELOG.md|README.md|project/ROADMAP.md|project/SESSION_STATE.md|project/state.json|project/STATE_SUMMARY.md) ;;
-              *) echo "Unexpected staged path: $path" >&2; exit 1 ;;
-            esac
-          done <<< "$staged"
+          if [[ -n "$staged" ]]; then
+            while IFS= read -r path; do
+              case "$path" in
+                CHANGELOG.md|README.md|project/ROADMAP.md|project/SESSION_STATE.md|project/state.json|project/STATE_SUMMARY.md) ;;
+                *) echo "Unexpected staged path: $path" >&2; exit 1 ;;
+              esac
+            done <<< "$staged"
+          fi
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No generated content differs from the verified PR branch."
@@ -266,16 +293,22 @@ jobs:
           PR_NUMBER: ${{ needs.generate-baseline-repair.outputs.pr_number }}
           PR_BRANCH: ${{ steps.verify.outputs.branch }}
           COMMIT_SHA: ${{ steps.apply.outputs.commit_sha }}
+          EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
         with:
           script: |
             const number = Number(process.env.PR_NUMBER);
             const branch = process.env.PR_BRANCH;
             const commit = process.env.COMMIT_SHA;
+            const expectedBase = process.env.EXPECTED_BASE_SHA;
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner, repo: context.repo.repo, pull_number: number
             });
-            if (pr.state !== "open" || pr.head.ref !== branch || pr.head.sha !== commit) {
-              throw new Error("Write-back was pushed, but PR head verification failed.");
+            const { data: mainRef } = await github.rest.git.getRef({
+              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+            });
+            if (pr.state !== "open" || pr.base.ref !== "main" || pr.base.sha !== expectedBase ||
+                mainRef.object.sha !== expectedBase || pr.head.ref !== branch || pr.head.sha !== commit) {
+              throw new Error("Write-back was pushed, but PR head/base freshness verification failed.");
             }
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner, repo: context.repo.repo,
