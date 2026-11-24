@@ -185,3 +185,16 @@ The existing master attribute catalogue already distinguishes:
 - `lpg_vessel_filling_capacity` — source-stated LPG volume available or permitted for filling, distinct from total vessel capacity.
 
 For bi-fuel configurations, use the existing `fuel_type_code` observation context only when the source identifies the fuel. Use the two LPG-specific attributes only when the source explicitly distinguishes total and filling capacity. Do not infer either value from the other or transfer values between models. See D-032 in `DECISIONS.md`.
+
+
+## Equipment and commercial availability statuses
+
+The shared dictionary `data/master/enums/equipment_availability_statuses.csv` defines the statuses used by configuration equipment availability and commercial-item configuration mappings:
+
+- `standard` — present as standard equipment;
+- `optional` — available as a separately selectable paid option;
+- `not_available` — explicitly absent or unavailable for the configuration;
+- `package` — available only as part of a package; the specific package may remain unidentified;
+- `unknown` — the source does not permit a reliable classification.
+
+A `package` status does not by itself create a package-component relationship or identify the package. Preserve the raw source marker in notes. See D-015 and D-035 in `DECISIONS.md`.

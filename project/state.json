@@ -27,14 +27,14 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "striker_my26_p_marker_and_package_composition_evidence_review_20261124_001",
-    "kind": "source_price_list_evidence_review",
-    "name": "Striker MY26 P Marker and Package Composition Evidence Review",
+    "package_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
+    "kind": "source_interpretation_and_data_correction",
+    "name": "Striker MY26 Matrix Marker Semantics Correction",
     "status": "complete",
-    "goal": "Review all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02 for explicit definitions of the literal P marker and package composition. The cennik explicitly lists package contents for Zimowy, Zimowy Plus, Techno, Techno 2, City and City 2, but does not define P. Preserve all seven P mappings as unknown; no equipment availability or package membership was inferred and no master data changed.",
-    "report_id": "striker_my26_p_marker_and_package_composition_evidence_review_20261124_001",
-    "report_path": "data/reporting/striker_my26_p_marker_and_package_composition_evidence_review_20261124_001.json",
-    "master_data_changed": false
+    "goal": "Apply the Project Owner's explicit interpretation of Striker MY26 2026-11-02 matrix symbols: ● standard, - unavailable, o paid option, P package. Add the package status to the shared controlled dictionary and reclassify the seven P mappings from unknown to package in the import specification and master data, without inferring the specific named package.",
+    "report_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
+    "report_path": "data/reporting/striker_my26_matrix_marker_semantics_correction_20261124_001.json",
+    "master_data_changed": true
   },
   "next_package": {
     "package_id": "striker_my26_technical_equipment_residual_review_20261124_001",
@@ -122,5 +122,5 @@
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
   "next_package_selection": "Striker MY26 remaining technical and equipment evidence review",
-  "rationale": "The Spring MY26 2026-02-06 dimension diagram and Extreme DC 40 kW P-marker review was already completed in PR #870 (merge commit 285cf33151a489dafdce53b45434b22ad76717e1); repeating it would duplicate completed work. Striker's 11 catalogue price cells are already imported in PR #878, its 11 priced option/package items and 121 mappings are complete in PR #892, and PR #894 documented the six explicit package descriptions while preserving seven undefined P mappings as unknown. The next bounded cennik-only scope is the remaining Striker MY26 technical/equipment/dimension evidence not already represented in master data, excluding those completed areas and preserving all unresolved applicability and source conflicts."
+  "rationale": "The Striker MY26 2026-11-02 page-5 matrix has 121 commercial-item mappings across 11 exact configurations. The Project Owner supplied the authoritative symbol interpretation under D-035. Seven P mappings are now package-only availability; the three Journey rows remain optional at 1,000 PLN and Essential remains not_available. No specific named package membership is inferred. The next bounded package remains the residual technical/equipment/dimension review of the same archived cennik."
 }

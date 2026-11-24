@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Applied Project Owner decision D-035 to the Striker MY26 matrix: `●` = standard, `-` = unavailable, `o` = paid option, and `P` = package. Added the shared `package` status and reclassified seven P mappings from `unknown` to `package`; no specific named package was inferred.
+
 * Corrected the next-package selection after PR #894: the Spring MY26 dimension/DC 40 kW review was already completed in PR #870, and Striker's 11 catalogue prices and priced options/packages matrix are already present from PRs #878 and #892. The next bounded scope is the remaining Striker MY26 technical/equipment/dimension evidence in the archived cennik; no master data changed in this planning correction.
 
 * Completed the Striker MY26 2026-11-02 cennik evidence review: documented the explicit contents of six named packages, confirmed that the literal P marker is undefined in the eight-page source, and retained all seven P mappings as unknown. No master-data changes. Detailed report and review receipt added.

@@ -36,9 +36,9 @@
 
 ## Current package
 
-**Striker MY26 P Marker and Package Composition Evidence Review** — `complete`
+**Striker MY26 Matrix Marker Semantics Correction** — `complete`
 
-Review all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02 for explicit definitions of the literal P marker and package composition. The cennik explicitly lists package contents for Zimowy, Zimowy Plus, Techno, Techno 2, City and City 2, but does not define P. Preserve all seven P mappings as unknown; no equipment availability or package membership was inferred and no master data changed.
+Apply the Project Owner's explicit interpretation of Striker MY26 2026-11-02 matrix symbols: ● standard, - unavailable, o paid option, P package. Added the `package` status to the shared controlled dictionary and reclassified seven P mappings from `unknown` to `package` in the importer specification and master data. The specific named package remains unidentified.
 
 ## Next package
 
