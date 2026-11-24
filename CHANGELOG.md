@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added the Striker MY26 2026-11-02 priced options/packages matrix in PR #892: 11 commercial items and 121 dated grade/configuration mappings (60 optional, three standard, 51 not available, seven unknown P markers). The literal P markers remain uninterpreted; no package-component equipment was inferred. All six required post-merge Quality and Repository Baselines checks passed on main commit `6682f2323fcb1a7650c61a4848aa7f078a247635`.
+
 * Imported all 11 catalogue price cells from the official Striker MY26 cennik effective 2026-11-02 in PR #878, with 11 exact configurations and page-5 transmission cross-checks. The source/model-family bootstrap was merged in PR #877. Priced options and packages remain a separate next package.
 
 

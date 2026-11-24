@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Striker MY26 2026-11-02 Catalogue Price Matrix Import** — `complete`
+**Striker MY26 2026-11-02 Priced Options and Packages Matrix** — `complete`
 
-Import all 11 non-empty catalogue price cells from page 1 of the official Polish Striker MY26 cennik effective 2026-11-02. Register four exact grades, 11 source-linked grade/powertrain configurations and dated catalog_gross prices. Cross-check transmission classification against page 5; do not import promotions, financing, option/package prices, equipment or other technical observations in this package.
+Reconcile the 11 printed Striker MY26 option/package rows on page 5 of the official Polish cennik effective 2026-11-02 against all 11 exact source-linked configurations. Register 11 commercial items and 121 dated grade/configuration mappings: 60 optional, three standard, 51 explicitly not_available and seven unknown P markers. Preserve exact prices and grade applicability. The P marker for heated washer nozzles and windscreen remains unknown; no standalone price or package membership is inferred. Package-component equipment, promotions, financing and unrelated technical observations were excluded.
 
 ## Next package
 
-**Striker MY26 2026-11-02 Priced Options and Packages Matrix** — `planned`
+**Striker MY26 P Marker and Package Composition Evidence Review** — `planned`
 
-Reconcile the 11 printed Striker MY26 option/package rows on page 5 of the official Polish cennik effective 2026-11-02 against all 11 exact source-linked configurations. Register 11 commercial items and 121 dated grade/configuration mappings: 60 optional, three standard, 51 explicitly not_available and seven unknown P markers. Preserve exact prices and grade applicability. The P marker for heated washer nozzles and windscreen is retained as unknown; no standalone price or package membership is inferred. Do not import package-component equipment, promotions, financing or unrelated technical observations in this package.
+Review the literal P markers and descriptive package-component text in the archived official Polish Striker MY26 cennik effective 2026-11-02. Determine only what is explicitly defined by source legends, notes and matrix cross-references. Preserve unresolved P applicability as unknown where the source does not define it. Do not infer equipment availability or package membership, and do not use brochures or configurator sources under the active cennik-only priority.
 
 ## Autonomy
 
