@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Imported 423 scalar technical observations and 21 bounded ranges from pages 6–7 of the archived official Striker MY26 cennik across 11 exact source-linked configurations. Added 42 scalar and 3 range specifications; petrol/LPG splits and printed ranges are preserved, while unresolved applicability and measurement semantics remain explicit.
+
 * Applied Project Owner decision D-035 to the Striker MY26 matrix: `●` = standard, `-` = unavailable, `o` = paid option, and `P` = package. Added the shared `package` status and reclassified seven P mappings from `unknown` to `package`; no specific named package was inferred.
 
 * Corrected the next-package selection after PR #894: the Spring MY26 dimension/DC 40 kW review was already completed in PR #870, and Striker's 11 catalogue prices and priced options/packages matrix are already present from PRs #878 and #892. The next bounded scope is the remaining Striker MY26 technical/equipment/dimension evidence in the archived cennik; no master data changed in this planning correction.
@@ -377,12 +379,12 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 2042 tests.
-* The verified master-data baseline now contains 48 CSV files and 23034 rows.
-* SQLite verification now covers 48 tables and 23034 rows.
-* Configuration attribute values now contain 8530 dated records.
-* Declarative scalar configuration-value imports now contain 193 versioned JSON specifications.
-* Configuration value ranges now contain 451 dated records from 25 range specifications.
+* The automated test suite now contains 2053 tests.
+* The verified master-data baseline now contains 48 CSV files and 23478 rows.
+* SQLite verification now covers 48 tables and 23478 rows.
+* Configuration attribute values now contain 8953 dated records.
+* Declarative scalar configuration-value imports now contain 235 versioned JSON specifications.
+* Configuration value ranges now contain 472 dated records from 28 range specifications.
 * The canonical catalogue now contains 417 attributes in 30 categories.
 * Equipment availability now contains 10399 records: 8382 `standard`, 704 `optional`, 1313 `not_available` and 0 `unknown`.
 <!-- dkb:documentation-baseline:changelog:end -->

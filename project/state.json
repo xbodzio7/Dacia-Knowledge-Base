@@ -15,33 +15,33 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 2042,
+    "tests": 2053,
     "csv_files": 48,
-    "rows": 23034,
-    "configuration_values": 8530,
-    "configuration_import_specs": 193,
-    "configuration_value_ranges": 451,
-    "configuration_range_import_specs": 25,
+    "rows": 23478,
+    "configuration_values": 8953,
+    "configuration_import_specs": 235,
+    "configuration_value_ranges": 472,
+    "configuration_range_import_specs": 28,
     "availability_records": 10399,
     "attributes": 417,
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
-    "kind": "source_interpretation_and_data_correction",
-    "name": "Striker MY26 Matrix Marker Semantics Correction",
+    "package_id": "striker_my26_technical_data_review_20261124_001",
+    "kind": "source_price_list_technical_data_import",
+    "name": "Striker MY26 Technical Data and Dimension Import",
     "status": "complete",
-    "goal": "Apply the Project Owner's explicit interpretation of Striker MY26 2026-11-02 matrix symbols: ● standard, - unavailable, o paid option, P package. Add the package status to the shared controlled dictionary and reclassify the seven P mappings from unknown to package in the import specification and master data, without inferring the specific named package.",
-    "report_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
-    "report_path": "data/reporting/striker_my26_matrix_marker_semantics_correction_20261124_001.json",
+    "goal": "Import exact technical, performance, fuel, mass, towing, payload and exterior-dimension facts from pages 6–7 of the archived official Polish Striker MY26 cennik effective 2026-11-02 across the 11 exact source-linked configurations. Preserve petrol/LPG distinctions and printed numeric ranges; do not infer hybrid 150 combined power, hybrid 155 CO2 applicability, tyre fitment, mass equivalence or unexplained interior measurements.",
+    "report_id": "striker_my26_technical_data_review_20261124_001",
+    "report_path": "data/reporting/striker_my26_technical_data_review_20261124_001.json",
     "master_data_changed": true
   },
   "next_package": {
-    "package_id": "striker_my26_technical_equipment_residual_review_20261124_001",
-    "kind": "source_price_list_evidence_review",
-    "name": "Striker MY26 Remaining Technical and Equipment Evidence Review",
+    "package_id": "sandero_my26_catalogue_price_history_mvp_20261124_001",
+    "kind": "historical_price_reporting_feature",
+    "name": "Sandero MY26 Catalogue Price History MVP",
     "status": "planned",
-    "goal": "Review the remaining technical, equipment and dimension evidence in the archived official Polish Striker MY26 cennik effective 2026-11-02 against the 11 exact source-linked configurations and current master data. Exclude the 11 page-1 catalogue prices already imported in PR #878, the page-5 priced options/packages matrix completed in PR #892, and the P-marker/package-composition review completed in PR #894. Preserve unresolved applicability and source conflicts; import only exact facts directly supported by the cennik. Use no brochures or configurator evidence.",
+    "goal": "Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.",
     "report_id": null,
     "report_path": null,
     "master_data_changed": false
@@ -121,6 +121,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Striker MY26 remaining technical and equipment evidence review",
-  "rationale": "The Striker MY26 2026-11-02 page-5 matrix has 121 commercial-item mappings across 11 exact configurations. The Project Owner supplied the authoritative symbol interpretation under D-035. Seven P mappings are now package availability; the three Journey rows remain optional at 1,000 PLN and Essential remains not_available. No specific named package membership is inferred. The next bounded package remains the residual technical/equipment/dimension review of the same archived cennik."
+  "next_package_selection": "Sandero MY26 catalogue price history MVP",
+  "rationale": "The Striker MY26 technical and dimension evidence review is complete: 423 scalar observations and 21 bounded ranges were added across the 11 exact source-linked configurations. Ambiguous source facts remain explicitly deferred. The next planned work is the Sandero/Sandero Stepway catalogue-price history view, reusing existing dated source-backed prices without duplicate master observations."
 }

@@ -141,20 +141,20 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 2042 testów automatycznych zakończonych powodzeniem,
+- 2053 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 23034 rekordów danych,
+- 23478 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
-- 8530 obserwacji w `configuration_attribute_values.csv`,
-- 193 wersjonowanych specyfikacji w `data/imports/configuration_values`,
-- 451 obserwacji w `configuration_attribute_value_ranges.csv`,
-- 25 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
+- 8953 obserwacji w `configuration_attribute_values.csv`,
+- 235 wersjonowanych specyfikacji w `data/imports/configuration_values`,
+- 472 obserwacji w `configuration_attribute_value_ranges.csv`,
+- 28 wersjonowanych specyfikacji w `data/imports/configuration_value_ranges`,
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 23034 rekordów,
+- baza SQLite obejmująca 48 tabele i 23478 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -560,3 +560,8 @@ The corrected next package is `striker_my26_technical_equipment_residual_review_
 ## Striker MY26 matrix symbol clarification — 2026-11-24
 
 The Project Owner explicitly defined the Striker MY26 2026-11-02 matrix symbols under D-035: `●` = standard, `-` = not available, `o` = paid option, and `P` = package. This owner-supplied interpretation supersedes the provisional P-as-unknown handling described in PR #894. The seven P mappings for the heated washer nozzles/windscreen commercial item are now `package`, not `unknown`; their amounts remain empty and the specific package identity remains unspecified. The three Journey rows remain paid optional at 1,000 PLN and Essential remains unavailable. The shared status enum, importer, import specification, master data, regression tests and successor evidence report are updated. No package-component equipment attributes are inferred. The next package remains the Striker MY26 remaining technical/equipment/dimension evidence review.
+
+
+## Striker MY26 Technical Data and Dimension Import — 2026-11-24
+
+The official Polish MY26 cennik dated 2026-11-02 has now been reviewed on printed pages 6–7. The package adds 423 scalar observations and 21 bounded ranges across the 11 exact source-linked configurations, backed by 42 scalar and 3 range import specifications. Page-6 text evidence and the archived PDF SHA-256 are verified; page 7 is a vector-only dimension diagram, so its text-layer check is skipped while binary identity remains mandatory. Petrol/LPG splits and range semantics are preserved. Hybrid 155 CO2 `95/96`, minimum running-order mass semantics, maximum folded-seat luggage volume, trim-level tyre fitment, 1000 m standing-start time and unexplained interior measurements remain explicitly excluded or unresolved. No price, commercial mapping, equipment-availability, configuration or attribute rows were changed.
