@@ -90,6 +90,13 @@
       "markdown_path": "data/reporting/dacia_my26_cennik_technical_equipment_residual_coverage_20261121_001.md",
       "depends_on": [],
       "depends_on_paths": []
+    },
+    {
+      "report_id": "striker_my26_priced_options_packages_matrix_20261124_001",
+      "json_path": "data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.json",
+      "markdown_path": "data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.md",
+      "depends_on": [],
+      "depends_on_paths": []
     }
   ]
 }

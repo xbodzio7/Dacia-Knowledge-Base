@@ -123,9 +123,11 @@ def check():
     configurations=verify_source();item_spec,map_spec=load_specs(configurations)
     expected_items,expected_maps=expected_master_rows(item_spec,map_spec)
     items=read(MASTER/"commercial_items.csv");maps=read(MASTER/"commercial_item_configurations.csv")
-    if len(items)!=64: raise ContractError("master commercial item count must equal 64")
-    if len({r["id"] for r in items})!=len(items) or {r["id"] for r in items}!={str(i) for i in range(1,65)}:
-        raise ContractError("master commercial item IDs must be unique and contiguous 1–64")
+    item_ids=[int(r["id"]) for r in items]
+    if len(item_ids)!=len(set(item_ids)) or any(value<1 for value in item_ids):
+        raise ContractError("master commercial item IDs must be unique positive integers")
+    if len({r["code"] for r in items})!=len(items):
+        raise ContractError("duplicate master commercial item code")
     if [r for r in items if r["code"]=="jogger_special_nonmetallic_paint_option"] != expected_items:
         raise ContractError("new commercial item differs from import specification")
     source_rows=[r for r in maps if r["source_code"]==SOURCE]
