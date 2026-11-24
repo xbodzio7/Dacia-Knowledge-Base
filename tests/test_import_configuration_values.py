@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import csv
+import io
 import hashlib
 import json
 import shutil
 import sys
 import tempfile
+from contextlib import redirect_stderr
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -15,6 +17,7 @@ TOOLS = ROOT / "tools"
 sys.path.insert(0, str(TOOLS))
 
 import import_configuration_values as importer  # noqa: E402
+import import_configuration_value_ranges as range_importer  # noqa: E402
 
 
 VALUE_FIELDS = list(importer.VALUE_FIELDS)
@@ -470,6 +473,78 @@ class ImportConfigurationValuesTests(unittest.TestCase):
             "missing rows",
         ):
             importer.verify_import(self.repository, spec)
+
+    def _rewrite_source_path(self, value: str) -> None:
+        source_path = self.master / "sources.csv"
+        with source_path.open("r", encoding="utf-8", newline="") as handle:
+            rows = list(csv.DictReader(handle))
+        for row in rows:
+            if row["code"] == "source_a":
+                row["file_path"] = value
+        self._write_csv("sources.csv", list(rows[0]), rows)
+
+    def test_registered_source_path_cannot_escape_repository(self) -> None:
+        outside = self.repository.parent / f"{self.repository.name}-outside.pdf"
+        outside.write_bytes(self.source_file.read_bytes())
+        try:
+            spec = importer.load_spec(self.spec_path)
+            for unsafe_path in (
+                f"../{outside.name}",
+                f"..\\{outside.name}",
+                "https://example.invalid/source.pdf",
+                "file:///etc/passwd",
+                "s3://bucket/source.pdf",
+            ):
+                with self.subTest(path=unsafe_path):
+                    self._rewrite_source_path(unsafe_path)
+                    with self.assertRaisesRegex(
+                        importer.ImportSpecError,
+                        "must stay inside the repository",
+                    ):
+                        importer.verify_registered_sources(
+                            self.repository,
+                            spec,
+                            verify_text=False,
+                        )
+        finally:
+            outside.unlink(missing_ok=True)
+
+    def test_registered_source_missing_archive_is_rejected(self) -> None:
+        self._rewrite_source_path("PDF/missing-source.pdf")
+        spec = importer.load_spec(self.spec_path)
+        with self.assertRaisesRegex(
+            importer.ImportSpecError,
+            "registered source file is missing",
+        ):
+            importer.verify_registered_sources(
+                self.repository,
+                spec,
+                verify_text=False,
+            )
+
+    def test_scalar_apply_cannot_skip_registered_source_checks(self) -> None:
+        stderr = io.StringIO()
+        with redirect_stderr(stderr):
+            result = importer.main([
+                "--spec",
+                str(self.spec_path),
+                "--apply",
+                "--skip-source-files",
+            ])
+        self.assertEqual(result, 1)
+        self.assertIn("--skip-source-files cannot be combined with --apply", stderr.getvalue())
+
+    def test_range_apply_cannot_skip_registered_source_checks(self) -> None:
+        stderr = io.StringIO()
+        with redirect_stderr(stderr):
+            result = range_importer.main([
+                "--spec",
+                str(self.spec_path),
+                "--apply",
+                "--skip-source-files",
+            ])
+        self.assertEqual(result, 1)
+        self.assertIn("--skip-source-files cannot be combined with --apply", stderr.getvalue())
 
     def test_registered_source_hash_mismatch_is_rejected(self) -> None:
         spec = importer.load_spec(self.spec_path)

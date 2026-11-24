@@ -472,6 +472,12 @@ For every registered archived file:
 
 For every source-registry/importer/test change, inspect all contracts that assert the affected source ID, path, digest, date, scope or expected status. Update expectations only after verifying the authoritative source and the intended invariant.
 
+Import-time source archive safety is mandatory for scalar and range importers:
+- Resolve every registered archive path relative to the repository root and reject absolute paths, URLs, parent traversal, Windows drive/UNC paths and symlinks that escape the repository.
+- Require the exact archived file to exist and its bytes to match the registered lowercase SHA-256 before import planning or mutation.
+- Never allow `--skip-source-files` together with `--apply`. This flag is diagnostic-only and must not bypass source integrity for a master-data write.
+- Keep unarchived or hash-unverified source records out of master-data imports until the original bytes are available and verified.
+
 ### C. Canonical generators own derived state
 
 Never manually synchronize counters or generated baseline blocks by copying numbers between files.
