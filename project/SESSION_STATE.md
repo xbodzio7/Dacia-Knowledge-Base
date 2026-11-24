@@ -534,3 +534,16 @@ PR #892 was merged into `main` as squash commit `6682f2323fcb1a7650c61a4848aa7f0
 The official Polish Striker MY26 cennik effective 2026-11-02 is archived at `PDF/Cenniki/striker-price.pdf`, SHA-256 `d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35`, size 1,615,585 bytes, eight pages. PR #892 imported the 11 printed option/package rows on page 5 as 11 commercial items and 121 dated grade/configuration mappings across the 11 exact source-linked configurations: 60 optional, three standard, 51 explicit dashes (`not_available`) and seven literal `P` markers (`unknown`). The heated washer nozzles/windscreen P marker remains unresolved; no standalone price or package membership was inferred. Package descriptions remain source labels/notes and were not expanded into equipment attributes.
 
 The canonical state now records this package as complete. The next cennik-only package is `striker_my26_p_marker_and_package_composition_evidence_review_20261124_001`: inspect the same archived cennik's legends, notes and cross-references for explicit definitions of P and package contents. Do not infer unresolved applicability and do not use brochure or configurator sources.
+
+
+## Striker MY26 P Marker and Package Composition Evidence Review — complete (2026-11-24)
+
+The review of all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02 is complete. The page-5 descriptions explicitly state the components of six packages: Zimowy, Zimowy Plus, Techno, Techno 2, City and City 2. The page-4/5 equipment matrix separately confirms the panoramic roof as standard in Extreme and optional in Journey.
+
+The literal `P` marker on the heated washer nozzles/windscreen row is not defined by any legend, footnote, note or cross-reference in this cennik. All seven existing P mappings remain `unknown`; no package membership, standard/optional status or standalone price was inferred. Package descriptions were documented, but no component-level equipment observations or other master-data rows were created.
+
+Durable receipts:
+- `data/reporting/striker_my26_p_marker_and_package_composition_evidence_review_20261124_001.json`
+- `project/reviews/striker-my26-p-marker-and-package-composition-evidence-review-2026-11-24.md`
+
+No master data changed. Next: review the Spring MY26 2026-02-06 dimension diagram and Extreme DC 40 kW P marker against current master data, using only the cennik and preserving unresolved evidence.

@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Striker MY26 2026-11-02 Priced Options and Packages Matrix** — `complete`
+**Striker MY26 P Marker and Package Composition Evidence Review** — `complete`
 
-Reconcile the 11 printed Striker MY26 option/package rows on page 5 of the official Polish cennik effective 2026-11-02 against all 11 exact source-linked configurations. Register 11 commercial items and 121 dated grade/configuration mappings: 60 optional, three standard, 51 explicitly not_available and seven unknown P markers. Preserve exact prices and grade applicability. The P marker for heated washer nozzles and windscreen remains unknown; no standalone price or package membership is inferred. Package-component equipment, promotions, financing and unrelated technical observations were excluded.
+Review all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02. Six package descriptions explicitly state their component lists; the literal P marker is not defined by any legend, footnote, note or cross-reference. Preserve all seven P mappings as `unknown`. No master-data changes were made.
 
 ## Next package
 
-**Striker MY26 P Marker and Package Composition Evidence Review** — `planned`
+**Spring MY26 Dimension Diagram and DC 40 kW Package Marker Review** — `planned`
 
-Review the literal P markers and descriptive package-component text in the archived official Polish Striker MY26 cennik effective 2026-11-02. Determine only what is explicitly defined by source legends, notes and matrix cross-references. Preserve unresolved P applicability as unknown where the source does not define it. Do not infer equipment availability or package membership, and do not use brochures or configurator sources under the active cennik-only priority.
+Review the archived official Polish Spring MY26 cennik effective 2026-02-06 for the Extreme DC 40 kW P marker and dimension-diagram semantics. Reconcile against current master data; preserve unresolved applicability and measurement semantics, and import only exact source-backed facts.
 
 ## Autonomy
 
