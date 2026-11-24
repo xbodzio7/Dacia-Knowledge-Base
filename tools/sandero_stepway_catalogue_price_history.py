@@ -25,7 +25,10 @@ def build_history():
     sources = {r["code"]: r for r in read_csv(MASTER / "sources.csv")}
     spec = json.loads(SPEC.read_text(encoding="utf-8"))
     for code, date in ((OLD, "2026-08-11"), (NEW, "2026-11-02")):
-        if code not in sources or sources[code]["document_date"] != date or sources[code]["market"] != "PL":
+        source = sources.get(code)
+        if (source is None or source["document_date"] != date or source["market"] != "PL"
+                or source["status"] != "active" or not source["sha256"]
+                or not source["external_reference"]):
             raise HistoryError("Missing or mismatched source registration: " + code)
 
     def select(code):
@@ -36,6 +39,14 @@ def build_history():
             key = row["configuration_code"]
             if key in result:
                 raise HistoryError("Duplicate price observation: " + key)
+            if row["price_date"] != sources[code]["document_date"]:
+                raise HistoryError("Price date does not match its registered source: " + key)
+            try:
+                amount = int(row["amount"])
+            except (TypeError, ValueError) as exc:
+                raise HistoryError("Invalid catalogue price amount: " + key) from exc
+            if amount <= 0:
+                raise HistoryError("Catalogue price must be positive: " + key)
             result[key] = row
         return result
 
@@ -45,6 +56,9 @@ def build_history():
         raise HistoryError("Unexpected source coverage: expected 19 previous, 15 current and 4 unchanged")
     if set(current) & set(unchanged) or set(previous) != set(current) | set(unchanged):
         raise HistoryError("Changed and unchanged configurations do not reconcile exactly")
+    for key, amount in unchanged.items():
+        if key not in previous or amount != int(previous[key]["amount"]):
+            raise HistoryError("Unchanged confirmation does not match the previous price: " + key)
     new_values = {k: int(v["amount"]) for k, v in current.items()} | unchanged
     events = []
     for config in sorted(previous):
@@ -59,8 +73,10 @@ def build_history():
             "change_type": "catalogue_price", "market": "PL", "model_year": "MY26",
             "configuration_code": config, "price_type": "catalog_gross", "currency": "PLN",
             "previous_source_code": OLD, "current_source_code": NEW,
-            "previous_document_date": "2026-08-11", "current_document_date": "2026-11-02",
-            "previous_effective_date": previous[config]["price_date"], "current_effective_date": "2026-11-02",
+            "previous_document_date": sources[OLD]["document_date"],
+            "current_document_date": sources[NEW]["document_date"],
+            "previous_effective_date": previous[config]["price_date"],
+            "current_effective_date": sources[NEW]["document_date"],
             "previous_value": old, "current_value": new, "delta_value": delta,
             "delta_percent": str(pct), "disposition": "unchanged" if delta == 0 else "changed",
             "previous_evidence": "catalogue price matrix, printed page 1",
@@ -74,7 +90,8 @@ def build_history():
     return {
         "schema_version": "1.0.0",
         "report_id": "sandero_stepway_catalogue_price_history_2026",
-        "generated_from": ["data/master/configuration_prices.csv", "project/sources/sandero_stepway_price_my26_20261102_import_spec.json"],
+        "generated_from": ["data/master/configuration_prices.csv", "data/master/sources.csv",
+                           "project/sources/sandero_stepway_price_my26_20261102_import_spec.json"],
         "scope": {
             "market": "PL", "model_year": "MY26", "models": ["Sandero", "Sandero Stepway"],
             "price_type": "catalog_gross", "currency": "PLN",
@@ -92,8 +109,10 @@ def build_history():
             ]
         },
         "sources": [
-            {"source_code": OLD, "document_date": "2026-08-11", "role": "previous_complete_price_baseline",
-             "external_reference": sources[OLD]["external_reference"], "evidence": "catalogue price matrix, printed page 1"},
+            {"source_code": OLD, "document_date": sources[OLD]["document_date"],
+             "role": "previous_complete_price_baseline",
+             "external_reference": sources[OLD]["external_reference"], "sha256": sources[OLD]["sha256"],
+             "evidence": "catalogue price matrix, printed page 1"},
             {"source_code": NEW, "document_date": "2026-11-02", "role": "current_price_and_unchanged_confirmations",
              "external_reference": sources[NEW]["external_reference"], "sha256": sources[NEW]["sha256"],
              "evidence": "catalogue price matrix, printed page 1"}
