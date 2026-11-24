@@ -1,0 +1,348 @@
+{
+  "version": 1,
+  "kind": "striker_my26_technical_data_review",
+  "reviewed_on": "2026-11-24",
+  "status": "complete",
+  "source": {
+    "source_code": "src_pl_striker_price_my26_20261102",
+    "document_date": "2026-11-02",
+    "model_year": "MY26",
+    "market": "PL",
+    "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/striker-price.pdf.asset.pdf/1793603979544.pdf",
+    "repository_path": "PDF/Cenniki/striker-price.pdf",
+    "sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35",
+    "size_bytes": 1615585,
+    "page_count": 8,
+    "audit_artifact_id": 14963738199
+  },
+  "configuration_scope": {
+    "count": 11,
+    "configurations": [
+      "striker_essential_mildhybridg140_4x2_manual",
+      "striker_expression_mildhybridg140_4x2_manual",
+      "striker_expression_mildhybridg140_4x2_automatic",
+      "striker_extreme_mildhybridg140_4x2_automatic",
+      "striker_journey_mildhybridg140_4x2_automatic",
+      "striker_expression_hybrid150_4x4_automatic",
+      "striker_extreme_hybrid150_4x4_automatic",
+      "striker_journey_hybrid150_4x4_automatic",
+      "striker_expression_hybrid155_4x2_automatic",
+      "striker_extreme_hybrid155_4x2_automatic",
+      "striker_journey_hybrid155_4x2_automatic"
+    ],
+    "all_linked_to_source": true
+  },
+  "reviewed_pages": [
+    6,
+    7
+  ],
+  "migration": {
+    "scalar_values": 423,
+    "range_values": 21,
+    "scalar_import_specs": 42,
+    "range_import_specs": 3,
+    "attributes": [
+      "engine_type",
+      "hybrid_system_type",
+      "engine_displacement",
+      "cylinder_count",
+      "total_valve_count",
+      "engine_power",
+      "engine_torque",
+      "traction_motor_power",
+      "starter_generator_power",
+      "hybrid_system_power_total",
+      "electric_motor_torque",
+      "electric_motor_torque_rpm",
+      "hybrid_battery_capacity_source_stated",
+      "hybrid_system_voltage",
+      "max_power_rpm",
+      "max_torque_rpm",
+      "emission_standard",
+      "gear_count",
+      "gearbox_source_description",
+      "injection_type",
+      "particulate_filter",
+      "top_speed",
+      "acceleration_0_100",
+      "fuel_tank_capacity",
+      "co2_emissions",
+      "fuel_consumption_combined",
+      "boot_capacity",
+      "gross_vehicle_weight",
+      "braked_trailer_weight",
+      "maximum_payload",
+      "overall_length",
+      "overall_width",
+      "overall_width_with_mirrors",
+      "overall_height",
+      "height_with_tailgate_open",
+      "wheelbase",
+      "front_track",
+      "rear_track",
+      "front_overhang",
+      "rear_overhang",
+      "ground_clearance",
+      "seasonal_tyre_type"
+    ],
+    "range_attributes": [
+      "max_power_rpm",
+      "co2_emissions",
+      "fuel_consumption_combined"
+    ],
+    "observation_date": "2026-11-02"
+  },
+  "page_6": {
+    "engine_and_hybrid": {
+      "displacement_cm3": {
+        "1199": 8,
+        "1789": 3
+      },
+      "cylinders": {
+        "3": 8,
+        "4": 3
+      },
+      "total_valves": {
+        "12": 8,
+        "16": 3
+      },
+      "engine_power_kw": {
+        "80": 3,
+        "103": 8
+      },
+      "engine_torque_nm": {
+        "172": 3,
+        "230": 8
+      },
+      "traction_motor_power_kw": {
+        "10": 3,
+        "36": 3
+      },
+      "starter_generator_power_kw": {
+        "15": 3
+      },
+      "hybrid_system_power_total_kw": {
+        "116": 3
+      },
+      "electric_motor_torque_nm": {
+        "205": 3
+      },
+      "battery_capacity_kwh_source_stated": {
+        "0.839": 8,
+        "1.4": 3
+      },
+      "hybrid_system_voltage_v": {
+        "48": 8,
+        "280": 3
+      },
+      "emission_standard": "euro_6e_bis",
+      "particulate_filter": true
+    },
+    "performance": {
+      "top_speed_kmh": 180,
+      "acceleration_0_100": {
+        "mild_manual": {
+          "petrol": 10.6,
+          "lpg": 10.8
+        },
+        "mild_auto": {
+          "petrol": 10.3,
+          "lpg": 10.4
+        },
+        "hybrid150": 9.6,
+        "hybrid155": 9.5
+      },
+      "max_power_rpm": {
+        "mild_manual": 5550,
+        "mild_auto": 5550,
+        "hybrid150": [
+          4500,
+          6000
+        ],
+        "hybrid155": [
+          5300,
+          5750
+        ]
+      },
+      "max_torque_rpm": {
+        "mild_manual": 2100,
+        "mild_auto": 2100,
+        "hybrid150": 1750,
+        "hybrid155": 3000
+      },
+      "electric_motor_torque_rpm": 1630
+    },
+    "fuel": {
+      "tank_l": {
+        "mild_manual": {
+          "petrol": 50,
+          "lpg": 50
+        },
+        "mild_auto": {
+          "petrol": 50,
+          "lpg": 50
+        },
+        "hybrid150": 50,
+        "hybrid155": 50
+      },
+      "co2_g_km": {
+        "mild_manual": {
+          "petrol": [
+            121,
+            122
+          ],
+          "lpg": [
+            107,
+            109
+          ]
+        },
+        "mild_auto": {
+          "petrol": [
+            122,
+            123
+          ],
+          "lpg": [
+            109,
+            111
+          ]
+        },
+        "hybrid150": 120,
+        "hybrid155": "95/96 unresolved"
+      },
+      "consumption_l_100km": {
+        "mild_manual": {
+          "petrol": 5.3,
+          "lpg": [
+            6.6,
+            6.7
+          ]
+        },
+        "mild_auto": {
+          "petrol": 5.4,
+          "lpg": [
+            6.7,
+            6.8
+          ]
+        },
+        "hybrid150": 5.3,
+        "hybrid155": 4.2
+      }
+    },
+    "boot_min_l": {
+      "mild_manual": 602,
+      "mild_auto": 602,
+      "hybrid150": 586,
+      "hybrid155": 556
+    },
+    "weights_kg": {
+      "gross_vehicle_weight": {
+        "mild_manual": 1915,
+        "mild_auto": 1930,
+        "hybrid150": 1945,
+        "hybrid155": 1905
+      },
+      "braked_trailer": {
+        "mild_manual": 1500,
+        "mild_auto": 1500,
+        "hybrid150": 1500,
+        "hybrid155": 1250
+      },
+      "maximum_payload": {
+        "mild_manual": 515,
+        "mild_auto": 503,
+        "hybrid150": 497,
+        "hybrid155": 501
+      }
+    },
+    "tyres": {
+      "sizes": [
+        "215/60 R17",
+        "215/55 R18",
+        "225/45 R19"
+      ],
+      "season": "summer",
+      "fitment": "powertrain-column list; no trim-level standard/optional mapping"
+    }
+  },
+  "page_7": {
+    "dimensions_mm": {
+      "length": 4620,
+      "width_without_mirrors": 1824,
+      "width_with_mirrors": 2086,
+      "height": {
+        "four_by_two": 1525,
+        "four_by_four": 1541
+      },
+      "height_with_tailgate_open": {
+        "four_by_two": 2069,
+        "four_by_four": 2087
+      },
+      "wheelbase": 2704,
+      "front_track": 1574,
+      "rear_track": 1548,
+      "front_overhang": 894,
+      "rear_overhang": 1022,
+      "ground_clearance": {
+        "four_by_two": 190,
+        "four_by_four": 200
+      }
+    },
+    "unresolved_measurements": [
+      "892*",
+      "907**",
+      "848*",
+      "844**",
+      "1458",
+      "1439",
+      "1010"
+    ],
+    "unresolved_reason": "The source does not explain asterisk footnotes or identify all measurement endpoints."
+  },
+  "unresolved": [
+    {
+      "item": "CO2 hybrid 155",
+      "source_text": "95/96",
+      "classification": "unresolved_source_applicability",
+      "reason": "The source prints two values without a grade, wheel or other applicability crosswalk; no range or trim assignment is inferred."
+    },
+    {
+      "item": "minimum mass ready to drive without options",
+      "source_text": "1475 / 1502 / 1523 / 1479 kg",
+      "classification": "not_imported_semantic_mismatch",
+      "reason": "Not equated with existing kerb-weight attributes."
+    },
+    {
+      "item": "maximum luggage volume after folding rear seat",
+      "source_text": "1591 / 1591 / 1621 / 1590 L",
+      "classification": "not_imported_no_exact_attribute",
+      "reason": "No existing attribute unambiguously captures the source's folded-seat maximum-volume basis."
+    },
+    {
+      "item": "tyre sizes",
+      "source_text": "215/60 R17; 215/55 R18; 225/45 R19",
+      "classification": "not_imported_applicability_unresolved",
+      "reason": "The list is not a trim-specific standard/optional fitment crosswalk."
+    },
+    {
+      "item": "1000 m standing-start time",
+      "source_text": "32 / 32 / 32 / NC",
+      "classification": "not_imported_no_exact_attribute",
+      "reason": "No matching attribute exists; NC is not converted to a number."
+    },
+    {
+      "item": "interior/seat dimensions",
+      "source_text": "892*, 907**, 848*, 844**, 1458, 1439, 1010",
+      "classification": "unresolved_source_semantics",
+      "reason": "Asterisk explanations and measurement endpoints are absent."
+    }
+  ],
+  "boundaries": [
+    "Only the official archived Polish MY26 cennik effective 2026-11-02 is used.",
+    "Page-1 prices and page-5 commercial options/packages are excluded as already complete.",
+    "No brochure or configurator evidence is used.",
+    "No named package membership is inferred from P markers.",
+    "No combined hybrid 150 system power is calculated.",
+    "No trim-level tyre fitment is inferred.",
+    "No value is imported for hybrid 155 CO2 notation 95/96."
+  ]
+}

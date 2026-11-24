@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 8624,
+  "attribute_code": "traction_motor_power",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "kW",
+    "status": "active"
+  },
+  "observation_date": "2026-11-02",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "striker_expression_hybrid150_4x4_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "value": "10",
+      "source_text": "103 (140) + 10 (13)"
+    },
+    {
+      "configuration_code": "striker_extreme_hybrid150_4x4_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "value": "10",
+      "source_text": "103 (140) + 10 (13)"
+    },
+    {
+      "configuration_code": "striker_journey_hybrid150_4x4_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "value": "10",
+      "source_text": "103 (140) + 10 (13)"
+    },
+    {
+      "configuration_code": "striker_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "value": "36",
+      "source_text": "36 przy 4000"
+    },
+    {
+      "configuration_code": "striker_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "value": "36",
+      "source_text": "36 przy 4000"
+    },
+    {
+      "configuration_code": "striker_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "value": "36",
+      "source_text": "36 przy 4000"
+    }
+  ]
+}
