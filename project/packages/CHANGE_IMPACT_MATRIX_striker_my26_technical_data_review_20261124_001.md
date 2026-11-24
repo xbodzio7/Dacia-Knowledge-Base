@@ -39,7 +39,7 @@
 
 ## Baseline expectation
 
-- Tests: 2053
+- Tests: 2054
 - Master CSV files: 48
 - Master rows: 23478
 - Configuration values: 8953
