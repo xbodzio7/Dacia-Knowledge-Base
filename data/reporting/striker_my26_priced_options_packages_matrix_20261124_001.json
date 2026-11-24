@@ -251,7 +251,7 @@
       }
     ],
     "scope": "Official Polish Striker MY26 cennik effective 2026-11-02; printed option/package matrix on page 5; 11 exact source-linked configurations.",
-    "status": "current"
+    "status": "historical"
   },
   "findings": [
     {
@@ -263,5 +263,6 @@
       ],
       "last_verified_at": "2026-11-24T19:37:00+01:00"
     }
-  ]
+  ],
+  "superseded_by": "striker_my26_matrix_marker_semantics_correction_20261124_001"
 }
