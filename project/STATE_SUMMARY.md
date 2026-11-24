@@ -42,9 +42,9 @@ Review all eight pages of the archived official Polish Striker MY26 cennik effec
 
 ## Next package
 
-**Spring MY26 Dimension Diagram and DC 40 kW Package Marker Review** — `planned`
+**Striker MY26 Remaining Technical and Equipment Evidence Review** — `planned`
 
-Reconcile the archived official Polish Spring MY26 cennik effective 2026-02-06 for the Extreme DC 40 kW P marker and dimension-diagram semantics. Use only the cennik, preserve unresolved applicability and measurement semantics, and import only exact source-backed facts not already represented in master data.
+Review the remaining technical, equipment and dimension evidence in the archived official Polish Striker MY26 cennik effective 2026-11-02 against the 11 exact source-linked configurations and current master data. Exclude the 11 page-1 catalogue prices already imported in PR #878, the page-5 priced options/packages matrix completed in PR #892, and the P-marker/package-composition review completed in PR #894. Preserve unresolved applicability and source conflicts; import only exact facts directly supported by the cennik. Use no brochures or configurator evidence.
 
 ## Autonomy
 
