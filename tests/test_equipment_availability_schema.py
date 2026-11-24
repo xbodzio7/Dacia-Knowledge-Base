@@ -30,6 +30,7 @@ EXPECTED_STATUSES = {
     "optional",
     "not_available",
     "unknown",
+    "package",
 }
 
 

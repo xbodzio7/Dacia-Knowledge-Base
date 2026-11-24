@@ -49,7 +49,7 @@ class CommercialItems20260703Tests(unittest.TestCase):
             {"", "2026-02-06", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02"},
         )
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
-        self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard", "unknown", "not_available"})
+        self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard", "unknown", "not_available", "package"})
 
     def test_each_item_has_membership_and_source(self) -> None:
         item_codes = {row["code"] for row in self.items}
