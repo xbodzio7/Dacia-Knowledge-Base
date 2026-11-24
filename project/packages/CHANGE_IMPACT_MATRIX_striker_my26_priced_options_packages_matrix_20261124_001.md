@@ -46,7 +46,7 @@
 
 ## Failure classification
 
-The first CI attempt found three package metadata defects: report Scope parity did not match, evidence artifact paths in the change-impact matrix included Markdown backticks, and canonical state still described the previous package. These were documentation/state contract defects, not source evidence or environment failures. The follow-up commit corrects all three; final exact-head CI must confirm the repair.
+The first CI attempt found three package metadata defects: report Scope parity did not match, evidence artifact paths in the change-impact matrix included Markdown backticks, and the proposed package incorrectly replaced the completed current package in canonical state. These were report/documentation/state contract defects, not source evidence or environment failures. The follow-up commits correct all three; final exact-head CI must confirm the repair.
 
 ## Closure
 
