@@ -338,3 +338,15 @@ A passing CI workflow is necessary but not sufficient for merge. The final merge
 ### Temporary protection changes
 
 Any proposed temporary change to branch protection requires a demonstrated root cause, explicit Project Owner approval, a written scope, a rollback condition and a verification plan. Prefer the narrowest reversible adjustment. Never recommend disabling all protection as a routine workaround. If a setting is changed, record the before/after state and restore the original protection immediately after the bounded operation; verify restoration. No standing authorization permits changing repository security settings.
+
+
+## Trusted baseline-repair write-back
+
+The canonical Baseline Repair workflow is started from `main` with the target PR number, exact branch name and exact 40-character head SHA. It uses two isolated jobs:
+
+1. The generation job checks the PR identity and immutable head, checks out that SHA without write credentials, runs both canonical generators, validates their outputs and uploads only the six-file allowlist.
+2. The write-back job runs only after generation succeeds. It re-verifies that the same same-repository PR is still open against `main` and still points to the exact original head. It downloads the artifact, rejects symbolic links and any missing, extra or unexpected file, and stages only `CHANGELOG.md`, `README.md`, `project/ROADMAP.md`, `project/SESSION_STATE.md`, `project/state.json` and `project/STATE_SUMMARY.md`.
+
+Only the write-back job receives `contents: write` and `actions: write`. It does not execute scripts or build steps from the PR branch. The repair is committed and pushed as a normal fast-forward update; force-push is prohibited. A branch race or changed PR identity fails closed. After verifying the new PR head, the workflow explicitly dispatches `quality.yml` and `repository-baselines.yml` on that branch because pushes made with the workflow's `GITHUB_TOKEN` do not automatically start the normal push/pull-request workflows.
+
+The Project Owner no longer needs to download, extract or upload the repair ZIP. The required six CI checks must still pass on the new exact head before the PR can be merged.
