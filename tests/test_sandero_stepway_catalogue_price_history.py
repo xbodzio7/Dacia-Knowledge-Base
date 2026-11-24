@@ -31,6 +31,13 @@ class SanderoCataloguePriceHistoryTests(unittest.TestCase):
 
             data = json.loads(first_json)
             self.assertEqual(len(data["events"]), 19)
+            self.assertEqual(data["report_metadata"]["base_commit_sha"],
+                             "b56be440a9c2de592842aae600674a1a964e7e3a")
+            self.assertEqual(data["report_metadata"]["status"], "current")
+            self.assertIn("Report ID: sandero_stepway_catalogue_price_history_2026",
+                          first_markdown)
+            self.assertIn("Analysed commit: b56be440a9c2de592842aae600674a1a964e7e3a",
+                          first_markdown)
             self.assertEqual(data["scope"]["coverage"]["changed"], 15)
             self.assertEqual(data["scope"]["coverage"]["unchanged"], 4)
             self.assertEqual(data["scope"]["coverage"]["not_comparable"], 0)
