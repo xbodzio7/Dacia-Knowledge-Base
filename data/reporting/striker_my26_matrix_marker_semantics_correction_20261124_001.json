@@ -56,7 +56,7 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
-    "generated_at": "2026-11-24T16:00:00+01:00",
+    "generated_at": "2026-11-24T21:39:17Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
     "base_commit_sha": "5695c54ba971e710ac381e3a52b9f5f27d8d18c5",
     "input_files": [
@@ -77,7 +77,7 @@
         "PDF/Cenniki/striker-price.pdf#page=5",
         "project/DECISIONS.md#D-035"
       ],
-      "last_verified_at": "2026-11-24T16:00:00+01:00"
+      "last_verified_at": "2026-11-24T21:39:17Z"
     }
   ]
 }

@@ -44,7 +44,7 @@ The `package` status says that the item is available only as part of a package. 
 - Added D-035 and updated the project data-schema/glossary documentation.
 
 Report ID: striker_my26_matrix_marker_semantics_correction_20261124_001
-Generated: 2026-11-24T16:00:00+01:00
+Generated: 2026-11-24T21:39:17Z
 Analysed commit: 5695c54ba971e710ac381e3a52b9f5f27d8d18c5
 Status: current
 Scope: Owner-directed correction of the official Polish Striker MY26 2026-11-02 page-5 priced option/package matrix; 11 exact source-linked configurations and 121 mappings. The symbol interpretation is supplied by the Project Owner, not inferred from a cennik legend.
