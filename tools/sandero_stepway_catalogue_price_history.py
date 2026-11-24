@@ -12,6 +12,43 @@ DEFAULT_JSON = ROOT / "reports" / "price_history" / "sandero_stepway_catalogue_p
 DEFAULT_MD = ROOT / "reports" / "price_history" / "sandero_stepway_catalogue_price_history_2026.md"
 OLD = "src_pl_sandero_stepway_price_my26_20260811"
 NEW = "src_pl_sandero_stepway_price_my26_20261102"
+REPORT_METADATA = {
+    "schema_version": 1,
+    "report_id": "sandero_stepway_catalogue_price_history_2026",
+    "generated_at": "2026-11-24T23:50:27.266Z",
+    "reviewed_on": "2026-11-25",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "b56be440a9c2de592842aae600674a1a964e7e3a",
+    "input_files": [
+        {
+            "path": "data/master/configuration_prices.csv",
+            "git_blob_sha": "cf756fe3bec49d650012a52f4b42ccb9702b839a",
+            "sha256": "92fca48ed48953c3917867473330a45a35b6e0d1b35c7f43c820994575a1b2ab"
+        },
+        {
+            "path": "data/master/sources.csv",
+            "git_blob_sha": "74c8441b6c0170cf4929e9534db2b6072415c3bd",
+            "sha256": "c741eaacd1b33dfc7116312605ca80466767844b6bb81a23693f5875925e7f61"
+        },
+        {
+            "path": "project/sources/sandero_stepway_price_my26_20261102_import_spec.json",
+            "git_blob_sha": "0bb4437227fb54d6922a9357ba8ebf26c4c8049e",
+            "sha256": "15fc37fa0bf7ef312d6c2391b870018510dca73540f2183c74d3b916b483c262"
+        },
+        {
+            "path": "project/sources/sandero_stepway_price_my26_20260811_full_extract.json",
+            "git_blob_sha": "be20501fc1a92a868d9ff4854754904e082be77d",
+            "sha256": "af3b1957e30d2e01125f11082649c2811522fbe26132230d153a09fd25b10960"
+        },
+        {
+            "path": "data/reporting/sandero_stepway_price_list_20261001_reconciliation_001.json",
+            "git_blob_sha": "b85898243880ecf964d32e0ee593e4a43e6c3b2a",
+            "sha256": "5dccfe38023d6bed725788b4cfb0aa7d12015a0a7e31c62db1e1119750764049"
+        }
+    ],
+    "scope": "Official Polish MY26 catalogue gross prices for 19 exact Sandero and Sandero Stepway configurations, comparing the complete 2026-08-11 baseline with the 2026-11-02 cennik; promotions, financing, leasing, accessories and dealer offers are excluded.",
+    "status": "current"
+}
 
 class HistoryError(RuntimeError):
     pass
@@ -90,6 +127,7 @@ def build_history():
     return {
         "schema_version": "1.0.0",
         "report_id": "sandero_stepway_catalogue_price_history_2026",
+        "report_metadata": REPORT_METADATA,
         "generated_from": ["data/master/configuration_prices.csv", "data/master/sources.csv",
                            "project/sources/sandero_stepway_price_my26_20261102_import_spec.json"],
         "scope": {
@@ -124,6 +162,11 @@ def render_markdown(data):
     c = data["scope"]["coverage"]
     lines = [
         "# Sandero / Sandero Stepway — historia cen katalogowych MY26", "",
+        f"Report ID: {data['report_metadata']['report_id']}",
+        f"Generated: {data['report_metadata']['generated_at']}",
+        f"Analysed commit: {data['report_metadata']['base_commit_sha']}",
+        f"Status: {data['report_metadata']['status']}",
+        f"Scope: {data['report_metadata']['scope']}", "",
         "**Rynek:** Polska · **Porównanie:** 11.08.2026 → 02.11.2026 · **Waluta:** PLN brutto", "",
         "## Podsumowanie", "",
         f"- Porównywalne konfiguracje: **{c['comparable_configurations']}**",
