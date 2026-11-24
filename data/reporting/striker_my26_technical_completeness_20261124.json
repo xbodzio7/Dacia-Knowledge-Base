@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "configuration_scope": "explicit_subset",
+  "configuration_status": "active",
+  "configurations": [
+    {
+      "configuration_code": "striker_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_expression_mildhybridg140_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_extreme_mildhybridg140_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_journey_mildhybridg140_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_expression_hybrid150_4x4_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_extreme_hybrid150_4x4_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_journey_hybrid150_4x4_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    },
+    {
+      "configuration_code": "striker_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_striker_price_my26_20261102"
+    }
+  ],
+  "technical_slots": [
+    {
+      "attribute_code": "acceleration_0_100",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "boot_capacity",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "braked_trailer_weight",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "co2_emissions",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "cylinder_count",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "electric_motor_torque",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "electric_motor_torque_rpm",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "emission_standard",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "engine_displacement",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "engine_power",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "engine_torque",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "engine_type",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "front_overhang",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "front_track",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "fuel_consumption_combined",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "fuel_tank_capacity",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "gear_count",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "gearbox_source_description",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "gross_vehicle_weight",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "ground_clearance",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "height_with_tailgate_open",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "hybrid_battery_capacity_source_stated",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "hybrid_system_power_total",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "hybrid_system_type",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "hybrid_system_voltage",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "injection_type",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "max_power_rpm",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "max_torque_rpm",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "overall_height",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "overall_length",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "overall_width",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "particulate_filter",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "rear_track",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "seasonal_tyre_type",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "starter_generator_power",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "top_speed",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "total_valve_count",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "traction_motor_power",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    },
+    {
+      "attribute_code": "wheelbase",
+      "source_code": "src_pl_striker_price_my26_20261102",
+      "observation_date": "2026-11-02"
+    }
+  ],
+  "equipment_attributes": [],
+  "not_applicable": {
+    "technical": [],
+    "equipment": []
+  },
+  "effective_from": "2026-11-02",
+  "notes": "Technical scope for pages 6–7 only. Ambiguous hybrid 155 CO2, mass terminology, maximum folded-seat luggage volume, trim-level tyre fitment and unexplained interior dimensions remain excluded."
+}

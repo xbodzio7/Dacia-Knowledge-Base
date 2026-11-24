@@ -23,28 +23,28 @@
 
 ## Verified baseline
 
-- Tests: 2042
+- Tests: 2054
 - Master CSV files: 48
-- Master rows: 23034
-- Configuration values: 8530
-- Configuration import specifications: 193
-- Configuration value ranges: 451
-- Configuration range import specifications: 25
+- Master rows: 23478
+- Configuration values: 8953
+- Configuration import specifications: 235
+- Configuration value ranges: 472
+- Configuration range import specifications: 28
 - Availability records: 10399
 - Canonical attributes: 417
 - Attribute categories: 30
 
 ## Current package
 
-**Striker MY26 Matrix Marker Semantics Correction** — `complete`
+**Striker MY26 Technical Data and Dimension Import** — `complete`
 
-Apply the Project Owner's explicit interpretation of Striker MY26 2026-11-02 matrix symbols: ● standard, - unavailable, o paid option, P package. Add the package status to the shared controlled dictionary and reclassify the seven P mappings from unknown to package in the import specification and master data, without inferring the specific named package.
+Import exact technical, performance, fuel, mass, towing, payload and exterior-dimension facts from pages 6–7 of the archived official Polish Striker MY26 cennik effective 2026-11-02 across the 11 exact source-linked configurations. Preserve petrol/LPG distinctions and printed numeric ranges; do not infer hybrid 150 combined power, hybrid 155 CO2 applicability, tyre fitment, mass equivalence or unexplained interior measurements.
 
 ## Next package
 
-**Striker MY26 Remaining Technical and Equipment Evidence Review** — `planned`
+**Sandero MY26 Catalogue Price History MVP** — `planned`
 
-Review the remaining technical, equipment and dimension evidence in the archived official Polish Striker MY26 cennik effective 2026-11-02 against the 11 exact source-linked configurations and current master data. Exclude the 11 page-1 catalogue prices already imported in PR #878, the page-5 priced options/packages matrix completed in PR #892, and the P-marker/package-composition review completed in PR #894. Preserve unresolved applicability and source conflicts; import only exact facts directly supported by the cennik. Use no brochures or configurator evidence.
+Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.
 
 ## Autonomy
 
