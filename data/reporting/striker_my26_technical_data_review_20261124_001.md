@@ -1,5 +1,11 @@
 # Striker MY26 technical data review — 2026-11-24
 
+Report ID: striker_my26_technical_data_review_20261124_001
+Generated: 2026-11-24T23:09:30.384Z
+Analysed commit: db0aa2b006faa8fb7abe7a64bdc915fd6ea96107
+Status: current
+Scope: Official Polish Striker MY26 cennik effective 2026-11-02; technical and performance evidence from page 6 and exterior-dimension evidence from page 7, across 11 exact source-linked configurations. 423 scalar observations and 21 bounded ranges are imported; unresolved source semantics remain excluded.
+
 ## Scope and source
 
 - Official Polish Striker MY26 cennik effective 2026-11-02
