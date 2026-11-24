@@ -48,6 +48,21 @@ class SanderoCataloguePriceHistoryTests(unittest.TestCase):
             unchanged = [e for e in data["events"] if e["disposition"] == "unchanged"]
             self.assertEqual(len(unchanged), 4)
             self.assertTrue(all(e["current_master_observation_code"] is None for e in unchanged))
+            self.assertTrue(all(e["current_value"] == e["previous_value"] for e in unchanged))
+            self.assertTrue(all(e["delta_value"] == 500 for e in data["events"]
+                                if e["disposition"] == "changed"))
+            self.assertTrue(all(e["previous_effective_date"] == "2026-08-11"
+                                and e["current_effective_date"] == "2026-11-02"
+                                for e in data["events"]))
+            self.assertEqual(
+                {s["source_code"]: s["sha256"] for s in data["sources"]},
+                {
+                    "src_pl_sandero_stepway_price_my26_20260811":
+                        "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+                    "src_pl_sandero_stepway_price_my26_20261102":
+                        "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c",
+                },
+            )
             self.assertIn("nie utworzono", first_markdown)
 
             check = subprocess.run(
