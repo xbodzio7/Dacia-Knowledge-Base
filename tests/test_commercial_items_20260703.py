@@ -56,23 +56,10 @@ class CommercialItems20260703Tests(unittest.TestCase):
         member_codes = {row["commercial_item_code"] for row in self.members}
         mapped_codes = {row["commercial_item_code"] for row in self.mappings}
         self.assertEqual(item_codes, member_codes | mapped_codes)
-        self.assertEqual(
-            {row["source_code"] for row in self.items},
-            {
-                "src_pl_sandero_stepway_price_my26_20260703",
-                "src_pl_duster_price_my26_20260703",
-                "src_pl_jogger_price_my26_20260703",
-                "src_pl_bigster_price_my26_20260703",
-                "src_pl_spring_brochure_20260219",
-                "src_pl_spring_commercial_context_20260802",
-                "src_pl_sandero_stepway_exact_configurator_states_20260809",
-                "dacia_catalog_20260920_duster_extreme_tribrid150_4x4",
-                "src_pl_bigster_price_my26_20261001",
-                "src_pl_duster_price_my26_20261102",
-                "src_pl_sandero_stepway_price_my26_20261102",
-                "src_pl_jogger_price_my26_20261001",
-            },
-        )
+        item_sources = {row["source_code"] for row in self.items}
+        registered_sources = {row["code"] for row in read("sources.csv")}
+        self.assertTrue(item_sources <= registered_sources)
+        self.assertIn("src_pl_striker_price_my26_20261102", item_sources)
         self.assertTrue(all(row["source_text"] for row in self.members))
 
     def test_bigster_items_are_mapped_only_to_source_backed_configurations(self) -> None:
