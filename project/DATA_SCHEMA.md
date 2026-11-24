@@ -194,7 +194,7 @@ The shared dictionary `data/master/enums/equipment_availability_statuses.csv` de
 - `standard` — present as standard equipment;
 - `optional` — available as a separately selectable paid option;
 - `not_available` — explicitly absent or unavailable for the configuration;
-- `package` — available only as part of a package; the specific package may remain unidentified;
+- `package` — available as part of a package; the specific package may remain unidentified;
 - `unknown` — the source does not permit a reliable classification.
 
 A `package` status does not by itself create a package-component relationship or identify the package. Preserve the raw source marker in notes. See D-015 and D-035 in `DECISIONS.md`.

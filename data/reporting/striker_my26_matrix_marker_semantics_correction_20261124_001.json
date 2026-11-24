@@ -21,7 +21,8 @@
     "standard": 3,
     "not_available": 51,
     "package": 7,
-    "unknown": 0
+    "unknown": 0,
+    "notes": "No specific package identity is inferred."
   },
   "status_definitions": {
     "standard": "● — present as standard equipment.",
@@ -41,7 +42,7 @@
     "package_mappings": 7,
     "journey_price_pln": 1000,
     "source_interpretation": "Project Owner decision D-035.",
-    "notes": "The seven P cells are package-only availability. No amount is assigned to those cells and no specific named package membership is inferred."
+    "notes": "The seven P cells indicate package availability. No amount is assigned to those cells and no specific named package membership is inferred."
   },
   "owner_interpretation": {
     "decision_id": "D-035",

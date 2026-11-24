@@ -452,4 +452,4 @@ The collaboration contract between the Project Owner and the AI assistant.
 
 ## Equipment Availability Status
 
-A controlled classification of how an equipment item is supplied for a vehicle configuration: `standard`, `optional`, `not_available`, `package` or `unknown`. The `package` state means package-only availability and does not identify the named package unless a source explicitly does so.
+A controlled classification of how an equipment item is supplied for a vehicle configuration: `standard`, `optional`, `not_available`, `package` or `unknown`. The `package` state means availability through a package and does not identify the named package unless a source explicitly does so.
