@@ -34,6 +34,8 @@ jobs:
     outputs:
       branch: ${{ steps.verify.outputs.branch }}
       head_sha: ${{ steps.verify.outputs.head_sha }}
+      pr_number: ${{ steps.verify.outputs.pr_number }}
+      base_sha: ${{ steps.verify.outputs.base_sha }}
     steps:
       - name: Verify exact open same-repository PR head
         id: verify
@@ -64,8 +66,16 @@ jobs:
             if (pr.head.sha !== expected) {
               throw new Error(`Stale SHA: supplied ${expected}, current PR head is ${pr.head.sha}.`);
             }
+            const { data: mainRef } = await github.rest.git.getRef({
+              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+            });
+            if (pr.base.sha !== mainRef.object.sha) {
+              throw new Error(`PR base is stale: PR uses ${pr.base.sha}, current main is ${mainRef.object.sha}. Update the PR branch first.`);
+            }
             core.setOutput("branch", pr.head.ref);
             core.setOutput("head_sha", pr.head.sha);
+            core.setOutput("pr_number", String(number));
+            core.setOutput("base_sha", mainRef.object.sha);
 
       - name: Check out the verified immutable PR head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -132,3 +142,184 @@ jobs:
             project/STATE_SUMMARY.md
           if-no-files-found: error
           retention-days: 1
+
+  write-back-baseline-repair:
+    name: Apply verified baseline repair to the PR branch
+    needs: generate-baseline-repair
+    if: needs.generate-baseline-repair.result == 'success' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+      actions: write
+    steps:
+      - name: Re-verify the exact open PR before write-back
+        id: verify
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
+        env:
+          PR_NUMBER: ${{ needs.generate-baseline-repair.outputs.pr_number }}
+          PR_BRANCH: ${{ needs.generate-baseline-repair.outputs.branch }}
+          EXPECTED_HEAD_SHA: ${{ needs.generate-baseline-repair.outputs.head_sha }}
+          EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
+        with:
+          script: |
+            const number = Number(process.env.PR_NUMBER);
+            const branch = String(process.env.PR_BRANCH || "");
+            const expected = String(process.env.EXPECTED_HEAD_SHA || "");
+            const expectedBase = String(process.env.EXPECTED_BASE_SHA || "");
+            if (!Number.isInteger(number) || number < 1 ||
+                !/^[A-Za-z0-9._/-]{1,200}$/.test(branch) ||
+                branch.startsWith("-") || branch.includes("..") ||
+                !/^[0-9a-f]{40}$/.test(expected) ||
+                !/^[0-9a-f]{40}$/.test(expectedBase)) {
+              throw new Error("Invalid verified PR write-back inputs.");
+            }
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: number
+            });
+            const { data: mainRef } = await github.rest.git.getRef({
+              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+            });
+            if (pr.state !== "open" || pr.base.ref !== "main" || pr.base.sha !== expectedBase ||
+                mainRef.object.sha !== expectedBase ||
+                !pr.head.repo ||
+                pr.head.repo.full_name.toLowerCase() !== `${context.repo.owner}/${context.repo.repo}`.toLowerCase() ||
+                pr.head.ref !== branch || pr.head.sha !== expected) {
+              throw new Error("PR identity, base or exact head changed; refusing baseline write-back.");
+            }
+            core.setOutput("branch", branch);
+            core.setOutput("head_sha", expected);
+
+      - name: Check out the verified immutable PR head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ steps.verify.outputs.head_sha }}
+          fetch-depth: 0
+          persist-credentials: true
+          token: ${{ github.token }}
+
+      - name: Download generated baseline artifact
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: canonical-baseline-repair
+          path: baseline-repair
+
+      - name: Validate artifact manifest and apply only allowlisted files
+        id: apply
+        shell: bash
+        env:
+          EXPECTED_HEAD_SHA: ${{ steps.verify.outputs.head_sha }}
+          EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$(git rev-parse HEAD)" == "$EXPECTED_HEAD_SHA" ]] || {
+            echo "Checked-out commit does not match the verified PR head." >&2
+            exit 1
+          }
+          git fetch --no-tags origin "refs/heads/main:refs/remotes/origin/main"
+          [[ "$(git rev-parse refs/remotes/origin/main)" == "$EXPECTED_BASE_SHA" ]] || {
+            echo "The main branch advanced during baseline generation; refusing a stale write-back." >&2
+            exit 1
+          }
+          git merge-base --is-ancestor refs/remotes/origin/main HEAD || {
+            echo "The PR head does not contain the current main commit." >&2
+            exit 1
+          }
+          [[ -z "$(git status --porcelain --untracked-files=all)" ]] || {
+            echo "Checkout is not clean before artifact application." >&2
+            exit 1
+          }
+          [[ -z "$(find baseline-repair -type l -print -quit)" ]] || {
+            echo "Artifact contains a symbolic link; refusing write-back." >&2
+            exit 1
+          }
+          expected="$(printf '%s\n' \
+            CHANGELOG.md \
+            README.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/state.json \
+            project/STATE_SUMMARY.md)"
+          actual="$(find baseline-repair -type f -printf '%P\n' | LC_ALL=C sort)"
+          expected_sorted="$(printf '%s\n' "$expected" | LC_ALL=C sort)"
+          [[ "$actual" == "$expected_sorted" ]] || {
+            echo "Artifact file manifest differs from the exact six-file allowlist." >&2
+            printf 'Expected:\n%s\nActual:\n%s\n' "$expected_sorted" "$actual" >&2
+            exit 1
+          }
+          while IFS= read -r path; do
+            install -D -- "baseline-repair/$path" "$path"
+          done <<< "$expected"
+          git add -- \
+            CHANGELOG.md \
+            README.md \
+            project/ROADMAP.md \
+            project/SESSION_STATE.md \
+            project/state.json \
+            project/STATE_SUMMARY.md
+          staged="$(git diff --cached --name-only | LC_ALL=C sort)"
+          if [[ -n "$staged" ]]; then
+            while IFS= read -r path; do
+              case "$path" in
+                CHANGELOG.md|README.md|project/ROADMAP.md|project/SESSION_STATE.md|project/state.json|project/STATE_SUMMARY.md) ;;
+                *) echo "Unexpected staged path: $path" >&2; exit 1 ;;
+              esac
+            done <<< "$staged"
+          fi
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No generated content differs from the verified PR branch."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(state): apply canonical baseline repair"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Push the repair commit without force
+        if: steps.apply.outputs.changed == 'true'
+        shell: bash
+        env:
+          PR_BRANCH: ${{ steps.verify.outputs.branch }}
+        run: |
+          set -euo pipefail
+          git push origin "HEAD:refs/heads/$PR_BRANCH"
+
+      - name: Verify write-back and dispatch required PR checks
+        if: steps.apply.outputs.changed == 'true'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
+        env:
+          PR_NUMBER: ${{ needs.generate-baseline-repair.outputs.pr_number }}
+          PR_BRANCH: ${{ steps.verify.outputs.branch }}
+          COMMIT_SHA: ${{ steps.apply.outputs.commit_sha }}
+          EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
+        with:
+          script: |
+            const number = Number(process.env.PR_NUMBER);
+            const branch = process.env.PR_BRANCH;
+            const commit = process.env.COMMIT_SHA;
+            const expectedBase = process.env.EXPECTED_BASE_SHA;
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner, repo: context.repo.repo, pull_number: number
+            });
+            const { data: mainRef } = await github.rest.git.getRef({
+              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+            });
+            if (pr.state !== "open" || pr.base.ref !== "main" || pr.base.sha !== expectedBase ||
+                mainRef.object.sha !== expectedBase || pr.head.ref !== branch || pr.head.sha !== commit) {
+              throw new Error("Write-back was pushed, but PR head/base freshness verification failed.");
+            }
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner, repo: context.repo.repo,
+              workflow_id: "quality.yml", ref: branch
+            });
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner, repo: context.repo.repo,
+              workflow_id: "repository-baselines.yml", ref: branch
+            });
+            core.notice(`Applied baseline repair as ${commit} to PR #${number}; dispatched Quality and Repository Baselines on the updated branch.`);
+
+      - name: Record no-op result
+        if: steps.apply.outputs.changed != 'true'
+        run: echo "No commit was needed; the six generated files already match the PR branch."
