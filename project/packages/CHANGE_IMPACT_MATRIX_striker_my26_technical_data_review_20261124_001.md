@@ -5,7 +5,7 @@
 - Package: `striker_my26_technical_data_review_20261124_001`
 - PR: #898
 - Base SHA: `db0aa2b006faa8fb7abe7a64bdc915fd6ea96107`
-- Candidate head SHA: pending after CI-remediation commit
+- Validated data/code head SHA: `c01969f814e3670c41d3f86ce06b672ff810a953`; this closure update changes only the matrix document
 - Source: `src_pl_striker_price_my26_20261102`; archived `PDF/Cenniki/striker-price.pdf`
 - Source SHA-256: `d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35`
 - Scope: 11 exact source-linked configurations; pages 6–7
@@ -32,7 +32,7 @@
 | Exports and release assets | Export schemas and release artifacts remain compatible | N/A | artifact: project/state.json | No export schema, release asset or published data product is changed |
 | Historical tests | Historical fixtures and frozen baselines remain isolated | N/A | artifact: tests/test_striker_my26_technical_data_review_20261124.py | No historical snapshot or release-baseline fixture is modified; 12 new regression tests are scoped to this source and its 11 configurations |
 | Tooling | Importer and package tooling contracts are preserved | N/A | artifact: tools/import_configuration_values.py | No importer implementation or shared tooling is changed; existing declarative importers are reused |
-| Generated documentation | Canonical state and managed documentation are synchronized | PASS | command: python tools/dkb.py project-state --check | Observed: Repository Baselines run 45507092013 passed both project-state and documentation-baseline checks on the preceding PR head; the state/docs content is unchanged by this report-metadata remediation and final-head CI will rerun the checks |
+| Generated documentation | Canonical state and managed documentation are synchronized | PASS | command: python tools/dkb.py project-state --check | Observed: Repository Baselines run 45508316155 passed both project-state and documentation-baseline checks on data/code head `c01969f814e3670c41d3f86ce06b672ff810a953`; this closure update changes only the matrix document and final-head CI will rerun the checks |
 | CI | Workflow definitions and exact-head required checks are reviewed | N/A | command: python tools/change_impact_matrix.py --base-ref origin/main --head-ref HEAD | No workflow definition is changed by this package; exact-head Quality and Repository Baselines checks remain mandatory merge gates and closure stays open until they pass |
 
 ## Test-contract review
@@ -52,13 +52,16 @@
 
 | Initial failure | Category | Evidence inspected | Corrective action | Re-run result |
 |---|---|---|---|---|
-| New report lacked required report_metadata | stale report / provenance contract | Quality run 45507091941, jobs 138844983534 and 138844983870 | Add report ID, timestamp, repository, base SHA, PDF Git/SHA-256 fingerprints, scope, status and finding provenance; align Markdown parity and dependencies | Pending exact-head rerun |
+| New report lacked required report_metadata | stale report / provenance contract | Quality run 45507091941, jobs 138844983534 and 138844983870 | Add report ID, timestamp, repository, base SHA, PDF Git/SHA-256 fingerprints, scope, status and finding provenance; align Markdown parity and dependencies | Passed on data/code head `c01969f814e3670c41d3f86ce06b672ff810a953`; final-head checks rerun after this matrix-only update |
 | New regression test attempted PDF text extraction without the pinned backend in the general Quality runner | test-environment / source-extraction contract | Quality run 45507548488, Python 3.10 job 138846548229 and Python 3.13 job 138846548278 | Verify PDF binary identity in the general test suite and reference the independently successful pinned source-audit artifact for page-6 extracted text | Pending exact-head rerun |
-| Change-impact matrix omitted mandatory sections and area rows | tooling / CI contract | Quality run 45507091941, Python 3.14 job 138844983842 | Replace package matrix with the enforced template, all ten areas and exact checked test-contract items | Passed on remediation head 55dc4eb |
+| Change-impact matrix omitted mandatory sections and area rows | tooling / CI contract | Quality run 45507091941, Python 3.14 job 138844983842 | Replace package matrix with the enforced template, all ten areas and exact checked test-contract items | Passed on data/code head `c01969f814e3670c41d3f86ce06b672ff810a953` |
 
 ## Closure
 
-- Final tested head SHA: pending after the source-extraction test correction.
-- Required checks: all required Quality, Windows package and Repository Baselines checks must pass on the exact final PR head.
+- Validated data/code head SHA: `c01969f814e3670c41d3f86ce06b672ff810a953`.
+- Quality run #45508315790: all four jobs passed, including 2054 tests on Python 3.10 and 3.13, the full Python 3.14 quality gate and the Windows package workflow.
+- Repository Baselines run #45508316155: project-state and documentation-baseline checks both passed.
+- All 17 source-triggered reporting, comparison, export and release workflows passed.
+- This closure commit changes only this matrix document; exact-head Quality and Repository Baselines checks must pass again before merge.
 - Unresolved source findings: hybrid 155 CO2 `95/96`, minimum running-order mass semantics, maximum folded-seat luggage-volume basis, trim-level tyre fitment, 1000 m standing-start time and unexplained interior dimensions remain explicitly recorded.
 - Merge decision: do not merge until the complete exact-head CI matrix is green and no blocking review threads remain.
