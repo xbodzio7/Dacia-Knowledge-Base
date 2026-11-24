@@ -3,6 +3,7 @@
   "report_id": "sandero_stepway_catalogue_price_history_2026",
   "generated_from": [
     "data/master/configuration_prices.csv",
+    "data/master/sources.csv",
     "project/sources/sandero_stepway_price_my26_20261102_import_spec.json"
   ],
   "scope": {
@@ -43,7 +44,8 @@
       "document_date": "2026-08-11",
       "role": "previous_complete_price_baseline",
       "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-stepway-price.pdf.asset.pdf/bd9f9519ce.pdf",
-      "evidence": "catalogue price matrix, printed page 1"
+      "evidence": "catalogue price matrix, printed page 1",
+      "sha256": "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a"
     },
     {
       "source_code": "src_pl_sandero_stepway_price_my26_20261102",
