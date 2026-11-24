@@ -22,14 +22,14 @@
 |---|---|---|---|---|
 | Canonical registries | Existing source, grade and configuration links | PASS | command: `python tools/dkb.py package-preflight` | Observed: the package reuses the registered source and its 4 grade/11 configuration relationships; no registry rows are added. |
 | Configuration inventory | Exact grade/configuration applicability | PASS | command: `python tools/import_striker_price_list_commercial_matrix_20261102.py --check` | Observed: the importer contract fixes the exact 11 configuration codes and 121 mapping cells. |
-| Portfolio summaries | Configuration/technical completeness scopes | N/A | artifact: `data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.json` | No configuration, technical attribute or equipment-availability observations are added; no portfolio completeness snapshot is regenerated. |
-| Comparison scopes | Existing Striker price-only comparison scope | N/A | artifact: `project/packages/striker-my26-catalogue-price-import-20261122.md` | The existing 11-configuration price-only scope is unchanged; no comparison schema or technical slots are modified. |
-| Reports | Source-backed commercial matrix report | PASS | artifact: `data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.md` | Observed: JSON/Markdown report records all 11 priced rows, applicability, status counts and P-marker evidence boundary. |
-| Exports and release assets | Public release/product export surface | N/A | artifact: `project/packages/striker-my26-priced-options-packages-matrix-20261124.md` | No release asset is rebuilt; no export schema or release version changes in this package. |
-| Historical tests | Exact matrix and history regression coverage | PASS | artifact: `tests/test_striker_price_list_commercial_matrix_20261102.py` | Observed: seven focused tests assert exact status totals, prices, grade scope, P-marker preservation and unchanged historical mappings; execution is gated by PR CI. |
-| Tooling | Source-bound deterministic importer | PASS | artifact: `tools/import_striker_price_list_commercial_matrix_20261102.py` | Observed: importer verifies archive containment, source identity, SHA-256, byte size, capture manifest, sidecar and exact source links. |
+| Portfolio summaries | Configuration/technical completeness scopes | N/A | artifact: data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.json | No configuration, technical attribute or equipment-availability observations are added; no portfolio completeness snapshot is regenerated. |
+| Comparison scopes | Existing Striker price-only comparison scope | N/A | artifact: project/packages/striker-my26-catalogue-price-import-20261122.md | The existing 11-configuration price-only scope is unchanged; no comparison schema or technical slots are modified. |
+| Reports | Source-backed commercial matrix report | PASS | artifact: data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.md | Observed: JSON/Markdown report records all 11 priced rows, applicability, status counts and P-marker evidence boundary. |
+| Exports and release assets | Public release/product export surface | N/A | artifact: project/packages/striker-my26-priced-options-packages-matrix-20261124.md | No release asset is rebuilt; no export schema or release version changes in this package. |
+| Historical tests | Exact matrix and history regression coverage | PASS | artifact: tests/test_striker_price_list_commercial_matrix_20261102.py | Observed: seven focused tests assert exact status totals, prices, grade scope, P-marker preservation and unchanged historical mappings; execution is gated by PR CI. |
+| Tooling | Source-bound deterministic importer | PASS | artifact: tools/import_striker_price_list_commercial_matrix_20261102.py | Observed: importer verifies archive containment, source identity, SHA-256, byte size, capture manifest, sidecar and exact source links. |
 | Generated documentation | Canonical state and managed baseline blocks | PASS | command: `python tools/dkb.py project-state --check` | Observed: state counters are synchronized to 2,042 tests and 23,033 master rows; the required workflow verifies generated blocks. |
-| CI | Exact-head required validation | N/A | command: `python tools/change_impact_matrix.py --base-ref origin/main --head-ref HEAD` | CI has not run on the final PR head yet; all six required checks must pass before merge. |
+| CI | Exact-head required validation | N/A | command: `python tools/change_impact_matrix.py --base-ref origin/main --head-ref HEAD` | Initial PR checks exposed the metadata defects described below; this commit corrects them. All six required checks must pass on the final head before merge. |
 
 ## Test-contract review
 
@@ -46,7 +46,7 @@
 
 ## Failure classification
 
-No CI execution has started on this branch yet. No failure is currently observed. Any later failure must be classified from the exact failed job/step as a source/data-contract defect, code/test defect, generated-baseline drift or environment/external failure; do not infer the cause from the top-level red status.
+The first CI attempt found three package metadata defects: report Scope parity did not match, evidence artifact paths in the change-impact matrix included Markdown backticks, and canonical state still described the previous package. These were documentation/state contract defects, not source evidence or environment failures. The follow-up commit corrects all three; final exact-head CI must confirm the repair.
 
 ## Closure
 

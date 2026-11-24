@@ -27,22 +27,22 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "striker_my26_catalogue_price_import_20261122_001",
+    "package_id": "striker_my26_priced_options_packages_matrix_20261124_001",
     "kind": "source_price_list_assimilation",
-    "name": "Striker MY26 2026-11-02 Catalogue Price Matrix Import",
-    "status": "complete",
-    "goal": "Import all 11 non-empty catalogue price cells from page 1 of the official Polish Striker MY26 cennik effective 2026-11-02. Register four exact grades, 11 source-linked grade/powertrain configurations and dated catalog_gross prices. Cross-check transmission classification against page 5; do not import promotions, financing, option/package prices, equipment or other technical observations in this package.",
-    "report_id": "striker_my26_catalogue_price_import_20261122_001",
-    "report_path": "data/reporting/striker_my26_catalogue_price_import_20261122_001.json",
-    "pull_request": 878,
+    "name": "Striker MY26 2026-11-02 Priced Options and Packages Matrix",
+    "status": "active",
+    "goal": "Reconcile the 11 printed Striker MY26 option/package rows on page 5 of the official Polish cennik effective 2026-11-02 against all 11 exact source-linked configurations. Register 11 commercial items and 121 dated grade/configuration mappings: 60 optional, three standard, 51 explicitly not_available and seven unknown P markers. Preserve exact prices and grade applicability. The P marker for heated washer nozzles and windscreen is retained as unknown; no standalone price or package membership is inferred. Do not import package-component equipment, promotions, financing or unrelated technical observations in this package.",
+    "report_id": "striker_my26_priced_options_packages_matrix_20261124_001",
+    "report_path": "data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.json",
+    "pull_request": 892,
     "master_data_changed": true
   },
   "next_package": {
-    "package_id": "striker_my26_priced_options_and_packages_matrix_review_20261122_001",
+    "package_id": "striker_my26_p_marker_and_package_composition_review_20261124_001",
     "kind": "source_price_list_assimilation",
-    "name": "Striker MY26 Priced Options and Packages Matrix Review",
+    "name": "Striker MY26 P-Marker and Package Composition Evidence Review",
     "status": "planned",
-    "goal": "Quality-guardrail closure verified on remote main before resuming model-data assimilation. Portfolio-wide and transitive report regression guardrails, explicit report dependency declarations and input closure, historical-scope effective-date and future-source fail-closed checks, CI change-impact matrices, canonical baseline repair workflow and explicit allowlist, plus import-time source archive path and SHA-256 integrity gates are implemented in merged PRs #879–#889. All six required CI checks passed on the exact heads of PRs #879–#889, and the post-merge Quality and Repository Baselines workflows passed on main commit f44544a0038173d9789db137c69bd0d552a66734. Resume only the original cennik-only scope: review explicitly priced Striker MY26 options and packages from the archived official Polish cennik. Preserve P/package markers, exact grade applicability, and unresolved/blank cells; do not infer promotions, financing, dealer offers, equipment or technical data.",
+    "goal": "Review the literal P cells for heated washer nozzles and windscreen and package-component descriptions in the official 2026-11-02 Striker MY26 cennik. Preserve exact markers and distinguish package contents from standalone equipment without inferring applicability beyond the source. Remain cennik-only; no configurator or brochure evidence.",
     "report_id": null,
     "report_path": null,
     "pull_request": null,
@@ -123,6 +123,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Striker MY26 priced options and packages matrix review",
-  "rationale": "The owner’s 2026-11-22 stop condition is satisfied: all portfolio-wide, historical-scope and report-dependency safeguards are implemented, documented and pass the six required CI checks. PRs #879–#889 are merged; the post-merge push workflows also passed on current main. The next package is therefore unblocked for the previously authorized cennik-only Striker MY26 priced-options review. No model-data assimilation has yet resumed."
+  "next_package_selection": "Striker MY26 P-marker and package composition evidence review",
+  "rationale": "All portfolio-wide, historical-scope and report-dependency safeguards are merged and verified: post-merge Quality and Repository Baselines passed on main 99df129aed048b4f1ac2c58c19084143f1ebfe15. The exact owner-supplied Striker MY26 cennik is present in the persistent Library and its matching repository archive has verified SHA-256, byte size and eight-page identity. The cennik-only matrix review is active; literal P markers are preserved as unknown rather than interpreted."
 }

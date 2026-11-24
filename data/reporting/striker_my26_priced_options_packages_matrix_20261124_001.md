@@ -59,4 +59,4 @@ Report ID: striker_my26_priced_options_packages_matrix_20261124_001
 Generated: 2026-11-24T19:37:00+01:00
 Analysed commit: 99df129aed048b4f1ac2c58c19084143f1ebfe15
 Status: current
-Scope: Official Polish Striker MY26 2026-11-02 cennik, printed page 5, 11 exact source-linked configurations
+Scope: Official Polish Striker MY26 cennik effective 2026-11-02; printed option/package matrix on page 5; 11 exact source-linked configurations.
