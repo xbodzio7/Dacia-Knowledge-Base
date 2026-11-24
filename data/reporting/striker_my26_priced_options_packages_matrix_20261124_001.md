@@ -54,3 +54,9 @@ The heated washer nozzles/windscreen row has literal `P` markers in Expression a
 - `tools/import_striker_price_list_commercial_matrix_20261102.py`
 - `tests/test_striker_price_list_commercial_matrix_20261102.py`
 - `data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.json`
+
+Report ID: striker_my26_priced_options_packages_matrix_20261124_001
+Generated: 2026-11-24T19:37:00+01:00
+Analysed commit: 99df129aed048b4f1ac2c58c19084143f1ebfe15
+Status: current
+Scope: Official Polish Striker MY26 2026-11-02 cennik, printed page 5, 11 exact source-linked configurations

@@ -236,5 +236,32 @@
     "Package-component attributes",
     "Interpretation of P markers",
     "Named paint-colour mappings"
+  ],
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "striker_my26_priced_options_packages_matrix_20261124_001",
+    "generated_at": "2026-11-24T19:37:00+01:00",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "99df129aed048b4f1ac2c58c19084143f1ebfe15",
+    "input_files": [
+      {
+        "path": "PDF/Cenniki/striker-price.pdf",
+        "git_blob_sha": "6bd425b2a53c50f6ba11fd5cecd5324b289c1c05",
+        "sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35"
+      }
+    ],
+    "scope": "Official Polish Striker MY26 cennik effective 2026-11-02; printed option/package matrix on page 5; 11 exact source-linked configurations.",
+    "status": "current"
+  },
+  "findings": [
+    {
+      "finding_id": "striker-my26-priced-options-packages-matrix",
+      "status": "resolved",
+      "evidence_refs": [
+        "PDF/Cenniki/striker-price.pdf#page=5",
+        "PDF/Cenniki/striker-price.pdf#page=4"
+      ],
+      "last_verified_at": "2026-11-24T19:37:00+01:00"
+    }
   ]
 }
