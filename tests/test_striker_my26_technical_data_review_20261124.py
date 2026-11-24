@@ -49,7 +49,7 @@ class StrikerMy26TechnicalDataReviewTests(unittest.TestCase):
   for c in mild:
    for f in ("petrol","lpg"):self.assertTrue(any(r["configuration_code"]==c and r["attribute_code"]=="co2_emissions" and r["fuel_type_code"]==f for r in self.sr))
   for c in CONFIGS:
-   e="4.2" if "_hybrid155_" in c else "5.3" if "_hybrid150_" in c or c.endswith("_manual") else "5.4";self.assertEqual(self.find(c,"fuel_consumption_combined")[0]["value"],e)
+   e="4.2" if "_hybrid155_" in c else "5.3" if "_hybrid150_" in c or c.endswith("_manual") else "5.4";fuel="petrol" if "_mildhybridg140_" in c else "";self.assertEqual(self.find(c,"fuel_consumption_combined",fuel)[0]["value"],e)
   for c in [x for x in CONFIGS if "_hybrid155_" in x]:self.assertFalse(self.find(c,"co2_emissions"));self.assertFalse(any(r["configuration_code"]==c and r["attribute_code"]=="co2_emissions" for r in self.sr))
  def test_dimensions_are_source_dated_and_exact(self):
   for c in CONFIGS:
