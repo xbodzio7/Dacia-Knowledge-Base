@@ -348,7 +348,7 @@
   "report_metadata": {
     "schema_version": 1,
     "report_id": "striker_my26_technical_data_review_20261124_001",
-    "generated_at": "2026-11-24T23:09:30.384Z",
+    "generated_at": "2026-11-24T23:14:37.388Z",
     "repository": "xbodzio7/Dacia-Knowledge-Base",
     "base_commit_sha": "db0aa2b006faa8fb7abe7a64bdc915fd6ea96107",
     "input_files": [
@@ -368,7 +368,7 @@
       "evidence_refs": [
         "PDF/Cenniki/striker-price.pdf#page=6"
       ],
-      "last_verified_at": "2026-11-24T23:09:30.384Z"
+      "last_verified_at": "2026-11-24T23:14:37.388Z"
     },
     {
       "finding_id": "striker-my26-minimum-running-order-mass-semantics",
@@ -376,7 +376,7 @@
       "evidence_refs": [
         "PDF/Cenniki/striker-price.pdf#page=6"
       ],
-      "last_verified_at": "2026-11-24T23:09:30.384Z"
+      "last_verified_at": "2026-11-24T23:14:37.388Z"
     },
     {
       "finding_id": "striker-my26-maximum-folded-seat-luggage-volume",
@@ -384,7 +384,7 @@
       "evidence_refs": [
         "PDF/Cenniki/striker-price.pdf#page=6"
       ],
-      "last_verified_at": "2026-11-24T23:09:30.384Z"
+      "last_verified_at": "2026-11-24T23:14:37.388Z"
     },
     {
       "finding_id": "striker-my26-tyre-size-trim-fitment",
@@ -392,7 +392,7 @@
       "evidence_refs": [
         "PDF/Cenniki/striker-price.pdf#page=6"
       ],
-      "last_verified_at": "2026-11-24T23:09:30.384Z"
+      "last_verified_at": "2026-11-24T23:14:37.388Z"
     },
     {
       "finding_id": "striker-my26-1000m-standing-start-time",
@@ -400,7 +400,7 @@
       "evidence_refs": [
         "PDF/Cenniki/striker-price.pdf#page=6"
       ],
-      "last_verified_at": "2026-11-24T23:09:30.384Z"
+      "last_verified_at": "2026-11-24T23:14:37.388Z"
     },
     {
       "finding_id": "striker-my26-interior-dimension-asterisks",
@@ -408,7 +408,7 @@
       "evidence_refs": [
         "PDF/Cenniki/striker-price.pdf#page=7"
       ],
-      "last_verified_at": "2026-11-24T23:09:30.384Z"
+      "last_verified_at": "2026-11-24T23:14:37.388Z"
     }
   ]
 }

@@ -28,7 +28,7 @@
 | Configuration inventory | Configuration scope and applicability are explicit | PASS | artifact: data/reporting/striker_my26_technical_completeness_20261124.json | Observed: the technical scope contains exactly 11 source-linked configuration codes and no new configuration identities |
 | Portfolio summaries | Derived totals and scopes reconcile | N/A | artifact: data/reporting/striker_my26_technical_completeness_20261124.json | No portfolio-wide summary or cross-model aggregate is changed; only the Striker package-specific technical scope is recorded |
 | Comparison scopes | Comparison inputs and pairings remain valid | N/A | artifact: project/state.json | No comparison scope, pairing registry or comparison output is changed |
-| Reports | Provenance, findings and direct dependencies are registered | PASS | artifact: data/reporting/striker_my26_technical_data_review_20261124_001.json | Observed: the report has matching JSON/Markdown metadata, a registered PDF Git blob SHA and SHA-256, timezone-aware generation/finding timestamps, six explicit findings and declared report dependencies |
+| Reports | Provenance, findings and direct dependencies are registered | PASS | artifact: data/reporting/striker_my26_technical_data_review_20261124_001.json | Observed: the report has matching JSON/Markdown metadata, a registered PDF Git blob SHA and SHA-256, timezone-aware generation/finding timestamps, six explicit findings, a page-6 text-audit artifact reference and declared report dependencies |
 | Exports and release assets | Export schemas and release artifacts remain compatible | N/A | artifact: project/state.json | No export schema, release asset or published data product is changed |
 | Historical tests | Historical fixtures and frozen baselines remain isolated | N/A | artifact: tests/test_striker_my26_technical_data_review_20261124.py | No historical snapshot or release-baseline fixture is modified; 12 new regression tests are scoped to this source and its 11 configurations |
 | Tooling | Importer and package tooling contracts are preserved | N/A | artifact: tools/import_configuration_values.py | No importer implementation or shared tooling is changed; existing declarative importers are reused |
@@ -53,11 +53,12 @@
 | Initial failure | Category | Evidence inspected | Corrective action | Re-run result |
 |---|---|---|---|---|
 | New report lacked required report_metadata | stale report / provenance contract | Quality run 45507091941, jobs 138844983534 and 138844983870 | Add report ID, timestamp, repository, base SHA, PDF Git/SHA-256 fingerprints, scope, status and finding provenance; align Markdown parity and dependencies | Pending exact-head rerun |
-| Change-impact matrix omitted mandatory sections and area rows | tooling / CI contract | Quality run 45507091941, Python 3.14 job 138844983842 | Replace package matrix with the enforced template, all ten areas and exact checked test-contract items | Pending exact-head rerun |
+| New regression test attempted PDF text extraction without the pinned backend in the general Quality runner | test-environment / source-extraction contract | Quality run 45507548488, Python 3.10 job 138846548229 and Python 3.13 job 138846548278 | Verify PDF binary identity in the general test suite and reference the independently successful pinned source-audit artifact for page-6 extracted text | Pending exact-head rerun |
+| Change-impact matrix omitted mandatory sections and area rows | tooling / CI contract | Quality run 45507091941, Python 3.14 job 138844983842 | Replace package matrix with the enforced template, all ten areas and exact checked test-contract items | Passed on remediation head 55dc4eb |
 
 ## Closure
 
-- Final tested head SHA: pending after this remediation commit.
+- Final tested head SHA: pending after the source-extraction test correction.
 - Required checks: all required Quality, Windows package and Repository Baselines checks must pass on the exact final PR head.
 - Unresolved source findings: hybrid 155 CO2 `95/96`, minimum running-order mass semantics, maximum folded-seat luggage-volume basis, trim-level tyre fitment, 1000 m standing-start time and unexplained interior dimensions remain explicitly recorded.
 - Merge decision: do not merge until the complete exact-head CI matrix is green and no blocking review threads remain.

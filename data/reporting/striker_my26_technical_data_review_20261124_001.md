@@ -1,7 +1,7 @@
 # Striker MY26 technical data review — 2026-11-24
 
 Report ID: striker_my26_technical_data_review_20261124_001
-Generated: 2026-11-24T23:09:30.384Z
+Generated: 2026-11-24T23:14:37.388Z
 Analysed commit: db0aa2b006faa8fb7abe7a64bdc915fd6ea96107
 Status: current
 Scope: Official Polish Striker MY26 cennik effective 2026-11-02; technical and performance evidence from page 6 and exterior-dimension evidence from page 7, across 11 exact source-linked configurations. 423 scalar observations and 21 bounded ranges are imported; unresolved source semantics remain excluded.
@@ -50,4 +50,4 @@ No prices, priced options, package memberships, commercial-item mappings, model/
 
 ## Source verification
 
-The archived PDF identity is fixed by its registered SHA-256, byte size and eight-page count. Page-6 specifications validate source text. Page-7 dimension specifications skip text-layer matching only because the diagram is vector artwork; binary hash and file identity remain verified.
+The archived PDF identity is fixed by its registered SHA-256, byte size and eight-page count. Page-6 transcription was checked against the extracted text in source-audit artifact 14963738199 from workflow run 45487054378. The general Quality runner verifies the same PDF binary identity but does not attempt text extraction because its pinned PDF text backend is not installed there. Page-7 dimensions were visually transcribed from the vector diagram; text matching is skipped only for that page while binary identity remains verified.
