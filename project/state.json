@@ -37,13 +37,13 @@
     "master_data_changed": false
   },
   "next_package": {
-    "package_id": "spring_my26_dimension_diagram_dc40_p_marker_review_20261124_001",
+    "package_id": "striker_my26_technical_equipment_residual_review_20261124_001",
     "kind": "source_price_list_evidence_review",
-    "name": "Spring MY26 Dimension Diagram and DC 40 kW Package Marker Review",
+    "name": "Striker MY26 Remaining Technical and Equipment Evidence Review",
     "status": "planned",
-    "goal": "Reconcile the archived official Polish Spring MY26 cennik effective 2026-02-06 for the Extreme DC 40 kW P marker and dimension-diagram semantics. Use only the cennik, preserve unresolved applicability and measurement semantics, and import only exact source-backed facts not already represented in master data.",
-    "report_id": "spring_my26_dimension_diagram_dc40_p_marker_review_20261124_001",
-    "report_path": "data/reporting/spring_my26_dimension_diagram_dc40_p_marker_review_20261124_001.json",
+    "goal": "Review the remaining technical, equipment and dimension evidence in the archived official Polish Striker MY26 cennik effective 2026-11-02 against the 11 exact source-linked configurations and current master data. Exclude the 11 page-1 catalogue prices already imported in PR #878, the page-5 priced options/packages matrix completed in PR #892, and the P-marker/package-composition review completed in PR #894. Preserve unresolved applicability and source conflicts; import only exact facts directly supported by the cennik. Use no brochures or configurator evidence.",
+    "report_id": null,
+    "report_path": null,
     "master_data_changed": false
   },
   "autonomy": {
@@ -121,6 +121,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Spring MY26 dimension diagram and DC 40 kW package marker review",
-  "rationale": "The Striker MY26 cennik review is complete: package descriptions explicitly enumerate the contents of six packages, while the literal P marker is not defined anywhere in the eight-page source. Seven existing P mappings remain unknown; no master data changed. Continue the cennik-only sequence with the previously identified Spring MY26 dimension diagram and Extreme DC 40 kW P marker review, reconciling all evidence against current main before any import."
+  "next_package_selection": "Striker MY26 remaining technical and equipment evidence review",
+  "rationale": "The Spring MY26 2026-02-06 dimension diagram and Extreme DC 40 kW P-marker review was already completed in PR #870 (merge commit 285cf33151a489dafdce53b45434b22ad76717e1); repeating it would duplicate completed work. Striker's 11 catalogue price cells are already imported in PR #878, its 11 priced option/package items and 121 mappings are complete in PR #892, and PR #894 documented the six explicit package descriptions while preserving seven undefined P mappings as unknown. The next bounded cennik-only scope is the remaining Striker MY26 technical/equipment/dimension evidence not already represented in master data, excluding those completed areas and preserving all unresolved applicability and source conflicts."
 }

@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Corrected the next-package selection after PR #894: the Spring MY26 dimension/DC 40 kW review was already completed in PR #870, and Striker's 11 catalogue prices and priced options/packages matrix are already present from PRs #878 and #892. The next bounded scope is the remaining Striker MY26 technical/equipment/dimension evidence in the archived cennik; no master data changed in this planning correction.
+
 * Completed the Striker MY26 2026-11-02 cennik evidence review: documented the explicit contents of six named packages, confirmed that the literal P marker is undefined in the eight-page source, and retained all seven P mappings as unknown. No master-data changes. Detailed report and review receipt added.
 
 * Added the Striker MY26 2026-11-02 priced options/packages matrix in PR #892: 11 commercial items and 121 dated grade/configuration mappings (60 optional, three standard, 51 not available, seven unknown P markers). The literal P markers remain uninterpreted; no package-component equipment was inferred. All six required post-merge Quality and Repository Baselines checks passed on main commit `6682f2323fcb1a7650c61a4848aa7f078a247635`.

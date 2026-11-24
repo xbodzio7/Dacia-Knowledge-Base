@@ -547,3 +547,11 @@ Durable receipts:
 - `project/reviews/striker-my26-p-marker-and-package-composition-evidence-review-2026-11-24.md`
 
 No master data changed. Next: review the Spring MY26 2026-02-06 dimension diagram and Extreme DC 40 kW P marker against current master data, using only the cennik and preserving unresolved evidence.
+
+## Next-package correction after Striker evidence review — 2026-11-24
+
+The next-package pointer written after PR #894 incorrectly selected the Spring MY26 dimension diagram and DC 40 kW P-marker review. That work was already completed in PR #870 (squash merge `285cf33151a489dafdce53b45434b22ad76717e1`): the Extreme DC 40 kW P cells were identified as POWER-package components, and two source-specific 155 mm ground-clearance observations were added for Expression Electric 70 and Extreme Electric 100. Do not repeat that package.
+
+The Striker MY26 page-1 catalogue prices are already imported in PR #878 (11 dated rows across 11 exact configurations). PR #892 completed the page-5 commercial matrix (11 items and 121 mappings), and PR #894 completed the P-marker/package-composition review. The seven P mappings remain unknown; the six package descriptions remain documented without inferred equipment-component rows.
+
+The corrected next package is `striker_my26_technical_equipment_residual_review_20261124_001`: review only the remaining technical, equipment and dimension evidence in the archived official Striker MY26 cennik against current master data. Exclude completed page-1 prices, page-5 priced options/packages, and the P/package-composition review. Use only the cennik; preserve unresolved applicability and source conflicts. No master data changes are made by this planning correction.
