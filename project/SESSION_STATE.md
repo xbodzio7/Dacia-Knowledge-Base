@@ -131,6 +131,13 @@ The Duster mini brochure was previously selected as a source-gap package, but cu
 
 No master data was changed in this state-reconciliation step. Tests/Quality were not rerun.
 
+
+## Quality-guardrail closure — 2026-11-24
+
+The Project Owner’s temporary block on model-data assimilation is technically satisfied. PRs #879–#889 are merged to `main`. The closure covers portfolio-wide and transitive report regression checks, explicit analytical-report dependency declarations and input closure, fail-closed historical effective-date/future-source rules, source/master-data change-impact matrices, trusted read-only canonical baseline repair with an explicit six-file allowlist, and import-time source archive path/SHA-256 verification. All six required checks passed on the exact heads of the safeguard PRs; after PR #889, the push-triggered Quality and Repository Baselines workflows also passed on main commit `f44544a0038173d9789db137c69bd0d552a66734`.
+
+The next package is unblocked in principle: Striker MY26 priced options and packages, using only the archived official Polish price list and preserving every P/package marker and unresolved applicability. No model-data assimilation has started in this closure step. Canonical counters and generated state documentation must still be refreshed through the trusted Baseline Repair workflow before the next package begins.
+
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
