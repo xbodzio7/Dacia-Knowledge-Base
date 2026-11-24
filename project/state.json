@@ -27,25 +27,23 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "striker_my26_priced_options_packages_matrix_20261124_001",
-    "kind": "source_price_list_assimilation",
-    "name": "Striker MY26 2026-11-02 Priced Options and Packages Matrix",
-    "status": "complete",
-    "goal": "Reconcile the 11 printed Striker MY26 option/package rows on page 5 of the official Polish cennik effective 2026-11-02 against all 11 exact source-linked configurations. Register 11 commercial items and 121 dated grade/configuration mappings: 60 optional, three standard, 51 explicitly not_available and seven unknown P markers. Preserve exact prices and grade applicability. The P marker for heated washer nozzles and windscreen remains unknown; no standalone price or package membership is inferred. Package-component equipment, promotions, financing and unrelated technical observations were excluded.",
-    "report_id": "striker_my26_priced_options_packages_matrix_20261124_001",
-    "report_path": "data/reporting/striker_my26_priced_options_packages_matrix_20261124_001.json",
-    "pull_request": 892,
-    "merge_commit_sha": "6682f2323fcb1a7650c61a4848aa7f078a247635",
-    "master_data_changed": true
-  },
-  "next_package": {
     "package_id": "striker_my26_p_marker_and_package_composition_evidence_review_20261124_001",
     "kind": "source_price_list_evidence_review",
     "name": "Striker MY26 P Marker and Package Composition Evidence Review",
-    "status": "planned",
-    "goal": "Review the literal P markers and descriptive package-component text in the archived official Polish Striker MY26 cennik effective 2026-11-02. Determine only what is explicitly defined by source legends, notes and matrix cross-references. Preserve unresolved P applicability as unknown where the source does not define it. Do not infer equipment availability or package membership, and do not use brochures or configurator sources under the active cennik-only priority.",
+    "status": "complete",
+    "goal": "Review all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02 for explicit definitions of the literal P marker and package composition. The cennik explicitly lists package contents for Zimowy, Zimowy Plus, Techno, Techno 2, City and City 2, but does not define P. Preserve all seven P mappings as unknown; no equipment availability or package membership was inferred and no master data changed.",
     "report_id": "striker_my26_p_marker_and_package_composition_evidence_review_20261124_001",
     "report_path": "data/reporting/striker_my26_p_marker_and_package_composition_evidence_review_20261124_001.json",
+    "master_data_changed": false
+  },
+  "next_package": {
+    "package_id": "spring_my26_dimension_diagram_dc40_p_marker_review_20261124_001",
+    "kind": "source_price_list_evidence_review",
+    "name": "Spring MY26 Dimension Diagram and DC 40 kW Package Marker Review",
+    "status": "planned",
+    "goal": "Reconcile the archived official Polish Spring MY26 cennik effective 2026-02-06 for the Extreme DC 40 kW P marker and dimension-diagram semantics. Use only the cennik, preserve unresolved applicability and measurement semantics, and import only exact source-backed facts not already represented in master data.",
+    "report_id": "spring_my26_dimension_diagram_dc40_p_marker_review_20261124_001",
+    "report_path": "data/reporting/spring_my26_dimension_diagram_dc40_p_marker_review_20261124_001.json",
     "master_data_changed": false
   },
   "autonomy": {
@@ -123,6 +121,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Striker MY26 P marker and package composition evidence review",
-  "rationale": "PR #892 has been merged to main as 6682f2323fcb1a7650c61a4848aa7f078a247635. All six required post-merge checks passed on that exact main commit: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check. The 11 priced option/package rows and 121 mappings are now in master data. Literal P markers remain unknown until the official cennik itself defines their meaning; next review is limited to that source and its package descriptions."
+  "next_package_selection": "Spring MY26 dimension diagram and DC 40 kW package marker review",
+  "rationale": "The Striker MY26 cennik review is complete: package descriptions explicitly enumerate the contents of six packages, while the literal P marker is not defined anywhere in the eight-page source. Seven existing P mappings remain unknown; no master data changed. Continue the cennik-only sequence with the previously identified Spring MY26 dimension diagram and Extreme DC 40 kW P marker review, reconciling all evidence against current main before any import."
 }
