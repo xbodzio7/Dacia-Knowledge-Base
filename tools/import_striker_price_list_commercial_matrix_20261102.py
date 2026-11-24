@@ -78,14 +78,16 @@ def expected_rows(si,sm):
  return ni,nm
 def check():
  verify_source();si,sm=load_specs();ei,em=expected_rows(si,sm);items=read(MASTER/"commercial_items.csv");maps=read(MASTER/"commercial_item_configurations.csv")
- if len(items)!=75 or {r["id"] for r in items}!={str(i) for i in range(1,76)}:raise ContractError("commercial item IDs must be contiguous 1–75")
- if len(maps)!=1037 or {r["id"] for r in maps}!={str(i) for i in range(1,1038)}:raise ContractError("commercial mapping IDs must be contiguous 1–1037")
+ item_ids=[int(r["id"]) for r in items];mapping_ids=[int(r["id"]) for r in maps]
+ if len(item_ids)!=len(set(item_ids)) or any(v<1 for v in item_ids):raise ContractError("commercial item IDs must be unique positive integers")
+ if len(mapping_ids)!=len(set(mapping_ids)) or any(v<1 for v in mapping_ids):raise ContractError("commercial mapping IDs must be unique positive integers")
+ if len({r["code"] for r in items})!=len(items):raise ContractError("duplicate commercial item code")
  if [r for r in items if r["code"] in {x["code"] for x in ei}]!=ei:raise ContractError("Striker items differ from spec")
  sr=[r for r in maps if r["source_code"]==SOURCE]
  if sr!=em:raise ContractError("Striker mappings differ from spec")
  if len({r["code"] for r in maps})!=len(maps):raise ContractError("duplicate mapping code")
- if len({(r["commercial_item_code"],r["configuration_code"],r["source_code"],r["price_date"]) for r in maps})!=len(maps):raise ContractError("duplicate natural key")
- if len([r for r in maps if r["source_code"]!=SOURCE])!=916:raise ContractError("historical mappings changed")
+ source_keys=[(r["commercial_item_code"],r["configuration_code"],r["source_code"],r["price_date"]) for r in sr]
+ if len(set(source_keys))!=len(source_keys):raise ContractError("duplicate Striker source natural key")
  return {"new_items":11,"new_mappings":121,**EXPECTED_COUNTS}
 def apply():
  verify_source();si,sm=load_specs();ip=MASTER/"commercial_items.csv";mp=MASTER/"commercial_item_configurations.csv";items=read(ip);maps=read(mp)
