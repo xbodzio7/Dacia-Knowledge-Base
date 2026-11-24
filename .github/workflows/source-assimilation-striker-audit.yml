@@ -1,0 +1,59 @@
+name: Striker MY26 Archived PDF Text Audit
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/source-assimilation-striker-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract-archived-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PDF extraction tools
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Verify archived source identity and extract every page
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdf="PDF/Cenniki/striker-price.pdf"
+          expected_sha256="d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35"
+          expected_size=1615585
+          expected_pages=8
+          out="source-assimilation-bundle/striker-my26-20261102"
+          test -f "$pdf"
+          sha256sum -c data/source_intake/striker_my26_20261102.sha256
+          actual_sha256="$(sha256sum "$pdf" | cut -d' ' -f1)"
+          actual_size="$(wc -c < "$pdf" | tr -d ' ')"
+          test "$actual_sha256" = "$expected_sha256"
+          test "$actual_size" = "$expected_size"
+          mkdir -p "$out/page-text" "$out/pages"
+          pdfinfo "$pdf" > "$out/pdfinfo.txt"
+          actual_pages="$(awk '/^Pages:/ {print $2}' "$out/pdfinfo.txt")"
+          test "$actual_pages" = "$expected_pages"
+          pdftotext -layout "$pdf" "$out/document.txt"
+          for page in $(seq 1 "$expected_pages"); do
+            printf -v page_name "%02d" "$page"
+            pdftotext -f "$page" -l "$page" -layout "$pdf" "$out/page-text/page-$page_name.txt"
+          done
+          pdftoppm -png -r 120 "$pdf" "$out/pages/page" >/dev/null 2>&1
+          cp data/source_intake/striker_my26_20261102_capture.json "$out/capture-manifest.json"
+          cp data/source_intake/striker_my26_20261102.sha256 "$out/source.sha256"
+          printf 'sha256=%s\nsize_bytes=%s\npages=%s\n' "$actual_sha256" "$actual_size" "$actual_pages" > "$out/verification.txt"
+
+      - name: Upload extracted text and page renders
+        uses: actions/upload-artifact@v4
+        with:
+          name: striker-my26-20261102-source-text-audit
+          path: source-assimilation-bundle/striker-my26-20261102
+          if-no-files-found: error
+          retention-days: 30
