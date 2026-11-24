@@ -1,6 +1,6 @@
 # Project State Summary
 
- > Generated from `project/state.json`. Do not edit manually.
+> Generated from `project/state.json`. Do not edit manually.
 
 ## Repository
 
