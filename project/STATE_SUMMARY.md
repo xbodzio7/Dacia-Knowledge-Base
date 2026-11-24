@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-23
+- State updated: 2026-11-24
 
 ## Phase
 
@@ -42,9 +42,9 @@ Import all 11 non-empty catalogue price cells from page 1 of the official Polish
 
 ## Next package
 
-**Striker MY26 Priced Options and Packages Matrix Review** — `blocked`
+**Striker MY26 Priced Options and Packages Matrix Review** — `planned`
 
-BLOCKED by Project Owner priority (2026-11-22): do not begin any model-data assimilation until all portfolio-wide, historical-scope and report-dependency quality safeguards are implemented, documented and pass required CI. The Striker MY26 priced options/packages review remains deferred; resume it only after the quality-guardrail closure is verified. Original scope: Review the explicitly priced option and package cells in the archived official Polish Striker MY26 cennik. Reconcile printed prices and exact grade applicability as a separate commercial-data package; preserve P/package markers and all unpriced/ambiguous cells without inference. Do not import promotional, financing or dealer-lease claims.
+Quality-guardrail closure verified on remote main before resuming model-data assimilation. Portfolio-wide and transitive report regression guardrails, explicit report dependency declarations and input closure, historical-scope effective-date and future-source fail-closed checks, CI change-impact matrices, canonical baseline repair workflow and explicit allowlist, plus import-time source archive path and SHA-256 integrity gates are implemented in merged PRs #879–#889. All six required CI checks passed on the exact heads of PRs #879–#889, and the post-merge Quality and Repository Baselines workflows passed on main commit f44544a0038173d9789db137c69bd0d552a66734. Resume only the original cennik-only scope: review explicitly priced Striker MY26 options and packages from the archived official Polish cennik. Preserve P/package markers, exact grade applicability, and unresolved/blank cells; do not infer promotions, financing, dealer offers, equipment or technical data.
 
 ## Autonomy
 
