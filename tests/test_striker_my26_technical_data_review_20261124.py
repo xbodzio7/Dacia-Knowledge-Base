@@ -18,7 +18,7 @@ class StrikerMy26TechnicalDataReviewTests(unittest.TestCase):
   s=[r for r in self.sources if r["code"]==SOURCE];self.assertEqual(len(s),1);self.assertEqual((s[0]["document_date"],s[0]["market"],s[0]["file_path"],s[0]["sha256"]),("2026-11-02","PL","PDF/Cenniki/striker-price.pdf","d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35"))
   links=[r for r in self.links if r["source_code"]==SOURCE];self.assertEqual({r["configuration_code"] for r in links},CONFIGS);self.assertEqual(len(links),11);self.assertTrue(all(r["relationship"]=="documents" for r in links))
  def test_exact_import_spec_counts_and_master_totals(self):
-  self.assertEqual(len(list(VALUE_DIR.glob("striker_my26_technical_*_20261102.json")),42);self.assertEqual(len(list(RANGE_DIR.glob("striker_my26_technical_*_20261102.json")),3)
+  self.assertEqual(len(list(VALUE_DIR.glob("striker_my26_technical_*_20261102.json"))),42);self.assertEqual(len(list(RANGE_DIR.glob("striker_my26_technical_*_20261102.json"))),3)
   self.assertEqual(len(self.sv),423);self.assertEqual(len(self.sr),21);self.assertEqual(len({r["id"] for r in self.sv}),423);self.assertEqual(len({r["code"] for r in self.sv}),423);self.assertEqual(len({r["id"] for r in self.sr}),21);self.assertEqual(len({r["code"] for r in self.sr}),21)
  def test_every_scalar_and_range_spec_verifies_against_master(self):
   for p in sorted(VALUE_DIR.glob("striker_my26_technical_*_20261102.json")):self.assertFalse(verify_value_import(ROOT,load_value_spec(p)).missing_rows,p.name)
