@@ -1,6 +1,6 @@
 # Project State Summary
 
-> Generated from `project/state.json`. Do not edit manually.
+ > Generated from `project/state.json`. Do not edit manually.
 
 ## Repository
 
@@ -38,13 +38,13 @@
 
 **Striker MY26 P Marker and Package Composition Evidence Review** — `complete`
 
-Review all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02. Six package descriptions explicitly state their component lists; the literal P marker is not defined by any legend, footnote, note or cross-reference. Preserve all seven P mappings as `unknown`. No master-data changes were made.
+Review all eight pages of the archived official Polish Striker MY26 cennik effective 2026-11-02 for explicit definitions of the literal P marker and package composition. The cennik explicitly lists package contents for Zimowy, Zimowy Plus, Techno, Techno 2, City and City 2, but does not define P. Preserve all seven P mappings as unknown; no equipment availability or package membership was inferred and no master data changed.
 
 ## Next package
 
 **Spring MY26 Dimension Diagram and DC 40 kW Package Marker Review** — `planned`
 
-Review the archived official Polish Spring MY26 cennik effective 2026-02-06 for the Extreme DC 40 kW P marker and dimension-diagram semantics. Reconcile against current master data; preserve unresolved applicability and measurement semantics, and import only exact source-backed facts.
+Reconcile the archived official Polish Spring MY26 cennik effective 2026-02-06 for the Extreme DC 40 kW P marker and dimension-diagram semantics. Use only the cennik, preserve unresolved applicability and measurement semantics, and import only exact source-backed facts not already represented in master data.
 
 ## Autonomy
 
