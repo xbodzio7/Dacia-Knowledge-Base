@@ -11,7 +11,7 @@ ITEM_FIELDS=("id","code","name","item_type","observation_date","source_code","st
 MAP_FIELDS=("id","code","commercial_item_code","configuration_code","availability_status","amount","currency_code","price_date","source_code","notes")
 ITEM_SPEC_FIELDS=ITEM_FIELDS[1:];MAP_SPEC_FIELDS=("code","commercial_item_code","configuration_code","availability_status","amount","currency_code","price_date","source_code","source_page","source_label","notes")
 EXPECTED_CONFIGS={"striker_essential_mildhybridg140_4x2_manual":"essential","striker_expression_mildhybridg140_4x2_manual":"expression","striker_expression_mildhybridg140_4x2_automatic":"expression","striker_extreme_mildhybridg140_4x2_automatic":"extreme","striker_journey_mildhybridg140_4x2_automatic":"journey","striker_expression_hybrid155_4x2_automatic":"expression","striker_extreme_hybrid155_4x2_automatic":"extreme","striker_journey_hybrid155_4x2_automatic":"journey","striker_expression_hybrid150_4x4_automatic":"expression","striker_extreme_hybrid150_4x4_automatic":"extreme","striker_journey_hybrid150_4x4_automatic":"journey"}
-EXPECTED_COUNTS={"optional":60,"standard":3,"not_available":51,"unknown":7}
+EXPECTED_COUNTS={"optional":60,"standard":3,"not_available":51,"package":7}
 class ContractError(RuntimeError):pass
 def read(path):
  with path.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
@@ -70,7 +70,7 @@ def load_specs():
  for r in maps:
   if r["availability_status"]=="optional" and (not r["amount"].isdigit() or int(r["amount"])<=0):raise ContractError("optional mapping needs positive price")
   if r["availability_status"]!="optional" and r["amount"]:raise ContractError("non-optional mapping must not carry amount")
-  if r["availability_status"]=="unknown" and "literal marker P" not in r["notes"]:raise ContractError("unknown mapping must preserve P")
+  if r["availability_status"]=="package" and "literal marker P" not in r["notes"]:raise ContractError("package mapping must preserve P")
  return items,maps
 def expected_rows(si,sm):
  ni=[{"id":str(65+i),**r} for i,r in enumerate(si)]

@@ -9,7 +9,7 @@ def rows(name):
  with (MASTER/name).open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
 class StrikerCommercialMatrixTests(unittest.TestCase):
  def test_importer_contract_and_exact_totals(self):
-  self.assertEqual(importer.check(),{"new_items":11,"new_mappings":121,"optional":60,"standard":3,"not_available":51,"unknown":7})
+  self.assertEqual(importer.check(),{"new_items":11,"new_mappings":121,"optional":60,"standard":3,"not_available":51,"package":7})
  def test_source_identity_and_exact_scope(self):
   s=next(r for r in rows("sources.csv") if r["code"]==SOURCE)
   self.assertEqual((s["external_reference"],s["file_path"],s["sha256"]),(importer.SOURCE_URL,importer.SOURCE_PATH,importer.SOURCE_SHA256))
@@ -19,7 +19,7 @@ class StrikerCommercialMatrixTests(unittest.TestCase):
   self.assertEqual(len(prices),11);self.assertEqual({r["configuration_code"] for r in prices},set(importer.EXPECTED_CONFIGS))
  def test_exact_item_and_status_distribution(self):
   m=[r for r in rows("commercial_item_configurations.csv") if r["source_code"]==SOURCE]
-  self.assertEqual(len(m),121);self.assertEqual(Counter(r["availability_status"] for r in m),Counter({"optional":60,"standard":3,"not_available":51,"unknown":7}))
+  self.assertEqual(len(m),121);self.assertEqual(Counter(r["availability_status"] for r in m),Counter({"optional":60,"standard":3,"not_available":51,"package":7}))
   self.assertEqual(Counter(r["commercial_item_code"] for r in m),Counter({c:11 for c in {r["commercial_item_code"] for r in m}}))
   all_mappings=rows("commercial_item_configurations.csv")
   self.assertEqual(len({r["id"] for r in all_mappings}),len(all_mappings))
@@ -32,10 +32,10 @@ class StrikerCommercialMatrixTests(unittest.TestCase):
    self.assertEqual(len(found),count,code);self.assertEqual({r["amount"] for r in found},{amount},code)
   std=[r for r in m if r["commercial_item_code"]=="striker_panoramic_glass_roof_option" and r["availability_status"]=="standard"]
   self.assertEqual(len(std),3);self.assertTrue(all("_extreme_" in r["configuration_code"] for r in std))
- def test_P_marker_is_preserved_without_inference(self):
+ def test_P_marker_is_classified_as_package_per_owner_decision(self):
   m=[r for r in rows("commercial_item_configurations.csv") if r["source_code"]==SOURCE and r["commercial_item_code"]=="striker_heated_washer_nozzles_and_windscreen_option"]
-  self.assertEqual(Counter(r["availability_status"] for r in m),Counter({"unknown":7,"optional":3,"not_available":1}))
-  self.assertTrue(all("literal marker P" in r["notes"] and not r["amount"] for r in m if r["availability_status"]=="unknown"))
+  self.assertEqual(Counter(r["availability_status"] for r in m),Counter({"package":7,"optional":3,"not_available":1}))
+  self.assertTrue(all("literal marker P" in r["notes"] and not r["amount"] for r in m if r["availability_status"]=="package"))
  def test_packages_are_not_misrepresented_as_equipment_imports(self):
   it={r["code"]:r for r in rows("commercial_items.csv")}
   for c in ("striker_winter_package","striker_winter_plus_package","striker_techno_package","striker_techno_2_package","striker_city_package","striker_city_2_package"):self.assertEqual(it[c]["item_type"],"package")

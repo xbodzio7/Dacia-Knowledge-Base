@@ -368,6 +368,7 @@ Each availability record contains:
 - `optional`
 - `not_available`
 - `unknown`
+- `package` — the item is available only as part of a package; the specific package identity may remain unspecified.
 
 The absence of a record means that availability has not been imported.
 It must not be interpreted as `unknown` or `not_available`.
@@ -1474,3 +1475,37 @@ The previous read-only workflow generated the correct artifact but required a se
 - Force-push and writes to `main` are prohibited.
 - CI is explicitly dispatched after the write-back and must be reviewed on the resulting exact PR SHA.
 - A stale PR, branch race, malformed artifact or unexpected path fails closed and leaves the PR unmerged.
+
+
+## D-035 — Owner-defined interpretation of equipment and commercial matrix symbols
+
+Status: Accepted
+
+Date: 2026-11-24
+
+### Decision
+
+For the official Polish Striker MY26 cennik effective 2026-11-02, the Project Owner explicitly defines the printed matrix symbols as follows:
+
+- `●` — present / included as standard (`standard`);
+- `-` — absent / unavailable for the configuration (`not_available`);
+- `o` — selectable paid option (`optional`);
+- `P` — available as part of a package (`package`).
+
+This owner-supplied interpretation is authoritative for the Striker MY26 matrix even though the cennik itself contains no legend defining `P`. It supersedes the provisional `unknown` classification for the seven literal P mappings in the Striker heated-washer-nozzles/windscreen commercial-item row. Preserve the raw symbol and page-level source wording in notes.
+
+The `package` status means only that the item is available through a package. It does not identify which named package contains the item, establish a standalone price, or authorize creation of a package-component relationship. Those facts must remain unassigned unless a source explicitly links them.
+
+When another source provides its own explicit legend, apply that source's legend for that source edition. Do not silently generalize this owner clarification to unrelated markets, model years or source formats without confirming that the same symbol convention applies.
+
+### Rationale
+
+The Project Owner supplied an explicit interpretation to resolve the previously retained P markers. A distinct controlled status preserves the difference between a paid standalone option and an item available through a package, while avoiding unsupported identification of the package itself.
+
+### Consequences
+
+- Add `package` to the shared equipment-availability status dictionary used by equipment and commercial-item configuration relations.
+- Reclassify the seven Striker MY26 P mappings from `unknown` to `package` in both the import specification and master data.
+- Keep their amounts empty; retain the three Journey mappings as `optional` at 1,000 PLN and the Essential dash as `not_available`.
+- Update the importer, regression tests, source report and project documentation.
+- Do not add equipment-component rows or infer a specific named package for the heated washer nozzles/windscreen item.

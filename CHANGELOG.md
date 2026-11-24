@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Applied Project Owner decision D-035 to the Striker MY26 matrix: `●` = standard, `-` = unavailable, `o` = paid option, and `P` = package. Added the shared `package` status and reclassified seven P mappings from `unknown` to `package`; no specific named package was inferred.
+
 * Corrected the next-package selection after PR #894: the Spring MY26 dimension/DC 40 kW review was already completed in PR #870, and Striker's 11 catalogue prices and priced options/packages matrix are already present from PRs #878 and #892. The next bounded scope is the remaining Striker MY26 technical/equipment/dimension evidence in the archived cennik; no master data changed in this planning correction.
 
 * Completed the Striker MY26 2026-11-02 cennik evidence review: documented the explicit contents of six named packages, confirmed that the literal P marker is undefined in the eight-page source, and retained all seven P mappings as unknown. No master-data changes. Detailed report and review receipt added.
@@ -376,8 +378,8 @@ All notable changes to this project will be documented in this file.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
 * The automated test suite now contains 2042 tests.
-* The verified master-data baseline now contains 48 CSV files and 23033 rows.
-* SQLite verification now covers 48 tables and 23033 rows.
+* The verified master-data baseline now contains 48 CSV files and 23034 rows.
+* SQLite verification now covers 48 tables and 23034 rows.
 * Configuration attribute values now contain 8530 dated records.
 * Declarative scalar configuration-value imports now contain 193 versioned JSON specifications.
 * Configuration value ranges now contain 451 dated records from 25 range specifications.

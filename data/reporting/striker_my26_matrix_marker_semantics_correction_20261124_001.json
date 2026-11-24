@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "report_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
+  "package_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
+  "model": "Striker",
+  "model_year": "MY26",
+  "market": "PL",
+  "source_code": "src_pl_striker_price_my26_20261102",
+  "source_date": "2026-11-02",
+  "source_page": 5,
+  "source_file": "PDF/Cenniki/striker-price.pdf",
+  "source_sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35",
+  "source_file_size_bytes": 1615585,
+  "source_page_count": 8,
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/striker-price.pdf.asset.pdf/1793603979544.pdf",
+  "review_scope": "Owner-directed correction of the official Polish Striker MY26 2026-11-02 page-5 priced option/package matrix; 11 exact source-linked configurations and 121 mappings. The symbol interpretation is supplied by the Project Owner, not inferred from a cennik legend.",
+  "result": {
+    "items": 11,
+    "mappings": 121,
+    "optional": 60,
+    "standard": 3,
+    "not_available": 51,
+    "package": 7,
+    "unknown": 0,
+    "notes": "No specific package identity is inferred."
+  },
+  "status_definitions": {
+    "standard": "● — present as standard equipment.",
+    "not_available": "- — absent/unavailable for the configuration.",
+    "optional": "o or explicit printed PLN price — separately selectable paid option.",
+    "package": "P — available as part of a package; the specific named package is not identified by this matrix."
+  },
+  "corrected_item": {
+    "code": "striker_heated_washer_nozzles_and_windscreen_option",
+    "name": "Podgrzewane dysze spryskiwaczy i szyba przednia",
+    "grade_matrix": {
+      "essential": "not_available",
+      "expression": "package",
+      "extreme": "package",
+      "journey": "optional"
+    },
+    "package_mappings": 7,
+    "journey_price_pln": 1000,
+    "source_interpretation": "Project Owner decision D-035.",
+    "notes": "The seven P cells indicate package availability. No amount is assigned to those cells and no specific named package membership is inferred."
+  },
+  "owner_interpretation": {
+    "decision_id": "D-035",
+    "symbols": {
+      "●": "standard",
+      "-": "not_available",
+      "o": "optional",
+      "P": "package"
+    },
+    "scope": "Striker MY26 official Polish cennik effective 2026-11-02; apply source-specific legends if another source defines symbols differently."
+  },
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "striker_my26_matrix_marker_semantics_correction_20261124_001",
+    "generated_at": "2026-11-24T21:39:17Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "5695c54ba971e710ac381e3a52b9f5f27d8d18c5",
+    "input_files": [
+      {
+        "path": "PDF/Cenniki/striker-price.pdf",
+        "git_blob_sha": "6bd425b2a53c50f6ba11fd5cecd5324b289c1c05",
+        "sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35"
+      }
+    ],
+    "scope": "Owner-directed correction of the official Polish Striker MY26 2026-11-02 page-5 priced option/package matrix; 11 exact source-linked configurations and 121 mappings. The symbol interpretation is supplied by the Project Owner, not inferred from a cennik legend.",
+    "status": "current"
+  },
+  "findings": [
+    {
+      "finding_id": "striker-my26-p-marker-classification",
+      "status": "resolved",
+      "evidence_refs": [
+        "PDF/Cenniki/striker-price.pdf#page=5",
+        "project/DECISIONS.md#D-035"
+      ],
+      "last_verified_at": "2026-11-24T21:39:17Z"
+    }
+  ]
+}

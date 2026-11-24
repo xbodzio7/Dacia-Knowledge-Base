@@ -143,7 +143,7 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 <!-- dkb:documentation-baseline:session:start -->
 - 2042 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 23033 rekordów danych,
+- 23034 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -154,7 +154,7 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 23033 rekordów,
+- baza SQLite obejmująca 48 tabele i 23034 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -555,3 +555,8 @@ The next-package pointer written after PR #894 incorrectly selected the Spring M
 The Striker MY26 page-1 catalogue prices are already imported in PR #878 (11 dated rows across 11 exact configurations). PR #892 completed the page-5 commercial matrix (11 items and 121 mappings), and PR #894 completed the P-marker/package-composition review. The seven P mappings remain unknown; the six package descriptions remain documented without inferred equipment-component rows.
 
 The corrected next package is `striker_my26_technical_equipment_residual_review_20261124_001`: review only the remaining technical, equipment and dimension evidence in the archived official Striker MY26 cennik against current master data. Exclude completed page-1 prices, page-5 priced options/packages, and the P/package-composition review. Use only the cennik; preserve unresolved applicability and source conflicts. No master data changes are made by this planning correction.
+
+
+## Striker MY26 matrix symbol clarification — 2026-11-24
+
+The Project Owner explicitly defined the Striker MY26 2026-11-02 matrix symbols under D-035: `●` = standard, `-` = not available, `o` = paid option, and `P` = package. This owner-supplied interpretation supersedes the provisional P-as-unknown handling described in PR #894. The seven P mappings for the heated washer nozzles/windscreen commercial item are now `package`, not `unknown`; their amounts remain empty and the specific package identity remains unspecified. The three Journey rows remain paid optional at 1,000 PLN and Essential remains unavailable. The shared status enum, importer, import specification, master data, regression tests and successor evidence report are updated. No package-component equipment attributes are inferred. The next package remains the Striker MY26 remaining technical/equipment/dimension evidence review.
