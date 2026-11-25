@@ -336,45 +336,52 @@ def _validate_registry_state_consistency(
     if not isinstance(current, dict):
         raise TransitionError("state.current_package must be an object")
     completion = current.get("completion")
-    if current.get("status") == "complete":
+    is_complete = current.get("status") == "complete"
+    if is_complete:
         if not isinstance(completion, dict):
             raise TransitionError("completed current_package has no durable completion receipt")
         report_path = completion.get("report_path")
-        report_id = current.get("report_id")
+    else:
+        report_path = current.get("report_path")
+    report_id = current.get("report_id")
+    if isinstance(report_path, str) and report_path:
         entry = by_path.get(report_path)
-        if not isinstance(entry, dict):
+        if is_complete and not isinstance(entry, dict):
             raise TransitionError(
                 "completed current_package report_path is absent from report_registry; "
                 "state and completion history are inconsistent"
             )
-        if isinstance(report_id, str) and entry.get("report_id") != report_id:
-            raise TransitionError(
-                "completed current_package report_id does not match report_registry entry"
-            )
-        report_file = _safe_repository_file(
-            repository, report_path, "current_package.completion.report_path"
-        )
-        try:
-            report = json.loads(report_file.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
-            raise TransitionError(f"cannot read completed package report: {exc}") from exc
-        declares_completion = _report_declares_completion(repository, report_path)
-        if current.get("status") == "complete" and not declares_completion:
-            raise TransitionError(
-                "current_package is marked complete but its registered report does not declare completion"
-            )
-        if current.get("status") != "complete" and declares_completion:
-            raise TransitionError(
-                "current_package is not complete but its registered report declares completion; "
-                "state and completion history are inconsistent"
-            )
-        metadata = report.get("report_metadata", {}) if isinstance(report, dict) else {}
-        if isinstance(metadata, dict):
-            registered_id = metadata.get("report_id")
-            if isinstance(report_id, str) and registered_id and registered_id != report_id:
+        if isinstance(entry, dict):
+            if isinstance(report_id, str) and entry.get("report_id") != report_id:
                 raise TransitionError(
-                    "completed report metadata report_id does not match canonical state"
+                    "current_package report_id does not match report_registry entry"
                 )
+            report_file = _safe_repository_file(
+                repository, report_path, "current_package.report_path"
+            )
+            try:
+                report = json.loads(report_file.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                raise TransitionError(f"cannot read current package report: {exc}") from exc
+            declares_completion = _report_declares_completion(repository, report_path)
+            if is_complete and not declares_completion:
+                raise TransitionError(
+                    "current_package is marked complete but its registered report does not declare completion"
+                )
+            if not is_complete and declares_completion:
+                raise TransitionError(
+                    "current_package is not complete but its registered report declares completion; "
+                    "state and completion history are inconsistent"
+                )
+            metadata = report.get("report_metadata", {}) if isinstance(report, dict) else {}
+            if isinstance(metadata, dict):
+                registered_id = metadata.get("report_id")
+                if isinstance(report_id, str) and registered_id and registered_id != report_id:
+                    raise TransitionError(
+                        "current package report metadata report_id does not match canonical state"
+                    )
+    elif is_complete:
+        raise TransitionError("completed current_package has no report_path")
 
 
 def _validate_next_package_selection(package: Mapping[str, Any], repository: Path) -> None:
