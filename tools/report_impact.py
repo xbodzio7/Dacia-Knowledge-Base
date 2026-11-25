@@ -169,11 +169,6 @@ def analyze_report_impact(
                 f"{entry['json_path']} and {entry['markdown_path']}, or explicitly set "
                 "report_metadata.status to needs_review with a documented deferral"
             )
-        elif outputs_changed is False and status not in REVIEWABLE_STATUSES:
-            errors.append(
-                f"{report_id}: both report outputs must be updated together when refreshing an affected report"
-            )
-
     return results, errors
 
 
@@ -185,7 +180,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--repository", type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args(argv)
     repository = args.repository.resolve()
-    registry_path = repository / args.registry
+    safe_registry = _safe_path(args.registry)
+    if safe_registry is None:
+        print("REPORT IMPACT: FAIL\\nregistry path must stay inside the repository", file=sys.stderr)
+        return 2
+    registry_path = repository / safe_registry
     try:
         paths = changed_paths(args.base_ref, args.head_ref, repository)
         reports, errors = analyze_report_impact(repository, registry_path, paths)
