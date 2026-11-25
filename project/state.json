@@ -55,7 +55,9 @@
     "source_paths": [
       "PDF/Cenniki/striker-price.pdf",
       "data/source_intake/striker_my26_20261102_capture.json"
-    ]
+    ],
+    "report_id": "striker_my26_technical_equipment_dimension_reconciliation_20261102",
+    "report_path": "data/reporting/striker_my26_technical_equipment_dimension_reconciliation_20261102.json"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
