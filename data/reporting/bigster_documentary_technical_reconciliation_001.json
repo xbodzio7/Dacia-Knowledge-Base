@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "bigster_documentary_technical_reconciliation_closure",
-  "reviewed_on": "2026-09-22",
+  "reviewed_on": "2026-11-25",
   "package_id": "bigster-documentary-technical-reconciliation-001",
   "status": "complete",
   "source": {
@@ -40,24 +40,47 @@
       "source_scope": "all 14 configurations",
       "master_status": "already represented from src_pl_bigster_brochure_20251210",
       "action": "no_change"
+    },
+    {
+      "attribute_code": "maximum_payload",
+      "source_value": "452/521 kg for mild hybrid-G 140; 451/540 kg for mild hybrid 140; 462/509 kg for Hybrid-G 150 4x4; 453/521 kg for Hybrid 155",
+      "source_scope": "14 configurations across four powertrain columns",
+      "master_status": "four brochure ranges already represented; ten other configurations have identical ranges from the later 2026-07-03 official price list",
+      "action": "no additional import; preserve the four historical brochure observations and the ten later-source observations separately"
     }
   ],
   "documentary_ranges": {
     "status": "already_materialized",
-    "record_count": 30,
+    "record_count": 34,
     "attributes": [
       "co2_emissions",
-      "fuel_consumption_combined"
+      "fuel_consumption_combined",
+      "maximum_payload"
     ],
     "source_code": "src_pl_bigster_brochure_20251210",
-    "observation_date": "2025-12-10"
+    "observation_date": "2025-12-10",
+    "payload_reconciliation": {
+      "brochure_observations": 4,
+      "later_price_list_observations": 14,
+      "later_source_code": "src_pl_bigster_price_my26_20260703",
+      "identical_later_source_observations_for_other_configurations": 10,
+      "preserved_brochure_conflict_configurations": [
+        "bigster_essential_mildhybridg140_4x2_manual",
+        "bigster_expression_mildhybridg140_4x2_manual",
+        "bigster_extreme_mildhybridg140_4x2_manual",
+        "bigster_journey_mildhybridg140_4x2_manual"
+      ],
+      "brochure_range": "452/521 kg",
+      "later_price_list_range": "451/540 kg",
+      "decision": "Keep the four 2025 brochure ranges as historical source-bound observations. The other ten brochure payload values exactly match the 2026-07-03 cennik ranges and are not duplicated."
+    }
   },
   "preserved_conflicts": [
     "Hybrid 155: brochure page 20 states 280 V; later July 2026 price-list data records 200 V. Both observations remain source-bound.",
-    "Mild hybrid-G 140 payload: brochure page 20 differs from later July 2026 exact range. No overwrite.",
+    "Mild hybrid-G 140 payload: brochure page 20 states 452/521 kg; later July 2026 price list states 451/540 kg. Both source-specific ranges remain preserved.",
     "Hybrid-G 150 4x4: documentary naming/equipment conflicts remain explicitly deferred."
   ],
-  "boundary": "Bigster documentary technical source-to-master reconciliation is closed. Equipment-matrix reconciliation remains a separate source-first scope; configurator evidence is not promoted merely because documentary technical coverage is closed.",
+  "boundary": "The Bigster brochure page-20 technical source-to-master reconciliation is closed. The complete 24-page brochure coverage and all explicit residual deferrals are recorded in data/reporting/official_bigster_brochure_full_assimilation_20261125.json.",
   "evidence_policy": {
     "configurator_used": false,
     "negative_inference": false,
