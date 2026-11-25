@@ -652,7 +652,7 @@ def self_test() -> int:
                 "package_id": "previous",
                 "kind": "review",
                 "name": "Previous",
-                "status": "complete",
+                "status": "active",
                 "goal": "Previous package",
             },
             "next_package": {
