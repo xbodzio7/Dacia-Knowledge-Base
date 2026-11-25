@@ -569,9 +569,9 @@ def validate_transition(
                 new_current,
                 repository,
                 head_ref,
-                changed_paths=(
-                    {historical_report} if isinstance(historical_report, str) else set()
-                ),
+                # Historical merge-commit receipts are validated against the
+                # repository history, not treated as files changed by this PR.
+                changed_paths=set(),
                 pull_request_number=None,
             )
     elif new_current.get("completion") is not None:
