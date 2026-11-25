@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Added an automated PR report-impact preflight that maps changed inputs to direct and transitive registered report consumers. Current affected reports must be refreshed as JSON/Markdown pairs or explicitly remain `needs_review`; the Quality workflow runs this before report-freshness validation. Documented the existing matrix, package, canonical-state and generated-documentation gates as mandatory publication safeguards.
+
 * Imported 423 scalar technical observations and 21 bounded ranges from pages 6–7 of the archived official Striker MY26 cennik across 11 exact source-linked configurations. Added 42 scalar and 3 range specifications; petrol/LPG splits and printed ranges are preserved, while unresolved applicability and measurement semantics remain explicit.
 
 * Applied Project Owner decision D-035 to the Striker MY26 matrix: `●` = standard, `-` = unavailable, `o` = paid option, and `P` = package. Added the shared `package` status and reclassified seven P mappings from `unknown` to `package`; no specific named package was inferred.
