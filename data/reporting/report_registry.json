@@ -116,6 +116,15 @@
         "striker_my26_matrix_marker_semantics_correction_20261124_001"
       ],
       "depends_on_paths": []
+    },
+    {
+      "report_id": "sandero_stepway_catalogue_price_history_2026",
+      "json_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.json",
+      "markdown_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.md",
+      "depends_on": [],
+      "depends_on_paths": [
+        "data/reporting/sandero_stepway_price_list_20261001_reconciliation_001.json"
+      ]
     }
   ]
 }
