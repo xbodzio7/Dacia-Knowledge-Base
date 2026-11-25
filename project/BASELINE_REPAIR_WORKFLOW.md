@@ -4,11 +4,11 @@
 
 Use the GitHub Actions workflow **Baseline Repair** to regenerate repository-owned counters and managed documentation on an exact open pull-request head when local repository execution is unavailable.
 
-This is a repair operation, not a bypass of validation. The workflow runs the canonical generators, rechecks both generated baselines on the same candidate tree, and uploads the generated files as a short-lived artifact for review.
+The workflow is a controlled repair operation, not a validation bypass. It derives the PR branch and immutable head SHA from GitHub using only the PR number supplied by the maintainer. It applies the canonical generators, checks both generated baselines, and writes back only the six allowlisted generated files.
 
 ## Scope
 
-The workflow may produce only these six generated files:
+The workflow may produce and write back only these six files:
 
 - `project/state.json`
 - `project/STATE_SUMMARY.md`
@@ -17,32 +17,32 @@ The workflow may produce only these six generated files:
 - `project/ROADMAP.md`
 - `project/SESSION_STATE.md`
 
-It must never edit master data, source files, package manifests, tests, code, workflow definitions or arbitrary paths.
+It must never write master data, source files, package manifests, tests, code, workflow definitions or arbitrary paths.
 
 ## Security model
 
-The workflow must be dispatched from the protected `main` branch (never from the PR branch) and requires the PR number, exact head branch, and exact current 40-character head SHA. The workflow file must already be present on `main` before it is used. It cannot safely repair the PR that first introduces this workflow.
+The workflow must be dispatched from the protected `main` branch (never from the PR branch). The workflow definition must already be present on `main`; it cannot safely repair the PR that first introduces or changes this workflow.
 
-1. A maintainer selects `main` as the workflow ref. The read-only job verifies that the PR is open, targets `main`, belongs to this repository (fork PRs are rejected), and still has the supplied branch and head SHA.
-2. The trusted workflow definition from `main` checks out that immutable PR SHA with persisted checkout credentials disabled.
-3. It runs only the canonical project-state and documentation-baseline generators and their check commands.
-4. It rejects any changed path outside the six-file allowlist and uploads the generated text files as a one-day artifact.
-5. The workflow has no write permission and never commits to a branch. The artifact is data only. A maintainer must review its contents and apply the generated files to the exact PR branch through an authenticated repository write integration or the normal GitHub UI.
-6. After the reviewed commit, the normal PR workflows must run on the new exact head SHA. Do not use a workflow job that pushes with the default `GITHUB_TOKEN` as a substitute: such pushes do not automatically trigger the normal PR workflow events.
+1. The maintainer supplies only the PR number. The read-only job retrieves the PR through the GitHub API and independently derives its branch, head SHA and base SHA.
+2. The job fails closed unless the PR is open, targets `main`, belongs to this repository (fork PRs are rejected), has a valid branch/head, and its base SHA exactly matches current `main`.
+3. The trusted workflow checks out the immutable PR head with persisted credentials disabled. The generator job has read-only permissions and runs the canonical project-state and documentation-baseline generators and checks. No write token is exposed to code from the PR.
+4. The workflow rejects any changed path outside the exact six-file allowlist and uploads those files as a short-lived artifact.
+5. A separate write-back job re-queries the PR and `main`, and refuses to proceed if the PR identity, branch, head SHA or base SHA changed. It checks out the already verified immutable head, downloads the artifact, rejects symlinks and any manifest other than the exact six files, then commits and pushes without force.
+6. After pushing, the workflow verifies that the PR head is exactly the new repair commit and that `main` has not advanced. It explicitly dispatches Quality and Repository Baselines for the updated branch because pushes made with the default `GITHUB_TOKEN` do not automatically trigger ordinary PR workflow events.
 
-Do not add broader paths, secrets or write permissions without a separate security review.
+The privileged write-back job does not execute scripts, tests, build tools or other code from the PR. It only installs the validated six-file artifact and performs Git operations. Do not replace this two-job separation with `pull_request_target`, do not run PR code with write credentials, and do not broaden the allowlist without a separate security review.
 
 ## How to run
 
-1. Open the PR and copy its current **head commit SHA** (not the merge commit SHA).
-2. Open the repository's **Actions** tab and select **Baseline Repair**.
-3. Choose **Run workflow** with workflow ref set to `main`; enter the PR number, exact PR branch name, and exact head SHA, then start the workflow.
-4. Wait for the read-only job to finish successfully and download the `canonical-baseline-repair` artifact.
-5. Review that the artifact contains only the six allowlisted files and that its source run used the exact PR head SHA.
-6. Apply those files to the same PR branch as a new commit. If the PR head has changed since the artifact was generated, discard the artifact and run a fresh repair against the new SHA.
-7. Confirm that the new commit is the PR head and wait for all normal required checks to pass on that exact SHA.
+1. Open the repository's **Actions** tab and select **Baseline Repair**.
+2. Choose **Run workflow** with workflow ref set to `main`.
+3. Enter only the open PR number and start the workflow.
+4. Wait for both jobs to finish. The run summary/log records the branch, exact head SHA and base SHA discovered from GitHub.
+5. Confirm that the write-back job reports the new repair commit and that Quality and Repository Baselines have been dispatched.
+6. Review the resulting PR diff. The repair must contain only the six allowlisted generated files in addition to the PR's original changes.
+7. Wait for all six normal required checks to pass on the new exact PR head SHA. The repair workflow itself is not a substitute for those checks.
 
-Never select the PR branch as the workflow ref. Never merge based on the repair workflow or artifact alone. If the write integration or branch policy rejects the commit, do not weaken branch protection.
+Never select the PR branch as the workflow ref. Never merge based on the repair workflow alone. If the branch advances, the base changes, the push is rejected, or a required check is missing, stop and diagnose; do not weaken branch protection.
 
 ## Required post-repair checks
 
