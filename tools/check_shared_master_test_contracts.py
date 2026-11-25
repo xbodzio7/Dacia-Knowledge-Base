@@ -163,11 +163,44 @@ def inspect_test(path: Path) -> list[str]:
     return problems
 
 
+def self_test() -> None:
+    tree = ast.parse(
+        """
+class Example:
+    @classmethod
+    def setUpClass(cls):
+        cls.items = read("commercial_items.csv")
+"""
+    )
+    master = _master_attributes(tree)
+    if master != {"items": "commercial_items.csv"}:
+        raise AssertionError("shared master reader detection failed")
+
+    unfiltered = ast.parse('{row["observation_date"] for row in self.items}').body[0].value
+    sourced, fields = _comprehension_origin(unfiltered, master)
+    if not sourced or _has_exact_source_scope(fields, unfiltered):
+        raise AssertionError("unfiltered whole-table date set was not recognized")
+
+    scoped = ast.parse(
+        '{row["code"] for row in self.items if row["source_code"] in owned_sources}'
+    ).body[0].value
+    sourced, fields = _comprehension_origin(scoped, master)
+    if not sourced or not _has_exact_source_scope(fields, scoped):
+        raise AssertionError("exact source-code filter was not recognized")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-ref", required=True)
-    parser.add_argument("--head-ref", required=True)
+    parser.add_argument("--head-ref")
+    parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
+    if args.self_test:
+        self_test()
+        print("PASS: shared-master contract guard self-test")
+        return 0
+    if not args.base_ref or not args.head_ref:
+        parser.error("--base-ref and --head-ref are required unless --self-test is used")
     completed = subprocess.run(
         ["git", "diff", "--name-only", f"{args.base_ref}...{args.head_ref}", "--", "tests"],
         cwd=ROOT,
