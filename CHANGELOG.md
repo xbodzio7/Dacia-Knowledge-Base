@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+* Repaired legacy tests that treated shared master-table counts and observation-date inventories as immutable: Bigster range counts now reconcile to the exact brochure source, commercial-item checks distinguish price-list items from brochure palette records, and the brochure registrar preserves downstream source notes while validating immutable source identity. Added a Quality-workflow guard that checks changed test modules for brittle whole-table count/date assertions and self-tests its own detection logic.
+
 * Completed the 24-page official Bigster brochure assimilation with explicit deferrals: recorded six model-level colour palette items without unsupported grade mappings, added the roof-rack/panoramic-roof incompatibility note, and reconciled all page-20 payload ranges against the later cennik without duplicating ten identical observations.
 
 * Added an automated PR report-impact preflight that maps changed inputs to direct and transitive registered report consumers. Current affected reports must be refreshed as JSON/Markdown pairs or explicitly remain `needs_review`; the Quality workflow runs this before report-freshness validation. Documented the existing matrix, package, canonical-state and generated-documentation gates as mandatory publication safeguards.
