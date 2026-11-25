@@ -361,7 +361,7 @@ def self_test() -> int:
         base_ref = _git(repository, "rev-parse", "HEAD")
 
         report.write_text(
-            json.dumps({"status": "fully_assimilated_with_deferrals"}) + "\\n",
+            json.dumps({"status": "fully_assimilated_with_deferrals"}) + chr(10),
             encoding="utf-8",
         )
         _git(repository, "add", ".")
