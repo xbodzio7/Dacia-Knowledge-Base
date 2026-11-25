@@ -212,6 +212,7 @@ class ProjectStateContractTests(unittest.TestCase):
             project_state.validate_state(state)
 
         previous = self.fixture()
+        previous["next_package"]["kind"] = "reporting"
         completed = copy.deepcopy(previous)
         completed["current_package"]["status"] = "complete"
         completed["current_package"]["report_path"] = (
