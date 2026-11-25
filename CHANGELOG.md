@@ -6,9 +6,6 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-* Completed the 24-page official Bigster brochure assimilation with explicit deferrals: recorded six model-level colour palette items without unsupported grade mappings, added the roof-rack/panoramic-roof incompatibility note, and reconciled all page-20 payload ranges against the later cennik without duplicating ten identical observations.
-
-
 * Imported 423 scalar technical observations and 21 bounded ranges from pages 6–7 of the archived official Striker MY26 cennik across 11 exact source-linked configurations. Added 42 scalar and 3 range specifications; petrol/LPG splits and printed ranges are preserved, while unresolved applicability and measurement semantics remain explicit.
 
 * Applied Project Owner decision D-035 to the Striker MY26 matrix: `●` = standard, `-` = unavailable, `o` = paid option, and `P` = package. Added the shared `package` status and reclassified seven P mappings from `unknown` to `package`; no specific named package was inferred.
@@ -382,8 +379,8 @@ All notable changes to this project will be documented in this file.
 * Cross-file validation now covers 34 declared relationships.
 * Lifecycle and catalogue status validation now covers 19 declared rules.
 <!-- dkb:documentation-baseline:changelog:start -->
-* The automated test suite now contains 2055 tests.
-* The verified master-data baseline now contains 48 CSV files and 23490 rows.
+* The automated test suite now contains 2054 tests.
+* The verified master-data baseline now contains 48 CSV files and 23478 rows.
 * SQLite verification now covers 48 tables and 23478 rows.
 * Configuration attribute values now contain 8953 dated records.
 * Declarative scalar configuration-value imports now contain 235 versioned JSON specifications.

@@ -18,8 +18,8 @@
       "id": "BIGSTER-BR-001",
       "subject": "YouClip count",
       "status": "Do sprawdzenia",
-      "unresolved_reason": "Brochure page 8 describes five standard attachment points plus two optional points, while the page-22 grade matrix shows 4/5/5/5. The exact scope of the prose and matrix count is not reconciled.",
-      "next_action": "Retain the source conflict; verify whether the prose count includes a different accessory/configuration scope before creating a normalized count.",
+      "unresolved_reason": "The brochure evidence does not currently establish one unambiguous count.",
+      "next_action": "Recheck the exact brochure visual/text and applicable configuration before recording a numeric value.",
       "source_pages": [
         8,
         22
@@ -27,86 +27,52 @@
     },
     {
       "id": "BIGSTER-BR-002",
-      "subject": "Front 12 V socket location and count",
+      "subject": "12 V socket location and count",
       "status": "Do sprawdzenia",
-      "unresolved_reason": "The page-22 matrix supports the luggage-compartment socket for some grades, but the current dictionary attribute does not represent the front socket or exact socket distribution.",
-      "next_action": "Add a separate attribute only after a bounded data-model review; do not map the whole row to boot_12v_socket.",
+      "unresolved_reason": "Exact location and number of sockets are not yet established for the applicable configurations.",
+      "next_action": "Verify the relevant brochure page/visual and configuration applicability.",
       "source_pages": [
         22
       ]
     },
     {
       "id": "BIGSTER-BR-003",
-      "subject": "USB-C port front/rear distribution",
+      "subject": "USB-C port distribution",
       "status": "Do sprawdzenia",
-      "unresolved_reason": "The matrix distinguishes two front ports and two rear ports for some grades; existing count/rear-presence attributes do not encode the full front/rear distribution.",
-      "next_action": "Preserve the source wording and resolve a typed representation for port location and count before adding more observations.",
+      "unresolved_reason": "Distribution across seats/rows/configurations is not yet established.",
+      "next_action": "Verify the exact brochure evidence and scope before adding individual observations.",
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "id": "BIGSTER-BR-004",
+      "subject": "Rear air vents within composite climate-control row",
+      "status": "Do sprawdzenia",
+      "unresolved_reason": "The composite row does not yet independently establish the rear-vent subclaim.",
+      "next_action": "Verify direct wording or visual evidence and whether the attribute model can represent the claim without overstatement.",
       "source_pages": [
         22
       ]
     },
     {
       "id": "BIGSTER-BR-005",
-      "subject": "Media Display / Media Nav Live composite and screen size",
+      "subject": "Media Display / Nav Live composite",
       "status": "Do sprawdzenia",
-      "unresolved_reason": "The page-22 composite descriptions combine system identity, 10.1-inch screen, smartphone replication, speakers, services and update duration. Later source observations use a 10-inch label; these meanings must not be collapsed.",
-      "next_action": "Split only facts with an exact active attribute contract and preserve the 10.1-inch versus 10-inch source distinction.",
+      "unresolved_reason": "The combined brochure label does not yet support an unambiguous split into individual equipment claims.",
+      "next_action": "Verify exact label semantics and applicable variants before splitting or importing claims.",
       "source_pages": [
-        10,
         22
       ]
     },
     {
-      "id": "BIGSTER-BR-009",
-      "subject": "Body-colour grade applicability",
+      "id": "BIGSTER-BR-006",
+      "subject": "Technical dimensions applicability and pairing",
       "status": "Do sprawdzenia",
-      "unresolved_reason": "The six page-14 colour names and finish/two-tone markers are recorded as model-level catalogue items, but the brochure does not provide an exact grade/configuration compatibility matrix.",
-      "next_action": "Use a dated source with explicit grade-level colour applicability; do not create configuration mappings from the model-level palette.",
-      "source_pages": [
-        14,
-        24
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-010",
-      "subject": "Accessory product capacities and dimensions",
-      "status": "Do sprawdzenia",
-      "unresolved_reason": "The brochure states a 310-litre Aero Cargo Box, 60 kg roof-rack load and 1.90 x 1.30 m Sleep Pack surface. The current commercial-item model does not provide a semantically suitable accessory measurement contract.",
-      "next_action": "Keep these facts in the source report until accessory product attributes have an approved model.",
-      "source_pages": [
-        9,
-        19
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-011",
-      "subject": "Hybrid-G 150 4x4 cargo measurement context",
-      "status": "Do sprawdzenia",
-      "unresolved_reason": "The page-20 technical table and the same brochure's equipment matrix disagree about the tyre-repair-kit state for Hybrid-G 150 4x4; cargo values depend on repair-kit/spare-wheel context.",
-      "next_action": "Retain the four source values as deferred; resolve the same-document equipment qualifier before importing cargo contexts.",
-      "source_pages": [
-        20,
-        21
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-012",
-      "subject": "Page-23 interior dimensions and seat geometry",
-      "status": "Do sprawdzenia",
-      "unresolved_reason": "The page shows interior measurements 1443/1432 mm and seatback angle 14 degrees; these are not exterior dimensions and no exact active attribute contract/applicability is established.",
-      "next_action": "Do not map these values to exterior width/height or other unrelated attributes; revisit only with a dedicated interior-geometry schema.",
+      "unresolved_reason": "The applicability and pairing of the documented dimensions are not yet resolved for exact configurations.",
+      "next_action": "Recheck dimension table headings, notes, and configuration applicability before importing dimension-specific values.",
       "source_pages": [
         23
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-013",
-      "subject": "2025 brochure equipment-package identity and components",
-      "status": "Do sprawdzenia",
-      "unresolved_reason": "The page-22 EASY, PARKING, WINTER and WINTER PLUS markers are composite package references; current 2026 commercial package identities and components do not prove the exact 2025 package state.",
-      "next_action": "Keep the 2025 package markers separate until dated package identity and component applicability are explicitly reconciled.",
-      "source_pages": [
-        22
       ]
     }
   ],
@@ -115,47 +81,6 @@
     "Never use 'Do sprawdzenia' as a technical or commercial value.",
     "Do not infer values, applicability, or availability.",
     "Keep evidence from the 2025-12-10 brochure separate from later 2026 price-list evidence.",
-    "Populate source_pages only when verified from the exact source.",
-    "Resolved items remain in resolved_items for audit history; they are not open gaps.",
-    "A model-level colour palette item does not establish grade/configuration availability."
-  ],
-  "last_reviewed_on": "2026-11-25",
-  "resolved_items": [
-    {
-      "id": "BIGSTER-BR-004",
-      "subject": "Rear air vents within composite climate-control row",
-      "status": "resolved",
-      "resolution": "Imported as the exact page-22 rear_air_vents availability observations in the 2026-11-05 residual equipment batch.",
-      "source_pages": [
-        22
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-006",
-      "subject": "Exterior-dimension applicability and pairing",
-      "status": "resolved",
-      "resolution": "The nine page-23 exterior dimension attributes were imported for the 14 exact source-linked configurations (126 observations); the printed 4x2/4x4 footnote was applied only to ground clearance and overall height. Interior geometry remains separately deferred.",
-      "source_pages": [
-        23
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-007",
-      "subject": "Maximum-payload source reconciliation",
-      "status": "resolved",
-      "resolution": "Four 2025 brochure ranges are already present; the remaining ten powertrain/configuration values exactly match the 2026-07-03 official price list and were not duplicated. The four mild hybrid-G 140 conflicts remain preserved.",
-      "source_pages": [
-        20
-      ]
-    },
-    {
-      "id": "BIGSTER-BR-008",
-      "subject": "Roof-rack incompatibility with panoramic glass roof",
-      "status": "resolved",
-      "resolution": "Added the exact page-19 incompatibility note to accessory part 7717277154 in the official Bigster accessory compatibility ledger.",
-      "source_pages": [
-        19
-      ]
-    }
+    "Populate source_pages only when verified from the exact source."
   ]
 }

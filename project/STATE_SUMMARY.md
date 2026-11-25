@@ -23,9 +23,9 @@
 
 ## Verified baseline
 
-- Tests: 2055
+- Tests: 2054
 - Master CSV files: 48
-- Master rows: 23490
+- Master rows: 23478
 - Configuration values: 8953
 - Configuration import specifications: 235
 - Configuration value ranges: 472
@@ -42,7 +42,7 @@ Build a deterministic source-backed catalogue-price history view for exact Sande
 
 ## Next package
 
-**Official Bigster Brochure Full Assimilation** — `active`
+**Official Bigster Brochure Full Assimilation** — `planned`
 
 Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 

@@ -36,6 +36,22 @@ EXPECTED_JULY_PAYLOAD = {
     "bigster_extreme_hybrid155_4x2_automatic": ("453", "521"),
     "bigster_journey_hybrid155_4x2_automatic": ("453", "521"),
 }
+EXPECTED_BROCHURE_PRINTED_PAYLOAD = {
+    "bigster_essential_mildhybridg140_4x2_manual": ("452", "521"),
+    "bigster_expression_mildhybridg140_4x2_manual": ("452", "521"),
+    "bigster_extreme_mildhybridg140_4x2_manual": ("452", "521"),
+    "bigster_journey_mildhybridg140_4x2_manual": ("452", "521"),
+    "bigster_essential_mildhybrid140_4x2_manual": ("451", "540"),
+    "bigster_expression_mildhybrid140_4x2_manual": ("451", "540"),
+    "bigster_extreme_mildhybrid140_4x2_manual": ("451", "540"),
+    "bigster_journey_mildhybrid140_4x2_manual": ("451", "540"),
+    "bigster_expression_hybridg150_4x4_automatic": ("462", "509"),
+    "bigster_extreme_hybridg150_4x4_automatic": ("462", "509"),
+    "bigster_journey_hybridg150_4x4_automatic": ("462", "509"),
+    "bigster_expression_hybrid155_4x2_automatic": ("453", "521"),
+    "bigster_extreme_hybrid155_4x2_automatic": ("453", "521"),
+    "bigster_journey_hybrid155_4x2_automatic": ("453", "521"),
+}
 EXPECTED_COLOURS = {
     "bigster_colour_biel_alpejska": ("Biel Alpejska", "BIEL ALPEJSKA", "non_metallic", "present"),
     "bigster_colour_czarna_perla": ("Czarna Perła", "CZARNA PERŁA", "metallic", "not_printed"),
@@ -79,28 +95,26 @@ class BigsterBrochureFullAssimilationTests(unittest.TestCase):
         }
         self.assertEqual(brochure_payload, EXPECTED_BROCHURE_PAYLOAD)
         self.assertEqual(july_payload, EXPECTED_JULY_PAYLOAD)
+        self.assertEqual(set(EXPECTED_BROCHURE_PRINTED_PAYLOAD), linked)
         self.assertEqual(set(EXPECTED_JULY_PAYLOAD), linked)
-        self.assertEqual(len(set(EXPECTED_JULY_PAYLOAD) - set(EXPECTED_BROCHURE_PAYLOAD)), 10)
-        for configuration in set(EXPECTED_JULY_PAYLOAD) - set(EXPECTED_BROCHURE_PAYLOAD):
+        self.assertEqual(len(set(EXPECTED_BROCHURE_PRINTED_PAYLOAD) - set(EXPECTED_BROCHURE_PAYLOAD)), 10)
+        for configuration in set(EXPECTED_BROCHURE_PRINTED_PAYLOAD) - set(EXPECTED_BROCHURE_PAYLOAD):
             self.assertEqual(
+                EXPECTED_BROCHURE_PRINTED_PAYLOAD[configuration],
                 EXPECTED_JULY_PAYLOAD[configuration],
-                {
-                    "bigster_essential_mildhybrid140_4x2_manual": ("451", "540"),
-                    "bigster_expression_mildhybrid140_4x2_manual": ("451", "540"),
-                    "bigster_extreme_mildhybrid140_4x2_manual": ("451", "540"),
-                    "bigster_journey_mildhybrid140_4x2_manual": ("451", "540"),
-                    "bigster_essential_mildhybridg140_4x2_manual": ("451", "540"),
-                    "bigster_expression_mildhybridg140_4x2_manual": ("451", "540"),
-                    "bigster_extreme_mildhybridg140_4x2_manual": ("451", "540"),
-                    "bigster_journey_mildhybridg140_4x2_manual": ("451", "540"),
-                    "bigster_expression_hybridg150_4x4_automatic": ("462", "509"),
-                    "bigster_extreme_hybridg150_4x4_automatic": ("462", "509"),
-                    "bigster_journey_hybridg150_4x4_automatic": ("462", "509"),
-                    "bigster_expression_hybrid155_4x2_automatic": ("453", "521"),
-                    "bigster_extreme_hybrid155_4x2_automatic": ("453", "521"),
-                    "bigster_journey_hybrid155_4x2_automatic": ("453", "521"),
-                }[configuration],
             )
+        for configuration in EXPECTED_BROCHURE_PAYLOAD:
+            self.assertNotEqual(
+                EXPECTED_BROCHURE_PRINTED_PAYLOAD[configuration],
+                EXPECTED_JULY_PAYLOAD[configuration],
+            )
+        self.assertEqual(
+            len([
+                row for row in ranges
+                if row["source_code"] == SOURCE
+            ]),
+            34,
+        )
 
         brochure_range_spec = range_importer.load_spec(
             ROOT / "data" / "imports" / "configuration_value_ranges"

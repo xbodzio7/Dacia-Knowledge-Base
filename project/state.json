@@ -15,9 +15,9 @@
     "quality_run": 35794419607
   },
   "baseline": {
-    "tests": 2055,
+    "tests": 2054,
     "csv_files": 48,
-    "rows": 23490,
+    "rows": 23478,
     "configuration_values": 8953,
     "configuration_import_specs": 235,
     "configuration_value_ranges": 472,
@@ -46,11 +46,11 @@
     "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
     "kind": "source_brochure_assimilation",
     "name": "Official Bigster Brochure Full Assimilation",
-    "status": "active",
+    "status": "planned",
     "goal": "Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.",
-    "report_id": "official_bigster_brochure_full_assimilation_20261125",
-    "report_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
-    "master_data_changed": true,
+    "report_id": null,
+    "report_path": null,
+    "master_data_changed": false,
     "source_paths": [
       "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
       "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf"
