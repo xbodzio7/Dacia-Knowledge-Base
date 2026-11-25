@@ -343,7 +343,6 @@ class ReportFreshnessTests(unittest.TestCase):
         downstream_id = "downstream_report_001"
         downstream_json = self.root / "data" / "reporting" / "downstream.json"
         downstream_md = self.root / "data" / "reporting" / "downstream.md"
-        upstream_bytes = self.json_path.read_bytes()
         downstream_json.write_text(json.dumps({
             "report_metadata": {
                 "report_id": downstream_id,
@@ -372,7 +371,9 @@ class ReportFreshnessTests(unittest.TestCase):
         self.assertTrue(any(upstream_id in error for error in errors))
         self.assertTrue(any(downstream_id in error for error in errors))
 
-        self._write_report(status="needs_review")
+        document = json.loads(self.json_path.read_text(encoding="utf-8"))
+        document["report_metadata"]["status"] = "needs_review"
+        self.json_path.write_text(json.dumps(document), encoding="utf-8")
         impacted, errors = analyze_report_impact(
             self.root, self.registry_path, ["data/master/input.csv"]
         )
