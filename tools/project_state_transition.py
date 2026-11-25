@@ -375,8 +375,13 @@ def self_test() -> int:
         _git(repository, "config", "user.name", "DKB lifecycle self-test")
         _git(repository, "config", "user.email", "dkb-self-test@example.invalid")
         report = repository / "reports" / "package.json"
+        current_report = repository / "reports" / "current-package.json"
         report.parent.mkdir(parents=True)
         report.write_text(json.dumps({"status": "in_progress"}) + "\n", encoding="utf-8")
+        current_report.write_text(
+            json.dumps({"status": "in_progress"}) + "\n",
+            encoding="utf-8",
+        )
         _git(repository, "add", ".")
         _git(repository, "commit", "-m", "test: create package report")
         base_ref = _git(repository, "rev-parse", "HEAD")
@@ -388,6 +393,12 @@ def self_test() -> int:
         _git(repository, "add", ".")
         _git(repository, "commit", "-m", "test: complete package report")
         package_sha = _git(repository, "rev-parse", "HEAD")
+        current_report.write_text(
+            json.dumps({"status": "fully_reconciled"}) + chr(10),
+            encoding="utf-8",
+        )
+        _git(repository, "add", ".")
+        _git(repository, "commit", "-m", "test: complete current package report")
 
         previous = {
             "current_package": {
@@ -473,6 +484,38 @@ def self_test() -> int:
             base_ref=base_ref,
             pull_request_number=124,
         )
+
+        current_active = {
+            "current_package": {
+                "package_id": "active",
+                "kind": "review",
+                "name": "Active",
+                "status": "active",
+                "goal": "Active package",
+                "report_path": "reports/current-package.json",
+            },
+            "next_package": {
+                "package_id": "following",
+                "kind": "review",
+                "name": "Following",
+                "status": "planned",
+                "goal": "Following package",
+            },
+        }
+        try:
+            validate_transition(
+                current_active,
+                current_active,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "current_package report declares completion" not in str(exc):
+                raise
+        else:
+            raise TransitionError("completed current-package report was not required to close")
     print("PROJECT STATE TRANSITION SELF-TEST: PASS")
     return 0
 
