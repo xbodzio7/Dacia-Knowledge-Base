@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 * Completed the 24-page official Bigster brochure assimilation with explicit deferrals: recorded six model-level colour palette items without unsupported grade mappings, added the roof-rack/panoramic-roof incompatibility note, and reconciled all page-20 payload ranges against the later cennik without duplicating ten identical observations.
 
+* Added an automated PR report-impact preflight that maps changed inputs to direct and transitive registered report consumers. Current affected reports must be refreshed as JSON/Markdown pairs or explicitly remain `needs_review`; the Quality workflow runs this before report-freshness validation. Documented the existing matrix, package, canonical-state and generated-documentation gates as mandatory publication safeguards.
 
 * Imported 423 scalar technical observations and 21 bounded ranges from pages 6–7 of the archived official Striker MY26 cennik across 11 exact source-linked configurations. Added 42 scalar and 3 range specifications; petrol/LPG splits and printed ranges are preserved, while unresolved applicability and measurement semantics remain explicit.
 

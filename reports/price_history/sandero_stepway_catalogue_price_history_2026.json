@@ -36,7 +36,8 @@
       }
     ],
     "scope": "Official Polish MY26 catalogue gross prices for 19 exact Sandero and Sandero Stepway configurations, comparing the complete 2026-08-11 baseline with the 2026-11-02 cennik; promotions, financing, leasing, accessories and dealer offers are excluded.",
-    "status": "current"
+    "status": "needs_review",
+    "review_note": "The shared data/master/sources.csv file changed to record the completed Bigster brochure assimilation. This is a file-level dependency impact, not a change to Sandero or Sandero Stepway price observations. Original input Git blob SHA and SHA-256 fingerprints are intentionally preserved; re-evaluate and regenerate this report before advertising it as current."
   },
   "generated_from": [
     "data/master/configuration_prices.csv",

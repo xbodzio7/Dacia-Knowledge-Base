@@ -34,7 +34,7 @@ For every package the maintainer should:
 4. Define an exact path manifest and acceptance criteria.
 5. Create a package branch from the verified `main`.
 6. Modify only files belonging to the package.
-7. Run focused tests during implementation, then freeze edits and execute the mandatory pre-PR publication gate in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md`, including project-state and generated-documentation checks on the same candidate tree.
+7. Run focused tests during implementation, then freeze edits and execute the mandatory pre-PR publication gate in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` on the same candidate tree: report dependency-impact discovery (`report-impact`), report-freshness, change-impact matrix, package preflight, project-state, canonical state-transition and generated-documentation checks. A failed or skipped applicable gate blocks publication.
 8. Verify the candidate branch includes the latest target-branch SHA; reconcile branch drift before final validation.
 9. Publish only after every applicable local gate has passed, or after an observable CI workflow has passed those checks on the exact candidate SHA. If neither route is available, keep the package blocked and do not claim it is validated.
 10. Create or update the Pull Request and record the tested head SHA plus separate results for tests, repository state, generated documentation, source fidelity and CI/platform jobs.

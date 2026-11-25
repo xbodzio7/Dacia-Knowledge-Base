@@ -9,6 +9,7 @@ import unittest
 from pathlib import Path
 
 from tools.report_freshness import validate_registry
+from tools.report_impact import analyze_report_impact
 
 
 class ReportFreshnessTests(unittest.TestCase):
@@ -337,6 +338,51 @@ class ReportFreshnessTests(unittest.TestCase):
         self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
+    def case_report_impact_detects_direct_and_transitive_consumers_and_allows_needs_review(self) -> None:
+        upstream_id = self.report_id
+        downstream_id = "downstream_report_001"
+        downstream_json = self.root / "data" / "reporting" / "downstream.json"
+        downstream_md = self.root / "data" / "reporting" / "downstream.md"
+        downstream_json.write_text(json.dumps({
+            "report_metadata": {
+                "report_id": downstream_id,
+                "status": "current",
+                "input_files": [{"path": "data/reporting/sample.json"}],
+            }
+        }), encoding="utf-8")
+        downstream_md.write_text("downstream report\n", encoding="utf-8")
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"].append({
+            "report_id": downstream_id,
+            "json_path": "data/reporting/downstream.json",
+            "markdown_path": "data/reporting/downstream.md",
+            "depends_on": [upstream_id],
+            "depends_on_paths": [],
+        })
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+        impacted, errors = analyze_report_impact(
+            self.root, self.registry_path, ["data/master/input.csv"]
+        )
+        self.assertEqual(
+            {item["report_id"] for item in impacted},
+            {upstream_id, downstream_id},
+        )
+        self.assertTrue(any(upstream_id in error for error in errors))
+        self.assertTrue(any(downstream_id in error for error in errors))
+
+        document = json.loads(self.json_path.read_text(encoding="utf-8"))
+        document["report_metadata"]["status"] = "needs_review"
+        self.json_path.write_text(json.dumps(document), encoding="utf-8")
+        impacted, errors = analyze_report_impact(
+            self.root, self.registry_path, ["data/master/input.csv"]
+        )
+        self.assertEqual(
+            {item["report_id"] for item in impacted},
+            {upstream_id, downstream_id},
+        )
+        self.assertFalse(any(upstream_id in error for error in errors))
+
     def case_legacy_report_cannot_claim_current(self) -> None:
         self._write_report(status="current")
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
@@ -362,6 +408,7 @@ def run_contract_cases() -> None:
         "case_legacy_report_is_allowed_but_not_current",
         "case_legacy_report_metadata_still_closes_report_inputs",
         "case_legacy_report_cannot_claim_current",
+        "case_report_impact_detects_direct_and_transitive_consumers_and_allows_needs_review",
         "case_dependency_declaration_is_required",
         "case_dependency_path_declaration_is_required",
         "case_unregistered_report_input_requires_path_dependency",
