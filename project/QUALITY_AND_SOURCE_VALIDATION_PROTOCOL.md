@@ -1186,3 +1186,19 @@ Shared master tables grow as new models, sources and commercial items are assimi
 4. Natural-key uniqueness checks must be scoped to the source/package being imported when legacy records contain pre-existing collisions. Record the legacy collision boundary; reject every duplicate introduced by the new source. Do not retroactively fail an unrelated package because of historical duplicates outside its scope.
 5. Portfolio-wide tests must derive the current source set and record totals from canonical registries. Fixed counts belong only to named immutable snapshots or explicitly versioned package fixtures.
 6. When a new package extends a shared table, inspect and repair affected legacy tests at the contract level. Do not merely replace an old global count with a new global count, and do not delete or rewrite historical records to satisfy a stale assertion.
+
+
+## 26. Canonical package-state transition gate
+
+A valid JSON state is not sufficient evidence that the project queue moved legally. Every pull request runs `tools/project_state_transition.py` against the exact base-branch state and the candidate `project/state.json`.
+
+The transition gate enforces these rules:
+
+1. A current package may move only through `planned -> active/blocked/complete`, `active -> blocked/complete`, or `blocked -> active/complete`. A completed package cannot regress.
+2. A current package cannot be replaced while it is incomplete. Normal advancement must promote the exact previous `next_package.package_id`; a deliberate skip/replan must carry an explicit `package_replanning` object with matching `from_package_id`, `to_package_id`, a reason and a decision reference.
+3. A package newly marked complete must include `current_package.completion` with the merged PR number, merge commit SHA, completion date and report path. The validator confirms that the commit exists in the candidate history, is an ancestor of the exact candidate head, references the recorded PR number in its commit message, and that the report file exists. Existing legacy completed packages are not retroactively rejected unless their completion status or identity is changed.
+4. A changed next-package identity or scope requires a new non-empty `next_package_selection` and `rationale`. This prevents silent queue replacement.
+5. A next package whose `kind` begins with `source_` must declare one or more repository-relative `source_paths`. Every declared path must be safe and must exist in the candidate tree. This catches a planned source package whose source has not actually been archived.
+6. The gate compares the canonical state from the PR's current base with the candidate state. It does not infer a transition from conversation text, PR titles or stale local files.
+
+The validator is part of the required Quality workflow on pull requests and also runs on `workflow_dispatch`, including the manual Quality dispatch performed after Baseline Repair writes back a candidate. For a manual dispatch it compares against the repository default branch, just as a PR run compares against its actual base branch. The exact-head freshness check runs in both cases. It is complementary to `project-state --check`: the latter validates the state schema and generated documentation; this gate validates the transition from the base state and the evidence behind package completion/selection.
