@@ -72,7 +72,15 @@
         "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.json",
         "data/reporting/striker_my26_technical_data_review_20261124_001.json"
       ],
-      "residual_scope": "Spring brochure has a complete 22-page text and rendered-image inventory, but its source-to-master reconciliation is explicitly partial. The next package closes that remaining reconciliation against the dated MY26 cennik; it does not repeat the completed Spring dimension/DC 40 kW review or the already imported 54 scalar and 3 range observations."
+      "residual_scope": "Spring brochure has a complete 22-page text and rendered-image inventory, but its source-to-master reconciliation is explicitly partial. The next package closes that remaining reconciliation against the dated MY26 cennik; it does not repeat the completed Spring dimension/DC 40 kW review or the already imported 54 scalar and 3 range observations.",
+      "scope_resolutions": [
+        {
+          "report_id": "spring_my26_price_list_source_assimilation_review_20261114_001",
+          "overlap_basis": "The Spring MY26 model family is shared with the earlier price-list source review.",
+          "excluded_scope": "The earlier report covered MY26 price-list source registration, the catalogue-price matrix and page-5 technical-table conflict inventory; it did not reconcile the 22-page brochure into source-linked master observations.",
+          "residual_scope": "This package covers the distinct 22-page official brochure, including narrative, equipment matrices, technical content and rendered diagrams, compared with the existing price-list evidence; previously imported 54 scalar observations, 3 ranges and the completed dimension/DC 40 kW review remain excluded."
+        }
+      ]
     }
   },
   "autonomy": {
