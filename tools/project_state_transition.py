@@ -134,6 +134,8 @@ def _validate_next_sources(package: Mapping[str, Any], repository: Path) -> None
         return
     if not isinstance(paths, list) or not paths:
         raise TransitionError("next_package.source_paths must be a non-empty list")
+    if any(not isinstance(value, str) or not value.strip() for value in paths):
+        raise TransitionError("next_package.source_paths must contain non-empty strings")
     if len(paths) != len(set(paths)):
         raise TransitionError("next_package.source_paths must not contain duplicates")
     for index, value in enumerate(paths):
