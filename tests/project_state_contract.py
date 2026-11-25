@@ -219,6 +219,8 @@ class ProjectStateContractTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
         self.assertIn("Validate canonical package-state transition", quality_workflow)
         self.assertIn("python tools/project_state_transition.py", quality_workflow)
+        self.assertIn("github.event_name == 'workflow_dispatch'", quality_workflow)
+        self.assertIn("github.event.repository.default_branch", quality_workflow)
 
         changed_queue = copy.deepcopy(previous)
         changed_queue["next_package"]["package_id"] = "replacement_package_001"
