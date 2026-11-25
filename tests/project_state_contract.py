@@ -128,7 +128,7 @@ class ProjectStateContractTests(unittest.TestCase):
             REPOSITORY / ".github" / "workflows" / "baseline-repair.yml"
         ).read_text(encoding="utf-8")
         dispatch_inputs = workflow.split("workflow_dispatch:", 1)[1].split(
-            "\\npermissions:", 1
+            "\npermissions:", 1
         )[0]
         self.assertIn("pr_number:", dispatch_inputs)
         self.assertNotIn("pr_branch:", dispatch_inputs)
