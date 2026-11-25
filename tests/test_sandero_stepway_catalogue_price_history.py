@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import sys
@@ -34,6 +35,14 @@ class SanderoCataloguePriceHistoryTests(unittest.TestCase):
             self.assertEqual(data["report_metadata"]["base_commit_sha"],
                              "b56be440a9c2de592842aae600674a1a964e7e3a")
             self.assertEqual(data["report_metadata"]["status"], "current")
+            for item in data["report_metadata"]["input_files"]:
+                input_bytes = (ROOT / item["path"]).read_bytes()
+                self.assertEqual(item["sha256"], hashlib.sha256(input_bytes).hexdigest())
+                blob_header = f"blob {len(input_bytes)}\\0".encode("ascii")
+                self.assertEqual(
+                    item["git_blob_sha"],
+                    hashlib.sha1(blob_header + input_bytes).hexdigest(),
+                )
             self.assertIn("Report ID: sandero_stepway_catalogue_price_history_2026",
                           first_markdown)
             self.assertIn("Analysed commit: b56be440a9c2de592842aae600674a1a964e7e3a",

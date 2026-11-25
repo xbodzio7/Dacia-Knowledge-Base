@@ -123,10 +123,6 @@
       "markdown_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.md",
       "depends_on": [],
       "depends_on_paths": [
-        "data/master/configuration_prices.csv",
-        "data/master/sources.csv",
-        "project/sources/sandero_stepway_price_my26_20261102_import_spec.json",
-        "project/sources/sandero_stepway_price_my26_20260811_full_extract.json",
         "data/reporting/sandero_stepway_price_list_20261001_reconciliation_001.json"
       ]
     }
