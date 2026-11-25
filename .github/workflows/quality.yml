@@ -112,6 +112,12 @@ jobs:
       - name: Run repository data package preflight
         run: python tools/dkb.py package-preflight
 
+      - name: Identify direct and transitive analytical report impacts
+        if: github.event_name == 'pull_request' && matrix.python-version == '3.14'
+        env:
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+        run: python tools/dkb.py report-impact --base-ref "origin/${BASE_BRANCH}" --head-ref HEAD
+
       - name: Validate analytical report freshness
         run: python tools/dkb.py report-freshness
       - name: Run semantic Bigster source archive contract
