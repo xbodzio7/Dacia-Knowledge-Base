@@ -78,7 +78,9 @@ jobs:
         if: github.event_name == 'pull_request' && matrix.python-version == '3.14'
         env:
           BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
-        run: python tools/check_shared_master_test_contracts.py --base-ref "origin/${BASE_BRANCH}" --head-ref HEAD
+        run: |
+          python tools/check_shared_master_test_contracts.py --self-test
+          python tools/check_shared_master_test_contracts.py --base-ref "origin/${BASE_BRANCH}" --head-ref HEAD
 
       - name: Install pinned Ruff static-analysis tool
         if: matrix.python-version == '3.14'
