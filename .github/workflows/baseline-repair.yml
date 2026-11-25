@@ -210,8 +210,11 @@ jobs:
             echo "The PR head does not contain the current main commit." >&2
             exit 1
           }
-          [[ -z "$(git status --porcelain --untracked-files=all)" ]] || {
-            echo "Checkout is not clean before artifact application." >&2
+          # The downloaded artifact is intentionally untracked in this
+          # workspace. Exclude only that dedicated directory from the
+          # pre-application cleanliness check; all other paths must be absent.
+          [[ -z "$(git status --porcelain --untracked-files=all -- . ':(exclude)baseline-repair/**')" ]] || {
+            echo "Checkout contains changes outside the downloaded baseline artifact." >&2
             exit 1
           }
           [[ -z "$(find baseline-repair -type l -print -quit)" ]] || {

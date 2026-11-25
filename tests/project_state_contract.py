@@ -143,6 +143,8 @@ class ProjectStateContractTests(unittest.TestCase):
         self.assertIn("persist-credentials: false", workflow)
         self.assertIn("Re-verify the exact open PR before write-back", workflow)
         self.assertIn("exact six-file allowlist", workflow)
+        self.assertIn(":(exclude)baseline-repair/**", workflow)
+        self.assertIn("changes outside the downloaded baseline artifact", workflow)
         self.assertIn('workflow_id: "quality.yml"', workflow)
         self.assertIn('workflow_id: "repository-baselines.yml"', workflow)
         self.assertNotIn("pull_request_target:", workflow)
