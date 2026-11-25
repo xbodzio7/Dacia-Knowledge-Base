@@ -319,7 +319,7 @@ class ProjectStateContractTests(unittest.TestCase):
         promoted["current_package"]["status"] = "planned"
         promoted["next_package"] = {
             "package_id": "bigster_brochure_001",
-            "kind": "source_brochure_assimilation",
+            "kind": "reporting",
             "name": "Bigster brochure assimilation",
             "status": "planned",
             "goal": "Review the full official brochure against the current cennik.",
