@@ -587,6 +587,7 @@ class DkbCliTests(unittest.TestCase):
         self.assertEqual(result, 0)
         self.assertIn("package-publish", stdout.getvalue())
         self.assertIn("report-freshness", stdout.getvalue())
+        self.assertIn("report-impact", stdout.getvalue())
         try:
             from tests.test_report_freshness import run_contract_cases
         except ModuleNotFoundError:
