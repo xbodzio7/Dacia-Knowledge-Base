@@ -233,6 +233,144 @@ def _validate_next_sources(package: Mapping[str, Any], repository: Path) -> None
         )
 
 
+def _model_tokens(value: Any) -> set[str]:
+    """Extract conservative Dacia model-family tokens from report metadata."""
+    tokens: set[str] = set()
+    model_names = {"bigster", "duster", "jogger", "sandero", "spring", "striker"}
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in {"model_code", "model", "model_family"} and isinstance(item, str):
+                normalized = item.lower().replace("_", "-")
+                tokens.update(name for name in model_names if name in normalized)
+            elif key == "configurations" and isinstance(item, list):
+                for config in item:
+                    if isinstance(config, str):
+                        prefix = config.lower().split("_", 1)[0]
+                        if prefix in model_names:
+                            tokens.add(prefix)
+            else:
+                tokens.update(_model_tokens(item))
+    elif isinstance(value, list):
+        for item in value:
+            tokens.update(_model_tokens(item))
+    return tokens
+
+
+def _package_model_tokens(package: Mapping[str, Any]) -> set[str]:
+    tokens: set[str] = set()
+    for path in package.get("source_paths", []) if isinstance(package.get("source_paths"), list) else []:
+        stem = Path(path).stem.lower().replace("-", "_")
+        tokens.update(name for name in {"bigster", "duster", "jogger", "sandero", "spring", "striker"} if name in stem)
+    return tokens
+
+
+def _validate_scope_overlap(
+    package: Mapping[str, Any],
+    repository: Path,
+    registered: Mapping[str, Mapping[str, Any]],
+    reviewed_report_ids: Sequence[str],
+    evidence: Mapping[str, Any],
+) -> None:
+    """Require an explicit, machine-checkable resolution for same-model prior reports."""
+    package_models = _package_model_tokens(package)
+    resolutions = evidence.get("scope_resolutions")
+    if not isinstance(resolutions, list):
+        resolutions = []
+    by_report: dict[str, Mapping[str, Any]] = {
+        item.get("report_id"): item
+        for item in resolutions
+        if isinstance(item, dict) and isinstance(item.get("report_id"), str)
+    }
+    for report_id in reviewed_report_ids:
+        entry = registered[report_id]
+        report_path = entry.get("json_path")
+        report_file = _safe_repository_file(
+            repository, report_path, f"selection_evidence.scope_report[{report_id}]"
+        )
+        try:
+            report = json.loads(report_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise TransitionError(f"cannot read reviewed report {report_id}: {exc}") from exc
+        overlap = package_models & _model_tokens(report)
+        if not overlap:
+            continue
+        resolution = by_report.get(report_id)
+        if not isinstance(resolution, Mapping):
+            raise TransitionError(
+                f"source-package scope overlaps reviewed report {report_id} "
+                f"for model(s) {', '.join(sorted(overlap))}; add selection_evidence.scope_resolutions"
+            )
+        for field in ("overlap_basis", "excluded_scope", "residual_scope"):
+            value = resolution.get(field)
+            if not isinstance(value, str) or len(value.strip()) < 20:
+                raise TransitionError(
+                    f"scope_resolutions[{report_id}].{field} must explain the overlap in at least 20 characters"
+                )
+        if not any(model in resolution["overlap_basis"].lower() for model in overlap):
+            raise TransitionError(
+                f"scope_resolutions[{report_id}].overlap_basis must name overlapping model(s): "
+                + ", ".join(sorted(overlap))
+            )
+
+
+def _validate_registry_state_consistency(
+    state: Mapping[str, Any], repository: Path
+) -> None:
+    """Ensure canonical completion receipts and report registry describe the same history."""
+    registry_path = _safe_repository_file(
+        repository, "data/reporting/report_registry.json", "report_registry"
+    )
+    try:
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise TransitionError(f"cannot read report registry: {exc}") from exc
+    entries = registry.get("reports") if isinstance(registry, dict) else None
+    if not isinstance(entries, list):
+        raise TransitionError("report_registry.reports must be a list")
+    by_path = {
+        item.get("json_path"): item
+        for item in entries
+        if isinstance(item, dict) and isinstance(item.get("json_path"), str)
+    }
+    current = state.get("current_package")
+    if not isinstance(current, dict):
+        raise TransitionError("state.current_package must be an object")
+    completion = current.get("completion")
+    if current.get("status") == "complete":
+        if not isinstance(completion, dict):
+            raise TransitionError("completed current_package has no durable completion receipt")
+        report_path = completion.get("report_path")
+        report_id = current.get("report_id")
+        entry = by_path.get(report_path)
+        if not isinstance(entry, dict):
+            raise TransitionError(
+                "completed current_package report_path is absent from report_registry; "
+                "state and completion history are inconsistent"
+            )
+        if isinstance(report_id, str) and entry.get("report_id") != report_id:
+            raise TransitionError(
+                "completed current_package report_id does not match report_registry entry"
+            )
+        report_file = _safe_repository_file(
+            repository, report_path, "current_package.completion.report_path"
+        )
+        try:
+            report = json.loads(report_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise TransitionError(f"cannot read completed package report: {exc}") from exc
+        if not _report_declares_completion(repository, report_path):
+            raise TransitionError(
+                "current_package is marked complete but its registered report does not declare completion"
+            )
+        metadata = report.get("report_metadata", {}) if isinstance(report, dict) else {}
+        if isinstance(metadata, dict):
+            registered_id = metadata.get("report_id")
+            if isinstance(report_id, str) and registered_id and registered_id != report_id:
+                raise TransitionError(
+                    "completed report metadata report_id does not match canonical state"
+                )
+
+
 def _validate_next_package_selection(package: Mapping[str, Any], repository: Path) -> None:
     """Require durable evidence that a newly selected source package was gap-checked."""
     if not str(package.get("kind", "")).startswith("source_"):
@@ -310,6 +448,7 @@ def _validate_next_package_selection(package: Mapping[str, Any], repository: Pat
             value,
             f"selection_evidence.reviewed_evidence_paths[{index}]",
         )
+    _validate_scope_overlap(package, repository, registered, report_ids, evidence)
 
 
 def _require_replanning(
@@ -448,6 +587,7 @@ def validate_transition(
             raise TransitionError(
                 "changing next_package identity/scope requires a new rationale"
             )
+    _validate_registry_state_consistency(current, repository)
     _validate_next_package_selection(new_next, repository)
     _validate_next_sources(new_next, repository)
 
@@ -621,6 +761,47 @@ def self_test() -> int:
             head_ref="HEAD",
             base_ref=base_ref,
             pull_request_number=123,
+        )
+
+        spring_report = repository / "reports" / "spring-prior.json"
+        spring_report.write_text(
+            json.dumps({"registration": {"model_code": "spring"}, "status": "in_progress"}) + "\\n",
+            encoding="utf-8",
+        )
+        registry_file.write_text(
+            json.dumps({"reports": [
+                {"report_id": "prior-report", "json_path": "reports/package.json"},
+                {"report_id": "spring-prior", "json_path": "reports/spring-prior.json"}
+            ]}) + "\\n",
+            encoding="utf-8",
+        )
+        overlap_candidate = json.loads(json.dumps(source_candidate))
+        overlap_candidate["next_package"]["source_paths"] = ["sources/spring-brochure.pdf"]
+        overlap_candidate["next_package"]["selection_evidence"]["reviewed_report_ids"] = [
+            "spring-prior"
+        ]
+        overlap_candidate["next_package"]["selection_evidence"]["reviewed_evidence_paths"] = [
+            "reports/spring-prior.json"
+        ]
+        try:
+            validate_transition(
+                promoted, overlap_candidate, repository, head_ref="HEAD",
+                base_ref=base_ref, pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "scope_resolutions" not in str(exc):
+                raise
+        else:
+            raise TransitionError("same-model package overlap without resolution was accepted")
+        overlap_candidate["next_package"]["selection_evidence"]["scope_resolutions"] = [{
+            "report_id": "spring-prior",
+            "overlap_basis": "Spring MY26 model family is shared with the earlier price-list review.",
+            "excluded_scope": "The earlier report covered price-list source registration and page-level price matrix review only.",
+            "residual_scope": "This package reviews the distinct 22-page brochure narrative, equipment and technical content against existing observations."
+        }]
+        validate_transition(
+            promoted, overlap_candidate, repository, head_ref="HEAD",
+            base_ref=base_ref, pull_request_number=123,
         )
 
         source_selection_without_evidence = json.loads(json.dumps(source_candidate))
