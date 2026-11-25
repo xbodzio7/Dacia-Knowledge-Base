@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import copy
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -12,6 +14,7 @@ sys.path.insert(0, str(TOOLS))
 
 import documentation_baseline  # noqa: E402
 import project_state  # noqa: E402
+import project_state_transition  # noqa: E402
 import review_post_cross_model_workspace_priority_selection_20260727 as priority_review  # noqa: E402
 
 PRIORITY_REPORT = (
@@ -208,6 +211,137 @@ class ProjectStateContractTests(unittest.TestCase):
             "must have different package_id values",
         ):
             project_state.validate_state(state)
+
+        previous = self.fixture()
+        previous["next_package"]["kind"] = "reporting"
+
+        quality_workflow = (
+            REPOSITORY / ".github" / "workflows" / "quality.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Validate canonical package-state transition", quality_workflow)
+        self.assertIn("python tools/project_state_transition.py", quality_workflow)
+        self.assertIn("github.event_name == 'workflow_dispatch'", quality_workflow)
+        self.assertIn("github.event.repository.default_branch", quality_workflow)
+
+        changed_queue = copy.deepcopy(previous)
+        changed_queue["next_package"]["package_id"] = "replacement_package_001"
+        changed_queue["next_package"]["name"] = "Replacement package"
+        with self.assertRaisesRegex(
+            project_state_transition.TransitionError, "new next_package_selection"
+        ):
+            project_state_transition.validate_transition(
+                previous, changed_queue, REPOSITORY, head_ref="HEAD"
+            )
+        changed_queue["next_package_selection"] = "Replacement package"
+        changed_queue["rationale"] = "The current evidence requires a new priority."
+        project_state_transition.validate_transition(
+            previous, changed_queue, REPOSITORY, head_ref="HEAD"
+        )
+
+        with tempfile.TemporaryDirectory() as temporary:
+            completion_repo = Path(temporary)
+            subprocess.run(
+                ["git", "init", "--quiet"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "DKB test"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.email", "dkb-test@example.invalid"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            report_path = "reports/price_history/report.json"
+            report_file = completion_repo / report_path
+            report_file.parent.mkdir(parents=True)
+            report_file.write_text("{}\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "add", report_path],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "commit", "--quiet", "-m", "Merge pull request #899"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            merge_sha = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"],
+                cwd=completion_repo,
+                text=True,
+            ).strip()
+
+            completed = copy.deepcopy(previous)
+            completed["current_package"]["status"] = "complete"
+            completed["current_package"]["report_path"] = report_path
+            completed["current_package"]["completion"] = {
+                "pull_request": 899,
+                "merge_commit_sha": merge_sha,
+                "report_path": report_path,
+                "completed_on": "2026-11-25",
+            }
+            project_state_transition.validate_transition(
+                previous, completed, completion_repo, head_ref="HEAD"
+            )
+
+        missing_completion = copy.deepcopy(previous)
+        missing_completion["current_package"]["status"] = "complete"
+        with self.assertRaisesRegex(
+            project_state_transition.TransitionError, "completion"
+        ):
+            project_state_transition.validate_transition(
+                previous, missing_completion, REPOSITORY, head_ref="HEAD"
+            )
+
+        previous["current_package"]["status"] = "complete"
+        promoted = copy.deepcopy(previous)
+        promoted["current_package"] = copy.deepcopy(previous["next_package"])
+        promoted["current_package"]["status"] = "planned"
+        promoted["next_package"] = {
+            "package_id": "bigster_brochure_001",
+            "kind": "source_brochure_assimilation",
+            "name": "Bigster brochure assimilation",
+            "status": "planned",
+            "goal": "Review the full official brochure against the current cennik.",
+            "source_paths": [
+                "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+                "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
+            ],
+        }
+        promoted["next_package_selection"] = "Bigster brochure assimilation"
+        promoted["rationale"] = "The prior source reconciliation is complete."
+        project_state_transition.validate_transition(
+            previous, promoted, REPOSITORY, head_ref="HEAD"
+        )
+
+        missing_source = copy.deepcopy(promoted)
+        missing_source["next_package"]["source_paths"] = [
+            "PDF/Broszury/not-archived.pdf"
+        ]
+        with self.assertRaisesRegex(
+            project_state_transition.TransitionError, "does not exist"
+        ):
+            project_state_transition.validate_transition(
+                previous, missing_source, REPOSITORY, head_ref="HEAD"
+            )
+
+        skipped_package = copy.deepcopy(promoted)
+        skipped_package["current_package"]["package_id"] = "unplanned_package_999"
+        with self.assertRaisesRegex(
+            project_state_transition.TransitionError, "previous next_package"
+        ):
+            project_state_transition.validate_transition(
+                previous, skipped_package, REPOSITORY, head_ref="HEAD"
+            )
 
     def test_completed_package_cannot_remain_next(self) -> None:
         state = self.fixture()
