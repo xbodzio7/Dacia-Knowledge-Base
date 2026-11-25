@@ -616,6 +616,61 @@ def self_test() -> int:
             pull_request_number=123,
         )
 
+        invalid_report_reference = json.loads(json.dumps(source_candidate))
+        invalid_report_reference["next_package"]["selection_evidence"]["reviewed_report_ids"] = [
+            "unregistered-report"
+        ]
+        try:
+            validate_transition(
+                promoted,
+                invalid_report_reference,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "unregistered report IDs" not in str(exc):
+                raise
+        else:
+            raise TransitionError("unregistered selection report ID was accepted")
+
+        missing_evidence_path = json.loads(json.dumps(source_candidate))
+        missing_evidence_path["next_package"]["selection_evidence"]["reviewed_evidence_paths"] = [
+            "reports/missing-evidence.json"
+        ]
+        try:
+            validate_transition(
+                promoted,
+                missing_evidence_path,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "does not exist" not in str(exc):
+                raise
+        else:
+            raise TransitionError("missing selection evidence file was accepted")
+
+        duplicate_candidate_report = json.loads(json.dumps(source_candidate))
+        duplicate_candidate_report["next_package"]["report_id"] = "prior-report"
+        try:
+            validate_transition(
+                promoted,
+                duplicate_candidate_report,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "already registered" not in str(exc):
+                raise
+        else:
+            raise TransitionError("already registered candidate report ID was accepted")
+
         current_active = {
             "current_package": {
                 "package_id": "active",
