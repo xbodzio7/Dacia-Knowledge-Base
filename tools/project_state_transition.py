@@ -358,9 +358,15 @@ def _validate_registry_state_consistency(
             report = json.loads(report_file.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError) as exc:
             raise TransitionError(f"cannot read completed package report: {exc}") from exc
-        if not _report_declares_completion(repository, report_path):
+        declares_completion = _report_declares_completion(repository, report_path)
+        if current.get("status") == "complete" and not declares_completion:
             raise TransitionError(
                 "current_package is marked complete but its registered report does not declare completion"
+            )
+        if current.get("status") != "complete" and declares_completion:
+            raise TransitionError(
+                "current_package is not complete but its registered report declares completion; "
+                "state and completion history are inconsistent"
             )
         metadata = report.get("report_metadata", {}) if isinstance(report, dict) else {}
         if isinstance(metadata, dict):
