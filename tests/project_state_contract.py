@@ -213,6 +213,28 @@ class ProjectStateContractTests(unittest.TestCase):
 
         previous = self.fixture()
         previous["next_package"]["kind"] = "reporting"
+
+        quality_workflow = (
+            REPOSITORY / ".github" / "workflows" / "quality.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Validate canonical package-state transition", quality_workflow)
+        self.assertIn("python tools/project_state_transition.py", quality_workflow)
+
+        changed_queue = copy.deepcopy(previous)
+        changed_queue["next_package"]["package_id"] = "replacement_package_001"
+        changed_queue["next_package"]["name"] = "Replacement package"
+        with self.assertRaisesRegex(
+            project_state_transition.TransitionError, "new next_package_selection"
+        ):
+            project_state_transition.validate_transition(
+                previous, changed_queue, REPOSITORY, head_ref="HEAD"
+            )
+        changed_queue["next_package_selection"] = "Replacement package"
+        changed_queue["rationale"] = "The current evidence requires a new priority."
+        project_state_transition.validate_transition(
+            previous, changed_queue, REPOSITORY, head_ref="HEAD"
+        )
+
         completed = copy.deepcopy(previous)
         completed["current_package"]["status"] = "complete"
         completed["current_package"]["report_path"] = (
