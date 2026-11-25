@@ -75,7 +75,7 @@ Before any project action, the AI shall:
 
 The previous conversation is context only. It cannot select, override or reactivate a workflow profile. If the bootstrap cannot be completed, enter `RECOVERY` or diagnostic mode and report the exact blocker.
 
-For remote-only regeneration of canonical counters and managed documentation, follow `project/BASELINE_REPAIR_WORKFLOW.md`. The read-only `Baseline Repair` workflow must be dispatched from the trusted `main` branch, never from the PR branch; it is usable only after its workflow definition has landed on `main`, so it cannot safely repair the PR that first introduces it. It produces a reviewed artifact limited to six generated files and has no write permission. Apply the reviewed output to the exact PR branch through an authenticated repository write integration or the normal GitHub UI, then require all normal CI checks on the new exact head SHA.
+For remote-only regeneration of canonical counters and managed documentation, follow `project/BASELINE_REPAIR_WORKFLOW.md`. The `Baseline Repair` workflow must be dispatched from the trusted `main` branch, never from the PR branch, and only after its definition has landed on `main`. Supply only the PR number: the read-only generation job discovers and verifies the exact branch/head/base from GitHub, while a separate write-back job re-verifies them and applies only the six allowlisted generated files. PR code must never run with write credentials. After write-back, inspect the PR diff and require all six normal CI checks on the new exact head SHA.
 
 ## Recorded GitHub `main` branch-protection baseline
 
