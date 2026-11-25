@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -237,22 +238,60 @@ class ProjectStateContractTests(unittest.TestCase):
             previous, changed_queue, REPOSITORY, head_ref="HEAD"
         )
 
-        completed = copy.deepcopy(previous)
-        completed["current_package"]["status"] = "complete"
-        completed["current_package"]["report_path"] = (
-            "reports/price_history/sandero_stepway_catalogue_price_history_2026.json"
-        )
-        completed["current_package"]["completion"] = {
-            "pull_request": 899,
-            "merge_commit_sha": "d884e5f90ef965946ff24bbe1a94c911ab453d0b",
-            "report_path": (
-                "reports/price_history/sandero_stepway_catalogue_price_history_2026.json"
-            ),
-            "completed_on": "2026-11-25",
-        }
-        project_state_transition.validate_transition(
-            previous, completed, REPOSITORY, head_ref="HEAD"
-        )
+        with tempfile.TemporaryDirectory() as temporary:
+            completion_repo = Path(temporary)
+            subprocess.run(
+                ["git", "init", "--quiet"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "DKB test"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "config", "user.email", "dkb-test@example.invalid"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            report_path = "reports/price_history/report.json"
+            report_file = completion_repo / report_path
+            report_file.parent.mkdir(parents=True)
+            report_file.write_text("{}\\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "add", report_path],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "commit", "--quiet", "-m", "Merge pull request #899"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            merge_sha = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"],
+                cwd=completion_repo,
+                text=True,
+            ).strip()
+
+            completed = copy.deepcopy(previous)
+            completed["current_package"]["status"] = "complete"
+            completed["current_package"]["report_path"] = report_path
+            completed["current_package"]["completion"] = {
+                "pull_request": 899,
+                "merge_commit_sha": merge_sha,
+                "report_path": report_path,
+                "completed_on": "2026-11-25",
+            }
+            project_state_transition.validate_transition(
+                previous, completed, completion_repo, head_ref="HEAD"
+            )
 
         missing_completion = copy.deepcopy(previous)
         missing_completion["current_package"]["status"] = "complete"
