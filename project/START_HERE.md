@@ -48,7 +48,9 @@ Before any project action, the AI shall also perform a **continuity freshness ch
 - if generated state documentation is stale, repair/regenerate it before selecting or describing the next package;
 - verify that every recently merged package affecting the current milestone is reflected in the canonical state and its reconciliation/manifest before requesting or repeating any user action;
 - never treat a conversation handoff, remembered package number, tab list or previous assistant statement as evidence that a package is still open;
-- when duplicate work is suspected, reconcile by exact configuration/source identifiers and merged commit/PR evidence before doing new extraction.
+- when duplicate work is suspected, reconcile by exact configuration/source identifiers and merged commit/PR evidence before doing new extraction;
+- before selecting any new source-backed next package, inspect the report registry, source registry and merged PR history for completed work on the same source/model/domain; do not rely only on the previous `next_package` pointer;
+- include `next_package.selection_evidence` with registered `reviewed_report_ids`, existing `reviewed_evidence_paths` and a precise `residual_scope`; the transition gate rejects source-package selection without this evidence and rejects reuse of an already registered candidate report ID.
 
 If this check finds a state/documentation mismatch, enter recovery/diagnostic handling first; do not continue from the stale narrative.
 
