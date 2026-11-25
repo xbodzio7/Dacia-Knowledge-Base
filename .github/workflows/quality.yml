@@ -59,6 +59,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Validate canonical package-state transition
+        if: github.event_name == 'pull_request' && matrix.python-version == '3.14'
+        env:
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+        run: python tools/project_state_transition.py --base-ref "origin/${BASE_BRANCH}" --head-ref HEAD
+
       - name: Enforce change-impact matrix for source and master-data changes
         if: github.event_name == 'pull_request' && matrix.python-version == '3.14'
         env:
