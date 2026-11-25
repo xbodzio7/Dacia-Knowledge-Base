@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Dacia Official Brochure Assimilation**
+**Dacia Official Cennik Reconciliation**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Sandero MY26 Catalogue Price History MVP** — `complete`
+**Official Bigster Brochure Full Assimilation** — `complete`
 
-Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.
+Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 
 ## Next package
 
-**Official Bigster Brochure Full Assimilation** — `active`
+**Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation** — `active`
 
-Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics.
 
 ## Autonomy
 

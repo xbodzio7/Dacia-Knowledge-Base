@@ -8,6 +8,7 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 from datetime import date
 from pathlib import Path, PurePosixPath
 from typing import Any, Mapping, Sequence
@@ -19,7 +20,15 @@ STATUS_TRANSITIONS = {
     "blocked": {"blocked", "active", "complete"},
     "complete": {"complete"},
 }
-IDENTITY_FIELDS = ("package_id", "kind", "name", "goal", "source_paths")
+IDENTITY_FIELDS = (
+    "package_id",
+    "kind",
+    "name",
+    "goal",
+    "source_paths",
+    "report_id",
+    "report_path",
+)
 
 
 class TransitionError(RuntimeError):
@@ -70,10 +79,47 @@ def _safe_repository_file(repository: Path, value: Any, label: str) -> Path:
     return path
 
 
+def _changed_paths(repository: Path, base_ref: str, head_ref: str) -> set[str]:
+    output = _git(repository, "diff", "--name-only", f"{base_ref}...{head_ref}")
+    return {
+        line.strip().replace("\\\\", "/")
+        for line in output.splitlines()
+        if line.strip()
+    }
+
+
+def _report_declares_completion(repository: Path, report_path: str) -> bool:
+    path = _safe_repository_file(repository, report_path, "next_package.report_path")
+    try:
+        report = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise TransitionError(f"cannot read package completion report {report_path}: {exc}") from exc
+    if not isinstance(report, dict):
+        return False
+    source = report.get("source")
+    source = source if isinstance(source, dict) else {}
+    statuses = {
+        report.get("status"),
+        report.get("coverage_state"),
+        source.get("coverage_state"),
+    }
+    completed_statuses = {
+        "complete",
+        "completed",
+        "fully_assimilated",
+        "fully_assimilated_with_deferrals",
+        "fully_reconciled",
+    }
+    return bool(statuses & completed_statuses)
+
+
 def _validate_completion(
     package: Mapping[str, Any],
     repository: Path,
     head_ref: str,
+    *,
+    changed_paths: set[str],
+    pull_request_number: int | None,
 ) -> None:
     completion = package.get("completion")
     if not isinstance(completion, dict):
@@ -83,9 +129,21 @@ def _validate_completion(
     pull_request = completion.get("pull_request")
     if not isinstance(pull_request, int) or isinstance(pull_request, bool) or pull_request < 1:
         raise TransitionError("completion.pull_request must be a positive integer")
+    package_sha = completion.get("package_commit_sha")
     merge_sha = completion.get("merge_commit_sha")
-    if not isinstance(merge_sha, str) or SHA_RE.fullmatch(merge_sha) is None:
-        raise TransitionError("completion.merge_commit_sha must be a lowercase 40-character SHA")
+    if package_sha is not None:
+        if not isinstance(package_sha, str) or SHA_RE.fullmatch(package_sha) is None:
+            raise TransitionError(
+                "completion.package_commit_sha must be a lowercase 40-character SHA"
+            )
+        if pull_request_number is not None and pull_request != pull_request_number:
+            raise TransitionError(
+                f"completion.pull_request must match the current PR #{pull_request_number}"
+            )
+    elif not isinstance(merge_sha, str) or SHA_RE.fullmatch(merge_sha) is None:
+        raise TransitionError(
+            "completion requires a valid package_commit_sha (PR closeout) or merge_commit_sha (post-merge repair)"
+        )
     completed_on = completion.get("completed_on")
     if not isinstance(completed_on, str):
         raise TransitionError("completion.completed_on must be an ISO date")
@@ -95,6 +153,11 @@ def _validate_completion(
         raise TransitionError("completion.completed_on must be an ISO date") from exc
 
     report_path = completion.get("report_path")
+    if package_sha is None and report_path in changed_paths:
+        raise TransitionError(
+            "a delivery PR that changes the completed report must use "
+            "completion.package_commit_sha, not a post-merge merge_commit_sha"
+        )
     _safe_repository_file(repository, report_path, "completion.report_path")
     package_report = package.get("report_path")
     if package_report and package_report != report_path:
@@ -102,14 +165,38 @@ def _validate_completion(
             "completion.report_path must match current_package.report_path"
         )
 
-    message = _git(repository, "show", "-s", "--format=%B", merge_sha)
-    if f"#{pull_request}" not in message:
-        raise TransitionError(
-            "completion merge commit message does not reference "
-            f"the recorded PR #{pull_request}"
+    evidence_sha = package_sha or merge_sha
+    if package_sha is None:
+        message = _git(repository, "show", "-s", "--format=%B", merge_sha)
+        if f"#{pull_request}" not in message:
+            raise TransitionError(
+                "completion merge commit message does not reference "
+                f"the recorded PR #{pull_request}"
+            )
+    else:
+        if report_path not in changed_paths:
+            raise TransitionError(
+                "PR package closeout must change the exact current_package.report_path"
+            )
+        commit_paths = _git(
+            repository,
+            "diff-tree",
+            "--no-commit-id",
+            "--name-only",
+            "-r",
+            package_sha,
         )
+        if report_path not in {
+            line.strip().replace("\\\\", "/")
+            for line in commit_paths.splitlines()
+            if line.strip()
+        }:
+            raise TransitionError(
+                "completion.package_commit_sha must identify a commit that changed "
+                "the declared report"
+            )
     ancestor = subprocess.run(
-        ["git", "merge-base", "--is-ancestor", merge_sha, head_ref],
+        ["git", "merge-base", "--is-ancestor", evidence_sha, head_ref],
         cwd=repository,
         check=False,
         capture_output=True,
@@ -119,7 +206,7 @@ def _validate_completion(
     )
     if ancestor.returncode != 0:
         raise TransitionError(
-            f"completion merge commit {merge_sha} is not an ancestor of candidate {head_ref}"
+            f"completion evidence commit {evidence_sha} is not an ancestor of candidate {head_ref}"
         )
 
 
@@ -175,8 +262,13 @@ def validate_transition(
     repository: Path,
     *,
     head_ref: str = "HEAD",
+    base_ref: str | None = None,
+    pull_request_number: int | None = None,
 ) -> None:
     """Validate one state change against the exact base state and candidate tree."""
+    changed_paths = (
+        _changed_paths(repository, base_ref, head_ref) if base_ref is not None else set()
+    )
     old_current = _package(previous, "current_package")
     old_next = _package(previous, "next_package")
     new_current = _package(current, "current_package")
@@ -206,11 +298,51 @@ def validate_transition(
         if not isinstance(rationale, str) or not rationale.strip():
             raise TransitionError("package promotion requires a non-empty rationale")
 
+    old_current_report = old_current.get("report_path")
+    if (
+        old_id == new_id
+        and new_status != "complete"
+        and isinstance(old_current_report, str)
+        and old_current_report in changed_paths
+        and _report_declares_completion(repository, old_current_report)
+    ):
+        raise TransitionError(
+            "the current_package report declares completion, but current_package.status "
+            "is not complete in the same PR"
+        )
+
+    old_next_report = old_next.get("report_path")
+    if (
+        isinstance(old_next_report, str)
+        and old_next_report in changed_paths
+        and _report_declares_completion(repository, old_next_report)
+        and (new_id != old_next["package_id"] or new_status != "complete")
+    ):
+        raise TransitionError(
+            "the current next_package report declares completion, but project/state.json "
+            "does not promote that package to current_package=complete in the same PR"
+        )
+
     if new_status == "complete":
         if old_id != new_id or old_status != "complete":
-            _validate_completion(new_current, repository, head_ref)
+            _validate_completion(
+                new_current,
+                repository,
+                head_ref,
+                changed_paths=changed_paths,
+                pull_request_number=pull_request_number,
+            )
         elif new_current.get("completion") is not None:
-            _validate_completion(new_current, repository, head_ref)
+            historical_report = new_current["completion"].get("report_path")
+            _validate_completion(
+                new_current,
+                repository,
+                head_ref,
+                changed_paths=(
+                    {historical_report} if isinstance(historical_report, str) else set()
+                ),
+                pull_request_number=None,
+            )
     elif new_current.get("completion") is not None:
         raise TransitionError("current_package.completion is allowed only for a complete package")
 
@@ -240,6 +372,159 @@ def validate_transition(
     _validate_next_sources(new_next, repository)
 
 
+def self_test() -> int:
+    """Exercise completed-report detection and exact PR-bound closeout evidence."""
+    with tempfile.TemporaryDirectory(prefix="dkb-state-transition-") as temporary:
+        repository = Path(temporary)
+        _git(repository, "init", "-b", "main")
+        _git(repository, "config", "user.name", "DKB lifecycle self-test")
+        _git(repository, "config", "user.email", "dkb-self-test@example.invalid")
+        report = repository / "reports" / "package.json"
+        current_report = repository / "reports" / "current-package.json"
+        report.parent.mkdir(parents=True)
+        report.write_text(json.dumps({"status": "in_progress"}) + "\n", encoding="utf-8")
+        current_report.write_text(
+            json.dumps({"status": "in_progress"}) + "\n",
+            encoding="utf-8",
+        )
+        _git(repository, "add", ".")
+        _git(repository, "commit", "-m", "test: create package report")
+        base_ref = _git(repository, "rev-parse", "HEAD")
+
+        report.write_text(
+            json.dumps({"status": "fully_assimilated_with_deferrals"}) + chr(10),
+            encoding="utf-8",
+        )
+        _git(repository, "add", ".")
+        _git(repository, "commit", "-m", "test: complete package report")
+        package_sha = _git(repository, "rev-parse", "HEAD")
+        current_report.write_text(
+            json.dumps({"status": "fully_reconciled"}) + chr(10),
+            encoding="utf-8",
+        )
+        _git(repository, "add", ".")
+        _git(repository, "commit", "-m", "test: complete current package report")
+
+        previous = {
+            "current_package": {
+                "package_id": "previous",
+                "kind": "review",
+                "name": "Previous",
+                "status": "complete",
+                "goal": "Previous package",
+            },
+            "next_package": {
+                "package_id": "candidate",
+                "kind": "review",
+                "name": "Candidate",
+                "status": "active",
+                "goal": "Candidate package",
+                "report_path": "reports/package.json",
+            },
+        }
+        try:
+            validate_transition(
+                previous,
+                previous,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "does not promote" not in str(exc):
+                raise
+        else:
+            raise TransitionError("completed next-package report was not required to close")
+
+        promoted = {
+            "current_package": {
+                **previous["next_package"],
+                "status": "complete",
+                "completion": {
+                    "pull_request": 123,
+                    "package_commit_sha": package_sha,
+                    "completed_on": "2026-11-25",
+                    "report_path": "reports/package.json",
+                },
+            },
+            "next_package": {
+                "package_id": "following",
+                "kind": "review",
+                "name": "Following",
+                "status": "planned",
+                "goal": "Following package",
+            },
+            "next_package_selection": "Following package",
+            "rationale": "Selected from the verified repository backlog.",
+        }
+        validate_transition(
+            previous,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=123,
+        )
+        try:
+            validate_transition(
+                previous,
+                promoted,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=124,
+            )
+        except TransitionError as exc:
+            if "must match the current PR" not in str(exc):
+                raise
+        else:
+            raise TransitionError("completion evidence accepted the wrong PR number")
+
+        validate_transition(
+            promoted,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=124,
+        )
+
+        current_active = {
+            "current_package": {
+                "package_id": "active",
+                "kind": "review",
+                "name": "Active",
+                "status": "active",
+                "goal": "Active package",
+                "report_path": "reports/current-package.json",
+            },
+            "next_package": {
+                "package_id": "following",
+                "kind": "review",
+                "name": "Following",
+                "status": "planned",
+                "goal": "Following package",
+            },
+        }
+        try:
+            validate_transition(
+                current_active,
+                current_active,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "current_package report declares completion" not in str(exc):
+                raise
+        else:
+            raise TransitionError("completed current-package report was not required to close")
+    print("PROJECT STATE TRANSITION SELF-TEST: PASS")
+    return 0
+
+
 def _read_json(path: Path) -> dict[str, Any]:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -263,14 +548,20 @@ def _read_base_state(repository: Path, base_ref: str) -> dict[str, Any]:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--base-ref", required=True)
+    parser.add_argument("--base-ref")
     parser.add_argument("--head-ref", default="HEAD")
+    parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--pull-request-number", type=int)
     parser.add_argument(
         "--repository",
         type=Path,
         default=Path(__file__).resolve().parent.parent,
     )
     args = parser.parse_args(argv)
+    if args.self_test:
+        return self_test()
+    if not args.base_ref:
+        parser.error("--base-ref is required unless --self-test is used")
     repository = args.repository.resolve()
     try:
         previous = _read_base_state(repository, args.base_ref)
@@ -280,6 +571,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             current,
             repository,
             head_ref=args.head_ref,
+            base_ref=args.base_ref,
+            pull_request_number=args.pull_request_number,
         )
     except (OSError, TransitionError) as exc:
         print(f"PROJECT STATE TRANSITION: FAIL\n{exc}", file=sys.stderr)
