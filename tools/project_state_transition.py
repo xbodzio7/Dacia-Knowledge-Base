@@ -440,8 +440,7 @@ def validate_transition(
             raise TransitionError(
                 "changing next_package identity/scope requires a new rationale"
             )
-    if identity_changed:
-        _validate_next_package_selection(new_next, repository)
+    _validate_next_package_selection(new_next, repository)
     _validate_next_sources(new_next, repository)
 
 
@@ -615,6 +614,23 @@ def self_test() -> int:
             base_ref=base_ref,
             pull_request_number=123,
         )
+
+        source_selection_without_evidence = json.loads(json.dumps(source_candidate))
+        del source_selection_without_evidence["next_package"]["selection_evidence"]
+        try:
+            validate_transition(
+                source_candidate,
+                source_selection_without_evidence,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "selection_evidence" not in str(exc):
+                raise
+        else:
+            raise TransitionError("existing source-package selection lost its evidence")
 
         invalid_report_reference = json.loads(json.dumps(source_candidate))
         invalid_report_reference["next_package"]["selection_evidence"]["reviewed_report_ids"] = [
