@@ -61,11 +61,14 @@
     ],
     "selection_evidence": {
       "reviewed_report_ids": [
-        "official_dacia_brochure_portfolio_coverage_reconciliation_20261014",
-        "spring_my26_brochure_technical_observations_20260219",
         "spring_my26_price_list_source_assimilation_review_20261114_001",
-        "striker_my26_technical_data_review_20261124_001",
-        "official_bigster_brochure_full_assimilation_20261125"
+        "striker_my26_technical_data_review_20261124_001"
+      ],
+      "reviewed_evidence_paths": [
+        "data/reporting/official_dacia_brochure_portfolio_coverage_reconciliation_20261014.json",
+        "project/source-audit/spring-brochure-20260219-page-inventory.md",
+        "project/packages/spring-brochure-technical-observations-20260219.md",
+        "data/reporting/official_bigster_brochure_full_assimilation_20261125.json"
       ],
       "residual_scope": "Spring brochure has a complete 22-page text and rendered-image inventory, but its source-to-master reconciliation is explicitly partial. The next package closes that remaining reconciliation against the dated MY26 cennik; it does not repeat the completed Spring dimension/DC 40 kW review or the already imported 54 scalar and 3 range observations."
     }
