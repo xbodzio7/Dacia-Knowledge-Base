@@ -125,6 +125,15 @@
       "depends_on_paths": [
         "data/reporting/sandero_stepway_price_list_20261001_reconciliation_001.json"
       ]
+    },
+    {
+      "report_id": "official_bigster_brochure_full_assimilation_20261125",
+      "json_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
+      "depends_on": [],
+      "depends_on_paths": [
+        "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+        "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf"
+      ]
     }
   ]
 }
