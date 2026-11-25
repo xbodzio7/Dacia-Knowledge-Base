@@ -30,6 +30,16 @@ No master-data or code implementation begins until the following stages are comp
 9. **Final quality gate:** after all edits and generated outputs are stable, run the complete required quality matrix on the exact final commit/head SHA.
 10. **Publication and continuity:** verify commit, PR, CI, merge state and changed paths; update canonical state and generated documentation as required; persist the next safe package.
 
+### Source-package selection evidence
+
+Whenever a new `next_package` is selected with a `source_*` kind, its state entry must include a `selection_evidence` object containing:
+
+- `reviewed_report_ids`: a non-empty, unique list of report IDs already registered in `data/reporting/report_registry.json` and consulted during gap selection;
+- `reviewed_evidence_paths`: a non-empty, unique list of existing repository files that support the selection, including source-coverage inventories or page-level review records not present in the report registry;
+- `residual_scope`: a precise statement of what remains incomplete and why it is distinct from already completed work.
+
+The state-transition gate validates the structure, verifies that referenced report IDs are registered and evidence paths exist, and rejects a candidate report ID that is already registered. Before selecting the package, inspect merged PRs and source-linked reports for the same source/model/domain. Reusing a source is allowed for a genuinely distinct residual scope, but the completed scope must be explicitly reviewed and excluded. A new package ID or report filename does not make previously completed work new.
+
 A stage may be skipped only when it is genuinely inapplicable and the reason is recorded. A conversation statement that a stage was completed is not evidence; verify its durable repository result.
 
 ## 3. Evidence-first data rules
