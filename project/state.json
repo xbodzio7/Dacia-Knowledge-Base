@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Dacia Official Brochure Assimilation",
+  "phase": "Dacia Official Technical Evidence Reconciliation",
   "reference_delivery": {
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
@@ -27,26 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "sandero_my26_catalogue_price_history_mvp_20261124_001",
-    "kind": "historical_price_reporting_feature",
-    "name": "Sandero MY26 Catalogue Price History MVP",
-    "status": "complete",
-    "goal": "Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.",
-    "report_id": "sandero_stepway_catalogue_price_history_2026",
-    "report_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.json",
-    "master_data_changed": false,
-    "completion": {
-      "pull_request": 899,
-      "merge_commit_sha": "d884e5f90ef965946ff24bbe1a94c911ab453d0b",
-      "report_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.json",
-      "completed_on": "2026-11-25"
-    }
-  },
-  "next_package": {
     "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
     "kind": "source_brochure_assimilation",
     "name": "Official Bigster Brochure Full Assimilation",
-    "status": "active",
+    "status": "complete",
     "goal": "Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.",
     "report_id": "official_bigster_brochure_full_assimilation_20261125",
     "report_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
@@ -54,7 +38,20 @@
     "source_paths": [
       "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
       "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf"
-    ]
+    ],
+    "completion": {
+      "pull_request": 904,
+      "merge_commit_sha": "9c9fa938506830518ca810a0dd486f0fac5a70df",
+      "report_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
+      "completed_on": "2026-11-25"
+    }
+  },
+  "next_package": {
+    "package_id": "striker_my26_technical_equipment_dimension_reconciliation_20261125_001",
+    "kind": "technical_reconciliation",
+    "name": "Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation",
+    "status": "planned",
+    "goal": "Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics."
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -131,6 +128,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Official Bigster Brochure Full Assimilation",
-  "rationale": "The official Polish cennik reconciliation is complete across the represented model families, including Striker. The Sandero/Sandero Stepway MY26 catalogue-price history MVP is now delivered from dated official cennik observations without duplicate master rows. Brochure work was deferred while cenniks had priority; the current six-source brochure portfolio review identifies the 24-page Bigster brochure as the next planned full assimilation. Reconcile against the 2026-10-01 official Bigster price list and existing imports; import only exact, unsuperseded source-backed gaps and preserve unresolved contexts."
+  "next_package_selection": "Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation",
+  "rationale": "The official Bigster brochure full assimilation is merged in PR #904 with all 24 pages reviewed and unresolved facts explicitly deferred. The Spring MY26 dimension/DC 40 kW review was already completed in PR #870, and Striker catalogue prices and priced options/packages were delivered in PRs #878 and #892. The remaining bounded gap is Striker MY26 technical, equipment and dimension evidence from the archived 2026-11-02 cennik; verify the exact archived source identity before beginning."
 }
