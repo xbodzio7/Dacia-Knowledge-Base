@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Added
+* Hardened package lifecycle closeout: the Quality transition gate now detects when the active next-package report declares completion but canonical state was not promoted in the same PR. New completions are tied to the exact PR number and a commit that changed the declared report; an isolated built-in self-test covers missing promotion, valid closeout and wrong-PR evidence. Updated startup and quality protocol guidance.
+
 
 * Repaired legacy tests that treated shared master-table counts and observation-date inventories as immutable: Bigster range counts now reconcile to the exact brochure source, commercial-item checks distinguish price-list items from brochure palette records, and the brochure registrar preserves downstream source notes while validating immutable source identity. Added a Quality-workflow guard that checks changed test modules for brittle whole-table count/date assertions and self-tests its own detection logic.
 
