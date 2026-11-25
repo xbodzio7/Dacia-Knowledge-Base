@@ -279,16 +279,24 @@ def _validate_next_package_selection(package: Mapping[str, Any], repository: Pat
     entries = registry.get("reports") if isinstance(registry, dict) else None
     if not isinstance(entries, list):
         raise TransitionError("report_registry.reports must be a list")
-    registered_ids = {
-        item.get("report_id")
+    registered = {
+        item.get("report_id"): item
         for item in entries
         if isinstance(item, dict) and isinstance(item.get("report_id"), str)
     }
+    registered_ids = set(registered)
     missing_ids = sorted(set(report_ids) - registered_ids)
     if missing_ids:
         raise TransitionError(
             "selection_evidence references unregistered report IDs: "
             + ", ".join(missing_ids)
+        )
+    for report_id in report_ids:
+        report_path = registered[report_id].get("json_path")
+        _safe_repository_file(
+            repository,
+            report_path,
+            f"selection_evidence.report_json_paths[{report_id}]",
         )
     candidate_report_id = package.get("report_id")
     if isinstance(candidate_report_id, str) and candidate_report_id in registered_ids:
@@ -460,7 +468,7 @@ def self_test() -> int:
         registry_file.parent.mkdir(parents=True)
         source_file.write_bytes(b"test source")
         registry_file.write_text(
-            json.dumps({"reports": [{"report_id": "prior-report"}]}) + "\n",
+            json.dumps({"reports": [{"report_id": "prior-report", "json_path": "reports/package.json"}]}) + "\n",
             encoding="utf-8",
         )
         report.write_text(json.dumps({"status": "in_progress"}) + "\n", encoding="utf-8")
