@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Added
+* Added semantic same-model overlap detection with mandatory per-report scope resolutions; added a cross-check between completed package receipts, report registry IDs/paths and report completion status. Registered the previously omitted Bigster completion report and added isolated overlap/history regression tests.
 * Added source-package selection evidence to the canonical state transition gate: new source-backed next packages must cite registered reports, existing evidence files and a precise residual scope; the isolated self-test rejects missing evidence and duplicate registered report IDs. Corrected the post-PR #907 package pointer after verifying that Striker technical data was already completed in PR #898; selected the partially reconciled Spring brochure as the next planned package.
 
 * Hardened package lifecycle closeout: the Quality transition gate now detects when the active next-package report declares completion but canonical state was not promoted in the same PR. New completions are tied to the exact PR number and a commit that changed the declared report; an isolated built-in self-test covers missing promotion, valid closeout and wrong-PR evidence. Updated startup and quality protocol guidance.
