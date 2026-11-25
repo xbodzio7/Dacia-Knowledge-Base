@@ -8,11 +8,11 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-24
+- State updated: 2026-11-25
 
 ## Phase
 
-**Dacia Official Price List Reconciliation**
+**Dacia Official Brochure Assimilation**
 
 ## Reference delivery
 
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Striker MY26 Technical Data and Dimension Import** — `complete`
+**Sandero MY26 Catalogue Price History MVP** — `complete`
 
-Import exact technical, performance, fuel, mass, towing, payload and exterior-dimension facts from pages 6–7 of the archived official Polish Striker MY26 cennik effective 2026-11-02 across the 11 exact source-linked configurations. Preserve petrol/LPG distinctions and printed numeric ranges; do not infer hybrid 150 combined power, hybrid 155 CO2 applicability, tyre fitment, mass equivalence or unexplained interior measurements.
+Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.
 
 ## Next package
 
-**Sandero MY26 Catalogue Price History MVP** — `planned`
+**Official Bigster Brochure Full Assimilation** — `planned`
 
-Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.
+Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
 
 ## Autonomy
 
