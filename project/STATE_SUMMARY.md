@@ -42,7 +42,7 @@ Review all 24 pages of the currently linked official Bigster brochure against re
 
 ## Next package
 
-**Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation** — `planned`
+**Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation** — `active`
 
 Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics.
 
