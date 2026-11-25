@@ -700,8 +700,25 @@ def self_test() -> int:
             "next_package_selection": "Following package",
             "rationale": "Selected from the verified repository backlog.",
         }
+        # The candidate report belongs to the current package being completed.
+        # Start this closeout case with that package already active; the separate
+        # case above covers promotion from a completed prior package.
+        promotion_previous = {
+            "current_package": {
+                **previous["next_package"],
+                "status": "active",
+                "report_path": "reports/package.json",
+            },
+            "next_package": {
+                "package_id": "following",
+                "kind": "review",
+                "name": "Following",
+                "status": "planned",
+                "goal": "Following package",
+            },
+        }
         validate_transition(
-            previous,
+            promotion_previous,
             promoted,
             repository,
             head_ref="HEAD",
@@ -710,7 +727,7 @@ def self_test() -> int:
         )
         try:
             validate_transition(
-                previous,
+                promotion_previous,
                 promoted,
                 repository,
                 head_ref="HEAD",
