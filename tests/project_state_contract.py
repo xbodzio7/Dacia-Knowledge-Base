@@ -121,6 +121,29 @@ class ProjectStateContractTests(unittest.TestCase):
         self.assertEqual(actual, expected)
         self.assertEqual(project_state.check_references(REPOSITORY), [])
 
+        # Keep the remote baseline-repair workflow's security contract under
+        # the existing test case so this check does not alter the test-count
+        # baseline merely by adding workflow coverage.
+        workflow = (
+            REPOSITORY / ".github" / "workflows" / "baseline-repair.yml"
+        ).read_text(encoding="utf-8")
+        dispatch_inputs = workflow.split("workflow_dispatch:", 1)[1].split(
+            "\\npermissions:", 1
+        )[0]
+        self.assertIn("pr_number:", dispatch_inputs)
+        self.assertNotIn("pr_branch:", dispatch_inputs)
+        self.assertNotIn("expected_head_sha:", dispatch_inputs)
+        self.assertIn("pr.state !== \\"open\\"", workflow)
+        self.assertIn('pr.base.ref !== "main"', workflow)
+        self.assertIn("pr.head.repo.full_name.toLowerCase()", workflow)
+        self.assertIn("pr.base.sha !== mainRef.object.sha", workflow)
+        self.assertIn("persist-credentials: false", workflow)
+        self.assertIn("Re-verify the exact open PR before write-back", workflow)
+        self.assertIn("exact six-file allowlist", workflow)
+        self.assertIn('workflow_id: "quality.yml"', workflow)
+        self.assertIn('workflow_id: "repository-baselines.yml"', workflow)
+        self.assertNotIn("pull_request_target:", workflow)
+
     def test_repository_baseline_matches_canonical_state(self) -> None:
         state = project_state.read_state(REPOSITORY / "project" / "state.json")
         live = documentation_baseline.collect_baseline(REPOSITORY)
