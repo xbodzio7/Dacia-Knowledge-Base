@@ -307,12 +307,15 @@ def validate_transition(
                 pull_request_number=pull_request_number,
             )
         elif new_current.get("completion") is not None:
+            historical_report = new_current["completion"].get("report_path")
             _validate_completion(
                 new_current,
                 repository,
                 head_ref,
-                changed_paths=changed_paths,
-                pull_request_number=pull_request_number,
+                changed_paths=(
+                    {historical_report} if isinstance(historical_report, str) else set()
+                ),
+                pull_request_number=None,
             )
     elif new_current.get("completion") is not None:
         raise TransitionError("current_package.completion is allowed only for a complete package")
@@ -440,6 +443,15 @@ def self_test() -> int:
                 raise
         else:
             raise TransitionError("completion evidence accepted the wrong PR number")
+
+        validate_transition(
+            promoted,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=124,
+        )
     print("PROJECT STATE TRANSITION SELF-TEST: PASS")
     return 0
 
