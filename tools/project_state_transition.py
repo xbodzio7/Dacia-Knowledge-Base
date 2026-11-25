@@ -317,7 +317,7 @@ def self_test() -> int:
         _git(repository, "config", "user.email", "dkb-self-test@example.invalid")
         report = repository / "reports" / "package.json"
         report.parent.mkdir(parents=True)
-        report.write_text(json.dumps({"status": "in_progress"}) + "\\n", encoding="utf-8")
+        report.write_text(json.dumps({"status": "in_progress"}) + "\n", encoding="utf-8")
         _git(repository, "add", ".")
         _git(repository, "commit", "-m", "test: create package report")
         base_ref = _git(repository, "rev-parse", "HEAD")
