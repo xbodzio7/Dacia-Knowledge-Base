@@ -153,6 +153,11 @@ def _validate_completion(
         raise TransitionError("completion.completed_on must be an ISO date") from exc
 
     report_path = completion.get("report_path")
+    if package_sha is None and report_path in changed_paths:
+        raise TransitionError(
+            "a delivery PR that changes the completed report must use "
+            "completion.package_commit_sha, not a post-merge merge_commit_sha"
+        )
     _safe_repository_file(repository, report_path, "completion.report_path")
     package_report = package.get("report_path")
     if package_report and package_report != report_path:
