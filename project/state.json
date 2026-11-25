@@ -34,7 +34,13 @@
     "goal": "Build a deterministic source-backed catalogue-price history view for exact Sandero and Sandero Stepway MY26 configurations using existing dated observations from official Polish cenniks. Reuse canonical configuration identities, preserve each source date, and do not duplicate master price rows or infer cross-identifier equivalence.",
     "report_id": "sandero_stepway_catalogue_price_history_2026",
     "report_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.json",
-    "master_data_changed": false
+    "master_data_changed": false,
+    "completion": {
+      "pull_request": 899,
+      "merge_commit_sha": "d884e5f90ef965946ff24bbe1a94c911ab453d0b",
+      "report_path": "reports/price_history/sandero_stepway_catalogue_price_history_2026.json",
+      "completed_on": "2026-11-25"
+    }
   },
   "next_package": {
     "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
@@ -44,7 +50,11 @@
     "goal": "Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.",
     "report_id": null,
     "report_path": null,
-    "master_data_changed": false
+    "master_data_changed": false,
+    "source_paths": [
+      "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+      "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf"
+    ]
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",

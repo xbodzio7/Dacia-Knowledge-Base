@@ -4,17 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       pr_number:
-        description: "Open same-repository PR number to repair"
+        description: "Open same-repository PR number to repair (branch and SHA are discovered automatically)"
         required: true
         type: number
-      pr_branch:
-        description: "Exact same-repository PR head branch"
-        required: true
-        type: string
-      expected_head_sha:
-        description: "Exact current 40-character PR head SHA"
-        required: true
-        type: string
 
 permissions:
   contents: read
@@ -25,7 +17,7 @@ concurrency:
 
 jobs:
   generate-baseline-repair:
-    name: Generate canonical baseline repair (read-only)
+    name: Generate canonical baseline repair (read-only; PR code never receives write credentials)
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
@@ -43,13 +35,8 @@ jobs:
         with:
           script: |
             const number = Number(context.payload.inputs.pr_number);
-            const expected = String(context.payload.inputs.expected_head_sha || "");
-            const expectedBranch = String(context.payload.inputs.pr_branch || "");
-            if (!/^[A-Za-z0-9._/-]{1,200}$/.test(expectedBranch) || expectedBranch.startsWith("-") || expectedBranch.includes("..")) {
-              throw new Error("Provide a valid PR branch name.");
-            }
-            if (!Number.isInteger(number) || number < 1 || !/^[0-9a-f]{40}$/.test(expected)) {
-              throw new Error("Provide a valid PR number and exact 40-character lowercase head SHA.");
+            if (!Number.isSafeInteger(number) || number < 1) {
+              throw new Error("Provide a valid positive PR number.");
             }
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner, repo: context.repo.repo, pull_number: number
@@ -60,11 +47,8 @@ jobs:
             if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== `${context.repo.owner}/${context.repo.repo}`.toLowerCase()) {
               throw new Error("Fork PRs are not eligible for a baseline repair.");
             }
-            if (pr.head.ref !== expectedBranch) {
-              throw new Error(`Branch mismatch: supplied ${expectedBranch}, current PR branch is ${pr.head.ref}.`);
-            }
-            if (pr.head.sha !== expected) {
-              throw new Error(`Stale SHA: supplied ${expected}, current PR head is ${pr.head.sha}.`);
+            if (!pr.head.ref || pr.head.ref === "main" || !/^[0-9a-f]{40}$/.test(pr.head.sha)) {
+              throw new Error("GitHub returned an invalid PR branch or head SHA.");
             }
             const { data: mainRef } = await github.rest.git.getRef({
               owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
@@ -76,6 +60,7 @@ jobs:
             core.setOutput("head_sha", pr.head.sha);
             core.setOutput("pr_number", String(number));
             core.setOutput("base_sha", mainRef.object.sha);
+            core.notice(`Discovered PR #${number}: branch ${pr.head.ref}, head ${pr.head.sha}, base ${mainRef.object.sha}.`);
 
       - name: Check out the verified immutable PR head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -144,7 +129,7 @@ jobs:
           retention-days: 1
 
   write-back-baseline-repair:
-    name: Apply verified baseline repair to the PR branch
+    name: Apply allowlisted generated files to the verified PR branch
     needs: generate-baseline-repair
     if: needs.generate-baseline-repair.result == 'success' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
