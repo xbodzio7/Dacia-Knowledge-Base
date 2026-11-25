@@ -304,6 +304,11 @@ SCRIPT_COMMANDS = {
         "Validate registered analytical report provenance, input hashes and companion parity.",
         "[--registry FILE]",
     ),
+    "report-impact": (
+        "report_impact.py",
+        "Identify direct and transitive analytical reports affected by changed inputs.",
+        "--base-ref REF [--head-ref REF] [--registry FILE]",
+    ),
     "validate": (
         "validate_dkb.py",
         "Validate repository structure and datasets.",
