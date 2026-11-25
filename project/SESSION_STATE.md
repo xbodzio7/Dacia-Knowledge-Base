@@ -565,3 +565,14 @@ The Project Owner explicitly defined the Striker MY26 2026-11-02 matrix symbols 
 ## Striker MY26 Technical Data and Dimension Import — 2026-11-24
 
 The official Polish MY26 cennik dated 2026-11-02 has now been reviewed on printed pages 6–7. The package adds 423 scalar observations and 21 bounded ranges across the 11 exact source-linked configurations, backed by 42 scalar and 3 range import specifications. Page-6 text evidence and the archived PDF SHA-256 are verified; page 7 is a vector-only dimension diagram, so its text-layer check is skipped while binary identity remains mandatory. Petrol/LPG splits and range semantics are preserved. Hybrid 155 CO2 `95/96`, minimum running-order mass semantics, maximum folded-seat luggage volume, trim-level tyre fitment, 1000 m standing-start time and unexplained interior measurements remain explicitly excluded or unresolved. No price, commercial mapping, equipment-availability, configuration or attribute rows were changed.
+
+## Automated report dependency impact and publication safeguards — PR #905 merged (2026-11-25)
+
+PR #905 was merged to `main` as `f983db5e86b3df8567ca5e00c5d3eb0bf7a3fafe`.
+
+- Added `python tools/dkb.py report-impact --base-ref <target-ref> --head-ref HEAD` to identify direct and transitive registered analytical-report consumers of changed inputs and upstream reports.
+- The Quality workflow runs the new report-impact gate on the exact PR head before report-freshness validation. Affected current reports must be refreshed as matching JSON/Markdown outputs or explicitly remain `needs_review`; the existing fingerprint and dependency-freshness gate remains independent.
+- Added regression coverage for direct and transitive impacts and the `needs_review` disposition without changing the generated test-count baseline.
+- Codified the automated publication controls in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` and `project/AUTONOMOUS_MAINTAINER.md`: change-impact matrix, data/package preflight, canonical state transition, generated documentation, exact-head freshness, package allowlists, duplicate-work review and failure classification.
+- Required PR checks passed on the exact tested head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check.
+- The merge did not alter master data, source evidence, package selection or canonical baseline counters. The current Dacia source-assimilation package remains governed by `project/state.json`.
