@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Dacia Official Technical Evidence Reconciliation",
+  "phase": "Dacia Official Cennik Reconciliation",
   "reference_delivery": {
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
@@ -48,10 +48,14 @@
   },
   "next_package": {
     "package_id": "striker_my26_technical_equipment_dimension_reconciliation_20261125_001",
-    "kind": "technical_reconciliation",
+    "kind": "source_cennik_reconciliation",
     "name": "Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation",
     "status": "planned",
-    "goal": "Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics."
+    "goal": "Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics.",
+    "source_paths": [
+      "PDF/Cenniki/striker-price.pdf",
+      "data/source_intake/striker_my26_20261102_capture.json"
+    ]
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
