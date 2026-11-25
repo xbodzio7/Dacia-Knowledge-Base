@@ -3,8 +3,10 @@
 Report ID: sandero_stepway_catalogue_price_history_2026
 Generated: 2026-11-24T23:50:27.266Z
 Analysed commit: b56be440a9c2de592842aae600674a1a964e7e3a
-Status: current
+Status: needs_review
 Scope: Official Polish MY26 catalogue gross prices for 19 exact Sandero and Sandero Stepway configurations, comparing the complete 2026-08-11 baseline with the 2026-11-02 cennik; promotions, financing, leasing, accessories and dealer offers are excluded.
+
+Review note: the shared data/master/sources.csv input changed during the Bigster brochure package. The Sandero price observations and their source-specific data were not changed. Original fingerprints are retained; regenerate/review this report before restoring current status.
 
 **Rynek:** Polska · **Porównanie:** 11.08.2026 → 02.11.2026 · **Waluta:** PLN brutto
 

@@ -17,9 +17,14 @@ python tools/dkb.py project-state --check
 
 Bieżący SHA `main`, stan Pull Requestów i wyniki CI należy zawsze odczytywać dynamicznie z Git i GitHub. Nie są kopiowane do tego dokumentu. Historyczne zdania narracyjne nie mogą służyć do wyboru następnego pakietu.
 
-## Current User Priority — Cennik-only (2026-11-06)
 
-The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. Do not resume Bigster/Duster brochure work while this priority is active.
+## Supersession Notice (2026-11-25)
+
+The cennik-only priority recorded below was completed and superseded on 2026-11-25. Official Polish cennik reconciliation is complete across the represented model families, including Striker. The canonical active package is now Official Bigster Brochure Full Assimilation, as recorded in `project/state.json`. Older statements below about cennik-only priority, Striker follow-up work or brochure deferral are historical records and must not override the canonical state.
+
+## Historical User Priority — Cennik-only (2026-11-06; superseded 2026-11-25)
+
+The user explicitly narrowed active work to official Polish Dacia price lists (cenniki) only. Defer all brochure, catalogue and non-price-list assimilation until the cennik backlog has been reconciled. This instruction was active only until cennik reconciliation was completed on 2026-11-25; it is now superseded by canonical state.
 
 Official Polish price-list sources:
 - Duster: https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf — reconciled in the Duster MY26 2026-11-02 price-list package.
@@ -33,11 +38,11 @@ Current completed package: `jogger_price_matrix_correction_20261001_20261106_001
 
 The Sandero/Sandero Stepway catalogue-price history has been implemented and merged in PR #798. The Duster MY26 catalogue-price history was implemented and merged in PR #799. The Jogger MY26 catalogue-price history is also present in the repository. The next reporting gap selected on 2026-11-12 is the Bigster MY26 comparison between the 2026-10-01 and 2026-11-02 official cenniks. At the time of this 2026-11-06 note, the Striker cennik was unavailable. This was superseded on 2026-11-21 when the Project Owner supplied the exact official 2026-11-02 MY26 PDF and approved adding Striker. Source registration/model bootstrap was merged in PR #877; the 11 catalogue prices are tracked in PR #878.
 
-## Quality Gate Before Further Model Data (2026-11-22)
+## Historical Quality Gate Before Further Model Data (2026-11-22; completed 2026-11-25)
 
 The Project Owner explicitly requires completion of all portfolio-wide, historical-scope, report-dependency and test-isolation safeguards before any further model-data assimilation. The next Striker priced-options/packages package is blocked in `project/state.json`; do not start it or any other model-data package until the guardrail closure is documented and all required CI checks pass. Historical completeness reports also fail closed when a scope has no `effective_from` but references a source document dated after the report's as-of cutoff.
 
-## Verified Current Progress — Bigster MY26 Price List Archive (2026-11-15)
+## Historical Progress — Bigster MY26 Price List Archive (2026-11-15; cennik phase superseded)
 
 The Bigster MY26 Polish price-list binary effective 2026-11-02 is now archived in `main` through PR #825. The source PDF was downloaded from the official Dacia/Renault Group CDN by the post-merge GitHub Actions workflow and passed exact identity checks:
 
@@ -49,7 +54,7 @@ The Bigster MY26 Polish price-list binary effective 2026-11-02 is now archived i
 - Archived PDF: `PDF/Cenniki/DACIA BIGSTER cennik MY26 20261102.pdf`.
 - `data/master/sources.csv` now points to the archived binary and records the verified provenance.
 
-No prices were re-imported. The Bigster MY26 catalogue-price comparison between the official 2026-10-01 and 2026-11-02 price lists is already implemented in `tools/bigster_catalogue_price_history.py` and its JSON/Markdown reports; do not repeat it. The next cennik-only task is the Duster MY26 2026-11-02 voltage evidence consistency correction described below. Brochure work remains deferred under the user's cennik-only priority.
+No prices were re-imported. The Bigster MY26 catalogue-price comparison between the official 2026-10-01 and 2026-11-02 price lists is already implemented in `tools/bigster_catalogue_price_history.py` and its JSON/Markdown reports; do not repeat it. This was the next task at the time of writing. It was superseded after cennik reconciliation was completed; the current next package is Bigster brochure assimilation.
 
 ## Vehicle Change History Plan (2026-11-06)
 
@@ -68,7 +73,7 @@ Latest verified merged work on `main` is newer than the old 2026-10-27 narrative
 - PR #763: shortlist fuel-type filter and readable cargo context merged; this is a user-facing feature, not a data-completeness milestone.
 - PR #766: consumer-guide example updated to published `data-products-v1.20.0`.
 
-Current open PRs verified from GitHub:
+Historical open-PR snapshot (2026-11-05; verify GitHub dynamically):
 
 - #754 — Bigster brochure page inventory/master reconciliation; Draft, not merged. Its remaining issue is exact candidate-to-configuration/evidence mapping and attribute contracts. CI green, if confirmed on current head, does not establish source-to-master completeness.
 - #675 and #673 — Sandero Hybrid 155 configurator reporting/endpoint discovery; neither is a completed master-data import.
@@ -141,9 +146,9 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 ## Verified Quality Baseline
 
 <!-- dkb:documentation-baseline:session:start -->
-- 2054 testów automatycznych zakończonych powodzeniem,
+- 2055 testów automatycznych zakończonych powodzeniem,
 - 48 pliki CSV w `data/master`,
-- 23478 rekordów danych,
+- 23490 rekordów danych,
 - 51 relacje między tabelami,
 - 27 reguł statusów,
 - walidator repozytorium w wersji 0.10,
@@ -154,7 +159,7 @@ The next package is unblocked in principle: Striker MY26 priced options and pack
 - 10399 rekordów w `configuration_attribute_availability.csv`,
 - 8382 rekordów `standard`, 704 `optional`, 1313 `not_available` i 0 `unknown`,
 - 417 kanonicznych atrybutów w 30 kategoriach,
-- baza SQLite obejmująca 48 tabele i 23478 rekordów,
+- baza SQLite obejmująca 48 tabele i 23490 rekordów,
 - zgodność schematu i zawartości SQLite z plikami CSV,
 - wszystkie źródłowe pliki CSV zapisane jako UTF-8.
 <!-- dkb:documentation-baseline:session:end -->
@@ -576,3 +581,12 @@ PR #905 was merged to `main` as `f983db5e86b3df8567ca5e00c5d3eb0bf7a3fafe`.
 - Codified the automated publication controls in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` and `project/AUTONOMOUS_MAINTAINER.md`: change-impact matrix, data/package preflight, canonical state transition, generated documentation, exact-head freshness, package allowlists, duplicate-work review and failure classification.
 - Required PR checks passed on the exact tested head: Python 3.10, Python 3.13, Python 3.14, Package workflow / Windows, Generated documentation / documentation-baseline --check, and Repository state / project-state --check.
 - The merge did not alter master data, source evidence, package selection or canonical baseline counters. The current Dacia source-assimilation package remains governed by `project/state.json`.
+
+## Official Bigster Brochure Full Assimilation — package candidate (2026-11-25)
+
+The 24-page Polish Bigster brochure dated 2025-12-10 was reviewed in full against rendered pages, extracted text, the archived PDF identity and existing source-linked master observations. The package records six page-14 colour palette items and their finish/two-tone labels without inventing grade applicability or paint prices, adds the page-19 roof-rack/panoramic-roof incompatibility note, and reconciles page-20 payload values against the later 2026-07-03 cennik. Ten identical payload observations are not duplicated; four 2025 mild-hybrid-G 140 ranges remain as dated historical observations alongside the later 451/540 kg values.
+
+Existing source coverage was reconciled: 14 active source-linked configurations, 458 scalar observations, 557 equipment-availability observations, 34 source-specific ranges, 68 cargo-context values, 56 grade-detail scalar observations and 126 exterior-dimension observations. Explicit unresolved items remain in the deferral ledger; no configurator evidence or unsupported cross-configuration projection was used.
+
+The candidate adds six commercial items and six exterior-colour attributes only. The Sandero/Stepway catalogue-price history report is explicitly marked needs_review because the shared sources.csv file changed; its original input fingerprints are preserved rather than silently rebased. Both report outputs are updated together.
+

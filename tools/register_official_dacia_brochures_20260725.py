@@ -279,14 +279,25 @@ def _replace_owned_rows(
     owned_codes: set[str],
     code_field: str,
     owned_ids: set[str],
+    preserve_fields: Sequence[str] = (),
 ) -> None:
     _require_header(path, fields)
     rows = _read_rows(path)
     retained = [row for row in rows if row.get(code_field) not in owned_codes]
+    existing_owned = {
+        row[code_field]: row
+        for row in rows
+        if row.get(code_field) in owned_codes
+    }
     _ensure(
         not any(row.get("id") in owned_ids for row in retained),
         f"reserved identifiers are already used in {path}",
     )
+    for row in expected:
+        previous = existing_owned.get(row[code_field], {})
+        for field in preserve_fields:
+            if previous.get(field):
+                row[field] = previous[field]
     combined = [*retained, *expected]
     combined.sort(key=lambda row: int(row["id"]))
     _write_rows_atomic(path, fields, combined)
@@ -312,10 +323,17 @@ def _verify_registered_rows() -> None:
     actual_models = [
         row for row in _read_rows(model_path) if row.get("source_code") in OWNED_CODES
     ]
+    # Source identity is immutable, but the notes field is maintained by later
+    # assimilation packages and is not owned exclusively by this registrar.
+    immutable_source_fields = tuple(field for field in SOURCE_FIELDS if field != "notes")
     _ensure(
-        _semantic(actual_sources, SOURCE_FIELDS)
-        == _semantic(_expected_source_rows(), SOURCE_FIELDS),
-        "registered brochure source rows differ from the contract",
+        _semantic(actual_sources, immutable_source_fields)
+        == _semantic(_expected_source_rows(), immutable_source_fields),
+        "registered brochure source identities differ from the contract",
+    )
+    _ensure(
+        all(row.get("notes", "").strip() for row in actual_sources),
+        "registered brochure source notes must remain non-empty",
     )
     _ensure(
         _semantic(actual_models, SOURCE_MODEL_FIELDS)
@@ -358,6 +376,7 @@ def apply() -> None:
         OWNED_CODES,
         "code",
         OWNED_SOURCE_IDS,
+        preserve_fields=("notes",),
     )
     _replace_owned_rows(
         MASTER / "source_models.csv",

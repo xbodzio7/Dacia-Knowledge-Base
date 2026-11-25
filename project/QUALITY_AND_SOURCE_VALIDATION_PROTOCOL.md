@@ -1186,6 +1186,7 @@ Shared master tables grow as new models, sources and commercial items are assimi
 4. Natural-key uniqueness checks must be scoped to the source/package being imported when legacy records contain pre-existing collisions. Record the legacy collision boundary; reject every duplicate introduced by the new source. Do not retroactively fail an unrelated package because of historical duplicates outside its scope.
 5. Portfolio-wide tests must derive the current source set and record totals from canonical registries. Fixed counts belong only to named immutable snapshots or explicitly versioned package fixtures.
 6. When a new package extends a shared table, inspect and repair affected legacy tests at the contract level. Do not merely replace an old global count with a new global count, and do not delete or rewrite historical records to satisfy a stale assertion.
+7. The required Quality workflow runs `tools/check_shared_master_test_contracts.py` against every test module changed by a Pull Request. The guard rejects literal exact counts over an entire shared master table, exact whole-table observation-date sets, and exact counts over package-like prefixes that lack an exact source-code or owned-code filter. Keep package tests source-scoped and portfolio tests registry-derived. This static guard covers common regression patterns; it does not replace semantic review or excuse tests that bypass the shared-table readers it recognizes.
 
 
 ## 26. Canonical package-state transition gate
