@@ -73,7 +73,11 @@ def _safe_repository_file(repository: Path, value: Any, label: str) -> Path:
 
 def _changed_paths(repository: Path, base_ref: str, head_ref: str) -> set[str]:
     output = _git(repository, "diff", "--name-only", f"{base_ref}...{head_ref}")
-    return {line.strip().replace("\\\\", "/") for line in output.splitlines() if line.strip()}
+    return {
+        line.strip().replace("\\\\", "/")
+        for line in output.splitlines()
+        if line.strip()
+    }
 
 
 def _report_declares_completion(repository: Path, report_path: str) -> bool:
@@ -86,8 +90,19 @@ def _report_declares_completion(repository: Path, report_path: str) -> bool:
         return False
     source = report.get("source")
     source = source if isinstance(source, dict) else {}
-    statuses = {report.get("status"), report.get("coverage_state"), source.get("coverage_state")}
-    return bool(statuses & {"complete", "completed", "fully_assimilated", "fully_assimilated_with_deferrals", "fully_reconciled"})
+    statuses = {
+        report.get("status"),
+        report.get("coverage_state"),
+        source.get("coverage_state"),
+    }
+    completed_statuses = {
+        "complete",
+        "completed",
+        "fully_assimilated",
+        "fully_assimilated_with_deferrals",
+        "fully_reconciled",
+    }
+    return bool(statuses & completed_statuses)
 
 
 def _validate_completion(
@@ -110,7 +125,9 @@ def _validate_completion(
     merge_sha = completion.get("merge_commit_sha")
     if package_sha is not None:
         if not isinstance(package_sha, str) or SHA_RE.fullmatch(package_sha) is None:
-            raise TransitionError("completion.package_commit_sha must be a lowercase 40-character SHA")
+            raise TransitionError(
+                "completion.package_commit_sha must be a lowercase 40-character SHA"
+            )
         if pull_request_number is not None and pull_request != pull_request_number:
             raise TransitionError(
                 f"completion.pull_request must match the current PR #{pull_request_number}"
@@ -143,10 +160,28 @@ def _validate_completion(
                 "completion merge commit message does not reference "
                 f"the recorded PR #{pull_request}"
             )
-    elif report_path not in changed_paths:
-        raise TransitionError(
-            "PR package closeout must change the exact current_package.report_path"
+    else:
+        if report_path not in changed_paths:
+            raise TransitionError(
+                "PR package closeout must change the exact current_package.report_path"
+            )
+        commit_paths = _git(
+            repository,
+            "diff-tree",
+            "--no-commit-id",
+            "--name-only",
+            "-r",
+            package_sha,
         )
+        if report_path not in {
+            line.strip().replace("\\\\", "/")
+            for line in commit_paths.splitlines()
+            if line.strip()
+        }:
+            raise TransitionError(
+                "completion.package_commit_sha must identify a commit that changed "
+                "the declared report"
+            )
     ancestor = subprocess.run(
         ["git", "merge-base", "--is-ancestor", evidence_sha, head_ref],
         cwd=repository,
