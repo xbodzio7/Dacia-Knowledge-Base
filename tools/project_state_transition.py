@@ -233,6 +233,77 @@ def _validate_next_sources(package: Mapping[str, Any], repository: Path) -> None
         )
 
 
+def _validate_next_package_selection(package: Mapping[str, Any], repository: Path) -> None:
+    """Require durable evidence that a newly selected source package was gap-checked."""
+    if not str(package.get("kind", "")).startswith("source_"):
+        return
+    evidence = package.get("selection_evidence")
+    if not isinstance(evidence, dict):
+        raise TransitionError(
+            "a newly selected source package requires selection_evidence with "
+            "reviewed_report_ids, reviewed_evidence_paths and residual_scope"
+        )
+    report_ids = evidence.get("reviewed_report_ids")
+    if (
+        not isinstance(report_ids, list)
+        or not report_ids
+        or any(not isinstance(value, str) or not value.strip() for value in report_ids)
+        or len(report_ids) != len(set(report_ids))
+    ):
+        raise TransitionError(
+            "selection_evidence.reviewed_report_ids must be a non-empty unique list"
+        )
+    evidence_paths = evidence.get("reviewed_evidence_paths")
+    if (
+        not isinstance(evidence_paths, list)
+        or not evidence_paths
+        or any(not isinstance(value, str) or not value.strip() for value in evidence_paths)
+        or len(evidence_paths) != len(set(evidence_paths))
+    ):
+        raise TransitionError(
+            "selection_evidence.reviewed_evidence_paths must be a non-empty unique list"
+        )
+    residual_scope = evidence.get("residual_scope")
+    if not isinstance(residual_scope, str) or not residual_scope.strip():
+        raise TransitionError("selection_evidence.residual_scope must be non-empty")
+
+    registry_path = _safe_repository_file(
+        repository,
+        "data/reporting/report_registry.json",
+        "report_registry",
+    )
+    try:
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise TransitionError(f"cannot read report registry: {exc}") from exc
+    entries = registry.get("reports") if isinstance(registry, dict) else None
+    if not isinstance(entries, list):
+        raise TransitionError("report_registry.reports must be a list")
+    registered_ids = {
+        item.get("report_id")
+        for item in entries
+        if isinstance(item, dict) and isinstance(item.get("report_id"), str)
+    }
+    missing_ids = sorted(set(report_ids) - registered_ids)
+    if missing_ids:
+        raise TransitionError(
+            "selection_evidence references unregistered report IDs: "
+            + ", ".join(missing_ids)
+        )
+    candidate_report_id = package.get("report_id")
+    if isinstance(candidate_report_id, str) and candidate_report_id in registered_ids:
+        raise TransitionError(
+            "next_package.report_id is already registered; select a genuinely new "
+            "package report or explicitly replan the existing package"
+        )
+    for index, value in enumerate(evidence_paths):
+        _safe_repository_file(
+            repository,
+            value,
+            f"selection_evidence.reviewed_evidence_paths[{index}]",
+        )
+
+
 def _require_replanning(
     state: Mapping[str, Any],
     expected_from: str,
@@ -369,6 +440,8 @@ def validate_transition(
             raise TransitionError(
                 "changing next_package identity/scope requires a new rationale"
             )
+    if identity_changed:
+        _validate_next_package_selection(new_next, repository)
     _validate_next_sources(new_next, repository)
 
 
@@ -381,7 +454,16 @@ def self_test() -> int:
         _git(repository, "config", "user.email", "dkb-self-test@example.invalid")
         report = repository / "reports" / "package.json"
         current_report = repository / "reports" / "current-package.json"
+        source_file = repository / "sources" / "source.pdf"
+        registry_file = repository / "data" / "reporting" / "report_registry.json"
         report.parent.mkdir(parents=True)
+        source_file.parent.mkdir(parents=True)
+        registry_file.parent.mkdir(parents=True)
+        source_file.write_bytes(b"test source")
+        registry_file.write_text(
+            json.dumps({"reports": [{"report_id": "prior-report"}]}) + "\n",
+            encoding="utf-8",
+        )
         report.write_text(json.dumps({"status": "in_progress"}) + "\n", encoding="utf-8")
         current_report.write_text(
             json.dumps({"status": "in_progress"}) + "\n",
@@ -488,6 +570,50 @@ def self_test() -> int:
             head_ref="HEAD",
             base_ref=base_ref,
             pull_request_number=124,
+        )
+
+        source_candidate = {
+            "current_package": promoted["current_package"],
+            "next_package": {
+                "package_id": "source-candidate",
+                "kind": "source_cennik_reconciliation",
+                "name": "Source Candidate",
+                "status": "planned",
+                "goal": "Review a source-backed residual gap.",
+                "source_paths": ["sources/source.pdf"],
+                "report_id": "new-source-report",
+                "report_path": "reports/new-source-report.json",
+            },
+            "next_package_selection": "Source Candidate",
+            "rationale": "Selected after reviewing the source-linked report history.",
+        }
+        try:
+            validate_transition(
+                promoted,
+                source_candidate,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "selection_evidence" not in str(exc):
+                raise
+        else:
+            raise TransitionError("source-package selection without evidence was accepted")
+
+        source_candidate["next_package"]["selection_evidence"] = {
+            "reviewed_report_ids": ["prior-report"],
+            "reviewed_evidence_paths": ["reports/package.json"],
+            "residual_scope": "A distinct, uncompleted residual source scope.",
+        }
+        validate_transition(
+            promoted,
+            source_candidate,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=123,
         )
 
         current_active = {
