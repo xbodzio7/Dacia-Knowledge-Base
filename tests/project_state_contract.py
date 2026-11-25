@@ -133,7 +133,7 @@ class ProjectStateContractTests(unittest.TestCase):
         self.assertIn("pr_number:", dispatch_inputs)
         self.assertNotIn("pr_branch:", dispatch_inputs)
         self.assertNotIn("expected_head_sha:", dispatch_inputs)
-        self.assertIn("pr.state !== \\"open\\"", workflow)
+        self.assertIn('pr.state !== "open"', workflow)
         self.assertIn('pr.base.ref !== "main"', workflow)
         self.assertIn("pr.head.repo.full_name.toLowerCase()", workflow)
         self.assertIn("pr.base.sha !== mainRef.object.sha", workflow)
