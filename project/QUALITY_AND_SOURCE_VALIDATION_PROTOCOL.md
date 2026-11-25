@@ -40,6 +40,13 @@ Whenever a new `next_package` is selected with a `source_*` kind, its state entr
 
 The state-transition gate validates the structure, verifies that referenced report IDs are registered and evidence paths exist, and rejects a candidate report ID that is already registered. Before selecting the package, inspect merged PRs and source-linked reports for the same source/model/domain. Reusing a source is allowed for a genuinely distinct residual scope, but the completed scope must be explicitly reviewed and excluded. A new package ID or report filename does not make previously completed work new.
 
+
+### Semantic overlap and history consistency gates
+
+A source-backed package selection must be checked against the semantic scope of every reviewed report, not only report IDs or filenames. The transition validator extracts conservative model-family identifiers from report metadata and source paths. If a reviewed report covers the same model family, the selection must contain a matching `scope_resolutions` entry with the report ID, named overlap basis, explicit excluded/completed scope and distinct residual scope. Missing or vague resolutions fail the Quality gate. A shared model does not automatically prohibit work: it requires a documented, testable explanation of what is already complete and what remains genuinely distinct.
+
+Every state transition also validates canonical completion history against `report_registry.json`: a package marked complete must have a completion receipt, its exact report path must be registered, its report ID must agree with the registry and report metadata where present, and the report itself must declare a completed status. This prevents a completed report from silently coexisting with an active/planned state or an unregistered completion receipt. PR-bound completion SHA and PR-number checks remain mandatory.
+
 A stage may be skipped only when it is genuinely inapplicable and the reason is recorded. A conversation statement that a stage was completed is not evidence; verify its durable repository result.
 
 ## 3. Evidence-first data rules
