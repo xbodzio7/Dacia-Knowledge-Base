@@ -261,7 +261,7 @@ class ProjectStateContractTests(unittest.TestCase):
             report_path = "reports/price_history/report.json"
             report_file = completion_repo / report_path
             report_file.parent.mkdir(parents=True)
-            report_file.write_text("{}\\n", encoding="utf-8")
+            report_file.write_text("{}\n", encoding="utf-8")
             subprocess.run(
                 ["git", "add", report_path],
                 cwd=completion_repo,
