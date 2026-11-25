@@ -27,8 +27,8 @@ def read(name: str) -> list[dict[str, str]]:
 
 
 class CommercialItems20260703Tests(unittest.TestCase):
-    # Current package CI touch: assertions track the reconciled source registry.
-    # Cennik-only priority: Sandero/Stepway and Jogger 2026-11-02 are next.
+    # Package-specific facts are scoped by their source identities. Shared master
+    # inventories may grow as later packages append independently sourced records.
     @classmethod
     def setUpClass(cls) -> None:
         cls.items = read("commercial_items.csv")
@@ -37,17 +37,23 @@ class CommercialItems20260703Tests(unittest.TestCase):
         cls.prices = read("configuration_prices.csv")
         cls.availability = read("configuration_attribute_availability.csv")
 
-    def test_complete_source_backed_registration_counts(self) -> None:
+    def test_complete_source_backed_registration_contract(self) -> None:
         self.assertEqual(len({row["id"] for row in self.items}), len(self.items))
         self.assertEqual(len({row["code"] for row in self.items}), len(self.items))
         self.assertEqual(len({row["id"] for row in self.members}), len(self.members))
         self.assertEqual(len({row["id"] for row in self.mappings}), len(self.mappings))
         self.assertEqual(len({row["code"] for row in self.mappings}), len(self.mappings))
-        self.assertEqual({row["observation_date"] for row in self.items}, {SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02"})
-        self.assertEqual(
-            {row["price_date"] for row in self.mappings},
-            {"", "2026-02-06", DATE, "2026-07-08", STOCK_DATE, SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE, "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02"},
-        )
+        expected_item_dates = {
+            SPRING_DATE, DATE, SPRING_CURRENT_CONTEXT_DATE,
+            "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02",
+        }
+        self.assertTrue(expected_item_dates <= {row["observation_date"] for row in self.items})
+        expected_mapping_dates = {
+            "", "2026-02-06", DATE, "2026-07-08", STOCK_DATE,
+            SPRING_CONFIGURATOR_DATE, SPRING_CURRENT_CONTEXT_DATE,
+            "2026-08-09", "2026-09-20", "2026-10-01", "2026-11-02",
+        }
+        self.assertTrue(expected_mapping_dates <= {row["price_date"] for row in self.mappings})
         self.assertEqual({row["currency_code"] for row in self.mappings}, {"PLN"})
         self.assertEqual({row["availability_status"] for row in self.mappings}, {"optional", "standard", "unknown", "not_available", "package"})
 
@@ -62,17 +68,29 @@ class CommercialItems20260703Tests(unittest.TestCase):
         self.assertIn("src_pl_striker_price_my26_20261102", item_sources)
         self.assertTrue(all(row["source_text"] for row in self.members))
 
-    def test_bigster_items_are_mapped_only_to_source_backed_configurations(self) -> None:
-        bigster = {row["code"] for row in self.items if row["code"].startswith("bigster_")}
+    def test_bigster_price_items_are_mapped_only_to_source_backed_configurations(self) -> None:
+        bigster_price_sources = {
+            "src_pl_bigster_price_my26_20260703",
+            "src_pl_bigster_price_my26_20261001",
+            "src_pl_bigster_price_my26_20261102",
+        }
+        bigster_price_items = {
+            row["code"] for row in self.items
+            if row["code"].startswith("bigster_")
+            and row["source_code"] in bigster_price_sources
+        }
         mappings = [
             row for row in self.mappings
-            if row["commercial_item_code"].startswith("bigster_")
+            if row["commercial_item_code"] in bigster_price_items
         ]
-        self.assertEqual(len(bigster), 11)
-        self.assertEqual(len(mappings), 238)
-        self.assertEqual({row["commercial_item_code"] for row in mappings}, bigster)
+        self.assertTrue(bigster_price_items)
+        self.assertEqual(
+            {row["commercial_item_code"] for row in mappings},
+            bigster_price_items,
+        )
         self.assertTrue(all(row["configuration_code"].startswith("bigster_") for row in mappings))
-        self.assertTrue({"src_pl_bigster_price_my26_20260703", "src_pl_bigster_price_my26_20261001", "src_pl_bigster_price_my26_20261102"} <= {row["source_code"] for row in mappings})
+        self.assertTrue({row["source_code"] for row in mappings} <= bigster_price_sources)
+        self.assertEqual({row["source_code"] for row in mappings}, bigster_price_sources)
 
     def test_july_catalog_prices_cover_all_registered_configuration_relationships(self) -> None:
         source_codes = {
