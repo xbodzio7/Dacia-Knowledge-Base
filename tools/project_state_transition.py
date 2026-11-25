@@ -773,14 +773,14 @@ def self_test() -> int:
         spring_source.write_bytes(b"spring brochure")
         spring_report = repository / "reports" / "spring-prior.json"
         spring_report.write_text(
-            json.dumps({"registration": {"model_code": "spring"}, "status": "in_progress"}) + "\\n",
+            json.dumps({"registration": {"model_code": "spring"}, "status": "in_progress"}) + "\n",
             encoding="utf-8",
         )
         registry_file.write_text(
             json.dumps({"reports": [
                 {"report_id": "prior-report", "json_path": "reports/package.json"},
                 {"report_id": "spring-prior", "json_path": "reports/spring-prior.json"}
-            ]}) + "\\n",
+            ]}) + "\n",
             encoding="utf-8",
         )
         overlap_candidate = json.loads(json.dumps(source_candidate))
@@ -889,7 +889,7 @@ def self_test() -> int:
                 {"report_id": "prior-report", "json_path": "reports/package.json"},
                 {"report_id": "spring-prior", "json_path": "reports/spring-prior.json"},
                 {"report_id": "active-report", "json_path": "reports/current-package.json"}
-            ]}) + "\\n",
+            ]}) + "\n",
             encoding="utf-8",
         )
         current_active = {
