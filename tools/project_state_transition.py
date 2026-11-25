@@ -763,6 +763,8 @@ def self_test() -> int:
             pull_request_number=123,
         )
 
+        spring_source = repository / "sources" / "spring-brochure.pdf"
+        spring_source.write_bytes(b"spring brochure")
         spring_report = repository / "reports" / "spring-prior.json"
         spring_report.write_text(
             json.dumps({"registration": {"model_code": "spring"}, "status": "in_progress"}) + "\\n",
