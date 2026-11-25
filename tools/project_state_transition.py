@@ -884,6 +884,14 @@ def self_test() -> int:
         else:
             raise TransitionError("already registered candidate report ID was accepted")
 
+        registry_file.write_text(
+            json.dumps({"reports": [
+                {"report_id": "prior-report", "json_path": "reports/package.json"},
+                {"report_id": "spring-prior", "json_path": "reports/spring-prior.json"},
+                {"report_id": "active-report", "json_path": "reports/current-package.json"}
+            ]}) + "\\n",
+            encoding="utf-8",
+        )
         current_active = {
             "current_package": {
                 "package_id": "active",
@@ -907,14 +915,13 @@ def self_test() -> int:
                 current_active,
                 repository,
                 head_ref="HEAD",
-                base_ref=base_ref,
                 pull_request_number=123,
             )
         except TransitionError as exc:
-            if "current_package report declares completion" not in str(exc):
+            if "state and completion history are inconsistent" not in str(exc):
                 raise
         else:
-            raise TransitionError("completed current-package report was not required to close")
+            raise TransitionError("registered completed report with active state was accepted")
     print("PROJECT STATE TRANSITION SELF-TEST: PASS")
     return 0
 
