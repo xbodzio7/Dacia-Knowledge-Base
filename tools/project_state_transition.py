@@ -8,6 +8,7 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 from datetime import date
 from pathlib import Path, PurePosixPath
 from typing import Any, Mapping, Sequence
@@ -307,6 +308,107 @@ def validate_transition(
     _validate_next_sources(new_next, repository)
 
 
+def self_test() -> int:
+    """Exercise completed-report detection and exact PR-bound closeout evidence."""
+    with tempfile.TemporaryDirectory(prefix="dkb-state-transition-") as temporary:
+        repository = Path(temporary)
+        _git(repository, "init", "-b", "main")
+        _git(repository, "config", "user.name", "DKB lifecycle self-test")
+        _git(repository, "config", "user.email", "dkb-self-test@example.invalid")
+        report = repository / "reports" / "package.json"
+        report.parent.mkdir(parents=True)
+        report.write_text(json.dumps({"status": "in_progress"}) + "\\n", encoding="utf-8")
+        _git(repository, "add", ".")
+        _git(repository, "commit", "-m", "test: create package report")
+        base_ref = _git(repository, "rev-parse", "HEAD")
+
+        report.write_text(
+            json.dumps({"status": "fully_assimilated_with_deferrals"}) + "\\n",
+            encoding="utf-8",
+        )
+        _git(repository, "add", ".")
+        _git(repository, "commit", "-m", "test: complete package report")
+        package_sha = _git(repository, "rev-parse", "HEAD")
+
+        previous = {
+            "current_package": {
+                "package_id": "previous",
+                "kind": "review",
+                "name": "Previous",
+                "status": "complete",
+                "goal": "Previous package",
+            },
+            "next_package": {
+                "package_id": "candidate",
+                "kind": "review",
+                "name": "Candidate",
+                "status": "active",
+                "goal": "Candidate package",
+                "report_path": "reports/package.json",
+            },
+        }
+        try:
+            validate_transition(
+                previous,
+                previous,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=123,
+            )
+        except TransitionError as exc:
+            if "does not promote" not in str(exc):
+                raise
+        else:
+            raise TransitionError("completed next-package report was not required to close")
+
+        promoted = {
+            "current_package": {
+                **previous["next_package"],
+                "status": "complete",
+                "completion": {
+                    "pull_request": 123,
+                    "package_commit_sha": package_sha,
+                    "completed_on": "2026-11-25",
+                    "report_path": "reports/package.json",
+                },
+            },
+            "next_package": {
+                "package_id": "following",
+                "kind": "review",
+                "name": "Following",
+                "status": "planned",
+                "goal": "Following package",
+            },
+            "next_package_selection": "Following package",
+            "rationale": "Selected from the verified repository backlog.",
+        }
+        validate_transition(
+            previous,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=123,
+        )
+        try:
+            validate_transition(
+                previous,
+                promoted,
+                repository,
+                head_ref="HEAD",
+                base_ref=base_ref,
+                pull_request_number=124,
+            )
+        except TransitionError as exc:
+            if "must match the current PR" not in str(exc):
+                raise
+        else:
+            raise TransitionError("completion evidence accepted the wrong PR number")
+    print("PROJECT STATE TRANSITION SELF-TEST: PASS")
+    return 0
+
+
 def _read_json(path: Path) -> dict[str, Any]:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -330,8 +432,9 @@ def _read_base_state(repository: Path, base_ref: str) -> dict[str, Any]:
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--base-ref", required=True)
+    parser.add_argument("--base-ref")
     parser.add_argument("--head-ref", default="HEAD")
+    parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--pull-request-number", type=int)
     parser.add_argument(
         "--repository",
@@ -339,6 +442,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         default=Path(__file__).resolve().parent.parent,
     )
     args = parser.parse_args(argv)
+    if args.self_test:
+        return self_test()
+    if not args.base_ref:
+        parser.error("--base-ref is required unless --self-test is used")
     repository = args.repository.resolve()
     try:
         previous = _read_base_state(repository, args.base_ref)
