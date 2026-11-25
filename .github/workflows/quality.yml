@@ -69,6 +69,7 @@ jobs:
           if [ -n "${PR_NUMBER}" ]; then
             args+=(--pull-request-number "${PR_NUMBER}")
           fi
+          python tools/project_state_transition.py --self-test
           python tools/project_state_transition.py "${args[@]}"
 
       - name: Enforce change-impact matrix for source and master-data changes
