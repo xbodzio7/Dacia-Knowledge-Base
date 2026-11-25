@@ -12,7 +12,29 @@ class BigsterDocumentaryTechnicalReconciliation20260922Tests(unittest.TestCase):
         report = json.loads((ROOT / "data/reporting/bigster_documentary_technical_reconciliation_001.json").read_text(encoding="utf-8"))
         self.assertEqual(report["status"], "complete")
         self.assertEqual(report["scope"]["master_mutations_required"], 0)
-        self.assertEqual(report["documentary_ranges"]["record_count"], 30)
+        source_code = report["source"]["source_code"]
+        with (ROOT / "data/master/configuration_attribute_value_ranges.csv").open(encoding="utf-8-sig", newline="") as handle:
+            source_ranges = [
+                row for row in csv.DictReader(handle)
+                if row["source_code"] == source_code
+            ]
+        self.assertEqual(report["documentary_ranges"]["record_count"], len(source_ranges))
+        self.assertEqual(
+            {row["configuration_code"] for row in source_ranges},
+            {
+                "bigster_essential_mildhybridg140_4x2_manual",
+                "bigster_expression_mildhybridg140_4x2_manual",
+                "bigster_extreme_mildhybridg140_4x2_manual",
+                "bigster_journey_mildhybridg140_4x2_manual",
+                "bigster_essential_mildhybrid140_4x2_manual",
+                "bigster_expression_mildhybrid140_4x2_manual",
+                "bigster_extreme_mildhybrid140_4x2_manual",
+                "bigster_journey_mildhybrid140_4x2_manual",
+                "bigster_expression_hybrid155_4x2_automatic",
+                "bigster_extreme_hybrid155_4x2_automatic",
+                "bigster_journey_hybrid155_4x2_automatic",
+            },
+        )
         self.assertFalse(report["evidence_policy"]["configurator_used"])
 
     def test_three_import_ready_facts_are_already_source_bound_in_master(self):
