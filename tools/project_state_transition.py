@@ -740,6 +740,13 @@ def self_test() -> int:
         else:
             raise TransitionError("completion evidence accepted the wrong PR number")
 
+        # After the PR-bound closeout has been validated, model the durable
+        # post-merge receipt separately. A merge-commit receipt is historical
+        # evidence and must not require the report to change in this later PR.
+        _git(repository, "commit", "--allow-empty", "-m", "Merge pull request #123")
+        merge_sha = _git(repository, "rev-parse", "HEAD")
+        promoted["current_package"]["completion"].pop("package_commit_sha")
+        promoted["current_package"]["completion"]["merge_commit_sha"] = merge_sha
         validate_transition(
             promoted,
             promoted,
