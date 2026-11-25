@@ -191,7 +191,7 @@ class Example:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--base-ref", required=True)
+    parser.add_argument("--base-ref")
     parser.add_argument("--head-ref")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
