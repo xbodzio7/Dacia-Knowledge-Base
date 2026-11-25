@@ -36,7 +36,7 @@ def input_provenance():
     result = []
     for relative in INPUT_PATHS:
         data = (ROOT / relative).read_bytes()
-        blob_header = f"blob {len(data)}\\0".encode("ascii")
+        blob_header = f"blob {len(data)}\0".encode("ascii")
         result.append({
             "path": relative,
             "git_blob_sha": hashlib.sha1(blob_header + data).hexdigest(),

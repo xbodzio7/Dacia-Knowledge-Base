@@ -38,7 +38,7 @@ class SanderoCataloguePriceHistoryTests(unittest.TestCase):
             for item in data["report_metadata"]["input_files"]:
                 input_bytes = (ROOT / item["path"]).read_bytes()
                 self.assertEqual(item["sha256"], hashlib.sha256(input_bytes).hexdigest())
-                blob_header = f"blob {len(input_bytes)}\\0".encode("ascii")
+                blob_header = f"blob {len(input_bytes)}\0".encode("ascii")
                 self.assertEqual(
                     item["git_blob_sha"],
                     hashlib.sha1(blob_header + input_bytes).hexdigest(),
