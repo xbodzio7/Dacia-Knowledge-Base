@@ -20,7 +20,15 @@ STATUS_TRANSITIONS = {
     "blocked": {"blocked", "active", "complete"},
     "complete": {"complete"},
 }
-IDENTITY_FIELDS = ("package_id", "kind", "name", "goal", "source_paths")
+IDENTITY_FIELDS = (
+    "package_id",
+    "kind",
+    "name",
+    "goal",
+    "source_paths",
+    "report_id",
+    "report_path",
+)
 
 
 class TransitionError(RuntimeError):
@@ -284,6 +292,19 @@ def validate_transition(
             raise TransitionError("package promotion requires next_package_selection")
         if not isinstance(rationale, str) or not rationale.strip():
             raise TransitionError("package promotion requires a non-empty rationale")
+
+    old_current_report = old_current.get("report_path")
+    if (
+        old_id == new_id
+        and new_status != "complete"
+        and isinstance(old_current_report, str)
+        and old_current_report in changed_paths
+        and _report_declares_completion(repository, old_current_report)
+    ):
+        raise TransitionError(
+            "the current_package report declares completion, but current_package.status "
+            "is not complete in the same PR"
+        )
 
     old_next_report = old_next.get("report_path")
     if (
