@@ -44,7 +44,7 @@ Quality checks out the exact PR head SHA, fetches the current target branch and 
 
 Quality and Repository Baselines use pull_request_target for steady-state PR validation. GitHub therefore loads the workflow definition from the trusted base branch, not from the proposed PR revision. The workflows then check out the exact PR head with persist-credentials: false and read-only permissions.
 
-The trusted audit verifies that the workflow SHA is an ancestor of the PR base, that core workflow actions are pinned to immutable 40-character commit SHAs, and that the proposed workflow files preserve the trusted event, exact-head checkout, freshness and read-only boundaries.
+The trusted audit runs from pull_request_target (so GitHub loads the workflow definition from the base branch), reads core workflow definitions at the immutable PR base SHA, verifies that actions are pinned to 40-character commit SHAs, and checks that proposed workflow files preserve the trusted event, exact-head checkout, freshness and read-only boundaries.
 
 The baseline-repair workflow is deliberately excluded from this model: it remains a main-dispatched two-job workflow with isolated read-only generation and privileged allowlisted write-back. Never execute PR code with write credentials.
 
