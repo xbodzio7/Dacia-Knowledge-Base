@@ -524,6 +524,7 @@ jobs:
         run: |
           python -m unittest -q `
             tests.test_package_workflow `
+            tests.test_baseline_repair_workflow `
             tests.test_package_receipt `
             tests.test_package_publish `
             tests.test_dkb_cli `
