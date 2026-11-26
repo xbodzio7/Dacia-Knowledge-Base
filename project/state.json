@@ -67,8 +67,8 @@
       ]
     },
     "completion": {
-      "pull_request": 909,
-      "merge_commit_sha": "9f6e0f30036bdb56644323b87e1dbafa7c1ff04c",
+      "pull_request": 911,
+      "package_commit_sha": "70bc50f44dc9279e957aab61b10d11ba5d8ecccb",
       "completed_on": "2026-11-26",
       "report_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json"
     }
