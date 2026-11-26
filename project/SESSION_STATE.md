@@ -609,3 +609,16 @@ Extended the package-selection gate beyond evidence presence. It now compares co
 Added a state/report-registry consistency gate: every completed current package must have a completion receipt whose exact report path and report ID are registered, and the registered report must declare completion. Conversely, a registered current-package report declaring completion cannot coexist with a non-complete canonical package status. Added isolated tests for same-model overlap without/with resolution and for registered completion-report/state drift.
 
 This exposed and repaired a pre-existing registry omission: `official_bigster_brochure_full_assimilation_20261125` was the canonical completed Bigster report but was absent from `data/reporting/report_registry.json`. The report was verified as `fully_assimilated_with_deferrals` and registered against its exact JSON path. No master-data rows or baseline counters were changed.
+
+
+## Spring MY26 brochure source-to-master reconciliation — 2026-11-26
+
+The canonical next package is active. The full 22-page Spring brochure inventory has been reconciled against the three existing passenger configurations and the dated MY26 price list. The master already contains 90 brochure scalar observations, 3 brochure ranges, 126 brochure equipment-availability rows and 21 brochure commercial mappings. The MY26 price list already contributes 3 catalogue prices, 10 commercial mappings and two 155 mm ground-clearance observations.
+
+A seven-attribute crosswalk across three configurations (21 candidate pairs) found that every candidate already has an exact source-linked observation. Do not add duplicate rows. Existing sources differ by date and must remain separate: brochure WLTP values 222/225/225 km are not collapsed with later configurator values 221/226/226 km. The MY26 page-2/page-5 power and capacity conflict, printed torque/unit inconsistency, 204 kg battery mass without a canonical attribute, remaining dimension-diagram semantics, Cargo-only facts and accessory-only claims remain explicit deferrals.
+
+The durable report pair is:
+- `data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json`
+- `data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.md`
+
+No master-data rows or source binaries were changed in this reconciliation. The package must not be marked complete in canonical state until its report and state transition are merged and post-merge checks are verified.
