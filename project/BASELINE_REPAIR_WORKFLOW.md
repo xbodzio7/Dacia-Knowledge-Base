@@ -54,3 +54,11 @@ python tools/dkb.py documentation-baseline --check
 ```
 
 The normal required Python matrix, Windows package workflow, source/domain review and exact-head merge gates remain in force.
+
+## No-op repairs and dispatch guarantees
+
+A successful baseline generation may produce no content changes on the PR branch. This is a valid result, not a workflow failure. The workflow must still upload the exact six-file artifact, complete the isolated write-back job, and explicitly dispatch both **Quality** and **Repository Baselines** for the verified PR branch and exact unchanged head SHA. The dispatch step must depend on successful artifact application, not on `changed == true`.
+
+When generated files do differ, the workflow pushes the allowlisted repair commit without force and then performs the same final verification and dispatch path. The final verification retries bounded GitHub API reads to tolerate short-lived stale PR-head responses after a successful push; it must never accept a different head SHA, branch, PR identity or base SHA. If the expected head does not become visible within the retry window, the workflow fails closed and does not dispatch checks against an unverified revision.
+
+The baseline-repair contract assertions in `tests/test_package_workflow.py` protect both paths: no-op generation must remain successful, both paths must publish an exact target head SHA, and required-check dispatch must run after every successful apply. Keep this test in the Windows package-workflow test list as well as the normal Python quality suite.

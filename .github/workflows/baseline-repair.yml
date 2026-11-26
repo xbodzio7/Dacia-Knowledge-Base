@@ -109,10 +109,9 @@ jobs:
                 ;;
             esac
           done <<< "$changed"
-          [[ -n "$changed" ]] || {
-            echo "No baseline changes were generated; nothing to repair."
-            exit 1
-          }
+          if [[ -z "$changed" ]]; then
+            echo "Canonical generated files already match the PR head; continuing through the no-op verification and required-check dispatch path."
+          fi
 
       - name: Upload canonical generated files for reviewed write-back
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
@@ -256,7 +255,8 @@ jobs:
           fi
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No generated content differs from the verified PR branch."
+            echo "target_head_sha=$EXPECTED_HEAD_SHA" >> "$GITHUB_OUTPUT"
+            echo "No generated content differs from the verified PR branch; required checks will still be dispatched for the unchanged exact head."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -264,6 +264,7 @@ jobs:
           git commit -m "chore(state): apply canonical baseline repair"
           echo "changed=true" >> "$GITHUB_OUTPUT"
           echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "target_head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Push the repair commit without force
         if: steps.apply.outputs.changed == 'true'
@@ -274,40 +275,76 @@ jobs:
           set -euo pipefail
           git push origin "HEAD:refs/heads/$PR_BRANCH"
 
-      - name: Verify write-back and dispatch required PR checks
-        if: steps.apply.outputs.changed == 'true'
+      - name: Verify exact PR head and dispatch required checks
+        if: steps.apply.outcome == 'success'
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
         env:
           PR_NUMBER: ${{ needs.generate-baseline-repair.outputs.pr_number }}
           PR_BRANCH: ${{ steps.verify.outputs.branch }}
-          COMMIT_SHA: ${{ steps.apply.outputs.commit_sha }}
+          TARGET_HEAD_SHA: ${{ steps.apply.outputs.target_head_sha }}
           EXPECTED_BASE_SHA: ${{ needs.generate-baseline-repair.outputs.base_sha }}
+          REPAIR_CHANGED: ${{ steps.apply.outputs.changed }}
         with:
           script: |
             const number = Number(process.env.PR_NUMBER);
-            const branch = process.env.PR_BRANCH;
-            const commit = process.env.COMMIT_SHA;
-            const expectedBase = process.env.EXPECTED_BASE_SHA;
-            const { data: pr } = await github.rest.pulls.get({
-              owner: context.repo.owner, repo: context.repo.repo, pull_number: number
-            });
-            const { data: mainRef } = await github.rest.git.getRef({
-              owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
-            });
-            if (pr.state !== "open" || pr.base.ref !== "main" || pr.base.sha !== expectedBase ||
-                mainRef.object.sha !== expectedBase || pr.head.ref !== branch || pr.head.sha !== commit) {
-              throw new Error("Write-back was pushed, but PR head/base freshness verification failed.");
+            const branch = String(process.env.PR_BRANCH || "");
+            const targetHead = String(process.env.TARGET_HEAD_SHA || "");
+            const expectedBase = String(process.env.EXPECTED_BASE_SHA || "");
+            const changed = process.env.REPAIR_CHANGED === "true";
+            if (!Number.isInteger(number) || number < 1 ||
+                !/^[A-Za-z0-9._/-]{1,200}$/.test(branch) ||
+                branch.startsWith("-") || branch.includes("..") ||
+                !/^[0-9a-f]{40}$/.test(targetHead) ||
+                !/^[0-9a-f]{40}$/.test(expectedBase)) {
+              throw new Error("Invalid final PR verification or dispatch inputs.");
             }
+
+            // GitHub's PR API can briefly return the pre-push head immediately
+            // after a successful push. Retry boundedly; never accept a different SHA.
+            let pr;
+            let mainRef;
+            let verified = false;
+            for (let attempt = 1; attempt <= 10; attempt += 1) {
+              ({ data: pr } = await github.rest.pulls.get({
+                owner: context.repo.owner, repo: context.repo.repo, pull_number: number
+              }));
+              ({ data: mainRef } = await github.rest.git.getRef({
+                owner: context.repo.owner, repo: context.repo.repo, ref: "heads/main"
+              }));
+              const identityMatches =
+                pr.state === "open" && pr.base.ref === "main" &&
+                pr.base.sha === expectedBase && mainRef.object.sha === expectedBase &&
+                pr.head.repo &&
+                pr.head.repo.full_name.toLowerCase() === `${context.repo.owner}/${context.repo.repo}`.toLowerCase() &&
+                pr.head.ref === branch;
+              if (identityMatches && pr.head.sha === targetHead) {
+                verified = true;
+                break;
+              }
+              if (!identityMatches || (!changed && pr.head.sha !== targetHead)) {
+                throw new Error("PR identity, branch or base changed; refusing required-check dispatch.");
+              }
+              if (attempt < 10) {
+                core.info(`PR head is not visible yet (attempt ${attempt}/10); retrying GitHub API read.`);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+              }
+            }
+            if (!verified) {
+              throw new Error(`PR head did not converge to expected SHA ${targetHead} after bounded retries; refusing dispatch.`);
+            }
+
+            // This runs for BOTH changed and no-op repairs. GITHUB_TOKEN pushes
+            // do not trigger pull_request workflows, so dispatch explicitly.
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner, repo: context.repo.repo,
               workflow_id: "quality.yml", ref: branch
             });
+            core.notice(`Dispatched Quality for PR #${number} at exact head ${targetHead}.`);
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner, repo: context.repo.repo,
               workflow_id: "repository-baselines.yml", ref: branch
             });
-            core.notice(`Applied baseline repair as ${commit} to PR #${number}; dispatched Quality and Repository Baselines on the updated branch.`);
-
-      - name: Record no-op result
-        if: steps.apply.outputs.changed != 'true'
-        run: echo "No commit was needed; the six generated files already match the PR branch."
+            core.notice(`Dispatched Repository Baselines for PR #${number} at exact head ${targetHead}.`);
+            core.notice(changed
+              ? `Applied baseline repair commit ${targetHead} and dispatched both required workflows.`
+              : `No baseline commit was needed; both required workflows were dispatched for unchanged head ${targetHead}.`);
