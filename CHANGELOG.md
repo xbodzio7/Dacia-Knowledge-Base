@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Reviewed
-* Reconciled all 22 pages of the Spring brochure dated 2026-02-19 against the existing source-linked master and the MY26 price list dated 2026-02-06. Verified 90 scalar observations, 3 ranges, 126 availability rows, 21 brochure commercial mappings, 3 MY26 prices, 10 MY26 commercial mappings and two ground-clearance observations. The 21 candidate technical pairs were already represented; no duplicate master data was added. Preserved the page-2/page-5 conflict, torque-unit uncertainty, 204 kg battery-mass gap and diagram/accessory/Cargo deferrals. Report registered in the source report registry.
+* Reconciled all 22 pages of the Spring brochure dated 2026-02-19 against the existing source-linked master and the MY26 price list dated 2026-02-06. Verified 90 scalar observations, 3 ranges, 126 availability rows, 21 brochure commercial mappings, 3 MY26 prices, 10 MY26 commercial mappings and two ground-clearance observations. The 21 candidate technical pairs were already represented; no duplicate master data was added. Preserved the page-2/page-5 conflict, torque-unit uncertainty, 204 kg battery-mass gap and diagram/accessory/Cargo deferrals. Reconciliation report pair added; registry completion receipt is deferred until package promotion.
 
 
 ### Added
