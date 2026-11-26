@@ -150,6 +150,23 @@
       "markdown_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.md",
       "depends_on": [],
       "depends_on_paths": []
+    },
+    {
+      "report_id": "sandero_stepway_full_brochure_inventory_review_20261126",
+      "json_path": "data/reporting/sandero_stepway_full_brochure_inventory_review_20261126.json",
+      "markdown_path": "data/reporting/sandero_stepway_full_brochure_inventory_review_20261126.md",
+      "depends_on": [],
+      "depends_on_paths": [
+        "data/reporting/sandero_stepway_page17_max_power_rpm_import_closure_20261104.json",
+        "data/reporting/sandero_stepway_technical_page17_ambiguity_review.json",
+        "data/reporting/sandero_stepway_equipment_page18_ambiguity_review.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk1.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk2.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk3.json",
+        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk1.json",
+        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk2.json",
+        "data/reporting/sandero_stepway_brochure_cargo_import.json"
+      ]
     }
   ]
 }
