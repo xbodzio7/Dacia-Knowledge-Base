@@ -88,7 +88,10 @@
           "residual_scope": "Remaining pages 1-16 and 21 plus cross-page equipment/paint residuals; preserve page-13/page-18 conflict."
         }
       ]
-    }
+    },
+    "source_paths": [
+      "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
+    ]
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
