@@ -60,7 +60,7 @@
     },
     "completion": {
       "pull_request": 919,
-      "package_commit_sha": "5b187468776f09db8740cdbf9e7483970e4b026f",
+      "package_commit_sha": "af34349fa0dedf5fb9cf845283fd1bbc815c1213",
       "completed_on": "2026-11-26",
       "report_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json"
     }
@@ -75,7 +75,29 @@
     "source_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
     "source_sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
     "page_count": 21,
-    "report_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126"
+    "report_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126",
+    "selection_evidence": {
+      "reviewed_report_ids": [
+        "official_dacia_brochure_portfolio_readiness_review_20261126",
+        "official_bigster_brochure_full_assimilation_20261125",
+        "spring_my26_brochure_full_source_to_master_reconciliation_20261125"
+      ],
+      "reviewed_evidence_paths": [
+        "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json",
+        "data/reporting/sandero_stepway_page17_max_power_rpm_import_closure_20261104.json",
+        "data/reporting/sandero_stepway_technical_page17_ambiguity_review.json",
+        "data/reporting/sandero_stepway_equipment_page18_ambiguity_review.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk1.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk2.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk3.json",
+        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk1.json",
+        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk2.json",
+        "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
+        "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json"
+      ],
+      "residual_scope": "Complete source-wide inventory and reconciliation of the 21-page Sandero Stepway brochure. Reuse the existing page 17-19 evidence and import receipts; no previously reviewed observation or unresolved candidate is promoted or re-imported.",
+      "scope_resolutions": []
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
