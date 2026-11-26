@@ -1224,6 +1224,9 @@ The transition gate enforces these rules:
 
 The validator is part of the required Quality workflow on pull requests and also runs on `workflow_dispatch`, including the manual Quality dispatch performed after Baseline Repair writes back a candidate. For a manual dispatch it compares against the repository default branch, just as a PR run compares against its actual base branch. The exact-head freshness check runs in both cases. It is complementary to `project-state --check`: the latter validates the state schema and generated documentation; this gate validates the transition from the base state and the evidence behind package completion/selection.
 
+
+10. **No premature next-package completion receipt.** The report-registry entry for `next_package.report_path` must not point to a report declaring a completed status while that package remains queued as `next_package`. The only valid publication sequence is one PR that promotes that exact package to `current_package.status=complete`, supplies the PR-bound completion evidence, registers the matching report ID/path and selects the following package. The transition gate rejects a pre-existing or newly added completed registry receipt for an unpromoted next package, even when the report file itself was not changed in the current PR. Its isolated self-test covers this unchanged-report case.
+
 ## 27. Automated dependency-impact and pre-publication safeguards
 
 The following controls are mandatory and are executed by the Quality workflow on Pull Requests. They are repository automation, not optional checklist reminders.
