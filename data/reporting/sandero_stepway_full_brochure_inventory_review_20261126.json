@@ -254,5 +254,21 @@
     "No paint surcharge or trim availability is inferred.",
     "Page-13/page-18 roof-rail discrepancy remains unresolved; page 18 detailed matrix is retained as primary row evidence but page 13 wording is not rewritten.",
     "Page-20 interior measurements and seatback angles are excluded from exterior dimension import."
-  ]
+  ],
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "sandero_stepway_full_brochure_inventory_review_20261126",
+    "generated_at": "2026-11-26T21:12:00Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "c5cc38f5c1b244c646019eba6c510847c95ad9e4",
+    "input_files": [
+      {
+        "path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+        "git_blob_sha": "88b623c214bd15bf33c75479a4fb25c094637628",
+        "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48"
+      }
+    ],
+    "scope": "Full 21-page visual and text inventory of the official Polish Sandero Stepway brochure, with existing page 17-19 evidence and page-20 cargo import reused; no master-data import.",
+    "status": "current"
+  }
 }
