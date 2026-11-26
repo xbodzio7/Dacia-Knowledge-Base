@@ -234,11 +234,11 @@ class PackageWorkflowTests(unittest.TestCase):
         self.assertIn("github.event.pull_request.number || github.ref", quality)
         self.assertIn("pull_request_target:", baselines)
         self.assertIn("github.event.pull_request.head.sha || github.sha", baselines)
-        self.assertIn("administration: read", baselines)
+        self.assertIn("pull-requests: read", baselines)
         self.assertIn("Audit repository configuration and trusted workflow provenance", baselines)
         self.assertIn("allow_update_branch", baselines)
         self.assertIn("allow_squash_merge", baselines)
-        self.assertIn("required_status_checks", baselines)
+        self.assertIn("review_policy?.required_status_checks", baselines)
         self.assertIn("Validate package closure integrity against the PR head", baselines)
         self.assertIn("completion.package_commit_sha", baselines)
 
