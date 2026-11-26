@@ -48,16 +48,16 @@ jobs:
         if: github.event_name == 'pull_request_target'
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
         env:
-          TRUSTED_WORKFLOW_SHA: \${{ github.workflow_sha }}
+          TRUSTED_WORKFLOW_SHA: ${{ github.workflow_sha }}
         with:
-          github-token: \${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
             const pr = context.payload.pull_request;
             if (!pr || context.eventName !== "pull_request_target") {
               throw new Error("This audit must run from the trusted pull_request_target event.");
             }
-            const fullName = \`\${owner}/\${repo}\`.toLowerCase();
+            const fullName = `${owner}/${repo}`.toLowerCase();
             if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== fullName) {
               throw new Error("DKB governance checks require a same-repository PR.");
             }
@@ -72,7 +72,7 @@ jobs:
             });
             if (!["ahead", "identical"].includes(provenance.data.status)) {
               throw new Error(
-                \`Workflow provenance is not rooted in the PR base: workflow=\${workflowSha}, base=\${pr.base.sha}, status=\${provenance.data.status}.\`
+                `Workflow provenance is not rooted in the PR base: workflow=${workflowSha}, base=${pr.base.sha}, status=${provenance.data.status}.`
               );
             }
 
@@ -80,13 +80,13 @@ jobs:
               const response = await github.rest.repos.getContent({ owner, repo, path, ref });
               const file = response.data;
               if (Array.isArray(file) || file.type !== "file" || !file.content) {
-                throw new Error(\`Cannot read workflow file \${path} at \${ref}.\`);
+                throw new Error(`Cannot read workflow file ${path} at ${ref}.`);
               }
               return Buffer.from(file.content, "base64").toString("utf8");
             }
             function checkActionPins(path, content) {
               const failures = [];
-              for (const match of content.matchAll(/^\\s*uses:\\s*([^\\s#]+)/gm)) {
+              for (const match of content.matchAll(/^\s*uses:\s*([^\s#]+)/gm)) {
                 const action = match[1];
                 if (action.startsWith("./") || action.startsWith("docker://")) continue;
                 const at = action.lastIndexOf("@");
@@ -94,7 +94,7 @@ jobs:
                 if (!/^[0-9a-f]{40}$/.test(revision)) failures.push(action);
               }
               if (failures.length) {
-                throw new Error(\`\${path} contains actions not pinned to immutable 40-character SHAs: \${failures.join(", ")}\`);
+                throw new Error(`${path} contains actions not pinned to immutable 40-character SHAs: ${failures.join(", ")}`);
               }
             }
             const coreWorkflows = [
@@ -124,12 +124,12 @@ jobs:
               [".github/workflows/quality.yml", quality],
               [".github/workflows/repository-baselines.yml", baselines]
             ]) {
-              if (!content.includes("pull_request_target:") || /^\\s{2}pull_request:\\s*$/m.test(content)) {
-                throw new Error(\`\${path} must use pull_request_target only; do not restore untrusted pull_request execution.\`);
+              if (!content.includes("pull_request_target:") || /^\s{2}pull_request:\s*$/m.test(content)) {
+                throw new Error(`${path} must use pull_request_target only; do not restore untrusted pull_request execution.`);
               }
               if (!content.includes("github.event.pull_request.head.sha || github.sha") ||
                   !content.includes("persist-credentials: false")) {
-                throw new Error(\`\${path} must check out the exact PR head without persisting credentials.\`);
+                throw new Error(`${path} must check out the exact PR head without persisting credentials.`);
               }
             }
             if (!quality.includes("git merge-base --is-ancestor") ||
@@ -153,7 +153,7 @@ jobs:
             };
             for (const [key, expected] of Object.entries(expectedRepositorySettings)) {
               if (settings[key] !== expected) {
-                throw new Error(\`Repository setting drift: \${key} expected \${expected}, received \${settings[key]}.\`);
+                throw new Error(`Repository setting drift: ${key} expected ${expected}, received ${settings[key]}.`);
               }
             }
 
@@ -170,7 +170,7 @@ jobs:
             ].sort();
             const actualChecks = [...(protection.required_status_checks?.contexts || [])].sort();
             if (JSON.stringify(actualChecks) !== JSON.stringify(expectedChecks)) {
-              throw new Error(\`Required main checks differ. Expected \${JSON.stringify(expectedChecks)}, received \${JSON.stringify(actualChecks)}.\`);
+              throw new Error(`Required main checks differ. Expected ${JSON.stringify(expectedChecks)}, received ${JSON.stringify(actualChecks)}.`);
             }
             if (protection.required_status_checks?.strict !== false) {
               throw new Error("Main protection must keep the up-to-date toggle disabled; Quality enforces freshness independently.");
@@ -196,20 +196,20 @@ jobs:
               ["lock_branch", protection.lock_branch]
             ];
             for (const [name, value] of mustRemainDisabled) {
-              if (enabled(value)) throw new Error(\`Main branch protection drift: \${name} must remain disabled.\`);
+              if (enabled(value)) throw new Error(`Main branch protection drift: ${name} must remain disabled.`);
             }
             if (protection.required_deployments) {
               throw new Error("Main branch protection must not require deployments.");
             }
             core.notice(
-              \`Repository configuration and workflow provenance PASS. Workflow SHA \${workflowSha}; PR base \${pr.base.sha}; six required checks and merge settings match the owner-confirmed baseline.\`
+              `Repository configuration and workflow provenance PASS. Workflow SHA ${workflowSha}; PR base ${pr.base.sha}; six required checks and merge settings match the owner-confirmed baseline.`
             );
 
       - name: Validate package closure integrity against the PR head
         if: github.event_name == 'pull_request_target'
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
         with:
-          github-token: \${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
             const pr = context.payload.pull_request;
@@ -223,21 +223,21 @@ jobs:
               core.notice("No canonical state transition in this PR; package closeout integrity check is not applicable.");
               return;
             }
-            if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== \`\${owner}/\${repo}\`.toLowerCase()) {
+            if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== `${owner}/${repo}`.toLowerCase()) {
               throw new Error("Package closeout validation requires a same-repository PR.");
             }
             async function readJson(path, ref) {
               const response = await github.rest.repos.getContent({ owner, repo, path, ref });
               const file = response.data;
               if (Array.isArray(file) || file.type !== "file" || !file.content) {
-                throw new Error(\`Required closeout file is missing: \${path} at \${ref}.\`);
+                throw new Error(`Required closeout file is missing: ${path} at ${ref}.`);
               }
               return JSON.parse(Buffer.from(file.content, "base64").toString("utf8"));
             }
             async function requireFile(path, ref) {
               const response = await github.rest.repos.getContent({ owner, repo, path, ref });
               if (Array.isArray(response.data) || response.data.type !== "file") {
-                throw new Error(\`Required closeout artifact is missing: \${path} at \${ref}.\`);
+                throw new Error(`Required closeout artifact is missing: ${path} at ${ref}.`);
               }
             }
             const baseState = await readJson("project/state.json", pr.base.sha);
@@ -254,7 +254,7 @@ jobs:
             if (completion.pull_request !== pr.number ||
                 !/^[0-9a-f]{40}$/.test(completion.package_commit_sha || "") ||
                 completion.report_path !== current.report_path ||
-                !/^\\d{4}-\\d{2}-\\d{2}$/.test(completion.completed_on || "")) {
+                !/^\d{4}-\d{2}-\d{2}$/.test(completion.completed_on || "")) {
               throw new Error("New package completion receipt must bind this PR, exact package commit, report path and completion date.");
             }
             const packageCommit = await github.rest.repos.getCommit({
@@ -286,7 +286,7 @@ jobs:
             }
             if (entry.markdown_path) await requireFile(entry.markdown_path, pr.head.sha);
             core.notice(
-              \`Package closure integrity PASS: \${current.package_id}, report \${current.report_id}, PR #\${pr.number}, commit \${completion.package_commit_sha}.\`
+              `Package closure integrity PASS: ${current.package_id}, report ${current.report_id}, PR #${pr.number}, commit ${completion.package_commit_sha}.`
             );
 
   documentation-baseline:
