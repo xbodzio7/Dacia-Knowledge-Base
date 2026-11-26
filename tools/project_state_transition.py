@@ -131,18 +131,25 @@ def _validate_completion(
         raise TransitionError("completion.pull_request must be a positive integer")
     package_sha = completion.get("package_commit_sha")
     merge_sha = completion.get("merge_commit_sha")
-    if package_sha is not None:
-        if not isinstance(package_sha, str) or SHA_RE.fullmatch(package_sha) is None:
-            raise TransitionError(
-                "completion.package_commit_sha must be a lowercase 40-character SHA"
-            )
-        if pull_request_number is not None and pull_request != pull_request_number:
-            raise TransitionError(
-                f"completion.pull_request must match the current PR #{pull_request_number}"
-            )
-    elif not isinstance(merge_sha, str) or SHA_RE.fullmatch(merge_sha) is None:
+    if package_sha is not None and (
+        not isinstance(package_sha, str) or SHA_RE.fullmatch(package_sha) is None
+    ):
         raise TransitionError(
-            "completion requires a valid package_commit_sha (PR closeout) or merge_commit_sha (post-merge repair)"
+            "completion.package_commit_sha must be a lowercase 40-character SHA"
+        )
+    if merge_sha is not None and (
+        not isinstance(merge_sha, str) or SHA_RE.fullmatch(merge_sha) is None
+    ):
+        raise TransitionError(
+            "completion.merge_commit_sha must be a lowercase 40-character SHA"
+        )
+    if package_sha is None and merge_sha is None:
+        raise TransitionError(
+            "completion requires a package_commit_sha or merge_commit_sha"
+        )
+    if pull_request_number is not None and pull_request != pull_request_number:
+        raise TransitionError(
+            f"completion.pull_request must match the current PR #{pull_request_number}"
         )
     completed_on = completion.get("completed_on")
     if not isinstance(completed_on, str):
@@ -165,20 +172,13 @@ def _validate_completion(
             "completion.report_path must match current_package.report_path"
         )
 
-    evidence_sha = package_sha or merge_sha
-    if package_sha is None:
-        message = _git(repository, "show", "-s", "--format=%B", merge_sha)
-        if f"#{pull_request}" not in message:
-            raise TransitionError(
-                "completion merge commit message does not reference "
-                f"the recorded PR #{pull_request}"
-            )
-    else:
+    evidence_sha = merge_sha or package_sha
+    if package_sha is not None:
         if pull_request_number is not None and report_path not in changed_paths:
             raise TransitionError(
                 "a newly completed package PR must change the exact current_package.report_path"
             )
-        commit_paths = _git(
+        package_paths = _git(
             repository,
             "diff-tree",
             "--no-commit-id",
@@ -188,11 +188,35 @@ def _validate_completion(
         )
         if report_path not in {
             line.strip().replace("\\\\", "/")
-            for line in commit_paths.splitlines()
+            for line in package_paths.splitlines()
             if line.strip()
         }:
             raise TransitionError(
                 "completion.package_commit_sha must identify a commit that changed "
+                "the declared report"
+            )
+    if merge_sha is not None:
+        message = _git(repository, "show", "-s", "--format=%B", merge_sha)
+        if f"#{pull_request}" not in message:
+            raise TransitionError(
+                "completion merge commit message does not reference "
+                f"the recorded PR #{pull_request}"
+            )
+        merge_paths = _git(
+            repository,
+            "diff-tree",
+            "--no-commit-id",
+            "--name-only",
+            "-r",
+            merge_sha,
+        )
+        if report_path not in {
+            line.strip().replace("\\\\", "/")
+            for line in merge_paths.splitlines()
+            if line.strip()
+        }:
+            raise TransitionError(
+                "completion.merge_commit_sha must identify a merge commit that contains "
                 "the declared report"
             )
     ancestor = subprocess.run(
@@ -821,7 +845,6 @@ def self_test() -> int:
         # evidence and must not require the report to change in this later PR.
         _git(repository, "commit", "--allow-empty", "-m", "Merge pull request #123")
         merge_sha = _git(repository, "rev-parse", "HEAD")
-        promoted["current_package"]["completion"].pop("package_commit_sha")
         promoted["current_package"]["completion"]["merge_commit_sha"] = merge_sha
         validate_transition(
             promoted,
