@@ -68,7 +68,7 @@ A partial closeout, stale receipt, missing registry entry or mismatched report b
 - Third-party actions in the core workflows are pinned to full commit SHAs.
 - The exact tested head SHA must still match the current PR head immediately before merge.
 - The six owner-confirmed protection checks remain enabled; do not weaken or bypass them to repair a failed workflow.
-- Workflow changes are bootstrapped through the currently trusted checks. Once the target-based workflow is present on main, the follow-up migration removes the legacy pull_request trigger so steady-state validation uses only pull_request_target.
+- The bootstrap migration is complete: Quality and Repository Baselines now use only pull_request_target for PR validation. A regression test and trusted workflow audit reject reintroduction of the legacy pull_request trigger.
 
 ## Failure handling
 
