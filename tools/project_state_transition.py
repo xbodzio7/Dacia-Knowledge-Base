@@ -174,9 +174,9 @@ def _validate_completion(
                 f"the recorded PR #{pull_request}"
             )
     else:
-        if report_path not in changed_paths:
+        if pull_request_number is not None and report_path not in changed_paths:
             raise TransitionError(
-                "PR package closeout must change the exact current_package.report_path"
+                "a newly completed package PR must change the exact current_package.report_path"
             )
         commit_paths = _git(
             repository,
@@ -804,6 +804,17 @@ def self_test() -> int:
                 raise
         else:
             raise TransitionError("completion evidence accepted the wrong PR number")
+
+        # A PR-bound package_commit_sha remains valid historical evidence
+        # in later PRs; the report must not be re-edited to preserve its receipt.
+        validate_transition(
+            promoted,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=124,
+        )
 
         # After the PR-bound closeout has been validated, model the durable
         # post-merge receipt separately. A merge-commit receipt is historical
