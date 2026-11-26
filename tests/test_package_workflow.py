@@ -227,7 +227,7 @@ class PackageWorkflowTests(unittest.TestCase):
             REPOSITORY / ".github" / "workflows" / "repository-baselines.yml"
         ).read_text(encoding="utf-8")
         for candidate in (quality, baselines):
-            self.assertIn("\\n  pull_request:\\n", candidate)
+            self.assertRegex(candidate, r"(?m)^  pull_request:$")
             self.assertNotIn("pull_request_target:", candidate)
             self.assertNotIn("workflow_run:", candidate)
             self.assertIn("github.event.pull_request.head.sha || github.sha", candidate)
