@@ -261,7 +261,7 @@ class ProjectStateContractTests(unittest.TestCase):
                 capture_output=True,
             )
             baseline_file = completion_repo / "README.md"
-            baseline_file.write_text("fixture baseline\\n", encoding="utf-8")
+            baseline_file.write_text("fixture baseline\n", encoding="utf-8")
             subprocess.run(
                 ["git", "add", "README.md"],
                 cwd=completion_repo,
