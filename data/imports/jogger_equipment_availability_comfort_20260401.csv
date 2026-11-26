@@ -1,0 +1,29 @@
+attribute_code,source_pages,source_label,essential,expression_non_hybrid,expression_hybrid,extreme,journey,notes
+side_mirrors_electric_adjustment,5,Lusterka boczne sterowane elektrycznie,not_available,standard,standard,standard,standard,direct row
+side_mirrors_folding,5,"Pakiet DRIVE: lusterka sterowane i składane elektrycznie, podgrzewane",not_available,not_available,not_available,optional,not_available,package folding component
+side_mirrors_heated,5,"Pakiet DRIVE: lusterka sterowane i składane elektrycznie, podgrzewane",not_available,not_available,not_available,optional,not_available,package heating component
+onboard_computer,5,"Komputer pokładowy / Wyświetlacz TFT 3,5""",standard,standard,standard,standard,standard,computer component
+instrument_cluster_tft_3_5,5,"Komputer pokładowy / Wyświetlacz TFT 3,5""",standard,standard,standard,standard,standard,display component
+instrument_cluster_colour_7,5,"Cyfrowy, kolorowy zespół zegarów 7"" (expression tylko hybrid 155)",not_available,not_available,standard,standard,standard,powertrain-qualified expression status
+speed_limiter,5,Ogranicznik / Regulator prędkości,standard,standard,standard,standard,standard,limiter component
+cruise_control,5,Ogranicznik / Regulator prędkości,standard,standard,standard,standard,standard,cruise-control component
+rear_parking_sensors,5,System wspomagania parkowania tyłem,standard,standard,standard,standard,standard,direct row
+front_parking_sensors,5,System wspomagania parkowania przodem,not_available,not_available,not_available,standard,standard,direct row
+rear_view_camera,5,Kamera cofania,not_available,standard,standard,standard,standard,direct row
+360_camera_system,5,Multiview Kamera,not_available,not_available,not_available,optional,standard,package marker normalized to optional
+electronic_parking_brake,5,Automatyczny hamulec postojowy (expression tylko hybrid 155),not_available,optional,standard,standard,standard,non-Hybrid expression is optional through Pakiet KOMFORT
+front_windows_power,5,Elektrycznie sterowane szyby przednie,standard,standard,standard,standard,standard,direct row
+rear_windows_power,5,Elektrycznie sterowane szyby tylne,not_available,standard,standard,standard,standard,direct row
+central_locking,5,"Centralny zamek drzwi, zdalnie sterowany falami radiowymi",standard,standard,standard,standard,standard,direct row
+keyless_entry,5,Karta Keyless Entry,not_available,optional,optional,standard,standard,package marker normalized to optional
+manual_air_conditioning,5,Klimatyzacja manualna,standard,standard,standard,not_available,not_available,direct row
+automatic_climate_control,5,Klimatyzacja automatyczna,not_available,optional,optional,standard,standard,package marker normalized to optional
+front_centre_armrest,5,Konsola centralna z podłokietnikiem i schowkiem,not_available,standard,standard,standard,standard,console component
+steering_wheel_height_adjustment,5,Kierownica regulowana na wysokość / głębokość,standard,standard,standard,standard,standard,height component
+steering_wheel_reach_adjustment,5,Kierownica regulowana na wysokość / głębokość,standard,standard,standard,standard,standard,reach component
+driver_seat_height_adjustment,5,Fotel kierowcy z regulacją wysokości / podłokietnik,standard,standard,standard,standard,standard,height-adjustment component
+heated_front_seats,5,Fotele przednie podgrzewane,not_available,optional,optional,optional,standard,printed price or package marker normalized to optional
+heated_steering_wheel,5,Pakiet ZIMOWY: podgrzewana kierownica,not_available,not_available,not_available,optional,not_available,package component
+media_control_system,5,Media Control,standard,not_available,not_available,not_available,not_available,system-level row
+media_display_system,5,"Nowy Media Display 10""",not_available,standard,standard,standard,not_available,system-level row
+navigation_system,5,Nowy Media Nav,not_available,optional,optional,optional,standard,printed option price normalized to optional

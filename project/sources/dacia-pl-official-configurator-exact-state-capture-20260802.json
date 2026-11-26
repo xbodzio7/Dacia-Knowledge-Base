@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "review_code": "official_configurator_exact_state_capture_001",
+  "observed_on": "2026-08-02",
+  "publisher": "Dacia",
+  "market": "PL",
+  "source_registration": {
+    "reused_source_code": "src_pl_dacia_official_configurator_coverage_20260802",
+    "new_source_row_added": false,
+    "reason": "This bounded capture review refines the already registered 2026-08-02 official configurator observation and does not create a second source for the same retrieval event."
+  },
+  "capture_capability": {
+    "ordinary_configurator_static_html": "supported",
+    "default_state_full_page_capture": "supported",
+    "saved_conf_wrapper": "not_resolved",
+    "opaque_rplug_payload": "not_resolved",
+    "interactive_variant_selection": "not_available_in_capture_interface",
+    "configurator_pdf_download": "requires_browser_or_user_export"
+  },
+  "automatically_captured_default_states": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "model": "SPRING",
+      "surface": "spring",
+      "url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html",
+      "state_label": "SPRING essential 70 MY26.b",
+      "grade": "essential",
+      "powertrain": "electric 70",
+      "transmission": "automatic",
+      "catalog_price_pln": 73500
+    },
+    {
+      "configuration_code": "sandero_iii_essential_tce100_manual",
+      "model": "NOWE SANDERO",
+      "surface": "sandero",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+      "state_label": "NOWE SANDERO essential TCe 100 F.2",
+      "grade": "essential",
+      "powertrain": "TCe 100",
+      "transmission": "manual",
+      "catalog_price_pln": 63900
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+      "model": "NOWE SANDERO STEPWAY",
+      "surface": "sandero_stepway",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
+      "state_label": "NOWE SANDERO STEPWAY essential stepway TCe 110 f.2",
+      "grade": "stepway essential",
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "catalog_price_pln": 71700
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "model": "NOWY JOGGER",
+      "surface": "jogger_5_seat",
+      "url": "https://www.dacia.pl/samochody/jogger-hybydowy/konfigurator.html",
+      "state_label": "NOWY JOGGER essential Eco-G 120 5-miejsc",
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "seat_count": 5,
+      "catalog_price_pln": 77900
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "model": "JOGGER",
+      "surface": "jogger_7_seat",
+      "url": "https://www.dacia.pl/samochody/jogger-7/konfigurator.html",
+      "state_label": "JOGGER essential Eco-G 120 7-miejsc",
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "seat_count": 7,
+      "catalog_price_pln": 82400
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+      "model": "DUSTER",
+      "surface": "duster",
+      "url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html",
+      "state_label": "DUSTER essential Eco-G 120",
+      "grade": "essential",
+      "powertrain": "Eco-G 120 4x2",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "catalog_price_pln": 82000
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "model": "BIGSTER",
+      "surface": "bigster",
+      "url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html",
+      "state_label": "BIGSTER essential mild hybrid-G 140",
+      "grade": "essential",
+      "powertrain": "mild hybrid-G 140 4x2",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "catalog_price_pln": 101400
+    }
+  ],
+  "saved_state_probe": {
+    "target_configuration_code": "spring_expression_electric70_automatic",
+    "wrapper_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEYl%2FAyq",
+    "payload_url": "https://pl.co.rplug.renault.com/c/BAEYl/Ayq",
+    "expected_grade_from_user_observation": "expression",
+    "static_capture_result": "not_resolved",
+    "observed_fallback": "The ordinary static page exposes the default Essential state and does not prove the saved Expression selection.",
+    "required_artifact": "configurator_pdf",
+    "acceptable_fallback_artifacts": [
+      "screenshots covering summary, standard equipment, optional equipment and charging section",
+      "a newly generated share link plus the PDF"
+    ]
+  },
+  "existing_exact_or_bounded_evidence": {
+    "configuration_pdfs_already_registered": [
+      "sandero_iii_expression_ecog120_manual",
+      "sandero_iii_journey_ecog120_manual",
+      "sandero_stepway_iii_essential_ecog120_manual",
+      "sandero_stepway_iii_expression_ecog120_automatic",
+      "sandero_stepway_iii_expression_ecog120_manual",
+      "sandero_stepway_iii_extreme_ecog120_automatic",
+      "sandero_stepway_iii_extreme_ecog120_manual"
+    ],
+    "spring_grade_powertrain_states_already_registered": [
+      "spring_essential_electric70_automatic",
+      "spring_expression_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ],
+    "exact_stock_not_equivalent_to_configurator_state": [
+      "duster_iii_expression_ecog120_4x2_automatic",
+      "duster_iii_extreme_ecog120_4x2_automatic",
+      "duster_iii_journey_ecog120_4x2_automatic"
+    ],
+    "boundary": "A stock card may prove an exact vehicle and selected equipment but does not expose the complete selectable configurator option set."
+  },
+  "minimal_manual_artifact_queue": {
+    "required_now": [
+      {
+        "priority": 1,
+        "configuration_code": "spring_expression_electric70_automatic",
+        "artifact": "PDF downloaded from the supplied saved configuration",
+        "reason": "This is the only missing artifact required before reconsidering the supplied-cable representation and resolving the Expression home-cable and Type 2 state."
+      }
+    ],
+    "high_priority_after_spring": [
+      {
+        "priority": 2,
+        "configuration_code": "sandero_iii_expression_ecog120_automatic",
+        "artifact": "configurator PDF",
+        "reason": "The official grade page proves the configuration and price, but not the exact automatic option and package state."
+      },
+      {
+        "priority": 3,
+        "configuration_code": "sandero_iii_journey_ecog120_automatic",
+        "artifact": "configurator PDF",
+        "reason": "The official grade page proves the configuration and price, but not the exact automatic option and package state."
+      },
+      {
+        "priority": 4,
+        "configuration_code": "duster_iii_expression_ecog120_4x2_automatic",
+        "artifact": "configurator PDF",
+        "reason": "An exact stock card exists, but a configurator export would resolve remaining factory-option boundaries such as the conflicting mirror and unproven antenna state."
+      }
+    ],
+    "not_requested_as_blanket_exports": [
+      "Jogger configuration matrix",
+      "Bigster configuration matrix",
+      "remaining Duster configurations",
+      "Sandero Stepway Eco-G 120 configurations with existing PDFs"
+    ],
+    "reason": "Official price lists and grade equipment matrices already cover their broad catalogue structure. Exact PDFs should be requested only when a named configuration-level gap remains after those sources are applied."
+  },
+  "capture_policy": [
+    "Use the official price list for the grade, powertrain, transmission, drive and seat-count matrix.",
+    "Use official grade equipment pages for grade-bounded standard highlights.",
+    "Use the ordinary configurator page for the exact default state of each surface.",
+    "Require a saved-state PDF only for option, package, dependency or conflict claims that vary across exact configurations.",
+    "Do not request or manufacture one conf link for every active configuration when existing official evidence already resolves the relevant field.",
+    "Do not make the supplied-cable architecture decision until the Spring Expression PDF is ingested."
+  ],
+  "master_data_mutation_authorized": false
+}

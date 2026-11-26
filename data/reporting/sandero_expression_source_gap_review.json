@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "configuration_source_gap_review",
+  "model_code": "sandero",
+  "configuration_code": "sandero_iii_expression_ecog120_manual",
+  "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+  "source_path": "PDF/Cenniki/NOWE SANDERO expression Eco-G 120 f.pdf",
+  "source_sha256": "82a8853d90b492e48595ff33db73632dc309b8a12d08d11dd3c259fca4eaff68",
+  "source_observation_date": "2026-06-26",
+  "initial_gap": {
+    "reported_records": 2,
+    "unique_slots": 1
+  },
+  "resolution": {
+    "scalar_values": [
+      {
+        "attribute_code": "wheel_finish",
+        "value": "stalowe",
+        "source_page": 2
+      }
+    ]
+  },
+  "reconciliation": {
+    "classification": "source_exhausted_not_stated",
+    "resolved_unique_slots": 1,
+    "remaining_unique_slots": 0,
+    "remaining_slots": [],
+    "boundary": "The exact source states the steel ATARA wheel wording. No unresolved qualifying slots remain for this source."
+  }
+}

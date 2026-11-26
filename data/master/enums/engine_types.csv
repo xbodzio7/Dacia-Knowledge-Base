@@ -1,0 +1,7 @@
+code,name,description,status
+ice,Internal Combustion Engine,Internal combustion engine,active
+mhev,Mild Hybrid,Mild hybrid electric vehicle,active
+hev,Hybrid Electric Vehicle,Full hybrid electric vehicle,active
+phev,Plug-in Hybrid,Plug-in hybrid electric vehicle,active
+bev,Battery Electric Vehicle,Battery electric vehicle,active
+fcev,Fuel Cell Electric Vehicle,Hydrogen fuel cell vehicle,active

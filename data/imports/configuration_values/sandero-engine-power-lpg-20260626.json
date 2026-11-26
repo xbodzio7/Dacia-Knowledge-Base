@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 254,
+  "attribute_code": "engine_power",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kW",
+    "status": "active"
+  },
+  "observation_date": "2026-06-26",
+  "fuel_type_code": "lpg",
+  "source_page": 6,
+  "source_section": "Silnik",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_expression_ecog120_mt_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "value": "90",
+      "source_text": "Moc Maksymalna KW (KM) 84/90 LPG (114/122 LPG)"
+    }
+  ]
+}

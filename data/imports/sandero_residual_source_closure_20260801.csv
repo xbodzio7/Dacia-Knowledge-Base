@@ -1,0 +1,4 @@
+record_type,configuration_code,attribute_code,value,availability_status,source_code,source_page,source_section,source_text,normalization_notes
+value,sandero_iii_expression_ecog120_manual,wheel_finish,stalowe,,src_pl_sandero_expression_ecog120_mt_20260626,2,Felgi,"16"" felgi stalowe ATARA",Retains only the source-visible finish wording; wheel design and material remain separate existing observations.
+value,sandero_iii_journey_ecog120_manual,wheel_finish,aluminiowe,,src_pl_sandero_journey_ecog120_mt_20260626,2,Felgi,"16"" felgi aluminiowe TAMIA",Retains only the source-visible finish wording; wheel design and material remain separate existing observations.
+availability,sandero_iii_journey_ecog120_manual,parking_assist_system,,standard,src_pl_sandero_journey_ecog120_mt_20260626,4,Komfort,system wspomagania parkowania przód/tył,The aggregate parking-assistance attribute is supported directly by the exact configuration source.

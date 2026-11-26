@@ -1,0 +1,8 @@
+code,name,item_type,status,notes
+bigster_media_nav_live_option,System Media Nav Live,option,active,
+bigster_power_tailgate_option,Pokrywa bagażnika sterowana elektrycznie,option,active,
+bigster_easy_package,Pakiet EASY,package,active,
+bigster_parking_package,Pakiet PARKING,package,active,
+bigster_winter_package,Pakiet ZIMOWY,package,active,
+bigster_winter_plus_package,Pakiet ZIMOWY PLUS,package,active,
+bigster_panoramic_roof_option,Dach panoramiczny elektrycznie otwierany,option,active,Samodzielna opcja dla wersji Journey; seryjna w Extreme.

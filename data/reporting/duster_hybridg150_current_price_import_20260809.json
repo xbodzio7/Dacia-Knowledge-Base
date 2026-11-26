@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "kind": "duster_hybridg150_current_price_import",
+  "captured_on": "2026-08-09",
+  "market": "PL",
+  "source_code": "src_pl_duster_price_my26_20260703",
+  "price_date": "2026-07-03",
+  "price_type": "catalog_gross",
+  "currency_code": "PLN",
+  "prices": [
+    {
+      "configuration_code": "duster_iii_expression_hybridg150_4x4_automatic",
+      "amount": 119900
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybridg150_4x4_automatic",
+      "amount": 125900
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybridg150_4x4_automatic",
+      "amount": 126100
+    }
+  ],
+  "before": {
+    "active_configuration_count": 84,
+    "configurations_with_catalogue_price": 81,
+    "configurations_without_catalogue_price": 3
+  },
+  "after": {
+    "active_configuration_count": 84,
+    "configurations_with_catalogue_price": 84,
+    "configurations_without_catalogue_price": 0
+  },
+  "boundaries": [
+    "Historical Duster price observations remain unchanged.",
+    "Promotional, financing and selected-option amounts are excluded.",
+    "No technical, equipment or appearance observation is inferred from the price source."
+  ],
+  "status": "complete"
+}

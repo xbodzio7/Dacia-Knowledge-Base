@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "source_code": "src_pl_spring_official_configurator_20260731",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-31",
+  "model_code": "spring",
+  "model_name": "SPRING",
+  "volatility": "dynamic_official_web",
+  "entry_points": {
+    "configurator": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/konfigurator.html",
+    "versions": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/ceny-i-wersje.html",
+    "comparison": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/porownaj.html",
+    "equipment": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/wyposazenie.html"
+  },
+  "version_observations": [
+    {
+      "version_code": "spring_essential",
+      "version_name": "essential",
+      "grade_code": "ENS_MDL2P1SERIELIM1",
+      "version_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/ceny-i-wersje.html?gradeCode=ENS_MDL2P1SERIELIM1",
+      "equipment_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/wyposazenie.html?gradeCode=ENS_MDL2P1SERIELIM1",
+      "configuration_state": {
+        "state_label": "SPRING essential 70 MY26.b",
+        "powertrain_label": "electric 70",
+        "transmission_type": "automatic",
+        "catalog_price_pln": 73500,
+        "price_evidence": "exact_visible_default_configurator_state",
+        "power_kw": 52,
+        "power_hp": 70,
+        "battery_capacity_kwh": 24.3,
+        "wltp_range_km": 221,
+        "wltp_consumption_kwh_per_100km": 12.7,
+        "zero_to_100_seconds": 12.3
+      },
+      "standard_highlights": [
+        {
+          "source_label": "Media Control"
+        },
+        {
+          "source_label": "silnik 70 KM"
+        },
+        {
+          "source_label": "światła do jazdy dziennej LED"
+        },
+        {
+          "source_label": "tylne czujniki parkowania"
+        },
+        {
+          "source_label": "cyfrowy zestaw wskaźników 7″"
+        }
+      ],
+      "unassigned_items": [
+        {
+          "name": "kabel do ładowania z gniazda domowego",
+          "visible_price_pln": 1500,
+          "imported": false,
+          "reason": "Snapshot registration does not import option applicability or prices."
+        }
+      ]
+    },
+    {
+      "version_code": "spring_expression",
+      "version_name": "expression",
+      "grade_code": "ENS_MDL2P1SERIELIM2",
+      "version_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/ceny-i-wersje.html?gradeCode=ENS_MDL2P1SERIELIM2",
+      "equipment_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/wyposazenie.html?gradeCode=ENS_MDL2P1SERIELIM2",
+      "configuration_state": {
+        "state_label": "SPRING expression electric 70",
+        "powertrain_label": "electric 70",
+        "transmission_type": "automatic",
+        "catalog_price_pln": null,
+        "price_evidence": "not_accepted",
+        "visible_repeated_price_pln": 73500,
+        "price_rejection_reason": "The combined version page repeats the Essential starting price in the Expression and Extreme sections and does not provide a reliable grade-specific catalogue price."
+      },
+      "standard_highlights": [
+        {
+          "source_label": "dwukolorowa tapicerka"
+        },
+        {
+          "source_label": "klimatyzacja manualna"
+        },
+        {
+          "source_label": "klamki w kolorze nadwozia"
+        },
+        {
+          "source_label": "koła 15″"
+        },
+        {
+          "source_label": "osłony dołu drzwi"
+        }
+      ],
+      "unassigned_items": [
+        {
+          "name": "pakiet TECHNO",
+          "visible_components": [
+            "Media Display",
+            "wyjście USB-C",
+            "kamera cofania"
+          ],
+          "imported": false,
+          "reason": "The broad grade equipment page does not prove an exact configuration-level package price or selected state."
+        }
+      ]
+    },
+    {
+      "version_code": "spring_extreme",
+      "version_name": "extreme",
+      "grade_code": "ENS_MDL2P1SERIELIM3",
+      "version_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/ceny-i-wersje.html?gradeCode=ENS_MDL2P1SERIELIM3",
+      "equipment_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/wyposazenie.html?gradeCode=ENS_MDL2P1SERIELIM3",
+      "comparison_url": "https://www.dacia.pl/hybrydy-i-elektryczne/spring-miejski/porownaj.html",
+      "configuration_state": {
+        "state_label": "SPRING extreme electric 100",
+        "powertrain_label": "electric 100",
+        "transmission_type": "automatic",
+        "catalog_price_pln": 85900,
+        "price_evidence": "exact_official_comparison_state",
+        "power_kw": 75,
+        "power_hp": 100,
+        "battery_capacity_kwh": 24.3,
+        "wltp_range_km": 225,
+        "zero_to_100_seconds": 9.6,
+        "ac_charging_kw": 7,
+        "dc_charging_kw": 40
+      },
+      "standard_highlights": [
+        {
+          "source_label": "Media Display"
+        },
+        {
+          "source_label": "kamera cofania"
+        },
+        {
+          "source_label": "komputer pokładowy"
+        },
+        {
+          "source_label": "silnik 100 KM"
+        },
+        {
+          "source_label": "elektryczne lusterka wsteczne"
+        }
+      ],
+      "unassigned_items": [
+        {
+          "name": "pakiet POWER",
+          "visible_price_pln": 3000,
+          "imported": false,
+          "reason": "The comparison page is retained as snapshot evidence; package selection and exact applicability require a separate import review."
+        },
+        {
+          "name": "pakiet CITY",
+          "visible_price_pln": 1800,
+          "imported": false,
+          "reason": "The comparison page is retained as snapshot evidence; package selection and exact applicability require a separate import review."
+        }
+      ]
+    }
+  ],
+  "cross_page_findings": [
+    {
+      "finding": "three_current_grades",
+      "value": [
+        "essential",
+        "expression",
+        "extreme"
+      ]
+    },
+    {
+      "finding": "two_current_powertrain_families",
+      "value": [
+        "electric 70",
+        "electric 100"
+      ]
+    },
+    {
+      "finding": "grade_powertrain_applicability",
+      "accepted": [
+        {
+          "grade": "essential",
+          "powertrain": "electric 70"
+        },
+        {
+          "grade": "expression",
+          "powertrain": "electric 70"
+        },
+        {
+          "grade": "extreme",
+          "powertrain": "electric 100"
+        }
+      ],
+      "rejected_generalization": "No other grade/powertrain combination is created without an exact official state."
+    },
+    {
+      "finding": "price_conflict",
+      "accepted_prices": [
+        {
+          "grade": "essential",
+          "powertrain": "electric 70",
+          "catalog_price_pln": 73500
+        },
+        {
+          "grade": "extreme",
+          "powertrain": "electric 100",
+          "catalog_price_pln": 85900
+        }
+      ],
+      "unresolved_grade": "expression",
+      "reason": "The version page repeats 73,500 PLN across grade sections while the independent configurator/comparison pages prove only Essential and Extreme prices."
+    }
+  ],
+  "normalization_rules": [
+    "Only an exact official grade and powertrain state is recorded as observed.",
+    "A catalogue price is accepted only when an exact grade/powertrain state is visible on the configurator or comparison page.",
+    "A repeated starting price on a combined version page is not reassigned to another grade.",
+    "Grade-level equipment pages remain supporting evidence and are not flattened into configuration-level availability.",
+    "Options, packages, accessories, financing, campaigns and dealer-stock prices are excluded from master-data import in this snapshot package.",
+    "The dynamic snapshot does not supersede the registered 2026-02-19 brochure or the 2026-07-08 model-year-2025 stock price list.",
+    "Spring Cargo is not represented as a passenger configurator state without an exact current configurator page."
+  ],
+  "registration_only": true
+}

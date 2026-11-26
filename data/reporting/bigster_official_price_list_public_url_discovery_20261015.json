@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "kind": "bigster_official_price_list_public_url_discovery",
+  "reviewed_on": "2026-10-17",
+  "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
+  "status": "registered_october_artifact_verified_public_cdn_alternatives_older",
+  "scope": {
+    "purpose": "Check whether an independently accessible official Polish Dacia Bigster price-list URL can unblock reconciliation of the registered 2026-10-01 source.",
+    "source_priority": "The registered 2026-10-01 price list remains the intended source; older public PDFs must not be substituted."
+  },
+  "findings": [
+    {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/ec37eb1c4d.pdf",
+      "publisher": "Dacia Poland / Renault Group CDN",
+      "visible_effective_date": "2026-04-01",
+      "search_evidence": "Public search result exposes the model/trim price matrix and states that the price list is effective from 1 April 2026.",
+      "equivalence_to_registered_2026_10_01_source": "not established",
+      "decision": "Do not use as a replacement for the October 2026 registered source."
+    },
+    {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/BIGSTER_PY_2026.pdf.asset.pdf/aa15f7ef99.pdf",
+      "publisher": "Dacia Poland / Renault Group CDN",
+      "visible_effective_date": "2026-01-01",
+      "equivalence_to_registered_2026_10_01_source": "not established",
+      "decision": "Older source only; do not substitute."
+    }
+  ],
+  "repository_recheck": {
+    "registered_canonical_path": "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf",
+    "registered_path_on_main": true,
+    "main_git_blob_sha": "fbdd72191b02db3cbd741d17d7c92e6d6d7ec28c",
+    "pr_branch_path": "PDF/Cenniki/bigster-price.pdf",
+    "pr_branch_git_blob_sha": "fbdd72191b02db3cbd741d17d7c92e6d6d7ec28c",
+    "main_and_pr_branch_blob_identity": "same Git blob SHA and file size (2015910 bytes); GitHub Contents text endpoint does not return the binary PDF bytes",
+    "uploaded_artifact": {
+      "name": "DACIA BIGSTER cennik MY26 20261001(1).pdf",
+      "size_bytes": 2015910,
+      "page_count": 8,
+      "sha256": "0964b3a3311708698ef3cee6bd28244f76c1db36d0d9452e128e5113384dac97",
+      "verification": "The Library attachment verification record confirms that the uploaded PDF matches the registered October source SHA-256."
+    },
+    "distinction": "Failure to retrieve binary bytes through the GitHub Contents text interface is a connector limitation, not evidence that the registered repository file or verified source artifact is absent."
+  },
+  "decisions": {
+    "registered_october_source_identity_verified": true,
+    "do_not_substitute_january_or_april_price_lists_for_october": true,
+    "do_not_treat_git_blob_sha_as_sha256": true,
+    "preserve_source_conflicts": true,
+    "no_master_mutation_authorized_by_this_discovery_record": true,
+    "brochure_assimilation_remains_open_until_24_page_brochure_review_and_source_to_master_reconciliation_pass": true
+  },
+  "resume_stage": "Use the SHA-verified 2026-10-01 source artifact for exact value-by-value reconciliation. Resolve the three missing tribrid engine_power observations and the page-7 drivetrain-specific dimension mappings only from explicit labels; preserve unresolved items as deferrals. This price-list source verification does not complete the separate 24-page Bigster brochure package.",
+  "sources": [
+    "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/ec37eb1c4d.pdf",
+    "https://cdn.group.renault.com/dac/pl/pdf/cenniki/BIGSTER_PY_2026.pdf.asset.pdf/aa15f7ef99.pdf",
+    "https://github.com/xbodzio7/Dacia-Knowledge-Base/blob/main/PDF/Cenniki/DACIA%20BIGSTER%20cennik%20MY26%2020261001.pdf"
+  ]
+}

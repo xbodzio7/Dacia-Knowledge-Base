@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "kind": "official_new_spring_accessory_confirmed_card_price_capture",
+  "package_id": "new_spring_confirmed_card_price_capture_001",
+  "captured_on": "2026-08-07",
+  "market": "PL",
+  "model": "new_spring",
+  "base_commit": "b28d302d317bcc3b00aa9b7be2dde8a60d1c2677",
+  "sources": {
+    "price_list": "data/reporting/official_new_spring_accessory_price_list_extract_20260806.json",
+    "first_pass": "data/reporting/official_new_spring_accessory_current_shop_first_pass_summary_20260806.csv",
+    "retry_cycle": "data/reporting/official_new_spring_accessory_current_shop_retry_cycle_summary_001_20260807.json",
+    "detail_csv": "data/reporting/official_new_spring_accessory_confirmed_card_price_capture_001_20260807.csv"
+  },
+  "scope": {
+    "confirmed_cards_reviewed": 16,
+    "reviewed_part_numbers": [
+      "7711578466",
+      "403152645R",
+      "403152884R",
+      "403154034R",
+      "684342227R",
+      "685605709R",
+      "685609899R",
+      "8201751967",
+      "7711943515",
+      "7711949659",
+      "8201741933",
+      "8201742284",
+      "7717277903",
+      "7711949678",
+      "8201737398",
+      "7711945184"
+    ],
+    "identity_rule": "exact_part_number",
+    "accepted_source": "official_polish_dacia_shop",
+    "unresolved_queue_retried": false,
+    "master_data_mutation": false,
+    "logical_package_count": 1
+  },
+  "result": {
+    "catalogue_prices_captured": 2,
+    "exact_price_matches": 2,
+    "price_mismatches": 0,
+    "confirmed_cards_without_captured_catalogue_price": 14,
+    "status_changes": 2,
+    "captured_prices": [
+      {
+        "part_number": "7711943515",
+        "document_price_gross_pln": 1230.0,
+        "shop_catalogue_price_gross_pln": 1230.0,
+        "price_match": true,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711943515",
+        "observation_route": "official_shop_search_snapshot"
+      },
+      {
+        "part_number": "7711945184",
+        "document_price_gross_pln": 1419.0,
+        "shop_catalogue_price_gross_pln": 1419.0,
+        "price_match": true,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711945184",
+        "observation_route": "official_shop_search_snapshot"
+      }
+    ],
+    "price_not_captured_part_numbers": [
+      "7711578466",
+      "403152645R",
+      "403152884R",
+      "403154034R",
+      "684342227R",
+      "685605709R",
+      "685609899R",
+      "8201751967",
+      "7711949659",
+      "8201741933",
+      "8201742284",
+      "7717277903",
+      "7711949678",
+      "8201737398"
+    ]
+  },
+  "repository_wide_new_spring_shop_coverage_after_package": {
+    "price_list_references": 56,
+    "confirmed_polish_dacia_shop_cards": 28,
+    "exact_current_price_matches": 14,
+    "confirmed_cards_without_captured_catalogue_price": 14,
+    "cards_not_resolved": 28,
+    "price_mismatches": 0
+  },
+  "semantic_guards": [
+    "Only the official Polish Dacia Shop exact-part-number card is accepted.",
+    "The separate 28-item unresolved queue is not retried.",
+    "A missing product price is not a mismatch and a delivery price is not a product price.",
+    "No foreign-market Dacia, Renault Shop or third-party evidence is substituted.",
+    "No master data is mutated.",
+    "The complete homogeneous 16-card scope is one logical package; internal chunks do not create separate Pull Requests."
+  ],
+  "next_retry_boundary": {
+    "queue": "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260807.csv",
+    "record_count": 28,
+    "eligible_on_or_after": "2026-08-08",
+    "recommended_package_id": "new_spring_current_shop_retry_cycle_002",
+    "cadence": "one_logical_package_with_internal_chunks_and_same_package_summary"
+  },
+  "validation": {
+    "detail_records": 16,
+    "unique_part_numbers": 16,
+    "captured_plus_uncaptured": 16,
+    "repository_wide_confirmed_plus_unresolved": 56
+  }
+}

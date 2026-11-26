@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_11_0_publication",
+  "published_on": "2026-08-02",
+  "status": "complete",
+  "tag": "data-products-v1.11.0",
+  "release_id": 363917670,
+  "source_commit": "0f9a76228ef374d7982421c5a246f00fe7378a94",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "source_backed_delta": {
+    "spring_observations": 36,
+    "spring_configurations": 3,
+    "spring_attributes": 12,
+    "value_id_range": [
+      3569,
+      3604
+    ]
+  },
+  "preserved_deferrals": [
+    "battery_mass_204_kg_my2025_stock_only",
+    "battery_voltage_354_v_my2025_stock_only",
+    "battery_capacity_24_3_kwh_measurement_basis_unqualified",
+    "charging_times_context_dependent",
+    "ground_clearance_15_inch_wheel_only",
+    "range_and_maximum_speed_not_reimported"
+  ],
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.11.0.zip": {
+      "size_bytes": 83310310,
+      "sha256": "e94c60c2677c410baed3a645bc4f41b4126ad4d6d8b008f2cd91df88b2d69eb4"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 22550,
+      "sha256": "015487f1471c7faf3fa158ecfe1feb23e6ade935bf524699ee14f8788a582031"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "99f1e94df23035364e3aa75eb68379adfe7eeb81f5f89ebbde3297a8d1e6de36"
+    }
+  },
+  "public_v1_10_0_immutable": true
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "dacia_current_configurator_pdf_completion_import",
+  "observed_date": "2026-08-09",
+  "mode": "apply",
+  "summary": {
+    "values_already_covered": 1473,
+    "cargo_contexts_already_covered": 295,
+    "availability_already_covered": 83,
+    "ranges_already_covered": 30,
+    "explicit_not_applicable_numeric_statements": 9,
+    "documents": 70,
+    "pages": 654,
+    "deferred_total": 0
+  },
+  "deferred_by_reason": {},
+  "deferred_examples": {}
+}

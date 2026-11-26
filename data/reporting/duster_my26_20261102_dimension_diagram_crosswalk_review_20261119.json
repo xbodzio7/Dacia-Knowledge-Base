@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "kind": "duster_my26_page9_dimension_diagram_crosswalk_review",
+  "reviewed_on": "2026-11-20",
+  "status": "complete",
+  "method": "visual_pdf_diagram_review_with_exact_source_configuration_crosswalk",
+  "source": {
+    "source_code": "src_pl_duster_price_my26_20261102",
+    "source_date": "2026-11-02",
+    "source_page": 9,
+    "source_file": "owner_supplied/2026-11-02/f07ca0a87f.pdf",
+    "registered_file": "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+    "sha256": "dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118",
+    "official_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/f07ca0a87f.pdf"
+  },
+  "scope": {
+    "source_configurations": 16,
+    "configurations_4x2": 13,
+    "configurations_4x4": 3,
+    "source_relationship": "documents",
+    "import_eligible_configurations": 6,
+    "imported_scalar_values": 18
+  },
+  "crosswalk": [
+    {
+      "attribute_code": "roof_height_with_rails",
+      "unit": "mm",
+      "values": {
+        "4x2": 1656,
+        "4x4": 1661
+      },
+      "disposition": "already represented for all 16 configurations; no duplicate observations"
+    },
+    {
+      "attribute_code": "front_track",
+      "unit": "mm",
+      "values": {
+        "4x2": 1574,
+        "4x4": 1573
+      },
+      "disposition": "imported for three Eco-G 120 automatic 4x2 configurations and three hybrid-G 150 4x4 configurations; existing ten 4x2 observations retained"
+    },
+    {
+      "attribute_code": "rear_track",
+      "unit": "mm",
+      "values": {
+        "4x2": 1547,
+        "4x4": 1562
+      },
+      "disposition": "imported for the six configurations missing this attribute"
+    },
+    {
+      "attribute_code": "ground_clearance",
+      "unit": "mm",
+      "values": {
+        "4x2": 209,
+        "4x4": 217
+      },
+      "disposition": "imported for the six configurations missing this attribute; 4x4 mapping follows the previously reviewed Duster 4x2/4x4 visual crosswalk. The diagram prints the pair in 217/209 order, so order is not assumed to be uniform across slash pairs."
+    },
+    {
+      "attribute_code": "overall_width",
+      "unit": "mm",
+      "values": {
+        "all": 1813
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "overall_width_with_mirrors",
+      "unit": "mm",
+      "values": {
+        "all": 2069
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "front_overhang",
+      "unit": "mm",
+      "values": {
+        "all": 857
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "wheelbase",
+      "unit": "mm",
+      "values": {
+        "4x2": 2657,
+        "4x4": 2658
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "rear_overhang",
+      "unit": "mm",
+      "values": {
+        "4x2": 828,
+        "4x4": 827
+      },
+      "disposition": "already represented; no duplicate observations"
+    },
+    {
+      "attribute_code": "overall_length",
+      "unit": "mm",
+      "values": {
+        "all": 4343
+      },
+      "disposition": "already represented; no duplicate observations"
+    }
+  ],
+  "imported_configurations": [
+    "duster_iii_expression_ecog120_4x2_automatic",
+    "duster_iii_extreme_ecog120_4x2_automatic",
+    "duster_iii_journey_ecog120_4x2_automatic",
+    "duster_iii_expression_hybridg150_4x4_automatic",
+    "duster_iii_extreme_hybridg150_4x4_automatic",
+    "duster_iii_journey_hybridg150_4x4_automatic"
+  ],
+  "imported_attributes": [
+    "front_track",
+    "rear_track",
+    "ground_clearance"
+  ],
+  "imported_id_range": [
+    8527,
+    8544
+  ],
+  "exclusions": [
+    {
+      "visual_values": [
+        "1443",
+        "1432"
+      ],
+      "reason": "Interior width callouts lack a sufficiently precise canonical attribute and exact measurement basis."
+    },
+    {
+      "visual_values": [
+        "907",
+        "894",
+        "14°"
+      ],
+      "reason": "Seat/interior geometry callouts are not mapped to an existing canonical dimension; 14° is not an approach/departure angle."
+    },
+    {
+      "visual_values": [
+        "2092"
+      ],
+      "reason": "Tailgate-open height callout is not imported from this diagram; it is already represented in exact configurator observations and is not a normal closed-vehicle overall height."
+    }
+  ],
+  "decisions": [
+    "The source relationship to all 16 exact MY26 configurations resolves the earlier source-relationship limitation on the 4x4 diagram mapping.",
+    "Only missing configuration/attribute pairs were imported; existing historical and exact configurator observations were not overwritten or duplicated.",
+    "No new attributes, source relationships, or inferred grade-level splits were created.",
+    "The source PDF is archived and SHA-256 verified."
+  ],
+  "next_package": "Complete package-level CI and repository-state closure; do not select a new data package until this PR is merged and canonical state is refreshed.",
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "duster_my26_20261102_dimension_diagram_crosswalk_review_20261119_001",
+    "generated_at": "2026-11-21T21:12:29Z",
+    "reviewed_on": "2026-11-21",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "63a91e55438de42d422c552ed580762d5a627ffc",
+    "input_files": [
+      {
+        "path": "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+        "git_blob_sha": "01a33dd3ffaef294838a4953960107a14e41511b",
+        "sha256": "dd6c65d048d7531251967ba39bb8ab6767256882325254e9b3eaafac11d89118"
+      },
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
+      },
+      {
+        "path": "data/master/source_configurations.csv",
+        "git_blob_sha": "a8395b7d415c656a623c567ac8c0620a22b5c498",
+        "sha256": "305ac28869a475510160b60380266574927ff8810862b1b992636605c7173198"
+      },
+      {
+        "path": "data/master/configurations.csv",
+        "git_blob_sha": "c9ffcc738d9165709edf05d81972037b02c6747f",
+        "sha256": "98eabf251f6a0c605a20bea347c09896e565a1ec6bb3c148bb84be785c18acea"
+      },
+      {
+        "path": "data/master/attributes.csv",
+        "git_blob_sha": "6e1efb5d7531f855aa8a086a9fd7b8bc779aadf5",
+        "sha256": "d24a2b19d5da75e26957dc240acb09d1955f856fbd42b9e6d6fe7d5b7e8d4db1"
+      },
+      {
+        "path": "data/master/configuration_attribute_values.csv",
+        "git_blob_sha": "f0d7723789e8ba30580ebc9d22b8c984d8fbcd85",
+        "sha256": "34af9f5ca36107d1b4a5795ed614208295bd0a02ddf34e70d318a6adcf19e1e8"
+      },
+      {
+        "path": "data/reporting/brochure_generic_dimensions_semantic_mapping_review.json",
+        "git_blob_sha": "d59c2276b3270d37016200a238b13abc26ea804a",
+        "sha256": "43179ea0dfb9e4d0e644eba14798cf841ac8875d80163d1673109d4cd229ed39"
+      }
+    ],
+    "scope": "Duster MY26 printed page 9 exterior-dimension diagram; all 16 exact source-linked configurations, with six missing 4x2/4x4 targets imported. Interior/seat callouts and tailgate-open height are explicitly excluded.",
+    "status": "needs_review"
+  },
+  "findings": [
+    {
+      "finding_id": "duster-page9-4x2-4x4-exterior-dimension-crosswalk",
+      "status": "resolved",
+      "detail": "The official page-9 dimension diagram was reconciled against all 16 exact source-linked MY26 configurations. Eighteen previously missing front-track, rear-track and ground-clearance observations were imported for six configurations; existing observations were preserved.",
+      "evidence_refs": [
+        "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+        "data/master/source_configurations.csv",
+        "data/master/configuration_attribute_values.csv",
+        "data/reporting/brochure_generic_dimensions_semantic_mapping_review.json"
+      ],
+      "last_verified_at": "2026-11-19T18:40:04+01:00"
+    },
+    {
+      "finding_id": "duster-page9-interior-dimension-callouts",
+      "status": "out_of_scope",
+      "detail": "Interior-width and seat-geometry labels 1443/1432, 907/894 and 14 degrees remain unmapped because their precise canonical measurement basis is not established.",
+      "evidence_refs": [
+        "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+        "data/master/attributes.csv"
+      ],
+      "last_verified_at": "2026-11-19T18:40:04+01:00"
+    },
+    {
+      "finding_id": "duster-page9-tailgate-open-height",
+      "status": "out_of_scope",
+      "detail": "The 2092 mm tailgate-open height is not imported as normal closed-vehicle overall height; existing exact configurator observations remain unchanged.",
+      "evidence_refs": [
+        "PDF/Cenniki/DACIA DUSTER cennik MY26 20261102.pdf",
+        "data/master/configuration_attribute_values.csv"
+      ],
+      "last_verified_at": "2026-11-19T18:40:04+01:00"
+    }
+  ]
+}

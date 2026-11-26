@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_14_1_publication",
+  "published_on": "2026-08-03",
+  "status": "complete",
+  "tag": "data-products-v1.14.1",
+  "release_id": 364517294,
+  "publication_run_id": 30857107813,
+  "source_commit": "c01315369a9676ceaa0cdf584ef9f03ea0cddc6d",
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "corrected_interactive_shortlist": {
+    "canonical_release_pipeline": true,
+    "official_spring_media_with_fallback": true,
+    "reviewed_commercial_price_states": true,
+    "reviewed_technical_gap_states": true,
+    "comparison_navigation_non_overlapping": true,
+    "collapsible_parameter_groups": true,
+    "global_group_controls": true,
+    "session_state_persistence": true,
+    "forced_dark_theme": true,
+    "grouped_commercial_versions": true,
+    "two_axis_sticky_comparison": true
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "configuration_pairs_generated": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.14.1.zip": {
+      "size_bytes": 83500366,
+      "sha256": "1a3ab751c32e9bb561a36e7f3152f310e70046be4a898a9e152b1a8b0cee2383"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 25314,
+      "sha256": "4933a3b0a1803a2b8c4ecadbf7f8728f2f8e88dbaa76b8aeeaaadb18ab7260d7"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "0a30282cb9ffffe0350ef4caafb95d24ba54703ed85c24a498ceaee7bd87edd9"
+    }
+  },
+  "public_v1_14_0_immutable": true
+}

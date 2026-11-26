@@ -1,0 +1,121 @@
+from __future__ import annotations
+import csv,hashlib,json,shutil,sys,tempfile,unittest
+from collections import Counter
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"tools"))
+import import_bigster_price_list_commercial_matrix_20261001_20261102 as importer
+import package_preflight
+from reporting.commercial_offers import collect_commercial_components
+MASTER=ROOT/"data"/"master"
+OCT="src_pl_bigster_price_my26_20261001";NOV="src_pl_bigster_price_my26_20261102"
+def read(path):
+    with path.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+def components(code):
+    result=collect_commercial_components(ROOT,[code],"2026-11-02")
+    return {r["code"]:r for r in result.get(code,[])}
+class BigsterCommercialMatrixTests(unittest.TestCase):
+    def test_importer_contract(self):
+        self.assertEqual(importer.check(),{"new_items":2,"new_mappings":172,"rows_2026_10_01":86,"rows_2026_11_02":86})
+    def test_source_and_config_scope(self):
+        sources={r["code"]:r for r in read(MASTER/"sources.csv")}
+        self.assertEqual(sources[OCT]["sha256"],importer.OCT_SHA)
+        self.assertEqual(sources[NOV]["sha256"],"592f28852118b57fe6bdef75864ea479d9e01bb9af9a166108014eff4ae85b5b")
+        manifest_path=ROOT/"data"/"source_intake"/"bigster_my26_20261102_capture.json"
+        manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["source_code"],NOV)
+        self.assertEqual(manifest["sha256"],sources[NOV]["sha256"])
+        self.assertEqual(manifest["verification_status"],"verified_my26")
+        self.assertEqual(manifest["missing_markers"],[])
+        self.assertEqual(manifest["file_size_bytes"],1995398)
+        self.assertEqual(manifest["page_count"],8)
+        archive_path=ROOT/manifest["file_path"]
+        self.assertTrue(archive_path.is_file())
+        self.assertEqual(archive_path.stat().st_size,manifest["file_size_bytes"])
+        self.assertEqual(hashlib.sha256(archive_path.read_bytes()).hexdigest(),manifest["sha256"])
+        if sources[NOV]["file_path"]:
+            self.assertEqual(sources[NOV]["file_path"],manifest["file_path"])
+        self.assertEqual(package_preflight.validate_source_capture_manifests(ROOT),[])
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture=Path(temporary)
+            fixture_paths=(
+                manifest_path.relative_to(ROOT),
+                Path("data/source_intake/bigster_my26_20261102.sha256"),
+                Path(manifest["file_path"]),
+                Path("data/master/sources.csv"),
+            )
+            for relative in fixture_paths:
+                destination=fixture/relative
+                destination.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(ROOT/relative,destination)
+            fixture_sources=read(fixture/"data/master/sources.csv")
+            fixture_sources=[row for row in fixture_sources if row["code"]==NOV]
+            fixture_sources[0]["notes"]="Editorial wording changed; structured evidence is unchanged."
+            with (fixture/"data/master/sources.csv").open("w",encoding="utf-8",newline="") as handle:
+                writer=csv.DictWriter(handle,fieldnames=list(fixture_sources[0]))
+                writer.writeheader()
+                writer.writerows(fixture_sources)
+            self.assertEqual(package_preflight.validate_source_capture_manifests(fixture),[])
+            fixture_manifest_path=fixture/manifest_path.relative_to(ROOT)
+            fixture_manifest=json.loads(fixture_manifest_path.read_text(encoding="utf-8"))
+            fixture_manifest["missing_markers"]=["required marker missing"]
+            fixture_manifest_path.write_text(json.dumps(fixture_manifest,indent=2)+"\n",encoding="utf-8")
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("missing_markers" in error for error in errors),errors)
+            fixture_manifest["missing_markers"]=[]
+            fixture_manifest_path.write_text(json.dumps(fixture_manifest,indent=2)+"\n",encoding="utf-8")
+            sidecar_path=fixture/"data/source_intake/bigster_my26_20261102.sha256"
+            original_sidecar=sidecar_path.read_text(encoding="utf-8")
+            sidecar_path.write_text("0"*64+"  "+manifest["file_path"]+"\n",encoding="utf-8")
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("sidecar does not match" in error for error in errors),errors)
+            sidecar_path.write_text(original_sidecar,encoding="utf-8")
+            fixture_archive=fixture/manifest["file_path"]
+            original_archive=fixture_archive.read_bytes()
+            fixture_archive.unlink()
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("archived binary is missing" in error for error in errors),errors)
+            fixture_archive.write_bytes(original_archive+b"tampered")
+            errors=package_preflight.validate_source_capture_manifests(fixture)
+            self.assertTrue(any("SHA-256 mismatch" in error for error in errors),errors)
+        prices=read(MASTER/"configuration_prices.csv")
+        a={r["configuration_code"] for r in prices if r["source_code"]==OCT and r["price_date"]=="2026-10-01"}
+        b={r["configuration_code"] for r in prices if r["source_code"]==NOV and r["price_date"]=="2026-11-02"}
+        self.assertEqual(len(a),13);self.assertEqual(a,b)
+        links=read(MASTER/"source_configurations.csv")
+        self.assertEqual({r["configuration_code"] for r in links if r["source_code"]==OCT},a)
+        self.assertFalse([r for r in links if r["source_code"]==NOV])
+    def test_paint_options_registered(self):
+        items={r["code"]:r for r in read(MASTER/"commercial_items.csv")}
+        for code,name in (("bigster_metallic_paint_option","Lakier metalizowany"),("bigster_two_tone_body_option","Nadwozie dwukolorowe")):
+            self.assertEqual(items[code]["name"],name);self.assertEqual(items[code]["item_type"],"option")
+            self.assertEqual(items[code]["observation_date"],"2026-10-01");self.assertEqual(items[code]["source_code"],OCT)
+    def test_dated_price_matrix(self):
+        rows=read(MASTER/"commercial_item_configurations.csv")
+        for source,date,metal,two,spare in ((OCT,"2026-10-01",3000,1400,800),(NOV,"2026-11-02",3100,1500,900)):
+            subset=[r for r in rows if r["source_code"]==source]
+            self.assertEqual(len(subset),86)
+            self.assertEqual({int(r["amount"]) for r in subset if r["commercial_item_code"]=="bigster_metallic_paint_option"},{metal})
+            self.assertEqual({int(r["amount"]) for r in subset if r["commercial_item_code"]=="bigster_two_tone_body_option"},{two})
+            spare_rows=[r for r in subset if r["commercial_item_code"]=="bigster_spare_wheel_option"]
+            self.assertEqual(Counter(r["availability_status"] for r in spare_rows),{"unknown":10,"optional":3})
+            self.assertEqual({int(r["amount"]) for r in spare_rows if r["availability_status"]=="optional"},{spare})
+            self.assertTrue(all(r["price_date"]==date for r in subset))
+    def test_unchanged_option_and_package_prices(self):
+        rows=read(MASTER/"commercial_item_configurations.csv")
+        expected={"bigster_19inch_wheel_option":1200,"bigster_panoramic_roof_option":4300,"bigster_power_tailgate_option":1300,"bigster_media_nav_live_option":2400,"bigster_easy_package":2700,"bigster_parking_package":2200,"bigster_winter_package":1200,"bigster_winter_plus_package":2300}
+        for source in (OCT,NOV):
+            for code,amount in expected.items():
+                found={int(r["amount"]) for r in rows if r["source_code"]==source and r["commercial_item_code"]==code and r["availability_status"]=="optional"}
+                self.assertEqual(found,{amount},(source,code))
+    def test_unknown_boundary_hides_stale_price_but_not_hybrid155_price(self):
+        other=components("bigster_expression_tribrid150_4x4_automatic")["bigster_spare_wheel_option"]
+        self.assertEqual(other["availability_status"],"unknown");self.assertIsNone(other["amount"])
+        hybrid=components("bigster_expression_hybrid155_4x2_automatic")
+        self.assertEqual(hybrid["bigster_spare_wheel_option"]["availability_status"],"optional")
+        self.assertEqual(hybrid["bigster_spare_wheel_option"]["amount"],900.0)
+        self.assertEqual(hybrid["bigster_metallic_paint_option"]["amount"],3100.0)
+        self.assertEqual(hybrid["bigster_media_nav_live_option"]["amount"],2400.0)
+        self.assertEqual(hybrid["bigster_easy_package"]["amount"],2700.0)
+        self.assertEqual(hybrid["bigster_winter_package"]["amount"],1200.0)
+        self.assertEqual(hybrid["bigster_winter_plus_package"]["amount"],2300.0)

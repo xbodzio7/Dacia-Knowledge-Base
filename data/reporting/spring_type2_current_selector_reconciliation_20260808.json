@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "package_id": "spring_type2_current_selector_reconciliation_001",
+  "observed_on": "2026-08-08",
+  "market": "PL",
+  "status": "complete",
+  "purpose": "Reconcile the derived current Spring commercial-selector view without changing the preserved February brochure option history or the later exact-current canonical equipment availability.",
+  "inputs": [
+    "data/master/commercial_items.csv",
+    "data/master/commercial_item_attributes.csv",
+    "data/master/commercial_item_configurations.csv",
+    "data/master/configuration_attribute_availability.csv",
+    "data/reporting/configurator_ui_commercial_choice_readiness_20260807.json",
+    "project/sources/dacia-pl-spring-saved-configurations-20260802.json"
+  ],
+  "commercial_item_code": "spring_type2_charging_cable_option",
+  "canonical_attribute_code": "type2_charging_cable_supplied",
+  "historical_option_observation_date": "2026-02-19",
+  "historical_mapping_rows_preserved": 3,
+  "exact_current_standard_rows_preserved": 3,
+  "reconciled_configurations": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "standard_observation_date": "2026-07-31",
+      "standard_source_code": "src_pl_spring_official_configurator_20260731"
+    },
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "standard_observation_date": "2026-08-02",
+      "standard_source_code": "src_pl_spring_saved_configurations_20260802"
+    },
+    {
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "standard_observation_date": "2026-08-02",
+      "standard_source_code": "src_pl_spring_saved_configurations_20260802"
+    }
+  ],
+  "selector_offer_rows_before": 167,
+  "selector_offer_rows_after": 164,
+  "priced_selector_offer_rows_before": 162,
+  "priced_selector_offer_rows_after": 162,
+  "unpriced_selector_offer_rows_before": 5,
+  "unpriced_selector_offer_rows_after": 2,
+  "spring_selector_offer_rows_before": 10,
+  "spring_selector_offer_rows_after": 7,
+  "spring_priced_selector_offer_rows_after": 5,
+  "spring_unpriced_selector_offer_rows_after": 2,
+  "remaining_unpriced_current_questions": [
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "commercial_item_code": "spring_techno_package",
+      "reason": "No exact-current MY26 Expression amount is captured; historical MY2025 stock pricing is not transferred."
+    },
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "commercial_item_code": "spring_dc40_charging_option",
+      "reason": "No exact-current MY26 Expression amount is captured; historical MY2025 stock pricing is not transferred."
+    }
+  ],
+  "domestic_socket_charging_cable_selector_changed": false,
+  "duster_selected_state_semantics_changed": false,
+  "generic_commercial_precedence_rule_created": false,
+  "generic_dependency_conflict_orderability_model_created": false,
+  "historical_as_of_view_preserved": true,
+  "master_data_mutated": false,
+  "source_data_mutated": false
+}

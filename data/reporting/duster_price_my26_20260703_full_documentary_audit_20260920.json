@@ -1,0 +1,42 @@
+{
+  "version":1,
+  "kind":"duster_price_my26_20260703_documentary_audit",
+  "reviewed_on":"2026-09-20",
+  "source_code":"src_pl_duster_price_my26_20260703",
+  "official_pdf":"https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/73baf27ec0.pdf",
+  "pages":8,
+  "effective_date":"2026-07-03",
+  "prices_pln":{
+    "Eco-G 120":{"essential":82000,"expression":90000,"extreme":96000,"journey":96200},
+    "Eco-G 120 auto":{"essential":null,"expression":96900,"extreme":102900,"journey":103100},
+    "mild hybrid 140":{"essential":null,"expression":97600,"extreme":103600,"journey":103800},
+    "hybrid 155":{"essential":null,"expression":112100,"extreme":118100,"journey":118300},
+    "hybrid-G 150 4x4":{"essential":null,"expression":119900,"extreme":125900,"journey":126100}
+  },
+  "grade_highlights":{
+    "essential":["ABS/AEBS/LKA/LDWS/DDAW/ISA/AFU/ESP","6 airbags","manual air conditioning","Media Control","rear parking sensors","cruise control","front electric windows","roof rails","16 inch steel wheels"],
+    "expression":["rear camera","automatic wipers","rear electric windows","7 inch digital cluster","10 inch Media Display","17 inch alloy wheels","YouClip"],
+    "extreme":["automatic climate","folding mirrors","automatic high beam","Keyless Entry","lumbar adjustment","height-adjustable passenger seat","modular roof rails","MicroCloud upholstery","rubber mats","boot liner"],
+    "journey":["automatic climate","folding mirrors","ACC when automatic","Keyless Entry","wireless charger","automatic parking brake","Media Nav Live","18 inch alloy wheels"]
+  },
+  "matrix_verified":{
+    "lighting_and_mirrors":"explicit grade-by-grade matrix audited",
+    "seating_trim":"explicit grade-by-grade matrix audited",
+    "active_passive_safety":"explicit grade-by-grade matrix audited",
+    "driving_comfort":"explicit grade-by-grade matrix audited",
+    "multimedia":"explicit grade-by-grade matrix audited",
+    "options_and_packages":"explicit prices and package contents audited",
+    "technical_data":"powertrain-specific technical table audited",
+    "footnotes":"option conflicts and commercial/legal footnotes audited"
+  },
+  "important_documentary_boundaries":[
+    "Spare wheel is 800 PLN and explicitly unavailable with LPG.",
+    "Media Nav Live is 2400 PLN where offered in the matrix.",
+    "Winter and Winter Plus packages have grade-specific applicability and prices.",
+    "Parking package is 2200 PLN for Extreme and Journey.",
+    "Techno 1 package is 2900 PLN for Extreme.",
+    "Technical data must remain powertrain-specific; no cross-projection between Eco-G, mild hybrid, full hybrid and hybrid-G 4x4."
+  ],
+  "master_mapping_status":"documentary audit complete; master-schema reconciliation remains open",
+  "source_citation_basis":"Official Dacia Poland price list, effective 03.07.2026."
+}

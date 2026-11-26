@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "kind": "sandero_brochure_page17_current_main_reconciliation",
+  "reviewed_on": "2026-11-02",
+  "status": "complete_no_new_import",
+  "package_id": "sandero_brochure_page17_current_main_reconciliation_20261102_001",
+  "source": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 17,
+    "observation_date": "2026-02-02"
+  },
+  "prior_reviews": [
+    "data/reporting/sandero_technical_page17_ambiguity_review.json",
+    "data/reporting/sandero_technical_page17_unresolved_review_chunk1.json",
+    "data/reporting/sandero_technical_page17_unresolved_review_chunk2.json"
+  ],
+  "scope": {
+    "reviewed_candidates": 46,
+    "ambiguity_candidates": 5,
+    "unresolved_candidates": 41,
+    "selected_evidence_signatures": 8,
+    "selected_evidence_records": 16
+  },
+  "current_main_reconciliation": {
+    "exact_selected_records_already_present": 16,
+    "exact_records_by_attribute": {
+      "engine_power": 4,
+      "engine_torque": 4,
+      "maximum_kerb_weight": 4,
+      "gross_vehicle_weight": 2,
+      "gross_train_weight": 2
+    },
+    "source_code_matches_exactly": "src_pl_sandero_brochure_20260202",
+    "missing_exact_import_ready_selected_records": 0,
+    "current_master_values_overwritten": 0
+  },
+  "unresolved_boundary": {
+    "context_only_non_import_candidates": 27,
+    "unresolved_signature_mismatch_candidates": 14,
+    "attached_evidence_signatures": 0,
+    "import_approvals": 0,
+    "decisions": "Preserve as reviewed; no candidate-to-master import mapping exists in the retained evidence."
+  },
+  "result": "No source-backed import batch is warranted from this page: all 16 selected observations already exist in current master under the exact brochure source; remaining 41 candidates have no selected evidence and remain context-only or signature-mismatch.",
+  "next_scope": "Proceed to the next stable source/model/domain/page boundary from the verified residual queue, without repeating the closed Sandero page-17 review or Bigster PR #754 crosswalk."
+}

@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "kind": "catalogue_gap_002_exact_state_capture",
+  "captured_on": "2026-09-24",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "capture_method": "live_official_dacia_configurator_saved_states",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "bigster_journey_hybrid155_automatic",
+      "model": "bigster",
+      "grade": "journey",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 133000,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 5,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "czarna perła",
+        "zielony cedar"
+      ],
+      "wheel": "18\" aluminiowe obręcze kół TAGASAN 215 diamentowane",
+      "upholstery": "tapicerka materiałowa journey łączona z MicroCloud",
+      "technical": {
+        "power": "116 (157)",
+        "co2_wltp_mixed_g_km": 105,
+        "fuel_wltp_mixed_l_100km": 4.6
+      }
+    },
+    {
+      "configuration_code": "sandero_stepway_extreme_ecog120_automatic",
+      "model": "sandero_stepway",
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 89400,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 6,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła",
+        "zielony cedar",
+        "niebieski iron",
+        "żółty amber"
+      ],
+      "wheel": "16\" felgi aluminiowe TAMIA BLACK",
+      "upholstery": "Tapicerka materiałowa z materiałów pochodzących z recyklingu",
+      "technical": {
+        "power": "84/90 LPG (114/122 LPG)",
+        "co2_wltp_mixed_g_km": 130,
+        "fuel_wltp_mixed_l_100km": 5.7
+      }
+    },
+    {
+      "configuration_code": "sandero_iii_journey_hybrid155_automatic",
+      "model": "sandero",
+      "grade": "journey",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 90200,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "niebieski iron",
+        "szary urban",
+        "żółty amber"
+      ],
+      "wheel": "16\" felgi aluminiowe TAMIA",
+      "upholstery": "tapicerka materiałowa w kolorze denim i czarnymi wstawkami",
+      "technical": {
+        "power": "80 + 35 (156)",
+        "co2_wltp_mixed_g_km": 96,
+        "fuel_wltp_mixed_l_100km": 4.2
+      }
+    },
+    {
+      "configuration_code": "sandero_iii_expression_hybrid155_automatic",
+      "model": "sandero",
+      "grade": "expression",
+      "powertrain": "hybrid 155",
+      "transmission": "automatic",
+      "drive": "4x2",
+      "price_pln": 84600,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "sandstone",
+        "zielony cedar",
+        "niebieski iron",
+        "szary urban",
+        "żółty amber"
+      ],
+      "wheel": "16\" felgi stalowe ATARA",
+      "upholstery": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "technical": {
+        "power": "80 + 35 (156)",
+        "co2_wltp_mixed_g_km": 96,
+        "fuel_wltp_mixed_l_100km": 4.2
+      }
+    },
+    {
+      "configuration_code": "duster_journey_hybridg150_4x4_automatic",
+      "model": "duster",
+      "grade": "journey",
+      "powertrain": "hybrid-G 150 4x4",
+      "transmission": "automatic",
+      "drive": "4x4",
+      "price_pln": 126100,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "18\" felgi aluminiowe, TAGASAN 225 diamentowane",
+      "upholstery": "tapicerka materiałowa journey",
+      "technical": {
+        "power": "113 (153)",
+        "co2_wltp_mixed_g_km": 135,
+        "fuel_wltp_mixed_l_100km": 6
+      }
+    },
+    {
+      "configuration_code": "duster_extreme_hybridg150_4x4_automatic",
+      "model": "duster",
+      "grade": "extreme",
+      "powertrain": "hybrid-G 150 4x4",
+      "transmission": "automatic",
+      "drive": "4x4",
+      "price_pln": 125900,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe TERGAN BLACK 225",
+      "upholstery": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "technical": {
+        "power": "113 (153)",
+        "co2_wltp_mixed_g_km": 135,
+        "fuel_wltp_mixed_l_100km": 6
+      }
+    }
+  ],
+  "duplicate_enrichment": [
+    {
+      "configuration_code": "sandero_stepway_essential_ecog120_manual",
+      "price_pln": 71700,
+      "visible_colour_count": 3,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "wheel": "16\" felgi stalowe ERALIA",
+      "upholstery": "tapicerka materiałowa stepway"
+    }
+  ],
+  "notes": [
+    "Version enumeration remains governed by the official price list; exact states were user-opened configurator states.",
+    "Batch records only six new exact surfaces plus one already captured exact state used for enrichment; no duplicate recount.",
+    "Per-colour surcharges were not promoted where extraction was not reliable; no inference was made."
+  ]
+}

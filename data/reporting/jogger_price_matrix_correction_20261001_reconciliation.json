@@ -1,0 +1,20 @@
+{
+  "package": "Jogger MY26 2026-10-01 seven-seat Eco-G 120 price-matrix correction",
+  "source_code": "src_pl_jogger_price_my26_20261001",
+  "source_date": "2026-10-01",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf",
+  "scope": "Official Polish price-list page 1 only; no brochure or configurator data.",
+  "evidence": {
+    "page": 1,
+    "table": "SILNIK / liczba miejsc / essential / expression / extreme",
+    "seven_seat_eco_g_120_manual": ["-", 86550, 94400]
+  },
+  "reconciliation": [
+    {"configuration_code":"jogger_essential_7seat_ecog120_manual","source_cell":"-","disposition":"explicitly_unavailable","master_action":"remove incorrect 2026-10-01 price observation; retain earlier dated prices"},
+    {"configuration_code":"jogger_expression_7seat_ecog120_manual","source_cell":"86 550 zł","disposition":"requires_update","master_action":"correct 94,400 to 86,550 PLN"},
+    {"configuration_code":"jogger_extreme_7seat_ecog120_manual","source_cell":"94 400 zł","disposition":"already_correct","master_action":"no change"}
+  ],
+  "source_relationships": {"configurations_added":12,"grades_added":3,"source_already_archived":true,"sha256":"12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46"},
+  "non_changes": ["5-seat prices unchanged","7-seat automatic and hybrid155 prices unchanged","April and July historical price observations retained","02.11.2026 is not treated as a second price-matrix effective date"],
+  "expected": {"current_source_price_rows":11,"source_configuration_links":12,"source_grade_links":3}
+}

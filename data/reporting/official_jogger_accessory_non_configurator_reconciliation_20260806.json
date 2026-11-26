@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "kind": "official_jogger_accessory_non_configurator_reconciliation_summary",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "configurator_used": false,
+  "sources": {
+    "price_list": {
+      "url": "https://akcesoria.dacia.pl/model/jogger",
+      "valid_from": "2022-10-03",
+      "pages": 13,
+      "price_semantics": "Cena z VAT bez montażu; wydrukowane oznaczenie montażu zachowane osobno."
+    },
+    "catalogue": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-jogger.pdf",
+      "official_hub_link_confirmed_on": "2026-08-06",
+      "status": "registered_not_fully_ingested",
+      "reason": "Pełna macierz statycznego katalogu nie została w tym pakiecie odczytana; bieżące cechy oferty przejęto wyłącznie z oficjalnej strony modelowej."
+    },
+    "current_model_page": {
+      "url": "https://www.dacia.pl/samochody/jogger-hybydowy/akcesoria.html",
+      "retrieved_on": "2026-08-06"
+    },
+    "shop": {
+      "url": "https://sklep.dacia.pl/akcesoria",
+      "retrieved_on": "2026-08-06"
+    }
+  },
+  "summary": {
+    "price_list_rows": 98,
+    "price_list_installation_required_rows": 35,
+    "price_category_counts": {
+      "bezpieczenstwo": 12,
+      "design": 14,
+      "dla_profesjonalistow": 1,
+      "komfort_i_ochrona": 35,
+      "multimedia": 9,
+      "outdoor": 3,
+      "transport": 24
+    },
+    "current_model_page_featured_concepts": 28,
+    "current_shop_corroboration_rows": 18,
+    "current_shop_jogger_compatible_rows": 17
+  },
+  "cross_source_findings": [
+    {
+      "concept": "source_age",
+      "finding": "Oficjalny hub nadal udostępnia cennik z datą 2022-10-03. Wiersze cennika są oficjalnym dowodem historycznym, lecz same nie potwierdzają dostępności ani ceny w 2026 r."
+    },
+    {
+      "concept": "aero_cargo_box",
+      "finding": "Aktualna strona akcesoriów Joggera promuje Aero Cargo Box jako zgodny z Joggerem, ale bieżąca karta sklepu dla 7717275154 wymienia tylko Nowego Dustera i Bigstera. Nie przypisano tej referencji do Joggera."
+    },
+    {
+      "concept": "rubber_floor_mats",
+      "finding": "Aktualna strona modelu potwierdza gumowe dywaniki dla odmian 5- i 7-miejscowych, podczas gdy cennik 2022 zawiera wyłącznie dywaniki tekstylne. Referencje pozostają otwarte."
+    },
+    {
+      "concept": "boot_liners",
+      "finding": "Aktualna strona modelu potwierdza wkłady 5- i 7-miejscowe. Cennik 2022 wskazuje 849756861R i 688107961R; sklep aktualnie potwierdza dla Joggera tylko 688107961R."
+    },
+    {
+      "concept": "youclip_generation",
+      "finding": "Aktualna strona modelu pokazuje szeroką gamę nowych akcesoriów YouClip. Cennik 2022 zawiera tylko etui 739M00386R oraz starszy system multifunkcyjny, dlatego nie przeniesiono referencji między generacjami."
+    },
+    {
+      "concept": "sleep_package",
+      "finding": "Strona modelu opisuje pakiet Sleep jako box 3 w 1 i materac. Sklep nadal prowadzi oddzielne karty 984239528R oraz 984247351R, a rolety 7717300430 są osobnym produktem."
+    },
+    {
+      "concept": "roof_gallery",
+      "finding": "Aktualna strona modelu podaje galeryjkę o nośności do 75 kg, ale cennik 2022 nie zawiera jednoznacznie odpowiadającej referencji."
+    },
+    {
+      "concept": "bike_carrier",
+      "finding": "Aktualny opis mówi o odchylanym bagażniku na maksymalnie trzy rowery. Cennik 2022 zawiera kilka odmiennych konstrukcji i nie pozwala przypisać jednej referencji bez dodatkowego dowodu."
+    },
+    {
+      "concept": "ski_carriers",
+      "finding": "Cennik 2022 zawiera dwie podobne pozycje na cztery pary nart (7711940000 i 7717301298); aktualna strona modelu nie podaje referencji."
+    },
+    {
+      "concept": "current_price_identity",
+      "finding": "Dla części pozycji cena sklepu jest identyczna z cennikiem 2022 (np. 688107961R, 984247351R, 7717276917, 7717276918, 403152742R, 7711940885, 877007206R, 873706014R), ale nie ekstrapolowano tego na pozostałe wiersze."
+    }
+  ],
+  "featured_concepts": [
+    {
+      "concept_id": "aero_cargo_box",
+      "name": "Skrzynia aero cargo box Dacia",
+      "current_model_page": true,
+      "part_numbers": [],
+      "notes": "Strona modelu deklaruje zgodność z Joggerem i montaż na akcesoryjnym haku. Bieżąca karta sklepu dla 7717275154 wymienia tylko Nowego Dustera i Bigstera, dlatego referencji nie przypisano do Joggera."
+    },
+    {
+      "concept_id": "side_steps",
+      "name": "Stopnie boczne",
+      "current_model_page": true,
+      "part_numbers": ["768478691R", "8201741626"],
+      "part_number_basis": "historical_price_list_components",
+      "notes": "Bieżąca strona modelu promuje stopnie; cennik 2022 rozdziela zestaw montażowy i stopnie. Brak bieżącego potwierdzenia obu referencji w sklepie."
+    },
+    {
+      "concept_id": "rubber_floor_mats_5_seat",
+      "name": "Dywaniki gumowe - wersja 5-miejscowa",
+      "current_model_page": true,
+      "part_numbers": [],
+      "notes": "Bieżąca strona modelu potwierdza dostępność, lecz cennik 2022 wymienia tylko dywaniki tekstylne. Referencja pozostaje nierozstrzygnięta."
+    },
+    {
+      "concept_id": "rubber_floor_mats_7_seat",
+      "name": "Dywaniki gumowe - wersja 7-miejscowa",
+      "current_model_page": true,
+      "part_numbers": [],
+      "notes": "Bieżąca strona modelu potwierdza dostępność, lecz cennik 2022 wymienia tylko dywaniki tekstylne. Referencja pozostaje nierozstrzygnięta."
+    },
+    {
+      "concept_id": "boot_liner_5_seat",
+      "name": "Pojemnik/wkład do bagażnika - wersja 5-miejscowa",
+      "current_model_page": true,
+      "part_numbers": ["849756861R"],
+      "part_number_basis": "historical_price_list_match",
+      "notes": "Brak bieżącej karty sklepu potwierdzającej tę referencję."
+    },
+    {
+      "concept_id": "boot_liner_7_seat",
+      "name": "Pojemnik/wkład do bagażnika - wersja 7-miejscowa",
+      "current_model_page": true,
+      "part_numbers": ["688107961R"],
+      "part_number_basis": "historical_price_list_and_current_shop",
+      "notes": "Bieżący sklep nadal przypisuje produkt do Joggera."
+    },
+    {
+      "concept_id": "lower_door_protectors",
+      "name": "Dolne osłony drzwi przednich i tylnych",
+      "current_model_page": true,
+      "part_numbers": ["8201737151"],
+      "part_number_basis": "historical_price_list_match",
+      "notes": "Brak bieżącej karty sklepu potwierdzającej tę referencję."
+    },
+    {
+      "concept_id": "towbar_bike_carrier",
+      "name": "Bagażnik rowerowy na hak holowniczy",
+      "current_model_page": true,
+      "part_numbers": ["7711577326", "7711577327", "7711949994"],
+      "part_number_basis": "historical_price_list_candidates",
+      "notes": "Strona modelu opisuje odchylany bagażnik na maksymalnie 3 rowery. Cennik 2022 zawiera kilka różnych konstrukcji; bez dodatkowego źródła nie wybrano jednej referencji."
+    },
+    {
+      "concept_id": "ski_carrier_4",
+      "name": "Uchwyt na maksymalnie 4 pary nart lub 2 deski",
+      "current_model_page": true,
+      "part_numbers": ["7711940000", "7717301298"],
+      "part_number_basis": "historical_price_list_candidates",
+      "notes": "Cennik 2022 zawiera dwie podobne pozycje; bieżąca strona nie podaje referencji."
+    },
+    {
+      "concept_id": "ski_carrier_6",
+      "name": "Uchwyt na maksymalnie 6 par nart lub 4 deski",
+      "current_model_page": true,
+      "part_numbers": ["7711940001"],
+      "part_number_basis": "historical_price_list_match"
+    },
+    {
+      "concept_id": "front_seat_organizer",
+      "name": "Wielofunkcyjny organizer na przednim fotelu",
+      "current_model_page": true,
+      "part_numbers": ["7717276918"],
+      "part_number_basis": "historical_price_list_and_current_shop"
+    },
+    {
+      "concept_id": "portable_rear_armrest",
+      "name": "Przenośny podłokietnik tylny",
+      "current_model_page": true,
+      "part_numbers": ["7717276917"],
+      "part_number_basis": "historical_price_list_and_current_shop"
+    },
+    {
+      "concept_id": "roof_spoiler",
+      "name": "Spojler dachowy",
+      "current_model_page": true,
+      "part_numbers": ["8201741648"],
+      "part_number_basis": "historical_price_list_match"
+    },
+    {
+      "concept_id": "roof_awning",
+      "name": "Markiza dachowa Dacia InNature",
+      "current_model_page": true,
+      "part_numbers": ["8201756977"],
+      "part_number_basis": "historical_price_list_match",
+      "notes": "Brak bieżącej karty sklepu odnalezionej dla tej referencji."
+    },
+    {
+      "concept_id": "sleep_box",
+      "name": "Skrzynia 3 w 1 pakietu Sleep",
+      "current_model_page": true,
+      "part_numbers": ["984239528R"],
+      "part_number_basis": "historical_price_list_and_current_shop"
+    },
+    {
+      "concept_id": "sleep_mattress",
+      "name": "Materac pakietu Sleep",
+      "current_model_page": true,
+      "part_numbers": ["984247351R"],
+      "part_number_basis": "historical_price_list_and_current_shop"
+    },
+    {
+      "concept_id": "blackout_blinds",
+      "name": "Rolety zaciemniające",
+      "current_model_page": true,
+      "part_numbers": ["7717300430"],
+      "part_number_basis": "historical_price_list_and_current_shop"
+    },
+    {
+      "concept_id": "roof_gallery",
+      "name": "Galeryjka dachowa Dacia InNature, nośność do 75 kg",
+      "current_model_page": true,
+      "part_numbers": [],
+      "notes": "Nie znaleziono odpowiadającej jednoznacznie pozycji w cenniku 2022."
+    },
+    {
+      "concept_id": "tailgate_tent",
+      "name": "Namiot na tylną klapę",
+      "current_model_page": true,
+      "part_numbers": ["7717300226"],
+      "part_number_basis": "historical_price_list_and_current_shop"
+    },
+    {
+      "concept_id": "youclip_glasses_case",
+      "name": "YouClip - etui na okulary",
+      "current_model_page": true,
+      "part_numbers": ["739M00386R"],
+      "part_number_basis": "historical_price_list_match",
+      "notes": "Bieżąca karta sklepu nie została potwierdzona w tym pakiecie."
+    },
+    {"concept_id": "youclip_shopping_bag", "name": "YouClip - składana torba na zakupy", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_3_in_1", "name": "YouClip - 3 w 1 (uchwyt na kubek, lampka, zaczep)", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_hanger", "name": "YouClip - wieszak", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_tablet_holder", "name": "YouClip - stojak na tablet", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_wireless_charger", "name": "YouClip - ładowarka indukcyjna smartfona", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_headrest_mount", "name": "YouClip - uchwyt na zagłówek", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_pouch", "name": "YouClip - saszetka/okładka", "current_model_page": true, "part_numbers": []},
+    {"concept_id": "youclip_smartphone_holder", "name": "YouClip - stojak na smartfon", "current_model_page": true, "part_numbers": []}
+  ],
+  "shop_corroboration": [
+    {"part_number": "688107961R", "name": "Gumowy wkład do bagażnika (wersja 7 miejsc)", "price_pln": 269, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "7717300226", "name": "Namiot Jogger InNature Dacia", "price_pln": 1629, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "984247351R", "name": "Materac Jogger InNature Dacia", "price_pln": 1618, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "7717300430", "name": "Wyciemniające rolety Jogger InNature Dacia", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "984239528R", "name": "Skrzynia Jogger InNature Dacia", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "7717276917", "name": "Przenośny podłokietnik tylny Dacia", "price_pln": 445, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "7717276918", "name": "Wielofunkcyjny organizer mocowany do przedniego fotela", "price_pln": 239, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "731504928R", "name": "Przegroda bagażnika", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "749320660R", "name": "Uchwyty mocujące oraz instrukcja obsługi do Pakietu Sleep", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "403152742R", "name": "Kołpak 16\" FLEX PAE Dacia", "price_pln": 84, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "7711578470", "name": "Standardowe łańcuchy śniegowe - rozmiar 90", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "7711940885", "name": "Organizer do bagażnika", "price_pln": 318, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "877007206R", "name": "Podłokietnik Dacia", "price_pln": 758, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "873706014R", "name": "Pokrowce ochronne przednie Dacia", "price_pln": 476, "jogger_compatibility": true, "availability": "temporarily_unavailable"},
+    {"part_number": "7711577326", "name": "Bagażnik rowerowy Express Hang-On na 2 rowery", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "7711577327", "name": "Bagażnik rowerowy Express Hang-On na 3 rowery", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "8201739622", "name": "Ładowarka indukcyjna Dacia Sandero", "price_pln": null, "jogger_compatibility": true, "availability": "listed"},
+    {"part_number": "7717275154", "name": "Aero cargo box Dacia", "price_pln": 2549, "jogger_compatibility": false, "availability": "temporarily_unavailable", "notes": "Bieżąca karta sklepu wymienia tylko Nowego Dustera i Bigstera, choć bieżąca strona akcesoriów Joggera promuje ten koncept."}
+  ],
+  "next_actions": [
+    "Odczytać pełną macierz oficjalnego katalogu Joggera i porównać ją z 98 wierszami cennika.",
+    "Odnaleźć bieżące referencje gumowych dywaników, galeryjki dachowej i nowych elementów YouClip.",
+    "Rozstrzygnąć konflikt Aero Cargo Box między stroną modelu i kartą sklepu.",
+    "Dopiero nierozstrzygnięte zależności skierować do ograniczonej kolejki konfiguratora."
+  ]
+}

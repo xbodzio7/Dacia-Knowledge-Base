@@ -1,0 +1,224 @@
+{
+  "package": "Sandero / Sandero Stepway MY26 2026-11-02 cennik reconciliation",
+  "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/sandero-price.pdf.asset.pdf/3b4618d7da.pdf",
+  "document_date": "2026-11-02",
+  "scope": "Official Polish price list only; no brochure or configurator assimilation.",
+  "catalogue_prices": {
+    "configurations_reviewed": 19,
+    "new_price_observations": 15,
+    "unchanged_confirmed": 4,
+    "changed_values_pln": 500
+  },
+  "commercial_data": {
+    "new_items": 3,
+    "existing_items_reconciled": 8,
+    "configuration_mappings_added": 209,
+    "mapping_status_counts": {
+      "optional": 98,
+      "not_available": 99,
+      "standard": 12
+    }
+  },
+  "commercial_items_added": [
+    {
+      "code": "sandero_metallic_paint_option",
+      "name": "Lakier metalizowany"
+    },
+    {
+      "code": "sandero_special_nonmetallic_paint_option",
+      "name": "Lakier niemetalizowany specjalny"
+    },
+    {
+      "code": "sandero_spare_wheel_option",
+      "name": "Koło zapasowe + podnośnik"
+    }
+  ],
+  "commercial_items_reconciled": [
+    "sandero_rear_view_camera_option",
+    "sandero_media_nav_live_option",
+    "sandero_glass_sunroof_option",
+    "sandero_comfort_auto_package",
+    "sandero_thermo_package",
+    "sandero_winter_package",
+    "sandero_media_nav_live_package",
+    "sandero_easy_package"
+  ],
+  "technical_and_equipment_tables": "All nine pages visually reviewed. The six-grade equipment matrix is reconciled across 19 configurations: 27 Hybrid 155 availability observations and 24 Hybrid scalar observations were added; four Stepway Expression rear-camera mappings were corrected to standard. Pages 4 and 5 contributed 42 technical and 27 dimension observations. Eco-G injection and LPG tank-capacity semantics, interior dimension callouts, accessory lists and commercial campaigns remain explicitly deferred. Decorative exterior/interior trim descriptors remain deferred where no exact canonical attribute exists.",
+  "source_integrity": "Official PDF URL recorded and all nine rendered pages reviewed. Raw PDF bytes could not be downloaded/archived in this session; SHA-256 remains unavailable and is not fabricated. Cross-cennik comparison: the official Jogger 2026-11-02 cennik page 6 explicitly distinguishes Eco-G petrol direct/LPG port injection and LPG total/fillable capacity 50/40 l.",
+  "next_package": "Jogger MY26 2026-10-01 price matrix correction: correct 7-seat Eco-G120 grade alignment and complete source-to-configuration relationships.",
+  "technical_data": {
+    "page4_observations_added": 42,
+    "breakdown": {
+      "fuel_consumption_and_co2": 17,
+      "cargo_volume_vda": 9,
+      "hybrid_injection_type": 4,
+      "hybrid_acceleration": 4,
+      "hybrid_electric_motor_torque_and_rpm": 8
+    },
+    "reconciliation": "The page-4 technical table was compared with all 19 exact configurations. Existing engine displacement, cylinder/valve counts, engine power/torque, torque/power RPM, top speed, emission standard, gearbox, and already-matching WLTP values were reused without duplicate rows. Seventeen exact fuel-context WLTP observations were added/reconciled. The official page-4 VDA cargo value of 328 dm3 is recorded for the nine Eco-G 120 configurations, preserving earlier 372 dm3 observations. Hybrid 155 multipoint injection, 0-100 acceleration and electric-motor torque (205 Nm at 7,000 rpm) were added where previously missing. Eco-G injection and LPG tank-capacity details remain deferred because the Sandero cennik does not distinguish fuel-specific injection or total versus fillable LPG capacity; the official Jogger cennik explicitly distinguishes petrol direct/LPG port injection and LPG total/fillable 50/40 l.",
+    "conflict_resolution": "For TCe100/TCe110, the 2026-11-02 official cennik values 5.4/122 and 5.7/128 were added with explicit petrol context. This preserves older observations and resolves conflicts with some 2026-08-09 saved configurator PDFs whose values were unqualified by fuel type. For Eco-G, only exact fuel-specific cells that differed from the current master were added."
+  },
+  "dimension_data": {
+    "page5_observations_added": 27,
+    "breakdown": {
+      "later_official_sandero_body_width_confirmations": 7,
+      "missing_sandero_hybrid_dimension_values": 20
+    },
+    "model_scope": "The rendered page-5 diagram is explicitly titled Sandero and is not a Stepway dimension page. It gives 10 model dimensions; two exact Sandero Hybrid 155 configurations lacked these observations and received 10 each. Existing non-hybrid Sandero dimensions were reused except for seven later official 1,853 mm body-width observations.",
+    "width_conflict": "The page-5 diagram explicitly shows 1,853 mm body width and 2,012 mm including mirrors. The repository also contains 1,753 mm overall-width observations from saved configurator PDFs dated 2026-08-09 for Sandero configurations. The 2026-11-02 official cennik confirms 1,853 mm; prior observations were retained and the later official observation was added rather than destructively overwritten."
+  },
+  "page_inventory": [
+    {
+      "page": 1,
+      "section": "Catalogue price matrix and headline commercial messages",
+      "review": "complete_visual_and_text",
+      "classification": "19 configurations reviewed; 15 catalogue prices +500 PLN; four Hybrid 155 prices unchanged. Up to 3,000 PLN catalogue discount and up to 7% MFS benefit recorded as separate commercial messages, not catalogue prices."
+    },
+    {
+      "page": 2,
+      "section": "Model description and promotional feature copy",
+      "review": "complete_visual_and_text",
+      "classification": "Descriptive marketing copy; no new configuration fact or separately priced item imported."
+    },
+    {
+      "page": 3,
+      "section": "Six-grade equipment matrix, individual options and spare wheel",
+      "review": "complete_visual_and_text",
+      "classification": "Six-grade equipment matrix reconciled against all 19 configurations. Added 27 missing Hybrid 155 availability observations and 24 scalar wheel/upholstery/central-console observations; existing matching cells reused. Four Stepway Expression rear-camera mappings corrected to standard. Decorative grille, mirror-cap, door-handle, skid-plate and decal descriptors are deferred because no exact canonical attributes preserve their distinct meanings."
+    },
+    {
+      "page": 4,
+      "section": "Additional equipment, packages and legend",
+      "review": "complete_visual_and_text",
+      "classification": "Rear camera, standalone Media Nav Live, glass sunroof and COMFORT/THERMO/WINTER/MEDIA NAV LIVE/EASY packages reconciled. Package-only P states are preserved as optional-with-package-evidence; automatic/manual climate and electronic parking-brake dependencies were checked against the Hybrid 155 cells."
+    },
+    {
+      "page": 5,
+      "section": "Technical data",
+      "review": "complete_visual_and_text",
+      "classification": "42 technical observations added or reconciled. WLTP values, VDA cargo volume and Hybrid 155 injection/acceleration/electric-motor torque are source-backed. Eco-G injection and LPG tank-capacity semantics remain explicitly deferred against the cross-cennik evidence boundary."
+    },
+    {
+      "page": 6,
+      "section": "Sandero dimension diagram",
+      "review": "complete_visual_and_text",
+      "classification": "27 dated dimension observations added or reconciled for Sandero only; Stepway applicability was not inferred. 1,853 mm body width conflicts with some older saved-configurator 1,753 mm observations; the later official cennik value is retained as a new observation. Additional interior dimension callouts were reviewed but deferred where no canonical attribute preserves their exact meaning."
+    },
+    {
+      "page": 7,
+      "section": "Sandero accessories presentation",
+      "review": "complete_visual_and_text",
+      "classification": "Accessory descriptions and QR references reviewed. This page contains no accessory prices; it points to a separate accessory price list. No prices or configuration compatibility inferred."
+    },
+    {
+      "page": 8,
+      "section": "Complete winter wheel list and Dacia Service promotion",
+      "review": "complete_visual_and_text",
+      "classification": "Five complete-wheel price rows reviewed. This is a separate accessory price-list component explicitly valid from 2026-09-01, not a new 2026-11-02 configuration-option matrix. Winter-wheel discount campaign has its own 2026-07-01 to 2026-12-31 validity window and is kept separate from catalogue prices."
+    },
+    {
+      "page": 9,
+      "section": "Legal information, financing, lease and Dacia ZEN terms",
+      "review": "complete_visual_and_text",
+      "classification": "Publication date 2026-11-02 and commercial terms reviewed. Consumer lease 890 PLN gross/month and business lease 655 PLN net/month are tied to specified 36-month/30,000-km terms; catalogue discount, MFS benefit and Dacia ZEN warranty remain separate commercial offers, not configuration prices."
+    }
+  ],
+  "deferred_items": [
+    {
+      "page": 7,
+      "subject": "Complete winter wheel accessory list",
+      "status": "Do sprawdzenia",
+      "reason": "The five priced complete-wheel products belong to a separate accessory price-list component valid from 2026-09-01. The current configuration-option model does not yet preserve the full accessory part-number, tyre, rim and vehicle-compatibility context without risky configuration projection.",
+      "next_action": "Reconcile the exact accessory list as a separately dated accessory source and establish a compatible generic accessory structure before import."
+    },
+    {
+      "page": 7,
+      "subject": "Winter wheel discount campaign",
+      "status": "Do sprawdzenia",
+      "reason": "The campaign has a separate 2026-07-01 to 2026-12-31 validity period and model-dependent discount ceiling; it must not be mixed with catalogue or accessory list prices.",
+      "next_action": "Record in a dedicated commercial-campaign history only after the offer data contract is defined."
+    },
+    {
+      "page": 9,
+      "subject": "MFS discount and lease offers",
+      "status": "Do sprawdzenia",
+      "reason": "The page states up to 3,000 PLN catalogue discount, up to 7% financing benefit, 890 PLN gross consumer lease and 655 PLN net business lease; some offers have no explicit end date and lease rates depend on detailed terms.",
+      "next_action": "Keep separate from catalogue prices and add only through a dedicated dated commercial-offer record."
+    },
+    {
+      "page": 7,
+      "subject": "Accessory catalogue page",
+      "status": "Do sprawdzenia",
+      "reason": "The page contains product descriptions and QR references but no item prices or complete compatibility matrix.",
+      "next_action": "Use the separately published accessory price list only when it is explicitly included in the cennik-only source scope."
+    },
+    {
+      "page": 5,
+      "subject": "Eco-G 120 injection type",
+      "status": "Do sprawdzenia",
+      "reason": "The Sandero cennik page 4 states direct injection without separating fuels. The official Jogger cennik page 6 for Eco-G 120 explicitly states petrol direct injection and LPG port injection. Assigning one unqualified state to both fuels would be misleading.",
+      "next_action": "Retain fuel-specific injection states only when the Sandero source or a clearly applicable shared-powertrain source is formally reconciled."
+    },
+    {
+      "page": 5,
+      "subject": "Eco-G 120 LPG tank capacity",
+      "status": "Do sprawdzenia",
+      "reason": "The Sandero table gives LPG 40 l and petrol 50 l without stating whether the LPG figure is total or fillable capacity. The official Jogger cennik explicitly distinguishes LPG total/fillable capacity as 50/40 l. The current generic fuel_tank_capacity attribute cannot safely represent both meanings.",
+      "next_action": "Defer until the exact Sandero applicability and a distinct total-versus-fillable capacity attribute are established."
+    },
+    {
+      "page": 6,
+      "subject": "Interior dimension callouts",
+      "status": "Do sprawdzenia",
+      "reason": "The Sandero dimension diagram includes interior/cabin measurements that do not have an unambiguous canonical attribute mapping from the rendered labels. They were not projected into generic interior_width/interior_height fields.",
+      "next_action": "Review the rendered diagram against an explicit attribute contract before any import."
+    },
+    {
+      "page": 3,
+      "subject": "Decorative exterior/interior trim descriptors",
+      "status": "Do sprawdzenia",
+      "reason": "The equipment matrix contains grade-specific grille, mirror-cap, door-handle, skid-plate colour, dashboard/door-insert and decal descriptions, but the current canonical attribute model has no exact typed fields for these distinct visual states. They were not collapsed into generic trim or appearance values.",
+      "next_action": "Define or reuse exact canonical attributes before importing these descriptive values."
+    }
+  ],
+  "source_assimilation_status": "fully_assimilated_with_deferrals",
+  "equipment_matrix": {
+    "page3_scalar_observations_added": 24,
+    "page3_availability_observations_added": 27,
+    "commercial_mapping_corrections": 4,
+    "scope": "Four Hybrid 155 configurations were reconciled against the six-grade equipment matrix. The 24 scalar observations preserve standard wheel size/material/design/finish, upholstery and central-console specification. The 27 availability observations fill missing Hybrid cells and record dated state corrections.",
+    "scalar_breakdown": {
+      "wheel_size": 4,
+      "wheel_material": 4,
+      "wheel_design": 4,
+      "wheel_finish": 4,
+      "upholstery_variant": 4,
+      "centre_console_variant": 4
+    },
+    "availability_breakdown": {
+      "rear_view_camera": 1,
+      "360_camera_system": 2,
+      "glass_sunroof": 1,
+      "heated_front_seats": 4,
+      "heated_steering_wheel": 2,
+      "automatic_climate_control": 2,
+      "manual_air_conditioning": 2,
+      "electronic_parking_brake": 1,
+      "front_seat_belt_pretensioners": 4,
+      "rear_seat_belt_pretensioners": 4,
+      "isofix_rear": 4
+    },
+    "status_breakdown": {
+      "optional": 12,
+      "not_available": 3,
+      "standard": 12
+    },
+    "corrections": [
+      "Four Stepway Expression rear-camera mappings corrected from a 700 PLN option to standard equipment, matching the printed matrix.",
+      "Sandero Expression Hybrid rear camera added as an optional 700 PLN feature.",
+      "Manual air conditioning marked not available where automatic climate control is standard (Sandero Journey Hybrid and Stepway Extreme Hybrid).",
+      "Electronic parking brake marked not available for Stepway Expression Hybrid because the cennik excludes Expression with automatic gearbox."
+    ]
+  }
+}

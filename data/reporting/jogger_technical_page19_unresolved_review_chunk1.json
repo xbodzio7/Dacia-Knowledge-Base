@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "kind": "jogger_technical_page19_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_024",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 43,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 22,
+    "decision_counts": {
+      "context_only_non_import": 30,
+      "unresolved_signature_mismatch": 10
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/jogger_technical_page19_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "working_columns": [
+      "TCe 110",
+      "Eco-G 120 LPG",
+      "Eco-G 120 Benzyna",
+      "Eco-G 120 auto LPG",
+      "Eco-G 120 auto Benzyna",
+      "hybrid 155 Benzyna",
+      "hybrid 155 Elektryczność"
+    ],
+    "maximum_power": [
+      "81 od 5000 do 5250",
+      "90 od 4500 do 5000",
+      "84 od 4500 do 5000",
+      "90 od 4500 do 5000",
+      "84 od 4500 do 5000",
+      "105 (140) przy 5600; łącznie"
+    ],
+    "maximum_torque": [
+      "200 od 2900 do 3500",
+      "197 od 1750 do 3750",
+      "190 od 2000 do 4000",
+      "197 od 1750 do 3750",
+      "190 od 2000 do 4000",
+      "172 (silnik spalinowy) od 3000 do 4000 + 205 (silnik elektryczny)"
+    ],
+    "gearboxes": [
+      "Manualna",
+      "Manualna",
+      "Dwusprzęgłowa automatyczna",
+      "Automatyczna Multimode"
+    ],
+    "engine_displacement_cm3": [
+      "999",
+      "1199",
+      "1199",
+      "1789",
+      "-"
+    ],
+    "cylinders_valves": [
+      "3/12",
+      "3/12",
+      "3/12",
+      "4/16",
+      "-"
+    ],
+    "maximum_speed_km_h": "180",
+    "test_protocol": "WLTP(2)",
+    "fuel_tank_row": [
+      "50",
+      "50/40(3)",
+      "50",
+      "50/40(3)",
+      "50",
+      "50"
+    ],
+    "co2_and_consumption_value_lines_absent": true,
+    "elasticity_value_lines_absent_from_chunk": true,
+    "mass_value_lines_absent_from_chunk": true,
+    "printed_duplicate_dmc_labels_not_normalized": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "fuel_and_energy_columns_not_collapsed": true,
+    "hybrid_combustion_and_electric_values_not_collapsed": true,
+    "missing_value_lines_not_promoted": true,
+    "printed_mass_labels_not_corrected_by_inference": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Jogger Technical Page 19 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_025",
+    "candidate_count": 3,
+    "group_candidate_count": 43,
+    "chunk_index": 2,
+    "chunk_count": 2
+  }
+}

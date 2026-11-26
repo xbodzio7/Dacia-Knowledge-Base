@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "kind": "bigster_equipment_page21_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_011",
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 21,
+    "review_basis": "authored visual review of the archived page-21 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 1,
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "model_code": "bigster",
+    "domain": "equipment_matrix",
+    "page": 21,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 1,
+    "decision_counts": {
+      "covered": 1,
+      "partially_covered": 0
+    },
+    "selected_evidence_signature_count": 3,
+    "selected_evidence_record_count": 14,
+    "rejected_attached_signature_count": 0,
+    "rejected_attached_record_count": 0,
+    "candidates_with_selected_evidence": 1,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "e3ea81e4d83c484bd7accca0086fcebf96ff8be8e801f060cfcf2a491a014356",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 21,
+      "line_start": 39,
+      "line_end": 39,
+      "exact_text": "Dach panoramiczny otwierany                                         -               -               ¤             •",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "covered",
+      "row_context": "complete opening panoramic glass roof row",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "journey": "optional",
+        "extreme": "standard"
+      },
+      "rationale": "The complete row prints the opening panoramic glass roof as unavailable in Essential and Expression, optional in Journey and standard in Extreme. All three attached signatures match the visual row and trim columns.",
+      "selected_evidence_signature_count": 3,
+      "selected_evidence_record_count": 14,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "glass_sunroof",
+            "availability_status": "not_available"
+          },
+          "record_count": 6,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybrid140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_essential_mildhybridg140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybrid155_4x2_automatic_glass_sunroof_20260703",
+              "configuration_code": "bigster_expression_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_hybridg150_4x4_automatic_glass_sunroof_20260703",
+              "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybrid140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_expression_mildhybridg140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "glass_sunroof",
+            "availability_status": "optional"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybrid155_4x2_automatic_glass_sunroof_20260703",
+              "configuration_code": "bigster_journey_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_hybridg150_4x4_automatic_glass_sunroof_20260703",
+              "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybrid140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_journey_mildhybridg140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "glass_sunroof",
+            "availability_status": "standard"
+          },
+          "record_count": 4,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybrid155_4x2_automatic_glass_sunroof_20260703",
+              "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_hybridg150_4x4_automatic_glass_sunroof_20260703",
+              "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybrid140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "bigster_extreme_mildhybridg140_4x2_manual_glass_sunroof_20260703",
+              "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+              "source_code": "src_pl_bigster_price_my26_20260703",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "complete_row_trim_states_are_preserved": true,
+    "panoramic_roof_optional_is_not_rewritten_as_standard": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Jogger Equipment Page 21 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 1 ambiguous equipment candidate from Jogger brochure page 21 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

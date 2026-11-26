@@ -1,0 +1,198 @@
+{
+  "version": 2,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "audit_base": {
+    "main_merge_commit": "52cffa05d44e3ed91657ef1e32975d7dc64b02b1",
+    "data_snapshot_head_sha": "9dce389ac3e82f9b01f6446bce58aee075155ffe",
+    "quality_run": 30720575708
+  },
+  "scope": {
+    "active_repository_configurations": 81,
+    "active_comparison_configurations": 7,
+    "active_comparison_gap_rows": 22,
+    "active_commercial_mappings": 186,
+    "blank_optional_price_rows": 29,
+    "reviewed_gap_rows": 51,
+    "models_or_domains_added": 0,
+    "data_mutations_applied": 0
+  },
+  "classification_summary": {
+    "importable": 2,
+    "source-not-stated": 27,
+    "source-conflict": 2,
+    "context-unmodeled": 20
+  },
+  "area_summary": {
+    "active-comparison": {"source-not-stated": 20, "context-unmodeled": 2},
+    "optional-price": {"importable": 2, "source-not-stated": 7, "source-conflict": 2, "context-unmodeled": 18}
+  },
+  "findings": [
+    "Only Spring Extreme City (1800 PLN) and Power (3000 PLN) are directly importable from a registered exact current source.",
+    "Twenty comparison values are not stated by their exact configuration PDFs; sibling-value copying would be inference.",
+    "Two automatic-transmission gear-shift-indicator rows are not-applicable contexts.",
+    "Four Duster blank rows retain stock-selection context and already have separate standalone-price rows.",
+    "Spring MY25 stock prices require model-year and paint-price-class context before current import.",
+    "Spring Type 2 cable status conflicts between the brochure-derived mappings and the newer stock price list."
+  ],
+  "review_groups": [
+    {
+      "area": "active-comparison",
+      "classification": "source-not-stated",
+      "row_count": 4,
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "reviewed_pages": [2],
+      "reason_code": "not_stated_on_relevant_pages",
+      "items": ["front_track", "rear_track", "max_power_rpm:lpg", "max_power_rpm:petrol"]
+    },
+    {
+      "area": "active-comparison",
+      "classification": "source-not-stated",
+      "row_count": 4,
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+      "reviewed_pages": [2],
+      "reason_code": "not_stated_on_relevant_pages",
+      "items": ["front_track", "rear_track", "max_power_rpm:lpg", "max_power_rpm:petrol"]
+    },
+    {
+      "area": "active-comparison",
+      "classification": "source-not-stated",
+      "row_count": 4,
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+      "reviewed_pages": [2],
+      "reason_code": "not_stated_on_relevant_pages",
+      "items": ["front_track", "rear_track", "max_power_rpm:lpg", "max_power_rpm:petrol"]
+    },
+    {
+      "area": "active-comparison",
+      "classification": "source-not-stated",
+      "row_count": 4,
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+      "reviewed_pages": [2],
+      "reason_code": "not_stated_on_relevant_pages",
+      "items": ["front_track", "rear_track", "max_power_rpm:lpg", "max_power_rpm:petrol"]
+    },
+    {
+      "area": "active-comparison",
+      "classification": "source-not-stated",
+      "row_count": 4,
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_extreme_ecog120_mt_20260626",
+      "reviewed_pages": [3, 4],
+      "reason_code": "not_stated_on_relevant_pages",
+      "items": ["front_track", "rear_track", "max_power_rpm:lpg", "max_power_rpm:petrol"]
+    },
+    {
+      "area": "active-comparison",
+      "classification": "context-unmodeled",
+      "row_count": 2,
+      "reason_code": "automatic_transmission_scope",
+      "item": "gear_shift_indicator",
+      "configurations": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ]
+    },
+    {
+      "area": "optional-price",
+      "classification": "context-unmodeled",
+      "row_count": 4,
+      "reason_code": "stock-selection-and-standalone-price-are-separate-record-contexts",
+      "candidate_source_code": "src_pl_duster_price_my26_20260703",
+      "rows": [
+        ["duster_parking_package", "duster_iii_extreme_ecog120_4x2_automatic", 2200],
+        ["duster_winter_plus_extreme_package", "duster_iii_extreme_ecog120_4x2_automatic", 2300],
+        ["duster_parking_package", "duster_iii_journey_ecog120_4x2_automatic", 2200],
+        ["duster_winter_plus_journey_package", "duster_iii_journey_ecog120_4x2_automatic", 2300]
+      ]
+    },
+    {
+      "area": "optional-price",
+      "classification": "source-not-stated",
+      "row_count": 7,
+      "configuration_code": "spring_essential_electric70_automatic",
+      "reason_code": "no-exact-current-price-for-existing-mapped-item",
+      "commercial_item_codes": [
+        "spring_colour_biel_alpejska",
+        "spring_colour_czerwony_brick",
+        "spring_colour_lichen_khaki",
+        "spring_colour_niebieski_stonewash",
+        "spring_colour_seafoam",
+        "spring_colour_szary_diamond",
+        "spring_type2_charging_cable_option"
+      ]
+    },
+    {
+      "area": "optional-price",
+      "classification": "context-unmodeled",
+      "row_count": 6,
+      "configuration_code": "spring_expression_electric70_automatic",
+      "candidate_amount_pln": 2300,
+      "candidate_source_code": "src_pl_spring_price_my25_stock_20260708",
+      "reason_code": "model-year-and-paint-price-class-not-modeled",
+      "commercial_item_codes": [
+        "spring_colour_biel_alpejska",
+        "spring_colour_czerwony_brick",
+        "spring_colour_lichen_khaki",
+        "spring_colour_niebieski_stonewash",
+        "spring_colour_seafoam",
+        "spring_colour_szary_diamond"
+      ]
+    },
+    {
+      "area": "optional-price",
+      "classification": "context-unmodeled",
+      "row_count": 2,
+      "configuration_code": "spring_expression_electric70_automatic",
+      "candidate_source_code": "src_pl_spring_price_my25_stock_20260708",
+      "reason_code": "model-year-stock-context-not-modeled",
+      "rows": [["spring_dc40_charging_option", 2750], ["spring_techno_package", 3500]]
+    },
+    {
+      "area": "optional-price",
+      "classification": "source-conflict",
+      "row_count": 2,
+      "commercial_item_code": "spring_type2_charging_cable_option",
+      "candidate_source_code": "src_pl_spring_price_my25_stock_20260708",
+      "reason_code": "optional-in-brochure-but-standard-in-newer-stock-price-list",
+      "configurations": [
+        "spring_expression_electric70_automatic",
+        "spring_extreme_electric100_automatic"
+      ]
+    },
+    {
+      "area": "optional-price",
+      "classification": "importable",
+      "row_count": 2,
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "candidate_source_code": "src_pl_spring_official_configurator_20260731",
+      "reason_code": "exact_current_configurator_snapshot",
+      "rows": [["spring_city_package", 1800], ["spring_power_package", 3000]]
+    },
+    {
+      "area": "optional-price",
+      "classification": "context-unmodeled",
+      "row_count": 6,
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "candidate_amount_pln": 2300,
+      "candidate_source_code": "src_pl_spring_price_my25_stock_20260708",
+      "reason_code": "model-year-and-paint-price-class-not-modeled",
+      "commercial_item_codes": [
+        "spring_colour_biel_alpejska",
+        "spring_colour_czerwony_brick",
+        "spring_colour_lichen_khaki",
+        "spring_colour_niebieski_stonewash",
+        "spring_colour_seafoam",
+        "spring_colour_szary_diamond"
+      ]
+    }
+  ],
+  "next_package": {
+    "package_id": "reviewed_gap_state_materialization_001",
+    "goal": "Import the two exact current Spring package prices and materialize reviewed source-not-stated, source-conflict and context-unmodeled states without filling contextual blanks or inferring sibling values."
+  }
+}

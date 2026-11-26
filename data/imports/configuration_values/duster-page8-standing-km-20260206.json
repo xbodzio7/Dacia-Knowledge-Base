@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 487,
+  "attribute_code": "standing_km",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "s",
+    "status": "active"
+  },
+  "observation_date": "2026-02-06",
+  "fuel_type_code": "",
+  "source_page": 8,
+  "source_section": "OSIĄGI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_essential_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "36",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_essential_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "37.2",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "36",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "37.2",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid140_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.3",
+      "source_text": "32,3"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid130_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "31.3",
+      "source_text": "31,3"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid130_4x4_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.6",
+      "source_text": "32,6"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "36",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "37.2",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid140_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.3",
+      "source_text": "32,3"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid130_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "31.3",
+      "source_text": "31,3"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid130_4x4_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.6",
+      "source_text": "32,6"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "36",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog100_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "37.2",
+      "source_text": "37,2 / 36 (LPG)",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid140_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.3",
+      "source_text": "32,3"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid130_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "31.3",
+      "source_text": "31,3"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid130_4x4_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.6",
+      "source_text": "32,6"
+    },
+    {
+      "configuration_code": "duster_iii_journey_plus_hybrid140_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "32.3",
+      "source_text": "32,3"
+    }
+  ]
+}

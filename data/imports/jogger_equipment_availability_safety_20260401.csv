@@ -1,0 +1,26 @@
+attribute_code,source_pages,source_label,essential,expression_non_hybrid,expression_hybrid,extreme,journey,notes
+led_daytime_running_lights,4,Światła dzienne i mijania przednie w technologii LED,standard,standard,standard,standard,standard,daytime-running component
+led_headlights,4,Światła dzienne i mijania przednie w technologii LED,standard,standard,standard,standard,standard,low-beam component
+automatic_headlights,4,Automatycznie włączane światła mijania / wycieraczki,standard,standard,standard,standard,standard,headlight component; rain-sensing component excluded because the dedicated row conflicts for essential
+fog_lights,5,Światła przeciwmgłowe,not_available,standard,standard,standard,standard,direct row
+high_beam_assist,5,Pakiet DRIVE: funkcja automatycznej zmiany świateł drogowych na mijania (AHL),not_available,not_available,not_available,optional,not_available,package component
+anti_lock_braking_system,4,ABS z układem wspomagania nagłego hamowania AFU,standard,standard,standard,standard,standard,ABS component
+automatic_emergency_braking,4,Aktywny system wspomagania nagłego hamowania AEBS,standard,standard,standard,standard,standard,direct row
+electronic_stability_control,4,System kontroli toru jazdy ESC z systemem wspomagania jazdy pod górę HSA,standard,standard,standard,standard,standard,ESC component
+hill_start_assist,4,System kontroli toru jazdy ESC z systemem wspomagania jazdy pod górę HSA,standard,standard,standard,standard,standard,HSA component
+extended_grip,4,Extended Grip,not_available,not_available,not_available,standard,not_available,direct row
+lane_departure_warning,4,System kontroli pasa ruchu (LDW),standard,standard,standard,standard,standard,direct row
+lane_keep_assist,4,System utrzymania pasa ruchu (LKA),standard,standard,standard,standard,standard,direct row
+driver_attention_monitoring,4,System kontroli zmęczenia i uwagi kierowcy (DDAM),standard,standard,standard,standard,standard,direct row
+traffic_sign_recognition,4,System rozpoznawania znaków drogowych z ostrzeganiem o nadmiernej prędkości (ISA),standard,standard,standard,standard,standard,traffic-sign component
+blind_spot_monitoring,4,System kontroli martwego pola BSW,not_available,not_available,not_available,standard,standard,direct row
+emergency_call_ecall,4,Połączenie alarmowe (eCall),standard,standard,standard,standard,standard,direct row
+driver_front_airbag,4,Czołowa poduszka powietrzna kierowcy i pasażera z możliwością dezaktywacji,standard,standard,standard,standard,standard,driver component
+passenger_front_airbag,4,Czołowa poduszka powietrzna kierowcy i pasażera z możliwością dezaktywacji,standard,standard,standard,standard,standard,passenger component
+front_side_airbags,4,Boczne poduszki powietrzne z przodu,standard,standard,standard,standard,standard,direct row
+curtain_airbags,4,Poduszki kurtynowe,standard,standard,standard,standard,standard,direct row
+front_seat_belt_pretensioners,4,Pasy bezpieczeństwa z napinaczami pirotechnicznymi w 1 i 2 rzędzie,standard,standard,standard,standard,standard,first-row component
+rear_seat_belt_pretensioners,4,Pasy bezpieczeństwa z napinaczami pirotechnicznymi w 1 i 2 rzędzie,standard,standard,standard,standard,standard,second-row component; no third-row inference
+isofix_rear,4,System mocowania fotelików Isofix na 2 bocznych miejscach drugiego rzędu,standard,standard,standard,standard,standard,direct row
+tyre_pressure_monitoring_system,4,System kontroli ciśnienia w oponach,standard,standard,standard,standard,standard,direct row
+tyre_repair_kit,4,Zestaw do naprawy uszkodzenia opony,standard,standard,standard,standard,standard,base row; incompatibility with the spare-wheel option retained

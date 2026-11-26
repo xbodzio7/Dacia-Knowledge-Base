@@ -1,0 +1,4233 @@
+{
+  "completeness": {
+    "as_of": "2026-06-26",
+    "by_category": [
+      {
+        "category": "ADAS",
+        "equipment_applicable": 8,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 8,
+        "standard": 8,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Acoustics",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 2,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 2
+      },
+      {
+        "category": "Brakes",
+        "equipment_applicable": 4,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 4,
+        "standard": 4,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Capacities",
+        "equipment_applicable": 2,
+        "equipment_coverage_percent": "50.00",
+        "equipment_missing": 1,
+        "equipment_recorded": 1,
+        "standard": 1,
+        "technical_applicable": 6,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 6
+      },
+      {
+        "category": "Consumption",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 4,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 4
+      },
+      {
+        "category": "Dimensions",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 10,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 10
+      },
+      {
+        "category": "Doors",
+        "equipment_applicable": 6,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 6,
+        "not_available": 1,
+        "standard": 5,
+        "technical_applicable": 2,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 2
+      },
+      {
+        "category": "Drivetrain",
+        "equipment_applicable": 2,
+        "equipment_coverage_percent": "50.00",
+        "equipment_missing": 1,
+        "equipment_recorded": 1,
+        "standard": 1,
+        "technical_applicable": 2,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 2
+      },
+      {
+        "category": "Driving Systems",
+        "equipment_applicable": 16,
+        "equipment_coverage_percent": "62.50",
+        "equipment_missing": 6,
+        "equipment_recorded": 10,
+        "standard": 10,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Emissions",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 4,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 4
+      },
+      {
+        "category": "Engine",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 16,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 16
+      },
+      {
+        "category": "Exterior",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 2,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 2
+      },
+      {
+        "category": "HVAC",
+        "equipment_applicable": 8,
+        "equipment_coverage_percent": "75.00",
+        "equipment_missing": 2,
+        "equipment_recorded": 6,
+        "not_available": 4,
+        "standard": 2,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Infotainment",
+        "equipment_applicable": 18,
+        "equipment_coverage_percent": "66.67",
+        "equipment_missing": 6,
+        "equipment_recorded": 12,
+        "standard": 12,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Lighting",
+        "equipment_applicable": 12,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 12,
+        "standard": 12,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Mirrors",
+        "equipment_applicable": 10,
+        "equipment_coverage_percent": "90.00",
+        "equipment_missing": 1,
+        "equipment_recorded": 9,
+        "standard": 9,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Performance",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 12,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 12
+      },
+      {
+        "category": "Safety",
+        "equipment_applicable": 28,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 28,
+        "not_available": 2,
+        "standard": 26,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Seats",
+        "equipment_applicable": 8,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 8,
+        "standard": 8,
+        "technical_applicable": 4,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 4
+      },
+      {
+        "category": "Steering",
+        "equipment_applicable": 4,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 4,
+        "standard": 4,
+        "technical_coverage_percent": "100.00"
+      },
+      {
+        "category": "Towing",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 4,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 4
+      },
+      {
+        "category": "Transmission",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 2,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 2
+      },
+      {
+        "category": "Weights",
+        "equipment_coverage_percent": "100.00",
+        "technical_applicable": 8,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 8
+      },
+      {
+        "category": "Wheels",
+        "equipment_applicable": 2,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 2,
+        "standard": 2,
+        "technical_applicable": 12,
+        "technical_coverage_percent": "91.67",
+        "technical_missing": 1,
+        "technical_present": 11
+      },
+      {
+        "category": "Windows",
+        "equipment_applicable": 10,
+        "equipment_coverage_percent": "100.00",
+        "equipment_recorded": 10,
+        "standard": 10,
+        "technical_coverage_percent": "100.00"
+      }
+    ],
+    "by_configuration": [
+      {
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "equipment_applicable": 69,
+        "equipment_coverage_percent": "85.51",
+        "equipment_missing": 10,
+        "equipment_recorded": 59,
+        "not_available": 4,
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "standard": 55,
+        "technical_applicable": 45,
+        "technical_coverage_percent": "97.78",
+        "technical_missing": 1,
+        "technical_present": 44
+      },
+      {
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "equipment_applicable": 69,
+        "equipment_coverage_percent": "89.86",
+        "equipment_missing": 7,
+        "equipment_recorded": 62,
+        "not_available": 3,
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "standard": 59,
+        "technical_applicable": 45,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 45
+      }
+    ],
+    "by_source": [
+      {
+        "configuration_codes": [
+          "sandero_stepway_iii_expression_ecog120_automatic"
+        ],
+        "equipment_applicable": 69,
+        "equipment_coverage_percent": "85.51",
+        "equipment_missing": 10,
+        "equipment_recorded": 59,
+        "not_available": 4,
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "standard": 55,
+        "technical_applicable": 45,
+        "technical_coverage_percent": "97.78",
+        "technical_missing": 1,
+        "technical_present": 44
+      },
+      {
+        "configuration_codes": [
+          "sandero_stepway_iii_extreme_ecog120_automatic"
+        ],
+        "equipment_applicable": 69,
+        "equipment_coverage_percent": "89.86",
+        "equipment_missing": 7,
+        "equipment_recorded": 62,
+        "not_available": 3,
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "standard": 59,
+        "technical_applicable": 45,
+        "technical_coverage_percent": "100.00",
+        "technical_present": 45
+      }
+    ],
+    "equipment": {
+      "applicable": 138,
+      "coverage_percent": "87.68",
+      "denominator": 138,
+      "missing": 17,
+      "not_applicable": 0,
+      "not_available": 7,
+      "optional": 0,
+      "recorded": 121,
+      "standard": 114,
+      "unknown": 0
+    },
+    "gaps": {
+      "equipment": [
+        {
+          "attribute_code": "adjustable_boot_floor",
+          "category": "Capacities",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "automatic_climate_control",
+          "category": "HVAC",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "blind_spot_monitoring",
+          "category": "Driving Systems",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "bluetooth_connectivity",
+          "category": "Infotainment",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "extended_grip",
+          "category": "Drivetrain",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "front_parking_sensors",
+          "category": "Mirrors",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "gear_shift_indicator",
+          "category": "Driving Systems",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "instrument_cluster_colour_7",
+          "category": "Infotainment",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "media_control_system",
+          "category": "Infotainment",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "parking_assist_system",
+          "category": "Driving Systems",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "bluetooth_connectivity",
+          "category": "Infotainment",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "gear_shift_indicator",
+          "category": "Driving Systems",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "hill_start_assist",
+          "category": "Driving Systems",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "instrument_cluster_tft_3_5",
+          "category": "Infotainment",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "manual_air_conditioning",
+          "category": "HVAC",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "media_control_system",
+          "category": "Infotainment",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        },
+        {
+          "attribute_code": "parking_assist_system",
+          "category": "Driving Systems",
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "state": "missing"
+        }
+      ],
+      "technical": [
+        {
+          "attribute_code": "wheel_finish",
+          "category": "Wheels",
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "fuel_type_code": "",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "state": "missing"
+        }
+      ]
+    },
+    "scope": {
+      "active_configurations": 2,
+      "configuration_scope": "explicit_subset",
+      "configuration_status": "active",
+      "equipment_attributes": 69,
+      "excluded_configuration_codes": [
+        "duster_iii_essential_ecog100_4x2_manual",
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog100_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_expression_hybrid140_4x2_automatic",
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_expression_mildhybrid130_4x2_manual",
+        "duster_iii_expression_mildhybrid130_4x4_manual",
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_ecog100_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_extreme_hybrid140_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_extreme_mildhybrid130_4x2_manual",
+        "duster_iii_extreme_mildhybrid130_4x4_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_ecog100_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual",
+        "duster_iii_journey_hybrid140_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic",
+        "duster_iii_journey_mildhybrid130_4x2_manual",
+        "duster_iii_journey_mildhybrid130_4x4_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual",
+        "duster_iii_journey_plus_hybrid140_4x2_automatic",
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_journey_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_tce110_manual",
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ],
+      "excluded_configurations": 51,
+      "reporting_configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "reporting_configurations": 2,
+      "repository_status_configurations": 53,
+      "sources": 2,
+      "technical_slots": 45
+    },
+    "technical": {
+      "applicable": 90,
+      "coverage_percent": "98.89",
+      "denominator": 90,
+      "missing": 1,
+      "not_applicable": 0,
+      "present": 89
+    },
+    "version": 1
+  },
+  "source_coverage": {
+    "areas": {
+      "covered": 5,
+      "denominator": 8,
+      "missing": 0,
+      "partial": 3,
+      "source_missing": 0
+    },
+    "as_of": "2026-06-26",
+    "gaps": [
+      {
+        "area": "technical",
+        "attribute_code": "wheel_finish",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Wheels",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "adjustable_boot_floor",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Capacities",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "extended_grip",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Drivetrain",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "blind_spot_monitoring",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Driving Systems",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "gear_shift_indicator",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Driving Systems",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "parking_assist_system",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Driving Systems",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "automatic_climate_control",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "HVAC",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "bluetooth_connectivity",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Infotainment",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "instrument_cluster_colour_7",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Infotainment",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "media_control_system",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Infotainment",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "front_parking_sensors",
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Mirrors",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "gear_shift_indicator",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Driving Systems",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "hill_start_assist",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Driving Systems",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "parking_assist_system",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Driving Systems",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "manual_air_conditioning",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "HVAC",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "bluetooth_connectivity",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Infotainment",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "instrument_cluster_tft_3_5",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Infotainment",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      },
+      {
+        "area": "equipment",
+        "attribute_code": "media_control_system",
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "fuel_type_code": "",
+        "section": "Infotainment",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "state": "record_missing"
+      }
+    ],
+    "out_of_scope": {
+      "configuration_attribute_availability": {
+        "records": 2856,
+        "source_codes": [
+          "src_pl_duster_price_my26_py25_20260206",
+          "src_pl_jogger_price_my26_20260401",
+          "src_pl_sandero_expression_ecog120_mt_20260626",
+          "src_pl_sandero_journey_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+        ]
+      },
+      "configuration_attribute_value_ranges": {
+        "records": 144,
+        "source_codes": [
+          "src_pl_jogger_price_my26_20260401"
+        ]
+      },
+      "configuration_attribute_values": {
+        "records": 1115,
+        "source_codes": [
+          "src_pl_duster_price_my26_py25_20260206",
+          "src_pl_jogger_price_my26_20260401",
+          "src_pl_sandero_expression_ecog120_mt_20260626",
+          "src_pl_sandero_journey_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+        ]
+      },
+      "configuration_prices": {
+        "records": 51,
+        "source_codes": [
+          "src_pl_duster_price_my26_py25_20260206",
+          "src_pl_jogger_price_my26_20260401",
+          "src_pl_sandero_expression_ecog120_mt_20260626",
+          "src_pl_sandero_journey_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+        ]
+      },
+      "source_configurations": {
+        "records": 51,
+        "source_codes": [
+          "src_pl_duster_price_my26_py25_20260206",
+          "src_pl_jogger_price_my26_20260401",
+          "src_pl_sandero_expression_ecog120_mt_20260626",
+          "src_pl_sandero_journey_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+        ]
+      },
+      "source_models": {
+        "records": 7,
+        "source_codes": [
+          "src_pl_duster_price_my26_py25_20260206",
+          "src_pl_jogger_price_my26_20260401",
+          "src_pl_sandero_expression_ecog120_mt_20260626",
+          "src_pl_sandero_journey_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+        ]
+      },
+      "source_versions": {
+        "records": 14,
+        "source_codes": [
+          "src_pl_duster_price_my26_py25_20260206",
+          "src_pl_jogger_price_my26_20260401",
+          "src_pl_sandero_expression_ecog120_mt_20260626",
+          "src_pl_sandero_journey_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_expression_ecog120_mt_20260626",
+          "src_pl_sandero_stepway_extreme_ecog120_mt_20260626"
+        ]
+      }
+    },
+    "records": {
+      "equipment": {
+        "coverage_percent": "87.68",
+        "expected": 138,
+        "missing": 17,
+        "not_applicable": 0,
+        "present": 121,
+        "source_missing": 0
+      },
+      "identity_links": {
+        "expected": 6,
+        "missing": 0,
+        "present": 6,
+        "source_missing": 0
+      },
+      "prices": {
+        "expected": 2,
+        "missing": 0,
+        "present": 2,
+        "records": 2,
+        "source_missing": 0
+      },
+      "technical": {
+        "coverage_percent": "98.89",
+        "expected": 90,
+        "missing": 1,
+        "not_applicable": 0,
+        "present": 89,
+        "source_missing": 0
+      }
+    },
+    "scope": {
+      "configuration_scope": "explicit_subset",
+      "configurations": 2,
+      "equipment_attributes_per_configuration": 69,
+      "excluded_configuration_codes": [
+        "duster_iii_essential_ecog100_4x2_manual",
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog100_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_expression_hybrid140_4x2_automatic",
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_expression_mildhybrid130_4x2_manual",
+        "duster_iii_expression_mildhybrid130_4x4_manual",
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_ecog100_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_extreme_hybrid140_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_extreme_mildhybrid130_4x2_manual",
+        "duster_iii_extreme_mildhybrid130_4x4_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_ecog100_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual",
+        "duster_iii_journey_hybrid140_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic",
+        "duster_iii_journey_mildhybrid130_4x2_manual",
+        "duster_iii_journey_mildhybrid130_4x4_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual",
+        "duster_iii_journey_plus_hybrid140_4x2_automatic",
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_journey_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_tce110_manual",
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ],
+      "excluded_configurations": 51,
+      "expected_sources": 2,
+      "reporting_configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "reporting_configurations": 2,
+      "repository_status_configurations": 53,
+      "technical_slots_per_configuration": 45
+    },
+    "sections": {
+      "covered": 58,
+      "denominator": 68,
+      "missing": 2,
+      "not_applicable": 0,
+      "partial": 8,
+      "source_missing": 0
+    },
+    "source_registration": {
+      "expected": 2,
+      "future": 0,
+      "inactive": 0,
+      "metadata_complete": 2,
+      "missing": 0,
+      "registered": 2
+    },
+    "sources": [
+      {
+        "areas": [
+          {
+            "area": "identity",
+            "expected": 3,
+            "missing": 0,
+            "present": 3,
+            "status": "covered"
+          },
+          {
+            "area": "commercial",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 45,
+            "missing": 1,
+            "not_applicable": 0,
+            "present": 44,
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 69,
+            "missing": 10,
+            "not_applicable": 0,
+            "present": 59,
+            "status": "partial"
+          }
+        ],
+        "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+        "document_date": "2026-06-26",
+        "external_reference": "JA1EKI",
+        "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.pdf",
+        "market": "PL",
+        "model_code": "sandero_stepway_iii",
+        "observation_dates": {
+          "equipment": [
+            "2026-06-26"
+          ],
+          "prices": [
+            "2026-06-26"
+          ],
+          "technical": [
+            "2026-06-26"
+          ]
+        },
+        "publisher": "Dacia",
+        "registration_state": "registered",
+        "sections": [
+          {
+            "area": "identity",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "model",
+            "status": "covered"
+          },
+          {
+            "area": "identity",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "version",
+            "status": "covered"
+          },
+          {
+            "area": "identity",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "configuration",
+            "status": "covered"
+          },
+          {
+            "area": "commercial",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "prices",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Acoustics",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 3,
+            "missing": 0,
+            "present": 3,
+            "section": "Capacities",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Consumption",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 5,
+            "missing": 0,
+            "present": 5,
+            "section": "Dimensions",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Doors",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Drivetrain",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Emissions",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 8,
+            "missing": 0,
+            "present": 8,
+            "section": "Engine",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Exterior",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 6,
+            "missing": 0,
+            "present": 6,
+            "section": "Performance",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Seats",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Towing",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Transmission",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 4,
+            "missing": 0,
+            "present": 4,
+            "section": "Weights",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 6,
+            "missing": 1,
+            "present": 5,
+            "section": "Wheels",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 4,
+            "missing": 0,
+            "present": 4,
+            "section": "ADAS",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Brakes",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 1,
+            "missing": 1,
+            "present": 0,
+            "section": "Capacities",
+            "status": "missing"
+          },
+          {
+            "area": "equipment",
+            "expected": 3,
+            "missing": 0,
+            "present": 3,
+            "section": "Doors",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 1,
+            "missing": 1,
+            "present": 0,
+            "section": "Drivetrain",
+            "status": "missing"
+          },
+          {
+            "area": "equipment",
+            "expected": 8,
+            "missing": 3,
+            "present": 5,
+            "section": "Driving Systems",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 4,
+            "missing": 1,
+            "present": 3,
+            "section": "HVAC",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 9,
+            "missing": 3,
+            "present": 6,
+            "section": "Infotainment",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 6,
+            "missing": 0,
+            "present": 6,
+            "section": "Lighting",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 5,
+            "missing": 1,
+            "present": 4,
+            "section": "Mirrors",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 14,
+            "missing": 0,
+            "present": 14,
+            "section": "Safety",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 4,
+            "missing": 0,
+            "present": 4,
+            "section": "Seats",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Steering",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Wheels",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 5,
+            "missing": 0,
+            "present": 5,
+            "section": "Windows",
+            "status": "covered"
+          }
+        ],
+        "sha256": "385409e33a0932e48cbd901b5805f873831ec005c6451cd6ed1623a06fa15667",
+        "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+        "title": "NOWE SANDERO STEPWAY expression stepway Eco-G 120 auto f.2",
+        "version_code": "sandero_stepway_iii_expression"
+      },
+      {
+        "areas": [
+          {
+            "area": "identity",
+            "expected": 3,
+            "missing": 0,
+            "present": 3,
+            "status": "covered"
+          },
+          {
+            "area": "commercial",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 45,
+            "missing": 0,
+            "not_applicable": 0,
+            "present": 45,
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 69,
+            "missing": 7,
+            "not_applicable": 0,
+            "present": 62,
+            "status": "partial"
+          }
+        ],
+        "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+        "document_date": "2026-06-26",
+        "external_reference": "MWF2W6",
+        "file_path": "PDF/Cenniki/NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.pdf",
+        "market": "PL",
+        "model_code": "sandero_stepway_iii",
+        "observation_dates": {
+          "equipment": [
+            "2026-06-26"
+          ],
+          "prices": [
+            "2026-06-26"
+          ],
+          "technical": [
+            "2026-06-26"
+          ]
+        },
+        "publisher": "Dacia",
+        "registration_state": "registered",
+        "sections": [
+          {
+            "area": "identity",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "model",
+            "status": "covered"
+          },
+          {
+            "area": "identity",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "version",
+            "status": "covered"
+          },
+          {
+            "area": "identity",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "configuration",
+            "status": "covered"
+          },
+          {
+            "area": "commercial",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "prices",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Acoustics",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 3,
+            "missing": 0,
+            "present": 3,
+            "section": "Capacities",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Consumption",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 5,
+            "missing": 0,
+            "present": 5,
+            "section": "Dimensions",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Doors",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Drivetrain",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Emissions",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 8,
+            "missing": 0,
+            "present": 8,
+            "section": "Engine",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Exterior",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 6,
+            "missing": 0,
+            "present": 6,
+            "section": "Performance",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Seats",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Towing",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Transmission",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 4,
+            "missing": 0,
+            "present": 4,
+            "section": "Weights",
+            "status": "covered"
+          },
+          {
+            "area": "technical",
+            "expected": 6,
+            "missing": 0,
+            "present": 6,
+            "section": "Wheels",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 4,
+            "missing": 0,
+            "present": 4,
+            "section": "ADAS",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Brakes",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Capacities",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 3,
+            "missing": 0,
+            "present": 3,
+            "section": "Doors",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Drivetrain",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 8,
+            "missing": 3,
+            "present": 5,
+            "section": "Driving Systems",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 4,
+            "missing": 1,
+            "present": 3,
+            "section": "HVAC",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 9,
+            "missing": 3,
+            "present": 6,
+            "section": "Infotainment",
+            "status": "partial"
+          },
+          {
+            "area": "equipment",
+            "expected": 6,
+            "missing": 0,
+            "present": 6,
+            "section": "Lighting",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 5,
+            "missing": 0,
+            "present": 5,
+            "section": "Mirrors",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 14,
+            "missing": 0,
+            "present": 14,
+            "section": "Safety",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 4,
+            "missing": 0,
+            "present": 4,
+            "section": "Seats",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 2,
+            "missing": 0,
+            "present": 2,
+            "section": "Steering",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 1,
+            "missing": 0,
+            "present": 1,
+            "section": "Wheels",
+            "status": "covered"
+          },
+          {
+            "area": "equipment",
+            "expected": 5,
+            "missing": 0,
+            "present": 5,
+            "section": "Windows",
+            "status": "covered"
+          }
+        ],
+        "sha256": "a519c2002231cd28f92999c2d8af76fb5c58e6129ac6d5521c6436e471349aff",
+        "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+        "title": "NOWE SANDERO STEPWAY extreme stepway Eco-G 120 auto f.2",
+        "version_code": "sandero_stepway_iii_extreme"
+      }
+    ],
+    "version": 1
+  },
+  "comparison": {
+    "as_of": "2026-06-26",
+    "evidence_summary": {
+      "ambiguous": 0,
+      "found": 0,
+      "not_stated": 10,
+      "out_of_scope": 8,
+      "total": 18
+    },
+    "pairs": [
+      {
+        "equipment": [
+          {
+            "attribute_code": "adjustable_boot_floor",
+            "attribute_name": "Adjustable boot floor",
+            "category": "Capacities",
+            "comparison": "not_comparable",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "alcohol_interlock_preparation",
+            "attribute_name": "Alcohol interlock preparation",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "anti_lock_braking_system",
+            "attribute_name": "Anti-lock braking system",
+            "category": "Brakes",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "automatic_climate_control",
+            "attribute_name": "Automatic climate control",
+            "category": "HVAC",
+            "comparison": "not_comparable",
+            "left": {
+              "basis": {
+                "attribute_code": "manual_air_conditioning",
+                "availability_status": "standard",
+                "observation_date": "2026-06-26",
+                "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+                "source_page": 4,
+                "source_section": "",
+                "source_text": "klimatyzacja manualna",
+                "type": "availability_record"
+              },
+              "reason_code": "explicit_alternative_state",
+              "reviewed_pages": [
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "out_of_scope"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "automatic_door_locking",
+            "attribute_name": "Automatic door locking",
+            "category": "Doors",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "automatic_emergency_braking",
+            "attribute_name": "Automatic emergency braking",
+            "category": "ADAS",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "automatic_headlights",
+            "attribute_name": "Automatic headlights",
+            "category": "Lighting",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "blind_spot_monitoring",
+            "attribute_name": "Blind spot monitoring system",
+            "category": "Driving Systems",
+            "comparison": "not_comparable",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "bluetooth_connectivity",
+            "attribute_name": "Bluetooth connectivity",
+            "category": "Infotainment",
+            "comparison": "not_comparable",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "not_stated"
+            }
+          },
+          {
+            "attribute_code": "boot_compartment_lighting",
+            "attribute_name": "Boot compartment lighting",
+            "category": "Lighting",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "central_locking",
+            "attribute_name": "Central locking",
+            "category": "Doors",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "connected_services",
+            "attribute_name": "Connected services",
+            "category": "Infotainment",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "cruise_control",
+            "attribute_name": "Cruise control",
+            "category": "Driving Systems",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "curtain_airbags",
+            "attribute_name": "Curtain airbags",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "driver_front_airbag",
+            "attribute_name": "Driver front airbag",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "driver_seat_belt_height_adjustment",
+            "attribute_name": "Driver seat-belt height adjustment",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "driver_seat_height_adjustment",
+            "attribute_name": "Driver seat height adjustment",
+            "category": "Seats",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "electronic_parking_brake",
+            "attribute_name": "Electronic parking brake",
+            "category": "Brakes",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "electronic_stability_control",
+            "attribute_name": "Electronic stability control",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "emergency_call_ecall",
+            "attribute_name": "Emergency call eCall",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "emergency_stop_signal",
+            "attribute_name": "Emergency stop signal",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "extended_grip",
+            "attribute_name": "Extended Grip",
+            "category": "Drivetrain",
+            "comparison": "not_comparable",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "fog_lights",
+            "attribute_name": "Fog lights",
+            "category": "Lighting",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "front_centre_armrest",
+            "attribute_name": "Front centre armrest",
+            "category": "Seats",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "front_parking_sensors",
+            "attribute_name": "Front parking sensors",
+            "category": "Mirrors",
+            "comparison": "not_comparable",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "front_seat_belt_pretensioners",
+            "attribute_name": "Front seat-belt pretensioners",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "front_side_airbags",
+            "attribute_name": "Front side airbags",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "front_windows_power",
+            "attribute_name": "Front power windows",
+            "category": "Windows",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "gear_shift_indicator",
+            "attribute_name": "Gear shift indicator",
+            "category": "Driving Systems",
+            "comparison": "not_comparable",
+            "left": {
+              "basis": {
+                "attribute_description": "Driver display provides gear-change recommendations",
+                "field": "transmission_type",
+                "type": "configuration_field",
+                "value": "automatic"
+              },
+              "reason_code": "automatic_transmission_scope",
+              "reviewed_pages": [],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "out_of_scope"
+            },
+            "right": {
+              "basis": {
+                "attribute_description": "Driver display provides gear-change recommendations",
+                "field": "transmission_type",
+                "type": "configuration_field",
+                "value": "automatic"
+              },
+              "reason_code": "automatic_transmission_scope",
+              "reviewed_pages": [],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "out_of_scope"
+            }
+          },
+          {
+            "attribute_code": "heated_steering_wheel",
+            "attribute_name": "Heated steering wheel",
+            "category": "HVAC",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "heated_windscreen",
+            "attribute_name": "Heated windscreen",
+            "category": "HVAC",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "high_filtering_glass",
+            "attribute_name": "High-filtering glass",
+            "category": "Windows",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "hill_start_assist",
+            "attribute_name": "Hill-start assist",
+            "category": "Driving Systems",
+            "comparison": "not_comparable",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "not_stated"
+            }
+          },
+          {
+            "attribute_code": "instrument_cluster_colour_7",
+            "attribute_name": "7-inch colour instrument display",
+            "category": "Infotainment",
+            "comparison": "not_comparable",
+            "left": {
+              "basis": {
+                "attribute_code": "instrument_cluster_tft_3_5",
+                "availability_status": "standard",
+                "observation_date": "2026-06-26",
+                "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+                "source_page": 3,
+                "source_section": "",
+                "source_text": "zestaw wskaźników TFT 3,5\"",
+                "type": "availability_record"
+              },
+              "reason_code": "explicit_alternative_state",
+              "reviewed_pages": [
+                3
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "out_of_scope"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "instrument_cluster_tft_3_5",
+            "attribute_name": "3.5-inch TFT instrument display",
+            "category": "Infotainment",
+            "comparison": "not_comparable",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "basis": {
+                "attribute_code": "instrument_cluster_colour_7",
+                "availability_status": "standard",
+                "observation_date": "2026-06-26",
+                "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+                "source_page": 3,
+                "source_section": "",
+                "source_text": "kolorowy zestaw wskaźników 7\"",
+                "type": "availability_record"
+              },
+              "reason_code": "explicit_alternative_state",
+              "reviewed_pages": [
+                3
+              ],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "out_of_scope"
+            }
+          },
+          {
+            "attribute_code": "isofix_rear",
+            "attribute_name": "ISOFIX rear",
+            "category": "Seats",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "keyless_entry",
+            "attribute_name": "Keyless entry",
+            "category": "Doors",
+            "comparison": "different",
+            "left": {
+              "availability_status": "not_available",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "lane_keep_assist",
+            "attribute_name": "Lane keep assist",
+            "category": "ADAS",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "led_daytime_running_lights",
+            "attribute_name": "LED daytime running lights",
+            "category": "Lighting",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "led_headlights",
+            "attribute_name": "LED headlights",
+            "category": "Lighting",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "manual_air_conditioning",
+            "attribute_name": "Manual air conditioning",
+            "category": "HVAC",
+            "comparison": "not_comparable",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "basis": {
+                "attribute_code": "automatic_climate_control",
+                "availability_status": "standard",
+                "observation_date": "2026-06-26",
+                "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+                "source_page": 4,
+                "source_section": "",
+                "source_text": "klimatyzacja automatyczna",
+                "type": "availability_record"
+              },
+              "reason_code": "explicit_alternative_state",
+              "reviewed_pages": [
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "out_of_scope"
+            }
+          },
+          {
+            "attribute_code": "manual_day_night_rearview_mirror",
+            "attribute_name": "Manual day/night rear-view mirror",
+            "category": "Mirrors",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "media_control_system",
+            "attribute_name": "Media Control system",
+            "category": "Infotainment",
+            "comparison": "not_comparable",
+            "left": {
+              "basis": {
+                "attribute_code": "media_display_system",
+                "availability_status": "standard",
+                "observation_date": "2026-06-26",
+                "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+                "source_page": 3,
+                "source_section": "",
+                "source_text": "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+                "type": "availability_record"
+              },
+              "reason_code": "explicit_alternative_state",
+              "reviewed_pages": [
+                3
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "out_of_scope"
+            },
+            "right": {
+              "basis": {
+                "attribute_code": "media_display_system",
+                "availability_status": "standard",
+                "observation_date": "2026-06-26",
+                "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+                "source_page": 3,
+                "source_section": "",
+                "source_text": "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+                "type": "availability_record"
+              },
+              "reason_code": "explicit_alternative_state",
+              "reviewed_pages": [
+                3
+              ],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "out_of_scope"
+            }
+          },
+          {
+            "attribute_code": "media_display_system",
+            "attribute_name": "Media Display system",
+            "category": "Infotainment",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "onboard_computer",
+            "attribute_name": "On-board computer",
+            "category": "Infotainment",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "one_touch_turn_signals",
+            "attribute_name": "One-touch turn signals",
+            "category": "Driving Systems",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "one_touch_windows",
+            "attribute_name": "One-touch windows",
+            "category": "Windows",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "parking_assist_system",
+            "attribute_name": "Parking assist system",
+            "category": "Driving Systems",
+            "comparison": "not_comparable",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                3,
+                4
+              ],
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "not_stated"
+            }
+          },
+          {
+            "attribute_code": "passenger_front_airbag",
+            "attribute_name": "Passenger front airbag",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rain_sensing_wipers",
+            "attribute_name": "Rain sensing wipers",
+            "category": "Windows",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rear_parking_sensors",
+            "attribute_name": "Rear parking sensors",
+            "category": "Mirrors",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rear_seat_belt_pretensioners",
+            "attribute_name": "Rear seat-belt pretensioners",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rear_seat_folding",
+            "attribute_name": "Rear seat folding",
+            "category": "Seats",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rear_three_point_seat_belts",
+            "attribute_name": "Rear three-point seat belts",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rear_view_camera",
+            "attribute_name": "Rear view camera",
+            "category": "Driving Systems",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "rear_windows_power",
+            "attribute_name": "Rear power windows",
+            "category": "Windows",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "safe_distance_warning",
+            "attribute_name": "Safe-distance warning",
+            "category": "ADAS",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "seat_belt_reminder",
+            "attribute_name": "Seat-belt reminder",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "side_mirrors_electric_adjustment",
+            "attribute_name": "Electric side mirror adjustment",
+            "category": "Mirrors",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "side_mirrors_heated",
+            "attribute_name": "Heated side mirrors",
+            "category": "Mirrors",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "speed_limiter",
+            "attribute_name": "Speed limiter",
+            "category": "Driving Systems",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "steering_wheel_height_adjustment",
+            "attribute_name": "Steering wheel height adjustment",
+            "category": "Steering",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "steering_wheel_reach_adjustment",
+            "attribute_name": "Steering wheel reach adjustment",
+            "category": "Steering",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "third_brake_light",
+            "attribute_name": "Third brake light",
+            "category": "Lighting",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "touchscreen",
+            "attribute_name": "Touchscreen",
+            "category": "Infotainment",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "traffic_sign_recognition",
+            "attribute_name": "Traffic sign recognition",
+            "category": "ADAS",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "tyre_pressure_monitoring_system",
+            "attribute_name": "Tyre pressure monitoring system",
+            "category": "Safety",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "tyre_repair_kit",
+            "attribute_name": "Tyre repair kit",
+            "category": "Wheels",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          },
+          {
+            "attribute_code": "wireless_smartphone_replication",
+            "attribute_name": "Wireless smartphone replication",
+            "category": "Infotainment",
+            "comparison": "equal",
+            "left": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "right": {
+              "availability_status": "standard",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          }
+        ],
+        "left_configuration": {
+          "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+          "powertrain_label": "Eco-G 120",
+          "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+          "transmission_type": "automatic",
+          "version_code": "sandero_stepway_iii_expression"
+        },
+        "pair_code": "sandero_stepway_iii_expression_ecog120_automatic__vs__sandero_stepway_iii_extreme_ecog120_automatic",
+        "pair_type": "different_version_same_transmission",
+        "prices": [
+          {
+            "amount_delta_right_minus_left": "6100",
+            "comparison": "different",
+            "currency_code": "PLN",
+            "left": {
+              "amount": "83300",
+              "price_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded"
+            },
+            "market": "PL",
+            "price_type": "catalog_gross",
+            "right": {
+              "amount": "89400",
+              "price_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded"
+            }
+          }
+        ],
+        "right_configuration": {
+          "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+          "powertrain_label": "Eco-G 120",
+          "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+          "transmission_type": "automatic",
+          "version_code": "sandero_stepway_iii_extreme"
+        },
+        "summary": {
+          "equipment": {
+            "comparisons": 69,
+            "different": 1,
+            "equal": 55,
+            "not_comparable": 13
+          },
+          "prices": {
+            "comparisons": 1,
+            "different": 1,
+            "equal": 0,
+            "not_comparable": 0
+          },
+          "technical": {
+            "comparisons": 45,
+            "different": 7,
+            "equal": 37,
+            "not_comparable": 1
+          }
+        },
+        "technical": [
+          {
+            "attribute_code": "acceleration_0_100",
+            "attribute_name": "0-100 km/h acceleration",
+            "category": "Performance",
+            "comparison": "equal",
+            "fuel_type_code": "lpg",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "10",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "10.0"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "10",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "10.0"
+            },
+            "unit": "s"
+          },
+          {
+            "attribute_code": "acceleration_0_100",
+            "attribute_name": "0-100 km/h acceleration",
+            "category": "Performance",
+            "comparison": "equal",
+            "fuel_type_code": "petrol",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "11",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "11.0"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "11",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "11.0"
+            },
+            "unit": "s"
+          },
+          {
+            "attribute_code": "boot_capacity",
+            "attribute_name": "Boot capacity",
+            "category": "Capacities",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 410,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "L",
+              "value": "410"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 410,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "L",
+              "value": "410"
+            },
+            "unit": "L"
+          },
+          {
+            "attribute_code": "braked_trailer_weight",
+            "attribute_name": "Maximum braked trailer weight",
+            "category": "Towing",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 1100,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "1100"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 1100,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "1100"
+            },
+            "unit": "kg"
+          },
+          {
+            "attribute_code": "cargo_volume_vda",
+            "attribute_name": "Cargo volume (VDA)",
+            "category": "Capacities",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 372,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "L",
+              "value": "372"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 372,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "L",
+              "value": "372"
+            },
+            "unit": "L"
+          },
+          {
+            "attribute_code": "co2_emissions",
+            "attribute_name": "CO2 emissions",
+            "category": "Emissions",
+            "comparison": "equal",
+            "fuel_type_code": "lpg",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "116",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "g/km",
+              "value": "116"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "116",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "g/km",
+              "value": "116"
+            },
+            "unit": "g/km"
+          },
+          {
+            "attribute_code": "co2_emissions",
+            "attribute_name": "CO2 emissions",
+            "category": "Emissions",
+            "comparison": "different",
+            "fuel_type_code": "petrol",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "130",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "g/km",
+              "value": "130"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "131",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "g/km",
+              "value": "131"
+            },
+            "unit": "g/km"
+          },
+          {
+            "attribute_code": "cylinder_count",
+            "attribute_name": "Cylinder count",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 3,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "3"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 3,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "3"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "drive_type",
+            "attribute_name": "Drive type",
+            "category": "Drivetrain",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "enum",
+              "normalized_value": "fwd",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "fwd"
+            },
+            "right": {
+              "data_type": "enum",
+              "normalized_value": "fwd",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "fwd"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "emission_standard",
+            "attribute_name": "Emission standard",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "enum",
+              "normalized_value": "euro_6e_bis",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "euro_6e_bis"
+            },
+            "right": {
+              "data_type": "enum",
+              "normalized_value": "euro_6e_bis",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "euro_6e_bis"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "engine_displacement",
+            "attribute_name": "Displacement",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 1199,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "cm3",
+              "value": "1199"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 1199,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "cm3",
+              "value": "1199"
+            },
+            "unit": "cm3"
+          },
+          {
+            "attribute_code": "engine_power",
+            "attribute_name": "Power",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "lpg",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 90,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kW",
+              "value": "90"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 90,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kW",
+              "value": "90"
+            },
+            "unit": "kW"
+          },
+          {
+            "attribute_code": "engine_power",
+            "attribute_name": "Power",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "petrol",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 84,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kW",
+              "value": "84"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 84,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kW",
+              "value": "84"
+            },
+            "unit": "kW"
+          },
+          {
+            "attribute_code": "engine_torque",
+            "attribute_name": "Torque",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "lpg",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 197,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "Nm",
+              "value": "197"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 197,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "Nm",
+              "value": "197"
+            },
+            "unit": "Nm"
+          },
+          {
+            "attribute_code": "engine_torque",
+            "attribute_name": "Torque",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "petrol",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 190,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "Nm",
+              "value": "190"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 190,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "Nm",
+              "value": "190"
+            },
+            "unit": "Nm"
+          },
+          {
+            "attribute_code": "exterior_color",
+            "attribute_name": "Exterior colour",
+            "category": "Exterior",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "biel alpejska",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "biel alpejska"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "biel alpejska",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "biel alpejska"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "front_overhang",
+            "attribute_name": "Front overhang",
+            "category": "Dimensions",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 833,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "833"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 833,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "833"
+            },
+            "unit": "mm"
+          },
+          {
+            "attribute_code": "fuel_consumption_combined",
+            "attribute_name": "Combined fuel consumption",
+            "category": "Consumption",
+            "comparison": "different",
+            "fuel_type_code": "lpg",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "7.1",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "l/100 km",
+              "value": "7.1"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "7.2",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "l/100 km",
+              "value": "7.2"
+            },
+            "unit": "l/100 km"
+          },
+          {
+            "attribute_code": "fuel_consumption_combined",
+            "attribute_name": "Combined fuel consumption",
+            "category": "Consumption",
+            "comparison": "equal",
+            "fuel_type_code": "petrol",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "5.7",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "l/100 km",
+              "value": "5.7"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "5.7",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "l/100 km",
+              "value": "5.7"
+            },
+            "unit": "l/100 km"
+          },
+          {
+            "attribute_code": "fuel_tank_capacity",
+            "attribute_name": "Fuel tank capacity",
+            "category": "Capacities",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "50",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "L",
+              "value": "50"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "50",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "L",
+              "value": "50"
+            },
+            "unit": "L"
+          },
+          {
+            "attribute_code": "gear_count",
+            "attribute_name": "Number of gears",
+            "category": "Transmission",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 6,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "6"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 6,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "6"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "gross_train_weight",
+            "attribute_name": "Gross train weight",
+            "category": "Weights",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 2785,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "2785"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 2785,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "2785"
+            },
+            "unit": "kg"
+          },
+          {
+            "attribute_code": "gross_vehicle_weight",
+            "attribute_name": "Gross vehicle weight",
+            "category": "Weights",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 1685,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "1685"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 1685,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "1685"
+            },
+            "unit": "kg"
+          },
+          {
+            "attribute_code": "kerb_weight",
+            "attribute_name": "Kerb weight",
+            "category": "Weights",
+            "comparison": "different",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 1305,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "1305"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 1308,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "1308"
+            },
+            "unit": "kg"
+          },
+          {
+            "attribute_code": "maximum_payload",
+            "attribute_name": "Maximum payload",
+            "category": "Weights",
+            "comparison": "different",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 380,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "380"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 377,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "377"
+            },
+            "unit": "kg"
+          },
+          {
+            "attribute_code": "noise_level_at_50_kmh",
+            "attribute_name": "Noise level at 50 km/h",
+            "category": "Acoustics",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "67",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "dB",
+              "value": "67"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "67",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "dB",
+              "value": "67"
+            },
+            "unit": "dB"
+          },
+          {
+            "attribute_code": "number_of_doors",
+            "attribute_name": "Number of doors",
+            "category": "Doors",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 5,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "5"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 5,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "5"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "number_of_seats",
+            "attribute_name": "Number of seats",
+            "category": "Seats",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 5,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "5"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 5,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "5"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "overall_length",
+            "attribute_name": "Overall length",
+            "category": "Dimensions",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 4102,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "4102"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 4102,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "4102"
+            },
+            "unit": "mm"
+          },
+          {
+            "attribute_code": "overall_width",
+            "attribute_name": "Overall width",
+            "category": "Dimensions",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 1784,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "1784"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 1784,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "1784"
+            },
+            "unit": "mm"
+          },
+          {
+            "attribute_code": "rear_overhang",
+            "attribute_name": "Rear overhang",
+            "category": "Dimensions",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 665,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "665"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 665,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "665"
+            },
+            "unit": "mm"
+          },
+          {
+            "attribute_code": "spare_wheel_type",
+            "attribute_name": "Spare wheel type",
+            "category": "Wheels",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "tyre repair kit",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "tyre repair kit"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "tyre repair kit",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "tyre repair kit"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "standard_tyre_specification",
+            "attribute_name": "Standard tyre specification",
+            "category": "Wheels",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "205/60 R16 92H",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "205/60 R16 92H"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "205/60 R16 92H",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "205/60 R16 92H"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "standing_km",
+            "attribute_name": "Standing kilometre",
+            "category": "Performance",
+            "comparison": "equal",
+            "fuel_type_code": "lpg",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "32.1",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "32.1"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "32.1",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "32.1"
+            },
+            "unit": "s"
+          },
+          {
+            "attribute_code": "standing_km",
+            "attribute_name": "Standing kilometre",
+            "category": "Performance",
+            "comparison": "equal",
+            "fuel_type_code": "petrol",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "33.1",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "33.1"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "33.1",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "s",
+              "value": "33.1"
+            },
+            "unit": "s"
+          },
+          {
+            "attribute_code": "top_speed",
+            "attribute_name": "Top speed",
+            "category": "Performance",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 180,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "km/h",
+              "value": "180"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 180,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "km/h",
+              "value": "180"
+            },
+            "unit": "km/h"
+          },
+          {
+            "attribute_code": "total_valve_count",
+            "attribute_name": "Total valve count",
+            "category": "Engine",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 12,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "12"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 12,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "12"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "turning_circle",
+            "attribute_name": "Turning circle",
+            "category": "Performance",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "decimal",
+              "normalized_value": "10.64",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "m",
+              "value": "10.64"
+            },
+            "right": {
+              "data_type": "decimal",
+              "normalized_value": "10.64",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "m",
+              "value": "10.64"
+            },
+            "unit": "m"
+          },
+          {
+            "attribute_code": "unbraked_trailer_weight",
+            "attribute_name": "Maximum unbraked trailer weight",
+            "category": "Towing",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 645,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "645"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 645,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "kg",
+              "value": "645"
+            },
+            "unit": "kg"
+          },
+          {
+            "attribute_code": "upholstery_variant",
+            "attribute_name": "Upholstery variant",
+            "category": "Seats",
+            "comparison": "different",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "materiałowa stepway",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "materiałowa stepway"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "microclud extreme",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "microclud extreme"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "wheel_design",
+            "attribute_name": "Wheel design",
+            "category": "Wheels",
+            "comparison": "different",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "ATARA",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "ATARA"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "TAMIA",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "TAMIA"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "wheel_finish",
+            "attribute_name": "Wheel finish",
+            "category": "Wheels",
+            "comparison": "not_comparable",
+            "fuel_type_code": "",
+            "left": {
+              "reason_code": "not_stated_on_relevant_pages",
+              "reviewed_pages": [
+                2
+              ],
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "not_stated"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "black",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "black"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "wheel_material",
+            "attribute_name": "Wheel material",
+            "category": "Wheels",
+            "comparison": "different",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "steel",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "steel"
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "alloy",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "alloy"
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "wheel_size",
+            "attribute_name": "Wheel size",
+            "category": "Wheels",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "string",
+              "normalized_value": "16\"",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "16\""
+            },
+            "right": {
+              "data_type": "string",
+              "normalized_value": "16\"",
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "",
+              "value": "16\""
+            },
+            "unit": ""
+          },
+          {
+            "attribute_code": "wheelbase",
+            "attribute_name": "Wheelbase",
+            "category": "Dimensions",
+            "comparison": "equal",
+            "fuel_type_code": "",
+            "left": {
+              "data_type": "integer",
+              "normalized_value": 2604,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_expression_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "2604"
+            },
+            "right": {
+              "data_type": "integer",
+              "normalized_value": 2604,
+              "observation_date": "2026-06-26",
+              "source_code": "src_pl_sandero_stepway_extreme_ecog120_at_20260626",
+              "state": "recorded",
+              "unit": "mm",
+              "value": "2604"
+            },
+            "unit": "mm"
+          }
+        ]
+      }
+    ],
+    "scope": {
+      "active_configurations": 2,
+      "configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "configuration_scope": "explicit_subset",
+      "configuration_status": "active",
+      "equipment_attributes": 69,
+      "excluded_configuration_codes": [
+        "duster_iii_essential_ecog100_4x2_manual",
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog100_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_expression_hybrid140_4x2_automatic",
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_expression_mildhybrid130_4x2_manual",
+        "duster_iii_expression_mildhybrid130_4x4_manual",
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_ecog100_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_extreme_hybrid140_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_extreme_mildhybrid130_4x2_manual",
+        "duster_iii_extreme_mildhybrid130_4x4_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_ecog100_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual",
+        "duster_iii_journey_hybrid140_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic",
+        "duster_iii_journey_mildhybrid130_4x2_manual",
+        "duster_iii_journey_mildhybrid130_4x4_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual",
+        "duster_iii_journey_plus_hybrid140_4x2_automatic",
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual",
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_expression_7seat_tce110_manual",
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_tce110_manual",
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_journey_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_tce110_manual",
+        "sandero_iii_expression_ecog120_manual",
+        "sandero_iii_journey_ecog120_manual",
+        "sandero_stepway_iii_essential_ecog120_manual",
+        "sandero_stepway_iii_expression_ecog120_manual",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ],
+      "excluded_configurations": 51,
+      "pair_count": 1,
+      "pair_type_filter": null,
+      "price_dimensions": 1,
+      "reporting_configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "reporting_configurations": 2,
+      "repository_status_configurations": 53,
+      "selected_configuration_codes": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_automatic"
+      ],
+      "selected_configurations": 2,
+      "technical_slots": 45,
+      "unfiltered_pair_count": 1
+    },
+    "summary": {
+      "equipment": {
+        "comparisons": 69,
+        "different": 1,
+        "equal": 55,
+        "not_comparable": 13
+      },
+      "prices": {
+        "comparisons": 1,
+        "different": 1,
+        "equal": 0,
+        "not_comparable": 0
+      },
+      "technical": {
+        "comparisons": 45,
+        "different": 7,
+        "equal": 37,
+        "not_comparable": 1
+      },
+      "total_differences": 9
+    },
+    "version": 1
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-23",
+  "market": "PL",
+  "capture_method": "official_dacia_configurator_current_exact_state_read_via_connected_browser",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false,
+    "duplicate_exact_states_enriched_without_recounting": true
+  },
+  "observations": [
+    {
+      "configuration_code": "duster_iii_expression_ecog120_automatic",
+      "model": "duster",
+      "grade": "expression",
+      "powertrain": "Eco-G 120",
+      "transmission": "automatic",
+      "drive_type": "4x2",
+      "new_exact_surface": true,
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "brązowy terracotta", "price_pln": null},
+        {"name": "khaki lichen", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "sandstone", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 96900,
+      "wheel_observation": "17\" felgi aluminiowe, TERGAN 215",
+      "upholstery_observation": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical_observations": {
+        "power": "90 przy 4500-5000(LPG)/84 przy 4500-5750(benzyna)",
+        "co2_wltp_mixed_g_km": 140,
+        "fuel_consumption_wltp_mixed_l_100km": 6.2,
+        "co2_wltp_mixed_lpg_g_km": 123,
+        "fuel_consumption_wltp_mixed_lpg_l_100km": 7.6,
+        "gearbox": "automatyczna"
+      },
+      "visible_optional_equipment": [
+        "nowy system multimedialny Media Nav Live 10\" (Nawigacja on-line, system 3D by Arkamys, 6 głośników) — 2400 PLN"
+      ],
+      "visible_equipment_sections": [
+        "MULTIMEDIA",
+        "OGRZEWANIE I WENTYLACJA",
+        "TRANSPORT I OCHRONA",
+        "PERSONALIZACJA WNĘTRZA",
+        "AKCESORIA ZEWNĘTRZNE"
+      ],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEal%2FAi1i9g%23this",
+      "source_state_note": "Exact current official Polish Dacia configurator state read from connected Opera. The current official Duster price-list matrix confirms Expression Eco-G 120 auto at 96,900 PLN."
+    },
+    {
+      "configuration_code": "sandero_iii_journey_tce100_manual",
+      "model": "sandero",
+      "grade": "journey",
+      "powertrain": "TCe 100",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "new_exact_surface": false,
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "niebieski iron", "price_pln": null},
+        {"name": "sandstone", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "szary urban", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null},
+        {"name": "żółty amber", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 73600,
+      "wheel_observation": "16\" felgi aluminiowe TAMIA",
+      "upholstery_observation": "tapicerka materiałowa w kolorze denim i czarnymi wstawkami",
+      "visible_optional_equipment": [
+        "pakiet EASY — 1400 PLN",
+        "pakiet MEDIA NAV LIVE — 1600 PLN",
+        "pakiet ZIMOWY — 1200 PLN",
+        "pełnowymiarowe koło zapasowe 15\" — 700 PLN"
+      ],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ20AhhAjJXJZJb%2FAj2A",
+      "source_state_note": "Exact state already captured in CAT-GAP-002 Batch 009; this tab was re-read only to enrich missing configurator-only observations and is not counted again as a new exact surface. Current official price list confirms Sandero Journey TCe 100 at 73,600 PLN."
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_manual",
+      "model": "bigster",
+      "grade": "extreme",
+      "powertrain": "mild hybrid-G 140",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "new_exact_surface": true,
+      "visible_colour_count": 5,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "brązowy terracotta", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 118900,
+      "wheel_observation": "not exposed in the captured accessibility result",
+      "upholstery_observation": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "visible_optional_equipment": [
+        "nowy system multimedialny Media Nav Live 10\" (Nawigacja on-line, system 3D by Arkamys, 6 głośników)",
+        "Pakiet PARKING — 2200 PLN",
+        "nadwozie dwukolorowe — 1400 PLN"
+      ],
+      "visible_equipment_sections": [
+        "KOMFORT I WNĘTRZE",
+        "MULTIMEDIA",
+        "PERSONALIZACJA WNĘTRZA",
+        "TRANSPORT I OCHRONA",
+        "AKCESORIA ZEWNĘTRZNE"
+      ],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEau%2FAhu",
+      "source_state_note": "Exact current official Polish Dacia configurator state read from connected Opera. Official Dacia Bigster version page confirms Extreme mild hybrid-G 140 at 118,900 PLN."
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_manual",
+      "model": "bigster",
+      "grade": "journey",
+      "powertrain": "mild hybrid-G 140",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "new_exact_surface": true,
+      "visible_colour_count": 5,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "brązowy terracotta", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 118500,
+      "wheel_observation": "not exposed in the captured accessibility result",
+      "upholstery_observation": "tapicerka materiałowa journey łączona z MicroCloud",
+      "visible_optional_equipment": [
+        "nowy system multimedialny Media Nav Live 10\" (Nawigacja on-line, system 3D by Arkamys, 6 głośników)",
+        "Pakiet PARKING — 2200 PLN",
+        "nadwozie dwukolorowe — 1400 PLN",
+        "dach panoramiczny otwierany elektrycznie — 4300 PLN"
+      ],
+      "visible_equipment_sections": [
+        "KOMFORT I WNĘTRZE",
+        "MULTIMEDIA",
+        "PERSONALIZACJA WNĘTRZA",
+        "TRANSPORT I OCHRONA",
+        "AKCESORIA ZEWNĘTRZNE"
+      ],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/hybrydy-i-elektryczne/bigster-suv/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEau%2FAhv",
+      "source_state_note": "Exact current official Polish Dacia configurator state read from connected Opera. Official Dacia Bigster version page confirms Journey mild hybrid-G 140 at 118,500 PLN."
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "model": "jogger",
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "seat_count": 7,
+      "new_exact_surface": false,
+      "visible_colour_count": 3,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 82400,
+      "wheel_observation": "16\" felgi stalowe",
+      "upholstery_observation": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "visible_optional_equipment": [],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/samochody/jogger-ri1-ph2-7seats/konfigurator.html",
+      "source_state_note": "Exact state already captured in CAT-GAP-002 Batch 014; re-read for missing-data enrichment only. Current official Jogger price list confirms Essential Eco-G 120 7-seat at 82,400 PLN."
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "model": "jogger",
+      "grade": "expression",
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "seat_count": 5,
+      "new_exact_surface": false,
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "brązowy terracotta", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "sandstone", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "szary urban", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 84050,
+      "wheel_observation": "16\" felgi stalowe",
+      "upholstery_observation": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "visible_optional_equipment": [
+        "pakiet KOMFORT — 2500 PLN",
+        "przednie fotele podgrzewane — 700 PLN",
+        "system multimedialny Nowy Media Nav 10\" (nawigacja, radio DAB, 6 głośników, Bluetooth, replikacja) — 1600 PLN"
+      ],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/samochody/jogger-hybrydowy/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ30AhhAhAv%2FAksyaA%23this",
+      "source_state_note": "Exact state already captured in CAT-GAP-002 Batch 013; re-read for missing-data enrichment only. Current official Jogger price list confirms Expression TCe 110 5-seat at 84,050 PLN."
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "model": "jogger",
+      "grade": "expression",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "seat_count": 5,
+      "new_exact_surface": false,
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "brązowy terracotta", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "sandstone", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "szary urban", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 82050,
+      "wheel_observation": "16\" felgi stalowe",
+      "upholstery_observation": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "visible_optional_equipment": [
+        "pakiet KOMFORT — 2500 PLN",
+        "przednie fotele podgrzewane — 700 PLN",
+        "system multimedialny Nowy Media Nav 10\" (nawigacja, radio DAB, 6 głośników, Bluetooth, replikacja) — 1600 PLN"
+      ],
+      "standard_equipment_dialog_visible": true,
+      "technical_specification_dialog_visible": true,
+      "exact_state_url": "https://www.dacia.pl/samochody/jogger-hybrydowy/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZ30AhhAhAv%2FAksg",
+      "source_state_note": "Exact state already captured in CAT-GAP-002 Batch 013; re-read for missing-data enrichment only. Current official Jogger price list confirms Expression Eco-G 120 5-seat at 82,050 PLN."
+    }
+  ],
+  "notes": [
+    "Seven open configurator tabs were re-read in one pass after Browser Connector reconnection.",
+    "Only three tabs contain previously unresolved exact configuration surfaces: Duster Expression Eco-G 120 automatic, Bigster Extreme mild hybrid-G 140, and Bigster Journey mild hybrid-G 140.",
+    "Four tabs duplicate already captured exact CAT-GAP-002 surfaces and are recorded here only for configurator-only enrichment; they must not increase the canonical unique exact-surface count.",
+    "Configurator-only technical values were recorded where exposed; labels without exposed values were not inferred.",
+    "Per-colour surcharges were not exposed in the captured accessibility tree and remain null. No projection from another configuration was made.",
+    "The official price-list / official Dacia version-page evidence remains authoritative for version enumeration and catalogue prices; configurator evidence is used only for exact-state missing data."
+  ]
+}

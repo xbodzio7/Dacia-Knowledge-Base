@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_equipment_page19_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_048",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "page": 19
+  },
+  "scope": {
+    "candidate_count": 30,
+    "group_candidate_count": 70,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 10,
+    "decision_counts": {
+      "context_only_non_import": 22,
+      "unresolved_signature_mismatch": 8
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk2.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme"
+    ],
+    "reviewed_sections": [
+      "steering-column continuation",
+      "remaining comfort equipment",
+      "multimedia systems",
+      "availability legend"
+    ],
+    "steering_column_row_completed_from_chunk1": true,
+    "multimedia_system_rows_kept_separate": true,
+    "availability_legend_non_import": true,
+    "literal_markers_preserved": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_visual_rows": true,
+    "cross_chunk_row_completed_only_from_assigned_candidates": true,
+    "legend_not_promoted_to_equipment": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Bigster Equipment Page 22 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_049",
+    "candidate_count": 40,
+    "group_candidate_count": 69,
+    "chunk_index": 1,
+    "chunk_count": 2
+  }
+}

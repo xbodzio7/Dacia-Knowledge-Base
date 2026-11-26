@@ -1,0 +1,128 @@
+{
+  "package_id": "new_spring_current_shop_retry_cycle_summary_001",
+  "package_name": "New Spring Current Shop Retry Cycle Summary 001",
+  "summarized_on": "2026-08-07",
+  "base_commit": "4fe8fb721fba1e51e55297f56aafe395ddfb2683",
+  "source_queue": "data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv",
+  "source_packages": [
+    {
+      "package_id": "new_spring_current_shop_retry_001",
+      "report": "data/reporting/official_new_spring_accessory_current_shop_retry_001_20260807.json",
+      "retry_positions": {
+        "from": 1,
+        "to": 10
+      },
+      "confirmed_polish_dacia_shop_cards": 0,
+      "cards_not_resolved": 10
+    },
+    {
+      "package_id": "new_spring_current_shop_retry_002",
+      "report": "data/reporting/official_new_spring_accessory_current_shop_retry_002_20260807.json",
+      "retry_positions": {
+        "from": 11,
+        "to": 20
+      },
+      "confirmed_polish_dacia_shop_cards": 0,
+      "cards_not_resolved": 10
+    },
+    {
+      "package_id": "new_spring_current_shop_retry_003",
+      "report": "data/reporting/official_new_spring_accessory_current_shop_retry_003_20260807.json",
+      "retry_positions": {
+        "from": 21,
+        "to": 30
+      },
+      "confirmed_polish_dacia_shop_cards": 2,
+      "cards_not_resolved": 8
+    }
+  ],
+  "scope": {
+    "retry_cycle": 1,
+    "retry_positions_reviewed": 30,
+    "identity_rule": "exact_part_number",
+    "accepted_confirmation_source": "official_polish_dacia_shop_card",
+    "master_data_mutation": false
+  },
+  "retry_cycle_result": {
+    "confirmed_polish_dacia_shop_cards": 2,
+    "cards_not_resolved": 28,
+    "confirmed_cards_without_captured_catalogue_price": 2,
+    "current_shop_catalogue_prices_captured": 0,
+    "price_matches": 0,
+    "price_mismatches": 0,
+    "status_changes": 2
+  },
+  "repository_wide_new_spring_shop_coverage": {
+    "price_list_references": 56,
+    "confirmed_polish_dacia_shop_cards": 28,
+    "exact_current_price_matches": 12,
+    "confirmed_cards_without_captured_catalogue_price": 16,
+    "cards_not_resolved": 28,
+    "price_mismatches": 0
+  },
+  "confirmed_during_retry_cycle": [
+    {
+      "source_retry_position": 23,
+      "price_list_ordinal": 40,
+      "part_number": "7711949659",
+      "price_list_name": "Pokrowiec na samochód (rozmiar XS)",
+      "shop_name": "Pokrowiec na samochód (rozmiar XS)",
+      "status": "confirmed_card_price_not_captured",
+      "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7711949659",
+      "label_exact_match": true,
+      "declared_compatibility": [
+        "NOWY SPRING"
+      ],
+      "availability_status": "listed_add_to_cart",
+      "shop_catalogue_price_gross_pln": null
+    },
+    {
+      "source_retry_position": 24,
+      "price_list_ordinal": 44,
+      "part_number": "8201742284",
+      "price_list_name": "Dwustronna mata bagażnika do bagażnika Spring(2)",
+      "shop_name": "Dwustronna mata bagażnika Dacia Spring",
+      "status": "confirmed_card_price_not_captured",
+      "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201742284",
+      "label_exact_match": false,
+      "declared_compatibility": [
+        "SPRING",
+        "NOWY SPRING"
+      ],
+      "availability_status": "listed_add_to_cart",
+      "shop_catalogue_price_gross_pln": null
+    }
+  ],
+  "remaining_unresolved_queue": {
+    "path": "data/reporting/official_new_spring_accessory_current_shop_unresolved_queue_20260807.csv",
+    "record_count": 28,
+    "status": "dacia_pl_card_not_resolved",
+    "derivation": "Original 30-item retry queue minus the two exact part numbers confirmed by retry cycle 1.",
+    "excluded_confirmed_part_numbers": [
+      "7711949659",
+      "8201742284"
+    ],
+    "follow_up_policy": "retain_until_new_direct_evidence_or_future_bounded_retry"
+  },
+  "status_semantics": {
+    "confirmed_card_price_not_captured": "An official Polish Dacia Shop card was confirmed by exact part number, but the bounded retrieval did not expose a catalogue price. This is not a mismatch.",
+    "dacia_pl_card_not_resolved": "No official Polish Dacia Shop card was resolved in the bounded retry. This does not establish withdrawal, incompatibility or unavailability."
+  },
+  "semantic_guards": [
+    "Exact part number remains the primary identity.",
+    "An unresolved Polish shop card is not evidence of withdrawal, incompatibility or unavailability.",
+    "Foreign-market official Dacia records are not transferred to Polish New Spring evidence.",
+    "Renault Shop records are not substituted for Polish Dacia Shop records.",
+    "Third-party records are not substituted for official Polish Dacia Shop records.",
+    "A missing current shop price is not a mismatch.",
+    "No master-data mutation is permitted in this reporting package.",
+    "The remaining unresolved queue must not be retried again on the same evidence boundary without a future bounded retry or new direct evidence."
+  ],
+  "validation": {
+    "source_queue_records": 30,
+    "confirmed_removed_from_remaining_queue": 2,
+    "remaining_unresolved_records": 28,
+    "remaining_queue_unique_part_numbers": 28,
+    "remaining_queue_unique_source_retry_positions": 28
+  }
+}

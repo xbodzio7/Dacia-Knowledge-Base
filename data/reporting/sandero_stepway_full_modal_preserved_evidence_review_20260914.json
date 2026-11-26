@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "package_id": "sandero_stepway_full_modal_preserved_evidence_review_001",
+  "reviewed_on": "2026-09-14",
+  "source_capture": "project/sources/dacia-pl-sandero-stepway-full-technical-standard-equipment-20260809.json",
+  "source_boundary": "data/reporting/sandero_stepway_full_modal_evidence_boundary_20260912.json",
+  "scope": {
+    "captured_rows": 1708,
+    "current_residual_rows": 940,
+    "preserved_evidence_rows": 348
+  },
+  "reviewed_classes": {
+    "negative_or_base_equipment": 59,
+    "unmapped_equipment": 96,
+    "schema_gap_equipment": 9,
+    "contextual_technical": 124,
+    "model_qualified_technical": 60
+  },
+  "decision": {
+    "new_master_rows": 0,
+    "new_import_specs": 0,
+    "new_attributes": 0,
+    "automatic_promotion": false,
+    "status": "closed_as_evidence_boundary"
+  },
+  "findings": [
+    {
+      "class": "negative_or_base_equipment",
+      "count": 59,
+      "decision": "preserve",
+      "reason": "The source wording explicitly describes absence or a base-state condition. It is not converted into positive availability by inference."
+    },
+    {
+      "class": "unmapped_equipment",
+      "count": 96,
+      "decision": "preserve",
+      "reason": "No unique exact canonical availability target is established by the current repository evidence. The source literal remains evidence rather than being mapped by semantic guesswork."
+    },
+    {
+      "class": "schema_gap_equipment",
+      "count": 9,
+      "decision": "preserve",
+      "reason": "The literal 'kluczyk z 3 przyciskami' has no dedicated current canonical attribute. It is not mapped to unrelated key_count."
+    },
+    {
+      "class": "contextual_technical",
+      "count": 124,
+      "decision": "preserve",
+      "reason": "These observations are contextual/shared technical strings and are not promoted as configuration-specific scalar values without an exact canonical representation."
+    },
+    {
+      "class": "model_qualified_technical",
+      "count": 60,
+      "decision": "preserve",
+      "reason": "The values explicitly qualify Sandero/Stepway or otherwise contain multiple model states, so projecting them into one configuration would exceed the source evidence."
+    }
+  ],
+  "safety": {
+    "no_cross_configuration_projection": true,
+    "no_inference": true,
+    "no_duplicate_slots": true,
+    "no_schema_extension": true,
+    "pr_634_untouched": true,
+    "pr_639_closed": true,
+    "historical_pr_637_not_reused": true
+  },
+  "result": "The preserved full-modal evidence boundary is confirmed against the current repository contract. No genuinely missing canonical master-data rows are justified by this evidence class, so the package is zero-data-delta."
+}

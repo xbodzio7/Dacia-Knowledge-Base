@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "package_id": "post_spring_charging_cable_priority_selection_review_001",
+  "scope": {
+    "master_data_mutation_authorized": false,
+    "candidate_count": 4,
+    "source_reports": [
+      "data/reporting/spring_standard_equipment_representation_review.json",
+      "data/reporting/spring_exact_current_semantic_migration_review.json",
+      "data/reporting/spring_charging_cable_commercial_semantics_migration.json"
+    ]
+  },
+  "completed_dependency": {
+    "package_id": "spring_charging_cable_commercial_semantics_migration_001",
+    "status": "complete",
+    "domestic_socket_mapping_count": 2
+  },
+  "selected_evidence": {
+    "configuration_code": "spring_essential_electric70_automatic",
+    "attribute_code": "exterior_color",
+    "value": "biel alpejska",
+    "observation_date": "2026-08-02",
+    "source_code": "src_pl_spring_commercial_context_20260802",
+    "current_direct_value_count": 0,
+    "commercial_mapping": {
+      "code": "spring_colour_biel_alpejska__spring_essential_electric70_automatic",
+      "current_availability_status": "optional",
+      "current_amount": null,
+      "target_availability_status": "standard",
+      "target_amount_pln": 0
+    },
+    "representation_classification": "existing_pattern_available",
+    "semantic_current_state": "commercial_option_with_unknown_price",
+    "semantic_target_state": "standard_paint_at_zero_surcharge"
+  },
+  "candidates": [
+    {
+      "package_id": "spring_biel_alpejska_default_colour_migration_001",
+      "classification": "selected",
+      "readiness": "approved_evidence_and_existing_schema_pattern",
+      "master_data_delta": {
+        "configuration_attribute_values": 1,
+        "commercial_item_configurations": 0,
+        "commercial_mapping_updates": 1,
+        "net_master_rows": 1
+      },
+      "reason": "The exact-current default colour, direct exterior_color representation and bounded commercial mapping transition were already accepted; the prior implementation was reverted for an importer-contract defect rather than an evidence defect."
+    },
+    {
+      "package_id": "spring_expression_current_commercial_state_capture_001",
+      "classification": "deferred_missing_exact_option_state",
+      "reason": "Expression prices, complete palette and residual charging-option states remain unresolved in exact-current evidence."
+    },
+    {
+      "package_id": "spring_extreme_paint_palette_capture_001",
+      "classification": "deferred_missing_complete_palette",
+      "reason": "No complete exact-current Extreme paint palette with prices is registered."
+    },
+    {
+      "package_id": "spring_residual_essential_palette_reconciliation_001",
+      "classification": "deferred_non_inference_boundary",
+      "reason": "Absence of four legacy colours from the bounded current capture is not evidence of unavailability."
+    }
+  ],
+  "selection": {
+    "package_id": "spring_biel_alpejska_default_colour_migration_001",
+    "kind": "bounded_configuration_value_and_commercial_mapping_migration",
+    "goal": "Add the exact-current Spring Essential Biel Alpejska direct exterior_color value through the canonical declarative import contract and convert only its existing commercial mapping to standard at zero surcharge.",
+    "required_boundaries": [
+      "Use the current configuration-value import-spec schema and importer.",
+      "Change no Expression or Extreme paint mapping.",
+      "Change no charging-cable record.",
+      "Do not infer unavailability for residual colours.",
+      "Add exactly one master row and update exactly one existing mapping."
+    ]
+  },
+  "mutation_summary": {
+    "master_rows_changed": 0,
+    "configuration_values_added": 0,
+    "commercial_mappings_changed": 0
+  }
+}

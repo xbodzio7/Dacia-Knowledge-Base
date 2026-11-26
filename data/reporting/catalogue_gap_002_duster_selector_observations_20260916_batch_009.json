@@ -1,0 +1,49 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-16",
+  "market": "PL",
+  "capture_method": "live_official_dacia_configurator_interaction",
+  "source_url": "https://www.dacia.pl/samochody/duster/konfigurator.html",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "target_configuration_code": "duster_iii_essential_ecog100_4x2_manual",
+      "target_state_selectable": false,
+      "selector_observation": "The current Essential selector exposes Eco-G 120 manual 6-speed, but the target Eco-G 100 4x2 manual state could not be selected.",
+      "fallback_selected_state": "duster_iii_essential_ecog120_4x2_manual",
+      "fallback_colour_list_recorded": false,
+      "interpretation": "selector_limitation_only"
+    },
+    {
+      "target_configuration_code": "duster_iii_expression_ecog100_4x2_manual",
+      "target_state_selectable": false,
+      "selector_observation": "The current Expression selector exposes Eco-G 120 manual, Eco-G 120 automatic, Mild Hybrid 140, Tribid 150 4x4 and Hybrid 155; Eco-G 100 4x2 manual is not selectable.",
+      "fallback_selected_state": "duster_iii_expression_ecog120_4x2_manual",
+      "fallback_colour_list_recorded": false,
+      "interpretation": "selector_limitation_only"
+    },
+    {
+      "target_configuration_code": "duster_iii_extreme_ecog100_4x2_manual",
+      "target_state_selectable": false,
+      "selector_observation": "Extreme is selectable, but Eco-G 100 is not exposed as an engine option; the available list includes Eco-G 120 manual, Eco-G 120 automatic, Mild Hybrid 140, Tribid 150 4x4 and Hybrid 155.",
+      "fallback_selected_state": "duster_iii_extreme_ecog120_4x2_manual",
+      "fallback_colour_list_recorded": false,
+      "interpretation": "selector_limitation_only"
+    }
+  ],
+  "unresolved_targets": [
+    "duster_iii_journey_ecog100_4x2_manual",
+    "duster_iii_essential_ecog100_4x2_manual",
+    "duster_iii_expression_ecog100_4x2_manual",
+    "duster_iii_extreme_ecog100_4x2_manual"
+  ],
+  "negative_evidence_rule": "These observations do not establish inactivity or colour incompatibility for the target Eco-G 100 configurations. They only record that the exact target selector state could not be reproduced in the current configurator session.",
+  "note": "No colour values from the fallback Eco-G 120 states are promoted to the Eco-G 100 targets. Journey Eco-G 100 was not captured in this batch."
+}

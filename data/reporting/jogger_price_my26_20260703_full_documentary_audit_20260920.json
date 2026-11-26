@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "kind": "jogger_price_my26_20260703_documentary_audit",
+  "reviewed_on": "2026-09-20",
+  "source_code": "src_pl_jogger_price_my26_20260703",
+  "official_pdf": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/51a64d2724.pdf",
+  "pages": 7,
+  "effective_date": "2026-07-03",
+  "scope": "MY26; documentary source; separate 5-seat and 7-seat price/equipment context preserved.",
+  "prices_pln": {
+    "5 seats": {
+      "Eco-G 120": {
+        "essential": 77900,
+        "expression": 82050,
+        "extreme": 89900,
+        "journey": null
+      },
+      "Eco-G 120 auto": {
+        "essential": null,
+        "expression": null,
+        "extreme": 96800,
+        "journey": 98950
+      },
+      "TCe 110": {
+        "essential": null,
+        "expression": 84050,
+        "extreme": 91900,
+        "journey": 94050
+      },
+      "hybrid 155": {
+        "essential": null,
+        "expression": 103550,
+        "extreme": 111400,
+        "journey": 113550
+      }
+    },
+    "7 seats": {
+      "Eco-G 120": {
+        "essential": 82400,
+        "expression": 86550,
+        "extreme": 94400,
+        "journey": null
+      },
+      "Eco-G 120 auto": {
+        "essential": null,
+        "expression": null,
+        "extreme": 101300,
+        "journey": 103450
+      },
+      "TCe 110": {
+        "essential": null,
+        "expression": 88550,
+        "extreme": 96400,
+        "journey": 98550
+      },
+      "hybrid 155": {
+        "essential": null,
+        "expression": 108050,
+        "extreme": 115900,
+        "journey": 118050
+      }
+    }
+  },
+  "grade_highlights": {
+    "essential": [
+      "LED daytime and dipped-beam lights",
+      "roof rails",
+      "16 inch Flexwheel steel wheels",
+      "manual exterior mirrors",
+      "Media Control",
+      "manual air conditioning",
+      "rear parking sensors",
+      "front electric windows",
+      "cruise control and speed limiter"
+    ],
+    "expression": [
+      "modular roof rails",
+      "16 inch alloy wheels or grade-dependent wheel configuration",
+      "electric exterior mirrors",
+      "automatic wipers",
+      "rear electric windows",
+      "rear camera",
+      "central console with armrest/storage",
+      "10 inch Media Display",
+      "Eco-G/engine-dependent equipment differences"
+    ],
+    "extreme": [
+      "blind-spot monitoring",
+      "front parking sensors",
+      "fog lights",
+      "rear camera and Multiview camera as package-dependent",
+      "Keyless Entry",
+      "automatic climate as package-dependent",
+      "heated front seats as option/package",
+      "special Extreme upholstery",
+      "topographic rubber mats",
+      "removable smartphone holder"
+    ],
+    "journey": [
+      "blind-spot monitoring",
+      "front parking sensors",
+      "fog lights",
+      "rear camera",
+      "Multiview camera",
+      "Keyless Entry",
+      "automatic climate",
+      "automatic parking brake",
+      "10 inch Media Nav",
+      "denim upholstery",
+      "16 inch alloy wheels"
+    ]
+  },
+  "matrix_verified": {
+    "exterior_and_wheels": "explicit grade-by-grade matrix audited",
+    "seats_and_interior": "explicit grade-by-grade matrix audited",
+    "active_passive_safety": "explicit grade-by-grade matrix audited",
+    "visibility_and_driving": "explicit grade-by-grade matrix audited",
+    "comfort": "explicit grade-by-grade matrix audited",
+    "multimedia": "explicit grade-by-grade matrix audited",
+    "options_and_packages": "explicit prices, contents and grade applicability audited",
+    "technical_data": "powertrain-specific technical table audited, with 5-seat/7-seat performance and mass distinctions preserved",
+    "footnotes": "option conflicts, spare-wheel applicability and commercial/legal footnotes audited"
+  },
+  "options_and_packages": {
+    "paint": {
+      "non_metallic": "0 / 2700 PLN depending paint category",
+      "metallic": "2700 / 2900 PLN depending paint category"
+    },
+    "media_nav_live": "1600 PLN for Expression and Extreme where offered; standard on Journey",
+    "heated_front_seats": "700 PLN on applicable grade; package-dependent availability also documented",
+    "comfort_hev": "2000 PLN; automatic climate + Keyless Entry",
+    "comfort": "2500 PLN; automatic climate + Keyless Entry + automatic parking brake",
+    "winter": "1200 PLN; heated front seats + heated steering wheel",
+    "drive": "1400 PLN; electric folding/heated mirrors + automatic high-beam function + Multiview camera"
+  },
+  "important_documentary_boundaries": [
+    "Spare wheel is 700 PLN where offered, but explicitly unavailable for Eco-G and hybrid 155.",
+    "Journey and Extreme option/package boundaries must not be inferred from absence; the matrix explicitly marks unavailable entries.",
+    "5-seat and 7-seat prices are separate documentary rows and must not be merged.",
+    "Technical data is powertrain-specific and includes separate 5-seat/7-seat mass and acceleration values.",
+    "Eco-G 120 is petrol + LPG with 6-speed manual; Eco-G 120 auto is petrol + LPG with 6-speed dual-clutch automatic.",
+    "Hybrid 155 uses an automatic multi-mode transmission and a 1.4 kWh, 200 V lithium-ion traction battery.",
+    "Document states Euro 6e BIS; technical consumption/CO2 figures are WLTP and depend on configuration."
+  ],
+  "technical_data": {
+    "Eco-G 120": {
+      "fuel": "petrol + LPG",
+      "transmission": "6-speed manual",
+      "displacement_cm3": 1199,
+      "cylinders_valves": "3 / 12",
+      "max_power": "LPG 90 kW (122 hp); petrol 84 kW (114 hp)",
+      "torque": "LPG 197 Nm; petrol 190 Nm",
+      "fuel_tank": "LPG total/refill 50/40 L; petrol 50 L",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s_5seat": "10.9 LPG / 11.9 petrol",
+      "acceleration_0_100_s_7seat": "11.0 LPG / 12.0 petrol",
+      "combined_consumption_l_100km": "7.3-7.4 LPG / 5.8-5.9 petrol",
+      "co2_g_km": "119-121 LPG / 133-134 petrol"
+    },
+    "Eco-G 120 auto": {
+      "fuel": "petrol + LPG",
+      "transmission": "6-speed dual-clutch automatic",
+      "displacement_cm3": 1199,
+      "cylinders_valves": "3 / 12",
+      "max_power": "LPG 90 kW (122 hp); petrol 84 kW (114 hp)",
+      "torque": "LPG 197 Nm; petrol 190 Nm",
+      "fuel_tank": "LPG total/refill 50/40 L; petrol 50 L",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s_5seat": "10.4 LPG / 11.4 petrol",
+      "acceleration_0_100_s_7seat": "10.7 LPG / 11.7 petrol",
+      "combined_consumption_l_100km": "7.5-7.6 LPG / 6.0-6.1 petrol",
+      "co2_g_km": "121-123 LPG / 137-138 petrol"
+    },
+    "TCe 110": {
+      "fuel": "petrol",
+      "transmission": "6-speed manual",
+      "displacement_cm3": 999,
+      "cylinders_valves": "3 / 12",
+      "max_power": "81 kW (110 hp)",
+      "torque": "200 Nm",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s_5seat": "10.5",
+      "acceleration_0_100_s_7seat": "11.2",
+      "combined_consumption_l_100km": "5.7-5.8",
+      "co2_g_km": "129-131"
+    },
+    "hybrid 155": {
+      "fuel": "hybrid petrol/electric",
+      "transmission": "automatic Multi-mode",
+      "max_power": "116 kW (157 hp)",
+      "traction_battery": "lithium-ion, 200 V / 1.4 kWh",
+      "max_speed_kmh": 180,
+      "acceleration_0_100_s_5seat": "8.9",
+      "acceleration_0_100_s_7seat": "9.0",
+      "combined_consumption_l_100km": "4.5-4.6",
+      "co2_g_km": "103-104"
+    }
+  },
+  "luggage_capacity_vda": {
+    "to_cargo_cover_5_seat_dm3": 708,
+    "to_cargo_cover_7_seat_dm3": 160,
+    "to_backrest_5_seat_dm3": 607,
+    "to_backrest_7_seat_dm3": 506
+  },
+  "master_mapping_status": "documentary audit complete; master-schema reconciliation remains open",
+  "source_citation_basis": "Official Dacia Poland price list, effective 03.07.2026; current offer state 03.07.2026."
+}

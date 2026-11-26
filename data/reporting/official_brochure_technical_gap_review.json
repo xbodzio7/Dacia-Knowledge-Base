@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "kind": "official_brochure_technical_gap_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "scope": {
+    "sources": 5,
+    "technical_table_pages": [
+      {"source_code": "src_pl_bigster_brochure_20251210", "pages": [20, 24]},
+      {"source_code": "src_pl_jogger_brochure_20251217", "pages": [19, 22]},
+      {"source_code": "src_pl_sandero_brochure_20260202", "pages": [17, 20]},
+      {"source_code": "src_pl_sandero_stepway_brochure_20260202", "pages": [17, 20]},
+      {"source_code": "src_pl_duster_mini_brochure_20251020", "pages": [20, 21, 24]}
+    ],
+    "excluded": [
+      "equipment matrices",
+      "accessory and marketing claims",
+      "cargo observations already closed under the brochure cargo milestone",
+      "selected-gear elasticity observations already closed under D-024"
+    ]
+  },
+  "current_brochure_coverage": {
+    "scalar_values": 357,
+    "ranges": 0,
+    "attributes": {
+      "boot_capacity": 287,
+      "elasticity_80_120": 70
+    },
+    "source_configuration_relationships": 52
+  },
+  "classifications": [
+    {
+      "code": "bigster_core_powertrain_covered_or_newer",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "status": "covered_or_superseded",
+      "configuration_count": 14,
+      "attributes": ["engine_power", "engine_torque", "injection_type", "engine_displacement", "cylinder_count", "total_valve_count", "emission_standard", "particulate_filter", "hybrid_system_voltage", "hybrid_battery_capacity_source_stated", "top_speed", "acceleration_0_100", "drive_type", "gearbox_type", "gear_count", "fuel_tank_capacity", "co2_emissions", "fuel_consumption_combined", "gross_vehicle_weight", "braked_trailer_weight"],
+      "reason": "The same exact active configurations already have equivalent or newer official MY26 price-list observations; the brochure remains corroborating evidence rather than a second current baseline."
+    },
+    {
+      "code": "bigster_gross_train_weight_candidate",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "status": "exact_import_candidate",
+      "configuration_count": 14,
+      "attributes": ["gross_train_weight"],
+      "reason": "The powertrain columns map exactly to all 14 active Bigster configurations and the existing attribute is not populated for Bigster."
+    },
+    {
+      "code": "bigster_unbraked_trailer_weight_candidate",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "status": "exact_import_candidate",
+      "configuration_count": 14,
+      "attributes": ["unbraked_trailer_weight"],
+      "reason": "The powertrain-specific values are explicit and use an existing unambiguous attribute."
+    },
+    {
+      "code": "bigster_chassis_measurement_modeling",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 20,
+      "status": "requires_context_or_attribute_modeling",
+      "configuration_count": 14,
+      "attributes": ["turning_circle", "maximum_kerb_weight", "power_steering", "front_brake_specification", "rear_brake_specification", "standard_tyre_specification"],
+      "reason": "Turning diameter explicitly uses the between-kerbs basis, maximum kerb weight is distinct from the existing minimum value, and brake/tyre rows are multi-part specifications."
+    },
+    {
+      "code": "bigster_dimensions_covered_and_cargo_deferred",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "page": 24,
+      "status": "covered_or_explicitly_deferred",
+      "configuration_count": 14,
+      "attributes": ["overall_length", "overall_width", "overall_height", "wheelbase", "ground_clearance", "boot_capacity"],
+      "reason": "Dimensions already have newer exact MY26 observations; cargo is imported with context or retained in the existing hybrid-G 150 and generic-dimension deferrals."
+    },
+    {
+      "code": "jogger_core_powertrain_covered_or_newer",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "covered_or_superseded",
+      "configuration_count": 22,
+      "attributes": ["engine_power", "engine_torque", "injection_type", "engine_displacement", "cylinder_count", "total_valve_count", "emission_standard", "top_speed", "minimum_kerb_weight", "gross_vehicle_weight", "braked_trailer_weight", "fuel_tank_capacity"],
+      "reason": "Equivalent exact configuration observations are present from the newer official Jogger MY26 price list."
+    },
+    {
+      "code": "jogger_hybrid155_acceleration_candidate",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "exact_import_candidate",
+      "configuration_count": 6,
+      "attributes": ["acceleration_0_100"],
+      "reason": "The brochure explicitly separates five- and seven-seat hybrid 155 values; these six exact configurations are the current acceleration gap."
+    },
+    {
+      "code": "jogger_hybrid_battery_capacity_candidate",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "exact_import_candidate",
+      "configuration_count": 6,
+      "attributes": ["hybrid_battery_capacity_source_stated"],
+      "reason": "The source states 1.4 kWh for hybrid 155 and the neutral source-stated capacity attribute already exists."
+    },
+    {
+      "code": "jogger_engine_speed_range_candidate",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "exact_range_candidate",
+      "configuration_count": 22,
+      "attributes": ["max_power_rpm", "max_torque_rpm"],
+      "reason": "The table provides explicit point or closed-range engine-speed evidence by powertrain and fuel; import must preserve ranges rather than flatten them to scalars."
+    },
+    {
+      "code": "jogger_chassis_candidate_and_modeling",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "requires_context_or_attribute_modeling",
+      "configuration_count": 22,
+      "attributes": ["turning_circle", "standard_tyre_specification", "front_suspension_specification", "rear_suspension_specification"],
+      "reason": "The turning diameter has an explicit between-kerbs basis, while tyre and suspension values are structured model-wide specifications."
+    },
+    {
+      "code": "jogger_mass_table_label_conflict",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "ambiguous_source_evidence",
+      "configuration_count": 22,
+      "attributes": ["maximum_kerb_weight", "gross_train_weight", "gross_vehicle_weight"],
+      "reason": "The published table repeats the DMC vehicle label and places physically incompatible values beneath the first two mass labels; no semantic reassignment is permitted without a corrected source."
+    },
+    {
+      "code": "jogger_blank_wltp_cells",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 19,
+      "status": "no_observation",
+      "configuration_count": 22,
+      "attributes": ["co2_emissions", "fuel_consumption_combined"],
+      "reason": "The brochure cells are blank and therefore provide no importable observation."
+    },
+    {
+      "code": "jogger_dimensions_and_cargo",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "page": 22,
+      "status": "covered_or_explicitly_deferred",
+      "configuration_count": 22,
+      "attributes": ["boot_capacity", "overall_length", "overall_width", "overall_height", "wheelbase", "ground_clearance"],
+      "reason": "Cargo contexts are already imported or explicitly deferred; model-wide dimensions require a separate exact-projection review before configuration assignment."
+    },
+    {
+      "code": "sandero_manual_core_covered",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "status": "covered_or_superseded",
+      "configuration_count": 2,
+      "attributes": ["engine_power", "engine_torque", "engine_displacement", "cylinder_count", "total_valve_count", "emission_standard", "top_speed", "acceleration_0_100", "fuel_tank_capacity", "gross_vehicle_weight", "gross_train_weight", "braked_trailer_weight"],
+      "reason": "The two manual Eco-G 120 configurations already have later exact configuration-PDF observations."
+    },
+    {
+      "code": "sandero_ecog120_automatic_exact_candidate",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "status": "next_package_candidate",
+      "configuration_count": 2,
+      "attributes": ["engine_power", "engine_torque", "engine_displacement", "cylinder_count", "total_valve_count", "emission_standard", "gearbox_type", "gear_count", "top_speed", "acceleration_0_100", "fuel_tank_capacity", "minimum_kerb_weight", "gross_vehicle_weight", "gross_train_weight", "braked_trailer_weight"],
+      "reason": "Two active automatic Expression/Journey configurations map exactly to the Eco-G 120 auto column and currently lack the complete common technical baseline."
+    },
+    {
+      "code": "sandero_tce100_without_exact_configuration",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "status": "unmodeled_exact_configuration",
+      "configuration_count": 0,
+      "attributes": ["technical_table_column"],
+      "reason": "No active exact Sandero TCe 100 configuration exists; the column cannot be projected into Eco-G configurations."
+    },
+    {
+      "code": "sandero_wltp_placeholders",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "status": "no_observation",
+      "configuration_count": 4,
+      "attributes": ["co2_emissions", "fuel_consumption_combined"],
+      "reason": "The source contains country-adjustment placeholders instead of homologated values."
+    },
+    {
+      "code": "sandero_chassis_and_maximum_mass_modeling",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 17,
+      "status": "requires_context_or_attribute_modeling",
+      "configuration_count": 4,
+      "attributes": ["turning_circle", "standard_tyre_specification", "front_suspension_specification", "rear_suspension_specification", "maximum_kerb_weight"],
+      "reason": "Model-wide chassis specifications and the explicit maximum kerb-weight row must not be folded into existing context-free or minimum-mass attributes."
+    },
+    {
+      "code": "sandero_dimensions_and_cargo",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 20,
+      "status": "covered_or_explicitly_deferred",
+      "configuration_count": 4,
+      "attributes": ["boot_capacity", "overall_length", "overall_width", "overall_height", "wheelbase", "ground_clearance"],
+      "reason": "Cargo is already context-imported; configuration projection of model-wide dimensions remains outside this review."
+    },
+    {
+      "code": "stepway_core_covered",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "status": "covered_or_superseded",
+      "configuration_count": 5,
+      "attributes": ["engine_power", "engine_torque", "engine_displacement", "cylinder_count", "total_valve_count", "emission_standard", "top_speed", "acceleration_0_100", "fuel_tank_capacity", "co2_emissions", "fuel_consumption_combined", "gross_vehicle_weight", "gross_train_weight", "braked_trailer_weight"],
+      "reason": "All five exact active Eco-G 120 Stepway configurations already have later configuration-PDF observations for these fields."
+    },
+    {
+      "code": "stepway_tce110_without_exact_configuration",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "status": "unmodeled_exact_configuration",
+      "configuration_count": 0,
+      "attributes": ["technical_table_column"],
+      "reason": "No active exact Stepway TCe 110 configuration exists."
+    },
+    {
+      "code": "stepway_chassis_and_maximum_mass_modeling",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 17,
+      "status": "requires_context_or_attribute_modeling",
+      "configuration_count": 5,
+      "attributes": ["turning_circle", "standard_tyre_specification", "front_suspension_specification", "rear_suspension_specification", "maximum_kerb_weight"],
+      "reason": "The model-wide chassis rows and maximum mass require explicit semantics before import."
+    },
+    {
+      "code": "stepway_dimensions_and_cargo",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "page": 20,
+      "status": "covered_or_explicitly_deferred",
+      "configuration_count": 5,
+      "attributes": ["boot_capacity", "overall_length", "overall_width", "overall_height", "wheelbase", "ground_clearance"],
+      "reason": "Cargo is already context-imported; generic dimensions are not projected in this review."
+    },
+    {
+      "code": "duster_core_powertrain_covered_or_newer",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 20,
+      "status": "covered_or_superseded",
+      "configuration_count": 10,
+      "attributes": ["engine_power", "engine_torque", "injection_type", "engine_displacement", "cylinder_count", "total_valve_count", "emission_standard", "particulate_filter", "start_stop_system", "top_speed", "acceleration_0_100", "drive_type", "gearbox_type", "gear_count", "fuel_tank_capacity", "gross_vehicle_weight", "braked_trailer_weight"],
+      "reason": "Exact Eco-G 120 manual, mild hybrid 140 and hybrid 155 configurations have equivalent or newer official price-list or homologation evidence."
+    },
+    {
+      "code": "duster_gross_train_weight_candidate",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 20,
+      "status": "exact_import_candidate",
+      "configuration_count": 10,
+      "attributes": ["gross_train_weight"],
+      "reason": "The three represented 4x2 powertrain groups map to ten exact active configurations and do not overlap the three automatic Eco-G observations from another source."
+    },
+    {
+      "code": "duster_unbraked_trailer_weight_candidate",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 20,
+      "status": "exact_import_candidate",
+      "configuration_count": 10,
+      "attributes": ["unbraked_trailer_weight"],
+      "reason": "The values are explicit by represented powertrain and use an existing attribute."
+    },
+    {
+      "code": "duster_hybridg150_without_exact_configuration",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 21,
+      "status": "unmodeled_exact_configuration",
+      "configuration_count": 0,
+      "attributes": ["technical_table_column"],
+      "reason": "No active exact Duster hybrid-G 150 4x4 configuration exists in master data."
+    },
+    {
+      "code": "duster_chassis_mass_and_payload_modeling",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 20,
+      "status": "requires_context_or_attribute_modeling",
+      "configuration_count": 10,
+      "attributes": ["turning_circle", "maximum_kerb_weight", "payload_range", "power_steering", "front_brake_specification", "rear_brake_specification", "standard_tyre_specification"],
+      "reason": "Duster states turning diameter by wheel track rather than between kerbs; maximum mass, payload ordering and compound chassis specifications require explicit semantics."
+    },
+    {
+      "code": "duster_wltp_placeholders_and_dimensions",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "page": 24,
+      "status": "no_observation_or_generic_projection",
+      "configuration_count": 10,
+      "attributes": ["co2_emissions", "fuel_consumption_combined", "overall_length", "overall_width", "overall_height", "wheelbase", "ground_clearance", "boot_capacity"],
+      "reason": "Placeholder WLTP cells are not observations; generic 4x2/4x4 dimensions are not assigned to powertrains, while cargo is already imported or explicitly deferred."
+    }
+  ],
+  "priority_queue": [
+    {
+      "priority": 1,
+      "package": "Sandero Eco-G 120 Automatic Brochure Technical Import",
+      "classification_codes": ["sandero_ecog120_automatic_exact_candidate"],
+      "reason": "It fills the clearest current exact-configuration gap for the project's primary model without a schema change."
+    },
+    {
+      "priority": 2,
+      "package": "Bigster and Duster Brochure Towing Mass Import",
+      "classification_codes": ["bigster_gross_train_weight_candidate", "bigster_unbraked_trailer_weight_candidate", "duster_gross_train_weight_candidate", "duster_unbraked_trailer_weight_candidate"],
+      "reason": "All values use existing attributes and exact active powertrain/configuration mappings."
+    },
+    {
+      "priority": 3,
+      "package": "Jogger Brochure Hybrid Performance Completion",
+      "classification_codes": ["jogger_hybrid155_acceleration_candidate", "jogger_hybrid_battery_capacity_candidate", "jogger_engine_speed_range_candidate"],
+      "reason": "It closes known hybrid and engine-speed gaps while preserving five-/seven-seat and range semantics."
+    },
+    {
+      "priority": 4,
+      "package": "Brochure Chassis Measurement Context Modeling",
+      "classification_codes": ["bigster_chassis_measurement_modeling", "jogger_chassis_candidate_and_modeling", "sandero_chassis_and_maximum_mass_modeling", "stepway_chassis_and_maximum_mass_modeling", "duster_chassis_mass_and_payload_modeling"],
+      "reason": "Turning-circle basis, maximum mass and compound brake/tyre/suspension specifications require a deliberate model decision."
+    }
+  ],
+  "next_package": {
+    "name": "Sandero Eco-G 120 Automatic Brochure Technical Import",
+    "goal": "Import the exact existing-schema engine, performance, transmission, mass and towing observations from the official Sandero brochure for the two active Eco-G 120 automatic Expression and Journey configurations, while excluding placeholder WLTP cells, maximum kerb weight and model-wide chassis fields."
+  }
+}

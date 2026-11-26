@@ -1,0 +1,3 @@
+code,name,description,status
+present,Present,The source explicitly states that the item or condition is present.,active
+absent,Absent,The source explicitly states that the item or condition is absent.,active

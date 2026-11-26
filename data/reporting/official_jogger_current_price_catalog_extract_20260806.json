@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "kind": "official_current_price_catalog_extract",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "model_id": "jogger",
+  "source": {
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/51a64d2724.pdf",
+    "document_title": "Nowa Dacia Jogger",
+    "model_year": 2026,
+    "valid_from": "2026-07-03",
+    "pages": 7,
+    "official": true,
+    "configurator_used": false
+  },
+  "semantic_policy": {
+    "source_text_preserved": true,
+    "availability_inferred": false,
+    "colour_to_price_mapping_inferred": false,
+    "package_dependency_inferred": false,
+    "cross_grade_transfer": false,
+    "cross_powertrain_transfer": false,
+    "cross_seat_count_transfer": false
+  },
+  "grades": ["essential", "expression", "extreme", "journey"],
+  "catalog_prices_pln": [
+    {"seat_count": 5, "powertrain": "Eco-G 120", "essential": 77900, "expression": 82050, "extreme": 89900, "journey": null},
+    {"seat_count": 5, "powertrain": "Eco-G 120 auto", "essential": null, "expression": null, "extreme": 96800, "journey": 98950},
+    {"seat_count": 5, "powertrain": "TCe 110", "essential": null, "expression": 84050, "extreme": 91900, "journey": 94050},
+    {"seat_count": 5, "powertrain": "hybrid 155", "essential": null, "expression": 103550, "extreme": 111400, "journey": 113550},
+    {"seat_count": 7, "powertrain": "Eco-G 120", "essential": 82400, "expression": 86550, "extreme": 94400, "journey": null},
+    {"seat_count": 7, "powertrain": "Eco-G 120 auto", "essential": null, "expression": null, "extreme": 101300, "journey": 103450},
+    {"seat_count": 7, "powertrain": "TCe 110", "essential": null, "expression": 88550, "extreme": 96400, "journey": 98550},
+    {"seat_count": 7, "powertrain": "hybrid 155", "essential": null, "expression": 108050, "extreme": 115900, "journey": 118050}
+  ],
+  "paint_pricing": [
+    {
+      "kind": "non_metallic_or_special_non_metallic",
+      "prices_pln": [0, 2700],
+      "availability": {"essential": true, "expression": true, "extreme": true, "journey": true},
+      "mapping_status": "exact_colour_to_price_unresolved_in_price_list"
+    },
+    {
+      "kind": "metallic",
+      "prices_pln": [2700, 2900],
+      "availability": {"essential": true, "expression": true, "extreme": true, "journey": true},
+      "mapping_status": "exact_colour_to_price_unresolved_in_price_list"
+    }
+  ],
+  "wheels": [
+    {
+      "source_text": "Stalowe obręcze kół typu Flexwheel 16'' - wzór ERELIA",
+      "size_in": 16,
+      "name": "Erelia",
+      "availability": {"essential": "standard", "expression": "standard", "extreme": "unavailable", "journey": "unavailable"}
+    },
+    {
+      "source_text": "Obręcze kół ze stopu metali lekkich 16'' - wzór TAMIA / TAMIA czarne",
+      "size_in": 16,
+      "name": "Tamia / Tamia czarne",
+      "availability_raw": {"essential": "-", "expression": "-", "extreme": "- / standard", "journey": "standard / -"},
+      "mapping_status": "paired_variant_alignment_preserved_from_printed_table"
+    }
+  ],
+  "upholstery": [
+    {
+      "source_text": "Tapicerka materiałowa czarna ze wstawkami w kolorze denim",
+      "availability": {"essential": "standard", "expression": "standard", "extreme": "unavailable", "journey": "unavailable"}
+    },
+    {
+      "source_text": "Tapicerka materiałowa w kolorze denim",
+      "availability": {"essential": "unavailable", "expression": "unavailable", "extreme": "standard", "journey": "unavailable"}
+    },
+    {
+      "source_text": "Specjalna tapicerka dla wersji extreme",
+      "availability": {"essential": "unavailable", "expression": "unavailable", "extreme": "unavailable", "journey": "standard"},
+      "mapping_status": "source_wording_is_internally_inconsistent_with_table_column; retained_without_normalization"
+    }
+  ],
+  "standalone_options": [
+    {
+      "name": "Koło zapasowe",
+      "price_pln": 700,
+      "availability": {"essential": "optional", "expression": "optional", "extreme": "optional", "journey": "unavailable"},
+      "restriction_text": "niedostępne dla wersji Eco-G (benzyna+LPG) oraz hybrid 155"
+    },
+    {
+      "name": "Fotele przednie podgrzewane",
+      "price_pln": 700,
+      "availability": {"essential": "unavailable", "expression": "optional", "extreme": "package_element", "journey": "standard"}
+    },
+    {
+      "name": "Media Nav",
+      "price_pln": 1600,
+      "availability": {"essential": "unavailable", "expression": "optional", "extreme": "optional", "journey": "standard"},
+      "contents_text": "nawigacja online, ekran dotykowy 10'', radio DAB, replikacja ekranu smartfona przez USB, 2 gniazda USB, Bluetooth, 6 głośników, Apple CarPlay i Android Auto, 8-letnia subskrypcja mapy"
+    }
+  ],
+  "packages": [
+    {
+      "name": "KOMFORT HEV",
+      "price_pln": 2000,
+      "availability": {"essential": "unavailable", "expression": "optional", "extreme": "unavailable", "journey": "unavailable"},
+      "powertrain_scope_text": "HEV",
+      "contents": ["klimatyzacja automatyczna", "bezkluczykowy dostęp Keyless Entry"]
+    },
+    {
+      "name": "KOMFORT",
+      "price_pln": 2500,
+      "availability": {"essential": "unavailable", "expression": "optional", "extreme": "unavailable", "journey": "unavailable"},
+      "contents": ["klimatyzacja automatyczna", "bezkluczykowy dostęp Keyless Entry", "automatyczny hamulec postojowy"]
+    },
+    {
+      "name": "ZIMOWY",
+      "price_pln": 1200,
+      "availability": {"essential": "unavailable", "expression": "unavailable", "extreme": "optional", "journey": "unavailable"},
+      "contents": ["przednie fotele podgrzewane", "podgrzewana kierownica"]
+    },
+    {
+      "name": "DRIVE",
+      "price_pln": 1400,
+      "availability": {"essential": "unavailable", "expression": "unavailable", "extreme": "optional", "journey": "unavailable"},
+      "contents": ["lusterka sterowane i składane elektrycznie, podgrzewane", "funkcja automatycznej zmiany świateł drogowych na mijania (AHL)", "system Multiview kamera"]
+    }
+  ],
+  "selected_equipment_matrix": [
+    {"name": "Klimatyzacja manualna", "essential": "standard", "expression": "standard", "extreme": "unavailable", "journey": "unavailable"},
+    {"name": "Klimatyzacja automatyczna", "essential": "unavailable", "expression": "package_element", "extreme": "standard", "journey": "standard"},
+    {"name": "Karta Keyless Entry", "essential": "unavailable", "expression": "package_element", "extreme": "standard", "journey": "standard"},
+    {"name": "System kontroli martwego pola BSW", "essential": "unavailable", "expression": "unavailable", "extreme": "standard", "journey": "standard"},
+    {"name": "System wspomagania parkowania przodem", "essential": "unavailable", "expression": "unavailable", "extreme": "standard", "journey": "standard"},
+    {"name": "Kamera cofania", "essential": "unavailable", "expression": "standard", "extreme": "standard", "journey": "standard"},
+    {"name": "Multiview Kamera", "essential": "unavailable", "expression": "unavailable", "extreme": "package_element", "journey": "standard"}
+  ],
+  "unresolved_dependencies": [
+    "Exact assignment of named brochure colours to the printed 0/2700 and 2700/2900 price pairs.",
+    "Dealer-only option requirements and mutual exclusions referenced by the price-list footnote.",
+    "Exact mapping of Tamia and Tamia black wheel variants to extreme and journey columns.",
+    "Resolution of the internally inconsistent upholstery label 'Specjalna tapicerka dla wersji extreme' printed as standard in the journey column."
+  ]
+}

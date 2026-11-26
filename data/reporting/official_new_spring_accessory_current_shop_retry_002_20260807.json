@@ -1,0 +1,248 @@
+{
+  "package_id": "new_spring_current_shop_retry_002",
+  "package_name": "New Spring Current Shop Retry 002",
+  "checked_on": "2026-08-07",
+  "base_commit": "768084cd4d826880542cfca0a145a1bb07041d8e",
+  "source_queue": "data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv",
+  "scope": {
+    "retry_positions": {
+      "from": 11,
+      "to": 20
+    },
+    "record_count": 10,
+    "identity_rule": "exact_part_number",
+    "accepted_confirmation_source": "official_polish_dacia_shop_card"
+  },
+  "result": {
+    "confirmed_polish_dacia_shop_cards": 0,
+    "cards_not_resolved": 10,
+    "current_shop_catalogue_prices_captured": 0,
+    "price_matches": 0,
+    "price_mismatches": 0,
+    "status_changes": 0
+  },
+  "status_semantics": {
+    "dacia_pl_card_not_resolved": "No official Polish Dacia Shop card was resolved in the bounded retry. This does not establish withdrawal, incompatibility or unavailability."
+  },
+  "semantic_guards": [
+    "Exact part number remains the primary identity.",
+    "An unresolved Polish shop card is not evidence of withdrawal, incompatibility or unavailability.",
+    "Foreign-market official Dacia records are not transferred to Polish New Spring evidence.",
+    "Renault Shop records are not substituted for Polish Dacia Shop records.",
+    "Third-party records are not substituted for official Polish Dacia Shop records.",
+    "A missing current shop price is not a mismatch.",
+    "No master-data mutation is permitted in this reporting package."
+  ],
+  "records": [
+    {
+      "retry_position": 11,
+      "price_list_ordinal": 28,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Przewód ładowania akumulatora Typ 2, 6,5 m, ze wzmocnionego gniazda domowego prądu jednofazowego 16A Typ E/F, o mocy 3,7 kW",
+      "part_number": "7717278287",
+      "document_price_gross_pln": "1549.00",
+      "notes": "A Polish Renault Shop card and foreign official Dacia records were found, but neither was substituted for an official Polish Dacia Shop card.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7717278287",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 12,
+      "price_list_ordinal": 29,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Rękawice do ładowanie akumulatora, rozmiar S/M",
+      "part_number": "7717301120",
+      "document_price_gross_pln": "83.00",
+      "notes": "No Polish Dacia Shop card was resolved; foreign price-list and third-party records were not transferred.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7717301120",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 13,
+      "price_list_ordinal": 30,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Rękawice do ładowanie akumulatora, rozmiar L/XL",
+      "part_number": "7717301121",
+      "document_price_gross_pln": "97.00",
+      "notes": "A Polish Renault Shop card was found, but it was not substituted for an official Polish Dacia Shop card.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/7717301121",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 14,
+      "price_list_ordinal": 31,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Domowe gniazdo ładowania Green’Up Typ E",
+      "part_number": "8201486883",
+      "document_price_gross_pln": "1509.00",
+      "notes": "A Polish Renault Shop card and foreign official Dacia cards were found, but they were not transferred to Polish New Spring evidence.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201486883",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 15,
+      "price_list_ordinal": 32,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Domowe gniazdo ładowania Green’Up Typ F",
+      "part_number": "8201486884",
+      "document_price_gross_pln": "1548.00",
+      "notes": "A Polish Renault Shop card and foreign official Dacia records were found, but neither was substituted for an official Polish Dacia Shop card.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201486884",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 16,
+      "price_list_ordinal": 33,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Akcesoria do ładowania",
+      "price_list_name": "Uchwyt do przenoszenia kabla",
+      "part_number": "8201738553",
+      "document_price_gross_pln": "303.00",
+      "notes": "A Polish Renault Shop card and foreign parts records were found, but they were not substituted for an official Polish Dacia Shop card.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201738553",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 17,
+      "price_list_ordinal": 34,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Dywaniki",
+      "price_list_name": "Dywaniki tekstylne Comfort",
+      "part_number": "8201751532",
+      "document_price_gross_pln": "168.00",
+      "notes": "Foreign official and third-party records were not transferred to Polish New Spring evidence.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201751532",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 18,
+      "price_list_ordinal": 35,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Dywaniki",
+      "price_list_name": "Dywaniki tekstylne Premium",
+      "part_number": "8201751534",
+      "document_price_gross_pln": "291.00",
+      "notes": "Foreign official and third-party records were not transferred to Polish New Spring evidence.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201751534",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 19,
+      "price_list_ordinal": 36,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Dywaniki",
+      "price_list_name": "Dywaniki tekstylne Comfort",
+      "part_number": "8201752597",
+      "document_price_gross_pln": "187.00",
+      "notes": "Foreign official Dacia dealer and third-party records were found, but they were not transferred to Polish New Spring evidence.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201752597",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    },
+    {
+      "retry_position": 20,
+      "price_list_ordinal": 37,
+      "category": "KOMFORT I OCHRONA",
+      "subcategory": "Dywaniki",
+      "price_list_name": "Dywaniki tekstylne Premium",
+      "part_number": "8201752599",
+      "document_price_gross_pln": "264.00",
+      "notes": "Foreign official Dacia dealer and third-party records were found, but they were not transferred to Polish New Spring evidence.",
+      "previous_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-06"
+      },
+      "retry_attempt": {
+        "status": "dacia_pl_card_not_resolved",
+        "checked_on": "2026-08-07",
+        "polish_shop_card_resolved": false,
+        "source_url": "https://sklep.dacia.pl/akcesoria/szczegoly/8201752599",
+        "retrieval_scope": "bounded exact-part-number Polish Dacia Shop retry"
+      }
+    }
+  ]
+}

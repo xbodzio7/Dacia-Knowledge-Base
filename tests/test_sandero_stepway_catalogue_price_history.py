@@ -1,0 +1,91 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPT = ROOT / "tools" / "sandero_stepway_catalogue_price_history.py"
+
+
+class SanderoCataloguePriceHistoryTests(unittest.TestCase):
+    def test_history_generation_is_deterministic_and_source_traceable(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            json_path = Path(directory) / "history.json"
+            markdown_path = Path(directory) / "history.md"
+            command = [
+                sys.executable, str(SCRIPT),
+                "--json", str(json_path), "--markdown", str(markdown_path),
+            ]
+            first = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
+            first_json = json_path.read_text(encoding="utf-8")
+            first_markdown = markdown_path.read_text(encoding="utf-8")
+            second = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(second.returncode, 0, second.stdout + second.stderr)
+            self.assertEqual(json_path.read_text(encoding="utf-8"), first_json)
+            self.assertEqual(markdown_path.read_text(encoding="utf-8"), first_markdown)
+
+            data = json.loads(first_json)
+            self.assertEqual(len(data["events"]), 19)
+            self.assertEqual(data["report_metadata"]["base_commit_sha"],
+                             "b56be440a9c2de592842aae600674a1a964e7e3a")
+            self.assertEqual(data["report_metadata"]["status"], "current")
+            for item in data["report_metadata"]["input_files"]:
+                input_bytes = (ROOT / item["path"]).read_bytes()
+                self.assertEqual(item["sha256"], hashlib.sha256(input_bytes).hexdigest())
+                blob_header = f"blob {len(input_bytes)}\0".encode("ascii")
+                self.assertEqual(
+                    item["git_blob_sha"],
+                    hashlib.sha1(blob_header + input_bytes).hexdigest(),
+                )
+            self.assertIn("Report ID: sandero_stepway_catalogue_price_history_2026",
+                          first_markdown)
+            self.assertIn("Analysed commit: b56be440a9c2de592842aae600674a1a964e7e3a",
+                          first_markdown)
+            self.assertEqual(data["scope"]["coverage"]["changed"], 15)
+            self.assertEqual(data["scope"]["coverage"]["unchanged"], 4)
+            self.assertEqual(data["scope"]["coverage"]["not_comparable"], 0)
+            self.assertEqual(
+                {event["delta_value"] for event in data["events"]},
+                {0, 500},
+            )
+            self.assertTrue(all(
+                event["previous_source_code"] == "src_pl_sandero_stepway_price_my26_20260811"
+                and event["current_source_code"] == "src_pl_sandero_stepway_price_my26_20261102"
+                and event["previous_evidence"].endswith("page 1")
+                and event["current_evidence"].endswith("page 1")
+                for event in data["events"]
+            ))
+            unchanged = [e for e in data["events"] if e["disposition"] == "unchanged"]
+            self.assertEqual(len(unchanged), 4)
+            self.assertTrue(all(e["current_master_observation_code"] is None for e in unchanged))
+            self.assertTrue(all(e["current_value"] == e["previous_value"] for e in unchanged))
+            self.assertTrue(all(e["delta_value"] == 500 for e in data["events"]
+                                if e["disposition"] == "changed"))
+            self.assertTrue(all(e["previous_effective_date"] == "2026-08-11"
+                                and e["current_effective_date"] == "2026-11-02"
+                                for e in data["events"]))
+            self.assertEqual(
+                {s["source_code"]: s["sha256"] for s in data["sources"]},
+                {
+                    "src_pl_sandero_stepway_price_my26_20260811":
+                        "c220ab0ff1df848b72121c6ebe0f05fb245bb9b70052a10dbd48068709b2034a",
+                    "src_pl_sandero_stepway_price_my26_20261102":
+                        "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c",
+                },
+            )
+            self.assertIn("nie utworzono", first_markdown)
+
+            check = subprocess.run(
+                command + ["--check"], cwd=ROOT, capture_output=True, text=True
+            )
+            self.assertEqual(check.returncode, 0, check.stdout + check.stderr)
+
+
+if __name__ == "__main__":
+    unittest.main()

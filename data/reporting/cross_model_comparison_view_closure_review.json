@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "kind": "cross_model_comparison_view_closure_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "source_package": {
+    "name": "Cross-Model Comparison View Foundation",
+    "pull_request": 281,
+    "merge_commit": "4f11eaa9be96dd028d4c7f5e0e36c1ba27325558"
+  },
+  "product_contract": {
+    "kind": "scope_preserving_cross_model_comparison_view",
+    "view_version": 1,
+    "snapshot_date": "2026-07-25",
+    "model_family_count": 5,
+    "reporting_scope_count": 19,
+    "single_model_scope_count": 18,
+    "mixed_model_scope_count": 1,
+    "active_configuration_count": 72,
+    "within_scope_pair_count": 114,
+    "catalog_price_recorded_count": 72,
+    "mixed_scope": {
+      "slug": "sandero_ecog120_manual",
+      "configuration_count": 5,
+      "pair_count": 10,
+      "technical_slot_count": 56,
+      "model_codes": [
+        "sandero_iii",
+        "sandero_stepway_iii"
+      ]
+    }
+  },
+  "output_contract": {
+    "json_path": "cross-model/cross-model-comparison-view.json",
+    "html_path": "cross-model/cross-model-comparison-view.html",
+    "release_archive_member_count": 85,
+    "comparison_paths_in_json": 76,
+    "navigation_paths_in_json": 2,
+    "local_file_links_in_html": 57,
+    "standalone_html": true,
+    "javascript_used": false,
+    "runtime_image_dependency": false,
+    "byte_deterministic": true
+  },
+  "link_contract": {
+    "json_comparison_formats_per_scope": [
+      "html",
+      "json",
+      "markdown",
+      "differences_csv"
+    ],
+    "html_launch_formats_per_scope": [
+      "html",
+      "json",
+      "differences_csv"
+    ],
+    "all_local_file_targets_exist_in_release": true,
+    "path_escape_allowed": false,
+    "cross_scope_launch_allowed": false
+  },
+  "unknown_contract": {
+    "models_without_recorded_seat_values": [
+      "bigster",
+      "duster_iii"
+    ],
+    "machine_state": "not_stated",
+    "human_label": "nie podano",
+    "zero_substitution_allowed": false,
+    "assumed_five_seats_allowed": false
+  },
+  "semantic_boundaries": {
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "master_data_changed": false,
+    "schema_changed": false,
+    "comparison_engine_changed": false
+  },
+  "cli_contract": {
+    "command": "cross-model-comparison-view",
+    "json_option": "--json",
+    "html_option": "--html",
+    "at_least_one_output_required": true,
+    "both_outputs_supported": true
+  },
+  "repository_baseline": {
+    "tests": 998,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "closure_decision": {
+    "result": "closed",
+    "rationale": "The generator, CLI, deterministic release integration, offline local links, explicit unknown handling and non-inference boundaries are reproducible from repository data. The foundation can be closed without changing master data or comparison semantics."
+  },
+  "next_package": {
+    "name": "Post-Cross-Model Priority Selection Review",
+    "goal": "Rank the highest-value next reporting, data, import and tooling candidates after closing the cross-model navigation milestone, using repository readiness and evidence constraints without implementing a candidate in the review package."
+  }
+}

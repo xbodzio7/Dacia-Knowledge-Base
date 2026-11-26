@@ -1,0 +1,5507 @@
+{
+  "schema_version": 1,
+  "kind": "exact_configurator_full_technical_standard_equipment_capture",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-08-09",
+  "capture_method": "Interactive exact-state navigation in the official Dacia Polska configurator; hidden accordion DOM read without selecting options.",
+  "normalization_boundaries": [
+    "Every equipment and technical row remains attached to the exact configuration URL from which it was observed.",
+    "Shared model-qualified technical strings are preserved literally and are not interpreted as configuration-specific scalar values.",
+    "No accessory, price, financing or optional-equipment row is included.",
+    "Capture does not itself authorize canonical master-data import."
+  ],
+  "summary": {
+    "exact_configuration_surfaces": 15,
+    "standard_equipment_rows": 1029,
+    "technical_rows": 679
+  },
+  "configurations": [
+    {
+      "configuration_code": "sandero_iii_essential_tce100_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj0A",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj0A",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "15\" stalowe obręcze kół - wzór ELMA",
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "tapicerka materiałowa",
+            "stalowe obręcze kół 15\""
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "system multimedialny Media Control (radio DAB, 2 głośniki, Bluetooth, 1xUSB, aplikacja DMC)",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wzdłużną bez regulacji wysokości",
+            "tylne oparcie kanapy nieskładane",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica z pianki",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "niska konsola środkowa z otwartym schowkiem",
+            "kierownica z regulacją wysokości",
+            "right content",
+            "lusterka boczne regulowane ręcznie od wewnątrz za pomocą pokrętła"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "system ogrzewania z cyrkulacją powietrza",
+            "filtr cząstek stałych"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "185/65 R15 88H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBESNF6XC14M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "74 (100)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "200 przy 2900-3500"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "999"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "121"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.3"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,7"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "9,7"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "565"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2550"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "980"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "431"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1142"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1570"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R-A%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R-A%23this",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "stalowe obręcze kół 16\""
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLSNCAXC18M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "automatyczna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "66"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "6.9"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "111"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "125"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.5"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,8 (LPG) / 32,9"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "9,8 (LPG) / 10,9"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "640"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2765"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "379"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1289"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1665"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R_I%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1R_I%23this",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "stalowe obręcze kół 16\""
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLSNC6XC15M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "6.8"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "110"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "123"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.4"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,1 (LPG) / 33,1"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,1 (LPG) / 11,1"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "615"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2740"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "375"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1267"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1640"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_expression_tce100_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1A",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj1A",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "stalowe obręcze kół 16\""
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "195/55 R16 87H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBESNF6XC14M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "74 (100)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "200 przy 2900-3500"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "999"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "121"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.4"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,7"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "9,7"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "565"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2550"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "980"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "400"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1173"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1570"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R-Y%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R-Y%23this",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "bezkluczykowy dostęp Keyless Entry",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLSNCAXC18M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "automatyczna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "66"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "6.8"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "111"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "125"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.5"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,8 (LPG) / 32,9"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "9,8 (LPG) / 10,9"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "640"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2765"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "380"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1292"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1665"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R_g%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2R_g%23this",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "bezkluczykowy dostęp Keyless Entry",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLSNC6XC15M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "6.8"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "110"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "123"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.4"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,1 (LPG) / 33,1"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,1 (LPG) / 11,1"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "615"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2740"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "378"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1269"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1640"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_iii_journey_tce100_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2A",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjInIpIr%2FAj2A",
+      "page_title": "Konfigurator Sandero - Stwórz swój samochód | Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "tapicerka materiałowa w kolorze denim i czarnymi wstawkami"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "bezkluczykowy dostęp Keyless Entry",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "195/55 R16 87H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBESNF6XC14M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "74 (100)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "200 przy 2900-3500"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "999"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "121"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.3"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,7"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "9,7"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "565"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2550"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "980"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "399"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1174"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1570"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0x_A%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0x_A%23this",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe TAMIA BI-TON",
+            "tapicerka materiałowa",
+            "relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "system multimedialny Media Control (radio DAB, 2 głośniki, Bluetooth, 1xUSB, aplikacja DMC)",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica z pianki",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "niska konsola środkowa z otwartym schowkiem",
+            "kierownica z regulacją wysokości",
+            "right content",
+            "lusterka boczne regulowane ręcznie od wewnątrz za pomocą pokrętła"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLVNC6XC16M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "7.1"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "115"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "129"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.7"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,4 (LPG) / 33,4"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,4 (LPG) / 11,4"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "630"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2760"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "388"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1273"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1660"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0g",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj0g",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe TAMIA BI-TON",
+            "tapicerka materiałowa",
+            "relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "system multimedialny Media Control (radio DAB, 2 głośniki, Bluetooth, 1xUSB, aplikacja DMC)",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica z pianki",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne otwierane ręcznie",
+            "szyby przednie regulowane elektrycznie",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "niska konsola środkowa z otwartym schowkiem",
+            "kierownica z regulacją wysokości",
+            "right content",
+            "lusterka boczne regulowane ręcznie od wewnątrz za pomocą pokrętła"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBEVMD6XC12M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "81 (110)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "200 przy 2900-3500"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "999"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "7,1"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "128"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.6"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,4"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,0"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "585"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2685"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "407"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1179"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1585"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-Q%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-Q%23this",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLVNCAXC19M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "automatyczna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "7.1"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "115"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "130"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.7"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,1 (LPG) / 33,1"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,0 (LPG) / 11,0"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "645"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2785"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "383"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1305"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1685"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1g",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1g",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLVNC6XC16M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "7.1"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "116"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "129"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.7"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,4 (LPG) / 33,4"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,4 (LPG) / 11,4"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "630"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2760"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "380"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1284"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1660"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_tce110_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-I%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj1x-I%23this",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" stalowe obręcze kół typu Flexwheel - wzór ATARA",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe",
+            "stalowe obręcze kół 16\"",
+            "tapicerka materiałowa stepway"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)",
+            "zestaw wskaźników TFT 3,5\""
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "korek wlewu paliwa (bez keyless entry)",
+            "kierownica pokryta skórą ekologiczną",
+            "szyby o wysokiej zdolności filtrującej",
+            "kluczyk z 3 przyciskami",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika",
+            "brak świateł przeciwmgielnych"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "system utrzymania pasa ruchu (LKA)",
+            "system wspomagania parkowania tyłem",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja manualna"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "bez automatycznego parkowania",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBEVMD6XC12M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "81 (110)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "200 przy 2900-3500"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "999"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "128"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.6"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,4"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,0"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "585"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2685"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "399"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1190"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1585"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-o%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-o%23this",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA BLACK",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "bezkluczykowy dostęp Keyless Entry",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "group": "WYGLĄD WEWNĘTRZNY",
+          "items": [
+            "Tapicerka materiałowa z materiałów pochodzących z recyklingu"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLVNCAXC19M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "automatyczna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "7.1"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "116"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "130"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.7"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,1 (LPG) / 33,1"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,0 (LPG) / 11,0"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "645"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2785"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "383"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1308"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1685"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2g",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2g",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA BLACK",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "bez podłogi bagażnika ustawianej w dwóch płaszczyznach (góra i dół)",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "bezkluczykowy dostęp Keyless Entry",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna",
+            "wymóg termiczny wnętrza pojazdu"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "group": "WYGLĄD WEWNĘTRZNY",
+          "items": [
+            "Tapicerka materiałowa z materiałów pochodzących z recyklingu"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBLVNC6XC16M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "84/90 LPG (114/122 LPG)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "197 przy 1750-3750 (LPG) / 190 przy 2000-4000"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna + LPG"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "1199"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP*LPG (l/100km)",
+              "value": "7.2"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP*LPG (g/km)",
+              "value": "116"
+            },
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "130"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.7"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "32,4 (LPG) / 33,4"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,4 (LPG) / 11,4"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "630"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2760"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "381"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1285"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1660"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_tce110_manual",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-g%23this",
+      "observed_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEZp0AhhAjIoIqIs%2FAj2x-g%23this",
+      "page_title": "Konfigurator Sandero Stepway - Dacia Polska",
+      "equipment": [
+        {
+          "group": "WYGLĄD",
+          "items": [
+            "16\" felgi aluminiowe",
+            "16\" felgi aluminiowe TAMIA BLACK",
+            "antena w kształcie \"płetwy rekina\"",
+            "tapicerka materiałowa",
+            "modułowe relingi dachowe"
+          ]
+        },
+        {
+          "group": "MULTIMEDIA",
+          "items": [
+            "kolorowy zestaw wskaźników 7\"",
+            "komunikaty w języku polskim",
+            "komputer pokładowy",
+            "usługi online",
+            "nowy system multimedialny Media Display (dotykowy ekran 10\", bezprzewodowa replikacja smartfona)"
+          ]
+        },
+        {
+          "group": "KOMFORT I WNĘTRZE",
+          "items": [
+            "fotel kierowcy z regulacją wysokości",
+            "tylne oparcie kanapy składane 1/3 i 2/3",
+            "kierownica pokryta skórą ekologiczną",
+            "klapka wlewu paliwa otwierana ręcznie (wymaga Karty Keyless Entry)",
+            "szyby o wysokiej zdolności filtrującej",
+            "elektryczne lusterka boczne z funkcją rozmrażania, z czujnikiem temperatury",
+            "luterko wsteczne z ustawieniem dzień/noc",
+            "szyby tylne regulowane elektrycznie",
+            "szyby przednie regulowane elektrycznie z włącznikiem impulsowym po stronie kierowcy",
+            "kryterium techniczne niezbędne do zamówienia klimatyzacji",
+            "normalny dach",
+            "środkowa konsola ze schowkiem i podłokietnikiem",
+            "kierownica z regulacją wysokości i głębokości",
+            "podłoga bagażnika ustawiana w dwóch płaszczyznach (góra i dół)",
+            "bezkluczykowy dostęp Keyless Entry",
+            "right content"
+          ]
+        },
+        {
+          "group": "WIDOCZNOŚĆ I OŚWIETLENIE",
+          "items": [
+            "trzecie światło STOP",
+            "światła do jazdy dziennej LED",
+            "światła LED",
+            "światła przeciwmgłowe",
+            "światła automatyczne, wycieraczki automatyczne",
+            "dwa światła cofania",
+            "oświetlenie bagażnika"
+          ]
+        },
+        {
+          "group": "PROWADZENIE POJAZDU",
+          "items": [
+            "regulator-ogranicznik prędkości",
+            "kierunkowskazy impulsowe",
+            "wskaźnik zmiany biegów",
+            "ESP z systemem wspomagania ruszania pod górę",
+            "automatyczny hamulec ręczny",
+            "system wspomagania parkowania przód/tył",
+            "system utrzymania pasa ruchu (LKA)",
+            "system kontroli martwego pola",
+            "kamera cofania",
+            "ograniczenie prędkości do 180 km/h"
+          ]
+        },
+        {
+          "group": "OGRZEWANIE I WENTYLACJA",
+          "items": [
+            "kierownica nieogrzewana",
+            "szyba przednia nieogrzewana",
+            "filtr cząstek stałych",
+            "klimatyzacja automatyczna"
+          ]
+        },
+        {
+          "group": "BEZPIECZEŃSTWO",
+          "items": [
+            "tryb ECO",
+            "napinacz tylnego pasa bezpieczeństwa",
+            "ostrzeżenie o niezapięciu pasów",
+            "aktywny system wspomagania nagłego hamowania z funkcją wykrywania pieszych, rowerzystów (AEBS07)",
+            "poduszka powietrzna czołowa kierowcy",
+            "poduszka powietrzna czołowa pasażera",
+            "automatyczny zapłon ostrzegawczy przy mocnym hamowaniu",
+            "zestaw ochronny ANTIGRAVIL",
+            "3 punktowe tylne pasy bezpieczeństwa z napinaczem pirotechnicznym na bocznych fotelach",
+            "funkcja połączenia alarmowego e-Call",
+            "centralny zamek",
+            "system mocowania fotelika dla dziecka ISOFIX na bocznych miejscach z tyłu",
+            "poduszki boczne z przodu + poduszki kurtynowe",
+            "ABS",
+            "system rozpoznawania znaków drogowych oraz ostrzegania o nadmiernej prędkości",
+            "zestaw do naprawy uszkodzenia opony",
+            "napinacze pirotechniczne pasów bezpieczeństwa przednich foteli",
+            "ostrzeżenie o bezpiecznej odległości",
+            "pas bezpieczeństwa kierowcy bez regulacji wysokości",
+            "automatyczna blokada drzwi po ruszeniu",
+            "przystosowanie do montażu blokady alkoholowej",
+            "system monitorowania ciśnienia w oponach (pośredni)"
+          ]
+        },
+        {
+          "group": "WYGLĄD WEWNĘTRZNY",
+          "items": [
+            "Tapicerka materiałowa z materiałów pochodzących z recyklingu"
+          ]
+        }
+      ],
+      "technical": [
+        {
+          "group": "Pojemność zbiornika paliwa (l)",
+          "items": [
+            {
+              "label": "pojemność zbiornika paliwa (l)",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "group": "Typ nadwozia",
+          "items": [
+            {
+              "label": "Liczba drzwi",
+              "value": "5"
+            },
+            {
+              "label": "Rodzaj nadwozia",
+              "value": "hatchback"
+            }
+          ]
+        },
+        {
+          "group": "Układ kierowniczy",
+          "items": [
+            {
+              "label": "Średnica zawracania (m)",
+              "value": "10,64"
+            }
+          ]
+        },
+        {
+          "group": "Koła i opony",
+          "items": [
+            {
+              "label": "Opony standardowe",
+              "value": "205/60 R16 92H"
+            }
+          ]
+        },
+        {
+          "group": "Wymiary",
+          "items": [
+            {
+              "label": "Wysokość pojazdu nieobciążonego z relingami (mm)",
+              "value": "1586 (Stepway)"
+            },
+            {
+              "label": "Zwis przedni",
+              "value": "833"
+            },
+            {
+              "label": "Wysokość bez obciążenia z otwartą klapą tylną",
+              "value": "1976 (Sandero) 2012 (Stepway)"
+            },
+            {
+              "label": "Długość całkowita",
+              "value": "4102"
+            },
+            {
+              "label": "Szerokość całkowita",
+              "value": "1753 / 1784 (Stepway)"
+            },
+            {
+              "label": "Zwis tylny",
+              "value": "665"
+            },
+            {
+              "label": "Wysokość całkowita",
+              "value": "1496/1535 (Stepway bez relingów)"
+            },
+            {
+              "label": "Szerokość całkowita z lusterkami zewnętrznymi",
+              "value": "1853/2012 (złożone/rozłożone)"
+            },
+            {
+              "label": "Szerokość dolnej części bagażnika",
+              "value": "950"
+            },
+            {
+              "label": "Rozstaw osi",
+              "value": "2604"
+            },
+            {
+              "label": "Prześwit pojazdu",
+              "value": "130-160 (Sandero) / 170-200 (Stepway)"
+            }
+          ]
+        },
+        {
+          "group": "Typ techniczny",
+          "items": [
+            {
+              "label": "Typ techniczny",
+              "value": "DJFBEVMD6XC12M500C"
+            },
+            {
+              "label": "Liczba miejsc siedzących",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "group": "Skrzynia biegów",
+          "items": [
+            {
+              "label": "Liczba biegów do przodu",
+              "value": "6"
+            },
+            {
+              "label": "Rodzaj skrzyni biegów",
+              "value": "manualna"
+            }
+          ]
+        },
+        {
+          "group": "Aerodynamika",
+          "items": [
+            {
+              "label": "Poziom hałasu przy 50 km/h (dB)",
+              "value": "67"
+            }
+          ]
+        },
+        {
+          "group": "Pojemność bagażnika (dm3 VDA)",
+          "items": [
+            {
+              "label": "Pojemność przestrzeni bagażowej min. (dm3)",
+              "value": "328 z kołem / 372 (410 l) z zestawem naprawczym"
+            },
+            {
+              "label": "Pojemność przestrzeni bagażowej maks. po złożeniu kanapy (dm3)",
+              "value": "1108 z kołem / 1152 (1455 l) z zestawem naprawczym"
+            }
+          ]
+        },
+        {
+          "group": "Silnik",
+          "items": [
+            {
+              "label": "Liczba zaworów",
+              "value": "12"
+            },
+            {
+              "label": "Procedura homologacji",
+              "value": "1"
+            },
+            {
+              "label": "Moc maksymalna kW (KM)",
+              "value": "81 (110)"
+            },
+            {
+              "label": "Protokół homologacji",
+              "value": "WLTP"
+            },
+            {
+              "label": "Maksymalny moment obrotowy w Nm",
+              "value": "200 przy 2900-3500"
+            },
+            {
+              "label": "Rodzaj paliwa",
+              "value": "benzyna"
+            },
+            {
+              "label": "Liczba cylindrów",
+              "value": "3"
+            },
+            {
+              "label": "Pojemność skokowa (cm3)",
+              "value": "999"
+            },
+            {
+              "label": "Norma emisji spalin",
+              "value": "Euro 6e BIS"
+            }
+          ]
+        },
+        {
+          "group": "Zużycie paliwa i emisja spalin WLTP",
+          "items": [
+            {
+              "label": "Emisja CO2 cykl mieszany WLTP (g/km)",
+              "value": "128"
+            },
+            {
+              "label": "Zużycie paliwa cykl mieszany WLTP (l/100 km)",
+              "value": "5.7"
+            }
+          ]
+        },
+        {
+          "group": "Osiągi",
+          "items": [
+            {
+              "label": "Prędkość maksymalna (km/h)",
+              "value": "180"
+            },
+            {
+              "label": "1000 m ze startu zatrzymanego (s)",
+              "value": "31,4"
+            },
+            {
+              "label": "Przyspieszenie 0-100 km/h (s)",
+              "value": "10,0"
+            }
+          ]
+        },
+        {
+          "group": "Układ napędowy",
+          "items": [
+            {
+              "label": "Rodzaj napędu",
+              "value": "przedni"
+            }
+          ]
+        },
+        {
+          "group": "Dopuszczalna masa całkowita",
+          "items": [
+            {
+              "label": "Maksymalna masa przyczepy bez hamulca (kg)",
+              "value": "585"
+            },
+            {
+              "label": "Maksymalna masa całkowita zespołu pojazdów (kg)",
+              "value": "2685"
+            },
+            {
+              "label": "Maksymalna masa przyczepy z hamulcem (kg)",
+              "value": "1100"
+            },
+            {
+              "label": "Maksymalna ładowność (kg)",
+              "value": "397"
+            },
+            {
+              "label": "Minimalna masa pojazdu gotowego do jazdy (bez opcji) (kg)",
+              "value": "1191"
+            },
+            {
+              "label": "Maksymalna masa całkowita pojazdu (kg)",
+              "value": "1585"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-01",
+  "status": "complete",
+  "scope": "user-reported comparison interface and exact source-price coverage defects",
+  "spring_media": {
+    "status": "official_media_registered",
+    "source_path": "project/sources/dacia-pl-spring-model-media-20260801.json"
+  },
+  "comparison_interface": {
+    "selection_panel_behavior": "non_sticky_while_comparison_is_open",
+    "table_header_behavior": "sticky_inside_comparison_scroll_viewport",
+    "parameter_groups": "individually_collapsible_with_show_hide_all_controls",
+    "collapsed_state": "persisted_for_browser_session"
+  },
+  "sandero_tce100_injection": {
+    "value": "direct_injection",
+    "decision": "retained_source_backed",
+    "source_code": "src_pl_sandero_stepway_price_my26_20260703",
+    "observation_date": "2026-07-03",
+    "configuration_count": 3
+  },
+  "commercial_price_repair": {
+    "exact_mappings_added": 19,
+    "source_code": "src_pl_sandero_stepway_price_my26_20260703",
+    "price_date": "2026-07-03",
+    "amounts_pln": [700, 1200, 1600, 1900, 2000, 2200]
+  },
+  "missing_state_semantics": {
+    "missing_value_record": "brak wpisu w bazie",
+    "optional_without_commercial_mapping": "brak powiązania z cennikiem",
+    "mapped_blank_amount": "cena niepodana w źródle",
+    "cell_provenance": "source code and observation date"
+  },
+  "non_inference": [
+    "No value or price is transferred between configurations.",
+    "No blank amount is converted into zero or an estimate.",
+    "Remaining comparison gaps require exact registered-source reconciliation."
+  ],
+  "next_review": "registered_source_completeness_reconciliation_001"
+}

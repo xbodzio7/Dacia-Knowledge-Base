@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "kind": "jogger_page19_range_context_follow_up_review",
+  "reviewed_on": "2026-07-30",
+  "status": "complete_with_existing_coverage_and_preserved_context",
+  "package_id": "post_residual_jogger_page19_range_context_follow_up_review_001",
+  "source": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19,
+    "observation_date": "2025-12-17"
+  },
+  "comparison_source": {
+    "source_code": "src_pl_jogger_price_my26_20260401",
+    "observation_date": "2026-04-01"
+  },
+  "repository_receipts": {
+    "rpm_range_count": 58,
+    "max_power_range_count": 26,
+    "max_torque_range_count": 32,
+    "hybrid_max_power_rpm_scalar_count": 6,
+    "ecog_petrol_power_conflict_configuration_count": 10,
+    "hybrid_total_power_conflict_configuration_count": 6
+  },
+  "range_coverage": [
+    {
+      "attribute": "max_power_rpm",
+      "status": "existing_source_specific_coverage",
+      "range_ids": [
+        177,
+        202
+      ],
+      "observations": 26,
+      "distribution": {
+        "tce110_petrol": 6,
+        "ecog120_lpg": 10,
+        "ecog120_petrol": 10
+      },
+      "preserved_conflict": "Eco-G petrol brochure upper endpoint is 5000 rpm; the later official upper endpoint is 5750 rpm. Both dated source observations coexist and the later source remains current."
+    },
+    {
+      "attribute": "max_torque_rpm",
+      "status": "existing_source_specific_coverage",
+      "range_ids": [
+        203,
+        234
+      ],
+      "observations": 32,
+      "distribution": {
+        "tce110_petrol": 6,
+        "ecog120_lpg": 10,
+        "ecog120_petrol": 10,
+        "hybrid155_combustion_unscoped": 6
+      },
+      "preserved_context": "The Hybrid 155 range describes the combustion engine; no electric-motor speed is stated and none is inferred."
+    },
+    {
+      "attribute": "max_power_rpm",
+      "status": "existing_scalar_coverage",
+      "value_ids": [
+        2285,
+        2290
+      ],
+      "observations": 6,
+      "value_rpm": 5600,
+      "context": "Hybrid 155 combustion-engine maximum-power speed."
+    }
+  ],
+  "context_decisions": [
+    {
+      "code": "energy_source_columns",
+      "decision": "no_new_scalar_attribute",
+      "reason": "Petrol/LPG distinctions are already represented by fuel_type_code and Hybrid architecture is represented by separate governed component/system fields; the printed multi-column row is not one scalar fact."
+    },
+    {
+      "code": "homologation_protocol_wltp_footnote",
+      "decision": "context_only",
+      "reason": "WLTP(2) is explanatory protocol context and no approved governed homologation-protocol attribute exists in the current model."
+    },
+    {
+      "code": "electric_motor_speed_dash_cells",
+      "decision": "explicit_non_import",
+      "reason": "Dash cells do not state a numeric electric-motor speed and are not promoted to zero or not-applicable values by inference."
+    }
+  ],
+  "official_source_conflicts": [
+    {
+      "code": "hybrid155_total_power_105_vs_116",
+      "attribute": "hybrid_system_power_total",
+      "brochure_value_kw": 105,
+      "later_official_value_kw": 116,
+      "configuration_count": 6,
+      "decision": "retain_later_current_value_without_importing_conflicting_brochure_total",
+      "notes": "The brochure's 5600 rpm combustion-engine speed remains valid as its own observation and does not authorize promotion of the conflicting 105 kW total."
+    },
+    {
+      "code": "ecog120_petrol_max_power_rpm_5000_vs_5750",
+      "attribute": "max_power_rpm",
+      "brochure_range": [
+        4500,
+        5000
+      ],
+      "later_official_range": [
+        4500,
+        5750
+      ],
+      "configuration_count": 10,
+      "decision": "preserve_both_dated_source_ranges_with_later_current_precedence"
+    }
+  ],
+  "closure_decision": {
+    "new_master_data_required": false,
+    "new_range_import_required": false,
+    "new_domain_attribute_required": false,
+    "current_exact_values_overwritten": false,
+    "context_promoted_by_inference": false,
+    "page19_range_and_context_review_complete": true,
+    "jogger_page19_follow_up_chain_complete": true
+  },
+  "next_package": {
+    "package_id": "post_residual_verified_pdf_queue_reentry_review_001",
+    "kind": "review_closure",
+    "name": "Verified PDF Residual Queue Re-entry Review",
+    "status": "planned",
+    "goal": "Reconcile the remaining verified-PDF residual packages after complete Jogger page-19 closure, exclude already closed and explicit non-import boundaries, and select the next genuinely actionable package without reopening resolved work.",
+    "manifest_paths": [
+      "data/reporting/verified_pdf_residual_queue_reentry_review.json",
+      "data/reporting/verified_pdf_residual_queue_reentry_review.md",
+      "project/reviews/verified-pdf-residual-queue-reentry-review-2026-07-30.md",
+      "project/state.json",
+      "project/STATE_SUMMARY.md"
+    ]
+  }
+}

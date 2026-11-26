@@ -1,0 +1,528 @@
+from __future__ import annotations
+
+import csv
+import io
+import json
+import re
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+
+REPOSITORY = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPOSITORY / "tools"))
+sys.path.insert(0, str(REPOSITORY / "tests"))
+
+import portfolio_model_family_comparison_matrix as matrix_cli  # noqa: E402
+import portfolio_model_family_summary as summary_cli  # noqa: E402
+from version_matrix_checks import run_version_matrix_checks  # noqa: E402
+from reporting.portfolio_model_family_comparison_matrix import (  # noqa: E402
+    CSV_COLUMNS,
+    collect_matrix,
+    render_csv as render_matrix_csv,
+    render_html as render_matrix_html,
+    render_json as render_matrix_json,
+)
+from reporting.portfolio_model_family_summary import (  # noqa: E402
+    collect_summary,
+    render_html as render_summary_html,
+    render_json as render_summary_json,
+    render_markdown,
+)
+
+
+class PortfolioModelFamilySummaryTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.summary = collect_summary(REPOSITORY)
+        cls.families = {
+            item["model_code"]: item for item in cls.summary["families"]
+        }
+        cls.matrix = collect_matrix(REPOSITORY)
+        cls.matrix_families = {
+            item["model_code"]: item for item in cls.matrix["families"]
+        }
+
+    def test_portfolio_summary_matches_verified_repository_baseline(self) -> None:
+        self.assertEqual(self.summary["version"], 1)
+        self.assertEqual(self.summary["kind"], "portfolio_model_family_summary")
+        self.assertRegex(self.summary["as_of"], r"^\d{4}-\d{2}-\d{2}$")
+        expected_by_model = self._expected_provenance_by_model()
+        expected_sources = {
+            source_code
+            for sources in expected_by_model.values()
+            for source_code in sources
+        }
+        expected_relationship_count = sum(
+            len(relations)
+            for sources in expected_by_model.values()
+            for relations in sources.values()
+        )
+        self.assertEqual(
+            self.summary["summary"]["provenance_source_count"],
+            len(expected_sources),
+        )
+        self.assertEqual(
+            self.summary["summary"]["source_configuration_relationship_count"],
+            expected_relationship_count,
+        )
+        self.assertEqual(
+            self.summary["summary"]["active_configuration_count"],
+            sum(len(family["configuration_codes"]) for family in self.summary["families"]),
+        )
+        self.assertEqual(
+            self.summary["summary"]["configurations_with_provenance_count"],
+            self.summary["summary"]["active_configuration_count"],
+        )
+        self.assertEqual(
+            self.summary["summary"]["configurations_without_provenance_count"], 0
+        )
+        for flag in (
+            "cross_scope_pairs_generated",
+            "ranking_generated",
+            "recommendations_generated",
+            "inferred_values_generated",
+        ):
+            self.assertIs(self.summary["summary"][flag], False)
+        self.assertEqual(self.matrix["version"], 1)
+        self.assertEqual(
+            self.matrix["kind"],
+            "portfolio_model_family_comparison_matrix",
+        )
+        self.assertEqual(self.matrix["as_of"], "2026-08-09")
+        self.assertEqual(
+            self.matrix["source_product"],
+            {
+                "kind": "portfolio_model_family_summary",
+                "version": 1,
+                "path": "data/reporting/portfolio_model_family_summary.json",
+            },
+        )
+        self.assertEqual(
+            self.matrix["summary"],
+            {
+                "model_family_count": 6,
+                "active_configuration_count": 84,
+                "reporting_scope_count": 23,
+                "provenance_source_count": 105,
+                "source_configuration_relationship_count": 354,
+                "configurations_without_provenance_count": 0,
+                "cross_scope_pairs_generated": False,
+                "ranking_generated": False,
+                "recommendations_generated": False,
+                "inferred_values_generated": False,
+            },
+        )
+
+
+    def test_family_order_and_commercial_counts_are_exact(self) -> None:
+        versions = {
+            row["code"]: row
+            for row in self._read_master_rows("versions.csv")
+        }
+        configurations = {
+            row["code"]: row
+            for row in self._read_master_rows("configurations.csv")
+            if row["status"] == "active"
+        }
+        active_model_codes = {
+            versions[row["version_code"]]["model_code"]
+            for row in configurations.values()
+        }
+        self.assertEqual(set(self.families), active_model_codes)
+        self.assertEqual(
+            self.summary["summary"]["model_family_count"],
+            len(active_model_codes),
+        )
+        for code, family in self.families.items():
+            codes = family["configuration_codes"]
+            self.assertEqual(family["configuration_count"], len(codes))
+            self.assertEqual(len(codes), len(set(codes)))
+            self.assertTrue(set(codes).issubset(configurations))
+            self.assertEqual(
+                family["version_count"],
+                len({configurations[item]["version_code"] for item in codes}),
+            )
+            price = family["catalog_price"]
+            self.assertEqual(
+                price["recorded_count"] + price["missing_count"],
+                family["configuration_count"],
+            )
+            if price["recorded_count"]:
+                self.assertLessEqual(price["minimum"], price["maximum"])
+                self.assertEqual(price["currency"], "PLN")
+            else:
+                self.assertIsNone(price["minimum"])
+                self.assertIsNone(price["maximum"])
+
+        # The comparison matrix is an intentionally frozen historical snapshot;
+        # its counts are validated separately against its own as-of date.
+        self.assertEqual(self.matrix["as_of"], "2026-08-09")
+        for family in self.matrix["families"]:
+            self.assertGreater(family["configuration_count"], 0)
+            price = family["catalog_price"]
+            self.assertEqual(
+                price["recorded_count"] + price["missing_count"],
+                family["configuration_count"],
+            )
+
+    def _expected_provenance_by_model(self) -> dict[str, dict[str, list[dict[str, str]]]]:
+        master = REPOSITORY / "data" / "master"
+
+        def read_rows(name: str) -> list[dict[str, str]]:
+            with (master / name).open(encoding="utf-8-sig", newline="") as handle:
+                return list(csv.DictReader(handle))
+
+        versions = {row["code"]: row for row in read_rows("versions.csv")}
+        configurations = {
+            row["code"]: row
+            for row in read_rows("configurations.csv")
+            if row["status"] == "active"
+        }
+        sources = {row["code"]: row for row in read_rows("sources.csv")}
+        configuration_models = {
+            code: versions[row["version_code"]]["model_code"]
+            for code, row in configurations.items()
+        }
+        expected: dict[str, dict[str, list[dict[str, str]]]] = {}
+        for relation in read_rows("source_configurations.csv"):
+            configuration_code = relation["configuration_code"]
+            if configuration_code not in configurations:
+                continue
+            model_code = configuration_models[configuration_code]
+            source_code = relation["source_code"]
+            expected.setdefault(model_code, {}).setdefault(source_code, []).append(
+                relation
+            )
+        return expected
+
+    def test_exact_provenance_is_derived_from_canonical_relationships(self) -> None:
+        expected_by_model = self._expected_provenance_by_model()
+        for model_code, expected_sources in expected_by_model.items():
+            family = self.families[model_code]
+            provenance = family["provenance"]
+            actual_sources = {
+                source["source_code"]: source for source in provenance["sources"]
+            }
+            self.assertEqual(set(actual_sources), set(expected_sources))
+            self.assertEqual(provenance["source_count"], len(expected_sources))
+            self.assertEqual(
+                provenance["relationship_count"],
+                sum(len(rows) for rows in expected_sources.values()),
+            )
+            self.assertEqual(
+                provenance["configuration_coverage_count"],
+                family["configuration_count"],
+            )
+            self.assertEqual(provenance["missing_configuration_count"], 0)
+
+            for source_code, relations in expected_sources.items():
+                source = actual_sources[source_code]
+                source_metadata = next(
+                    row
+                    for row in self._read_master_rows("sources.csv")
+                    if row["code"] == source_code
+                )
+                expected_configurations = sorted(
+                    {row["configuration_code"] for row in relations}
+                )
+                expected_relationships = sorted(
+                    {row["relationship"] for row in relations if row["relationship"]}
+                )
+                for field in (
+                    "source_type",
+                    "title",
+                    "publisher",
+                    "market",
+                    "document_date",
+                    "external_reference",
+                    "file_path",
+                    "sha256",
+                    "status",
+                ):
+                    self.assertEqual(source[field], source_metadata[field])
+                self.assertEqual(source["configuration_codes"], expected_configurations)
+                self.assertEqual(source["configuration_count"], len(expected_configurations))
+                self.assertEqual(source["relationships"], expected_relationships)
+
+            dates = [
+                source["document_date"] for source in actual_sources.values()
+                if source["document_date"]
+            ]
+            self.assertEqual(provenance["earliest_document_date"], min(dates))
+            self.assertEqual(provenance["latest_document_date"], max(dates))
+
+    @staticmethod
+    def _read_master_rows(filename: str) -> list[dict[str, str]]:
+        path = REPOSITORY / "data" / "master" / filename
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            return list(csv.DictReader(handle))
+
+
+    def test_every_provenance_entry_is_exact_and_configuration_bounded(self) -> None:
+        relation_total = 0
+        used_sources: set[str] = set()
+        for family in self.summary["families"]:
+            family_codes = set(family["configuration_codes"])
+            provenance = family["provenance"]
+            relation_total += provenance["relationship_count"]
+            for source in provenance["sources"]:
+                used_sources.add(source["source_code"])
+                if source["sha256"]:
+                    self.assertEqual(len(source["sha256"]), 64)
+                    self.assertRegex(source["sha256"], r"^[0-9a-f]{64}$")
+                else:
+                    # A missing hash is acceptable only when the source remains externally traceable;
+                    # if an archive path is declared, the exact repository file must exist.
+                    self.assertTrue(source["external_reference"].startswith("https://"))
+                    if source["file_path"]:
+                        archived = REPOSITORY / source["file_path"]
+                        self.assertTrue(archived.is_file(), source["file_path"])
+                self.assertTrue(source["document_date"])
+                self.assertEqual(source["status"], "active")
+                self.assertTrue(
+                    set(source["configuration_codes"]).issubset(family_codes)
+                )
+                self.assertEqual(
+                    source["configuration_count"],
+                    len(source["configuration_codes"]),
+                )
+        expected_by_model = self._expected_provenance_by_model()
+        expected_relation_total = sum(
+            len(relations)
+            for sources in expected_by_model.values()
+            for relations in sources.values()
+        )
+        expected_source_codes = {
+            source_code
+            for sources in expected_by_model.values()
+            for source_code in sources
+        }
+        self.assertEqual(relation_total, expected_relation_total)
+        self.assertEqual(used_sources, expected_source_codes)
+        self.assertEqual(
+            self.matrix_families["spring"]["transmission_values"],
+            ["automatic"],
+        )
+        self.assertEqual(
+            self.matrix_families["spring"]["powertrain_labels"],
+            ["electric 100", "electric 70"],
+        )
+        self.assertEqual(
+            self.matrix_families["duster_iii"]["powertrain_labels"],
+            [
+                "Eco-G 100 4x2",
+                "Eco-G 120 4x2",
+                "hybrid 140 4x2",
+                "hybrid 155 4x2",
+                "hybrid-G 150 4x4",
+                "mild hybrid 130 4x2",
+                "mild hybrid 130 4x4",
+                "mild hybrid 140 4x2",
+            ],
+        )
+
+    def test_reporting_scope_membership_is_reused_without_pair_expansion(self) -> None:
+        self.assertEqual(self.families["sandero_iii"]["shared_scope_count"], 3)
+        self.assertEqual(
+            self.families["sandero_stepway_iii"]["shared_scope_count"], 3
+        )
+        self.assertEqual(self.families["jogger"]["shared_scope_count"], 0)
+        self.assertIn(
+            "sandero_ecog120_manual",
+            self.families["sandero_iii"]["shared_scope_slugs"],
+        )
+        self.assertIn(
+            "sandero_tce100_stepway_tce110_manual",
+            self.families["sandero_stepway_iii"]["shared_scope_slugs"],
+        )
+        self.assertFalse(self.summary["summary"]["cross_scope_pairs_generated"])
+        self.assertFalse(self.summary["summary"]["ranking_generated"])
+        self.assertFalse(self.summary["summary"]["recommendations_generated"])
+        self.assertFalse(self.summary["summary"]["inferred_values_generated"])
+        for family in self.matrix["families"]:
+            self.assertEqual(
+                family["reporting_scope_count"],
+                family["exclusive_scope_count"] + family["shared_scope_count"],
+            )
+        self.assertEqual(
+            self.matrix_families["sandero_iii"]["shared_scope_count"], 2
+        )
+        self.assertEqual(
+            self.matrix_families["sandero_stepway_iii"]["shared_scope_count"], 2
+        )
+        self.assertFalse(
+            self.matrix["summary"]["cross_scope_pairs_generated"]
+        )
+        self.assertFalse(self.matrix["summary"]["ranking_generated"])
+        self.assertFalse(self.matrix["summary"]["recommendations_generated"])
+        self.assertFalse(self.matrix["summary"]["inferred_values_generated"])
+
+    def test_unknown_seat_values_remain_not_stated(self) -> None:
+        for code in ("bigster", "duster_iii"):
+            self.assertEqual(self.families[code]["recorded_seat_values"], [5])
+            self.assertEqual(self.families[code]["seat_summary_state"], "recorded")
+            self.assertEqual(self.matrix_families[code]["recorded_seat_values"], [5])
+            self.assertEqual(self.matrix_families[code]["seat_summary_state"], "recorded")
+        self.assertEqual(self.families["spring"]["recorded_seat_values"], [4])
+        self.assertEqual(self.families["jogger"]["recorded_seat_values"], [5, 7])
+        self.assertEqual(
+            self.matrix_families["spring"]["recorded_seat_values"], [4]
+        )
+        self.assertEqual(
+            self.matrix_families["jogger"]["recorded_seat_values"], [5, 7]
+        )
+
+    def test_json_markdown_and_html_rendering_are_deterministic(self) -> None:
+        summary_json = render_summary_json(self.summary)
+        markdown = render_markdown(self.summary)
+        summary_html = render_summary_html(self.summary)
+        self.assertEqual(summary_json, render_summary_json(self.summary))
+        self.assertEqual(markdown, render_markdown(self.summary))
+        self.assertEqual(summary_html, render_summary_html(self.summary))
+        self.assertEqual(json.loads(summary_json), self.summary)
+        self.assertTrue(markdown.startswith("# Portfolio Model Family Summary"))
+        self.assertTrue(summary_html.startswith("<!doctype html>"))
+
+        matrix_json = render_matrix_json(self.matrix)
+        matrix_csv = render_matrix_csv(self.matrix)
+        matrix_html = render_matrix_html(self.matrix)
+        self.assertEqual(matrix_json, render_matrix_json(self.matrix))
+        self.assertEqual(matrix_csv, render_matrix_csv(self.matrix))
+        self.assertEqual(matrix_html, render_matrix_html(self.matrix))
+        self.assertEqual(json.loads(matrix_json), self.matrix)
+        rows = list(csv.DictReader(io.StringIO(matrix_csv)))
+        self.assertEqual(tuple(rows[0]), CSV_COLUMNS)
+        self.assertEqual(len(rows), 6)
+        self.assertEqual(rows[3]["seat_summary_state"], "recorded")
+        self.assertEqual(rows[3]["recorded_seat_values"], "5")
+
+    def test_html_is_standalone_and_exposes_source_hashes(self) -> None:
+        summary_rendered = render_summary_html(self.summary)
+        self.assertNotIn("<script", summary_rendered.lower())
+        self.assertNotIn("<img", summary_rendered.lower())
+        self.assertNotIn("http://", summary_rendered.lower())
+        self.assertNotIn("https://", summary_rendered.lower())
+        self.assertEqual(summary_rendered.count('class="family"'), len(self.summary["families"]))
+        expected_hash_count = sum(
+            1
+            for family in self.summary["families"]
+            for source in family["provenance"]["sources"]
+            if source["sha256"]
+        )
+        expected_missing_hash_count = sum(
+            1
+            for family in self.summary["families"]
+            for source in family["provenance"]["sources"]
+            if not source["sha256"]
+        )
+        self.assertEqual(
+            summary_rendered.count("SHA-256 "),
+            expected_hash_count + expected_missing_hash_count,
+        )
+        self.assertEqual(
+            summary_rendered.count("SHA-256 unavailable"),
+            expected_missing_hash_count,
+        )
+        self.assertIn(
+            'data-state="recorded"', summary_rendered
+        )
+        self.assertIn(
+            "nie tworzy par między zakresami", summary_rendered.lower()
+        )
+
+        matrix_rendered = render_matrix_html(self.matrix)
+        lowered = matrix_rendered.lower()
+        self.assertTrue(matrix_rendered.startswith("<!doctype html>"))
+        self.assertNotIn("<script", lowered)
+        self.assertNotIn("<img", lowered)
+        self.assertNotIn("http://", lowered)
+        self.assertNotIn("https://", lowered)
+        self.assertEqual(matrix_rendered.count("<tr>"), 7)
+        self.assertEqual(
+            matrix_rendered.count('data-state="not_stated"'), 0
+        )
+        self.assertIn("creates no configuration pair", matrix_rendered)
+        self.assertIn(
+            "ranking, recommendation or inferred value", matrix_rendered
+        )
+
+    def test_committed_reporting_artifacts_remain_historical_snapshot(self) -> None:
+        summary_base = REPOSITORY / "data/reporting/portfolio_model_family_summary"
+        summary = json.loads(
+            summary_base.with_suffix(".json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(summary["as_of"], "2026-08-09")
+        self.assertEqual(summary["summary"]["active_configuration_count"], 84)
+        self.assertEqual(summary["summary"]["source_configuration_relationship_count"], 354)
+        matrix_base = REPOSITORY / "data/reporting/portfolio_model_family_comparison_matrix"
+        matrix = json.loads(
+            matrix_base.with_suffix(".json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(matrix["as_of"], "2026-08-09")
+        self.assertEqual(matrix["summary"]["active_configuration_count"], 84)
+        self.assertEqual(matrix["summary"]["source_configuration_relationship_count"], 354)
+
+    def test_cli_writes_all_formats_and_reports_success(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            summary_json_path = root / "summary.json"
+            markdown_path = root / "summary.md"
+            summary_html_path = root / "summary.html"
+            result = summary_cli.main(
+                [
+                    "--json",
+                    str(summary_json_path),
+                    "--markdown",
+                    str(markdown_path),
+                    "--html",
+                    str(summary_html_path),
+                ],
+                repository=REPOSITORY,
+            )
+            self.assertEqual(result, 0)
+            self.assertEqual(
+                json.loads(summary_json_path.read_text(encoding="utf-8")),
+                self.summary,
+            )
+            self.assertEqual(
+                markdown_path.read_text(encoding="utf-8"),
+                render_markdown(self.summary),
+            )
+            self.assertEqual(
+                summary_html_path.read_text(encoding="utf-8"),
+                render_summary_html(self.summary),
+            )
+
+            matrix_json_path = root / "matrix.json"
+            matrix_csv_path = root / "matrix.csv"
+            matrix_html_path = root / "matrix.html"
+            matrix_result = matrix_cli.main(
+                [
+                    "--json",
+                    str(matrix_json_path),
+                    "--csv",
+                    str(matrix_csv_path),
+                    "--html",
+                    str(matrix_html_path),
+                ],
+                repository=REPOSITORY,
+            )
+            self.assertEqual(matrix_result, 0)
+            self.assertEqual(
+                matrix_json_path.read_text(encoding="utf-8"),
+                render_matrix_json(self.matrix),
+            )
+            self.assertEqual(
+                matrix_csv_path.read_text(encoding="utf-8"),
+                render_matrix_csv(self.matrix),
+            )
+            self.assertEqual(
+                matrix_html_path.read_text(encoding="utf-8"),
+                render_matrix_html(self.matrix),
+            )
+
+
+if __name__ == "__main__":
+    unittest.main()

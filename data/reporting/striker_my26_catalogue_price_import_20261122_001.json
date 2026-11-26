@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "kind": "striker_my26_catalogue_price_import",
+  "reviewed_on": "2026-11-22",
+  "status": "complete",
+  "source": {
+    "source_code": "src_pl_striker_price_my26_20261102",
+    "document_date": "2026-11-02",
+    "model_year": "MY26",
+    "market": "PL",
+    "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/striker-price.pdf.asset.pdf/1793603979544.pdf",
+    "repository_path": "PDF/Cenniki/striker-price.pdf",
+    "sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35",
+    "size_bytes": 1615585,
+    "page_count": 8
+  },
+  "page_1_matrix": [
+    {
+      "powertrain": "mild hybrid-G 140 4x2 manual",
+      "grade": "Essential",
+      "amount": 92900,
+      "configuration_code": "striker_essential_mildhybridg140_4x2_manual"
+    },
+    {
+      "powertrain": "mild hybrid-G 140 4x2 manual",
+      "grade": "Expression",
+      "amount": 99900,
+      "configuration_code": "striker_expression_mildhybridg140_4x2_manual"
+    },
+    {
+      "powertrain": "mild hybrid-G 140 auto 4x2",
+      "grade": "Expression",
+      "amount": 106900,
+      "configuration_code": "striker_expression_mildhybridg140_4x2_automatic"
+    },
+    {
+      "powertrain": "mild hybrid-G 140 auto 4x2",
+      "grade": "Extreme",
+      "amount": 115500,
+      "configuration_code": "striker_extreme_mildhybridg140_4x2_automatic"
+    },
+    {
+      "powertrain": "mild hybrid-G 140 auto 4x2",
+      "grade": "Journey",
+      "amount": 115500,
+      "configuration_code": "striker_journey_mildhybridg140_4x2_automatic"
+    },
+    {
+      "powertrain": "hybrid 155 4x2",
+      "grade": "Expression",
+      "amount": 113000,
+      "configuration_code": "striker_expression_hybrid155_4x2_automatic"
+    },
+    {
+      "powertrain": "hybrid 155 4x2",
+      "grade": "Extreme",
+      "amount": 121500,
+      "configuration_code": "striker_extreme_hybrid155_4x2_automatic"
+    },
+    {
+      "powertrain": "hybrid 155 4x2",
+      "grade": "Journey",
+      "amount": 121500,
+      "configuration_code": "striker_journey_hybrid155_4x2_automatic"
+    },
+    {
+      "powertrain": "hybrid 150 4x4",
+      "grade": "Expression",
+      "amount": 120900,
+      "configuration_code": "striker_expression_hybrid150_4x4_automatic"
+    },
+    {
+      "powertrain": "hybrid 150 4x4",
+      "grade": "Extreme",
+      "amount": 129500,
+      "configuration_code": "striker_extreme_hybrid150_4x4_automatic"
+    },
+    {
+      "powertrain": "hybrid 150 4x4",
+      "grade": "Journey",
+      "amount": 129500,
+      "configuration_code": "striker_journey_hybrid150_4x4_automatic"
+    }
+  ],
+  "transmission_crosswalk": {
+    "source_page": 5,
+    "observations": [
+      {
+        "powertrain": "mild hybrid-G 140 4x2",
+        "transmission": "6-speed manual"
+      },
+      {
+        "powertrain": "mild hybrid-G 140 auto 4x2",
+        "transmission": "6-speed dual-clutch automatic"
+      },
+      {
+        "powertrain": "hybrid 155 4x2",
+        "transmission": "Multi-mode automatic"
+      },
+      {
+        "powertrain": "hybrid 150 4x4",
+        "transmission": "6-speed dual-clutch automatic"
+      }
+    ],
+    "note": "Page-1 price cells define exact grade/powertrain applicability; page-5 technical table supports transmission classification. No unprinted combinations were created."
+  },
+  "migration": {
+    "configuration_prices": 11,
+    "configurations": 11,
+    "versions": 4,
+    "source_configuration_links": 11,
+    "source_version_links": 4,
+    "source_model_links": 1,
+    "import_spec": "data/imports/striker_my26_configuration_prices_20261102.csv"
+  },
+  "boundaries": [
+    "Only the 11 printed page-1 catalogue prices are imported.",
+    "All prices are dated 2026-11-02 and stored as PL catalog_gross.",
+    "No promotional, financing, lease or dealer-discount amounts are imported.",
+    "No options, packages, equipment availability or other technical observations are imported.",
+    "No configurations outside the 11 explicit price cells are inferred."
+  ],
+  "comparison_scope": {
+    "completeness_spec": "data/reporting/striker_my26_catalogue_completeness.json",
+    "evidence_spec": "data/reporting/striker_my26_catalogue_gap_evidence.spec",
+    "configuration_count": 11,
+    "technical_slots": 0,
+    "equipment_attributes": 0,
+    "note": "The scope keeps all active Striker configurations visible to repository comparison/export tooling while limiting this price-import package to catalogue-price observations. Technical/equipment slots will be added only in their own source-backed packages."
+  }
+}

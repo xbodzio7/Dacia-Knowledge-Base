@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "source_code": "src_pl_cross_model_option_coverage_20260724",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-24",
+  "volatility": "dynamic_official_web",
+  "scope": {
+    "attributes": [
+      "shark_fin_antenna",
+      "side_mirrors_folding"
+    ],
+    "imported_models": [
+      "sandero_iii",
+      "sandero_stepway_iii",
+      "jogger"
+    ],
+    "reviewed_without_new_records": [
+      "bigster",
+      "duster_iii"
+    ]
+  },
+  "version_observations": [
+    {
+      "model_code": "sandero_iii",
+      "version_code": "sandero_iii_expression",
+      "version_name": "expression",
+      "grade_code": "ENS_ACLASS00M$SERIELIM3",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-miejskie/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie \"płetwy rekina\""
+        }
+      ],
+      "configurations": [
+        "sandero_iii_expression_ecog120_automatic",
+        "sandero_iii_expression_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "sandero_iii",
+      "version_code": "sandero_iii_journey",
+      "version_name": "journey",
+      "grade_code": "ENS_ACLASS00M$SERIESPE1",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-miejskie/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie \"płetwy rekina\""
+        }
+      ],
+      "configurations": [
+        "sandero_iii_journey_ecog120_automatic",
+        "sandero_iii_journey_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "version_code": "sandero_stepway_iii_essential",
+      "version_name": "stepway essential",
+      "grade_code": "ENS_ACLASS00M$SERIELIM2",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIELIM2",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "not_available",
+          "source_label": "antena biczowa",
+          "negative_evidence": "The source explicitly identifies a whip antenna as the factory antenna for this grade."
+        }
+      ],
+      "configurations": [
+        "sandero_stepway_iii_essential_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "version_code": "sandero_stepway_iii_expression",
+      "version_name": "stepway expression",
+      "grade_code": "ENS_ACLASS00M$SERIELIM4",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIELIM4",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie \"płetwy rekina\""
+        }
+      ],
+      "configurations": [
+        "sandero_stepway_iii_expression_ecog120_automatic",
+        "sandero_stepway_iii_expression_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "version_code": "sandero_stepway_iii_extreme",
+      "version_name": "stepway extreme",
+      "grade_code": "ENS_ACLASS00M$SERIESPE2",
+      "equipment_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wyposazenie.html?gradeCode=ENS_ACLASS00M%24SERIESPE2",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie \"płetwy rekina\""
+        }
+      ],
+      "configurations": [
+        "sandero_stepway_iii_extreme_ecog120_automatic",
+        "sandero_stepway_iii_extreme_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "version_code": "jogger_essential",
+      "version_name": "essential",
+      "grade_code": "ENS_MDL3P4X41SERIELIM1",
+      "equipment_url": "https://www.dacia.pl/samochody/jogger-hybydowy/wyposazenie.html?gradeCode=ENS_MDL3P4X41SERIELIM1",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "not_available",
+          "source_label": "antena biczowa",
+          "negative_evidence": "The source explicitly identifies a whip antenna as the factory antenna for this grade."
+        }
+      ],
+      "configurations": [
+        "jogger_essential_5seat_ecog120_manual",
+        "jogger_essential_7seat_ecog120_manual"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "version_code": "jogger_expression",
+      "version_name": "expression",
+      "grade_code": "ENS_MDL3P4X41SERIELIM2",
+      "equipment_url": "https://www.dacia.pl/samochody/jogger-hybydowy/wyposazenie.html?gradeCode=ENS_MDL3P4X41SERIELIM2",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie płetwy rekina"
+        }
+      ],
+      "configurations": [
+        "jogger_expression_5seat_ecog120_manual",
+        "jogger_expression_5seat_hybrid155_automatic",
+        "jogger_expression_5seat_tce110_manual",
+        "jogger_expression_7seat_ecog120_manual",
+        "jogger_expression_7seat_hybrid155_automatic",
+        "jogger_expression_7seat_tce110_manual"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "version_code": "jogger_extreme",
+      "version_name": "extreme",
+      "grade_code": "ENS_MDL3P4X41SERIELIM3",
+      "equipment_url": "https://www.dacia.pl/samochody/jogger-hybydowy/wyposazenie.html?gradeCode=ENS_MDL3P4X41SERIELIM3",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie płetwy rekina"
+        }
+      ],
+      "configurations": [
+        "jogger_extreme_5seat_ecog120_automatic",
+        "jogger_extreme_5seat_ecog120_manual",
+        "jogger_extreme_5seat_hybrid155_automatic",
+        "jogger_extreme_5seat_tce110_manual",
+        "jogger_extreme_7seat_ecog120_automatic",
+        "jogger_extreme_7seat_ecog120_manual",
+        "jogger_extreme_7seat_hybrid155_automatic",
+        "jogger_extreme_7seat_tce110_manual"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "version_code": "jogger_journey",
+      "version_name": "journey",
+      "grade_code": "ENS_MDL3P4X41SERIELIM4",
+      "equipment_url": "https://www.dacia.pl/samochody/jogger-hybydowy/wyposazenie.html?gradeCode=ENS_MDL3P4X41SERIELIM4",
+      "availability": [
+        {
+          "attribute_code": "shark_fin_antenna",
+          "availability_status": "standard",
+          "source_label": "antena w kształcie płetwy rekina"
+        },
+        {
+          "attribute_code": "side_mirrors_folding",
+          "availability_status": "standard",
+          "source_label": "elektryczne lusterko z czujnikiem, ogrzewaniem i elektrycznym składaniem"
+        }
+      ],
+      "configurations": [
+        "jogger_journey_5seat_ecog120_automatic",
+        "jogger_journey_5seat_hybrid155_automatic",
+        "jogger_journey_5seat_tce110_manual",
+        "jogger_journey_7seat_ecog120_automatic",
+        "jogger_journey_7seat_hybrid155_automatic",
+        "jogger_journey_7seat_tce110_manual"
+      ]
+    }
+  ],
+  "existing_coverage_reviews": [
+    {
+      "model_code": "bigster",
+      "result": "complete_existing_master_coverage",
+      "new_records": 0,
+      "reason": "Current master data already records the shark-fin antenna and power-folding mirrors for every active Bigster configuration, including explicit alternative factory equipment for Essential."
+    }
+  ],
+  "non_import_reviews": [
+    {
+      "model_code": "duster_iii",
+      "result": "no_exact_configuration_import",
+      "new_records": 0,
+      "reason": "The current official grade-page payload did not provide a stable, unambiguous exact-version state for both target attributes. Absence of a phrase is not treated as unavailability.",
+      "preserved_state": "missing records remain unimported and therefore unknown"
+    },
+    {
+      "model_code": "sandero_iii",
+      "attribute_code": "side_mirrors_folding",
+      "result": "existing_package_mappings_only",
+      "reason": "The dated price-list package mapping remains authoritative. The broad current grade page does not prove an additional exact automatic-configuration package price."
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "attribute_code": "side_mirrors_folding",
+      "result": "existing_package_mappings_only",
+      "reason": "Existing EASY package mappings for exact Stepway Extreme configurations remain unchanged."
+    },
+    {
+      "model_code": "jogger",
+      "version_code": "jogger_extreme",
+      "attribute_code": "side_mirrors_folding",
+      "result": "existing_package_mappings_only",
+      "reason": "Existing DRIVE package mappings for exact Extreme configurations remain unchanged."
+    }
+  ],
+  "normalization_rules": [
+    "A factory equipment statement on an official grade-specific equipment page is expanded only to active configurations belonging to that exact version.",
+    "An explicit alternate factory antenna such as 'antena biczowa' supports not_available for the shark-fin factory-equipment attribute; accessories are excluded.",
+    "A newer dated observation supersedes an older observation in reporting without deleting the historical row.",
+    "Existing commercial package mappings and prices are preserved and are not broadened from a generic grade page.",
+    "Absence from a dynamic page is not interpreted as not_available.",
+    "Accessories, installation charges, dealer stock and promotions are outside this package."
+  ]
+}

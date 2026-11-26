@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 3362,
+  "attribute_code": "minimum_kerb_weight",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2025-12-17",
+  "fuel_type_code": "",
+  "source_page": 19,
+  "source_section": "Minimalna masa własna",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_expression_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1193",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1193",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_tce110_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1193",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_essential_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1292",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1292",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1292",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1326",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1326",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_expression_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1359",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_extreme_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1359",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1359",
+      "source_text": "Wersja 5-miejscowa 1193 1292 1326 1359"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1221",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1221",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_tce110_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1221",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_essential_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1321",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1321",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_manual",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1321",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1354",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1354",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_expression_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1388",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1388",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_hybrid155_automatic",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "value": "1388",
+      "source_text": "Wersja 7-miejscowa 1221 1321 1354 1388"
+    }
+  ]
+}

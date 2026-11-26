@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_value_ranges",
+  "id_start": 71,
+  "attribute_code": "maximum_payload",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "kg",
+    "status": "active"
+  },
+  "observation_date": "2026-04-01",
+  "fuel_type_code": "",
+  "source_page": 6,
+  "source_section": "MASY (kg)",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "jogger_extreme_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "450",
+      "maximum_value": "459",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "450-459 / 596-606"
+    },
+    {
+      "configuration_code": "jogger_journey_5seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "450",
+      "maximum_value": "459",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "450-459 / 596-606"
+    },
+    {
+      "configuration_code": "jogger_extreme_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "596",
+      "maximum_value": "606",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "450-459 / 596-606"
+    },
+    {
+      "configuration_code": "jogger_journey_7seat_ecog120_automatic",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "minimum_value": "596",
+      "maximum_value": "606",
+      "lower_inclusive": true,
+      "upper_inclusive": true,
+      "source_text": "450-459 / 596-606"
+    }
+  ]
+}

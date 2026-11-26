@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "report_id": "striker_my26_priced_options_packages_matrix_20261124_001",
+  "package_id": "striker_my26_priced_options_packages_matrix_20261124_001",
+  "model": "Striker",
+  "model_year": "MY26",
+  "market": "PL",
+  "source_code": "src_pl_striker_price_my26_20261102",
+  "source_date": "2026-11-02",
+  "source_page": 5,
+  "source_file": "PDF/Cenniki/striker-price.pdf",
+  "source_sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35",
+  "source_file_size_bytes": 1615585,
+  "source_page_count": 8,
+  "source_url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/striker-price.pdf.asset.pdf/1793603979544.pdf",
+  "review_scope": "Printed option/package matrix only; grade columns mapped to 11 exact source-linked configurations.",
+  "result": {
+    "items": 11,
+    "mappings": 121,
+    "optional": 60,
+    "standard": 3,
+    "not_available": 51,
+    "unknown": 7
+  },
+  "status_definitions": {
+    "optional": "Printed PLN price.",
+    "standard": "Marked standard (●).",
+    "not_available": "Printed dash (-).",
+    "unknown": "Literal P marker; meaning not inferred."
+  },
+  "items": [
+    {
+      "code": "striker_metallic_paint_option",
+      "name": "Lakier metalizowany",
+      "item_type": "option",
+      "source_label": "Lakier metalizowany",
+      "price_pln": 3100,
+      "grade_matrix": {
+        "essential": "optional",
+        "expression": "optional",
+        "extreme": "optional",
+        "journey": "optional"
+      },
+      "notes": "3,100 PLN in all four grade columns."
+    },
+    {
+      "code": "striker_all_season_tires_option",
+      "name": "Opony całoroczne 18″",
+      "item_type": "option",
+      "source_label": "Opony całoroczne 18″",
+      "price_pln": 1000,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "extreme": "optional",
+        "journey": "optional"
+      },
+      "notes": "1,000 PLN in Extreme/Journey; dashes in Essential/Expression."
+    },
+    {
+      "code": "striker_19inch_alloy_wheels_option",
+      "name": "Aluminiowe obręcze kół 19″",
+      "item_type": "option",
+      "source_label": "Aluminiowe obręcze kół 19″",
+      "price_pln": 1200,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "extreme": "optional",
+        "journey": "optional"
+      },
+      "notes": "1,200 PLN in Extreme/Journey; dashes in Essential/Expression."
+    },
+    {
+      "code": "striker_panoramic_glass_roof_option",
+      "name": "Nieotwierany, panoramiczny szklany dach",
+      "item_type": "option",
+      "source_label": "Nieotwierany, panoramiczny szklany dach",
+      "price_pln": 4300,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "extreme": "standard",
+        "journey": "optional"
+      },
+      "notes": "Standard in Extreme (● on printed pages 4–5); 4,300 PLN in Journey; dashes in Essential/Expression."
+    },
+    {
+      "code": "striker_heated_washer_nozzles_and_windscreen_option",
+      "name": "Podgrzewane dysze spryskiwaczy i szyba przednia",
+      "item_type": "option",
+      "source_label": "Podgrzewane dysze spryskiwaczy i szyba przednia",
+      "price_pln": 1000,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "unknown",
+        "extreme": "unknown",
+        "journey": "optional"
+      },
+      "notes": "Journey 1,000 PLN; literal P in Expression/Extreme preserved as unknown; Essential dash. No package membership or standalone price inferred."
+    },
+    {
+      "code": "striker_winter_package",
+      "name": "Pakiet Zimowy",
+      "item_type": "package",
+      "source_label": "Pakiet Zimowy: podgrzewana kierownica, podgrzewane fotele przednie",
+      "price_pln": 1200,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "optional",
+        "extreme": "optional",
+        "journey": "not_available"
+      },
+      "notes": "1,200 PLN in Expression/Extreme; dashes in Essential/Journey."
+    },
+    {
+      "code": "striker_winter_plus_package",
+      "name": "Pakiet Zimowy Plus",
+      "item_type": "package",
+      "source_label": "Pakiet Zimowy Plus: podgrzewana kierownica, podgrzewane fotele przednie, podgrzewana przednia szyba",
+      "price_pln": 2300,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "optional",
+        "extreme": "optional",
+        "journey": "not_available"
+      },
+      "notes": "2,300 PLN in Expression/Extreme; dashes in Essential/Journey."
+    },
+    {
+      "code": "striker_techno_package",
+      "name": "Pakiet Techno",
+      "item_type": "package",
+      "source_label": "Pakiet Techno: Media Nav Live 10″, nawigacja on-line, system 3D by Arkamys, 6 głośników, ładowarka indukcyjna z funkcją chłodzenia, Hands-Free, dostęp bezkluczykowy Start/Stop, aplikacja mobilna, klucz cyfrowy",
+      "price_pln": 1300,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "optional",
+        "extreme": "not_available",
+        "journey": "not_available"
+      },
+      "notes": "1,300 PLN in Expression only; dashes elsewhere."
+    },
+    {
+      "code": "striker_techno_2_package",
+      "name": "Pakiet Techno 2",
+      "item_type": "package",
+      "source_label": "Pakiet Techno 2: ładowarka indukcyjna z funkcją chłodzenia, elektrycznie otwierana klapa bagażnika bez użycia rąk",
+      "price_pln": 1300,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "extreme": "optional",
+        "journey": "not_available"
+      },
+      "notes": "1,300 PLN in Extreme only; dashes elsewhere."
+    },
+    {
+      "code": "striker_city_package",
+      "name": "Pakiet City",
+      "item_type": "package",
+      "source_label": "Pakiet City: kamera multiview 360, czujniki parkowania przód/tył, monitorowanie martwego pola, ostrzeżenie o ruchu poprzecznym, AEB z wykrywaniem pieszych, system ostrzeżeń bezpieczeństwa, przednie światła przeciwmgielne",
+      "price_pln": 2200,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "optional",
+        "extreme": "not_available",
+        "journey": "not_available"
+      },
+      "notes": "2,200 PLN in Expression only; dashes elsewhere."
+    },
+    {
+      "code": "striker_city_2_package",
+      "name": "Pakiet City 2",
+      "item_type": "package",
+      "source_label": "Pakiet City 2: kamera multiview 360, czujniki parkowania przód/tył, monitorowanie martwego pola, ostrzeżenie o ruchu poprzecznym, AEB z wykrywaniem pieszych, system ostrzeżeń bezpieczeństwa",
+      "price_pln": 2200,
+      "grade_matrix": {
+        "essential": "not_available",
+        "expression": "not_available",
+        "extreme": "optional",
+        "journey": "optional"
+      },
+      "notes": "2,200 PLN in Extreme/Journey; dashes in Essential/Expression."
+    }
+  ],
+  "configurations": [
+    {
+      "configuration_code": "striker_essential_mildhybridg140_4x2_manual",
+      "grade": "essential"
+    },
+    {
+      "configuration_code": "striker_expression_mildhybridg140_4x2_manual",
+      "grade": "expression"
+    },
+    {
+      "configuration_code": "striker_expression_mildhybridg140_4x2_automatic",
+      "grade": "expression"
+    },
+    {
+      "configuration_code": "striker_extreme_mildhybridg140_4x2_automatic",
+      "grade": "extreme"
+    },
+    {
+      "configuration_code": "striker_journey_mildhybridg140_4x2_automatic",
+      "grade": "journey"
+    },
+    {
+      "configuration_code": "striker_expression_hybrid155_4x2_automatic",
+      "grade": "expression"
+    },
+    {
+      "configuration_code": "striker_extreme_hybrid155_4x2_automatic",
+      "grade": "extreme"
+    },
+    {
+      "configuration_code": "striker_journey_hybrid155_4x2_automatic",
+      "grade": "journey"
+    },
+    {
+      "configuration_code": "striker_expression_hybrid150_4x4_automatic",
+      "grade": "expression"
+    },
+    {
+      "configuration_code": "striker_extreme_hybrid150_4x4_automatic",
+      "grade": "extreme"
+    },
+    {
+      "configuration_code": "striker_journey_hybrid150_4x4_automatic",
+      "grade": "journey"
+    }
+  ],
+  "exclusions": [
+    "Promotions and finance/lease instalments",
+    "Equipment/technical data outside priced matrix",
+    "Package-component attributes",
+    "Interpretation of P markers",
+    "Named paint-colour mappings"
+  ],
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "striker_my26_priced_options_packages_matrix_20261124_001",
+    "generated_at": "2026-11-24T19:37:00+01:00",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "99df129aed048b4f1ac2c58c19084143f1ebfe15",
+    "input_files": [
+      {
+        "path": "PDF/Cenniki/striker-price.pdf",
+        "git_blob_sha": "6bd425b2a53c50f6ba11fd5cecd5324b289c1c05",
+        "sha256": "d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35"
+      }
+    ],
+    "scope": "Official Polish Striker MY26 cennik effective 2026-11-02; printed option/package matrix on page 5; 11 exact source-linked configurations.",
+    "status": "historical"
+  },
+  "findings": [
+    {
+      "finding_id": "striker-my26-priced-options-packages-matrix",
+      "status": "resolved",
+      "evidence_refs": [
+        "PDF/Cenniki/striker-price.pdf#page=5",
+        "PDF/Cenniki/striker-price.pdf#page=4"
+      ],
+      "last_verified_at": "2026-11-24T19:37:00+01:00"
+    }
+  ],
+  "superseded_by": "striker_my26_matrix_marker_semantics_correction_20261124_001"
+}

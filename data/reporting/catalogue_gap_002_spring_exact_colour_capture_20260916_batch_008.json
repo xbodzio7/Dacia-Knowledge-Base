@@ -1,0 +1,55 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-16",
+  "market": "PL",
+  "capture_method": "live_official_dacia_configurator_interaction",
+  "source_url": "https://www.dacia.pl/konfiguruj.html",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "spring_essential_electric70_automatic",
+      "model": "spring",
+      "grade": "essential",
+      "powertrain": "electric 70",
+      "transmission": "automatic",
+      "visible_colour_count": 2,
+      "colours": [
+        {"name":"biel alpejska","price_pln":0},
+        {"name":"khaki lichen","price_pln":2300}
+      ],
+      "observed_total_price_pln": 73500
+    },
+    {
+      "configuration_code": "spring_expression_electric70_automatic",
+      "model": "spring",
+      "grade": "expression",
+      "powertrain": "electric 70",
+      "transmission": "automatic",
+      "visible_colour_count": 6,
+      "colours": [
+        {"name":"biel alpejska","price_pln":0},
+        {"name":"niebieski stonewash","price_pln":2300},
+        {"name":"czerwony brick","price_pln":2300},
+        {"name":"seafoam","price_pln":2300},
+        {"name":"szary diamond","price_pln":2300},
+        {"name":"khaki lichen","price_pln":2300}
+      ],
+      "observed_total_price_pln": 81500
+    }
+  ],
+  "selector_limitations": [
+    {
+      "configuration_code": "spring_extreme_electric100_automatic",
+      "status": "not_settable",
+      "reason": "The current Polish configurator exposes only Electric 70 for Spring. Extreme is selectable, but Electric 100 is not available as a selector option; therefore the exact repository configuration could not be selected."
+    }
+  ],
+  "note": "Two exact active repository Spring states were directly selected and verified. The Electric 100 Extreme state remains unresolved because the current configurator does not expose Electric 100. No cross-state projection or master-data mutation was performed."
+}

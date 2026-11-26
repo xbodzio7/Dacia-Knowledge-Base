@@ -1,0 +1,126 @@
+{
+  "package_id": "residual_gap_duster_page_21_candidate_review_001",
+  "reviewed_on": "2026-08-06",
+  "base_commit": "fa59b0ee3fc45bfae91fd56c03608781da38b08c",
+  "scope": {
+    "model": "Duster",
+    "source": "src_pl_duster_mini_brochure_20251020",
+    "page": 21,
+    "declared_candidate_ids": [
+      "000P-27614",
+      "000P-27615",
+      "000P-27616"
+    ]
+  },
+  "canonical_evidence": {
+    "candidate_queue": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+    "closure_report": "data/reporting/verified_pdf_candidate_residual_review_closure.json",
+    "canonical_packages": [
+      {
+        "package_id": "residual_gap_018",
+        "review_file": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk1.json",
+        "review_markdown": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk1.md",
+        "pull_request": 327,
+        "candidate_count": 40,
+        "decision_counts": {
+          "context_only_non_import": 14,
+          "unresolved_signature_mismatch": 26
+        },
+        "selected_evidence_signature_count": 0,
+        "selected_evidence_record_count": 0,
+        "master_data_changes": false
+      },
+      {
+        "package_id": "residual_gap_019",
+        "review_file": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk2.json",
+        "review_markdown": "data/reporting/duster_mini_technical_page21_unresolved_review_chunk2.md",
+        "pull_request": 328,
+        "candidate_count": 21,
+        "decision_counts": {
+          "context_only_non_import": 19,
+          "unresolved_signature_mismatch": 2
+        },
+        "selected_evidence_signature_count": 0,
+        "selected_evidence_record_count": 0,
+        "master_data_changes": false
+      }
+    ],
+    "closure_scope": {
+      "packages_complete": 52,
+      "packages_expected": 52,
+      "candidates_reviewed": 1266,
+      "candidates_expected": 1266,
+      "missing_package_count": 0,
+      "duplicate_reviewed_candidate_count": 0
+    },
+    "global_decision_counts": {
+      "context_only_non_import": 635,
+      "covered": 15,
+      "covered_by_selected_evidence": 13,
+      "deferred_source_conflict": 12,
+      "partially_covered": 51,
+      "unresolved_signature_mismatch": 540
+    },
+    "global_policy": {
+      "no_master_data_changes": true,
+      "no_approved_import_spec_generation": true,
+      "no_automatic_promotion": true
+    }
+  },
+  "findings": {
+    "declared_ids_found_in_canonical_queue": 0,
+    "declared_ids_mapped_to_source_records": 0,
+    "canonical_page_21_candidates": 61,
+    "canonical_page_21_decision_counts": {
+      "context_only_non_import": 33,
+      "unresolved_signature_mismatch": 28
+    },
+    "canonical_page_21_selected_evidence_signature_count": 0,
+    "canonical_page_21_selected_evidence_record_count": 0,
+    "canonical_page_21_import_approvals": 0,
+    "selection_status": "stale_noncanonical_continuation_point",
+    "source_candidate_selected": null,
+    "master_data_mutations": 0
+  },
+  "decision": {
+    "outcome": "no_import",
+    "reason": "The three declared 000P identifiers are not canonical candidate identifiers and cannot be mapped to preserved source records. The actual Duster page 21 residual scope was already reviewed in residual_gap_018 and residual_gap_019: 61 candidates remain classified as context_only_non_import or unresolved_signature_mismatch, with zero selected evidence, zero import approvals and no master-data changes.",
+    "semantic_guards": [
+      "Do not treat an unmapped identifier as a withdrawn or invalid source.",
+      "Do not reopen a canonically closed residual package without new source evidence.",
+      "Do not collapse context_only_non_import and unresolved_signature_mismatch into a synthetic ignore status.",
+      "Do not promote adjacent or historical Duster page 21 evidence into master data.",
+      "Use project/state.json and project/STATE_SUMMARY.md, not historical continuation prose, to select the next package."
+    ]
+  },
+  "next_package": {
+    "package_id": "new_spring_current_shop_retry_001",
+    "eligible_on_or_after": "2026-08-07",
+    "queue_path": "data/reporting/official_new_spring_accessory_current_shop_retry_queue_20260806.csv",
+    "retry_positions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "part_numbers": [
+      "7711943172",
+      "966115844R",
+      "403154280R",
+      "739M00386R",
+      "7711945712",
+      "8201743312",
+      "8201751961",
+      "296976446R",
+      "7711943517",
+      "7711943518"
+    ],
+    "boundary": "Preserve prior lookup history and do not infer withdrawal, incompatibility or unavailability from an unresolved card."
+  }
+}

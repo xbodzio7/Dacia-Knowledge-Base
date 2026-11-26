@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "kind": "jogger_brochure_cargo_import",
+  "implemented_on": "2026-07-26",
+  "observation_date": "2025-12-17",
+  "source_page": 22,
+  "source_code": "src_pl_jogger_brochure_20251217",
+  "model": "jogger",
+  "configurations": 22,
+  "five_seat_configurations": 11,
+  "seven_seat_configurations": 11,
+  "configuration_values_imported": 110,
+  "cargo_context_rows_imported": 110,
+  "source_configuration_relationships": 22,
+  "five_seat_values_per_configuration": {
+    "minimum_vda_iso3832": 708,
+    "minimum_ordinary_litre": 829,
+    "maximum_vda_iso3832": 1819,
+    "maximum_ordinary_litre": 2094
+  },
+  "seven_seat_values_per_configuration": {
+    "minimum_vda_iso3832": 160,
+    "minimum_ordinary_litre": 212,
+    "second_row_upright_third_row_folded_vda_iso3832": 565,
+    "second_row_upright_third_row_folded_ordinary_litre": 699,
+    "second_row_upright_third_row_removed_vda_iso3832": 696,
+    "second_row_upright_third_row_removed_ordinary_litre": 820
+  },
+  "deferred_values": {
+    "seven_seat_maximum_vda_iso3832": 1807,
+    "seven_seat_maximum_ordinary_litre": 2085,
+    "reason": "The page-22 table does not state whether the third row is folded or removed for the seven-seat maximum."
+  },
+  "equipment_context_policy": "not_stated",
+  "next_package": "Bigster Brochure Cargo Value Import"
+}

@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "as_of": "2026-09-20",
+  "package_id": "sandero_journey_static_current_002",
+  "purpose": "Capture current Sandero Journey grade-page dependency evidence that can be read without interactive configurator switching.",
+  "source": {
+    "primary": "Official Dacia Poland Sandero Journey version-and-price page accessed through connected Opera session.",
+    "status": "current_web_only",
+    "historical_use": "non_overwriting",
+    "negative_evidence_rule": "Current omission or availability is not evidence of historical unavailability."
+  },
+  "grade": "journey",
+  "current_grade_page": {
+    "starting_price_pln": 73600,
+    "highlighted_equipment": [
+      "automatyczna klimatyzacja",
+      "karta Keyless Entry",
+      "cyfrowy zestaw wskaźników",
+      "felgi ze stopu metali lekkich 16\" TAMIA"
+    ],
+    "upholstery_description": "unikalna tapicerka z tkaniny „blue denim”",
+    "colors_count": 7,
+    "colors": [
+      "biel alpejska",
+      "niebieski iron",
+      "szary schiste",
+      "sandstone",
+      "żółty amber",
+      "zielony cedar",
+      "szary urban"
+    ],
+    "engines": [
+      {
+        "name": "TCe 100",
+        "fuel": "benzyna",
+        "transmission": "manualna",
+        "power_displayed": "74 (100)",
+        "starting_price_pln": 73600
+      },
+      {
+        "name": "Eco-G 120",
+        "fuel": "benzyna + LPG",
+        "transmission": "manualna",
+        "power_displayed": "84/90 LPG (114/122 LPG)",
+        "starting_price_pln": 73600
+      },
+      {
+        "name": "Eco-G 120 auto",
+        "fuel": "benzyna + LPG",
+        "transmission": "automatyczna",
+        "power_displayed": "84/90 LPG (114/122 LPG)",
+        "starting_price_pln": 80500
+      },
+      {
+        "name": "hybrid 155",
+        "fuel": "benzyna full hybrid",
+        "transmission": "automatyczna",
+        "power_displayed": "80 + 35 (156)",
+        "starting_price_pln": 90200
+      }
+    ]
+  },
+  "dependency_observations": [
+    {
+      "dependency": "Journey -> engine availability",
+      "observation": "The current Journey grade page exposes four engine choices: TCe 100, Eco-G 120, Eco-G 120 auto and hybrid 155.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "Journey -> color availability",
+      "observation": "The current Journey grade page exposes seven colors.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "Journey -> equipment highlights",
+      "observation": "The current Journey grade page highlights automatic climate control, Keyless Entry card, digital instrument cluster and 16-inch TAMIA alloy wheels.",
+      "confidence": "high"
+    },
+    {
+      "dependency": "Journey -> interactive configurator state",
+      "observation": "The page provides a generic configuration entry point, but the connected Opera connector cannot invoke the page's configurator controls.",
+      "confidence": "bounded"
+    }
+  ],
+  "access_boundary": {
+    "opera_connected": true,
+    "read_access": true,
+    "interactive_action_surface": "read-only accessibility tree plus navigation",
+    "limitation": "No click/press invocation primitive is available, so the Journey live configurator cannot be entered and switched through this connector.",
+    "consequence": "No live Journey option-compatibility matrix is synthesized."
+  },
+  "reconciliation": {
+    "historical_source": "src_pl_sandero_stepway_price_my26_20260811",
+    "status": "already_assimilated",
+    "action": "No master-data mutation; current-web observations remain reporting/provenance only."
+  },
+  "master_mutations": [],
+  "next_scope": {
+    "status": "open",
+    "target": "Live Journey configurator option compatibility after a reproducible interactive action surface becomes available."
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_19_1_publication",
+  "published_on": "2026-08-08",
+  "status": "complete",
+  "tag": "data-products-v1.19.1",
+  "release_id": 367153026,
+  "source_commit": "e3a43a999a40f920bceab655cdfdac5856119a07",
+  "activation_pull_request": 620,
+  "publication_workflow_run": 31248397833,
+  "double_build_byte_identity": true,
+  "offline_workspace_verification": "PASS",
+  "public_download_byte_identity": true,
+  "configuration_shortlist_v1_19_1": {
+    "selected_configuration_count": 81,
+    "eight_step_configurator_navigation": true,
+    "non_appearance_commercial_items": 34,
+    "selector_offer_rows": 164,
+    "selector_offer_rows_with_price": 162,
+    "selector_offer_rows_without_price": 2,
+    "commercial_selection_session_storage": true,
+    "commercial_selection_json_export": true,
+    "commercial_selection_comparison_bundle_metadata": true,
+    "compatibility_inference_performed": false,
+    "exact_configurator_saved_states": 18,
+    "exact_standard_equipment_source_lines": 1355,
+    "exact_technical_categories": 162,
+    "exact_technical_source_lines": 349,
+    "technical_semantic_coercion_performed": false,
+    "spring_type2_historical_option_rows_preserved": 3,
+    "spring_type2_exact_current_standard_rows_preserved": 3,
+    "spring_type2_current_selector_rows_suppressed": 3,
+    "spring_current_selector_offer_rows": 7,
+    "spring_current_selector_priced_rows": 5,
+    "spring_current_selector_unpriced_rows": 2,
+    "spring_remaining_unpriced_items": [
+      "spring_techno_package",
+      "spring_dc40_charging_option"
+    ],
+    "historical_as_of_view_preserved": true,
+    "domestic_socket_flexicharger_selector_preserved": true,
+    "duster_offer_selected_state_semantics_preserved": true
+  },
+  "semantic_boundaries": {
+    "source_data_changed": false,
+    "master_data_changed": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "commercial_dependency_graph_generated": false,
+    "commercial_orderability_inferred": false,
+    "generic_commercial_precedence_rule_generated": false,
+    "appearance_catalogue_inferred": false,
+    "cross_phase_promotion": false,
+    "cross_grade_transfer": false,
+    "cross_powertrain_transfer": false
+  },
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.19.1.zip": {
+      "size_bytes": 83966614,
+      "sha256": "e6c330e5533117df9cab9b0eda347c4aad1df38eb99f107af18cb4338c073910"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 27763,
+      "sha256": "45aadf8512e208edb202770afd60eff4b5160423a49a5d92e187528ce4060ee3"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 214,
+      "sha256": "7fe87a78194edfae160b5d1e02c2c69332fc147aa42ba3cebb82b6f236d85176"
+    }
+  },
+  "public_v1_19_0_immutable": true,
+  "public_v1_18_0_immutable": true
+}

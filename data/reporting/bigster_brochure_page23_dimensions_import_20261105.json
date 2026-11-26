@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "kind": "bigster_brochure_page23_dimensions_import",
+  "reviewed_on": "2026-11-05",
+  "package_id": "bigster_brochure_page23_dimensions_import_20261105_001",
+  "status": "source_verified_import_prepared",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "title": "DACIA BIGSTER broszura",
+    "market": "PL",
+    "document_date": "2025-12-10",
+    "repository_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "printed_page": 23,
+    "pdf_page_index": 22
+  },
+  "visual_scope_resolution": {
+    "rendered_page_reviewed": true,
+    "diagram_scope": "General Bigster exterior-dimension diagram; no trim or powertrain split is printed for the seven single-value dimensions.",
+    "configuration_scope": "The source registry links this brochure to exactly 14 active configurations via brochure_technical_data_for; only those configurations are targeted.",
+    "paired_values": {
+      "attributes": [
+        "ground_clearance",
+        "overall_height"
+      ],
+      "printed_footnote": "* 4×2/4×4",
+      "mapping": "First value applies to 4×2; second value applies to 4×4."
+    },
+    "source_boundary": "The generic model diagram is not projected to configurations absent from the 14 exact source relationships."
+  },
+  "import": {
+    "attributes": [
+      "overall_width",
+      "overall_width_with_mirrors",
+      "front_track",
+      "rear_track",
+      "wheelbase",
+      "front_overhang",
+      "rear_overhang",
+      "ground_clearance",
+      "overall_height"
+    ],
+    "attribute_count": 9,
+    "configurations": 14,
+    "observations": 126,
+    "import_specifications": 9,
+    "id_range": [
+      8290,
+      8415
+    ],
+    "observation_date": "2025-12-10",
+    "source_page": 23,
+    "no_existing_observations_overwritten": true,
+    "previously_imported_overall_length_reused": true
+  },
+  "cross_source_reconciliation": {
+    "historical_brochure_values": {
+      "overall_width": 1813,
+      "overall_width_with_mirrors": 2069,
+      "front_track": 1580,
+      "rear_track": 1565,
+      "wheelbase": 2702,
+      "front_overhang": 854,
+      "rear_overhang": 1014,
+      "ground_clearance_4x2": 220,
+      "ground_clearance_4x4": 219,
+      "overall_height_4x2": 1712,
+      "overall_height_4x4": 1706
+    },
+    "later_price_list_values_preserved_separately": {
+      "source_codes": [
+        "src_pl_bigster_price_my26_20260703",
+        "src_pl_bigster_price_my26_20261001"
+      ],
+      "disposition": "Retain all later dated values as separate observations. Do not overwrite, average or normalize differences."
+    }
+  },
+  "exclusions": [
+    {
+      "item": "Cargo volume 667/702 dm³/l and 1937/2002 dm³/l",
+      "reason": "Page 23 does not identify the exact powertrain/configuration or full measurement context; existing cargo-context records remain authoritative for their stated contexts."
+    },
+    {
+      "item": "Interior dimensions 1443/1432 and seatback angles 14°",
+      "reason": "These are interior/seat-geometry measurements and must not be mapped to unrelated exterior dimensions."
+    }
+  ],
+  "validation": {
+    "focused_test": "tests/test_bigster_brochure_page23_dimensions_20251210.py",
+    "test_cases": 1,
+    "full_quality": "required on pull-request head"
+  }
+}

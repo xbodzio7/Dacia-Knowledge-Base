@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "reporting_slot_identity_correction",
+  "model_code": "jogger",
+  "ranked_source_code": "src_pl_jogger_price_my26_20260401",
+  "finding": {
+    "reported_missing_slots": 32,
+    "attribute_code": "elasticity_80_120",
+    "reported_gear_number": "",
+    "existing_observation_count": 32,
+    "existing_observation_gear_number": "4",
+    "evidence_source_code": "src_pl_jogger_brochure_20251217",
+    "prior_import_pull_request": 257
+  },
+  "scope_corrections": [
+    "data/reporting/jogger_ecog120_manual_completeness.json",
+    "data/reporting/jogger_ecog120_automatic_completeness.json",
+    "data/reporting/jogger_hybrid155_automatic_completeness.json",
+    "data/reporting/jogger_tce110_manual_completeness.json"
+  ],
+  "decision": {
+    "classification": "false_gap_due_to_missing_gear_context",
+    "gear_number": "4",
+    "master_rows_added": 0,
+    "master_rows_modified": 0,
+    "source_projection_performed": false,
+    "denominator_reduced": false
+  },
+  "next_step": "Rerun the existing-configuration completeness analysis after the corrected slot identity and select the next bounded source-backed candidate."
+}

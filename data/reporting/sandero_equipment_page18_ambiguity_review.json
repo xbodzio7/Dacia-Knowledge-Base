@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "kind": "sandero_equipment_page18_ambiguity_review",
+  "reviewed_on": "2026-07-28",
+  "status": "complete",
+  "source_prioritization": "data/reporting/verified_pdf_candidate_residual_gap_prioritization.json",
+  "package_id": "residual_gap_013",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 18,
+    "review_basis": "authored visual review of the archived page-18 equipment matrix"
+  },
+  "scope": {
+    "candidate_count": 1,
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "model_code": "sandero_iii",
+    "domain": "equipment_matrix",
+    "page": 18,
+    "input_coverage_status": "ambiguous"
+  },
+  "policy": {
+    "candidate_id_and_exact_text_cited": true,
+    "selected_evidence_copied_without_reinterpretation": true,
+    "source_page_layout_used_for_row_disambiguation": true,
+    "multi_line_rows_preserved": true,
+    "package_markers_not_rewritten_as_standard": true,
+    "cross_attribute_evidence_not_silently_substituted": true,
+    "configuration_states_not_projected_between_trims": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "summary": {
+    "candidate_count": 1,
+    "decision_counts": {
+      "deferred_source_conflict": 1
+    },
+    "selected_evidence_signature_count": 2,
+    "selected_evidence_record_count": 4,
+    "rejected_attached_signature_count": 0,
+    "rejected_attached_record_count": 0,
+    "candidates_with_selected_evidence": 1,
+    "candidates_without_selected_evidence": 0
+  },
+  "decisions": [
+    {
+      "candidate_id": "925f39b554a450449df95c389518ba49f670c4858e723e9a9a22818c344dfcde",
+      "source_code": "src_pl_sandero_brochure_20260202",
+      "page": 18,
+      "line_start": 97,
+      "line_end": 97,
+      "exact_text": "Kamera cofania                                            -                     ¤                    •",
+      "input_coverage_status": "ambiguous",
+      "authored_decision": "deferred_source_conflict",
+      "row_context": "complete rear-view-camera row with a brochure and price-list versus later official-web Expression conflict",
+      "source_availability": {
+        "essential": "not_available",
+        "expression": "optional",
+        "journey": "standard"
+      },
+      "rationale": "The 2026-02-02 brochure prints the rear-view camera as unavailable for Essential, optional for Expression and standard for Journey. The attached 2026-07-03 price-list record preserves Expression manual as optional, and the Journey vehicle sheet preserves Journey manual as standard. Later 2026-07-23 official-web version-page highlights mark both exact Expression Eco-G 120 manual and automatic configurations as standard. Both attached signatures and all four records are retained as competing evidence; the Expression conflict is deferred without import approval.",
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 4,
+      "selected_evidence_signatures": [
+        {
+          "signature": {
+            "attribute_code": "rear_view_camera",
+            "availability_status": "optional"
+          },
+          "record_count": 1,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_expression_ecog120_manual_rear_view_camera_20260703",
+              "configuration_code": "sandero_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_stepway_price_my26_20260703",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        },
+        {
+          "signature": {
+            "attribute_code": "rear_view_camera",
+            "availability_status": "standard"
+          },
+          "record_count": 3,
+          "records": [
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_expression_ecog120_automatic_rear_view_camera_official_web_20260723",
+              "configuration_code": "sandero_iii_expression_ecog120_automatic",
+              "source_code": "src_pl_sandero_official_web_configurations_20260723",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_expression_ecog120_manual_rear_view_camera_official_web_20260723",
+              "configuration_code": "sandero_iii_expression_ecog120_manual",
+              "source_code": "src_pl_sandero_official_web_configurations_20260723",
+              "source_page": null,
+              "match_basis": "same_model_ordered_equipment_text"
+            },
+            {
+              "table": "configuration_attribute_availability",
+              "record_code": "sandero_iii_journey_ecog120_manual_rear_view_camera_20260626",
+              "configuration_code": "sandero_iii_journey_ecog120_manual",
+              "source_code": "src_pl_sandero_journey_ecog120_mt_20260626",
+              "source_page": 4,
+              "match_basis": "same_model_ordered_equipment_text"
+            }
+          ]
+        }
+      ],
+      "rejected_attached_signature_count": 0
+    }
+  ],
+  "semantic_boundaries": {
+    "review_is_not_import_approval": true,
+    "bullet_option_and_dash_symbols_remain_distinct": true,
+    "complete_row_trim_states_are_preserved": true,
+    "brochure_and_price_list_versus_later_official_web_expression_states_remain_in_conflict": true,
+    "journey_standard_state_remains_distinct_from_expression_conflict": true,
+    "no_configuration_projection_is_created": true
+  },
+  "next_package": {
+    "name": "Sandero Equipment Page 19 Ambiguity Review",
+    "status": "planned",
+    "goal": "Review the 1 ambiguous equipment candidate from Sandero brochure page 19 against its 2 preserved evidence signatures without creating master-data rows or approved import specifications."
+  }
+}

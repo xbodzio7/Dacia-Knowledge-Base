@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "source_code": "src_pl_dacia_official_configurators_20260723",
+  "source_type": "web_snapshot",
+  "publisher": "Dacia",
+  "market": "PL",
+  "observed_on": "2026-07-23",
+  "catalog_url": "https://www.dacia.pl/konfiguruj.html",
+  "volatility": "dynamic_web_configurator",
+  "observations": [
+    {
+      "model_code": "sandero_iii",
+      "url": "https://www.dacia.pl/samochody/sandero/configurator.html",
+      "visible_default_configuration": "NOWE SANDERO essential TCe 100 F.2",
+      "visible_catalog_price_pln": 63900,
+      "evidence_scope": [
+        "default version",
+        "powertrain",
+        "catalogue price",
+        "colours and options entry point"
+      ]
+    },
+    {
+      "model_code": "sandero_stepway_iii",
+      "url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html",
+      "visible_default_configuration": "NOWE SANDERO STEPWAY essential stepway TCe 110 f.2",
+      "visible_catalog_price_pln": 71700,
+      "visible_optional_items": [
+        {
+          "name": "pakiet MEDIA DISPLAY",
+          "price_pln": 1900
+        }
+      ],
+      "evidence_scope": [
+        "default version",
+        "powertrain",
+        "catalogue price",
+        "visible optional package",
+        "colours and equipment entry points"
+      ]
+    },
+    {
+      "model_code": "duster_iii",
+      "url": "https://www.dacia.pl/samochody/duster/configurator.html",
+      "visible_default_configuration": "Duster Essential Eco-G 120",
+      "visible_catalog_price_pln": 82000,
+      "evidence_scope": [
+        "default version",
+        "powertrain",
+        "catalogue price",
+        "standard equipment list"
+      ]
+    },
+    {
+      "model_code": "jogger",
+      "url": "https://www.dacia.pl/samochody/jogger/configurator.html",
+      "visible_default_configuration": "Jogger Essential Eco-G 120 7 miejsc",
+      "visible_catalog_price_pln": 82400,
+      "evidence_scope": [
+        "default version",
+        "powertrain",
+        "seat count",
+        "catalogue price",
+        "standard equipment list"
+      ]
+    },
+    {
+      "model_code": "bigster",
+      "url": "https://www.dacia.pl/samochody/bigster/configurator.html",
+      "visible_optional_item_names": [
+        "pakiet PARKING",
+        "pakiet ZIMOWY",
+        "pakiet ZIMOWY PLUS",
+        "MEDIA NAV LIVE"
+      ],
+      "evidence_scope": [
+        "options and packages entry point"
+      ]
+    }
+  ],
+  "model_equipment_pages": [
+    "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-wyposazenia.html",
+    "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-wyposazenia/essential.html",
+    "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-wyposazenia/expression.html",
+    "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-wyposazenia/extreme.html"
+  ],
+  "intake_boundaries": [
+    "The configurator is dynamic and may change without a document revision; every later import must retain an observation date.",
+    "A visible option on a default configuration does not prove applicability to every trim, powertrain or gearbox.",
+    "Deep-link parameters were not decoded into a complete configuration contract in this intake.",
+    "This snapshot registers the official web source and observed facts only; it does not overwrite source-backed PDF price-list data.",
+    "Official photographs are not archived or redistributed; the offline HTML uses repository-generated model silhouettes."
+  ],
+  "planned_follow_up": [
+    "Capture each model/version/powertrain/gearbox state separately.",
+    "Record standard equipment, packages, individual options, prices, dependencies and exclusions as dated observations.",
+    "Cross-check all web observations against the effective official PDF price list before master-data import."
+  ],
+  "user_provided_example_deep_link": "https://www.dacia.pl/samochody/sandero-stepway-crossover/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEY00AhhAjI0I2I4%2FAjkg"
+}

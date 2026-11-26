@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 3325,
+  "attribute_code": "hybrid_battery_capacity_source_stated",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "kWh",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_page": 20,
+  "source_section": "BATERIA",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "bigster_essential_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_expression_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_journey_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_expression_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    },
+    {
+      "configuration_code": "bigster_journey_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "0.84",
+      "source_text": "48 V / 0,84 kWh"
+    }
+  ]
+}

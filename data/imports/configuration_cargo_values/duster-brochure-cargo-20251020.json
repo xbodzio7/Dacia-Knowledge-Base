@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "kind": "configuration_cargo_values",
+  "value_id_start": 2055,
+  "context_id_start": 224,
+  "source_configuration_id_start": 207,
+  "observation_date": "2025-10-20",
+  "source_page": 20,
+  "source_section": "DANE TECHNICZNE — MASY I OBJĘTOŚCI",
+  "attribute_code": "boot_capacity",
+  "attribute_contract": {"data_type":"integer","unit":"L","status":"active"},
+  "source_code": "src_pl_duster_mini_brochure_20251020",
+  "groups": [
+    {
+      "group_code":"eco_g_120_manual_4x2","powertrain_label":"Eco-G 120 4x2","transmission_type":"manual",
+      "configurations":["duster_iii_essential_ecog120_4x2_manual","duster_iii_expression_ecog120_4x2_manual","duster_iii_extreme_ecog120_4x2_manual","duster_iii_journey_ecog120_4x2_manual"],
+      "repair_kit_configurations":["duster_iii_essential_ecog120_4x2_manual","duster_iii_expression_ecog120_4x2_manual","duster_iii_extreme_ecog120_4x2_manual","duster_iii_journey_ecog120_4x2_manual"],"spare_wheel_configurations":[],
+      "repair_kit_observations":[
+        {"context_code":"repair_kit_upright_vda_iso3832","value":"453","source_text":"Pojemność pod pokrywą bagażnika z zestawem naprawczym — 453 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_folded_vda_iso3832","value":"1545","source_text":"Pojemność ze złożoną tylną kanapą z zestawem naprawczym — 1545 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_upright_ordinary_litre","value":"513","source_text":"Pojemność pod pokrywą bagażnika z zestawem naprawczym — 513 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_folded_ordinary_litre","value":"1632","source_text":"Pojemność ze złożoną tylną kanapą z zestawem naprawczym — 1632 litry","measurement_basis_code":"ordinary_litre","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""}
+      ],"spare_wheel_observations":[]
+    },
+    {
+      "group_code":"mild_hybrid_140_manual_4x2","powertrain_label":"mild hybrid 140 4x2","transmission_type":"manual",
+      "configurations":["duster_iii_expression_mildhybrid140_4x2_manual","duster_iii_extreme_mildhybrid140_4x2_manual","duster_iii_journey_mildhybrid140_4x2_manual"],
+      "repair_kit_configurations":["duster_iii_expression_mildhybrid140_4x2_manual","duster_iii_extreme_mildhybrid140_4x2_manual","duster_iii_journey_mildhybrid140_4x2_manual"],
+      "spare_wheel_configurations":["duster_iii_expression_mildhybrid140_4x2_manual","duster_iii_extreme_mildhybrid140_4x2_manual","duster_iii_journey_mildhybrid140_4x2_manual"],
+      "repair_kit_observations":[
+        {"context_code":"repair_kit_upright_vda_iso3832","value":"517","source_text":"Pojemność pod pokrywą bagażnika z zestawem naprawczym — 517 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_folded_vda_iso3832","value":"1609","source_text":"Pojemność ze złożoną tylną kanapą z zestawem naprawczym — 1609 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_upright_ordinary_litre","value":"594","source_text":"Pojemność pod pokrywą bagażnika z zestawem naprawczym — 594 litry","measurement_basis_code":"ordinary_litre","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_folded_ordinary_litre","value":"1635","source_text":"Pojemność ze złożoną tylną kanapą z zestawem naprawczym — 1635 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""}
+      ],
+      "spare_wheel_observations":[
+        {"context_code":"spare_wheel_upright_vda_iso3832","value":"474","source_text":"Pojemność pod pokrywą bagażnika z kołem zapasowym — 474 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""},
+        {"context_code":"spare_wheel_folded_vda_iso3832","value":"1566","source_text":"Pojemność ze złożoną tylną kanapą z kołem zapasowym — 1566 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""},
+        {"context_code":"spare_wheel_upright_ordinary_litre","value":"545","source_text":"Pojemność pod pokrywą bagażnika z kołem zapasowym — 545 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""},
+        {"context_code":"spare_wheel_folded_ordinary_litre","value":"1537","source_text":"Pojemność ze złożoną tylną kanapą z kołem zapasowym — 1537 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""}
+      ]
+    },
+    {
+      "group_code":"hybrid_155_automatic_4x2","powertrain_label":"hybrid 155 4x2","transmission_type":"automatic",
+      "configurations":["duster_iii_expression_hybrid155_4x2_automatic","duster_iii_extreme_hybrid155_4x2_automatic","duster_iii_journey_hybrid155_4x2_automatic"],
+      "repair_kit_configurations":["duster_iii_expression_hybrid155_4x2_automatic","duster_iii_extreme_hybrid155_4x2_automatic","duster_iii_journey_hybrid155_4x2_automatic"],
+      "spare_wheel_configurations":["duster_iii_expression_hybrid155_4x2_automatic","duster_iii_extreme_hybrid155_4x2_automatic","duster_iii_journey_hybrid155_4x2_automatic"],
+      "repair_kit_observations":[
+        {"context_code":"repair_kit_upright_vda_iso3832","value":"430","source_text":"Pojemność pod pokrywą bagażnika z zestawem naprawczym — 430 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_folded_vda_iso3832","value":"1545","source_text":"Pojemność ze złożoną tylną kanapą z zestawem naprawczym — 1545 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_upright_ordinary_litre","value":"496","source_text":"Pojemność pod pokrywą bagażnika z zestawem naprawczym — 496 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""},
+        {"context_code":"repair_kit_folded_ordinary_litre","value":"1609","source_text":"Pojemność ze złożoną tylną kanapą z zestawem naprawczym — 1609 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"absent","tyre_repair_kit_state_code":"present","double_floor_state_code":""}
+      ],
+      "spare_wheel_observations":[
+        {"context_code":"spare_wheel_upright_vda_iso3832","value":"349","source_text":"Pojemność pod pokrywą bagażnika z kołem zapasowym — 349 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""},
+        {"context_code":"spare_wheel_folded_vda_iso3832","value":"1415","source_text":"Pojemność ze złożoną tylną kanapą z kołem zapasowym — 1415 dm3 VDA","measurement_basis_code":"vda_iso_3832","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""},
+        {"context_code":"spare_wheel_upright_ordinary_litre","value":"401","source_text":"Pojemność pod pokrywą bagażnika z kołem zapasowym — 401 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"upright","third_row_state_code":"","compartment_code":"main_luggage_compartment","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""},
+        {"context_code":"spare_wheel_folded_ordinary_litre","value":"1528","source_text":"Pojemność ze złożoną tylną kanapą z kołem zapasowym — 1528 litrów","measurement_basis_code":"ordinary_litre","second_row_state_code":"folded","third_row_state_code":"","compartment_code":"source_stated_total","spare_wheel_state_code":"present","tyre_repair_kit_state_code":"absent","double_floor_state_code":""}
+      ]
+    }
+  ],
+  "deferred_groups":[
+    {"group_code":"eco_g_120_automatic","configurations":["duster_iii_expression_ecog120_4x2_automatic","duster_iii_extreme_ecog120_4x2_automatic","duster_iii_journey_ecog120_4x2_automatic"],"reason":"The brochure Eco-G 120 technical column explicitly describes the manual six-speed powertrain and must not be projected to automatic configurations."},
+    {"group_code":"hybrid_g_150_4x4_unmodeled","source_values":["348","1414","400","1527"],"reason":"No exact active Duster hybrid-G 150 4x4 configuration exists in master data."},
+    {"group_code":"generic_dimensions_page","source_values":["517","456","1609","1548"],"reason":"The generic 4x2/4x4 dimensions page does not identify an exact powertrain and is not projected over the powertrain-specific technical table."}
+  ]
+}

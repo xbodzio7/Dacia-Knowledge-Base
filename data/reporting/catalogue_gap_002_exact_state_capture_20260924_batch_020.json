@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "kind": "catalogue_gap_002_exact_state_capture",
+  "captured_on": "2026-09-24",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "capture_method": "live_official_dacia_configurator_saved_states",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "bigster_essential_mildhybridg140_manual",
+      "model": "bigster",
+      "grade": "essential",
+      "powertrain": "mild hybrid-G 140",
+      "transmission": "manual",
+      "drive": "4x2",
+      "price_pln": 101400,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 3,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "wheel": "17\" aluminiowe obręcze kół TERGAN 215",
+      "upholstery": "tapicerka materiałowa essential",
+      "technical": {
+        "power": "103 (140)",
+        "co2_wltp_mixed_g_km": 130,
+        "fuel_wltp_mixed_l_100km": 5.7,
+        "lpg_co2_wltp_mixed_g_km": 114,
+        "lpg_fuel_wltp_mixed_l_100km": 7
+      }
+    },
+    {
+      "configuration_code": "sandero_stepway_essential_tce110_manual",
+      "model": "sandero_stepway",
+      "grade": "essential",
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "drive": "4x2",
+      "price_pln": 71700,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 3,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła"
+      ],
+      "wheel": "16\" felgi stalowe ERALIA",
+      "upholstery": "tapicerka materiałowa stepway",
+      "technical": {
+        "power": "81 (110)",
+        "co2_wltp_mixed_g_km": 128,
+        "fuel_wltp_mixed_l_100km": 5.6
+      }
+    },
+    {
+      "configuration_code": "duster_journey_mild_hybrid_140_manual",
+      "model": "duster",
+      "grade": "journey",
+      "powertrain": "mild hybrid 140",
+      "transmission": "manual",
+      "drive": "4x2",
+      "price_pln": 103800,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "18\" felgi aluminiowe, TAGASAN 215 diamentowane",
+      "upholstery": "tapicerka materiałowa journey",
+      "technical": {
+        "power": "103 (140)",
+        "co2_wltp_mixed_g_km": 122,
+        "fuel_wltp_mixed_l_100km": 5.4
+      }
+    },
+    {
+      "configuration_code": "duster_extreme_mild_hybrid_140_manual",
+      "model": "duster",
+      "grade": "extreme",
+      "powertrain": "mild hybrid 140",
+      "transmission": "manual",
+      "drive": "4x2",
+      "price_pln": 103600,
+      "selected_colour": "biel alpejska",
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe TERGAN BLACK 215",
+      "upholstery": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "technical": {
+        "power": "103 (140)",
+        "co2_wltp_mixed_g_km": 123,
+        "fuel_wltp_mixed_l_100km": 5.4
+      }
+    }
+  ],
+  "duplicate_enrichment": [
+    {
+      "configuration_code": "sandero_stepway_extreme_hybrid155_automatic",
+      "price_pln": 96800,
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "czarna perła",
+        "zielony cedar",
+        "niebieski iron",
+        "żółty amber",
+        "sandstone"
+      ],
+      "wheel": "16\" felgi aluminiowe TAMIA BLACK",
+      "upholstery": "Tapicerka materiałowa z materiałów pochodzących z recyklingu",
+      "technical": {
+        "power": "80 + 35 (156)",
+        "co2_wltp_mixed_g_km": 100,
+        "fuel_wltp_mixed_l_100km": 4.4
+      }
+    },
+    {
+      "configuration_code": "duster_expression_mild_hybrid_140_manual",
+      "price_pln": 97600,
+      "visible_colour_count": 7,
+      "colours": [
+        "biel alpejska",
+        "szary schiste",
+        "brązowy terracotta",
+        "khaki lichen",
+        "czarna perła",
+        "sandstone",
+        "zielony cedar"
+      ],
+      "wheel": "17\" felgi aluminiowe, TERGAN 215",
+      "upholstery": "tapicerka materiałowa \"Denim\" z odblaskowym logo",
+      "technical": {
+        "power": "103 (140)",
+        "co2_wltp_mixed_g_km": 123,
+        "fuel_wltp_mixed_l_100km": 5.4
+      }
+    }
+  ],
+  "notes": [
+    "Version enumeration remains governed by the official price list; exact states were user-opened configurator states.",
+    "Batch records four new exact surfaces plus two already captured exact states used for enrichment; no duplicate recount.",
+    "Per-colour surcharges were not promoted where extraction was not reliable; no inference was made."
+  ]
+}

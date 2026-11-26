@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "sandero_equipment_page18_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_044",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 18
+  },
+  "scope": {
+    "candidate_count": 37,
+    "group_candidate_count": 77,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 23,
+    "decision_counts": {
+      "context_only_non_import": 15,
+      "unresolved_signature_mismatch": 22
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_equipment_page18_unresolved_review_chunk2.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "remainder of active/passive safety",
+      "parking assistance",
+      "driver warnings and lighting",
+      "tyres and child-seat mounting"
+    ],
+    "esc_hsa_row_completed_from_chunk1": true,
+    "electric_parking_brake_console_row_preserved": true,
+    "literal_markers_preserved": true,
+    "missing_grade_states_not_reconstructed": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_visual_rows": true,
+    "cross_chunk_row_completed_only_from_assigned_candidates": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Jogger Equipment Page 21 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_045",
+    "candidate_count": 40,
+    "group_candidate_count": 72,
+    "chunk_index": 1,
+    "chunk_count": 2
+  }
+}

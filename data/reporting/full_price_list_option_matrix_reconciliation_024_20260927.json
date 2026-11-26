@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "package_id": "full_price_list_option_matrix_reconciliation_024",
+  "kind": "documentary_source_assimilation",
+  "reviewed_on": "2026-09-27",
+  "goal": "Materialize remaining documentary option/package mappings from audited 03.07.2026 Duster, Jogger and Bigster price lists without configurator inference or cross-powertrain projection.",
+  "sources": [
+    {
+      "source_code": "src_pl_duster_price_my26_20260703",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price.pdf.asset.pdf/73baf27ec0.pdf",
+      "audit": "data/reporting/duster_price_my26_20260703_full_documentary_audit_20260920.json"
+    },
+    {
+      "source_code": "src_pl_jogger_price_my26_20260703",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/51a64d2724.pdf",
+      "audit": "data/reporting/jogger_price_my26_20260703_full_documentary_audit_20260920.json"
+    },
+    {
+      "source_code": "src_pl_bigster_price_my26_20260703",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/bigster-price.pdf.asset.pdf/5edf29d32f.pdf",
+      "audit": "data/reporting/bigster_price_my26_20260703_full_documentary_audit_20260920.json"
+    }
+  ],
+  "policy": {
+    "source_first": true,
+    "configurator_used": false,
+    "historical_snapshot_preserved": true,
+    "absence_not_inferred_as_unavailability": true,
+    "cross_powertrain_projection": false
+  },
+  "changes": {
+    "new_commercial_items": 5,
+    "new_configuration_mappings": 56,
+    "master_files": [
+      "data/master/commercial_items.csv",
+      "data/master/commercial_item_configurations.csv"
+    ]
+  },
+  "deferred": [
+    "Grade-level standard equipment cells remain in dedicated availability reconciliation; this package does not invent rows in the oversized availability CSV."
+  ],
+  "acceptance": [
+    "All added mappings use 03.07.2026 official price-list source codes.",
+    "No duplicate commercial item/configuration keys.",
+    "No configurator source used.",
+    "All option/package prices match documentary audits."
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "as_of": "2026-09-20",
+  "package_id": "sandero_hybrid155_configurator_interactive_capture_001",
+  "source": {
+    "kind": "official_current_interactive_configurator",
+    "market": "PL",
+    "model": "Sandero",
+    "selected_configuration": "Sandero expression hybrid 155",
+    "url": "https://www.dacia.pl/samochody/sandero-miejskie/konfigurator.html",
+    "capture_method": "connected Opera accessibility/session inspection",
+    "historical_validity": "current_web_only"
+  },
+  "observed": {
+    "grade": "expression",
+    "engine": "hybrid 155",
+    "transmission": "automatic",
+    "price_pln": 84600,
+    "power_display": "80 + 35 (156)",
+    "co2_wltp_mixed_g_km": 96,
+    "fuel_consumption_wltp_mixed_l_per_100km": 4.2,
+    "color_default": "biel alpejska",
+    "wheel_default": "16\" felgi stalowe ATARA",
+    "upholstery_default": "black fabric with denim inserts",
+    "available_colors": [
+      "biel alpejska",
+      "niebieski iron",
+      "szary schiste",
+      "sandstone",
+      "zielony cedar",
+      "szary urban",
+      "żółty amber"
+    ],
+    "engine_group_options_exposed": [
+      "TCe 100",
+      "Eco-G 120",
+      "Eco-G 120 auto",
+      "hybrid 155"
+    ],
+    "grade_group_exposed": [
+      "essential",
+      "expression",
+      "journey"
+    ],
+    "option_groups_exposed": [
+      {"name": "MEDIA NAV", "price_pln": 1600},
+      {"name": "pakiet COMFORT", "price_pln": 2000},
+      {"name": "kamera cofania", "price_pln": 700},
+      {"name": "pakiet THERMO", "price_pln": 1900}
+    ]
+  },
+  "technical_modal_labels_observed_without_values": [
+    "Dopuszczalna masa całkowita",
+    "Maksymalny moment obrotowy",
+    "Pojemność skokowa",
+    "Liczba cylindrów",
+    "Prędkość maksymalna",
+    "Przyspieszenie 0-100",
+    "Maksymalna masa przyczepy z hamulcem"
+  ],
+  "evidence_boundary": {
+    "master_import": "none",
+    "reason": "The interactive state is undated current-web evidence. The official 11.08.2026 price-list/equipment matrix remains the historical source boundary.",
+    "reconciliation_required": true,
+    "negative_evidence_rule": "A value or option not exposed in this selected interactive state is not treated as unavailable in the product range."
+  },
+  "reconciliation": {
+    "historical_configuration": "sandero_iii_expression_hybrid155_automatic",
+    "historical_source": "src_pl_sandero_stepway_price_my26_20260811",
+    "historical_master_record_exists": true,
+    "historical_price_already_materialized": true,
+    "historical_equipment_matrix_already_materialized": true,
+    "new_safe_master_mutations_from_this_capture": [],
+    "residual_gap": "interactive dependency tree and option-state enumeration beyond the observed default/current state"
+  }
+}

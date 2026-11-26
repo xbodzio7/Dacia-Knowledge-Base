@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "kind": "data_products_v1_8_1_preflight",
+  "verified_on": "2026-07-27",
+  "status": "PASS",
+  "source_commit": "0b7009fd1950693e347638a6b96756aeefb43b8a",
+  "release_version": "1.8.1",
+  "release_tag": "data-products-v1.8.1",
+  "build_count": 2,
+  "byte_identical_rebuilds": true,
+  "archive_member_count": 85,
+  "duplicate_archive_members": 0,
+  "assets": {
+    "dacia-knowledge-base-data-products-v1.8.1.zip": {
+      "size_bytes": 62141954,
+      "sha256": "3bb8ba7c48195651bbe24cae042560273c5e4083467c01b203bb07dab7401bc5"
+    },
+    "data-product-release-manifest.json": {
+      "size_bytes": 20607,
+      "sha256": "f4ed40ed7e469876c80ee95c6b1ad18fcf6c86f215934ab5942373f2889a54fd"
+    },
+    "SHA256SUMS": {
+      "size_bytes": 213,
+      "sha256": "ca59fb187c8fbdcbacf7c62d0c65559a8f604defc5634b1d7fe257df7f7e668e"
+    }
+  },
+  "chromium_smoke": {
+    "visible_equipment_choices": 108,
+    "camera_search_visible_choices": 1,
+    "selection_count": 1,
+    "matched_configurations": 66,
+    "javascript_errors": 0
+  },
+  "publication_controls": {
+    "tag_absent": true,
+    "release_absent": true,
+    "public_v1_8_0_control_download": "PASS",
+    "publication_performed": false
+  },
+  "semantic_boundaries": {
+    "new_data_imports": false,
+    "new_comparison_pairs": false,
+    "cross_scope_pairs_generated": false,
+    "ranking_generated": false,
+    "recommendations_generated": false,
+    "inferred_values_generated": false,
+    "older_public_releases_rewritten": false
+  },
+  "repository_baseline": {
+    "tests": 1046,
+    "csv_files": 46,
+    "rows": 9688,
+    "configuration_values": 2949,
+    "configuration_value_ranges": 244,
+    "availability_records": 4754,
+    "attributes": 385
+  },
+  "next_package": {
+    "name": "Data Products v1.8.1 Publication",
+    "goal": "Publish exactly the preflighted source commit and three recorded asset identities, then perform an independent public download audit."
+  }
+}

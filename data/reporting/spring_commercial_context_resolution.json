@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "generated_on": "2026-08-02",
+  "status": "complete",
+  "source_code": "src_pl_spring_commercial_context_20260802",
+  "scope": {
+    "model_code": "spring",
+    "market": "PL",
+    "official_source_count": 4,
+    "master_data_mutation_authorized": false
+  },
+  "type2_resolution": {
+    "reviewed_configuration_count": 3,
+    "exact_current_standard_count": 2,
+    "exact_current_standard_configurations": [
+      "spring_essential_electric70_automatic",
+      "spring_extreme_electric100_automatic"
+    ],
+    "current_grade_unresolved_count": 1,
+    "current_grade_unresolved_configurations": [
+      "spring_expression_electric70_automatic"
+    ],
+    "master_action": "defer_semantic_migration",
+    "reason": "The current exact Essential and Extreme states classify the Type 2 cable as standard. The existing commercial item is option-shaped, so the review does not write a fabricated zero-price option row."
+  },
+  "paint_resolution": {
+    "exact_current_my26_rows": [
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "commercial_item_code": "spring_colour_biel_alpejska",
+        "availability_status": "standard",
+        "price_pln": 0
+      },
+      {
+        "configuration_code": "spring_essential_electric70_automatic",
+        "commercial_item_code": "spring_colour_lichen_khaki",
+        "availability_status": "optional",
+        "price_pln": 2300
+      }
+    ],
+    "exact_current_my26_count": 2,
+    "my2025_price_promotions": 0,
+    "legacy_palette_global_removals": 0,
+    "master_action": "no_change",
+    "reason": "Only the exact Essential MY26 palette is current and configuration-specific. MY2025 stock prices and absence from one grade palette are not transferred to uncaptured current grades."
+  },
+  "stock_resolution": {
+    "classification": "whole_vehicle_context_only",
+    "stock_totals_decomposed": 0,
+    "master_action": "no_change",
+    "reason": "Dealer-stock totals and selected equipment are not reusable standalone option or paint prices unless separately itemized."
+  },
+  "mutation_summary": {
+    "master_rows_changed": 0,
+    "prices_imported": 0,
+    "availability_states_changed": 0,
+    "models_or_domains_added": 0
+  },
+  "findings": [
+    "Current exact MY26 evidence resolves the Type 2 cable as standard for Essential electric 70 and Extreme electric 100.",
+    "Expression electric 70 remains unresolved for current MY26 because the exact official matrix captured in this review is MY2025 stock-only.",
+    "Essential MY26 has exact current paint states: Biel alpejska is standard at 0 PLN and Khaki lichen is optional at 2300 PLN.",
+    "The 2300 PLN MY2025 paint class is not promoted to current Expression or Extreme mappings.",
+    "Whole-vehicle stock totals are not decomposed into reusable standalone option or paint prices."
+  ],
+  "next_package": {
+    "package_id": "spring_current_grade_snapshot_capture_001",
+    "goal": "Capture exact current official Expression and Extreme grade states, including their paint palettes and charging-equipment semantics, before any bounded master-data migration."
+  }
+}

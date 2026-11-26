@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
+  "generated_at": "2026-11-21T21:12:29Z",
+  "analysed_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
+  "status": "closed_with_explicit_source_ambiguity",
+  "scope": {
+    "model": "Sandero / Sandero Stepway",
+    "market": "PL",
+    "model_year": 2026,
+    "source_date": "2026-11-02",
+    "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+    "source_path": "owner_supplied/2026-11-02/3b4618d7da.pdf",
+    "source_sha256": "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c",
+    "printed_pages": [
+      2,
+      3,
+      6
+    ],
+    "source_configurations_reviewed": 19,
+    "dimension_diagram_model_scope": "Sandero only; Stepway applicability is not inferred",
+    "canonical_attribute_catalogue_count": 417
+  },
+  "evidence": {
+    "page_2": {
+      "classification": "marketing_description",
+      "finding": "Broad material descriptions for the dashboard and door areas do not define a precise grade/configuration-level attribute value."
+    },
+    "page_3": {
+      "classification": "grade_level_equipment_and_trim_matrix",
+      "descriptors_reviewed": [
+        "grille decorative finish and Stepway logo colour",
+        "bumper and underbody-protection finish",
+        "exterior door-handle finish",
+        "mirror-cap finish",
+        "roof-rail and antenna appearance",
+        "decorative decals and topographic pattern",
+        "air-vent surround finish",
+        "interior door-handle finish",
+        "dashboard and front-door insert materials/colours",
+        "upholstery and rubber-mat pattern"
+      ],
+      "existing_related_attributes": [
+        "upholstery_variant",
+        "centre_console_variant",
+        "wheel_design",
+        "wheel_material",
+        "wheel_finish",
+        "roof_rails",
+        "modular_roof_rails"
+      ],
+      "boundary": "Existing attributes retain their defined meanings. Upholstery, centre-console and wheel fields cannot be overloaded to encode grille, mirror, handle, dashboard-insert, vent-surround, decal or mat-pattern descriptors. The existing 24 Hybrid 155 scalar observations from the earlier reconciliation are not duplicated."
+    },
+    "page_6": {
+      "classification": "dimension_diagram_with_unresolved_interior_callouts",
+      "existing_generic_dimension_attributes": [
+        "interior_length",
+        "interior_width",
+        "interior_height"
+      ],
+      "boundary": "The rendered diagram includes interior callouts whose exact measurement names, reference points and/or applicability cannot be established from the source labels. Generic interior dimensions do not justify assigning unnamed values to headroom, elbow room, seatback angle, seat height, boot width or another inferred concept. Existing external dimension observations are preserved and not duplicated."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "sandero-interior-dimension-callouts",
+      "status": "needs_review",
+      "evidence_refs": [
+        "owner_supplied/2026-11-02/3b4618d7da.pdf",
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
+        "data/master/attributes.csv"
+      ],
+      "required_outcome": "Preserve source-page labels and diagram context; do not create scalar observations until each callout has an exact canonical measurement meaning and configuration scope.",
+      "last_verified_at": "2026-11-19T21:38:00Z"
+    },
+    {
+      "finding_id": "sandero-decorative-trim-descriptors",
+      "status": "needs_review",
+      "evidence_refs": [
+        "owner_supplied/2026-11-02/3b4618d7da.pdf",
+        "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
+        "data/master/attributes.csv"
+      ],
+      "required_outcome": "Keep grade-level source descriptions as reviewed evidence; do not collapse distinct decorative finishes into upholstery, centre-console, wheel or generic appearance attributes.",
+      "last_verified_at": "2026-11-19T21:38:00Z"
+    }
+  ],
+  "outcome": {
+    "source_pages_reviewed": 3,
+    "source_configurations_reviewed": 19,
+    "master_rows_added": 0,
+    "master_rows_updated": 0,
+    "attributes_added": 0,
+    "import_spec_rows_changed": 0,
+    "existing_external_dimension_observations_preserved": true,
+    "existing_hybrid_scalar_observations_duplicated": 0,
+    "source_binary_changed": false,
+    "master_data_changed": false
+  },
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "sandero_my26_20261102_interior_dimensions_and_trim_semantics_review_20261119_001",
+    "generated_at": "2026-11-21T21:12:29Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "0c7dfab2882ea401c5a9053ac974c5c684b4abd8",
+    "input_files": [
+      {
+        "path": "owner_supplied/2026-11-02/3b4618d7da.pdf",
+        "git_blob_sha": "193f0bb418de1ddcdb2f5f26a4a9c73bdf3bf5b6",
+        "sha256": "8ee10aaf69a7807655d3fd9251fc999b7192a2b239ae865ea0e7f9e58dbbf28c"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_price_my26_20261102_reconciliation.json",
+        "git_blob_sha": "a266ba57206c82eb7b1ec90f66ffd2ff9bbe26bb",
+        "sha256": "3ac9a41a808fca5058154abbfaf397332e2b659da8088f68efeb57138c085b52"
+      },
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "6d9e059daff3b001e6d377d8c7c8fc65ae53e2e9",
+        "sha256": "52c8f5f48fca88dbec4d4000b4bc4c7f5d73acb95abafd8c3b484362ceaad463"
+      },
+      {
+        "path": "data/master/attributes.csv",
+        "git_blob_sha": "6e1efb5d7531f855aa8a086a9fd7b8bc779aadf5",
+        "sha256": "d24a2b19d5da75e26957dc240acb09d1955f856fbd42b9e6d6fe7d5b7e8d4db1"
+      }
+    ],
+    "scope": "Official Polish Sandero/Sandero Stepway MY26 cennik effective 2026-11-02, printed pages 2, 3 and 6; review of interior dimension callouts and decorative trim descriptors against the canonical attribute catalogue. Review-only where exact semantic mapping or configuration applicability is not established.",
+    "status": "needs_review",
+    "reviewed_on": "2026-11-21"
+  }
+}

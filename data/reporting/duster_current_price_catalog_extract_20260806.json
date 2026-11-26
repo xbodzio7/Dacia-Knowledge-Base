@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "kind": "duster_current_price_catalog_extract",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "model_id": "duster",
+  "source": {
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/duster-price-2025.pdf.asset.pdf/b281a995a9.pdf",
+    "document_title": "Dacia Duster cennik MY26 PY25",
+    "valid_from": "2026-02-06",
+    "model_year_scope": "2025",
+    "pages": 11,
+    "source_type": "official_current_model_price_list"
+  },
+  "semantic_policy": {
+    "configurator_used": false,
+    "source_values_preserved": true,
+    "compatibility_inferred": false,
+    "cross_grade_transfer": false,
+    "cross_powertrain_transfer": false
+  },
+  "grades": ["essential", "expression", "extreme", "journey", "journey+"],
+  "exterior": {
+    "wheels": [
+      {"name": "stalowe czarne", "size_in": 16, "standard_on": ["essential"]},
+      {"name": "TERGAN diamentowane", "size_in": 17, "standard_on": ["expression"]},
+      {"name": "TERGAN pół diamentowane", "size_in": 17, "standard_on": ["extreme"]},
+      {"name": "TAGASAN pół diamentowane", "size_in": 18, "option_price_pln": 1000, "available_on": ["extreme"]},
+      {"name": "TAGASAN diamentowane", "size_in": 18, "standard_on": ["journey", "journey+"]}
+    ],
+    "paint_pricing": [
+      {"finish": "metalizowany", "price_text_pln": "2700 / 2900", "available_on": ["essential", "expression", "extreme", "journey"], "journey_plus_price_pln": 0},
+      {"name": "Biel Alpejska", "finish": "niemetalizowany", "price_pln": 0, "available_on": ["essential", "expression", "extreme", "journey"]},
+      {"name": "Khaki Lichen", "finish": "niemetalizowany", "price_pln": 2700, "available_on": ["essential", "expression", "extreme", "journey"], "journey_plus_price_pln": 0}
+    ]
+  },
+  "upholstery": [
+    {"name": "materiałowa czarna", "standard_on": ["essential"]},
+    {"name": "Denim z odblaskowym emblematem DC", "standard_on": ["expression", "journey", "journey+"]},
+    {"name": "MicroCloud z emblematem DC", "standard_on": ["extreme"]}
+  ],
+  "standalone_options": [
+    {"name": "koło zapasowe dojazdowe 215/70 R16 100H", "price_pln": 800, "constraint_text": "dotyczy TCe 130 4x4"},
+    {"name": "koło zapasowe space saver 135/80 R17", "price_pln": 800, "constraint_text": "dotyczy TCe 130 4x2 i Hybrid 140; niedostępne z LPG w drugiej tabeli cennika"},
+    {"name": "fotele przednie podgrzewane", "price_pln": 700, "availability_text": "wybrane wersje; także element pakietów"},
+    {"name": "Media Nav Live 10 cali", "price_pln": 2400, "available_on": ["expression"]}
+  ],
+  "packages": [
+    {"code": "P1", "name": "PARKING", "price_pln": 2200, "available_on": ["extreme", "journey"], "items": ["czujniki parkowania z przodu, z tyłu i z boku", "Multiview kamera", "system kontroli martwego pola BSW"]},
+    {"code": "P2", "name": "TECHNO", "price_pln": 2700, "available_on": ["extreme"], "items": ["Media Nav Live 10 cali", "ładowarka indukcyjna", "automatyczny hamulec postojowy"]},
+    {"code": "P3", "name": "ZIMOWY", "price_pln": 1200, "available_on": ["expression", "journey"], "items": ["przednie fotele podgrzewane", "kierownica podgrzewana", "regulacja lędźwiowa fotela kierowcy", "regulacja wysokości fotela pasażera"]},
+    {"code": "P4", "name": "ZIMOWY", "price_pln": 1200, "available_on": ["extreme"], "items": ["przednie fotele podgrzewane", "kierownica podgrzewana"]},
+    {"code": "P5", "name": "ZIMOWY PLUS", "price_pln": 2300, "available_on": ["journey"], "items": ["przednie fotele podgrzewane", "kierownica podgrzewana", "podgrzewana przednia szyba", "regulacja lędźwiowa fotela kierowcy", "regulacja wysokości fotela pasażera"]},
+    {"code": "P6", "name": "ZIMOWY PLUS", "price_pln": 2300, "available_on": ["extreme"], "items": ["przednie fotele podgrzewane", "kierownica podgrzewana", "podgrzewana przednia szyba"]}
+  ],
+  "unresolved": [
+    "Metallic paint price is printed as 2700 / 2900 and requires colour-level mapping from another official source.",
+    "The document contains two equipment tables for different powertrain scopes; records must remain tied to their table scope during full extraction.",
+    "Some options require or exclude other options; the cennik delegates exact dependency details to dealers."
+  ]
+}

@@ -1,0 +1,581 @@
+(function (root, factory) {
+  "use strict";
+  const api = factory();
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  root.DkbConfigurationShortlist = api;
+})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  "use strict";
+
+  const AVAILABLE = new Set(["standard", "optional"]);
+
+  function unique(values) {
+    return [...new Set((values || []).map(String).map((value) => value.trim()).filter(Boolean))].sort();
+  }
+
+  function normalizeCriteria(criteria) {
+    const standard = unique(criteria && criteria.required_standard_equipment);
+    const standardSet = new Set(standard);
+    const seatsValue = criteria && criteria.seats;
+    const seats = seatsValue === null || seatsValue === undefined || seatsValue === ""
+      ? null
+      : Number(seatsValue);
+    const minimum = criteria && criteria.minimum_price_pln;
+    const maximum = criteria && criteria.maximum_price_pln;
+    return {
+      models: unique(criteria && criteria.models),
+      versions: unique(criteria && criteria.versions),
+      transmissions: unique(criteria && criteria.transmissions),
+      powertrains: unique(criteria && criteria.powertrains),
+      fuel_types: unique(criteria && criteria.fuel_types),
+      minimum_price_pln: minimum === null || minimum === undefined || minimum === "" ? null : Number(minimum),
+      maximum_price_pln: maximum === null || maximum === undefined || maximum === "" ? null : Number(maximum),
+      seats,
+      required_equipment: unique(criteria && criteria.required_equipment).filter((code) => !standardSet.has(code)),
+      required_standard_equipment: standard,
+      search: String(criteria && criteria.search || "").trim().toLocaleLowerCase("pl")
+    };
+  }
+
+  function configurationSearchText(configuration) {
+    return [
+      configuration.configuration_code,
+      configuration.display_name,
+      configuration.model_code,
+      configuration.model_name,
+      configuration.version_code,
+      configuration.version_name,
+      configuration.powertrain_label,
+      configuration.transmission_type
+    ].join(" ").toLocaleLowerCase("pl");
+  }
+
+  function equipmentAvailable(configuration, code) {
+    const state = configuration && configuration.equipment && configuration.equipment[code];
+    return Boolean(state && AVAILABLE.has(state.availability_status));
+  }
+
+  function evaluate(configuration, rawCriteria) {
+    const criteria = normalizeCriteria(rawCriteria || {});
+    const reasons = new Set();
+    if (criteria.models.length && !criteria.models.includes(configuration.model_code)) reasons.add("model");
+    if (criteria.versions.length && !criteria.versions.includes(configuration.version_code)) reasons.add("version");
+    if (criteria.transmissions.length && !criteria.transmissions.includes(configuration.transmission_type)) reasons.add("transmission");
+    if (criteria.powertrains.length && !criteria.powertrains.some((phrase) =>
+      configuration.powertrain_label.toLocaleLowerCase("pl").includes(phrase.toLocaleLowerCase("pl")))) {
+      reasons.add("powertrain");
+    }
+    if (criteria.fuel_types.length && !criteria.fuel_types.includes(configuration.fuel_type_code || "")) {
+      reasons.add("fuel_type");
+    }
+    if (criteria.search && !configurationSearchText(configuration).includes(criteria.search)) reasons.add("search");
+
+    const price = configuration.catalog_price;
+    const amount = price.state === "recorded" ? Number(price.amount) : null;
+    if (criteria.minimum_price_pln !== null) {
+      if (amount === null) reasons.add("price_missing");
+      else if (amount < criteria.minimum_price_pln) reasons.add("price_below_minimum");
+    }
+    if (criteria.maximum_price_pln !== null) {
+      if (amount === null) reasons.add("price_missing");
+      else if (amount > criteria.maximum_price_pln) reasons.add("price_above_maximum");
+    }
+
+    const seats = configuration.number_of_seats;
+    if (criteria.seats !== null) {
+      if (seats.state !== "recorded") reasons.add("number_of_seats_missing");
+      else if (Number(seats.value) !== criteria.seats) reasons.add("number_of_seats");
+    }
+
+    for (const code of criteria.required_equipment) {
+      const state = configuration.equipment[code];
+      if (!state) reasons.add(`equipment_missing:${code}`);
+      else if (!AVAILABLE.has(state.availability_status)) reasons.add(`equipment_not_available:${code}`);
+    }
+    for (const code of criteria.required_standard_equipment) {
+      const state = configuration.equipment[code];
+      if (!state) reasons.add(`equipment_missing:${code}`);
+      else if (state.availability_status !== "standard") reasons.add(`equipment_not_standard:${code}`);
+    }
+    return [...reasons].sort();
+  }
+
+  function sortConfigurations(left, right) {
+    const leftMissing = left.catalog_price.state !== "recorded";
+    const rightMissing = right.catalog_price.state !== "recorded";
+    if (leftMissing !== rightMissing) return leftMissing ? 1 : -1;
+    if (!leftMissing) {
+      const delta = Number(left.catalog_price.amount) - Number(right.catalog_price.amount);
+      if (delta) return delta;
+    }
+    return left.model_code.localeCompare(right.model_code)
+      || left.version_code.localeCompare(right.version_code)
+      || left.configuration_code.localeCompare(right.configuration_code);
+  }
+
+  function filterCatalog(catalog, rawCriteria) {
+    const criteria = normalizeCriteria(rawCriteria || {});
+    const exclusionReasonCounts = {};
+    const requiredEquipmentMissing = {};
+    let catalogPriceMissing = 0;
+    let numberOfSeatsMissing = 0;
+    const results = [];
+
+    for (const configuration of catalog.configurations) {
+      if (configuration.catalog_price.state !== "recorded") catalogPriceMissing += 1;
+      if (configuration.number_of_seats.state !== "recorded") numberOfSeatsMissing += 1;
+      for (const code of [...criteria.required_equipment, ...criteria.required_standard_equipment]) {
+        if (!configuration.equipment[code]) {
+          requiredEquipmentMissing[code] = (requiredEquipmentMissing[code] || 0) + 1;
+        }
+      }
+      const reasons = evaluate(configuration, criteria);
+      for (const reason of reasons) exclusionReasonCounts[reason] = (exclusionReasonCounts[reason] || 0) + 1;
+      if (!reasons.length) results.push(configuration);
+    }
+    results.sort(sortConfigurations);
+    return {
+      criteria,
+      results,
+      summary: {
+        active_configurations: catalog.configurations.length,
+        matched_configurations: results.length,
+        excluded_configurations: catalog.configurations.length - results.length,
+        exclusion_reason_counts: Object.fromEntries(Object.entries(exclusionReasonCounts).sort()),
+        data_unknowns: {
+          catalog_price_missing: catalogPriceMissing,
+          number_of_seats_missing: numberOfSeatsMissing,
+          required_equipment_missing: Object.fromEntries(Object.entries(requiredEquipmentMissing).sort())
+        }
+      }
+    };
+  }
+
+  function criteriaWithoutEquipment(rawCriteria) {
+    const criteria = normalizeCriteria(rawCriteria || {});
+    return { ...criteria, required_equipment: [], required_standard_equipment: [] };
+  }
+
+  function equipmentCoverage(configurations, code) {
+    const coverage = { total: 0, available: 0, standard: 0, optional: 0, not_available: 0, unknown: 0, missing: 0 };
+    for (const configuration of configurations || []) {
+      coverage.total += 1;
+      const state = configuration && configuration.equipment && configuration.equipment[code];
+      if (!state) {
+        coverage.missing += 1;
+        continue;
+      }
+      const status = state.availability_status;
+      if (status === "standard") {
+        coverage.available += 1;
+        coverage.standard += 1;
+      } else if (status === "optional") {
+        coverage.available += 1;
+        coverage.optional += 1;
+      } else if (status === "not_available") {
+        coverage.not_available += 1;
+      } else {
+        coverage.unknown += 1;
+      }
+    }
+    return coverage;
+  }
+
+  function equipmentCodes(configurations) {
+    const codes = new Set();
+    for (const configuration of configurations || []) {
+      for (const code of Object.keys(configuration.equipment || {})) codes.add(code);
+    }
+    return [...codes].sort();
+  }
+
+  function differentiatingEquipmentCodes(configurations) {
+    const items = configurations || [];
+    if (items.length < 2) return [];
+    return equipmentCodes(items).filter((code) => {
+      const coverage = equipmentCoverage(items, code);
+      const excluded = coverage.not_available + coverage.unknown + coverage.missing;
+      return coverage.available > 0 && excluded > 0;
+    });
+  }
+
+  function availableEquipmentCodes(configurations) {
+    const items = configurations || [];
+    return equipmentCodes(items).filter((code) =>
+      equipmentCoverage(items, code).available > 0
+    );
+  }
+
+  function reconcileEquipmentSelection(catalog, rawCriteria) {
+    const criteria = normalizeCriteria(rawCriteria || {});
+    const baseCriteria = criteriaWithoutEquipment(criteria);
+    const baseResults = catalog.configurations
+      .filter((configuration) => evaluate(configuration, baseCriteria).length === 0)
+      .sort(sortConfigurations);
+    const requested = criteria.required_equipment;
+    const compatible = baseResults.filter((configuration) =>
+      requested.every((code) => equipmentAvailable(configuration, code))
+    );
+    const selectionConflict = requested.length > 0 && compatible.length === 0;
+
+    if (!baseResults.length || selectionConflict) {
+      return {
+        base_match_count: baseResults.length,
+        compatible_match_count: compatible.length,
+        selected_equipment: requested,
+        removed_equipment: [],
+        available_equipment: requested,
+        addable_equipment: [],
+        differentiating_equipment: [],
+        facet_coverage: {},
+        selection_conflict: selectionConflict,
+        compatible_configurations: compatible
+      };
+    }
+
+    const available = availableEquipmentCodes(compatible);
+    const differentiating = differentiatingEquipmentCodes(compatible);
+    const addable = available.filter((code) => !requested.includes(code));
+    const visible = new Set([...requested, ...addable]);
+    const coverage = {};
+    for (const code of visible) coverage[code] = equipmentCoverage(compatible, code);
+    return {
+      base_match_count: baseResults.length,
+      compatible_match_count: compatible.length,
+      selected_equipment: requested,
+      removed_equipment: [],
+      available_equipment: [...visible].sort(),
+      addable_equipment: addable,
+      differentiating_equipment: differentiating,
+      facet_coverage: Object.fromEntries(Object.entries(coverage).sort()),
+      selection_conflict: false,
+      compatible_configurations: compatible
+    };
+  }
+
+  function selectedValues(element) {
+    return element ? [...element.selectedOptions].map((option) => option.value) : [];
+  }
+
+  function setSelected(element, values) {
+    if (!element) return;
+    const wanted = new Set(values || []);
+    for (const option of element.options) option.selected = wanted.has(option.value);
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function optionMarkup(items, valueKey, label) {
+    return items.map((item) => {
+      const value = typeof item === "string" ? item : item[valueKey];
+      const text = typeof item === "string" ? item : label(item);
+      return `<option value="${escapeHtml(value)}">${escapeHtml(text)}</option>`;
+    }).join("");
+  }
+
+  function priceText(price) {
+    if (price.state !== "recorded") return "Cena: brak danych";
+    return `${Number(price.amount).toLocaleString("pl-PL")} ${price.currency_code}`;
+  }
+
+  function seatsText(seats) {
+    return seats.state === "recorded" ? `${seats.value} miejsc` : "Liczba miejsc: brak danych";
+  }
+
+  function modelThumbnailMarkup(item) {
+    const media = item && item.model_media || {};
+    const alt = `${item.model_name || "Dacia"} ${item.version_name || ""}`.trim();
+    if (media.image_data_uri) {
+      return `<img src="${escapeHtml(media.image_data_uri)}" alt="${escapeHtml(alt)}" loading="lazy">`;
+    }
+    return `<svg viewBox="0 0 800 450" role="img" aria-label="${escapeHtml(alt)}">
+      <rect width="800" height="450" rx="32" fill="#eef2ed"></rect>
+      <path d="M150 292h500l-46-103c-12-27-39-45-69-45H317c-31 0-59 19-70 48l-35 91-62 9z" fill="#cbd5cb"></path>
+      <path d="M281 168h249c21 0 40 12 49 31l28 63H230l29-75c4-11 13-19 22-19z" fill="#83958a"></path>
+      <circle cx="262" cy="301" r="56" fill="#34433a"></circle><circle cx="262" cy="301" r="25" fill="#d9dfd9"></circle>
+      <circle cx="562" cy="301" r="56" fill="#34433a"></circle><circle cx="562" cy="301" r="25" fill="#d9dfd9"></circle>
+    </svg>`;
+  }
+
+  function renderResults(container, outcome) {
+    if (!outcome.results.length) {
+      container.innerHTML = '<p class="empty">Żadna konfiguracja nie spełnia wszystkich kryteriów.</p>';
+      return;
+    }
+    container.innerHTML = outcome.results.map((item) => {
+      const price = item.catalog_price;
+      const seats = item.number_of_seats;
+      const priceSource = price.state === "recorded"
+        ? `${price.price_date} · ${price.source_code}` : "brak źródłowego rekordu ceny";
+      const seatsSource = seats.state === "recorded"
+        ? `${seats.observation_date} · ${seats.source_code}` : "brak źródłowego rekordu liczby miejsc";
+      const transmissionLabel = item.transmission_type === "automatic"
+        ? "automatyczna"
+        : item.transmission_type === "manual" ? "manualna" : item.transmission_type;
+      return `<article class="result-card" data-configuration-code="${escapeHtml(item.configuration_code)}">
+        <div class="result-card-hero">
+          <div class="model-thumbnail-host" data-model-code="${escapeHtml(item.model_code)}" data-model-name="${escapeHtml(item.model_name)}" data-version-name="${escapeHtml(item.version_name)}">${modelThumbnailMarkup(item)}</div>
+          <div class="result-card-title">
+            <p class="result-model-name">${escapeHtml(item.model_name)}</p>
+            <h3>${escapeHtml(item.version_name)}</h3>
+            <p class="result-variant-name">${escapeHtml(item.powertrain_label)} · skrzynia ${escapeHtml(transmissionLabel)}</p>
+          </div>
+        </div>
+        <p class="configuration-code" hidden>${escapeHtml(item.configuration_code)}</p>
+        <div class="result-price">${escapeHtml(priceText(price))}</div>
+        <dl>
+          <div><dt>Napęd</dt><dd>${escapeHtml(item.powertrain_label)}</dd></div>
+          <div><dt>Skrzynia</dt><dd>${escapeHtml(transmissionLabel)}</dd></div>
+          <div><dt>Miejsca</dt><dd>${escapeHtml(seatsText(seats))}</dd></div>
+        </dl>
+        <details><summary>Proweniencja</summary>
+          <p>Kod techniczny: ${escapeHtml(item.configuration_code)}</p>
+          <p>Cena: ${escapeHtml(priceSource)}</p>
+          <p>Miejsca: ${escapeHtml(seatsSource)}</p>
+        </details>
+      </article>`;
+    }).join("");
+  }
+
+  function setText(selector, value) {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = value;
+  }
+
+  function renderSummary(outcome) {
+    const summary = outcome.summary;
+    setText("#matched-count", summary.matched_configurations);
+    setText("#excluded-count", summary.excluded_configurations);
+    setText("#missing-price-count", summary.data_unknowns.catalog_price_missing);
+    setText("#missing-seats-count", summary.data_unknowns.number_of_seats_missing);
+  }
+
+  function modelOptionLabel(item) {
+    return String(item.name || item.code || "");
+  }
+
+  function versionOptionLabel(item) {
+    return String(item.name || item.code || "");
+  }
+
+  function versionsForModels(versions, modelCodes, configurations, fuelTypes) {
+    const wanted = new Set(modelCodes || []);
+    if (!wanted.size) return [];
+    const selectedFuels = new Set(fuelTypes || []);
+    const compatibleVersions = selectedFuels.size
+      ? new Set((configurations || [])
+        .filter((item) => wanted.has(item.model_code) && selectedFuels.has(item.fuel_type_code || ""))
+        .map((item) => item.version_code))
+      : null;
+    return (versions || []).filter((item) =>
+      wanted.has(item.model_code) && (!compatibleVersions || compatibleVersions.has(item.code))
+    );
+  }
+
+  function versionGroupKey(item) {
+    return String(item && (item.name || item.code) || "")
+      .trim().toLocaleLowerCase("pl");
+  }
+
+  function versionGroupsForModels(versions, modelCodes) {
+    const grouped = new Map();
+    for (const item of versionsForModels(versions, modelCodes)) {
+      const key = versionGroupKey(item);
+      if (!key) continue;
+      if (!grouped.has(key)) {
+        grouped.set(key, {
+code: `grade:${key}`,
+name: versionOptionLabel(item),
+version_codes: [],
+model_codes: []
+        });
+      }
+      const group = grouped.get(key);
+      group.version_codes.push(String(item.code));
+      group.model_codes.push(String(item.model_code));
+    }
+    return [...grouped.values()].map((group) => ({
+      ...group,
+      version_codes: unique(group.version_codes),
+      model_codes: unique(group.model_codes)
+    })).sort((left, right) =>
+      left.name.localeCompare(right.name, "pl") || left.code.localeCompare(right.code)
+    );
+  }
+
+  function optionVersionCodes(option) {
+    if (!option) return [];
+    const encoded = option.dataset.versionCodes;
+    if (!encoded) return option.value ? [option.value] : [];
+    try {
+      const parsed = JSON.parse(encoded);
+      return Array.isArray(parsed) ? unique(parsed) : [];
+    } catch (_error) {
+      return [];
+    }
+  }
+
+  function selectedVersionCodes(select) {
+    return unique([...(select ? select.selectedOptions : [])]
+      .flatMap((option) => optionVersionCodes(option)));
+  }
+
+  function setSelectedVersionCodes(select, versionCodes) {
+    if (!select) return;
+    const wanted = new Set(versionCodes || []);
+    for (const option of select.options) {
+      const codes = optionVersionCodes(option);
+      option.selected = codes.some((code) => wanted.has(code));
+    }
+  }
+
+  function versionGroupMarkup(items) {
+    return items.map((item) =>
+      `<option value="${escapeHtml(item.code)}" data-version-codes="${escapeHtml(JSON.stringify(item.version_codes))}">${escapeHtml(item.name)}</option>`
+    ).join("");
+  }
+
+  function populateVersions(catalog, modelCodes, selectedVersions, fuelTypes) {
+    const select = document.querySelector("#versions");
+    const field = document.querySelector("#versions-field");
+    const versions = versionsForModels(catalog.facets.versions, modelCodes, catalog.configurations,
+      fuelTypes || selectedValues(document.querySelector("#fuel-types")));
+    const items = versionGroupsForModels(versions, modelCodes);
+    select.innerHTML = versionGroupMarkup(items);
+    select.disabled = items.length === 0;
+    if (field) field.hidden = items.length === 0;
+    setSelectedVersionCodes(select, selectedVersions || []);
+  }
+
+  function populateControls(catalog) {
+    document.querySelector("#models").innerHTML = optionMarkup(catalog.facets.models, "code", modelOptionLabel);
+    populateVersions(catalog, [], []);
+    document.querySelector("#transmissions").innerHTML = '<option value="">Dowolna</option>'
+      + optionMarkup(catalog.facets.transmissions, "", (item) => item);
+    document.querySelector("#powertrains").innerHTML = optionMarkup(catalog.facets.powertrains, "", (item) => item);
+    document.querySelector("#fuel-types").innerHTML = '<option value="">Dowolne paliwo</option>'
+      + optionMarkup(catalog.facets.fuel_types || [], "code", (item) => item.name);
+    document.querySelector("#seats").innerHTML = '<option value="">Dowolna / także brak danych</option>'
+      + optionMarkup(catalog.facets.seat_counts.map(String), "", (item) => `${item} miejsc`);
+    document.querySelector("#required-equipment").innerHTML = optionMarkup(
+      catalog.facets.equipment, "code", (item) => `${item.name} (${item.code})`
+    );
+  }
+
+  function criteriaFromControls() {
+    const transmission = document.querySelector("#transmissions").value;
+    const search = document.querySelector("#search");
+    return {
+      models: selectedValues(document.querySelector("#models")),
+      versions: selectedVersionCodes(document.querySelector("#versions")),
+      transmissions: transmission ? [transmission] : [],
+      powertrains: selectedValues(document.querySelector("#powertrains")),
+      fuel_types: selectedValues(document.querySelector("#fuel-types")),
+      minimum_price_pln: document.querySelector("#minimum-price").value,
+      maximum_price_pln: document.querySelector("#maximum-price").value,
+      seats: document.querySelector("#seats").value,
+      required_equipment: selectedValues(document.querySelector("#required-equipment")),
+      required_standard_equipment: [],
+      search: search ? search.value : ""
+    };
+  }
+
+  function applyInitialFilters(catalog, filters) {
+    const selectedVersions = filters.versions || [];
+    const inferredModels = new Set(filters.models || []);
+    if (!inferredModels.size && selectedVersions.length) {
+      for (const item of catalog.facets.versions) {
+        if (selectedVersions.includes(item.code)) inferredModels.add(item.model_code);
+      }
+    }
+    const modelCodes = [...inferredModels];
+    setSelected(document.querySelector("#models"), modelCodes);
+    populateVersions(catalog, modelCodes, selectedVersions);
+    document.querySelector("#transmissions").value = (filters.transmissions || [])[0] || "";
+    setSelected(document.querySelector("#powertrains"), filters.powertrains || []);
+    document.querySelector("#fuel-types").value = (filters.fuel_types || [])[0] || "";
+    populateVersions(catalog, modelCodes, selectedVersions, filters.fuel_types || []);
+    document.querySelector("#minimum-price").value = filters.minimum_price_pln || "";
+    document.querySelector("#maximum-price").value = filters.maximum_price_pln || "";
+    document.querySelector("#seats").value = filters.seats || "";
+    setSelected(document.querySelector("#required-equipment"), unique([
+      ...(filters.required_equipment || []),
+      ...(filters.required_standard_equipment || [])
+    ]));
+  }
+
+  function initialize() {
+    const catalogElement = document.querySelector("#configuration-catalog");
+    if (!catalogElement) return;
+    const catalog = JSON.parse(catalogElement.textContent);
+    populateControls(catalog);
+    applyInitialFilters(catalog, catalog.initial_filters || {});
+    const results = document.querySelector("#results");
+    const equipment = document.querySelector("#required-equipment");
+
+    const update = () => {
+      const rawCriteria = criteriaFromControls();
+      const facetState = reconcileEquipmentSelection(catalog, rawCriteria);
+      const outcome = filterCatalog(catalog, rawCriteria);
+      renderSummary(outcome);
+      renderResults(results, outcome);
+      const detail = { outcome, equipment_availability: facetState };
+      results.dkbLastDetail = detail;
+      results.dispatchEvent(new CustomEvent("dkb:results-rendered", { detail }));
+    };
+
+    const models = document.querySelector("#models");
+    models.addEventListener("change", () => {
+      const selectedVersions = selectedVersionCodes(document.querySelector("#versions"));
+      populateVersions(catalog, selectedValues(models), selectedVersions, selectedValues(document.querySelector("#fuel-types")));
+      update();
+    });
+    const fuelTypes = document.querySelector("#fuel-types");
+    fuelTypes.addEventListener("change", () => {
+      const selectedVersions = selectedVersionCodes(document.querySelector("#versions"));
+      populateVersions(catalog, selectedValues(models), selectedVersions, selectedValues(fuelTypes));
+      update();
+    });
+    for (const element of document.querySelectorAll("#filters input, #filters select")) {
+      if (element === models || element === fuelTypes) continue;
+      element.addEventListener(element.tagName === "SELECT" ? "change" : "input", update);
+    }
+    document.querySelector("#reset").addEventListener("click", () => {
+      const filters = document.querySelector("#filters");
+      HTMLFormElement.prototype.reset.call(filters);
+      for (const element of document.querySelectorAll("#filters select[multiple]")) setSelected(element, []);
+      populateVersions(catalog, [], [], []);
+      update();
+    });
+    update();
+  }
+
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);
+    else initialize();
+  }
+
+  return {
+    normalizeCriteria,
+    evaluate,
+    filterCatalog,
+    sortConfigurations,
+    modelOptionLabel,
+    versionOptionLabel,
+    versionsForModels,
+    versionGroupsForModels,
+    selectedVersionCodes,
+    equipmentAvailable,
+    availableEquipmentCodes,
+    differentiatingEquipmentCodes,
+    equipmentCoverage,
+    reconcileEquipmentSelection,
+    criteriaWithoutEquipment
+  };
+});

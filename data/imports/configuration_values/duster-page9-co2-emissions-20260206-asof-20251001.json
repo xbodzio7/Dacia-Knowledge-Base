@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 575,
+  "attribute_code": "co2_emissions",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "g/km",
+    "status": "active"
+  },
+  "observation_date": "2025-10-01",
+  "fuel_type_code": "",
+  "source_page": 9,
+  "source_section": "ZUŻYCIE PALIWA I EMISJA CO2",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "122",
+      "source_text": "122"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "122",
+      "source_text": "122"
+    },
+    {
+      "configuration_code": "duster_iii_expression_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "109",
+      "source_text": "109"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "125",
+      "source_text": "125"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "122",
+      "source_text": "122"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "109",
+      "source_text": "109"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "125",
+      "source_text": "125"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "122",
+      "source_text": "122"
+    },
+    {
+      "configuration_code": "duster_iii_journey_hybrid155_4x2_automatic",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "109",
+      "source_text": "109"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_price_my26_py25_20260206",
+      "value": "125",
+      "source_text": "125"
+    }
+  ]
+}

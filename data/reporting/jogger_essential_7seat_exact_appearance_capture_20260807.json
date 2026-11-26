@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "kind": "jogger_essential_7seat_exact_appearance_capture",
+  "captured_on": "2026-08-07",
+  "market": "PL",
+  "gap_id": "CAT-GAP-002",
+  "source": {
+    "publisher": "Dacia Polska",
+    "url": "https://www.dacia.pl/samochody/jogger-7/konfigurator.html",
+    "observed_configuration": "JOGGER essential Eco-G 120 7-miejsc",
+    "configuration_code": "jogger_essential_7seat_ecog120_manual",
+    "powertrain": "Eco-G 120",
+    "transmission": "manual",
+    "seat_count": 7,
+    "displayed_selected_configuration_price_pln": 82400,
+    "displayed_price_context": "Oferta specjalna"
+  },
+  "policy": {
+    "exact_state_identity_visible": true,
+    "all_visible_colour_choices_recorded": true,
+    "all_visible_wheel_choices_recorded": true,
+    "all_visible_upholstery_choices_recorded": true,
+    "absence_interpreted_as_unavailability": false,
+    "cross_seat_projection": false,
+    "cross_grade_projection": false,
+    "cross_powertrain_projection": false,
+    "cross_transmission_projection": false,
+    "displayed_vehicle_price_promoted_to_catalogue_price": false,
+    "master_data_mutated": false
+  },
+  "colours": [
+    {
+      "name": "biel alpejska",
+      "price_pln": 0,
+      "price_state": "included_in_base_equipment",
+      "selected": true
+    },
+    {
+      "name": "szary schiste",
+      "price_pln": 2700,
+      "price_state": "exact_visible_option_price",
+      "selected": false
+    },
+    {
+      "name": "czarna perła",
+      "price_pln": 2700,
+      "price_state": "exact_visible_option_price",
+      "selected": false
+    }
+  ],
+  "wheels": [
+    {
+      "name": "16\" felgi stalowe",
+      "price_pln": 0,
+      "price_state": "included_in_base_equipment",
+      "selected": true
+    }
+  ],
+  "upholsteries": [
+    {
+      "name": "tapicerka materiałowa w kolorze czarnym i wstawkami denim",
+      "price_pln": 0,
+      "price_state": "included_in_base_equipment",
+      "selected": true
+    }
+  ],
+  "summary": {
+    "visible_colour_count": 3,
+    "visible_wheel_count": 1,
+    "visible_upholstery_count": 1,
+    "choice_list_status": "complete_exact_current",
+    "portfolio_complete_exact_colour_surfaces_before": 6,
+    "portfolio_complete_exact_colour_surfaces_after": 7,
+    "portfolio_remaining_exact_colour_surfaces": 74,
+    "gap_closed": false
+  },
+  "boundaries": [
+    "The directly observed seven-seat state is independent evidence and is not projected from the five-seat Jogger Essential state.",
+    "The displayed 82,400 PLN vehicle price is marked as a special offer and is retained only as source context, not as a canonical catalogue price.",
+    "The exact wheel label remains '16\" felgi stalowe'; a different standard-equipment wording elsewhere is not silently substituted.",
+    "CAT-GAP-002 remains open for the other active configuration surfaces."
+  ]
+}

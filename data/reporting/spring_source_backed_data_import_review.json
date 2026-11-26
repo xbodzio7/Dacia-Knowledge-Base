@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "kind": "spring_source_backed_data_import_review",
+  "reviewed_on": "2026-07-31",
+  "status": "complete",
+  "registered_sources": [
+    {
+      "source_code": "src_pl_spring_brochure_20260219",
+      "role": "version_equipment_and_technical_evidence",
+      "scope": "Essential, Expression, Extreme and Cargo with grade and powertrain footnotes"
+    },
+    {
+      "source_code": "src_pl_spring_price_my25_stock_20260708",
+      "role": "dated_stock_catalogue_and_technical_evidence",
+      "scope": "Expression Electric 70 and Extreme Electric 100 model-year-2025 dealer stock"
+    },
+    {
+      "source_code": "src_pl_spring_official_configurator_20260731",
+      "role": "dated_current_configuration_evidence",
+      "scope": "Essential Electric 70, Expression Electric 70 and Extreme Electric 100 exact official states"
+    }
+  ],
+  "review_findings": {
+    "versions": {
+      "import_ready": [
+        {
+          "code": "spring_essential",
+          "name": "Essential",
+          "model_code": "spring"
+        },
+        {
+          "code": "spring_expression",
+          "name": "Expression",
+          "model_code": "spring"
+        },
+        {
+          "code": "spring_extreme",
+          "name": "Extreme",
+          "model_code": "spring"
+        }
+      ],
+      "deferred": [
+        {
+          "name": "Cargo",
+          "reason": "The registered brochure proves a commercial two-seat derivative, but the current passenger configurator snapshot contains no exact Cargo configuration state."
+        }
+      ]
+    },
+    "configurations": {
+      "import_ready": [
+        {
+          "code": "spring_essential_electric70_automatic",
+          "version_code": "spring_essential",
+          "powertrain_label": "electric 70",
+          "transmission_type": "automatic",
+          "current_state": true
+        },
+        {
+          "code": "spring_expression_electric70_automatic",
+          "version_code": "spring_expression",
+          "powertrain_label": "electric 70",
+          "transmission_type": "automatic",
+          "current_state": true
+        },
+        {
+          "code": "spring_extreme_electric100_automatic",
+          "version_code": "spring_extreme",
+          "powertrain_label": "electric 100",
+          "transmission_type": "automatic",
+          "current_state": true
+        }
+      ],
+      "selected_now": [
+        "spring_essential_electric70_automatic",
+        "spring_expression_electric70_automatic"
+      ],
+      "deferred_now": [
+        {
+          "code": "spring_extreme_electric100_automatic",
+          "reason": "It would create a one-configuration reporting scope. Catalogue import and singleton reporting-contract activation should remain separate bounded packages."
+        }
+      ]
+    },
+    "prices": {
+      "selected_now": [
+        {
+          "configuration_code": "spring_essential_electric70_automatic",
+          "amount_pln": 73500,
+          "price_type": "catalog_gross",
+          "price_date": "2026-07-31",
+          "source_code": "src_pl_spring_official_configurator_20260731",
+          "scope": "exact current configurator state"
+        },
+        {
+          "configuration_code": "spring_expression_electric70_automatic",
+          "amount_pln": 81500,
+          "price_type": "catalog_gross",
+          "price_date": "2026-07-08",
+          "source_code": "src_pl_spring_price_my25_stock_20260708",
+          "scope": "model-year-2025 dealer-stock catalogue price"
+        }
+      ],
+      "deferred": [
+        {
+          "configuration_code": "spring_expression_electric70_automatic",
+          "visible_amount_pln": 73500,
+          "decision": "reject_as_grade_specific_price",
+          "reason": "The combined version page repeats the Essential starting price and does not prove an Expression catalogue price."
+        },
+        {
+          "configuration_code": "spring_extreme_electric100_automatic",
+          "amount_pln": 85900,
+          "reason": "Imported together with the deferred Electric 100 singleton catalogue package."
+        },
+        {
+          "claim": "17000_pln_discount",
+          "decision": "do_not_derive_promotional_prices",
+          "reason": "The stock price list states a headline discount but does not enumerate an exact discounted price per configuration."
+        }
+      ]
+    },
+    "technical_values": {
+      "decision": "defer_to_dated_technical_import_review",
+      "reason": "The brochure, MY25 stock table and later configurator snapshot contain exact but differently dated range and consumption observations. They can coexist as source-specific dated observations, but must not be flattened into one catalogue foundation import.",
+      "examples": [
+        "Essential Electric 70 mixed WLTP range differs between brochure and later configurator snapshot.",
+        "Essential Electric 70 mixed energy consumption differs between brochure and later configurator snapshot.",
+        "Brochure mass, wheel and range rows contain grade-specific footnotes that require exact mapping."
+      ]
+    },
+    "equipment": {
+      "decision": "defer_to_version_equipment_matrix_import",
+      "reason": "The brochure provides a large three-grade standard, option and unavailable matrix plus separately described packages. Importing it with entity creation would obscure applicability and package boundaries."
+    }
+  },
+  "selection": {
+    "package_id": "spring_electric70_catalogue_foundation_001",
+    "kind": "catalogue_foundation",
+    "name": "Spring Electric 70 Catalogue Foundation",
+    "status": "planned",
+    "goal": "Add the source-backed Spring Essential and Expression versions, their exact Electric 70 automatic configurations, one current Essential catalogue price, one stock-bounded Expression catalogue price and one comparable reporting scope, without importing technical values, equipment, inferred promotional prices or the Electric 100 singleton.",
+    "entity_delta": {
+      "versions": 2,
+      "configurations": 2,
+      "configuration_prices": 2,
+      "source_version_relationships": 4,
+      "source_configuration_relationships": 3,
+      "reporting_scopes": 1,
+      "active_configuration_total_after": 80,
+      "reporting_scope_total_after": 21,
+      "model_family_total_after": 6,
+      "within_scope_pair_total_after": 130,
+      "master_row_delta": 13
+    },
+    "manifest_paths": [
+      "CHANGELOG.md",
+      "README.md",
+      "data/master/configuration_prices.csv",
+      "data/master/configurations.csv",
+      "data/master/source_configurations.csv",
+      "data/master/source_versions.csv",
+      "data/master/versions.csv",
+      "data/reporting/spring_electric70_automatic_completeness.json",
+      "data/reporting/spring_electric70_automatic_gap_evidence.spec",
+      "project/SESSION_STATE.md",
+      "project/STATE_SUMMARY.md",
+      "project/packages/spring-electric70-catalogue-foundation-20260731.md",
+      "project/state.json",
+      "tests/test_configuration_comparison_bundle.py",
+      "tests/test_configuration_comparison_html.py",
+      "tests/test_configuration_comparison_workbook.py",
+      "tests/test_configuration_selection_export.py",
+      "tests/test_configuration_shortlist.py",
+      "tests/test_configuration_shortlist_html.py",
+      "tests/test_data_product_release.py"
+    ]
+  },
+  "follow_up_sequence": [
+    "Spring Electric 100 Singleton Catalogue Review",
+    "Spring Dated Technical Observation Review",
+    "Spring Version Equipment Matrix Import",
+    "Spring Exact Stock Card Snapshot"
+  ],
+  "non_goals": [
+    "assign_73500_pln_to_expression",
+    "derive_discounted_stock_prices",
+    "flatten_brochure_and_configurator_technical_values",
+    "import_equipment_or_packages",
+    "create_cargo_configuration",
+    "activate_electric100_singleton_scope",
+    "publish_data_product_release"
+  ],
+  "decision": "SELECT_SPRING_ELECTRIC70_CATALOGUE_FOUNDATION"
+}

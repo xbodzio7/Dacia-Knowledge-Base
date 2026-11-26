@@ -1,0 +1,3 @@
+code,commercial_item_code,attribute_code,source_text,notes
+duster_colour_biel_alpejska__exterior_color,duster_colour_biel_alpejska,exterior_color,Biel Alpejska,Selectable non-metallic exterior-colour membership; the 0 PLN surcharge is recorded in dated configuration mappings.
+duster_colour_khaki_lichen__exterior_color,duster_colour_khaki_lichen,exterior_color,Khaki Lichen,"Selectable non-metallic exterior-colour membership; the 2,800 PLN surcharge is recorded in dated configuration mappings."

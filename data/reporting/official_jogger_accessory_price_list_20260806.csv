@@ -1,0 +1,99 @@
+category,subcategory,name,part_number,price_pln_vat_without_installation,installation_required
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,"Zestaw bezpieczeństwa (kamizelka, trójkąt, apteczka)",7711780759,87,False
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Wideorejestrator Nextbase 222,7711945185,940,False
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Gaśnica,8201712928,89,False
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Alarm,8201736825,1025,True
+bezpieczenstwo,bezpieczenstwo_i_sygnalizacja,Uchwyt na gaśnicę,966015136R,87,True
+bezpieczenstwo,foteliki_dzieciece,Fotelik dziecięcy Trifix i-Size,7711940744,1749,False
+bezpieczenstwo,lancuchy_sniegowe,"Standardowe łańcuchy śniegowe o średnicy 9 mm, rozmiar 90 (205/55 R16)",7711578470,419,False
+bezpieczenstwo,lancuchy_sniegowe,Opaski śniegowe - rozmiar 81 - 205/60 R16 96T i 92H,7711578653,369,False
+bezpieczenstwo,lancuchy_sniegowe,"Łańcuchy śniegowe Premium 16"" - rozmiar 72 - 205/60 R16",7711943628,749,False
+bezpieczenstwo,wspomaganie_parkowania,Kamera cofania,284422402R,929,True
+bezpieczenstwo,wspomaganie_parkowania,Czujniki wspomagania parkowania przodem,8201734052,881,True
+bezpieczenstwo,wspomaganie_parkowania,Czujniki wspomagania parkowania tyłem,8201734053,881,True
+design,felgi_i_akcesoria_do_kol,Felgi aluminiowe 6.5 J 16 4 45 STW,403004026R,509,True
+design,felgi_i_akcesoria_do_kol,"Kołpak 16"" FLEX PAE STW",403152742R,84,False
+design,felgi_i_akcesoria_do_kol,Kołpaczek - szary na czarnym tle,403157062R,67,False
+design,felgi_i_akcesoria_do_kol,Śruby antykradzieżowe do felg aluminiowych - 4 śruby,8201724187,145,False
+design,wyglad_wnetrza,YouClip - etui na okulary,739M00386R,149,False
+design,wyglad_wnetrza,Podświetlane listwy progowe przednie Jogger,7711948885,799,True
+design,wyglad_wnetrza,Podłokietnik,877007206R,758,True
+design,wyglad_zewnetrzny,Zestaw montażowy stopni bocznych,768478691R,639,True
+design,wyglad_zewnetrzny,Antena w kształcie płetwy rekina,8201731020,378,True
+design,wyglad_zewnetrzny,Owiewki szyb przednich bocznych,8201735559,327,True
+design,wyglad_zewnetrzny,"Osłony boczne drzwi, przód i tył",8201737151,849,True
+design,wyglad_zewnetrzny,Stopnie boczne,8201741626,1466,True
+design,wyglad_zewnetrzny,Spojler na dachu,8201741648,1009,True
+design,wyglad_zewnetrzny,Nakładki ochronne na krawędzie drzwi i boczne lusterka,8201743312,214,True
+dla_profesjonalistow,ochrona_strefy_zaladunku,Osłona przestrzeni bagażowej dla wersji dostawczej,799229084R,2129,True
+komfort_i_ochrona,akcesoria_do_ladowania,Konwerter 220 V,7711944194,829,True
+komfort_i_ochrona,dywaniki,"Dywaniki tekstylne Premium, wersja 7 miejsc",749020312R,362,False
+komfort_i_ochrona,dywaniki,"Dywaniki tekstylne Comfort, wersja 5 miejsc",749021705R,301.02,False
+komfort_i_ochrona,dywaniki,"Dywaniki tekstylne Comfort, wersja 7 miejsc",749024530R,301.02,False
+komfort_i_ochrona,dywaniki,"Dywaniki tekstylne Premium, wersja 5 miejsc",749029652R,362,False
+komfort_i_ochrona,ochrona_karoserii,Pokrowiec ochronny na samochód,7711785081,679,False
+komfort_i_ochrona,ochrona_karoserii,Listwy progowe przednie Jogger,7711948884,265,True
+komfort_i_ochrona,ochrona_karoserii,Przednie lub tylne chlapacze,7717301274,111,False
+komfort_i_ochrona,ochrona_karoserii,Przednie chlapacze,8201735531,123,True
+komfort_i_ochrona,ochrona_karoserii,Listwa progu bagażnika Jogger,8201741606,239,False
+komfort_i_ochrona,pokrowce,Pokrowce magazynowe do foteli 3. rzędu w modelu Jogger,7711949289,348,False
+komfort_i_ochrona,wyposazenie_bagaznika,Gumowy wkład do bagażnika (wersja 7 miejsc),688107961R,269,False
+komfort_i_ochrona,wyposazenie_bagaznika,Przegroda bagażnika,731504928R,1036,True
+komfort_i_ochrona,wyposazenie_bagaznika,Krata oddzielająca dla wersji dostawczej,731508776R,2171,True
+komfort_i_ochrona,wyposazenie_bagaznika,Organizer do bagażnika,7711940885,318,False
+komfort_i_ochrona,wyposazenie_bagaznika,Pionowa siatka do przechowywania,7711945467,214,True
+komfort_i_ochrona,wyposazenie_bagaznika,Wykładzina strefy bagażowej dla wersji dostawczej,792606154R,6899,True
+komfort_i_ochrona,wyposazenie_bagaznika,Organizer do bagażnika,8201653542,125,False
+komfort_i_ochrona,wyposazenie_bagaznika,Tekstylny wkład do bagażnika (wersja 5 miejsc),849048487R,265,False
+komfort_i_ochrona,wyposazenie_bagaznika,Gumowy wkład do bagażnika (wersja 5 miejsc),849756861R,327,False
+komfort_i_ochrona,wyposazenie_wnetrza,Uchwyt bazowy do systemów multifunkcyjnych,7711785944,125,False
+komfort_i_ochrona,wyposazenie_wnetrza,System wieszania w formie haczyka,7711785945,348,False
+komfort_i_ochrona,wyposazenie_wnetrza,Wieszak montowany na zagłówku fotela - zestaw multifunkcyjny,7711785946,499,False
+komfort_i_ochrona,wyposazenie_wnetrza,Składany stolik z uchwytem na kubek (wymaga montażu uchwytu bazowego),7711785947,609,False
+komfort_i_ochrona,wyposazenie_wnetrza,Wkładka do uchwytu na kubek,7711945469,125,False
+komfort_i_ochrona,wyposazenie_wnetrza,Pokrowiec na tylne siedzenia do przewozu psów,7711945735,419,True
+komfort_i_ochrona,wyposazenie_wnetrza,Przenośny podłokietnik tylny Dacia,7717276917,445,False
+komfort_i_ochrona,wyposazenie_wnetrza,Wielofunkcyjny organizer mocowany do przedniego fotela,7717276918,239,False
+komfort_i_ochrona,wyposazenie_wnetrza,Lodówka przenośna,7717277903,415,False
+komfort_i_ochrona,wyposazenie_wnetrza,Wielofunkcyjny pokrowiec ochronny bagażnika i siedzeń,7717301406,250,False
+komfort_i_ochrona,wyposazenie_wnetrza,Zestaw dla palących (popielniczka + zapalniczka),8201375535,225,True
+komfort_i_ochrona,wyposazenie_wnetrza,Wieszak na zagłówek fotela,8201705508,311,False
+komfort_i_ochrona,pokrowce,"Pokrowce na siedzenia przednie i tylne, wersja 5 miejsc - kanapa 1/3-2/3",873703353R,779,False
+komfort_i_ochrona,pokrowce,Pokrowce ochronne na przednie siedzenia,873706014R,476,True
+komfort_i_ochrona,pokrowce,"Pokrowce na siedzenia przednie i tylne, wersja 7 miejsc - kanapa 1/3-2/3",873708679R,1289,False
+multimedia,audio,Radioodtwarzacz Kenwood KDC-BT730DAB,7711943104,2379,True
+multimedia,audio,Radioodtwarzacz Kenwood KMM-BT505DAB,7711943336,1139,True
+multimedia,audio,Panel radia,8201734132,409,False
+multimedia,telefon,Uchwyt na telefon - montowany na wywietrzniku,7711784774,113,False
+multimedia,telefon,Uchwyt na telefon - montowany na desce rozdzielczej,7711784775,111,False
+multimedia,telefon,Indukcyjna magnetyczna ładowarka do smartfona mocowana na kratce nawiewu,7711949678,328,False
+multimedia,telefon,Indukcyjna ładowarka do smartfonów,8201737398,277,False
+multimedia,telefon,Ładowarka indukcyjna do smartfonów w konsoli środkowej,8201739622,549,True
+multimedia,wideo,Wideorejestrator Nextbase 322 GW i karta SD 32 GB,7711945184,1419,False
+outdoor,inne,Uchwyty mocujące oraz instrukcja obsługi do Pakietu Sleep,749320660R,61,False
+outdoor,inne,"Namiot ""InNature""",7717300226,1629,False
+outdoor,inne,Markiza dachowa Dacia InNature,8201756977,3119,False
+transport,haki_holownicze,Belka haka jednoczęściowego,8201735276,749,True
+transport,haki_holownicze,Zestaw montażowy haka jednoczęściowego,8201735277,738,True
+transport,haki_holownicze,Belka haka demontowanego bez użycia narzędzi,8201735279,820,True
+transport,haki_holownicze,Zestaw montażowy haka demontowanego bez użycia narzędzi,8201735280,1149,True
+transport,haki_holownicze,Wiązka haka holowniczego 7-pin,8201742243,1266,True
+transport,haki_holownicze,Wiązka haka holowniczego 13-pin,8201742244,589,True
+transport,innature,"Wyciemniające rolety Jogger ""InNature""",7717300430,879,False
+transport,innature,"Skrzynia Jogger ""InNature""",984239528R,8036,False
+transport,innature,"Materac Jogger ""InNature""",984247351R,1618,False
+transport,poprzeczki_i_bagazniki,Mocowanie dla tablicy rejestracyjnej - Express Hang On - wiązka 7-biegunowa,7711210431,159,False
+transport,poprzeczki_i_bagazniki,Kufer tekstylny 340 l,7711419549,1129,False
+transport,poprzeczki_i_bagazniki,Adapter do stalowych poprzeczek dachowych umożliwiający zamocowanie bagażnika na narty,7711420781,103,False
+transport,poprzeczki_i_bagazniki,Zabezpieczenie antykradzieżowe bagażnika na rowery Express Hang On,7711422443,66,False
+transport,poprzeczki_i_bagazniki,Kufer dachowy Dacia 330 l,7711574056,1712,False
+transport,poprzeczki_i_bagazniki,Kufer dachowy Dacia 390 l,7711574057,2100,False
+transport,poprzeczki_i_bagazniki,Bagażnik rowerowy Europower 916 - montaż na haku - 2 rowery elektryczne (wiązka 7-stykowa),7711574689,2709,False
+transport,poprzeczki_i_bagazniki,Bagażnik rowerowy Express Hang-On - montaż na haku - 2 rowery,7711577326,299,False
+transport,poprzeczki_i_bagazniki,Bagażnik rowerowy Express Hang-On - 3 rowery,7711577327,529,False
+transport,poprzeczki_i_bagazniki,Bagażnik na rowery Europower 915 - montowany na haku - 2 rowery elektryczne,7711577333,3410,False
+transport,poprzeczki_i_bagazniki,Uchwyt na narty - 4 pary nart lub 2 deski snowboardowe,7711940000,729,False
+transport,poprzeczki_i_bagazniki,Uchwyt na narty - 6 par nart lub 4 deski snowboardowe,7711940001,1230,False
+transport,poprzeczki_i_bagazniki,Bagażnik rowerowy Peruzzo na 2 rowery mocowany na haku holowniczym (gniazdo 13-stykowe),7711949994,1979,False
+transport,poprzeczki_i_bagazniki,Bagażnik na 4 pary nart,7717301298,799,False
+transport,poprzeczki_i_bagazniki,Poprzeczki dachowe montowane na relingach,8201733998,940,False

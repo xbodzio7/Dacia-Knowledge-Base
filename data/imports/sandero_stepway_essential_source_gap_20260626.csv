@@ -1,0 +1,7 @@
+record_type,configuration_code,attribute_code,fuel_type_code,value,minimum_value,maximum_value,source_page,source_label,normalization_notes
+value,sandero_stepway_iii_essential_ecog120_manual,overall_height,,1586,,,6,Wysokość pojazdu nieobciążonego z relingami dachowymi: 1586 mm (Stepway),Exact Essential Stepway configuration has roof rails as standard; the alternative 1535 mm height without roof rails is excluded.
+value,sandero_stepway_iii_essential_ecog120_manual,overall_width_with_mirrors,,2012,,,6,Całkowita szerokość z lusterkami zewnętrznymi: 1853 / 2012 mm (złożone/rozłożone),Store the unfolded-mirror width used by the repository comparison convention; the folded-mirror width 1853 mm is excluded.
+value,sandero_stepway_iii_essential_ecog120_manual,wheel_finish,,stalowe,,,2,16-calowe felgi stalowe ERALIA,Normalize only the wheel finish; the ERALIA design is already represented by the separate wheel_design observation.
+range,sandero_stepway_iii_essential_ecog120_manual,ground_clearance,,,170,200,6,Prześwit pojazdu nieobciążonego: 170-200 mm (Stepway),Preserve the printed Stepway interval without selecting either endpoint as a scalar value.
+range,sandero_stepway_iii_essential_ecog120_manual,max_torque_rpm,lpg,,1750,3750,5,Maksymalny moment obrotowy: 197 przy 1750-3750 obr./min (LPG),Preserve the exact LPG engine-speed interval.
+range,sandero_stepway_iii_essential_ecog120_manual,max_torque_rpm,petrol,,2000,4000,5,Maksymalny moment obrotowy: 190 przy 2000-4000 obr./min,Preserve the exact petrol engine-speed interval.

@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 3471,
+  "attribute_code": "particulate_filter",
+  "attribute_contract": {
+    "data_type": "boolean",
+    "unit": "",
+    "status": "active"
+  },
+  "observation_date": "2025-10-20",
+  "fuel_type_code": "",
+  "source_page": 20,
+  "source_section": "SILNIKI",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "duster_iii_essential_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    },
+    {
+      "configuration_code": "duster_iii_expression_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    },
+    {
+      "configuration_code": "duster_iii_journey_ecog120_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    },
+    {
+      "configuration_code": "duster_iii_expression_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    },
+    {
+      "configuration_code": "duster_iii_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    },
+    {
+      "configuration_code": "duster_iii_journey_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_duster_mini_brochure_20251020",
+      "value": "true",
+      "source_text": "Filtr cząstek stałych(1) Tak Tak"
+    }
+  ]
+}

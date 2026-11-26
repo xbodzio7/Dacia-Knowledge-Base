@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_configurator_data_completion",
+  "observed_on": "2026-08-08",
+  "market": "PL",
+  "status": "complete_with_explicit_source_blocked_design_gaps",
+  "gap_id": "CAT-GAP-002",
+  "source_code": "src_pl_sandero_stepway_current_configurator_scope_20260808",
+  "scope": {
+    "models": ["sandero", "sandero_stepway"],
+    "active_exact_configuration_surfaces": 15,
+    "inventory_and_catalogue_price_verified_surfaces": 15,
+    "exact_complete_design_surfaces": 2,
+    "exact_design_source_blocked_surfaces": 13,
+    "complete_grade_level_design_surfaces_not_promoted_to_exact": 1
+  },
+  "exact_complete_design": [
+    {
+      "configuration_code": "sandero_iii_essential_tce100_manual",
+      "model_id": "sandero",
+      "grade": "essential",
+      "powertrain": "TCe 100",
+      "transmission": "manual",
+      "catalog_price_pln": 63900,
+      "design_state": "exact_complete",
+      "colour_choices": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "niebieski iron", "price_pln": 2500},
+        {"name": "szary schiste", "price_pln": 2500}
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_tce110_manual",
+      "model_id": "sandero_stepway",
+      "grade": "essential",
+      "powertrain": "TCe 110",
+      "transmission": "manual",
+      "catalog_price_pln": 71700,
+      "design_state": "exact_complete",
+      "colour_choices": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2500},
+        {"name": "czarna perła", "price_pln": 2500}
+      ]
+    }
+  ],
+  "source_blocked_exact_design": [
+    {"configuration_code":"sandero_iii_expression_tce100_manual","catalog_price_pln":68000,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_iii_expression_ecog120_manual","catalog_price_pln":68000,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_iii_expression_ecog120_automatic","catalog_price_pln":74900,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_iii_journey_tce100_manual","catalog_price_pln":73600,"blocker":"complete grade Design list visible, but no exact engine/transmission price catalogue"},
+    {"configuration_code":"sandero_iii_journey_ecog120_manual","catalog_price_pln":73600,"blocker":"complete grade Design list visible, but no exact engine/transmission price catalogue"},
+    {"configuration_code":"sandero_iii_journey_ecog120_automatic","catalog_price_pln":80500,"blocker":"complete grade Design list visible, but no exact engine/transmission price catalogue"},
+    {"configuration_code":"sandero_stepway_iii_essential_ecog120_manual","catalog_price_pln":71700,"blocker":"default TCe 110 Design list is not projected to Eco-G 120"},
+    {"configuration_code":"sandero_stepway_iii_expression_tce110_manual","catalog_price_pln":76400,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_stepway_iii_expression_ecog120_manual","catalog_price_pln":76400,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_stepway_iii_expression_ecog120_automatic","catalog_price_pln":83300,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_stepway_iii_extreme_tce110_manual","catalog_price_pln":82500,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_stepway_iii_extreme_ecog120_manual","catalog_price_pln":82500,"blocker":"no reproducible exact target-state Design list"},
+    {"configuration_code":"sandero_stepway_iii_extreme_ecog120_automatic","catalog_price_pln":89400,"blocker":"no reproducible exact target-state Design list"}
+  ],
+  "grade_level_design_evidence": [
+    {
+      "model_id": "sandero",
+      "grade": "journey",
+      "scope": "grade_only",
+      "colours": ["biel alpejska", "niebieski iron", "szary schiste", "sandstone", "żółty amber", "zielony cedar", "szary urban"],
+      "wheels": ["16\" felgi aluminiowe TAMIA"],
+      "upholstery": ["tapicerka materiałowa w kolorze denim i czarnymi wstawkami"],
+      "promoted_to_exact_configuration_choices": false
+    }
+  ],
+  "historical_user_context": {
+    "archive_path": "Archiwum/conversations/Dacia.htm",
+    "five_initial_ecog120_configuration_pdf_names_visible": true,
+    "standalone_pdf_bytes_available_in_repository": false,
+    "new_facts_reconstructed_from_filenames": false
+  },
+  "closure": {
+    "package_goal_complete": true,
+    "current_inventory_scope_complete": true,
+    "current_catalogue_price_scope_complete": true,
+    "exact_design_catalogue_complete": false,
+    "cat_gap_002_closed": false,
+    "reason": "The package exhausts reproducible current official evidence for Sandero and Sandero Stepway without inventing Design choices. Thirteen exact Design surfaces remain source-blocked and are carried forward explicitly rather than guessed.",
+    "ready_for_interface_package": true
+  },
+  "semantic_boundaries": {
+    "master_data_mutated": false,
+    "source_facts_inferred": false,
+    "cross_grade_projection": false,
+    "cross_powertrain_projection": false,
+    "cross_transmission_projection": false,
+    "selected_state_promoted_to_catalogue": false,
+    "grade_design_promoted_to_exact": false,
+    "synthetic_deep_links_created": false
+  }
+}

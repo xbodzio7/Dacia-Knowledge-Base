@@ -1,0 +1,82 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-16",
+  "market": "PL",
+  "capture_method": "live_official_dacia_configurator_interaction",
+  "source_url": "https://www.dacia.pl/samochody/sandero-stepway/konfigurator.html",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "sandero_stepway_essential_ecog120_manual",
+      "model": "sandero_stepway",
+      "grade": "essential",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "visible_colour_count": 3,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "szary schiste", "price_pln": 2500},
+        {"name": "czarna perła", "price_pln": 2500}
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_expression_ecog120_manual",
+      "model": "sandero_stepway",
+      "grade": "expression",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "niebieski iron", "price_pln": 2500},
+        {"name": "szary schiste", "price_pln": 2500},
+        {"name": "beżowy safari", "price_pln": 2500},
+        {"name": "zielony cedar", "price_pln": 2500},
+        {"name": "czarna perła", "price_pln": 2500},
+        {"name": "żółty amber", "price_pln": 2700}
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_expression_ecog120_automatic",
+      "model": "sandero_stepway",
+      "grade": "expression",
+      "powertrain": "Eco-G 120",
+      "transmission": "automatic",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "niebieski iron", "price_pln": 2500},
+        {"name": "szary schiste", "price_pln": 2500},
+        {"name": "beżowy safari", "price_pln": 2500},
+        {"name": "zielony cedar", "price_pln": 2500},
+        {"name": "czarna perła", "price_pln": 2500},
+        {"name": "żółty amber", "price_pln": 2700}
+      ]
+    },
+    {
+      "configuration_code": "sandero_stepway_extreme_ecog120_manual",
+      "model": "sandero_stepway",
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": 0},
+        {"name": "niebieski iron", "price_pln": 2500},
+        {"name": "szary schiste", "price_pln": 2500},
+        {"name": "beżowy safari", "price_pln": 2500},
+        {"name": "zielony cedar", "price_pln": 2500},
+        {"name": "czarna perła", "price_pln": 2500},
+        {"name": "żółty amber", "price_pln": 2700}
+      ]
+    }
+  ],
+  "note": "Four Sandero Stepway exact states were directly selected and verified in the official Polish Dacia configurator. Each state exposed a complete visible exterior-colour list with exact PLN surcharge. No projection or master-data mutation was performed."
+}

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 2119,
+  "attribute_code": "elasticity_80_120",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "s",
+    "status": "active"
+  },
+  "observation_date": "2026-02-02",
+  "fuel_type_code": "",
+  "source_page": 17,
+  "source_section": "06. SILNIKI — OSIĄGI",
+  "notes_template": "Source page {page}, section {section}, selected gear {gear_number}, fuel {fuel_type_code}: {source_text}",
+  "rows": [
+    {"configuration_code": "sandero_iii_expression_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "4", "value": "7.4", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 7,4 s (LPG)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "4", "value": "8.4", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8,4 s (benzyna)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "5", "value": "11", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 11 s (LPG)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "5", "value": "11.7", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 11,7 s (benzyna)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "4", "value": "7.4", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 7,4 s (LPG)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "4", "value": "8.4", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8,4 s (benzyna)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "5", "value": "11", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 11 s (LPG)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_manual", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "5", "value": "11.7", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 11,7 s (benzyna)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "4", "value": "8", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "4", "value": "8.9", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8,9 s (benzyna)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "5", "value": "8", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 8 s (LPG)"},
+    {"configuration_code": "sandero_iii_expression_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "5", "value": "8.9", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 8,9 s (benzyna)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "4", "value": "8", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8 s (LPG)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "4", "value": "8.9", "source_text": "Elastyczność 80–120 km/h na 4. biegu: 8,9 s (benzyna)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "lpg", "gear_number": "5", "value": "8", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 8 s (LPG)"},
+    {"configuration_code": "sandero_iii_journey_ecog120_automatic", "source_code": "src_pl_sandero_brochure_20260202", "fuel_type_code": "petrol", "gear_number": "5", "value": "8.9", "source_text": "Elastyczność 80–120 km/h na 5. biegu: 8,9 s (benzyna)"}
+  ]
+}

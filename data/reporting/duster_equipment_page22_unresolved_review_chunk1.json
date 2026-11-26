@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "kind": "duster_equipment_page22_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_037",
+  "source_receipt": {
+    "source_code": "src_pl_duster_mini_brochure_20251020",
+    "file_path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+    "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8",
+    "page": 22
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 94,
+    "chunk_index": 1,
+    "chunk_count": 3,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 18,
+    "decision_counts": {
+      "context_only_non_import": 17,
+      "unresolved_signature_mismatch": 23
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/duster_equipment_page22_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "journey",
+      "extreme"
+    ],
+    "reviewed_sections": [
+      "exterior appearance",
+      "wheels",
+      "start of seats and interior trim"
+    ],
+    "multi_line_colour_values_preserved": true,
+    "wheel_style_rows_kept_separate": true,
+    "rear_bench_row_completed_from_assigned_candidates_only": true,
+    "essential_upholstery_row_continues_into_next_chunk": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "marker_only_lines_kept_with_visual_rows": true,
+    "cross_chunk_row_not_completed_by_inference": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Duster Equipment Page 22 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_038",
+    "candidate_count": 40,
+    "group_candidate_count": 94,
+    "chunk_index": 2,
+    "chunk_count": 3
+  }
+}

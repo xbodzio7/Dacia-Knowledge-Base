@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "kind": "jogger_price_my26_20260401_full_documentary_audit",
+  "reviewed_on": "2026-09-20",
+  "status": "complete",
+  "source": {
+    "source_code": "src_pl_jogger_price_my26_20260401",
+    "url": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/8c5b22ebd1.pdf",
+    "pages": 9,
+    "effective_date": "2026-04-01",
+    "offer_state_date": "2026-04-01"
+  },
+  "price_matrix": {
+    "5_seat": {
+      "Eco-G 120": {
+        "essential": 77900,
+        "expression": 82050,
+        "extreme": 89900,
+        "journey": null
+      },
+      "Eco-G 120 auto": {
+        "essential": null,
+        "expression": null,
+        "extreme": 96800,
+        "journey": 98950
+      },
+      "TCe 110": {
+        "essential": null,
+        "expression": 84050,
+        "extreme": 91900,
+        "journey": 94050
+      },
+      "hybrid 155": {
+        "essential": null,
+        "expression": 103550,
+        "extreme": 111400,
+        "journey": 113550
+      }
+    },
+    "7_seat": {
+      "Eco-G 120": {
+        "essential": 82400,
+        "expression": 86550,
+        "extreme": 94400,
+        "journey": null
+      },
+      "Eco-G 120 auto": {
+        "essential": null,
+        "expression": null,
+        "extreme": 101300,
+        "journey": 103450
+      },
+      "TCe 110": {
+        "essential": null,
+        "expression": 88550,
+        "extreme": 96400,
+        "journey": 98550
+      },
+      "hybrid 155": {
+        "essential": null,
+        "expression": 108050,
+        "extreme": 115900,
+        "journey": 118050
+      }
+    }
+  },
+  "options_and_packages": [
+    {
+      "item": "Lakier niemetalizowany / niemetalizowany specjalny",
+      "prices": "0 / 2700 PLN",
+      "scope": "all grades"
+    },
+    {
+      "item": "Lakier metalizowany",
+      "prices": "2700 / 2900 PLN",
+      "scope": "all grades"
+    },
+    {
+      "item": "Koło zapasowe",
+      "price_pln": 700,
+      "scope": "Essential/Expression/Extreme; not Journey; explicitly unavailable for Eco-G and hybrid 155"
+    },
+    {
+      "item": "Fotele przednie podgrzewane",
+      "price_pln": 700,
+      "scope": "Expression optional; Extreme as package element; Journey standard"
+    },
+    {
+      "item": "Media Nav",
+      "price_pln": 1600,
+      "scope": "Expression and Extreme; Journey standard"
+    },
+    {
+      "item": "Pakiet KOMFORT HEV",
+      "price_pln": 2000,
+      "scope": "Expression"
+    },
+    {
+      "item": "Pakiet KOMFORT",
+      "price_pln": 2500,
+      "scope": "Expression"
+    },
+    {
+      "item": "Pakiet ZIMOWY",
+      "price_pln": 1200,
+      "scope": "Extreme"
+    },
+    {
+      "item": "Pakiet DRIVE",
+      "price_pln": 1400,
+      "scope": "Extreme"
+    }
+  ],
+  "technical_context": {
+    "Eco-G 120 manual": "6-speed manual; petrol+LPG; 1199 cm3; 90 kW/122 KM LPG, 84 kW/114 KM petrol",
+    "Eco-G 120 auto": "6-speed dual-clutch automatic; petrol+LPG; 1199 cm3; 90 kW/122 KM LPG, 84 kW/114 KM petrol",
+    "TCe 110": "6-speed manual; petrol; 999 cm3; 81 kW/110 KM",
+    "hybrid 155": "Multi-mode automatic; 1.4 kWh/200 V lithium-ion traction battery; 116 kW/157 KM"
+  },
+  "seat_context": "5-seat and 7-seat technical/price contexts are kept separate; no cross-seat projection.",
+  "provenance_boundary": "This April 2026 documentary source is historical. Its values are retained separately from the later July/current price-list data."
+}

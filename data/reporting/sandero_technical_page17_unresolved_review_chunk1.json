@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "kind": "sandero_technical_page17_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_026",
+  "source_receipt": {
+    "source_code": "src_pl_sandero_brochure_20260202",
+    "file_path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+    "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97",
+    "page": 17
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 41,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 20,
+    "decision_counts": {
+      "context_only_non_import": 26,
+      "unresolved_signature_mismatch": 14
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/sandero_technical_page17_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "working_columns": [
+      "100 TCe",
+      "120 Eco-G LPG",
+      "120 Eco-G Benzyna",
+      "120 Eco-G auto LPG",
+      "120 Eco-G auto Benzyna"
+    ],
+    "maximum_power_printed": [
+      "74 (120 KM) od 5000 do 5250",
+      "90 (120 KM) od 4500 do 5000",
+      "84 (114 KM) od 4500 do 5750",
+      "90 (120 KM) od 4500 do 5000",
+      "84 (114 KM) od 4500 do 5750"
+    ],
+    "maximum_torque_printed": [
+      "200 od 2900 do 3500",
+      "197 od 1750 do 3750",
+      "190 od 2000 do 4000",
+      "197 od 1750 do 3750",
+      "190; no aligned rpm continuation in the reviewed extraction"
+    ],
+    "gearboxes": [
+      "Manualna 6-biegowa",
+      "Manualna 6-biegowa",
+      "Automatyczna 6-biegowa dwusprzęgłowa"
+    ],
+    "acceleration_0_100_s": [
+      "9,7",
+      "10,1",
+      "11,1",
+      "9,8",
+      "10,9"
+    ],
+    "elasticity_fourth_gear_s": [
+      "7,4",
+      "7,4",
+      "8,4",
+      "8",
+      "8,9"
+    ],
+    "elasticity_fifth_gear_s": [
+      "10,7",
+      "11",
+      "11,7",
+      "8",
+      "8,9"
+    ],
+    "co2_literal": "to be adjusted according to the country",
+    "combined_consumption_literal": "to be adjusted according to the country",
+    "mass_value_lines_absent_from_chunk": true,
+    "printed_powertrain_and_power_literals_not_normalized": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "fuel_subcolumns_not_collapsed": true,
+    "missing_rpm_not_inferred": true,
+    "country_dependent_values_not_invented": true,
+    "printed_literals_not_corrected": true,
+    "incomplete_mass_rows_not_promoted": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Technical Page 17 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_027",
+    "candidate_count": 1,
+    "group_candidate_count": 41,
+    "chunk_index": 2,
+    "chunk_count": 2
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "gap_id": "CAT-GAP-002",
+  "captured_on": "2026-09-23",
+  "market": "PL",
+  "capture_method": "official_dacia_configurator_current_exact_state_read_via_connected_browser",
+  "policy": {
+    "selected_exact_state_required": true,
+    "all_visible_colour_choices_recorded": true,
+    "cross_configuration_projection": false,
+    "grade_level_projection": false,
+    "absence_interpreted_as_unavailability": false,
+    "master_data_mutated": false
+  },
+  "observations": [
+    {
+      "configuration_code": "duster_iii_extreme_ecog120_manual",
+      "model": "duster",
+      "grade": "extreme",
+      "powertrain": "Eco-G 120",
+      "transmission": "manual",
+      "drive_type": "4x2",
+      "visible_colour_count": 7,
+      "colours": [
+        {"name": "biel alpejska", "price_pln": null},
+        {"name": "szary schiste", "price_pln": null},
+        {"name": "brązowy terracotta", "price_pln": null},
+        {"name": "khaki lichen", "price_pln": null},
+        {"name": "czarna perła", "price_pln": null},
+        {"name": "sandstone", "price_pln": null},
+        {"name": "zielony cedar", "price_pln": null}
+      ],
+      "selected_colour": "biel alpejska",
+      "observed_total_price_pln": 96000,
+      "wheel_observation": "17\" felgi aluminiowe TERGAN BLACK 215",
+      "upholstery_observation": "tapicerka \"MicroCloud\" z odblaskowym logo",
+      "exact_state_url": "https://www.dacia.pl/hybrydy-i-elektryczne/duster-suv/konfigurator.html?conf=https%3A%2F%2Fpl.co.rplug.renault.com%2Fc%2FBAEal%2FAi2",
+      "source_state_note": "Connected Opera accessibility tree showed DUSTER extreme Eco-G 120, manualna, LPG, 4x2, biel alpejska, 96,000 PLN, 17-inch TERGAN BLACK 215 wheels and MicroCloud upholstery. Seven colour choices were directly visible. The current official Duster price-list matrix confirms Extreme Eco-G 120 at 96,000 PLN."
+    }
+  ],
+  "selector_limitations": [],
+  "note": "One previously unresolved CAT-GAP-002 exact colour surface was captured from an exact current official Polish Dacia configurator state opened by the user. Seven visible colour choices were recorded. Per-colour surcharges were not exposed in the accessibility tree and are intentionally null. No colour compatibility was projected to another configuration."
+}

@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "kind": "brochure_chassis_modeling_closure_review",
+  "reviewed_on": "2026-07-26",
+  "status": "complete",
+  "decision_reference": "D-016",
+  "selected_variant": "separate_unambiguous_attributes",
+  "packages": [
+    {
+      "name": "Sandero and Stepway Chassis Observation Import",
+      "sources": [
+        "src_pl_sandero_brochure_20260202",
+        "src_pl_sandero_stepway_brochure_20260202"
+      ],
+      "configurations": 9,
+      "scalar_values": 45,
+      "range_values": 0,
+      "pull_request": 264,
+      "merge_sha": "c6c03e9"
+    },
+    {
+      "name": "Bigster Chassis Observation Import",
+      "sources": ["src_pl_bigster_brochure_20251210"],
+      "configurations": 14,
+      "scalar_values": 84,
+      "range_values": 0,
+      "pull_request": 265,
+      "merge_sha": "911668b"
+    },
+    {
+      "name": "Duster Chassis Observation Import",
+      "sources": ["src_pl_duster_mini_brochure_20251020"],
+      "configurations": 10,
+      "scalar_values": 60,
+      "range_values": 10,
+      "pull_request": 266,
+      "merge_sha": "e4bf3cc"
+    },
+    {
+      "name": "Jogger Chassis Observation Import",
+      "sources": ["src_pl_jogger_brochure_20251217"],
+      "configurations": 22,
+      "scalar_values": 88,
+      "range_values": 0,
+      "pull_request": 267,
+      "merge_sha": "e4844ec"
+    }
+  ],
+  "totals": {
+    "sources": 5,
+    "configurations": 55,
+    "scalar_values": 277,
+    "range_values": 10,
+    "new_attributes": 4,
+    "reporting_scopes": 15
+  },
+  "scalar_attribute_counts": {
+    "turning_circle_between_kerbs": 45,
+    "turning_circle_wheel_track": 10,
+    "maximum_kerb_weight": 33,
+    "standard_tyre_specification": 55,
+    "front_suspension": 31,
+    "rear_suspension": 31,
+    "steering_type": 24,
+    "front_brake_type": 24,
+    "rear_brake_type": 24
+  },
+  "range_attribute_counts": {
+    "payload": 10
+  },
+  "identity_contract": {
+    "scalar_id_start": 2291,
+    "scalar_id_end": 2567,
+    "range_id_start": 235,
+    "range_id_end": 244,
+    "observation_dates": [
+      "2025-10-20",
+      "2025-12-10",
+      "2025-12-17",
+      "2026-02-02"
+    ]
+  },
+  "reporting_contract": {
+    "scopes": {
+      "sandero_and_stepway": 4,
+      "bigster": 4,
+      "duster": 3,
+      "jogger": 4
+    },
+    "measurement_attributes": [
+      "turning_circle_between_kerbs",
+      "turning_circle_wheel_track",
+      "maximum_kerb_weight",
+      "payload"
+    ],
+    "source_text_attributes": [
+      "standard_tyre_specification",
+      "front_suspension",
+      "rear_suspension",
+      "steering_type",
+      "front_brake_type",
+      "rear_brake_type"
+    ]
+  },
+  "unresolved_evidence": [
+    {
+      "code": "jogger_mass_table_label_conflict",
+      "source_code": "src_pl_jogger_brochure_20251217",
+      "status": "ambiguous_source_evidence",
+      "affected_attributes": [
+        "maximum_kerb_weight",
+        "gross_train_weight",
+        "gross_vehicle_weight"
+      ],
+      "decision": "No value is imported or semantically reassigned until corrected official evidence becomes available."
+    }
+  ],
+  "closure_decision": "Close the D-016 brochure chassis modeling milestone with all five modeling classifications imported through explicit measurement semantics, exact configuration projection and source-text preservation. Retain the Jogger mass-table label conflict as a separate unresolved evidence boundary.",
+  "next_package": {
+    "name": "Official Brochure Technical Gap Resolution Closure Review",
+    "goal": "Verify that all four packages from the official brochure technical gap priority queue are complete, reconcile their receipts against the original 29 classifications, and retain all ambiguous, unmodeled and no-observation evidence as explicit deferrals."
+  }
+}

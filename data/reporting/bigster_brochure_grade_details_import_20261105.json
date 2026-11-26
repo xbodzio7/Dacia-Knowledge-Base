@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "kind": "configuration_value_import_closure",
+  "date": "2026-11-05",
+  "status": "complete",
+  "package_id": "bigster_brochure_grade_details_import_20261105_001",
+  "source": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "observation_date": "2025-12-10",
+    "official_url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/bigster-brochure.pdf.asset.pdf/5f71268df9.pdf",
+    "printed_pages": [
+      14,
+      15,
+      16,
+      17
+    ],
+    "pdf_pages": [
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  "scope": {
+    "active_source_linked_configurations": 14,
+    "grades": {
+      "essential": 2,
+      "expression": 4,
+      "journey": 4,
+      "extreme": 4
+    },
+    "attributes": 4,
+    "import_specifications": 16,
+    "scalar_observations": 56
+  },
+  "attribute_summary": {
+    "parking_brake_type": {
+      "observations": 14,
+      "values_by_grade": {
+        "essential": "manual",
+        "expression": "electric",
+        "journey": "electric",
+        "extreme": "electric"
+      }
+    },
+    "steering_wheel_material": {
+      "observations": 14,
+      "values_by_grade": {
+        "essential": "eco_leather_soft_feel",
+        "expression": "eco_leather_soft_feel",
+        "journey": "eco_leather_soft_feel",
+        "extreme": "eco_leather_soft_feel"
+      }
+    },
+    "rear_seat_folding": {
+      "observations": 14,
+      "values_by_grade": {
+        "essential": "1/3-2/3",
+        "expression": "40/20/40",
+        "journey": "40/20/40",
+        "extreme": "40/20/40"
+      }
+    },
+    "speaker_count": {
+      "observations": 14,
+      "values_by_grade": {
+        "essential": "4",
+        "expression": "4",
+        "journey": "6",
+        "extreme": "6"
+      }
+    }
+  },
+  "grade_inheritance": {
+    "expression": "EXPRESSION = ESSENTIAL+",
+    "journey": "JOURNEY = EXPRESSION+",
+    "extreme": "EXTREME = EXPRESSION+"
+  },
+  "boundaries": [
+    "Only the 14 active configurations explicitly linked to the brochure are targeted; no other powertrain or future configuration is inferred.",
+    "Expression inherits the four-speaker Media Display baseline; six-speaker Media Nav Live is explicitly optional and is not promoted as standard.",
+    "Journey and Extreme list six-speaker Arkamys 3D audio as standard.",
+    "Essential rear bench uses historical 1/3-2/3 split; Expression, Journey and Extreme use 40/20/40. Later 2026 configurator observations remain intact as separate source/date records.",
+    "Parking brake values are stored as manual/electric; no boolean availability record is replaced.",
+    "Steering-wheel material is normalized to eco_leather_soft_feel while original Polish source wording is retained in notes."
+  ],
+  "result": {
+    "new_scalar_observations": 56,
+    "by_attribute": {
+      "parking_brake_type": 14,
+      "steering_wheel_material": 14,
+      "rear_seat_folding": 14,
+      "speaker_count": 14
+    },
+    "existing_observations_overwritten": 0,
+    "duplicate_source_configuration_attribute_slots": 0,
+    "new_attributes": 0,
+    "new_source_relationships": 0
+  },
+  "validation": {
+    "source_sha256_verified_by_existing_repository_receipt": true,
+    "all_targets_active": true,
+    "all_targets_linked_to_brochure": true,
+    "all_source_grade_pages_recorded": true,
+    "all_56_ids_contiguous": true,
+    "source_specific_slots_unique": true,
+    "existing_later_source_observations_preserved": true
+  },
+  "manifest_paths": [
+    "data/imports/configuration_values/bigster-page14-parking-brake-type-20251210.json",
+    "data/imports/configuration_values/bigster-page15-parking-brake-type-20251210.json",
+    "data/imports/configuration_values/bigster-page16-parking-brake-type-20251210.json",
+    "data/imports/configuration_values/bigster-page17-parking-brake-type-20251210.json",
+    "data/imports/configuration_values/bigster-page14-steering-wheel-material-20251210.json",
+    "data/imports/configuration_values/bigster-page15-steering-wheel-material-20251210.json",
+    "data/imports/configuration_values/bigster-page16-steering-wheel-material-20251210.json",
+    "data/imports/configuration_values/bigster-page17-steering-wheel-material-20251210.json",
+    "data/imports/configuration_values/bigster-page14-rear-seat-folding-20251210.json",
+    "data/imports/configuration_values/bigster-page15-rear-seat-folding-20251210.json",
+    "data/imports/configuration_values/bigster-page16-rear-seat-folding-20251210.json",
+    "data/imports/configuration_values/bigster-page17-rear-seat-folding-20251210.json",
+    "data/imports/configuration_values/bigster-page14-speaker-count-20251210.json",
+    "data/imports/configuration_values/bigster-page15-speaker-count-20251210.json",
+    "data/imports/configuration_values/bigster-page16-speaker-count-20251210.json",
+    "data/imports/configuration_values/bigster-page17-speaker-count-20251210.json"
+  ]
+}

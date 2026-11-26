@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "kind": "jogger_technical_page19_unresolved_review_chunk2",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_025",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 19
+  },
+  "scope": {
+    "candidate_count": 3,
+    "group_candidate_count": 43,
+    "chunk_index": 2,
+    "chunk_count": 2,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 1,
+    "decision_counts": {
+      "context_only_non_import": 3,
+      "unresolved_signature_mismatch": 0
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/jogger_technical_page19_unresolved_review_chunk2.md"
+  },
+  "prior_chunk_reference": {
+    "report_path": "data/reporting/jogger_technical_page19_unresolved_review_chunk1.json",
+    "package_id": "residual_gap_024",
+    "status": "complete",
+    "candidate_count": 40,
+    "group_candidate_count": 43,
+    "chunk_index": 1,
+    "chunk_count": 2,
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0
+  },
+  "key_source_boundaries": {
+    "wltp_explanation_remains_context_only": true,
+    "footnote_3_text": "Poj. całkowita / poj. użyteczna.",
+    "tank_capacity_footnote_not_promoted": true,
+    "co2_measurement_method_not_promoted": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "footnotes_not_promoted_to_observations": true,
+    "availability_like_surface_text_not_promoted": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Sandero Technical Page 17 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_026",
+    "candidate_count": 40,
+    "group_candidate_count": 41,
+    "chunk_index": 1,
+    "chunk_count": 2
+  }
+}

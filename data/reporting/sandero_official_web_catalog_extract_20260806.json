@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "kind": "sandero_official_web_catalog_extract",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "status": "partial_verified_extract",
+  "source_policy": {
+    "configurator_used": false,
+    "dealer_listing_used": false,
+    "official_model_pages_used": true,
+    "official_versions_and_prices_pages_used": true,
+    "current_price_list_pdf_found": false,
+    "no_cross_grade_transfer": true,
+    "no_cross_powertrain_transfer": true,
+    "no_inferred_option_dependencies": true
+  },
+  "models": [
+    {
+      "model_id": "sandero",
+      "model_page": "https://www.dacia.pl/samochody/sandero-miejskie.html",
+      "versions_page": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html",
+      "versions": [
+        {
+          "grade": "essential",
+          "from_price_pln": 63900,
+          "source_url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM1",
+          "highlighted_equipment": ["Media Control", "dolna konsola środkowa", "15-calowe felgi stalowe ELMA"]
+        },
+        {
+          "grade": "expression",
+          "from_price_pln": 68000,
+          "source_url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM3",
+          "highlighted_equipment": ["klimatyzacja manualna", "Media Display", "7-calowy cyfrowy zestaw wskaźników"],
+          "automatic_transmission_marketed_as_available": true
+        },
+        {
+          "grade": "journey",
+          "from_price_pln": 73600,
+          "source_url": "https://www.dacia.pl/samochody/sandero-miejskie/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE1",
+          "highlighted_equipment": ["automatyczna klimatyzacja", "karta Keyless Entry", "10-calowy ekran centralny", "7-calowy cyfrowy zestaw wskaźników", "tapicerka blue denim"]
+        }
+      ],
+      "brochure_catalog_reference": "data/reporting/official_brochure_exterior_catalog_extract_20260806.json",
+      "unresolved": [
+        "Current standalone price-list PDF URL was not resolved.",
+        "Complete engine-by-grade price matrix is not published on one static non-configurator page.",
+        "Complete standalone-option and package matrix remains unresolved outside a current PDF price list.",
+        "Named-colour prices and exact wheel-option prices remain unresolved outside a current PDF price list."
+      ]
+    },
+    {
+      "model_id": "sandero_stepway",
+      "model_page": "https://www.dacia.pl/samochody/sandero-stepway-crossover.html",
+      "versions_page": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html",
+      "versions": [
+        {
+          "grade": "stepway essential",
+          "from_price_pln": 71700,
+          "source_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM2",
+          "highlighted_equipment": ["Media Control", "relingi dachowe wzdłużne", "klimatyzacja manualna", "YouClip", "przycisk My Safety"],
+          "engines": [
+            {"name": "TCe 110", "fuel": "benzyna", "transmission": "manualna", "from_price_pln": 71700},
+            {"name": "Eco-G 120", "fuel": "benzyna + LPG", "transmission": "manualna", "from_price_pln": 71700}
+          ]
+        },
+        {
+          "grade": "stepway expression",
+          "from_price_pln": 76400,
+          "source_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIELIM4",
+          "highlighted_equipment": ["przednie światła przeciwmgłowe", "Media Display", "kamera cofania", "modułowe relingi dachowe", "konsola środkowa z podłokietnikiem"],
+          "engines": [
+            {"name": "TCe 110", "fuel": "benzyna", "transmission": "manualna", "from_price_pln": 76400},
+            {"name": "Eco-G 120", "fuel": "benzyna + LPG", "transmission": "manualna", "from_price_pln": 76400},
+            {"name": "Eco-G 120 auto", "fuel": "benzyna + LPG", "transmission": "automatyczna", "from_price_pln": 83300}
+          ]
+        },
+        {
+          "grade": "stepway extreme",
+          "from_price_pln": 82500,
+          "source_url": "https://www.dacia.pl/samochody/sandero-stepway-crossover/wersje-i-ceny.html?gradeCode=ENS_ACLASS00M%24SERIESPE2",
+          "highlighted_equipment": ["automatyczna klimatyzacja", "karta Keyless Entry", "cyfrowy zestaw wskaźników", "tapicerka MicroCloud", "gumowe dywaniki", "felgi aluminiowe z miedzianymi detalami"]
+        }
+      ],
+      "brochure_catalog_reference": "data/reporting/official_brochure_exterior_catalog_extract_20260806.json",
+      "unresolved": [
+        "Current standalone price-list PDF URL was not resolved.",
+        "Complete named-colour price matrix remains unresolved outside a current PDF price list.",
+        "Complete wheel, standalone-option and package matrix remains unresolved outside a current PDF price list.",
+        "Dynamic dependencies between Media, Thermo, Parking and other packages remain unresolved."
+      ]
+    }
+  ],
+  "next_actions": [
+    "Continue official PDF discovery through Dacia document endpoints and archived page links.",
+    "Extract current accessory catalogues and price lists independently of the missing vehicle price-list PDF.",
+    "Add only unresolved compatibility questions to the final configurator fallback queue."
+  ]
+}

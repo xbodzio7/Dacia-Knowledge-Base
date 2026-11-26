@@ -1,0 +1,24 @@
+{
+  "attribute_code": "wheel_design",
+  "attribute_contract": {
+    "data_type": "string",
+    "status": "active",
+    "unit": ""
+  },
+  "fuel_type_code": "",
+  "id_start": 310,
+  "kind": "configuration_attribute_values",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "observation_date": "2026-06-26",
+  "rows": [
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_essential_ecog120_mt_20260626",
+      "source_text": "ERALIA",
+      "value": "ERALIA"
+    }
+  ],
+  "source_page": 2,
+  "source_section": "Felgi",
+  "version": 1
+}

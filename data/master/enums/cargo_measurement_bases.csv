@@ -1,0 +1,3 @@
+code,name,description,status
+vda_iso_3832,VDA / ISO 3832,Volume measured using the VDA block method under ISO 3832.,active
+ordinary_litre,Ordinary litres,Source-stated volume in litres not identified as VDA / ISO 3832.,active

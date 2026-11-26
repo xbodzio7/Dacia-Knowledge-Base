@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "as_of": "2026-09-20",
+  "package_id": "sandero_stepway_current_dependency_capture_001",
+  "purpose": "Capture current interactive Stepway configurator dependency evidence that is not needed to reconstruct the already assimilated dated documentary boundary.",
+  "source": {
+    "primary": "Official Dacia Poland Stepway configurator accessed through connected Opera session.",
+    "status": "current_web_only",
+    "historical_use": "non_overwriting",
+    "negative_evidence_rule": "Current omission or availability is not evidence of historical unavailability."
+  },
+  "captured_states": {
+    "stepway_expression_hybrid155": {
+      "price_pln": 90700,
+      "engine": "hybrid 155",
+      "engine_output_displayed": "80 + 35 (156)",
+      "transmission": "automatyczna",
+      "fuel_type": "full hybrid",
+      "wl_tp_co2_g_km": 100,
+      "wl_tp_fuel_l_per_100km": 4.4,
+      "colors_count": 7,
+      "colors": ["biel alpejska", "niebieski iron", "szary schiste", "beżowy safari", "zielony cedar", "czarna perła", "żółty amber"],
+      "default_color": "biel alpejska",
+      "wheels": ["16\" felgi stalowe ATARA"],
+      "default_wheels": "16\" felgi stalowe ATARA",
+      "upholstery": ["tapicerka materiałowa stepway"],
+      "default_upholstery": "tapicerka materiałowa stepway",
+      "optional_equipment_visible": [
+        {"category": "MULTIMEDIA", "name": "MEDIA NAV", "price_pln": 1600},
+        {"category": "KOMFORT I WNĘTRZE", "name": "pakiet COMFORT", "price_pln": 2000},
+        {"category": "OGRZEWANIE I WENTYLACJA", "name": "pakiet THERMO", "price_pln": 1900}
+      ],
+      "summary_price_delta_pln": 0
+    },
+    "stepway_extreme_current_grade_page": {
+      "status": "documented_static_current_state",
+      "starting_prices_pln": {"TCe110": 82500, "EcoG120": 82500, "EcoG120_auto": 89400, "hybrid155": 96800},
+      "engines_exposed": ["TCe 110", "Eco-G 120", "Eco-G 120 auto", "hybrid 155"],
+      "hybrid155": {"fuel_type": "benzyna full hybrid", "transmission": "automatyczna", "output_displayed": "80 + 35 (156)"},
+      "grade_equipment_highlights": ["automatyczna klimatyzacja", "karta Keyless Entry", "cyfrowy zestaw wskaźników", "system kontroli martwego pola", "Extended grip"],
+      "grade_upholstery_description": "tapicerka MicroCloud"
+    }
+  },
+  "interactive_dependency_observations": [
+    {"dependency": "grade -> engine availability", "observation": "Expression exposes TCe 110, Eco-G 120, Eco-G 120 auto and hybrid 155; current Extreme grade page exposes the same four powertrains.", "confidence": "high"},
+    {"dependency": "grade -> color availability", "observation": "Expression Hybrid 155 exposes seven current colors in the live configurator.", "confidence": "high"},
+    {"dependency": "grade -> wheel availability", "observation": "Expression Hybrid 155 currently exposes only 16-inch steel ATARA as the selectable wheel state in the captured configurator.", "confidence": "high"},
+    {"dependency": "grade -> upholstery availability", "observation": "Expression Hybrid 155 currently exposes only the Stepway fabric upholstery state in the captured configurator.", "confidence": "high"},
+    {"dependency": "grade -> optional equipment", "observation": "Expression Hybrid 155 exposes MEDIA NAV, COMFORT and THERMO optional packages in the captured state.", "confidence": "high"}
+  ],
+  "access_boundary": {
+    "opera_connected": true,
+    "read_access": true,
+    "interactive_action_surface": "read-only accessibility tree plus navigation",
+    "limitation": "The available Opera connector exposes element action metadata but does not provide a click/press invocation primitive. The current Stepway page therefore could not be switched programmatically from Expression to Extreme through the radio control, nor could individual options be toggled to observe resulting dependency changes.",
+    "consequence": "No inferred Extreme option dependency matrix and no synthetic option-compatibility records were added."
+  },
+  "master_mutations": [],
+  "next_scope": {
+    "status": "open",
+    "target": "Extreme live configurator state and option compatibility after an interactive action surface becomes available.",
+    "safe_fallback": "Continue documenting static current-grade evidence without treating it as historical master data."
+  }
+}

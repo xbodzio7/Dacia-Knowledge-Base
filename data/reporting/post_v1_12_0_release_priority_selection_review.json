@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "as_of": "2026-08-03",
+  "kind": "post_v1_12_0_release_priority_selection_review",
+  "status": "complete",
+  "publication": {
+    "tag": "data-products-v1.12.0",
+    "source_commit": "0e8901fdb42d4bc3e415ce3347117040205fa652",
+    "double_build_byte_identity": true,
+    "offline_workspace_verification": "PASS",
+    "public_download_byte_identity": true
+  },
+  "selection": {
+    "package_id": "portfolio_model_family_workspace_entry_point_001",
+    "kind": "reporting_consumer_integration",
+    "name": "Portfolio Model Family Workspace Entry Point",
+    "status": "planned",
+    "goal": "Expose the verified portfolio model-family HTML as a direct backward-compatible download entry point and dedicated offline workspace card, without changing release contents, source data or comparison semantics."
+  },
+  "rationale": [
+    "the immutable v1.12.0 release is complete and publicly byte-verified",
+    "the family HTML already exists in the verified archive",
+    "the current consumer path reaches it only indirectly through cross-model navigation",
+    "a direct optional entry point improves discoverability without changing product semantics",
+    "older immutable releases can remain valid because the new entry point is optional"
+  ],
+  "preserved_boundaries": [
+    "no source or master data changes",
+    "no cross-scope pairs",
+    "no ranking or recommendations",
+    "no inferred values",
+    "no mutation of published releases"
+  ]
+}

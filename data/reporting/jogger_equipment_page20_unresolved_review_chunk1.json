@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page20_unresolved_review_chunk1",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_031",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 20
+  },
+  "scope": {
+    "candidate_count": 40,
+    "group_candidate_count": 103,
+    "chunk_index": 1,
+    "chunk_count": 3,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 17,
+    "decision_counts": {
+      "context_only_non_import": 23,
+      "unresolved_signature_mismatch": 17
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/jogger_equipment_page20_unresolved_review_chunk1.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "essential",
+      "expression",
+      "extreme",
+      "journey"
+    ],
+    "reviewed_sections": [
+      "body",
+      "wheels",
+      "start of interior"
+    ],
+    "wrapped_colour_values_preserved": true,
+    "side_decal_multi_line_values_preserved": true,
+    "copper_brown_parenthetical_values_preserved": true,
+    "upholstered_dashboard_row_continues_into_next_chunk": true,
+    "missing_full_rows_not_reconstructed": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_values_not_projected": true,
+    "wrapped_values_not_promoted_independently": true,
+    "partial_cross_chunk_row_not_completed_by_inference": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Jogger Equipment Page 20 Unresolved Review — Chunk 2",
+    "package_id": "residual_gap_032",
+    "candidate_count": 40,
+    "group_candidate_count": 103,
+    "chunk_index": 2,
+    "chunk_count": 3
+  }
+}

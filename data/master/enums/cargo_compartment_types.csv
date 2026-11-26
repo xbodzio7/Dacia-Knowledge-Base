@@ -1,0 +1,4 @@
+code,name,description,status
+main_luggage_compartment,Main luggage compartment,Primary luggage space excluding separately stated underfloor storage.,active
+underfloor_compartment,Underfloor compartment,Separately stated storage beneath the luggage floor.,active
+source_stated_total,Source-stated total,Total cargo volume explicitly stated by the source across included spaces.,active

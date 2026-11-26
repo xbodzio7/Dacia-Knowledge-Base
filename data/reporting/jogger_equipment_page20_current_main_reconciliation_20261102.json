@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page20_current_main_reconciliation",
+  "reviewed_on": "2026-11-02",
+  "status": "complete_no_new_import",
+  "package_id": "jogger_equipment_page20_current_main_reconciliation_20261102_001",
+  "source": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "page": 20,
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6"
+  },
+  "reviewed_artifacts": [
+    "data/reporting/jogger_equipment_page20_ambiguity_review.json",
+    "data/reporting/jogger_equipment_page20_unresolved_review_chunk1.json",
+    "data/reporting/jogger_equipment_page20_unresolved_review_chunk2.json",
+    "data/reporting/jogger_equipment_page20_unresolved_review_chunk3.json"
+  ],
+  "scope": {
+    "ambiguity_candidates": 5,
+    "selected_evidence_record_references": 154,
+    "unique_selected_record_codes": 110,
+    "selected_record_codes_already_present_in_current_main": 110,
+    "missing_selected_record_codes": 0,
+    "unresolved_candidates": 107,
+    "unresolved_review_chunks": 3
+  },
+  "summary": {
+    "review_decisions": {
+      "partially_covered": 3,
+      "context_only_non_import": 1,
+      "deferred_source_conflict": 1
+    },
+    "all_selected_observations_already_present": true,
+    "no_exact_import_ready_gap": true,
+    "master_data_changes": 0,
+    "import_specs_added": 0
+  },
+  "result": "All 110 unique selected record codes are already present in current main configuration_attribute_availability.csv. No import warranted. The 107 unresolved candidates have no selected evidence signatures; keep unresolved/context-only and do not infer mappings."
+}

@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 8509,
+  "attribute_code": "fuel_tank_capacity",
+  "attribute_contract": {
+    "data_type": "decimal",
+    "unit": "L",
+    "status": "active"
+  },
+  "observation_date": "2026-11-02",
+  "fuel_type_code": "",
+  "source_page": 5,
+  "source_section": "Pojemność zbiornika paliwa (l)",
+  "notes_template": "Source page {page}, section {section}: {source_text}. The cennik does not distinguish total LPG vessel capacity from filling capacity.",
+  "rows": [
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "50",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "petrol"
+    },
+    {
+      "configuration_code": "sandero_iii_journey_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_price_my26_20261102",
+      "value": "40",
+      "source_text": "LPG: 40 Ben: 50",
+      "fuel_type_code": "lpg"
+    }
+  ]
+}

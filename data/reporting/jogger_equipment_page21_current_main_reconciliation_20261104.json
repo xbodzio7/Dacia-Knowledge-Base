@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "kind": "jogger_equipment_page21_current_main_reconciliation",
+  "reconciled_on": "2026-11-04",
+  "status": "complete",
+  "source_receipt": {
+    "source_code": "src_pl_jogger_brochure_20251217",
+    "file_path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+    "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6",
+    "page": 21
+  },
+  "reviewed_artifacts": [
+    {
+      "path": "data/reporting/jogger_equipment_page21_ambiguity_review.json",
+      "package_id": "residual_gap_012",
+      "candidate_count": 1,
+      "selected_evidence_signature_count": 2,
+      "selected_evidence_record_count": 30,
+      "decision": "deferred_source_conflict"
+    },
+    {
+      "path": "data/reporting/jogger_equipment_page21_unresolved_review_chunk1.json",
+      "package_id": "residual_gap_045",
+      "candidate_count": 40,
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0
+    },
+    {
+      "path": "data/reporting/jogger_equipment_page21_unresolved_review_chunk2.json",
+      "package_id": "residual_gap_046",
+      "candidate_count": 32,
+      "selected_evidence_signature_count": 0,
+      "selected_evidence_record_count": 0
+    }
+  ],
+  "reconciliation": {
+    "target_table": "configuration_attribute_availability",
+    "identifier_column": "code",
+    "selected_record_codes": 30,
+    "unique_selected_record_codes": 30,
+    "present_exactly_once": 30,
+    "missing": 0,
+    "duplicates": 0,
+    "unresolved_candidates": 72,
+    "unresolved_candidates_with_selected_evidence": 0
+  },
+  "deferred_conflict": {
+    "attribute_code": "heated_steering_wheel",
+    "configuration_grade": "journey",
+    "brochure_status": "standard",
+    "later_price_list_status": "not_available",
+    "disposition": "deferred_source_conflict",
+    "import_approved": false
+  },
+  "outcome": {
+    "master_data_changed": false,
+    "import_spec_created": false,
+    "duplicate_import_performed": false,
+    "next_action": "Re-enter the residual queue against current main and select a highest-impact actionable non-Bigster source gap; do not repeat closed reviews."
+  },
+  "note": "The first ad-hoc verification script incorrectly queried record_code in the master CSV; the canonical CSV identifier is code. The corrected verification found all 30 selected codes exactly once."
+}

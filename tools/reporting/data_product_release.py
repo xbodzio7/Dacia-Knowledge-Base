@@ -1,0 +1,388 @@
+from __future__ import annotations
+
+import shutil
+import tempfile
+from pathlib import Path
+from typing import Any, Mapping
+
+from configuration_shortlist import (
+    collect_enhanced_browser_catalog,
+    render_html,
+)
+
+from reporting.configuration_comparison_bundle import (
+    BundleError,
+    create_bundle,
+    discover_scopes,
+)
+from reporting.configuration_shortlist import (
+    ShortlistCriteria,
+    ShortlistError,
+    collect_report,
+    render_csv,
+    render_json,
+    render_markdown,
+)
+from reporting.cross_model_comparison_view import (
+    CrossModelViewError,
+    collect_view as collect_cross_model_view,
+    render_html as render_cross_model_html,
+    render_json as render_cross_model_json,
+)
+from reporting.data_product_release_model import (
+    CHECKSUMS_NAME,
+    MANIFEST_NAME,
+    RELEASE_SCHEMA_VERSION,
+    ReleaseError,
+    archive_name,
+    checksum_text,
+    file_record,
+    json_text,
+    normalize_commit_sha,
+    normalize_version,
+    release_tag,
+    sha256_file,
+    verify_release_assets,
+    write_deterministic_zip,
+    write_text,
+)
+
+
+PRODUCT_FORMATS = (
+    "JSON",
+    "Markdown",
+    "CSV",
+    "HTML",
+    "XLSX",
+)
+
+
+def repository_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def _prepare_output_directory(output_directory: Path) -> Path:
+    parent = output_directory.parent
+    parent.mkdir(parents=True, exist_ok=True)
+    if output_directory.exists():
+        if not output_directory.is_dir():
+            raise ReleaseError(
+                f"release output path is not a directory: {output_directory}"
+            )
+        if any(output_directory.iterdir()):
+            raise ReleaseError(
+                "release output directory must not exist or must be empty: "
+                f"{output_directory}"
+            )
+    return Path(
+        tempfile.mkdtemp(
+            prefix=f".{output_directory.name}.build-",
+            dir=parent,
+        )
+    )
+
+
+def _write_shortlist(repository: Path, payload: Path) -> dict[str, Any]:
+    criteria = ShortlistCriteria()
+    report = collect_report(repository, criteria)
+    summary = report.get("summary")
+    results = report.get("results")
+    if not isinstance(summary, dict) or not isinstance(results, list):
+        raise ReleaseError("configuration shortlist report is malformed")
+    active = summary.get("active_configurations")
+    matched = summary.get("matched_configurations")
+    if active != matched or matched != len(results):
+        raise ReleaseError(
+            "complete release shortlist must include every active configuration"
+        )
+
+    shortlist = payload / "shortlist"
+    write_text(shortlist / "configuration-shortlist.json", render_json(report))
+    write_text(
+        shortlist / "configuration-shortlist.md",
+        render_markdown(report),
+    )
+    write_text(shortlist / "configuration-shortlist.csv", render_csv(report))
+    catalog = collect_enhanced_browser_catalog(repository, criteria)
+    write_text(
+        shortlist / "configuration-shortlist.html",
+        render_html(catalog),
+    )
+    return report
+
+
+def _write_cross_model_view(
+    repository: Path,
+    payload: Path,
+    bundle: Mapping[str, Any],
+) -> dict[str, Any]:
+    view = collect_cross_model_view(repository)
+    summary = view.get("summary")
+    if not isinstance(summary, dict):
+        raise ReleaseError("cross-model view summary is missing")
+    groups = bundle.get("groups")
+    if not isinstance(groups, list):
+        raise ReleaseError("comparison bundle groups are missing")
+    expected = {
+        "reporting_scope_count": bundle.get("scope_group_count"),
+        "active_configuration_count": bundle.get("selected_configuration_count"),
+        "within_scope_pair_count": sum(
+            int(group.get("pair_count", 0))
+            for group in groups
+            if isinstance(group, dict)
+        ),
+        "cross_scope_pairs_generated": False,
+        "ranking_generated": False,
+        "recommendations_generated": False,
+        "inferred_values_generated": False,
+    }
+    for key, value in expected.items():
+        if summary.get(key) != value:
+            raise ReleaseError(
+                f"cross-model view summary differs for {key}: "
+                f"{summary.get(key)!r}"
+            )
+    directory = payload / "cross-model"
+    write_text(
+        directory / "cross-model-comparison-view.json",
+        render_cross_model_json(view),
+    )
+    write_text(
+        directory / "cross-model-comparison-view.html",
+        render_cross_model_html(view),
+    )
+    return view
+
+
+def _configuration_codes(report: Mapping[str, Any]) -> tuple[str, ...]:
+    raw_results = report.get("results")
+    if not isinstance(raw_results, list):
+        raise ReleaseError("configuration shortlist results must be a list")
+    codes: list[str] = []
+    for item in raw_results:
+        if not isinstance(item, dict):
+            raise ReleaseError("configuration shortlist result must be an object")
+        code = item.get("configuration_code")
+        if not isinstance(code, str) or not code:
+            raise ReleaseError("configuration shortlist result has no code")
+        codes.append(code)
+    if len(codes) != len(set(codes)):
+        raise ReleaseError(
+            "complete release shortlist codes must be unique"
+        )
+    return tuple(sorted(codes))
+
+
+def _release_notes(
+    version: str,
+    commit_sha: str,
+    shortlist: Mapping[str, Any],
+    bundle: Mapping[str, Any],
+) -> str:
+    summary = shortlist["summary"]
+    assert isinstance(summary, dict)
+    lines = [
+        f"# Dacia Knowledge Base Data Products v{version}",
+        "",
+        f"- Release tag: `{release_tag(version)}`",
+        f"- Repository commit: `{commit_sha}`",
+        f"- Snapshot date: `{shortlist['as_of']}`",
+        "- Selected configurations: "
+        f"{bundle['selected_configuration_count']}",
+        f"- Independent scopes: {bundle['scope_group_count']}",
+        f"- Comparable scopes: {bundle['comparable_scope_count']}",
+        f"- Singleton scopes: {bundle['singleton_scope_count']}",
+        "- Cross-scope pairs: none",
+        "- Formats: " + ", ".join(PRODUCT_FORMATS),
+        "",
+        "The archive contains the complete active-configuration shortlist, "
+        "one full-portfolio comparison bundle and a scope-preserving "
+        "cross-model navigation view. Existing source dates, evidence "
+        "states and independent reporting scopes are preserved.",
+        "",
+    ]
+    if version == "1.8.1":
+        lines.extend(
+            [
+                "Equipment filtering is restored for partially covered source data: "
+                "108 equipment choices remain visible in the current 72-configuration "
+                "catalog, and selecting the rear-view camera narrows the result to 66.",
+                "",
+                "Missing and unknown evidence remains excluded rather than inferred as "
+                "availability. Model choices are ordered by the minimum current "
+                "catalogue price, from Sandero through Bigster.",
+                "",
+                "The public v1.8.0 remains immutable; this correction is delivered only "
+                "as the new data-products-v1.8.1 patch release.",
+                "",
+            ]
+        )
+    elif version == "1.9.0":
+        lines.extend(
+            [
+                "This minor release adds six new source-backed manual configurations: "
+                "three Sandero TCe 100 variants and three Sandero Stepway TCe 110 "
+                "variants. The complete portfolio now contains 78 active configurations "
+                "in 20 independent scopes.",
+                "",
+                "The scope-preserving bundle contains 129 within-scope pairs and 2,180 "
+                "recorded differences. The archive has 89 deterministic archive members, "
+                "127 technical comparison facets and 110 equipment facets.",
+                "",
+                "No cross-scope pairs, ranking, recommendations or inferred values are "
+                "introduced. Missing and unknown evidence remains excluded, and the "
+                "public v1.8.1 remains immutable.",
+                "",
+            ]
+        )
+    elif version == "1.10.0":
+        lines.extend(
+            [
+                "This minor release publishes the current source-backed portfolio, "
+                "including the Spring catalogue foundation and all later exact "
+                "technical and equipment observations.",
+                "",
+                "The interactive shortlist includes the repaired user interface: "
+                "one forced dark theme, grouped commercial grade choices with exact "
+                "version codes retained, and a two-axis sticky comparison grid with "
+                "deterministic parameter and configuration column widths.",
+                "",
+                "The release preserves the existing pair-type filter and multi-"
+                "configuration comparison behavior. No cross-scope pairs, ranking, "
+                "recommendations or inferred values are introduced, and the public "
+                "v1.9.0 remains immutable.",
+                "",
+            ]
+        )
+    elif version == "1.11.0":
+        lines.extend(
+            [
+                "This minor release publishes the repository state after closure of "
+                "the Spring legacy-PDF assimilation milestone. It adds 36 source-"
+                "bounded common technical observations for the three existing "
+                "passenger Spring configurations.",
+                "",
+                "The added observations cover permanent-magnet synchronous motor "
+                "type, LFP traction-battery chemistry, electric steering and nine "
+                "common body dimensions. Exact source dates, configuration identity "
+                "and passenger-vehicle scope remain attached to every observation.",
+                "",
+                "The release does not generalize the MY2025-only 204 kg battery mass "
+                "or 354 V value, the unqualified 24.3 kWh capacity, charging times, "
+                "range, maximum speed or wheel-qualified ground clearance. No cross-"
+                "scope pairs, ranking, recommendations or inferred values are "
+                "introduced, and the public v1.10.0 remains immutable.",
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "No ranking, recommendations or inferred values are generated.",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def _archive_record(path: Path, root: Path) -> dict[str, Any]:
+    record = file_record(path, root)
+    return {
+        "path": record["path"],
+        "media_type": record["media_type"],
+        "size_bytes": record["size_bytes"],
+        "sha256": record["sha256"],
+    }
+
+
+def create_release_assets(
+    repository: Path,
+    output_directory: Path,
+    version: str,
+    commit_sha: str,
+) -> dict[str, Any]:
+    normalized_version = normalize_version(version)
+    normalized_commit = normalize_commit_sha(commit_sha)
+    build_root = _prepare_output_directory(output_directory)
+    payload = build_root / ".payload"
+    payload.mkdir()
+    try:
+        shortlist = _write_shortlist(repository, payload)
+        codes = _configuration_codes(shortlist)
+        bundle_directory = payload / "comparison-bundle"
+        bundle = create_bundle(
+            repository,
+            bundle_directory,
+            direct_codes=codes,
+        )
+        if bundle.get("selected_configuration_count") != len(codes):
+            raise ReleaseError("comparison bundle selection is incomplete")
+        expected_scope_count = len(discover_scopes(repository))
+        if bundle.get("scope_group_count") != expected_scope_count:
+            raise ReleaseError(
+                "complete release bundle does not cover every independent scope"
+            )
+        if bundle.get("cross_scope_pairs_generated") is not False:
+            raise ReleaseError("release bundle generated cross-scope pairs")
+
+        cross_model_view = _write_cross_model_view(repository, payload, bundle)
+
+        write_text(
+            payload / "RELEASE_NOTES.md",
+            _release_notes(
+                normalized_version,
+                normalized_commit,
+                shortlist,
+                bundle,
+            ),
+        )
+
+        archive_path = build_root / archive_name(normalized_version)
+        files = write_deterministic_zip(payload, archive_path)
+        manifest = {
+            "schema_version": RELEASE_SCHEMA_VERSION,
+            "release_version": normalized_version,
+            "release_tag": release_tag(normalized_version),
+            "repository_commit": normalized_commit,
+            "snapshot_date": shortlist["as_of"],
+            "selected_configuration_count": bundle[
+                "selected_configuration_count"
+            ],
+            "scope_group_count": bundle["scope_group_count"],
+            "model_family_count": cross_model_view["summary"][
+                "model_family_count"
+            ],
+            "cross_model_view_generated": True,
+            "comparable_scope_count": bundle["comparable_scope_count"],
+            "singleton_scope_count": bundle["singleton_scope_count"],
+            "cross_scope_pairs_generated": False,
+            "ranking_generated": False,
+            "recommendations_generated": False,
+            "inferred_values_generated": False,
+            "archive": _archive_record(archive_path, build_root),
+            "files": files,
+        }
+        manifest_path = build_root / MANIFEST_NAME
+        write_text(manifest_path, json_text(manifest))
+        write_text(
+            build_root / CHECKSUMS_NAME,
+            checksum_text(
+                {
+                    archive_path.name: sha256_file(archive_path),
+                    manifest_path.name: sha256_file(manifest_path),
+                }
+            ),
+        )
+        shutil.rmtree(payload)
+        verified = verify_release_assets(build_root)
+        if verified != manifest:
+            raise ReleaseError("verified release manifest changed after writing")
+        if output_directory.exists():
+            output_directory.rmdir()
+        build_root.replace(output_directory)
+        return manifest
+    except (ShortlistError, BundleError, CrossModelViewError) as exc:
+        shutil.rmtree(build_root, ignore_errors=True)
+        raise ReleaseError(f"cannot build data product release: {exc}") from exc
+    except Exception:
+        shutil.rmtree(build_root, ignore_errors=True)
+        raise

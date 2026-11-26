@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "kind": "official_bigster_accessory_catalog_reconciliation_summary",
+  "captured_on": "2026-08-06",
+  "market": "PL",
+  "configurator_used": false,
+  "sources": {
+    "official_accessory_hub": {
+      "url": "https://akcesoria.dacia.pl/",
+      "retrieved_on": "2026-08-06"
+    },
+    "price_list": {
+      "url": "https://akcesoria.dacia.pl/model/bigster",
+      "valid_from": "2025-01-09",
+      "pages": 12,
+      "coverage": [
+        "name",
+        "part_number",
+        "price_pln_vat_without_installation",
+        "installation_required"
+      ],
+      "price_semantics": "Published VAT-inclusive price without installation; source warns that specifications and prices may change."
+    },
+    "catalogue": {
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/akcesoria/axs-bigster.pdf",
+      "publication_month": "2025-04",
+      "pages": 21,
+      "compatibility_pages": [19, 20],
+      "coverage": [
+        "description",
+        "part_number",
+        "grade_compatibility",
+        "conditional_notes"
+      ]
+    },
+    "official_shop": {
+      "url": "https://sklep.dacia.pl/akcesoria",
+      "retrieved_on": "2026-08-06",
+      "coverage": [
+        "product_presence",
+        "model_compatibility",
+        "selected_visible_price",
+        "availability_text"
+      ]
+    }
+  },
+  "summary": {
+    "price_list_rows": 94,
+    "catalog_compatibility_rows": 89,
+    "shared_part_numbers": 68,
+    "price_list_only_part_numbers": 26,
+    "catalog_only_part_numbers": 21,
+    "price_list_installation_required_rows": 10,
+    "price_list_category_counts": {
+      "bezpieczenstwo": 12,
+      "design": 27,
+      "komfort_i_ochrona": 24,
+      "multimedia": 3,
+      "outdoor": 7,
+      "transport": 21
+    },
+    "catalog_category_counts": {
+      "stylistyka": 12,
+      "komfort_i_ochrona": 34,
+      "transport": 24,
+      "multimedia": 2,
+      "bezpieczenstwo": 13,
+      "dla_profesjonalistow": 4
+    }
+  },
+  "semantic_policy": {
+    "no_current_price_inference_from_document_age": true,
+    "no_cross_reference_normalization": true,
+    "no_package_component_equivalence_inference": true,
+    "no_absence_as_withdrawal_inference": true,
+    "catalogue_later_than_price_list": true,
+    "source_differences_preserved": true
+  },
+  "reconciliation": {
+    "source_interpretation": [
+      "The 2025-01-09 price list establishes published accessory names, references, installation markers and VAT-inclusive prices without labour.",
+      "The April 2025 catalogue establishes descriptive coverage and a grade compatibility matrix.",
+      "A row present in only one document is preserved; absence from the other source is not interpreted as withdrawal.",
+      "Different part numbers for similarly named concepts are retained as unresolved source differences, not silently normalized."
+    ],
+    "price_list_only_part_numbers": [
+      "241D87019R", "511D25563R", "511D25661R", "511D25666R", "511D27676R",
+      "572015754R", "572016346R", "739480943R", "739M00386R", "758924497R",
+      "764121417R", "768479973R", "7711578473", "7711784775", "7711948838",
+      "7711949678", "7717274243", "7717277903", "7717281161", "8201752633",
+      "8201756977", "849043187R", "975804583R", "984232417R", "984239640R", "984240549R"
+    ],
+    "catalog_only_part_numbers": [
+      "733006743R", "749L00615R", "755605897R", "7711431405", "7711940552",
+      "7711945796", "7711947898", "7717274286", "7717276919", "7717276949",
+      "7717277530", "7717277531", "7717301410", "7717301411", "8201756727",
+      "8201756728", "8201756729", "8201756730", "8201757350", "844951487R", "975804783R"
+    ],
+    "unresolved_semantic_crosswalks": [
+      {
+        "concept": "side_steps",
+        "price_list_references": ["764121417R", "768479973R"],
+        "catalog_references": ["7717276919"],
+        "observation": "The price list publishes separate step and mounting-support components; the catalogue publishes one package reference."
+      },
+      {
+        "concept": "handpresso",
+        "price_list_references": ["7717281161"],
+        "catalog_references": ["7711940552"],
+        "observation": "The two official documents associate different references with a portable Handpresso coffee maker."
+      },
+      {
+        "concept": "portable_fridge",
+        "price_list_references": ["7717277903"],
+        "catalog_references": ["7711431405"],
+        "observation": "The price list and catalogue use different references for a portable fridge."
+      },
+      {
+        "concept": "youclip_headrest_hanger",
+        "price_list_references": ["739480943R"],
+        "catalog_references": ["733006743R"],
+        "observation": "The official sources use different references for a YouClip hanger mounted at the headrest."
+      },
+      {
+        "concept": "engine_underbody_protection",
+        "price_list_references": ["758924497R"],
+        "catalog_references": ["755605897R"],
+        "observation": "The price list names an under-engine-zone underbody shield; the catalogue names an engine shield with another reference."
+      },
+      {
+        "concept": "spare_wheel_cover_and_tools",
+        "price_list_references": ["572016346R", "7717274243"],
+        "catalog_references": ["7717274286"],
+        "observation": "The price list publishes component references while the catalogue publishes a combined package reference."
+      },
+      {
+        "concept": "reversible_boot_mat",
+        "price_list_references": ["849043187R"],
+        "catalog_references": ["844951487R"],
+        "observation": "The documents use different references for a reversible boot mat."
+      },
+      {
+        "concept": "sleep_package",
+        "price_list_references": ["572015754R", "975804583R", "984232417R", "984239640R", "984240549R"],
+        "catalog_references": ["7717277530", "7717277531", "975804783R"],
+        "observation": "The price list publishes individual Sleep components; the later catalogue publishes powertrain-specific package references and a different blackout-blind reference."
+      },
+      {
+        "concept": "towbar_packages",
+        "price_list_references": ["241D87019R", "511D25563R", "511D25661R", "511D25666R", "511D27676R"],
+        "catalog_references": ["7717301410", "7717301411"],
+        "observation": "The price list publishes component references; the catalogue publishes complete fixed and tool-free-removable towbar package references."
+      },
+      {
+        "concept": "dacia_aero_cargo_box",
+        "price_list_references": ["7717275154"],
+        "catalog_references": ["7717276949", "7717275154"],
+        "observation": "The price list calls 7717275154 an Aero cargo box, while the catalogue distinguishes 7717276949 as the box and 7717275154 as the box for a towbar bike carrier."
+      },
+      {
+        "concept": "standard_snow_chain_7711578474",
+        "price_list_references": ["7711578474"],
+        "catalog_references": ["7711578474"],
+        "observation": "The price list describes this reference as standard chains for R19; the catalogue describes it as Standard 9 mm, size 105."
+      },
+      {
+        "concept": "second_alarm_reference",
+        "price_list_references": ["8201752631", "8201752633"],
+        "catalog_references": ["8201752631"],
+        "observation": "The price list includes two alarm references, while the catalogue compatibility matrix includes one."
+      }
+    ]
+  },
+  "current_shop_corroboration": [
+    {"part_number":"984240549R","name":"Materac do Pakietu Sleep","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"984239640R","name":"Skrzynia do Pakietu Sleep - 4x4 i HEV","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 12 dni"},
+    {"part_number":"984232417R","name":"Skrzynia do Pakietu Sleep - TCe 140 i Eco-G 140","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"975804583R","name":"Zasłony do Pakietu Sleep","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 12 dni"},
+    {"part_number":"764121417R","name":"Stopnie","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"7717300226","name":"Namiot InNature Dacia","bigster_listed":true,"shop_price_pln":1629,"availability_text":"Produkt chwilowo niedostępny; powiadomienie o dostępności"},
+    {"part_number":"749M67742R","name":"Gumowe dywaniki ECO-G 140 i Hybrid","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"7717276918","name":"Wielofunkcyjny organizer mocowany do przedniego fotela","bigster_listed":true,"shop_price_pln":239,"availability_text":"Produkt chwilowo niedostępny"},
+    {"part_number":"7717276917","name":"Przenośny podłokietnik tylny Dacia","bigster_listed":true,"shop_price_pln":445,"availability_text":"Produkt chwilowo niedostępny"},
+    {"part_number":"403156271R","name":"Minikołpaczek Dacia Link - szczotkowana stal","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"8201754065","name":"Podświetlane nakładki progowe Bigster","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 12 dni"},
+    {"part_number":"984E29693R","name":"YouClip - uchwyt na tablet","bigster_listed":true,"shop_price_pln":131,"availability_text":"Produkt chwilowo niedostępny"},
+    {"part_number":"8201749196","name":"Poprzeczki dachowe QuickFix","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"403000581R","name":"Aluminiowe obręcze 17 cali Tergan diamentowane","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"},
+    {"part_number":"8201755911","name":"Pionowa siatka bagażnika","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 12 dni"},
+    {"part_number":"8201756318","name":"Pokrowce tekstylne na przednie i tylne siedzenia","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 12 dni"},
+    {"part_number":"403007509R","name":"Aluminiowe obręcze 19 cali Rasan diamentowane","bigster_listed":true,"shop_price_pln":null,"availability_text":"Do koszyka; czas realizacji 5 dni"}
+  ],
+  "data_files": {
+    "price_list": "data/reporting/official_bigster_accessory_price_list_20260806.csv",
+    "catalogue_compatibility": "data/reporting/official_bigster_accessory_catalog_compatibility_20260806.csv"
+  },
+  "next_actions": [
+    "Search the current Dacia Shop for the remaining Bigster-specific references and record visible prices only where the shop exposes them.",
+    "Resolve package-versus-component relationships without collapsing distinct official references.",
+    "Add only unresolved dynamic compatibility dependencies to the final configurator fallback queue."
+  ]
+}

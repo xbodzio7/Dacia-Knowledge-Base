@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "kind": "duster_chassis_observations",
+  "reviewed_on": "2026-07-26",
+  "observation_date": "2025-10-20",
+  "source_code": "src_pl_duster_mini_brochure_20251020",
+  "source_pages": [20, 21],
+  "source_section": "UKŁAD KIEROWNICZY / UKŁAD HAMULCOWY / KOŁA I OPONY / MASY",
+  "value_id_start": 2420,
+  "range_id_start": 235,
+  "groups": [
+    {
+      "code": "ecog120_4x2_manual",
+      "source_page": 20,
+      "configurations": [
+        "duster_iii_essential_ecog120_4x2_manual",
+        "duster_iii_expression_ecog120_4x2_manual",
+        "duster_iii_extreme_ecog120_4x2_manual",
+        "duster_iii_journey_ecog120_4x2_manual"
+      ],
+      "scalar_observations": [
+        {
+          "attribute_code": "turning_circle_wheel_track",
+          "value": "10.96",
+          "source_text": "Średnica zawracania wg śladu kół: 10,96 m"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1350",
+          "source_text": "Maks. masa całkowita samochodu gotowego do jazdy: 1350 kg"
+        },
+        {
+          "attribute_code": "steering_type",
+          "value": "Elektryczne wspomaganie układu kierowniczego",
+          "source_text": "Układ kierowniczy: Elektryczne wspomaganie układu kierowniczego"
+        },
+        {
+          "attribute_code": "front_brake_type",
+          "value": "Tarczowe wentylowane Φ280x24",
+          "source_text": "Przód: tarczowe wentylowane Φ280x24"
+        },
+        {
+          "attribute_code": "rear_brake_type",
+          "value": "Bębnowe 9\" / tarczowe z automatycznym hamulcem postojowym Φ280x9,6",
+          "source_text": "Tył: bębnowe 9\" / tarczowe z automatycznym hamulcem postojowym Φ280x9,6"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "215/70/R16; 215/65/R17; 215/60/R18; letnie",
+          "source_text": "Opony montowane w standardzie: 215/70/R16; 215/65/R17; 215/60/R18; letnie"
+        }
+      ],
+      "payload_range": {
+        "attribute_code": "payload",
+        "minimum_value": "455",
+        "maximum_value": "487",
+        "lower_inclusive": true,
+        "upper_inclusive": true,
+        "source_order_text": "455/487",
+        "source_text": "Maks./min. ładowność: 455/487 kg",
+        "interpretation": "Numeric endpoints are stored as a closed interval without assigning maximum/minimum meaning to the source order."
+      }
+    },
+    {
+      "code": "mildhybrid140_4x2_manual",
+      "source_page": 20,
+      "configurations": [
+        "duster_iii_expression_mildhybrid140_4x2_manual",
+        "duster_iii_extreme_mildhybrid140_4x2_manual",
+        "duster_iii_journey_mildhybrid140_4x2_manual"
+      ],
+      "scalar_observations": [
+        {
+          "attribute_code": "turning_circle_wheel_track",
+          "value": "10.96",
+          "source_text": "Średnica zawracania wg śladu kół: 10,96 m"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1376",
+          "source_text": "Maks. masa całkowita samochodu gotowego do jazdy: 1376 kg"
+        },
+        {
+          "attribute_code": "steering_type",
+          "value": "Elektryczne wspomaganie układu kierowniczego",
+          "source_text": "Układ kierowniczy: Elektryczne wspomaganie układu kierowniczego"
+        },
+        {
+          "attribute_code": "front_brake_type",
+          "value": "Tarczowe wentylowane Φ280x24",
+          "source_text": "Przód: tarczowe wentylowane Φ280x24"
+        },
+        {
+          "attribute_code": "rear_brake_type",
+          "value": "Bębnowe 9\" / tarczowe z automatycznym hamulcem postojowym Φ280x9,6",
+          "source_text": "Tył: bębnowe 9\" / tarczowe z automatycznym hamulcem postojowym Φ280x9,6"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "215/70/R16; 215/65/R17; 215/60/R18; letnie",
+          "source_text": "Opony montowane w standardzie: 215/70/R16; 215/65/R17; 215/60/R18; letnie"
+        }
+      ],
+      "payload_range": {
+        "attribute_code": "payload",
+        "minimum_value": "454",
+        "maximum_value": "528",
+        "lower_inclusive": true,
+        "upper_inclusive": true,
+        "source_order_text": "454/528",
+        "source_text": "Maks./min. ładowność: 454/528 kg",
+        "interpretation": "Numeric endpoints are stored as a closed interval without assigning maximum/minimum meaning to the source order."
+      }
+    },
+    {
+      "code": "hybrid155_4x2_automatic",
+      "source_page": 21,
+      "configurations": [
+        "duster_iii_expression_hybrid155_4x2_automatic",
+        "duster_iii_extreme_hybrid155_4x2_automatic",
+        "duster_iii_journey_hybrid155_4x2_automatic"
+      ],
+      "scalar_observations": [
+        {
+          "attribute_code": "turning_circle_wheel_track",
+          "value": "10.96",
+          "source_text": "Średnica zawracania wg śladu kół: 10,96 m"
+        },
+        {
+          "attribute_code": "maximum_kerb_weight",
+          "value": "1454",
+          "source_text": "Maks. masa całkowita samochodu gotowego do jazdy: 1454 kg"
+        },
+        {
+          "attribute_code": "steering_type",
+          "value": "Elektryczne wspomaganie układu kierowniczego",
+          "source_text": "Układ kierowniczy: Elektryczne wspomaganie układu kierowniczego"
+        },
+        {
+          "attribute_code": "front_brake_type",
+          "value": "Tarczowe wentylowane Φ296x26",
+          "source_text": "Przód: tarczowe wentylowane Φ296x26"
+        },
+        {
+          "attribute_code": "rear_brake_type",
+          "value": "Bębnowe 9\" / tarczowe z automatycznym hamulcem postojowym Φ280x9,6",
+          "source_text": "Tył: bębnowe 9\" / tarczowe z automatycznym hamulcem postojowym Φ280x9,6"
+        },
+        {
+          "attribute_code": "standard_tyre_specification",
+          "value": "215/65/R17; 215/60/R18; letnie",
+          "source_text": "Opony montowane w standardzie: 215/65/R17; 215/60/R18; letnie"
+        }
+      ],
+      "payload_range": {
+        "attribute_code": "payload",
+        "minimum_value": "451",
+        "maximum_value": "525",
+        "lower_inclusive": true,
+        "upper_inclusive": true,
+        "source_order_text": "451/525",
+        "source_text": "Maks./min. ładowność: 451/525 kg",
+        "interpretation": "Numeric endpoints are stored as a closed interval without assigning maximum/minimum meaning to the source order."
+      }
+    }
+  ],
+  "excluded_evidence": [
+    {
+      "code": "hybridg150_without_exact_configuration",
+      "reason": "The page-21 hybrid-G 150 4x4 column has no exact active configuration in master data."
+    },
+    {
+      "code": "automatic_ecog120_not_projected",
+      "reason": "The brochure Eco-G 120 column is manual and must not populate the three later automatic stock configurations."
+    },
+    {
+      "code": "source_order_not_semantically_reassigned",
+      "reason": "The source labels payload as maximum/minimum while printing the lower numeric endpoint first; the range preserves only the closed numeric interval and original source wording."
+    },
+    {
+      "code": "legacy_contexts_unchanged",
+      "reason": "Existing context-free turning-circle and maximum_payload ranges for automatic Eco-G 120 remain unchanged."
+    },
+    {
+      "code": "unrepresented_historical_powertrains",
+      "reason": "Eco-G 100, mild hybrid 130, hybrid 140 and mild hybrid 130 4x4 configurations are not represented by these brochure columns and receive no observations."
+    },
+    {
+      "code": "cargo_rows_out_of_scope",
+      "reason": "Cargo observations remain governed by the existing ISO 3832 context model."
+    }
+  ]
+}

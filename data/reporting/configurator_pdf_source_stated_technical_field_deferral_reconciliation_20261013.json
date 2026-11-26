@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "kind": "configurator_pdf_source_stated_technical_field_deferral_reconciliation",
+  "reviewed_on": "2026-10-13",
+  "source_ledger": "project/sources/dacia-pl-configurator-native-pdf-page-ledger-20260809.json",
+  "prior_import_report": "data/reporting/dacia_configurator_pdf_canonical_import_20260809.json",
+  "summary": {
+    "source_documents": 70,
+    "candidate_observations": 210,
+    "exact_existing_master_observations": 210,
+    "new_master_rows": 0,
+    "former_deferrals_closed": 210,
+    "remaining_deferred_observations": 130
+  },
+  "policy": {
+    "exact_source_text_required": true,
+    "exact_configuration_and_source_pair_required": true,
+    "no_taxonomy_inference": true,
+    "no_duplicate_import": true,
+    "existing_historical_report_preserved": true
+  },
+  "fields": [
+    {
+      "label": "Rodzaj nadwozia",
+      "attribute_code": "body_style_source_stated",
+      "page": 5,
+      "section": "Typ nadwozia",
+      "documents": 70,
+      "exact_existing_observations": 70,
+      "decision": "covered_by_existing_exact_observations"
+    },
+    {
+      "label": "Typ techniczny",
+      "attribute_code": "technical_type_code",
+      "page": 6,
+      "section": "Typ techniczny",
+      "documents": 70,
+      "exact_existing_observations": 70,
+      "decision": "covered_by_existing_exact_observations"
+    },
+    {
+      "label": "Rodzaj skrzyni biegów",
+      "attribute_code": "gearbox_source_description",
+      "page": 6,
+      "section": "Skrzynia biegów",
+      "documents": 70,
+      "exact_existing_observations": 70,
+      "decision": "covered_by_existing_exact_observations"
+    }
+  ],
+  "remaining_deferred_by_reason": {
+    "technical:fuel_enum_unmapped": 6,
+    "technical:ground_clearance_context_or_decimal": 3,
+    "technical:height_layout_dependent": 52,
+    "technical:height_with_rails_not_applicable_or_ambiguous": 10,
+    "technical:non_scalar": 12,
+    "technical:power_complex": 9,
+    "technical:torque_multicomponent": 32,
+    "technical:traction_battery_capacity_unqualified": 3,
+    "technical:unhandled_label": 0
+  }
+}

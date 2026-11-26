@@ -1,0 +1,1317 @@
+configuration_code,attribute_code,availability_status,source_page,source_label,normalization_notes
+bigster_essential_mildhybrid140_4x2_manual,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_essential_mildhybrid140_4x2_manual,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_essential_mildhybrid140_4x2_manual,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,shark_fin_antenna,not_available,4,Antena w kształcie płetwy rekina,direct row.
+bigster_essential_mildhybrid140_4x2_manual,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
+bigster_essential_mildhybrid140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_essential_mildhybrid140_4x2_manual,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_essential_mildhybrid140_4x2_manual,driver_seat_lumbar_adjustment,not_available,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_essential_mildhybrid140_4x2_manual,passenger_seat_height_adjustment,not_available,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_essential_mildhybrid140_4x2_manual,heated_front_seats,not_available,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,front_centre_armrest,not_available,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_essential_mildhybrid140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_essential_mildhybrid140_4x2_manual,rear_usb_c_ports,not_available,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_essential_mildhybrid140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_essential_mildhybrid140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_essential_mildhybrid140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_essential_mildhybrid140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_essential_mildhybrid140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_essential_mildhybrid140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_essential_mildhybrid140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_essential_mildhybrid140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_essential_mildhybrid140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_essential_mildhybrid140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_essential_mildhybrid140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_essential_mildhybrid140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_essential_mildhybrid140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_essential_mildhybrid140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_essential_mildhybrid140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_essential_mildhybrid140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_essential_mildhybrid140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_essential_mildhybrid140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_essential_mildhybrid140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_essential_mildhybrid140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_essential_mildhybrid140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_essential_mildhybrid140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_essential_mildhybrid140_4x2_manual,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_essential_mildhybrid140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_essential_mildhybrid140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_essential_mildhybrid140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_essential_mildhybrid140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rain_sensing_wipers,not_available,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_essential_mildhybrid140_4x2_manual,high_beam_assist,not_available,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_essential_mildhybrid140_4x2_manual,fog_lights_front,not_available,4,Światła przeciwmgłowe LED,direct row.
+bigster_essential_mildhybrid140_4x2_manual,side_mirrors_folding,not_available,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_essential_mildhybrid140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_essential_mildhybrid140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_essential_mildhybrid140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_essential_mildhybrid140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_essential_mildhybrid140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_essential_mildhybrid140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_essential_mildhybrid140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_essential_mildhybrid140_4x2_manual,front_parking_sensors,not_available,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,360_camera_system,not_available,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,electronic_parking_brake,not_available,5,Automatyczny hamulec postojowy,direct row.
+bigster_essential_mildhybrid140_4x2_manual,manual_air_conditioning,standard,5,Klimatyzacja manualna,direct row.
+bigster_essential_mildhybrid140_4x2_manual,automatic_climate_control,not_available,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_essential_mildhybrid140_4x2_manual,dual_zone_climate_control,not_available,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_essential_mildhybrid140_4x2_manual,rear_air_vents,not_available,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_essential_mildhybrid140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_essential_mildhybrid140_4x2_manual,keyless_entry,not_available,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_essential_mildhybrid140_4x2_manual,keyless_start,not_available,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_essential_mildhybrid140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_essential_mildhybrid140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_essential_mildhybrid140_4x2_manual,heated_windscreen,not_available,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_essential_mildhybrid140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_essential_mildhybrid140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_essential_mildhybrid140_4x2_manual,heated_steering_wheel,not_available,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,youclip_phone_holder,not_available,5,YouClip - uchwyt do smartfona,direct row.
+bigster_essential_mildhybrid140_4x2_manual,wireless_charging,not_available,5,Ładowarka indukcyjna,direct row.
+bigster_essential_mildhybrid140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_essential_mildhybrid140_4x2_manual,rear_seat_easy_fold,not_available,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_essential_mildhybrid140_4x2_manual,adjustable_boot_floor,not_available,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_essential_mildhybrid140_4x2_manual,power_tailgate,not_available,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,boot_12v_socket,not_available,5,Gniazdo 12V w bagażniku,direct row.
+bigster_essential_mildhybrid140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_essential_mildhybrid140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_essential_mildhybrid140_4x2_manual,media_display_system,standard,5,System Media Display,direct row.
+bigster_essential_mildhybrid140_4x2_manual,navigation_system,not_available,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_essential_mildhybrid140_4x2_manual,live_traffic_information,not_available,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_essential_mildhybrid140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_essential_mildhybrid140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_essential_mildhybrid140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_essential_mildhybrid140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_essential_mildhybrid140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_essential_mildhybrid140_4x2_manual,instrument_cluster_colour_7,standard,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_essential_mildhybrid140_4x2_manual,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_expression_mildhybrid140_4x2_manual,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_expression_mildhybrid140_4x2_manual,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_expression_mildhybrid140_4x2_manual,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_expression_mildhybrid140_4x2_manual,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
+bigster_expression_mildhybrid140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_expression_mildhybrid140_4x2_manual,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_expression_mildhybrid140_4x2_manual,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_expression_mildhybrid140_4x2_manual,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_expression_mildhybrid140_4x2_manual,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_expression_mildhybrid140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_expression_mildhybrid140_4x2_manual,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_expression_mildhybrid140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_expression_mildhybrid140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_expression_mildhybrid140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_expression_mildhybrid140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_expression_mildhybrid140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_expression_mildhybrid140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_expression_mildhybrid140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_expression_mildhybrid140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_expression_mildhybrid140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_expression_mildhybrid140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_expression_mildhybrid140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_expression_mildhybrid140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_expression_mildhybrid140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_expression_mildhybrid140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_expression_mildhybrid140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_expression_mildhybrid140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_expression_mildhybrid140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_expression_mildhybrid140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_expression_mildhybrid140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_expression_mildhybrid140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_expression_mildhybrid140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_expression_mildhybrid140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_expression_mildhybrid140_4x2_manual,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_expression_mildhybrid140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_expression_mildhybrid140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_expression_mildhybrid140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_expression_mildhybrid140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_expression_mildhybrid140_4x2_manual,high_beam_assist,not_available,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_expression_mildhybrid140_4x2_manual,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_expression_mildhybrid140_4x2_manual,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_expression_mildhybrid140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_expression_mildhybrid140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_expression_mildhybrid140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_expression_mildhybrid140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_expression_mildhybrid140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_expression_mildhybrid140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_expression_mildhybrid140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_expression_mildhybrid140_4x2_manual,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_expression_mildhybrid140_4x2_manual,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_expression_mildhybrid140_4x2_manual,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_expression_mildhybrid140_4x2_manual,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_expression_mildhybrid140_4x2_manual,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_expression_mildhybrid140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_expression_mildhybrid140_4x2_manual,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_expression_mildhybrid140_4x2_manual,keyless_start,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_expression_mildhybrid140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_mildhybrid140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_expression_mildhybrid140_4x2_manual,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_expression_mildhybrid140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_expression_mildhybrid140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_expression_mildhybrid140_4x2_manual,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_expression_mildhybrid140_4x2_manual,wireless_charging,not_available,5,Ładowarka indukcyjna,direct row.
+bigster_expression_mildhybrid140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_expression_mildhybrid140_4x2_manual,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_expression_mildhybrid140_4x2_manual,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_expression_mildhybrid140_4x2_manual,power_tailgate,not_available,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_expression_mildhybrid140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_expression_mildhybrid140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_expression_mildhybrid140_4x2_manual,media_display_system,standard,5,System Media Display,direct row.
+bigster_expression_mildhybrid140_4x2_manual,navigation_system,optional,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_expression_mildhybrid140_4x2_manual,live_traffic_information,optional,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_expression_mildhybrid140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_expression_mildhybrid140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_expression_mildhybrid140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_expression_mildhybrid140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_expression_mildhybrid140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_expression_mildhybrid140_4x2_manual,instrument_cluster_colour_7,standard,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_expression_mildhybrid140_4x2_manual,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_extreme_mildhybrid140_4x2_manual,roof_rails,not_available,4,Relingi dachowe,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,modular_roof_rails,standard,4,Modułowe relingi dachowe,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_extreme_mildhybrid140_4x2_manual,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_extreme_mildhybrid140_4x2_manual,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_extreme_mildhybrid140_4x2_manual,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_extreme_mildhybrid140_4x2_manual,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_extreme_mildhybrid140_4x2_manual,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_extreme_mildhybrid140_4x2_manual,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_extreme_mildhybrid140_4x2_manual,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_extreme_mildhybrid140_4x2_manual,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_extreme_mildhybrid140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_extreme_mildhybrid140_4x2_manual,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_extreme_mildhybrid140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_extreme_mildhybrid140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_extreme_mildhybrid140_4x2_manual,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_extreme_mildhybrid140_4x2_manual,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,power_tailgate,optional,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_extreme_mildhybrid140_4x2_manual,media_display_system,not_available,5,System Media Display,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_extreme_mildhybrid140_4x2_manual,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_extreme_mildhybrid140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_extreme_mildhybrid140_4x2_manual,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_extreme_mildhybrid140_4x2_manual,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_journey_mildhybrid140_4x2_manual,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_journey_mildhybrid140_4x2_manual,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_journey_mildhybrid140_4x2_manual,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_journey_mildhybrid140_4x2_manual,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_journey_mildhybrid140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_journey_mildhybrid140_4x2_manual,driver_seat_electric_adjustment,standard,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_journey_mildhybrid140_4x2_manual,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_journey_mildhybrid140_4x2_manual,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_journey_mildhybrid140_4x2_manual,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_journey_mildhybrid140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_journey_mildhybrid140_4x2_manual,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_journey_mildhybrid140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_journey_mildhybrid140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_journey_mildhybrid140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_journey_mildhybrid140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_journey_mildhybrid140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_journey_mildhybrid140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_journey_mildhybrid140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_journey_mildhybrid140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_journey_mildhybrid140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_journey_mildhybrid140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_journey_mildhybrid140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_journey_mildhybrid140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_journey_mildhybrid140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_journey_mildhybrid140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_journey_mildhybrid140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_journey_mildhybrid140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_journey_mildhybrid140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_journey_mildhybrid140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_journey_mildhybrid140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_journey_mildhybrid140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_journey_mildhybrid140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_journey_mildhybrid140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_journey_mildhybrid140_4x2_manual,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_journey_mildhybrid140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_journey_mildhybrid140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_journey_mildhybrid140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_journey_mildhybrid140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_journey_mildhybrid140_4x2_manual,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_journey_mildhybrid140_4x2_manual,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_journey_mildhybrid140_4x2_manual,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_journey_mildhybrid140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_journey_mildhybrid140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_journey_mildhybrid140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_journey_mildhybrid140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_journey_mildhybrid140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_journey_mildhybrid140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_journey_mildhybrid140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_journey_mildhybrid140_4x2_manual,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_journey_mildhybrid140_4x2_manual,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_journey_mildhybrid140_4x2_manual,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_journey_mildhybrid140_4x2_manual,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_journey_mildhybrid140_4x2_manual,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_journey_mildhybrid140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_journey_mildhybrid140_4x2_manual,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_journey_mildhybrid140_4x2_manual,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_journey_mildhybrid140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_mildhybrid140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_journey_mildhybrid140_4x2_manual,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_journey_mildhybrid140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_journey_mildhybrid140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_journey_mildhybrid140_4x2_manual,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_journey_mildhybrid140_4x2_manual,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_journey_mildhybrid140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_journey_mildhybrid140_4x2_manual,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_journey_mildhybrid140_4x2_manual,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_journey_mildhybrid140_4x2_manual,power_tailgate,standard,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_journey_mildhybrid140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_journey_mildhybrid140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_journey_mildhybrid140_4x2_manual,media_display_system,not_available,5,System Media Display,direct row.
+bigster_journey_mildhybrid140_4x2_manual,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_journey_mildhybrid140_4x2_manual,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_journey_mildhybrid140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_journey_mildhybrid140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_journey_mildhybrid140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_journey_mildhybrid140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_journey_mildhybrid140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_journey_mildhybrid140_4x2_manual,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_journey_mildhybrid140_4x2_manual,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_essential_mildhybridg140_4x2_manual,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_essential_mildhybridg140_4x2_manual,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_essential_mildhybridg140_4x2_manual,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,shark_fin_antenna,not_available,4,Antena w kształcie płetwy rekina,direct row.
+bigster_essential_mildhybridg140_4x2_manual,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
+bigster_essential_mildhybridg140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_essential_mildhybridg140_4x2_manual,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_essential_mildhybridg140_4x2_manual,driver_seat_lumbar_adjustment,not_available,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_essential_mildhybridg140_4x2_manual,passenger_seat_height_adjustment,not_available,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_essential_mildhybridg140_4x2_manual,heated_front_seats,not_available,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,front_centre_armrest,not_available,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_essential_mildhybridg140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_essential_mildhybridg140_4x2_manual,rear_usb_c_ports,not_available,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_essential_mildhybridg140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_essential_mildhybridg140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_essential_mildhybridg140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_essential_mildhybridg140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_essential_mildhybridg140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_essential_mildhybridg140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_essential_mildhybridg140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_essential_mildhybridg140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_essential_mildhybridg140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_essential_mildhybridg140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_essential_mildhybridg140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_essential_mildhybridg140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_essential_mildhybridg140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_essential_mildhybridg140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_essential_mildhybridg140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_essential_mildhybridg140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_essential_mildhybridg140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_essential_mildhybridg140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_essential_mildhybridg140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_essential_mildhybridg140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_essential_mildhybridg140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_essential_mildhybridg140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_essential_mildhybridg140_4x2_manual,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_essential_mildhybridg140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_essential_mildhybridg140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_essential_mildhybridg140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_essential_mildhybridg140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rain_sensing_wipers,not_available,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_essential_mildhybridg140_4x2_manual,high_beam_assist,not_available,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_essential_mildhybridg140_4x2_manual,fog_lights_front,not_available,4,Światła przeciwmgłowe LED,direct row.
+bigster_essential_mildhybridg140_4x2_manual,side_mirrors_folding,not_available,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_essential_mildhybridg140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_essential_mildhybridg140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_essential_mildhybridg140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_essential_mildhybridg140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_essential_mildhybridg140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_essential_mildhybridg140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_essential_mildhybridg140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_essential_mildhybridg140_4x2_manual,front_parking_sensors,not_available,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,360_camera_system,not_available,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,electronic_parking_brake,not_available,5,Automatyczny hamulec postojowy,direct row.
+bigster_essential_mildhybridg140_4x2_manual,manual_air_conditioning,standard,5,Klimatyzacja manualna,direct row.
+bigster_essential_mildhybridg140_4x2_manual,automatic_climate_control,not_available,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_essential_mildhybridg140_4x2_manual,dual_zone_climate_control,not_available,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_essential_mildhybridg140_4x2_manual,rear_air_vents,not_available,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_essential_mildhybridg140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_essential_mildhybridg140_4x2_manual,keyless_entry,not_available,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_essential_mildhybridg140_4x2_manual,keyless_start,not_available,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_essential_mildhybridg140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_essential_mildhybridg140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_essential_mildhybridg140_4x2_manual,heated_windscreen,not_available,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_essential_mildhybridg140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_essential_mildhybridg140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_essential_mildhybridg140_4x2_manual,heated_steering_wheel,not_available,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,youclip_phone_holder,not_available,5,YouClip - uchwyt do smartfona,direct row.
+bigster_essential_mildhybridg140_4x2_manual,wireless_charging,not_available,5,Ładowarka indukcyjna,direct row.
+bigster_essential_mildhybridg140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_essential_mildhybridg140_4x2_manual,rear_seat_easy_fold,not_available,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_essential_mildhybridg140_4x2_manual,adjustable_boot_floor,not_available,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_essential_mildhybridg140_4x2_manual,power_tailgate,not_available,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,boot_12v_socket,not_available,5,Gniazdo 12V w bagażniku,direct row.
+bigster_essential_mildhybridg140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_essential_mildhybridg140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_essential_mildhybridg140_4x2_manual,media_display_system,standard,5,System Media Display,direct row.
+bigster_essential_mildhybridg140_4x2_manual,navigation_system,not_available,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_essential_mildhybridg140_4x2_manual,live_traffic_information,not_available,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_essential_mildhybridg140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_essential_mildhybridg140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_essential_mildhybridg140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_essential_mildhybridg140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_essential_mildhybridg140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_essential_mildhybridg140_4x2_manual,instrument_cluster_colour_7,standard,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_essential_mildhybridg140_4x2_manual,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_expression_mildhybridg140_4x2_manual,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_expression_mildhybridg140_4x2_manual,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_expression_mildhybridg140_4x2_manual,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_expression_mildhybridg140_4x2_manual,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
+bigster_expression_mildhybridg140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_expression_mildhybridg140_4x2_manual,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_expression_mildhybridg140_4x2_manual,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_expression_mildhybridg140_4x2_manual,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_expression_mildhybridg140_4x2_manual,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_expression_mildhybridg140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_expression_mildhybridg140_4x2_manual,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_expression_mildhybridg140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_expression_mildhybridg140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_expression_mildhybridg140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_expression_mildhybridg140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_expression_mildhybridg140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_expression_mildhybridg140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_expression_mildhybridg140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_expression_mildhybridg140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_expression_mildhybridg140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_expression_mildhybridg140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_expression_mildhybridg140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_expression_mildhybridg140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_expression_mildhybridg140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_expression_mildhybridg140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_expression_mildhybridg140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_expression_mildhybridg140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_expression_mildhybridg140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_expression_mildhybridg140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_expression_mildhybridg140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_expression_mildhybridg140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_expression_mildhybridg140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_expression_mildhybridg140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_expression_mildhybridg140_4x2_manual,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_expression_mildhybridg140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_expression_mildhybridg140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_expression_mildhybridg140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_expression_mildhybridg140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_expression_mildhybridg140_4x2_manual,high_beam_assist,not_available,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_expression_mildhybridg140_4x2_manual,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_expression_mildhybridg140_4x2_manual,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_expression_mildhybridg140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_expression_mildhybridg140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_expression_mildhybridg140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_expression_mildhybridg140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_expression_mildhybridg140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_expression_mildhybridg140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_expression_mildhybridg140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_expression_mildhybridg140_4x2_manual,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_expression_mildhybridg140_4x2_manual,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_expression_mildhybridg140_4x2_manual,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_expression_mildhybridg140_4x2_manual,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_expression_mildhybridg140_4x2_manual,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_expression_mildhybridg140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_expression_mildhybridg140_4x2_manual,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_expression_mildhybridg140_4x2_manual,keyless_start,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_expression_mildhybridg140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_mildhybridg140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_expression_mildhybridg140_4x2_manual,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_expression_mildhybridg140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_expression_mildhybridg140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_expression_mildhybridg140_4x2_manual,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_expression_mildhybridg140_4x2_manual,wireless_charging,not_available,5,Ładowarka indukcyjna,direct row.
+bigster_expression_mildhybridg140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_expression_mildhybridg140_4x2_manual,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_expression_mildhybridg140_4x2_manual,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_expression_mildhybridg140_4x2_manual,power_tailgate,not_available,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_expression_mildhybridg140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_expression_mildhybridg140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_expression_mildhybridg140_4x2_manual,media_display_system,standard,5,System Media Display,direct row.
+bigster_expression_mildhybridg140_4x2_manual,navigation_system,optional,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_expression_mildhybridg140_4x2_manual,live_traffic_information,optional,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_expression_mildhybridg140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_expression_mildhybridg140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_expression_mildhybridg140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_expression_mildhybridg140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_expression_mildhybridg140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_expression_mildhybridg140_4x2_manual,instrument_cluster_colour_7,standard,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_expression_mildhybridg140_4x2_manual,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_extreme_mildhybridg140_4x2_manual,roof_rails,not_available,4,Relingi dachowe,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,modular_roof_rails,standard,4,Modułowe relingi dachowe,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_extreme_mildhybridg140_4x2_manual,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_extreme_mildhybridg140_4x2_manual,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_extreme_mildhybridg140_4x2_manual,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_extreme_mildhybridg140_4x2_manual,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_extreme_mildhybridg140_4x2_manual,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_extreme_mildhybridg140_4x2_manual,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_extreme_mildhybridg140_4x2_manual,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_extreme_mildhybridg140_4x2_manual,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_extreme_mildhybridg140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_extreme_mildhybridg140_4x2_manual,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_extreme_mildhybridg140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_extreme_mildhybridg140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_extreme_mildhybridg140_4x2_manual,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_extreme_mildhybridg140_4x2_manual,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,power_tailgate,optional,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_extreme_mildhybridg140_4x2_manual,media_display_system,not_available,5,System Media Display,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_extreme_mildhybridg140_4x2_manual,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_extreme_mildhybridg140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_extreme_mildhybridg140_4x2_manual,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_extreme_mildhybridg140_4x2_manual,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_journey_mildhybridg140_4x2_manual,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_journey_mildhybridg140_4x2_manual,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_journey_mildhybridg140_4x2_manual,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_journey_mildhybridg140_4x2_manual,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_journey_mildhybridg140_4x2_manual,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_journey_mildhybridg140_4x2_manual,driver_seat_electric_adjustment,standard,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_journey_mildhybridg140_4x2_manual,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_journey_mildhybridg140_4x2_manual,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_journey_mildhybridg140_4x2_manual,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_journey_mildhybridg140_4x2_manual,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_journey_mildhybridg140_4x2_manual,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_journey_mildhybridg140_4x2_manual,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_journey_mildhybridg140_4x2_manual,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_journey_mildhybridg140_4x2_manual,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_journey_mildhybridg140_4x2_manual,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_journey_mildhybridg140_4x2_manual,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_journey_mildhybridg140_4x2_manual,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_journey_mildhybridg140_4x2_manual,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_journey_mildhybridg140_4x2_manual,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_journey_mildhybridg140_4x2_manual,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_journey_mildhybridg140_4x2_manual,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_journey_mildhybridg140_4x2_manual,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_journey_mildhybridg140_4x2_manual,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_journey_mildhybridg140_4x2_manual,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_journey_mildhybridg140_4x2_manual,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_journey_mildhybridg140_4x2_manual,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_journey_mildhybridg140_4x2_manual,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_journey_mildhybridg140_4x2_manual,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_journey_mildhybridg140_4x2_manual,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_journey_mildhybridg140_4x2_manual,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_journey_mildhybridg140_4x2_manual,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_journey_mildhybridg140_4x2_manual,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_journey_mildhybridg140_4x2_manual,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_journey_mildhybridg140_4x2_manual,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_journey_mildhybridg140_4x2_manual,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_journey_mildhybridg140_4x2_manual,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_journey_mildhybridg140_4x2_manual,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_journey_mildhybridg140_4x2_manual,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_journey_mildhybridg140_4x2_manual,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_journey_mildhybridg140_4x2_manual,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_journey_mildhybridg140_4x2_manual,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_journey_mildhybridg140_4x2_manual,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_journey_mildhybridg140_4x2_manual,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_journey_mildhybridg140_4x2_manual,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_journey_mildhybridg140_4x2_manual,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_journey_mildhybridg140_4x2_manual,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_journey_mildhybridg140_4x2_manual,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_journey_mildhybridg140_4x2_manual,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_journey_mildhybridg140_4x2_manual,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_journey_mildhybridg140_4x2_manual,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_journey_mildhybridg140_4x2_manual,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_journey_mildhybridg140_4x2_manual,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_journey_mildhybridg140_4x2_manual,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_journey_mildhybridg140_4x2_manual,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_journey_mildhybridg140_4x2_manual,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_journey_mildhybridg140_4x2_manual,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_journey_mildhybridg140_4x2_manual,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_mildhybridg140_4x2_manual,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_journey_mildhybridg140_4x2_manual,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_journey_mildhybridg140_4x2_manual,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_journey_mildhybridg140_4x2_manual,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_journey_mildhybridg140_4x2_manual,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_journey_mildhybridg140_4x2_manual,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_journey_mildhybridg140_4x2_manual,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_journey_mildhybridg140_4x2_manual,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_journey_mildhybridg140_4x2_manual,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_journey_mildhybridg140_4x2_manual,power_tailgate,standard,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_journey_mildhybridg140_4x2_manual,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_journey_mildhybridg140_4x2_manual,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_journey_mildhybridg140_4x2_manual,media_display_system,not_available,5,System Media Display,direct row.
+bigster_journey_mildhybridg140_4x2_manual,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_journey_mildhybridg140_4x2_manual,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_journey_mildhybridg140_4x2_manual,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_journey_mildhybridg140_4x2_manual,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_journey_mildhybridg140_4x2_manual,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_journey_mildhybridg140_4x2_manual,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_journey_mildhybridg140_4x2_manual,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_journey_mildhybridg140_4x2_manual,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_journey_mildhybridg140_4x2_manual,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_expression_hybrid155_4x2_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_expression_hybrid155_4x2_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_expression_hybrid155_4x2_automatic,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_expression_hybrid155_4x2_automatic,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
+bigster_expression_hybrid155_4x2_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_expression_hybrid155_4x2_automatic,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_expression_hybrid155_4x2_automatic,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_expression_hybrid155_4x2_automatic,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_expression_hybrid155_4x2_automatic,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_expression_hybrid155_4x2_automatic,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_expression_hybrid155_4x2_automatic,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_expression_hybrid155_4x2_automatic,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_expression_hybrid155_4x2_automatic,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_expression_hybrid155_4x2_automatic,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_expression_hybrid155_4x2_automatic,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_expression_hybrid155_4x2_automatic,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_expression_hybrid155_4x2_automatic,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_expression_hybrid155_4x2_automatic,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_expression_hybrid155_4x2_automatic,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_expression_hybrid155_4x2_automatic,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_expression_hybrid155_4x2_automatic,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_expression_hybrid155_4x2_automatic,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_expression_hybrid155_4x2_automatic,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_expression_hybrid155_4x2_automatic,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_expression_hybrid155_4x2_automatic,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_expression_hybrid155_4x2_automatic,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_expression_hybrid155_4x2_automatic,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_expression_hybrid155_4x2_automatic,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_hybrid155_4x2_automatic,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_hybrid155_4x2_automatic,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_expression_hybrid155_4x2_automatic,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_expression_hybrid155_4x2_automatic,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_expression_hybrid155_4x2_automatic,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_expression_hybrid155_4x2_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_expression_hybrid155_4x2_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_expression_hybrid155_4x2_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_expression_hybrid155_4x2_automatic,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_expression_hybrid155_4x2_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_expression_hybrid155_4x2_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_expression_hybrid155_4x2_automatic,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_expression_hybrid155_4x2_automatic,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_expression_hybrid155_4x2_automatic,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_expression_hybrid155_4x2_automatic,high_beam_assist,not_available,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_expression_hybrid155_4x2_automatic,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_expression_hybrid155_4x2_automatic,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_expression_hybrid155_4x2_automatic,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_expression_hybrid155_4x2_automatic,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_expression_hybrid155_4x2_automatic,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_expression_hybrid155_4x2_automatic,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_expression_hybrid155_4x2_automatic,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_expression_hybrid155_4x2_automatic,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_expression_hybrid155_4x2_automatic,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_expression_hybrid155_4x2_automatic,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_expression_hybrid155_4x2_automatic,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_expression_hybrid155_4x2_automatic,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_expression_hybrid155_4x2_automatic,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_expression_hybrid155_4x2_automatic,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_expression_hybrid155_4x2_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_expression_hybrid155_4x2_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_expression_hybrid155_4x2_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_expression_hybrid155_4x2_automatic,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_expression_hybrid155_4x2_automatic,keyless_start,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_expression_hybrid155_4x2_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_hybrid155_4x2_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_hybrid155_4x2_automatic,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_expression_hybrid155_4x2_automatic,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_expression_hybrid155_4x2_automatic,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_expression_hybrid155_4x2_automatic,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_expression_hybrid155_4x2_automatic,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_expression_hybrid155_4x2_automatic,wireless_charging,not_available,5,Ładowarka indukcyjna,direct row.
+bigster_expression_hybrid155_4x2_automatic,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_expression_hybrid155_4x2_automatic,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_expression_hybrid155_4x2_automatic,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_expression_hybrid155_4x2_automatic,power_tailgate,not_available,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_expression_hybrid155_4x2_automatic,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_expression_hybrid155_4x2_automatic,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_expression_hybrid155_4x2_automatic,media_display_system,standard,5,System Media Display,direct row.
+bigster_expression_hybrid155_4x2_automatic,navigation_system,optional,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_expression_hybrid155_4x2_automatic,live_traffic_information,optional,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_expression_hybrid155_4x2_automatic,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_expression_hybrid155_4x2_automatic,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_expression_hybrid155_4x2_automatic,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_expression_hybrid155_4x2_automatic,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_expression_hybrid155_4x2_automatic,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_expression_hybrid155_4x2_automatic,instrument_cluster_colour_7,standard,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_expression_hybrid155_4x2_automatic,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_extreme_hybrid155_4x2_automatic,roof_rails,not_available,4,Relingi dachowe,direct row.
+bigster_extreme_hybrid155_4x2_automatic,modular_roof_rails,standard,4,Modułowe relingi dachowe,direct row.
+bigster_extreme_hybrid155_4x2_automatic,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_extreme_hybrid155_4x2_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_extreme_hybrid155_4x2_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_extreme_hybrid155_4x2_automatic,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_extreme_hybrid155_4x2_automatic,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_extreme_hybrid155_4x2_automatic,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_extreme_hybrid155_4x2_automatic,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_extreme_hybrid155_4x2_automatic,cooling_glovebox,standard,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_extreme_hybrid155_4x2_automatic,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_extreme_hybrid155_4x2_automatic,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_extreme_hybrid155_4x2_automatic,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_extreme_hybrid155_4x2_automatic,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_extreme_hybrid155_4x2_automatic,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_extreme_hybrid155_4x2_automatic,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_extreme_hybrid155_4x2_automatic,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_extreme_hybrid155_4x2_automatic,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_extreme_hybrid155_4x2_automatic,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_extreme_hybrid155_4x2_automatic,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_extreme_hybrid155_4x2_automatic,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_extreme_hybrid155_4x2_automatic,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_extreme_hybrid155_4x2_automatic,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_extreme_hybrid155_4x2_automatic,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_extreme_hybrid155_4x2_automatic,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_extreme_hybrid155_4x2_automatic,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_extreme_hybrid155_4x2_automatic,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_extreme_hybrid155_4x2_automatic,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_extreme_hybrid155_4x2_automatic,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_extreme_hybrid155_4x2_automatic,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_extreme_hybrid155_4x2_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_extreme_hybrid155_4x2_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_extreme_hybrid155_4x2_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_extreme_hybrid155_4x2_automatic,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_extreme_hybrid155_4x2_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_extreme_hybrid155_4x2_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_extreme_hybrid155_4x2_automatic,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_extreme_hybrid155_4x2_automatic,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_extreme_hybrid155_4x2_automatic,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_extreme_hybrid155_4x2_automatic,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_extreme_hybrid155_4x2_automatic,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_extreme_hybrid155_4x2_automatic,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_extreme_hybrid155_4x2_automatic,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_extreme_hybrid155_4x2_automatic,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_extreme_hybrid155_4x2_automatic,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_extreme_hybrid155_4x2_automatic,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_extreme_hybrid155_4x2_automatic,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_extreme_hybrid155_4x2_automatic,adaptive_cruise_control,standard,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_extreme_hybrid155_4x2_automatic,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_extreme_hybrid155_4x2_automatic,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_extreme_hybrid155_4x2_automatic,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_extreme_hybrid155_4x2_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_extreme_hybrid155_4x2_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_extreme_hybrid155_4x2_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_extreme_hybrid155_4x2_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_extreme_hybrid155_4x2_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_extreme_hybrid155_4x2_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_hybrid155_4x2_automatic,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_extreme_hybrid155_4x2_automatic,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_extreme_hybrid155_4x2_automatic,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_extreme_hybrid155_4x2_automatic,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_extreme_hybrid155_4x2_automatic,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_extreme_hybrid155_4x2_automatic,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_extreme_hybrid155_4x2_automatic,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_extreme_hybrid155_4x2_automatic,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_extreme_hybrid155_4x2_automatic,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_extreme_hybrid155_4x2_automatic,power_tailgate,optional,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_extreme_hybrid155_4x2_automatic,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_extreme_hybrid155_4x2_automatic,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_extreme_hybrid155_4x2_automatic,media_display_system,not_available,5,System Media Display,direct row.
+bigster_extreme_hybrid155_4x2_automatic,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_extreme_hybrid155_4x2_automatic,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_extreme_hybrid155_4x2_automatic,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_extreme_hybrid155_4x2_automatic,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_extreme_hybrid155_4x2_automatic,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_extreme_hybrid155_4x2_automatic,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_extreme_hybrid155_4x2_automatic,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_extreme_hybrid155_4x2_automatic,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_extreme_hybrid155_4x2_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_journey_hybrid155_4x2_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_journey_hybrid155_4x2_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_journey_hybrid155_4x2_automatic,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_journey_hybrid155_4x2_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_journey_hybrid155_4x2_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_journey_hybrid155_4x2_automatic,driver_seat_electric_adjustment,standard,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_journey_hybrid155_4x2_automatic,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_journey_hybrid155_4x2_automatic,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_journey_hybrid155_4x2_automatic,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_journey_hybrid155_4x2_automatic,cooling_glovebox,standard,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_journey_hybrid155_4x2_automatic,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_journey_hybrid155_4x2_automatic,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_journey_hybrid155_4x2_automatic,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_journey_hybrid155_4x2_automatic,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_journey_hybrid155_4x2_automatic,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_journey_hybrid155_4x2_automatic,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_journey_hybrid155_4x2_automatic,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_journey_hybrid155_4x2_automatic,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_journey_hybrid155_4x2_automatic,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_journey_hybrid155_4x2_automatic,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_journey_hybrid155_4x2_automatic,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_journey_hybrid155_4x2_automatic,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_journey_hybrid155_4x2_automatic,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_journey_hybrid155_4x2_automatic,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_journey_hybrid155_4x2_automatic,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_journey_hybrid155_4x2_automatic,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_journey_hybrid155_4x2_automatic,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_journey_hybrid155_4x2_automatic,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_hybrid155_4x2_automatic,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_hybrid155_4x2_automatic,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_journey_hybrid155_4x2_automatic,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_journey_hybrid155_4x2_automatic,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_journey_hybrid155_4x2_automatic,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_journey_hybrid155_4x2_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_journey_hybrid155_4x2_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_journey_hybrid155_4x2_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_journey_hybrid155_4x2_automatic,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_journey_hybrid155_4x2_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_journey_hybrid155_4x2_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_journey_hybrid155_4x2_automatic,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_journey_hybrid155_4x2_automatic,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_journey_hybrid155_4x2_automatic,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_journey_hybrid155_4x2_automatic,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_journey_hybrid155_4x2_automatic,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_journey_hybrid155_4x2_automatic,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_journey_hybrid155_4x2_automatic,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_journey_hybrid155_4x2_automatic,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_journey_hybrid155_4x2_automatic,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_journey_hybrid155_4x2_automatic,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_journey_hybrid155_4x2_automatic,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_journey_hybrid155_4x2_automatic,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_journey_hybrid155_4x2_automatic,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_journey_hybrid155_4x2_automatic,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_journey_hybrid155_4x2_automatic,adaptive_cruise_control,standard,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_journey_hybrid155_4x2_automatic,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_journey_hybrid155_4x2_automatic,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_journey_hybrid155_4x2_automatic,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_journey_hybrid155_4x2_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_journey_hybrid155_4x2_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_journey_hybrid155_4x2_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_journey_hybrid155_4x2_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_journey_hybrid155_4x2_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_journey_hybrid155_4x2_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_hybrid155_4x2_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_hybrid155_4x2_automatic,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_journey_hybrid155_4x2_automatic,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_journey_hybrid155_4x2_automatic,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_journey_hybrid155_4x2_automatic,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_journey_hybrid155_4x2_automatic,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_journey_hybrid155_4x2_automatic,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_journey_hybrid155_4x2_automatic,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_journey_hybrid155_4x2_automatic,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_journey_hybrid155_4x2_automatic,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_journey_hybrid155_4x2_automatic,power_tailgate,standard,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_journey_hybrid155_4x2_automatic,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_journey_hybrid155_4x2_automatic,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_journey_hybrid155_4x2_automatic,media_display_system,not_available,5,System Media Display,direct row.
+bigster_journey_hybrid155_4x2_automatic,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_journey_hybrid155_4x2_automatic,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_journey_hybrid155_4x2_automatic,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_journey_hybrid155_4x2_automatic,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_journey_hybrid155_4x2_automatic,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_journey_hybrid155_4x2_automatic,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_journey_hybrid155_4x2_automatic,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_journey_hybrid155_4x2_automatic,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_journey_hybrid155_4x2_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_expression_hybridg150_4x4_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_expression_hybridg150_4x4_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_expression_hybridg150_4x4_automatic,glass_sunroof,not_available,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_expression_hybridg150_4x4_automatic,privacy_glass,not_available,4,Szyby tylne przyciemniane,direct row.
+bigster_expression_hybridg150_4x4_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_expression_hybridg150_4x4_automatic,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_expression_hybridg150_4x4_automatic,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_expression_hybridg150_4x4_automatic,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_expression_hybridg150_4x4_automatic,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_expression_hybridg150_4x4_automatic,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_expression_hybridg150_4x4_automatic,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_expression_hybridg150_4x4_automatic,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_expression_hybridg150_4x4_automatic,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_expression_hybridg150_4x4_automatic,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_expression_hybridg150_4x4_automatic,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_expression_hybridg150_4x4_automatic,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_expression_hybridg150_4x4_automatic,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_expression_hybridg150_4x4_automatic,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_expression_hybridg150_4x4_automatic,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_expression_hybridg150_4x4_automatic,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_expression_hybridg150_4x4_automatic,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_expression_hybridg150_4x4_automatic,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_expression_hybridg150_4x4_automatic,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_expression_hybridg150_4x4_automatic,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_expression_hybridg150_4x4_automatic,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_expression_hybridg150_4x4_automatic,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_expression_hybridg150_4x4_automatic,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_expression_hybridg150_4x4_automatic,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_hybridg150_4x4_automatic,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_expression_hybridg150_4x4_automatic,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_expression_hybridg150_4x4_automatic,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_expression_hybridg150_4x4_automatic,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_expression_hybridg150_4x4_automatic,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_expression_hybridg150_4x4_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_expression_hybridg150_4x4_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_expression_hybridg150_4x4_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_expression_hybridg150_4x4_automatic,blind_spot_monitoring,not_available,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_expression_hybridg150_4x4_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_expression_hybridg150_4x4_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_expression_hybridg150_4x4_automatic,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_expression_hybridg150_4x4_automatic,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_expression_hybridg150_4x4_automatic,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_expression_hybridg150_4x4_automatic,high_beam_assist,not_available,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_expression_hybridg150_4x4_automatic,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_expression_hybridg150_4x4_automatic,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_expression_hybridg150_4x4_automatic,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_expression_hybridg150_4x4_automatic,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_expression_hybridg150_4x4_automatic,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_expression_hybridg150_4x4_automatic,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_expression_hybridg150_4x4_automatic,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_expression_hybridg150_4x4_automatic,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_expression_hybridg150_4x4_automatic,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_expression_hybridg150_4x4_automatic,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_expression_hybridg150_4x4_automatic,adaptive_cruise_control,not_available,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_expression_hybridg150_4x4_automatic,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_expression_hybridg150_4x4_automatic,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_expression_hybridg150_4x4_automatic,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_expression_hybridg150_4x4_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_expression_hybridg150_4x4_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_expression_hybridg150_4x4_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_expression_hybridg150_4x4_automatic,keyless_entry,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_expression_hybridg150_4x4_automatic,keyless_start,optional,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_expression_hybridg150_4x4_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_hybridg150_4x4_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_expression_hybridg150_4x4_automatic,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_expression_hybridg150_4x4_automatic,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_expression_hybridg150_4x4_automatic,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_expression_hybridg150_4x4_automatic,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_expression_hybridg150_4x4_automatic,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_expression_hybridg150_4x4_automatic,wireless_charging,not_available,5,Ładowarka indukcyjna,direct row.
+bigster_expression_hybridg150_4x4_automatic,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_expression_hybridg150_4x4_automatic,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_expression_hybridg150_4x4_automatic,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_expression_hybridg150_4x4_automatic,power_tailgate,not_available,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_expression_hybridg150_4x4_automatic,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_expression_hybridg150_4x4_automatic,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_expression_hybridg150_4x4_automatic,media_display_system,standard,5,System Media Display,direct row.
+bigster_expression_hybridg150_4x4_automatic,navigation_system,optional,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_expression_hybridg150_4x4_automatic,live_traffic_information,optional,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_expression_hybridg150_4x4_automatic,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_expression_hybridg150_4x4_automatic,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_expression_hybridg150_4x4_automatic,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_expression_hybridg150_4x4_automatic,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_expression_hybridg150_4x4_automatic,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_expression_hybridg150_4x4_automatic,instrument_cluster_colour_7,standard,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_expression_hybridg150_4x4_automatic,instrument_cluster_colour_10_1,not_available,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_extreme_hybridg150_4x4_automatic,roof_rails,not_available,4,Relingi dachowe,direct row.
+bigster_extreme_hybridg150_4x4_automatic,modular_roof_rails,standard,4,Modułowe relingi dachowe,direct row.
+bigster_extreme_hybridg150_4x4_automatic,glass_sunroof,standard,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_extreme_hybridg150_4x4_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_extreme_hybridg150_4x4_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_extreme_hybridg150_4x4_automatic,driver_seat_electric_adjustment,not_available,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_extreme_hybridg150_4x4_automatic,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_extreme_hybridg150_4x4_automatic,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_extreme_hybridg150_4x4_automatic,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_extreme_hybridg150_4x4_automatic,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_extreme_hybridg150_4x4_automatic,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_extreme_hybridg150_4x4_automatic,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_extreme_hybridg150_4x4_automatic,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_extreme_hybridg150_4x4_automatic,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_extreme_hybridg150_4x4_automatic,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_extreme_hybridg150_4x4_automatic,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_extreme_hybridg150_4x4_automatic,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_extreme_hybridg150_4x4_automatic,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_extreme_hybridg150_4x4_automatic,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_extreme_hybridg150_4x4_automatic,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_extreme_hybridg150_4x4_automatic,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_extreme_hybridg150_4x4_automatic,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_extreme_hybridg150_4x4_automatic,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_extreme_hybridg150_4x4_automatic,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_extreme_hybridg150_4x4_automatic,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_extreme_hybridg150_4x4_automatic,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_extreme_hybridg150_4x4_automatic,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_extreme_hybridg150_4x4_automatic,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_extreme_hybridg150_4x4_automatic,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_extreme_hybridg150_4x4_automatic,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_extreme_hybridg150_4x4_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_extreme_hybridg150_4x4_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_extreme_hybridg150_4x4_automatic,hill_descent_control,standard,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_extreme_hybridg150_4x4_automatic,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_extreme_hybridg150_4x4_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_extreme_hybridg150_4x4_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_extreme_hybridg150_4x4_automatic,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_extreme_hybridg150_4x4_automatic,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_extreme_hybridg150_4x4_automatic,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_extreme_hybridg150_4x4_automatic,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_extreme_hybridg150_4x4_automatic,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_extreme_hybridg150_4x4_automatic,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_extreme_hybridg150_4x4_automatic,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_extreme_hybridg150_4x4_automatic,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_extreme_hybridg150_4x4_automatic,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_extreme_hybridg150_4x4_automatic,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_extreme_hybridg150_4x4_automatic,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_extreme_hybridg150_4x4_automatic,adaptive_cruise_control,standard,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_extreme_hybridg150_4x4_automatic,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_extreme_hybridg150_4x4_automatic,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_extreme_hybridg150_4x4_automatic,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_extreme_hybridg150_4x4_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_extreme_hybridg150_4x4_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_extreme_hybridg150_4x4_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_extreme_hybridg150_4x4_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_extreme_hybridg150_4x4_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_extreme_hybridg150_4x4_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_extreme_hybridg150_4x4_automatic,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_extreme_hybridg150_4x4_automatic,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_extreme_hybridg150_4x4_automatic,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_extreme_hybridg150_4x4_automatic,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_extreme_hybridg150_4x4_automatic,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_extreme_hybridg150_4x4_automatic,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_extreme_hybridg150_4x4_automatic,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_extreme_hybridg150_4x4_automatic,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_extreme_hybridg150_4x4_automatic,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_extreme_hybridg150_4x4_automatic,power_tailgate,optional,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_extreme_hybridg150_4x4_automatic,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_extreme_hybridg150_4x4_automatic,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_extreme_hybridg150_4x4_automatic,media_display_system,not_available,5,System Media Display,direct row.
+bigster_extreme_hybridg150_4x4_automatic,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_extreme_hybridg150_4x4_automatic,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_extreme_hybridg150_4x4_automatic,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_extreme_hybridg150_4x4_automatic,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_extreme_hybridg150_4x4_automatic,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_extreme_hybridg150_4x4_automatic,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_extreme_hybridg150_4x4_automatic,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_extreme_hybridg150_4x4_automatic,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_extreme_hybridg150_4x4_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.
+bigster_journey_hybridg150_4x4_automatic,roof_rails,standard,4,Relingi dachowe,direct row.
+bigster_journey_hybridg150_4x4_automatic,modular_roof_rails,not_available,4,Modułowe relingi dachowe,direct row.
+bigster_journey_hybridg150_4x4_automatic,glass_sunroof,optional,4,Dach panoramiczny elektrycznie otwierany,printed Journey price normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,shark_fin_antenna,standard,4,Antena w kształcie płetwy rekina,direct row.
+bigster_journey_hybridg150_4x4_automatic,privacy_glass,standard,4,Szyby tylne przyciemniane,direct row.
+bigster_journey_hybridg150_4x4_automatic,driver_seat_height_adjustment,standard,4,Fotel kierowcy z regulacją wysokości / elektryczną regulacją wysokości,manual or electric height-adjustment capability.
+bigster_journey_hybridg150_4x4_automatic,driver_seat_electric_adjustment,standard,4,Fotel kierowcy z elektryczną regulacją wysokości i kąta oparcia,direct row.
+bigster_journey_hybridg150_4x4_automatic,driver_seat_lumbar_adjustment,standard,4,Fotel kierowcy z regulacją podparcia lędźwiowego,direct row.
+bigster_journey_hybridg150_4x4_automatic,passenger_seat_height_adjustment,standard,4,Fotel pasażera z regulacją wysokości,direct row.
+bigster_journey_hybridg150_4x4_automatic,heated_front_seats,optional,4/5,Fotele przednie podgrzewane,P3/P4 package marker normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,front_centre_armrest,standard,4,Konsola centralna z podłokietnikiem i schowkiem,direct row.
+bigster_journey_hybridg150_4x4_automatic,cooling_glovebox,not_available,4,Chłodzony schowek,source explicitly limits availability to Hybrid 155.
+bigster_journey_hybridg150_4x4_automatic,rear_usb_c_ports,standard,4/5,2 gniazda USB-C z tyłu konsoli centralnej,direct row.
+bigster_journey_hybridg150_4x4_automatic,automatic_emergency_braking,standard,4,Aktywny system wspomagania nagłego hamowania (AEBS),direct row.
+bigster_journey_hybridg150_4x4_automatic,anti_lock_braking_system,standard,4,ABS z układem wspomagania nagłego hamowania (AFU),direct row.
+bigster_journey_hybridg150_4x4_automatic,electronic_stability_control,standard,4,System kontroli toru jazdy (ESC),direct row.
+bigster_journey_hybridg150_4x4_automatic,hill_start_assist,standard,4,System wspomagania ruszania pod górę (HSA),direct row.
+bigster_journey_hybridg150_4x4_automatic,safe_distance_warning,standard,4,System kontroli bezpiecznej odległości (DW),direct row.
+bigster_journey_hybridg150_4x4_automatic,lane_departure_warning,standard,4,System kontroli pasa ruchu (LDWS),direct row.
+bigster_journey_hybridg150_4x4_automatic,lane_keep_assist,standard,4,System utrzymania pasa ruchu (LKA),direct row.
+bigster_journey_hybridg150_4x4_automatic,driver_attention_monitoring,standard,4,System kontroli zmęczenia kierowcy (DDAW),direct row.
+bigster_journey_hybridg150_4x4_automatic,traffic_sign_recognition,standard,4,System rozpoznawania znaków drogowych (ISA),direct row.
+bigster_journey_hybridg150_4x4_automatic,speed_limiter_intelligent,standard,4,Ostrzeganie o nadmiernej prędkości (ISA),direct row.
+bigster_journey_hybridg150_4x4_automatic,my_safety_button,standard,4,Przycisk My Safety,direct row.
+bigster_journey_hybridg150_4x4_automatic,rescue_code,standard,4,Rescue Code - kod QR na przedniej i tylnej szybie,direct row.
+bigster_journey_hybridg150_4x4_automatic,driver_front_airbag,standard,4,Czołowa poduszka powietrzna kierowcy,direct row.
+bigster_journey_hybridg150_4x4_automatic,passenger_front_airbag,standard,4,Czołowa poduszka powietrzna pasażera,direct row.
+bigster_journey_hybridg150_4x4_automatic,front_side_airbags,standard,4,Boczne poduszki powietrzne z przodu,direct row.
+bigster_journey_hybridg150_4x4_automatic,curtain_airbags,standard,4,Poduszki powietrzne kurtynowe,direct row.
+bigster_journey_hybridg150_4x4_automatic,front_seat_belt_pretensioners,standard,4,Przednie pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_hybridg150_4x4_automatic,rear_seat_belt_pretensioners,standard,4,Tylne pasy bezpieczeństwa z napinaczami pirotechnicznymi,direct row.
+bigster_journey_hybridg150_4x4_automatic,rear_three_point_seat_belts,standard,4,3 tylne pasy bezpieczeństwa 3-punktowe,direct row.
+bigster_journey_hybridg150_4x4_automatic,isofix_rear,standard,4,System mocowania fotelika Isofix na bocznych miejscach z tyłu,direct row.
+bigster_journey_hybridg150_4x4_automatic,emergency_call_ecall,standard,4,Funkcja połączenia alarmowego e-Call,direct row.
+bigster_journey_hybridg150_4x4_automatic,gear_shift_indicator,standard,4,Wskaźnik zmiany biegów,direct row.
+bigster_journey_hybridg150_4x4_automatic,tyre_pressure_monitoring_system,standard,4,System kontroli ciśnienia w oponach,direct row.
+bigster_journey_hybridg150_4x4_automatic,tyre_repair_kit,standard,4,Zestaw naprawczy do opon,direct row.
+bigster_journey_hybridg150_4x4_automatic,hill_descent_control,not_available,4,HDC - system kontroli zjazdu ze wzniesienia,source text: wyłącznie dla wersji Extreme oraz 4x4.
+bigster_journey_hybridg150_4x4_automatic,blind_spot_monitoring,optional,4/5,System monitorowania martwego pola (BSW),P2 package marker normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,led_daytime_running_lights,standard,4,Światła do jazdy dziennej LED w kształcie litery Y,direct row.
+bigster_journey_hybridg150_4x4_automatic,automatic_headlights,standard,4,Automatycznie włączane światła mijania,direct row.
+bigster_journey_hybridg150_4x4_automatic,led_headlights,standard,4,Światła mijania LED,direct row.
+bigster_journey_hybridg150_4x4_automatic,side_mirrors_electric_adjustment,standard,4,Zewnętrzne lusterka boczne regulowane elektrycznie,direct row.
+bigster_journey_hybridg150_4x4_automatic,side_mirrors_heated,standard,4,Zewnętrzne lusterka boczne podgrzewane,direct row.
+bigster_journey_hybridg150_4x4_automatic,rain_sensing_wipers,standard,4,Automatycznie włączane wycieraczki,second component of combined source row.
+bigster_journey_hybridg150_4x4_automatic,high_beam_assist,standard,4,Funkcja automatycznej zmiany świateł drogowych na mijania (AHL),direct row.
+bigster_journey_hybridg150_4x4_automatic,fog_lights_front,standard,4,Światła przeciwmgłowe LED,direct row.
+bigster_journey_hybridg150_4x4_automatic,side_mirrors_folding,standard,4,Zewnętrzne lusterka boczne składane elektrycznie,direct row.
+bigster_journey_hybridg150_4x4_automatic,onboard_computer,standard,5,Komputer pokładowy,direct row.
+bigster_journey_hybridg150_4x4_automatic,speed_limiter,standard,5,Ogranicznik prędkości,direct row.
+bigster_journey_hybridg150_4x4_automatic,cruise_control,standard,5,Regulator prędkości,direct row.
+bigster_journey_hybridg150_4x4_automatic,rear_parking_sensors,standard,5,Czujniki parkowania z tyłu,direct row.
+bigster_journey_hybridg150_4x4_automatic,rear_view_camera,standard,5,Kamera cofania,direct row.
+bigster_journey_hybridg150_4x4_automatic,seat_belt_reminder,standard,5,Sygnalizacja niezapięcia pasów bezpieczeństwa,direct row.
+bigster_journey_hybridg150_4x4_automatic,door_open_warning,standard,5,Sygnalizacja niezamknięcia drzwi,direct row.
+bigster_journey_hybridg150_4x4_automatic,eco_mode,standard,5,Tryb ECO,direct row.
+bigster_journey_hybridg150_4x4_automatic,adaptive_cruise_control,standard,5,Adaptacyjny regulator prędkości,source powertrain qualifier.
+bigster_journey_hybridg150_4x4_automatic,front_parking_sensors,optional,5,Czujniki parkowania z przodu i z boku,P1/P2 package marker normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,360_camera_system,optional,5,System Multiview kamera,P1/P2 package marker normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,electronic_parking_brake,standard,5,Automatyczny hamulec postojowy,direct row.
+bigster_journey_hybridg150_4x4_automatic,manual_air_conditioning,not_available,5,Klimatyzacja manualna,direct row.
+bigster_journey_hybridg150_4x4_automatic,automatic_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,automatic climate-control component.
+bigster_journey_hybridg150_4x4_automatic,dual_zone_climate_control,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,dual-zone component.
+bigster_journey_hybridg150_4x4_automatic,rear_air_vents,standard,5,Klimatyzacja automatyczna dwustrefowa z nawiewami na tył,rear-vent component.
+bigster_journey_hybridg150_4x4_automatic,central_locking,standard,5,Centralny zamek drzwi zdalnie sterowany falami radiowymi,direct row.
+bigster_journey_hybridg150_4x4_automatic,keyless_entry,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,P1 marker normalized to optional for Expression.
+bigster_journey_hybridg150_4x4_automatic,keyless_start,standard,5,Keyless Entry - system bezkluczykowego dostępu i uruchamiania silnika,engine-start capability from combined row.
+bigster_journey_hybridg150_4x4_automatic,front_windows_power,standard,5,Szyby przednie regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_hybridg150_4x4_automatic,rear_windows_power,standard,5,Szyby tylne regulowane elektrycznie z włącznikiem impulsowym,direct row.
+bigster_journey_hybridg150_4x4_automatic,one_touch_windows,standard,5,Szyby przednie i tylne z włącznikiem impulsowym,direct row.
+bigster_journey_hybridg150_4x4_automatic,heated_windscreen,optional,5,Podgrzewana przednia szyba,P4 package marker normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,eco_leather_steering_wheel,standard,5,Kierownica pokryta skórą ekologiczną,direct row.
+bigster_journey_hybridg150_4x4_automatic,steering_wheel_height_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,height component.
+bigster_journey_hybridg150_4x4_automatic,steering_wheel_reach_adjustment,standard,5,Kierownica z regulacją wysokości / głębokości,reach component.
+bigster_journey_hybridg150_4x4_automatic,heated_steering_wheel,optional,5,Kierownica podgrzewana,P3/P4 package marker normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,youclip_phone_holder,standard,5,YouClip - uchwyt do smartfona,direct row.
+bigster_journey_hybridg150_4x4_automatic,wireless_charging,standard,5,Ładowarka indukcyjna,direct row.
+bigster_journey_hybridg150_4x4_automatic,rear_seat_folding,standard,5,Oparcie tylnej kanapy składane,60/40 or 40/20/40 capability.
+bigster_journey_hybridg150_4x4_automatic,rear_seat_easy_fold,standard,5,Oparcie tylnej kanapy 40/20/40 z systemem Easy Fold,direct row.
+bigster_journey_hybridg150_4x4_automatic,adjustable_boot_floor,standard,5,Podłoga bagażnika ustawiana w dwóch płaszczyznach,direct row.
+bigster_journey_hybridg150_4x4_automatic,power_tailgate,standard,5,Pokrywa bagażnika sterowana elektrycznie,printed Extreme price normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,boot_12v_socket,standard,5,Gniazdo 12V w bagażniku,direct row.
+bigster_journey_hybridg150_4x4_automatic,led_cabin_lighting,standard,5,Oświetlenie kabinowe typu LED,direct row.
+bigster_journey_hybridg150_4x4_automatic,touchscreen,standard,5,System multimedialny z ekranem dotykowym 10 cali,Media Display or Media Nav Live.
+bigster_journey_hybridg150_4x4_automatic,media_display_system,not_available,5,System Media Display,direct row.
+bigster_journey_hybridg150_4x4_automatic,navigation_system,standard,5,System Media Nav Live,printed Expression price normalized to optional.
+bigster_journey_hybridg150_4x4_automatic,live_traffic_information,standard,5,Media Nav Live - informacje o ruchu i zagrożeniach w czasie rzeczywistym,Media Nav Live component.
+bigster_journey_hybridg150_4x4_automatic,bluetooth_connectivity,standard,5,Bluetooth,direct row.
+bigster_journey_hybridg150_4x4_automatic,wireless_smartphone_replication,standard,5,Bezprzewodowa replikacja ekranu smartfona przez Wi-Fi,direct row.
+bigster_journey_hybridg150_4x4_automatic,connected_services,standard,5,Pakiet usług zdalnych MY Dacia na 8 lat,direct row.
+bigster_journey_hybridg150_4x4_automatic,remote_firmware_updates,standard,5,FOTA - Firmware Over-The-Air,direct row.
+bigster_journey_hybridg150_4x4_automatic,digital_instrument_cluster,standard,5,"Cyfrowy, kolorowy, konfigurowalny wyświetlacz zespołu wskaźników",direct row.
+bigster_journey_hybridg150_4x4_automatic,instrument_cluster_colour_7,not_available,5,Cyfrowy wyświetlacz zespołu wskaźników 7 cali,direct row.
+bigster_journey_hybridg150_4x4_automatic,instrument_cluster_colour_10_1,standard,5,"Cyfrowy wyświetlacz zespołu wskaźników 10,1 cala",direct row.

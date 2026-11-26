@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "as_of": "2026-08-01",
+  "kind": "source_gap_review",
+  "model_code": "sandero",
+  "source_code": "src_pl_sandero_official_web_configurations_20260723",
+  "selected_by": "existing_configuration_missing_data_analysis",
+  "scope": {
+    "configurations": [
+      "sandero_iii_expression_ecog120_automatic",
+      "sandero_iii_journey_ecog120_automatic"
+    ],
+    "reported_missing_technical": 48,
+    "reported_missing_equipment": 32,
+    "weighted_impact": 176
+  },
+  "source_inventory": {
+    "exact_configuration_prices": 4,
+    "standard_highlights": 8,
+    "expanded_standard_observations": 16,
+    "technical_observations": 0,
+    "explicit_not_applicable_classifications": 0
+  },
+  "reconciliation": {
+    "prior_import_pull_request": 223,
+    "prior_import_title": "feat(data): import official Sandero configuration observations",
+    "all_exact_prices_already_imported": true,
+    "all_source_visible_standard_highlights_already_imported": true,
+    "remaining_missing_slots_directly_stated_by_source": 0,
+    "remaining_missing_slots_explicitly_not_applicable_in_source": 0,
+    "classification": "source_exhausted_not_stated"
+  },
+  "preserved_boundaries": [
+    "Missing completeness slots are not equivalent to source-backed facts.",
+    "The snapshot contains no technical table for the automatic configurations.",
+    "Broad equipment-page package and option mentions do not prove exact Eco-G manual or automatic applicability.",
+    "The default configurator observation is Essential TCe 100 manual and is not projected onto Eco-G configurations.",
+    "Not-stated facts are not converted into not_applicable, unavailable, unknown or zero values.",
+    "No existing master observation is duplicated or rewritten."
+  ],
+  "result": {
+    "master_rows_added": 0,
+    "master_rows_modified": 0,
+    "source_classified_exhausted": true,
+    "next_candidate": {
+      "model_code": "jogger",
+      "source_code": "src_pl_jogger_price_my26_20260401",
+      "reported_missing_technical": 32,
+      "reported_missing_equipment": 0,
+      "weighted_impact": 96
+    }
+  }
+}

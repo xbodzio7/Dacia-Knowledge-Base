@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "kind": "official_price_list_reconciliation",
+  "package_id": "jogger_price_list_20261001_reconciliation_001",
+  "source": {
+    "source_code": "src_pl_jogger_price_my26_20261001",
+    "title": "DACIA JOGGER cennik MY26",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-10-01",
+    "effective_from": "2026-10-01",
+    "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/jogger-price.pdf.asset.pdf/f5cdbd7878.pdf",
+    "supplied_file_name": "f5cdbd7878.pdf",
+    "supplied_file_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "pages": 9
+  },
+  "review": {
+    "status": "full_document_reviewed",
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "document_effective_date": "2026-10-01",
+    "configurator_used": false
+  },
+  "catalogue_prices_pln": {
+    "seats_5": {
+      "Eco-G 120": {
+        "essential": 77900,
+        "expression": 82050,
+        "extreme": 89900
+      },
+      "Eco-G 120 auto": {
+        "extreme": 96800
+      },
+      "hybrid 155": {
+        "expression": 103550,
+        "extreme": 111400
+      }
+    },
+    "seats_7": {
+      "Eco-G 120": {
+        "expression": 86550,
+        "extreme": 94400
+      },
+      "Eco-G 120 auto": {
+        "extreme": 101300
+      },
+      "hybrid 155": {
+        "expression": 108050,
+        "extreme": 115900
+      }
+    }
+  },
+  "packages": [
+    [
+      "ZIMOWY",
+      1200
+    ],
+    [
+      "DRIVE",
+      1400
+    ]
+  ],
+  "removed_from_current_catalogue": [
+    "TCe 110 (all listed seat/grade combinations)",
+    "Journey (all listed powertrain/seat combinations)",
+    "KOMFORT HEV",
+    "KOMFORT"
+  ],
+  "technical_data": {
+    "ecog120_manual": {
+      "gearbox": "manualna 6-biegowa",
+      "power_lpg_kw_hp": "90 kW / 122 KM",
+      "speed_kmh": 180,
+      "co2_lpg_g_km": "119-121",
+      "consumption_lpg_l_100km": "7.3-7.4",
+      "boot_vda_dm3": "708/160 (5/7 seats)"
+    },
+    "ecog120_auto": {
+      "gearbox": "automatyczna dwusprzęgłowa 6-biegowa",
+      "power_lpg_kw_hp": "90 kW / 122 KM",
+      "speed_kmh": 180,
+      "co2_lpg_g_km": "121-123",
+      "consumption_lpg_l_100km": "7.5-7.6",
+      "boot_vda_dm3": "708/160 (5/7 seats)"
+    },
+    "hybrid155": {
+      "gearbox": "automatyczna Multi-mode",
+      "system_power_kw_hp": "116 kW / 157 KM",
+      "battery": "200 V / 1.4 kWh",
+      "speed_kmh": 180,
+      "zero_to_100_s": "8.9-9.0",
+      "consumption_l_100km": "4.5-4.6",
+      "co2_g_km": "103-104",
+      "boot_vda_dm3": "708/160 (5/7 seats)"
+    }
+  },
+  "comparison_with_previous": {
+    "previous_source_code": "src_pl_jogger_price_my26_20260703",
+    "previous_sha256": "92606411c4d8c10dd830b0d1c387fe663c4c9618422c5db639c13a23138f4a87",
+    "result": "catalogue_and_portfolio_delta_identified",
+    "deltas": [
+      "5-seat retained configurations keep their 03.07.2026 catalogue prices.",
+      "7-seat Eco-G 120 Essential has no current catalogue price (source cell is a dash); the previous 82,400 PLN observation remains historical only.",
+      "7-seat Eco-G 120 Expression remains 86,550 PLN; no price change.",
+      "7-seat Eco-G 120 Extreme remains 94,400 PLN; no price change.",
+      "7-seat Eco-G 120 auto Extreme and Hybrid 155 Expression/Extreme prices are unchanged.",
+      "TCe 110 configurations are absent from the 01.10.2026 catalogue matrix.",
+      "Journey configurations are absent from the 01.10.2026 catalogue matrix.",
+      "KOMFORT and KOMFORT HEV packages are absent; ZIMOWY and DRIVE remain at 1,200 PLN and 1,400 PLN.",
+      "No configurator data was used."
+    ],
+    "master_mutation_required": true,
+    "notes": [
+      "The 7-seat Eco-G 120 grade alignment is corrected: Essential is a dash, Expression 86,550 PLN, Extreme 94,400 PLN. Existing master price rows already reflect the corrected Expression/Extreme values; the prior report was wrong.",
+      "Historical configuration and price observations from earlier source dates are retained; no historical price is overwritten.",
+      "The current 01.10.2026 catalogue matrix contains 11 priced cells across 12 linked configurations.",
+      "No commercial option/package mappings are currently linked to this source; a separate bounded import of 54 exact mappings is required.",
+      "The price list states that it cancels all previous editions."
+    ]
+  },
+  "commercial_item_reconciliation": {
+    "status": "complete",
+    "existing_source_mappings": 54,
+    "new_commercial_items": 1,
+    "new_mappings": 54,
+    "availability_status_counts": {
+      "optional": 38,
+      "not_available": 16
+    },
+    "items": [
+      {
+        "code": "jogger_special_nonmetallic_paint_option",
+        "source_page": 3,
+        "amount_pln": 2800,
+        "optional_configurations": 12
+      },
+      {
+        "code": "jogger_media_nav_option",
+        "source_page": 4,
+        "amount_pln": 1600,
+        "optional_configurations": 10,
+        "not_available_configurations": 2
+      },
+      {
+        "code": "jogger_heated_front_seats_option",
+        "source_page": 4,
+        "amount_pln": 700,
+        "optional_configurations": 4,
+        "not_available_configurations": 2,
+        "extreme_note": "P means part of package; no standalone Extreme mapping."
+      },
+      {
+        "code": "jogger_winter_package",
+        "source_page": 4,
+        "amount_pln": 1200,
+        "optional_configurations": 6,
+        "not_available_configurations": 6
+      },
+      {
+        "code": "jogger_drive_package",
+        "source_page": 4,
+        "amount_pln": 1400,
+        "optional_configurations": 6,
+        "not_available_configurations": 6
+      }
+    ],
+    "deferred": [
+      "Metallic paint 2,800 / 3,000 PLN pair has no source-backed colour/grade mapping.",
+      "No standalone heated-front-seat mapping for Extreme because the source marks P; ZIMOWY package captures the priced bundled offer.",
+      "Separate accessory list and removed KOMFORT packages are outside this matrix.",
+      "Historical 2026-10-01 paint values remain Do sprawdzenia: archived PDF text extraction conflicts with the previous visual review and master mapping; do not overwrite until the archived page-3 render is visually reverified."
+    ],
+    "imported_on": "2026-11-14",
+    "import_artifacts": {
+      "item_spec": "data/imports/jogger_commercial_items_20261001.csv",
+      "mapping_spec": "data/imports/jogger_commercial_item_configurations_20261001.csv",
+      "importer": "tools/import_jogger_price_list_commercial_matrix_20261001.py",
+      "tests": "tests/test_jogger_price_list_commercial_matrix_20261001.py"
+    },
+    "notes": [
+      "The 54 rows were imported for the 12 source-linked configurations: 38 optional and 16 explicitly not_available.",
+      "Special non-metallic paint is one new commercial item at 2,800 PLN across all 12 configurations.",
+      "Extreme heated front seats are not a standalone mapping because page 4 marks them P (part of a package); the priced ZIMOWY package is represented instead.",
+      "The metallic paint 2,800 / 3,000 PLN pair remains deferred because the source does not assign it to exact colours or grades."
+    ]
+  },
+  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Next, acquire and hash the live official Spring MY26 PDF as a distinct source version (the same CDN URL currently resolves to MY26 content while the owner-supplied Library PDF is MY25), then close the Bigster 2026-11-02 PDF binary archive gap.",
+  "source_url_drift_review": {
+    "status": "Do sprawdzenia",
+    "archived_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+    "archived_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+    "note": "The old 2026-10-01 CDN URL now resolves to the 2026-11-02 document. The archived binary is the historical source of truth. Its page-3 text extraction conflicts with the previous visual review/master mapping; preserve the existing historical value until the archived page-3 image is visually reverified."
+  }
+}

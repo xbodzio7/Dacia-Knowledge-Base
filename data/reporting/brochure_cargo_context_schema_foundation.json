@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "kind": "brochure_cargo_context_schema_foundation",
+  "implemented_on": "2026-07-25",
+  "decision": "D-023",
+  "relation": "data/master/configuration_cargo_volume_contexts.csv",
+  "relation_rows": 0,
+  "relation_columns": [
+    "id",
+    "code",
+    "configuration_attribute_value_code",
+    "measurement_basis_code",
+    "second_row_state_code",
+    "third_row_state_code",
+    "compartment_code",
+    "spare_wheel_state_code",
+    "tyre_repair_kit_state_code",
+    "double_floor_state_code",
+    "notes"
+  ],
+  "dictionary_files": [
+    "data/master/enums/cargo_measurement_bases.csv",
+    "data/master/enums/cargo_seat_states.csv",
+    "data/master/enums/cargo_compartment_types.csv",
+    "data/master/enums/context_presence_states.csv"
+  ],
+  "dictionary_rows": 11,
+  "reference_rules_added": 8,
+  "status_rules_added": 4,
+  "semantic_rules": [
+    "one_context_per_configuration_attribute_value",
+    "context_requires_boot_capacity_attribute"
+  ],
+  "sqlite_tables_added": 5,
+  "configuration_values_imported": 0,
+  "next_package": "Brochure Cargo Context Reporting Foundation"
+}

@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "kind": "bigster_equipment_page21_unresolved_review_chunk3",
+  "reviewed_on": "2026-07-29",
+  "status": "complete",
+  "package_id": "residual_gap_030",
+  "source_receipt": {
+    "source_code": "src_pl_bigster_brochure_20251210",
+    "file_path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+    "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74",
+    "page": 21
+  },
+  "scope": {
+    "candidate_count": 27,
+    "group_candidate_count": 107,
+    "chunk_index": 3,
+    "chunk_count": 3,
+    "input_coverage_status": "unresolved",
+    "attached_evidence_signature_count": 0,
+    "attached_evidence_record_count": 0
+  },
+  "summary": {
+    "logical_group_count": 17,
+    "decision_counts": {
+      "context_only_non_import": 15,
+      "unresolved_signature_mismatch": 12
+    },
+    "selected_evidence_signature_count": 0,
+    "selected_evidence_record_count": 0,
+    "candidate_ids_and_exact_text_reported_in": "data/reporting/bigster_equipment_page21_unresolved_review_chunk3.md"
+  },
+  "key_source_boundaries": {
+    "grade_columns": [
+      "Essential",
+      "Expression",
+      "Journey",
+      "Extreme"
+    ],
+    "symbol_legend": {
+      "•": "standard",
+      "¤": "option",
+      "-": "not_available"
+    },
+    "reviewed_sections": [
+      "remaining safety and driver assistance",
+      "page legend and footnotes"
+    ],
+    "hill_descent_powertrain_applicability_preserved": true,
+    "hybrid155_adaptive_cruise_scope_preserved": true,
+    "spare_wheel_primary_row_kept_distinct_from_extraction_tail": true,
+    "legend_and_footnotes_not_promoted": true
+  },
+  "policy": {
+    "zero_attached_evidence_preserved": true,
+    "grade_states_not_projected": true,
+    "powertrain_qualifiers_not_broadened": true,
+    "extraction_tail_not_promoted": true,
+    "master_data_changes": false,
+    "approved_import_spec_generation": false,
+    "automatic_promotion": false
+  },
+  "next_package": {
+    "name": "Jogger Equipment Page 20 Unresolved Review — Chunk 1",
+    "package_id": "residual_gap_031",
+    "candidate_count": 40,
+    "group_candidate_count": 103,
+    "chunk_index": 1,
+    "chunk_count": 3
+  }
+}

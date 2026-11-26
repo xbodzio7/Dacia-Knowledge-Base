@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 8286,
+  "attribute_code": "speaker_count",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "",
+    "status": "active"
+  },
+  "observation_date": "2025-12-10",
+  "fuel_type_code": "",
+  "source_page": 18,
+  "source_section": "WERSJE WYPOSAŻENIA — EXTREME (printed page 17)",
+  "notes_template": "Official Bigster brochure, PDF page {page}, section {section}: {source_text}.",
+  "rows": [
+    {
+      "configuration_code": "bigster_extreme_hybrid155_4x2_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "6",
+      "source_text": "System nagłośnienia Arkamys 3D sound z sześcioma głośnikami"
+    },
+    {
+      "configuration_code": "bigster_extreme_hybridg150_4x4_automatic",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "6",
+      "source_text": "System nagłośnienia Arkamys 3D sound z sześcioma głośnikami"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybrid140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "6",
+      "source_text": "System nagłośnienia Arkamys 3D sound z sześcioma głośnikami"
+    },
+    {
+      "configuration_code": "bigster_extreme_mildhybridg140_4x2_manual",
+      "source_code": "src_pl_bigster_brochure_20251210",
+      "value": "6",
+      "source_text": "System nagłośnienia Arkamys 3D sound z sześcioma głośnikami"
+    }
+  ]
+}

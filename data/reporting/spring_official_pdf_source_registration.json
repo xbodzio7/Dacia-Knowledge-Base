@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "kind": "spring_official_pdf_source_registration",
+  "registered_on": "2026-07-31",
+  "status": "complete",
+  "materialization": {
+    "workflow": "Temporary Spring PDF Source Materialization PR Trigger",
+    "workflow_run": 30638585782,
+    "materialized_commit": "1b1af4d453f96c640aa9f2378764502209adc999",
+    "result": "PASS"
+  },
+  "sources": [
+    {
+      "source_code": "src_pl_spring_brochure_20260219",
+      "source_type": "brochure_pdf",
+      "document_date": "2026-02-19",
+      "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/broszury/new-spring-brochure.pdf.asset.pdf/acdd19cd55.pdf",
+      "file_path": "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+      "sha256": "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d",
+      "bytes": 8186316,
+      "pages": 22,
+      "model_code": "spring",
+      "relationship": "brochure_for",
+      "verification": "PASS"
+    },
+    {
+      "source_code": "src_pl_spring_price_my25_stock_20260708",
+      "source_type": "configuration_pdf",
+      "document_date": "2026-07-08",
+      "external_reference": "https://cdn.group.renault.com/dac/pl/pdf/cenniki/spring-price-2025.pdf.asset.pdf/11eef439c3.pdf",
+      "file_path": "PDF/Cenniki/DACIA SPRING cennik MY25 stock 20260708.pdf",
+      "sha256": "809d24ec3710aac02b3f3a2f33e1872689430a1d6887f387936a5ac3ff343ae0",
+      "bytes": 1416592,
+      "pages": 6,
+      "model_code": "spring",
+      "relationship": "price_list_for",
+      "commercial_scope": "model_year_2025_dealer_stock",
+      "verification": "PASS"
+    }
+  ],
+  "verification": {
+    "pdf_magic": "PASS",
+    "page_counts": "PASS",
+    "sha256_recorded_from_downloaded_originals": true,
+    "registered_source_count": 2,
+    "registered_relationship_count": 2,
+    "master_row_delta": 4
+  },
+  "boundaries": {
+    "configuration_observations_imported": false,
+    "prices_imported": false,
+    "equipment_imported": false,
+    "technical_values_imported": false,
+    "dynamic_configurator_registered": false,
+    "stock_cards_registered": false,
+    "public_release_modified": false
+  },
+  "decision": "REGISTER_SPRING_OFFICIAL_PDF_SOURCES",
+  "next_package": "Spring Official Configurator Snapshot"
+}
