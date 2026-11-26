@@ -240,6 +240,8 @@ class PackageWorkflowTests(unittest.TestCase):
         self.assertIn("github.event_name == 'push'", baselines)
         self.assertIn("github.event_name == 'workflow_dispatch'", baselines)
         self.assertIn("allow_update_branch", baselines)
+        self.assertIn("settings[key] === undefined", baselines)
+        self.assertIn("is unverifiable through this response", baselines)
         self.assertIn("review_policy?.required_status_checks", baselines)
         self.assertNotIn("pull-requests: write", baselines)
 
