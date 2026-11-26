@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "kind": "sandero_stepway_full_brochure_inventory_review",
+  "reviewed_on": "2026-11-26",
+  "report_id": "sandero_stepway_full_brochure_inventory_review_20261126",
+  "status": "complete",
+  "source": {
+    "source_code": "src_pl_sandero_stepway_brochure_20260202",
+    "title": "DACIA SANDERO STEPWAY broszura",
+    "publisher": "Dacia",
+    "market": "PL",
+    "document_date": "2026-02-02",
+    "path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+    "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+    "pages": 21
+  },
+  "extraction": {
+    "workflow": "Sandero Stepway brochure inventory",
+    "workflow_run_id": 45892086102,
+    "head_sha": "28797c11d49a174af5af8c41584feeea1f0c17be",
+    "artifact_id": 15152326330,
+    "artifact_name": "sandero-stepway-brochure-inventory",
+    "artifact_size_bytes": 61903566,
+    "poppler": "24.02.0",
+    "extracted_pages": 21,
+    "rendered_pages": 21,
+    "nonempty_text_pages": 21,
+    "empty_text_pages": [],
+    "text_characters": 42437,
+    "candidates": 706,
+    "candidate_kinds": {
+      "heading": 117,
+      "table_row": 240,
+      "scalar_text": 6,
+      "range_text": 1,
+      "availability_text": 10,
+      "unclassified_text": 332
+    },
+    "candidate_review_status": {
+      "unreviewed_candidate": 706
+    },
+    "artifact_expires_on": "2026-12-10"
+  },
+  "page_inventory": [
+    {
+      "page": 1,
+      "domain": "cover",
+      "candidates": 1,
+      "review": "visual_only_non_import",
+      "notes": "Cover/title image; no technical or equipment claim."
+    },
+    {
+      "page": 2,
+      "domain": "model_positioning_and_highlights",
+      "candidates": 20,
+      "review": "descriptive_non_import_pending",
+      "notes": "Marketing text and headline highlights; values such as 1108 dm3 are already covered by page-20 cargo receipt; 10-inch screen and 7-inch cluster have equipment context elsewhere."
+    },
+    {
+      "page": 3,
+      "domain": "interactive_menu",
+      "candidates": 10,
+      "review": "navigation_non_import",
+      "notes": "Contents/menu labels only."
+    },
+    {
+      "page": 4,
+      "domain": "styling",
+      "candidates": 30,
+      "review": "descriptive_non_import_pending",
+      "notes": "Starkle recycled-material statement, exterior styling and design descriptions; do not turn marketing language into technical attributes."
+    },
+    {
+      "page": 5,
+      "domain": "powertrain_narrative",
+      "candidates": 18,
+      "review": "cross_reference_page17",
+      "notes": "Eco-G 120 dual-fuel and TCe 110 narrative; technical table is page 17 and is covered by existing technical review."
+    },
+    {
+      "page": 6,
+      "domain": "comfort_and_transmission_narrative",
+      "candidates": 21,
+      "review": "descriptive_non_import_pending",
+      "notes": "Interior, 7-inch cluster, 10-inch multimedia, e-shifter; automatic gearbox footnote specifically applies to Eco-G 120 auto."
+    },
+    {
+      "page": 7,
+      "domain": "interior_cargo_and_roof_rails",
+      "candidates": 10,
+      "review": "descriptive_non_import_pending",
+      "notes": "Seat folding, modular roof rails and roof crossbars; exact configuration applicability requires matrix/cennik evidence."
+    },
+    {
+      "page": 8,
+      "domain": "youclip_accessory_mounting",
+      "candidates": 18,
+      "review": "descriptive_non_import_pending",
+      "notes": "Three standard YouClip mounts plus two accessory mounts; keep optional accessories distinct from standard equipment."
+    },
+    {
+      "page": 9,
+      "domain": "multimedia",
+      "candidates": 32,
+      "review": "descriptive_non_import_pending",
+      "notes": "Media Control, Media Display and Media Nav Live; retain separate systems and exact screen/connectivity/audio distinctions."
+    },
+    {
+      "page": 10,
+      "domain": "driver_assistance",
+      "candidates": 30,
+      "review": "descriptive_non_import_pending",
+      "notes": "Fatigue monitoring, AEBS with pedestrian/cyclist detection, lane keeping and traffic-sign recognition."
+    },
+    {
+      "page": 11,
+      "domain": "interactive_equipment_menu",
+      "candidates": 9,
+      "review": "navigation_non_import",
+      "notes": "Menu headings only."
+    },
+    {
+      "page": 12,
+      "domain": "paint_palette",
+      "candidates": 16,
+      "review": "source_crosswalk_required",
+      "notes": "Seven named paint colours and footnotes: metallic/non-metallic and not available in Essential for starred colours. Do not infer surcharges or trim applicability beyond printed footnote."
+    },
+    {
+      "page": 13,
+      "domain": "grade_equipment_summary_essential",
+      "candidates": 55,
+      "review": "cross_reference_pages18_19",
+      "notes": "Essential grade summary. Contains a roof-rail wording conflict: says black modular roof rails, while page 18 separates standard roof rails (Essential) from modular roof rails (Expression/Extreme). Preserve conflict; do not import from page 13."
+    },
+    {
+      "page": 14,
+      "domain": "grade_equipment_summary_expression",
+      "candidates": 41,
+      "review": "cross_reference_pages18_19",
+      "notes": "Expression = Essential+ summary; cross-check with page 18/19 matrix; avoid duplicating unresolved rows."
+    },
+    {
+      "page": 15,
+      "domain": "grade_equipment_summary_extreme",
+      "candidates": 44,
+      "review": "cross_reference_pages18_19",
+      "notes": "Extreme = Expression+ summary; optional package items and standard equipment must remain distinct."
+    },
+    {
+      "page": 16,
+      "domain": "accessories",
+      "candidates": 42,
+      "review": "descriptive_non_import_pending",
+      "notes": "Side steps, detachable towbar, Aero Cargo Box, bicycle carrier, roof crossbars, mats and sill protectors. Box adds 310 litres; fixed-rail crossbars state 80 kg capacity. Accessory compatibility/applicability needs separate evidence."
+    },
+    {
+      "page": 17,
+      "domain": "technical_specifications",
+      "candidates": 74,
+      "review": "reuse_existing_reviews",
+      "notes": "Existing technical ambiguity review and max-power RPM import closure; 10 max_power_rpm range rows already imported. Remaining technical gaps are explicitly outside this inventory report."
+    },
+    {
+      "page": 18,
+      "domain": "equipment_availability_matrix",
+      "candidates": 111,
+      "review": "reuse_existing_reviews",
+      "notes": "Existing ambiguity review and three unresolved review chunks. Do not repeat candidate decisions or promote unresolved rows."
+    },
+    {
+      "page": 19,
+      "domain": "equipment_availability_matrix_continued",
+      "candidates": 81,
+      "review": "reuse_existing_reviews",
+      "notes": "Existing two unresolved review chunks. Keep literal availability markers and package semantics."
+    },
+    {
+      "page": 20,
+      "domain": "dimensions_and_cargo",
+      "candidates": 27,
+      "review": "cargo_complete_dimensions_gap",
+      "notes": "Cargo values already imported by sandero_stepway_brochure_cargo_import.json (45 values across nine configurations). Exterior dimensions visually read: roof height with rails 1586 mm, body height 1535 mm, front track 1520 mm, body width 1853 mm, width with mirrors 2012 mm, rear track 1509 mm, front overhang 833 mm, wheelbase 2604 mm, rear overhang 665 mm, overall length 4102 mm, ground clearance 200 mm. Top-view interior measurements and 14-degree seatback angles are not exterior dimensions and remain excluded."
+    },
+    {
+      "page": 21,
+      "domain": "legal_disclaimer_and_publication",
+      "candidates": 16,
+      "review": "legal_non_import",
+      "notes": "Publication caveat, country/equipment variation and Dacia change reservation; not vehicle master attributes."
+    }
+  ],
+  "reuse_evidence": [
+    "data/reporting/sandero_stepway_page17_max_power_rpm_import_closure_20261104.json",
+    "data/reporting/sandero_stepway_technical_page17_ambiguity_review.json",
+    "data/reporting/sandero_stepway_equipment_page18_ambiguity_review.json",
+    "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk1.json",
+    "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk2.json",
+    "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk3.json",
+    "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk1.json",
+    "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk2.json",
+    "data/reporting/sandero_stepway_brochure_cargo_import.json"
+  ],
+  "summary": {
+    "pages": 21,
+    "candidates": 706,
+    "pages_with_prior_review_reused": 3,
+    "prior_review_candidates_not_repeated": 266,
+    "new_scope_candidates": 440,
+    "master_data_changed": false,
+    "approved_import_specs_created": 0,
+    "imports_applied": 0
+  },
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "status": "open",
+      "severity": "warning",
+      "page": 13,
+      "description": "Essential grade summary calls the roof rails 'black modular roof rails', conflicting with the detailed page-18 matrix. Page 18 has separate rows: plain roof rails standard only in Essential; modular grey Megalith rails standard in Expression and Extreme. Keep page 18's visually distinct matrix row evidence and preserve page-13 wording as a source conflict.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=13"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
+    },
+    {
+      "finding_id": "F-002",
+      "status": "resolved",
+      "severity": "info",
+      "page": 20,
+      "description": "Cargo observations are already represented by the 2026-02-02 brochure cargo import. No duplicate cargo import is needed.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=20"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
+    },
+    {
+      "finding_id": "F-003",
+      "status": "open",
+      "severity": "action",
+      "page": 20,
+      "description": "Stepway-specific exterior dimension diagram has not been included in the generic dimension semantic mapping review. The eleven visually identified dimensions are a focused next import candidate; applicability should remain limited to exact source-linked configurations until further source relationships are verified.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=20"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
+    },
+    {
+      "finding_id": "F-004",
+      "status": "open",
+      "severity": "warning",
+      "page": 12,
+      "description": "Paint names and starred availability footnote are source evidence, not price/surcharge evidence. Do not infer commercial paint prices from this brochure.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=12"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
+    },
+    {
+      "finding_id": "F-005",
+      "status": "needs_review",
+      "severity": "info",
+      "page": 17,
+      "description": "The 2026-02-02 source has both TCe 110 and Eco-G 120 technical columns; the existing RPM closure only imports Eco-G 120 max-power RPM ranges. Other unresolved technical slots remain under the existing ambiguity review.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=17"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
+    }
+  ],
+  "next_package": {
+    "name": "Sandero Stepway Page 20 Exterior Dimension Semantic Crosswalk and Import",
+    "goal": "Validate the eleven visually mapped exterior dimensions against the shared dimension attribute contract, exact source relationships and existing master observations; append historical observations only where no duplicate source-key exists. Exclude top-view interior measurements and seatback angles."
+  },
+  "boundaries": [
+    "Candidate ledger is a review aid, not approved source data.",
+    "Pages 17-19 reuse existing reports and are not re-reviewed or re-imported.",
+    "No master CSV, import specification or availability record was changed in this package.",
+    "No paint surcharge or trim availability is inferred.",
+    "Page-13/page-18 roof-rail discrepancy remains unresolved; page 18 detailed matrix is retained as primary row evidence but page 13 wording is not rewritten.",
+    "Page-20 interior measurements and seatback angles are excluded from exterior dimension import."
+  ],
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "sandero_stepway_full_brochure_inventory_review_20261126",
+    "generated_at": "2026-11-26T21:12:00Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "c5cc38f5c1b244c646019eba6c510847c95ad9e4",
+    "input_files": [
+      {
+        "path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+        "git_blob_sha": "88b623c214bd15bf33c75479a4fb25c094637628",
+        "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48"
+      }
+    ],
+    "scope": "Full 21-page visual and text inventory of the official Polish Sandero Stepway brochure, with existing page 17-19 evidence and page-20 cargo import reused; no master-data import.",
+    "status": "current"
+  }
+}

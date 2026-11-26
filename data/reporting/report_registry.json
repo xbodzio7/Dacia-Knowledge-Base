@@ -150,6 +150,13 @@
       "markdown_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.md",
       "depends_on": [],
       "depends_on_paths": []
+    },
+    {
+      "report_id": "sandero_stepway_full_brochure_inventory_review_20261126",
+      "json_path": "data/reporting/sandero_stepway_full_brochure_inventory_review_20261126.json",
+      "markdown_path": "data/reporting/sandero_stepway_full_brochure_inventory_review_20261126.md",
+      "depends_on": [],
+      "depends_on_paths": []
     }
   ]
 }
