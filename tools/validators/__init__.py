@@ -1,3 +1,0 @@
-"""
-DKB validator package.
-"""
