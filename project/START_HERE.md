@@ -92,7 +92,7 @@ The Project Owner confirmed on 2026-11-20 that the `main` branch protection rule
 5. `Python 3.13`
 6. `Python 3.14`
 
-The setting **Require branches to be up to date before merging** is enabled. This is a durable, owner-confirmed repository fact. Do not ask the Project Owner to reconfirm it in future sessions merely because the current GitHub connector cannot inspect the setting (including a 403 response). Verify the six checks and branch freshness on each exact PR head as usual. Reconfirm with the Project Owner only if concrete evidence indicates that the protection rule has changed; otherwise, any available API re-check should be silent.
+The setting **Require branches to be up to date before merging** is disabled. This is the owner-confirmed protection setting from the 2026-11-26 screenshot. The required Quality workflow independently rejects a PR branch that is behind the current target branch, so exact branch freshness remains a CI requirement even though GitHub branch protection does not require it. This is a durable, owner-confirmed repository fact. Do not ask the Project Owner to reconfirm it in future sessions merely because the current GitHub connector cannot inspect the setting (including a 403 response). Verify the six checks and branch freshness on each exact PR head as usual. Reconfirm with the Project Owner only if concrete evidence indicates that the protection rule has changed; otherwise, any available API re-check should be silent.
 
 ---
 

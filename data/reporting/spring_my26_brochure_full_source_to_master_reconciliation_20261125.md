@@ -1,7 +1,7 @@
 # Spring MY26 Brochure Full Source-to-Master Reconciliation
 
 **Reviewed:** 2026-11-26  
-**Status:** Complete with explicit source deferrals  
+**Status:** Fully reconciled with explicit source deferrals  
 **Package:** `spring_my26_brochure_full_source_to_master_reconciliation_20261125_001`
 
 ## Scope and source identity
@@ -74,3 +74,11 @@ The detailed 22-page inventory remains in `project/source-audit/spring-brochure-
 **No master-data mutation is justified.** The 21 apparent technical candidates were already represented, and the two MY26 ground-clearance observations were already imported. No duplicate rows, unsupported attributes, cross-grade projections or unresolved source values were added.
 
 The next brochure package must be selected from a fresh portfolio-wide readiness comparison. Do not reactivate Spring or repeat the already completed Bigster brochure package.
+
+## Report provenance and freshness
+
+Report ID: spring_my26_brochure_full_source_to_master_reconciliation_20261125
+Generated: 2026-11-26T14:12:42.905Z
+Analysed commit: b73b4ed36b20f2e168377fc82b36513f357c4044
+Status: current
+Scope: 2026-02-19 Polish Spring brochure and 2026-02-06 MY26 price list; three exact passenger configurations; source-to-master reconciliation only.

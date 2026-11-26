@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Bigster Brochure Full Assimilation** — `complete`
+**Spring MY26 Brochure Full Source-to-Master Reconciliation** — `complete`
 
-Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.
+Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.
 
 ## Next package
 
-**Spring MY26 Brochure Full Source-to-Master Reconciliation** — `active`
+**Official Dacia Brochure Portfolio Readiness Review** — `planned`
 
-Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.
+Reconcile the six registered Polish Dacia brochures against current source records, rendered-page inventories, merged source-to-master reports and current master coverage. Produce a current portfolio-wide readiness report, identify the highest-priority distinct actionable residual brochure scope, and explicitly exclude completed Spring and Bigster work and all already represented observations.
 
 ## Autonomy
 

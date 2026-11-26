@@ -202,8 +202,8 @@ class BigsterBrochureFullAssimilationTests(unittest.TestCase):
         self.assertEqual(state["baseline"]["tests"], 2055)
         self.assertEqual(state["baseline"]["rows"], 23490)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 472)
-        # This PR promotes the Spring package from planned to active in canonical state.
-        self.assertEqual(state["next_package"]["status"], "active")
+        # The Spring closeout is complete; the portfolio review is the next planned package.
+        self.assertEqual(state["next_package"]["status"], "planned")
 
 
 if __name__ == "__main__":
