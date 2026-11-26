@@ -93,15 +93,15 @@ jobs:
             for (const path of paths) {
               const content = await readText(path);
               workflow[path] = content;
-              const unpinned = [...content.matchAll(/^\\s*uses:\\s*([^\\s#]+)/gm)]
+              const unpinned = [...content.matchAll(/^\s*uses:\s*([^\s#]+)/gm)]
                 .map(match => match[1])
                 .filter(action => !action.startsWith("./") && !action.startsWith("docker://"))
                 .filter(action => !/^[0-9a-f]{40}$/.test(action.slice(action.lastIndexOf("@") + 1)));
               if (unpinned.length) throw new Error(`${path} has non-SHA-pinned actions: ${unpinned.join(", ")}`);
             }
             for (const path of paths.slice(0, 2)) {
-              if (!/^  pull_request:\\s*$/m.test(workflow[path]) ||
-                  /^  pull_request_target:\\s*$/m.test(workflow[path])) {
+              if (!/^  pull_request:\s*$/m.test(workflow[path]) ||
+                  /^  pull_request_target:\s*$/m.test(workflow[path])) {
                 throw new Error(`${path} must validate PRs only through the unprivileged pull_request event.`);
               }
             }
