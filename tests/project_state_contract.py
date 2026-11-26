@@ -156,8 +156,8 @@ class ProjectStateContractTests(unittest.TestCase):
             REPOSITORY / ".github" / "workflows" / "repository-baselines.yml"
         ).read_text(encoding="utf-8")
         for candidate in (quality_workflow, baseline_workflow):
-            self.assertIn("\\n  pull_request:\\n", candidate)
-            self.assertNotRegex(candidate, r"(?m)^  pull_request_target:\\s*$")
+            self.assertIn("\n  pull_request:\n", candidate)
+            self.assertNotRegex(candidate, r"(?m)^  pull_request_target:\s*$")
             self.assertIn("persist-credentials: false", candidate)
         self.assertIn("Repository governance / main workflow integrity", baseline_workflow)
         self.assertIn("github.event_name == 'push'", baseline_workflow)
