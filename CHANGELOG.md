@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Reviewed
+* Reconciled all 22 pages of the Spring brochure dated 2026-02-19 against the existing source-linked master and the MY26 price list dated 2026-02-06. Verified 90 scalar observations, 3 ranges, 126 availability rows, 21 brochure commercial mappings, 3 MY26 prices, 10 MY26 commercial mappings and two ground-clearance observations. The 21 candidate technical pairs were already represented; no duplicate master data was added. Preserved the page-2/page-5 conflict, torque-unit uncertainty, 204 kg battery-mass gap and diagram/accessory/Cargo deferrals. Reconciliation report pair added; registry completion receipt is deferred until package promotion.
+
+
 ### Added
 * Closed a package-lifecycle gap: the state transition gate now rejects a completed report-registry receipt while its package remains queued as `next_package`, including when the completed report predates the candidate PR. Added an isolated regression case for the unchanged-report path and documented the single-PR closeout sequence. Existing generated-documentation equality and baseline checks remain mandatory; generated summaries are produced only by canonical generators.
 * Added semantic same-model overlap detection with mandatory per-report scope resolutions; added a cross-check between completed package receipts, report registry IDs/paths and report completion status. Registered the previously omitted Bigster completion report and added isolated overlap/history regression tests.

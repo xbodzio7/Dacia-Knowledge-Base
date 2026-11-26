@@ -8,7 +8,7 @@
 - Default branch: `main`
 - Source of truth: repository
 - Main SHA tracking: dynamic
-- State updated: 2026-11-25
+- State updated: 2026-11-26
 
 ## Phase
 
@@ -42,7 +42,7 @@ Review all 24 pages of the currently linked official Bigster brochure against re
 
 ## Next package
 
-**Spring MY26 Brochure Full Source-to-Master Reconciliation** — `planned`
+**Spring MY26 Brochure Full Source-to-Master Reconciliation** — `active`
 
 Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.
 
