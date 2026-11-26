@@ -260,6 +260,20 @@ class ProjectStateContractTests(unittest.TestCase):
                 check=True,
                 capture_output=True,
             )
+            baseline_file = completion_repo / "README.md"
+            baseline_file.write_text("fixture baseline\n", encoding="utf-8")
+            subprocess.run(
+                ["git", "add", "README.md"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "commit", "--quiet", "-m", "Create fixture baseline"],
+                cwd=completion_repo,
+                check=True,
+                capture_output=True,
+            )
             report_path = "reports/price_history/report.json"
             report_file = completion_repo / report_path
             report_file.parent.mkdir(parents=True)

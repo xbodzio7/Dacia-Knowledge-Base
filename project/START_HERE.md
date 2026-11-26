@@ -28,6 +28,7 @@ Read the following documents and state resources in exactly this order:
 14. `DECISIONS.md`
 15. `SESSION_STATE.md`
 16. `ROADMAP.md`
+17. `REPOSITORY_GOVERNANCE.md`
 
 `README.md` may be consulted if additional project context is required.
 
@@ -80,6 +81,10 @@ Before any project action, the AI shall:
 The previous conversation is context only. It cannot select, override or reactivate a workflow profile. If the bootstrap cannot be completed, enter `RECOVERY` or diagnostic mode and report the exact blocker.
 
 For remote-only regeneration of canonical counters and managed documentation, follow `project/BASELINE_REPAIR_WORKFLOW.md`. The `Baseline Repair` workflow must be dispatched from the trusted `main` branch, never from the PR branch, and only after its definition has landed on `main`. Supply only the PR number: the read-only generation job discovers and verifies the exact branch/head/base from GitHub, while a separate write-back job re-verifies them and applies only the six allowlisted generated files. PR code must never run with write credentials. After write-back, inspect the PR diff and require all six normal CI checks on the new exact head SHA.
+
+## Automated repository governance
+
+Read project/REPOSITORY_GOVERNANCE.md before changing CI, branch protection, merge settings or package lifecycle rules. Quality and Repository Baselines use a trusted base-branch workflow definition for pull-request validation, check out only the exact PR head with credentials persistence disabled, and audit repository-level merge settings, the canonical/workflow required-check contract and package-closeout receipts. The owner-confirmed branch-protection screenshot remains authoritative for settings the standard Actions token cannot read. The read-only pull_request_target path is never used for baseline write-back; that remains a separate workflow_dispatch operation from main.
 
 ## Recorded GitHub `main` branch-protection baseline
 

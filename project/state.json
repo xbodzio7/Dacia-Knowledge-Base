@@ -70,7 +70,8 @@
       "pull_request": 911,
       "package_commit_sha": "70bc50f44dc9279e957aab61b10d11ba5d8ecccb",
       "completed_on": "2026-11-26",
-      "report_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json"
+      "report_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json",
+      "merge_commit_sha": "764b13a2635da445a5f002580d51b19a1905f293"
     }
   },
   "next_package": {

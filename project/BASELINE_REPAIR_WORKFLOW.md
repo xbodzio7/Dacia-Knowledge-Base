@@ -32,6 +32,8 @@ The workflow must be dispatched from the protected `main` branch (never from the
 
 The privileged write-back job does not execute scripts, tests, build tools or other code from the PR. It only installs the validated six-file artifact and performs Git operations. Do not replace this two-job separation with `pull_request_target`, do not run PR code with write credentials, and do not broaden the allowlist without a separate security review.
 
+The separate Quality and Repository Baselines validation workflows may use pull_request_target because they are strictly read-only: their definitions come from the trusted base branch, they check out the exact PR head with persisted credentials disabled, and they do not expose write permissions to PR code. This does not change or replace the baseline-repair two-job security boundary.
+
 ## How to run
 
 1. Open the repository's **Actions** tab and select **Baseline Repair**.

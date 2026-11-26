@@ -113,6 +113,55 @@ def _report_declares_completion(repository: Path, report_path: str) -> bool:
     return bool(statuses & completed_statuses)
 
 
+def _commit_changed_paths(repository: Path, commit_sha: str) -> set[str]:
+    output = _git(
+        repository,
+        "diff-tree",
+        "--no-commit-id",
+        "--name-only",
+        "-r",
+        commit_sha,
+    )
+    return {
+        line.strip().replace("\\\\", "/")
+        for line in output.splitlines()
+        if line.strip()
+    }
+
+
+def _find_squash_merge_commit(
+    repository: Path,
+    pull_request: int,
+    report_path: str,
+    head_ref: str,
+) -> str | None:
+    """Resolve a historical PR package receipt to its reachable squash merge."""
+    candidates = _git(
+        repository,
+        "log",
+        "--format=%H",
+        "--fixed-strings",
+        f"--grep=#{pull_request}",
+        head_ref,
+    )
+    matches: list[str] = []
+    for candidate in candidates.splitlines():
+        message = _git(repository, "show", "-s", "--format=%B", candidate)
+        if (
+            f"(#{pull_request})" not in message
+            and f"Merge pull request #{pull_request}" not in message
+        ):
+            continue
+        if report_path in _commit_changed_paths(repository, candidate):
+            matches.append(candidate)
+    if len(matches) > 1:
+        raise TransitionError(
+            f"multiple reachable squash/merge commits for PR #{pull_request} "
+            f"contain {report_path}: {matches}"
+        )
+    return matches[0] if matches else None
+
+
 def _validate_completion(
     package: Mapping[str, Any],
     repository: Path,
@@ -131,18 +180,25 @@ def _validate_completion(
         raise TransitionError("completion.pull_request must be a positive integer")
     package_sha = completion.get("package_commit_sha")
     merge_sha = completion.get("merge_commit_sha")
-    if package_sha is not None:
-        if not isinstance(package_sha, str) or SHA_RE.fullmatch(package_sha) is None:
-            raise TransitionError(
-                "completion.package_commit_sha must be a lowercase 40-character SHA"
-            )
-        if pull_request_number is not None and pull_request != pull_request_number:
-            raise TransitionError(
-                f"completion.pull_request must match the current PR #{pull_request_number}"
-            )
-    elif not isinstance(merge_sha, str) or SHA_RE.fullmatch(merge_sha) is None:
+    if package_sha is not None and (
+        not isinstance(package_sha, str) or SHA_RE.fullmatch(package_sha) is None
+    ):
         raise TransitionError(
-            "completion requires a valid package_commit_sha (PR closeout) or merge_commit_sha (post-merge repair)"
+            "completion.package_commit_sha must be a lowercase 40-character SHA"
+        )
+    if merge_sha is not None and (
+        not isinstance(merge_sha, str) or SHA_RE.fullmatch(merge_sha) is None
+    ):
+        raise TransitionError(
+            "completion.merge_commit_sha must be a lowercase 40-character SHA"
+        )
+    if package_sha is None and merge_sha is None:
+        raise TransitionError(
+            "completion requires a package_commit_sha or merge_commit_sha"
+        )
+    if pull_request_number is not None and pull_request != pull_request_number:
+        raise TransitionError(
+            f"completion.pull_request must match the current PR #{pull_request_number}"
         )
     completed_on = completion.get("completed_on")
     if not isinstance(completed_on, str):
@@ -165,20 +221,22 @@ def _validate_completion(
             "completion.report_path must match current_package.report_path"
         )
 
-    evidence_sha = package_sha or merge_sha
-    if package_sha is None:
-        message = _git(repository, "show", "-s", "--format=%B", merge_sha)
-        if f"#{pull_request}" not in message:
+    merge_evidence_sha = merge_sha
+    if merge_evidence_sha is None and package_sha is not None and pull_request_number is None:
+        merge_evidence_sha = _find_squash_merge_commit(
+            repository,
+            pull_request,
+            report_path,
+            head_ref,
+        )
+
+    evidence_sha = merge_evidence_sha or package_sha
+    if package_sha is not None:
+        if pull_request_number is not None and report_path not in changed_paths:
             raise TransitionError(
-                "completion merge commit message does not reference "
-                f"the recorded PR #{pull_request}"
+                "a newly completed package PR must change the exact current_package.report_path"
             )
-    else:
-        if report_path not in changed_paths:
-            raise TransitionError(
-                "PR package closeout must change the exact current_package.report_path"
-            )
-        commit_paths = _git(
+        package_paths = _git(
             repository,
             "diff-tree",
             "--no-commit-id",
@@ -188,11 +246,23 @@ def _validate_completion(
         )
         if report_path not in {
             line.strip().replace("\\\\", "/")
-            for line in commit_paths.splitlines()
+            for line in package_paths.splitlines()
             if line.strip()
         }:
             raise TransitionError(
                 "completion.package_commit_sha must identify a commit that changed "
+                "the declared report"
+            )
+    if merge_evidence_sha is not None:
+        message = _git(repository, "show", "-s", "--format=%B", merge_evidence_sha)
+        if f"#{pull_request}" not in message:
+            raise TransitionError(
+                "completion merge commit message does not reference "
+                f"the recorded PR #{pull_request}"
+            )
+        if report_path not in _commit_changed_paths(repository, merge_evidence_sha):
+            raise TransitionError(
+                "completion.merge_commit_sha or its discovered squash merge must contain "
                 "the declared report"
             )
     ancestor = subprocess.run(
@@ -805,12 +875,43 @@ def self_test() -> int:
         else:
             raise TransitionError("completion evidence accepted the wrong PR number")
 
+        # A PR-bound package_commit_sha remains valid historical evidence
+        # in later PRs; the report must not be re-edited to preserve its receipt.
+        validate_transition(
+            promoted,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=124,
+        )
+
         # After the PR-bound closeout has been validated, model the durable
         # post-merge receipt separately. A merge-commit receipt is historical
         # evidence and must not require the report to change in this later PR.
-        _git(repository, "commit", "--allow-empty", "-m", "Merge pull request #123")
+        report.write_text(
+            json.dumps(
+                {
+                    "status": "fully_assimilated_with_deferrals",
+                    "post_merge_receipt": True,
+                }
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        _git(repository, "add", "reports/package.json")
+        _git(repository, "commit", "-m", "Merge pull request #123")
         merge_sha = _git(repository, "rev-parse", "HEAD")
-        promoted["current_package"]["completion"].pop("package_commit_sha")
+        # Resolve the GitHub squash merge from its PR number when the
+        # durable state still contains only the original package commit SHA.
+        validate_transition(
+            promoted,
+            promoted,
+            repository,
+            head_ref="HEAD",
+            base_ref=base_ref,
+            pull_request_number=124,
+        )
         promoted["current_package"]["completion"]["merge_commit_sha"] = merge_sha
         validate_transition(
             promoted,
