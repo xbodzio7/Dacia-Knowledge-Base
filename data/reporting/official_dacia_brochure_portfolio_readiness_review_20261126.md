@@ -12,7 +12,7 @@ The current Polish brochure portfolio contains six registered sources. Bigster a
 
 The Stepway brochure has 21 pages, but current-main evidence records targeted reviews for pages 17-19 only. The 10 exact max-power-rpm fuel-context slots imported on 2026-11-04 are already complete. Existing page-18 and page-19 unresolved candidates have no selected evidence signatures and must not be treated as import-ready. A full 21-page inventory is the prerequisite for identifying any further genuinely new gaps.
 
-Report ID: `official_dacia_brochure_portfolio_readiness_review_20261126`  
+Report ID: official_dacia_brochure_portfolio_readiness_review_20261126  
 Generated: 2026-11-26T20:10:00Z  
 Analysed commit: 5bfddfc6dff1982f01c00af5d8af28e7011427b6  
 Status: current  
