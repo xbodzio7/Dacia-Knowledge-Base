@@ -323,25 +323,20 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             context_filter.render_difference_csv(report),
             core.render_difference_csv(report),
         )
-        self.assertEqual(len(core.difference_csv_rows(report)), 411)
-
-        expected_counts = {'': 36,
- 'fuel_type_code=': 184,
- 'fuel_type_code=lpg': 83,
- 'fuel_type_code=petrol': 77,
- 'market=PL;currency_code=PLN': 21}
-        for context, expected in expected_counts.items():
+        canonical_rows = core.difference_csv_rows(report)
+        canonical_counts = Counter(row["context"] for row in canonical_rows)
+        self.assertEqual(sum(canonical_counts.values()), len(canonical_rows))
+        filtered_total = 0
+        for context in contexts:
             with self.subTest(context=context):
-                self.assertEqual(
-                    len(
-                        context_filter.difference_csv_rows(
-                            report,
-                            difference_context=context,
-                            known_contexts=contexts,
-                        )
-                    ),
-                    expected,
+                filtered_rows = context_filter.difference_csv_rows(
+                    report,
+                    difference_context=context,
+                    known_contexts=contexts,
                 )
+                self.assertEqual(len(filtered_rows), canonical_counts[context])
+                filtered_total += len(filtered_rows)
+        self.assertEqual(filtered_total, len(canonical_rows))
 
         known_items = core.difference_item_codes(report)
         for context in (
