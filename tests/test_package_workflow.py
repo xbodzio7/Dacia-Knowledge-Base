@@ -226,21 +226,22 @@ class PackageWorkflowTests(unittest.TestCase):
         baselines = (
             REPOSITORY / ".github" / "workflows" / "repository-baselines.yml"
         ).read_text(encoding="utf-8")
-        self.assertIn("pull_request_target:", quality)
-        self.assertIn("github.event.pull_request.head.sha || github.sha", quality)
-        self.assertIn("persist-credentials: false", quality)
+        for candidate in (quality, baselines):
+            self.assertIn("\\n  pull_request:\\n", candidate)
+            self.assertNotIn("pull_request_target:", candidate)
+            self.assertNotIn("workflow_run:", candidate)
+            self.assertIn("github.event.pull_request.head.sha || github.sha", candidate)
+            self.assertIn("persist-credentials: false", candidate)
         self.assertIn("Reject pull requests behind the current base branch", quality)
         self.assertIn("git merge-base --is-ancestor", quality)
         self.assertIn("github.event.pull_request.number || github.ref", quality)
-        self.assertIn("pull_request_target:", baselines)
-        self.assertIn("github.event.pull_request.head.sha || github.sha", baselines)
-        self.assertIn("pull-requests: read", baselines)
-        self.assertIn("Audit repository configuration and trusted workflow provenance", baselines)
+        self.assertIn("Validate canonical package-state transition", quality)
+        self.assertIn("Repository governance / main workflow integrity", baselines)
+        self.assertIn("github.event_name == 'push'", baselines)
+        self.assertIn("github.event_name == 'workflow_dispatch'", baselines)
         self.assertIn("allow_update_branch", baselines)
-        self.assertIn("allow_squash_merge", baselines)
         self.assertIn("review_policy?.required_status_checks", baselines)
-        self.assertIn("Validate package closure integrity against the PR head", baselines)
-        self.assertIn("completion.package_commit_sha", baselines)
+        self.assertNotIn("pull-requests: write", baselines)
 
     def test_run_git_ignores_ambient_git_context(self) -> None:
         hostile_environment = {
