@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "official_dacia_brochure_source_receipt",
+  "retrieved_on": "2026-11-26",
+  "publisher": "Dacia",
+  "market": "PL",
+  "sources": [
+    {
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "title": "DACIA SANDERO STEPWAY broszura",
+      "document_date": "2026-02-02",
+      "url": "https://cdn.group.renault.com/dac/pl/pdf/broszury/sandero-stepway-brochure.pdf.asset.pdf/e154a3e830.pdf",
+      "file_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+      "pages": 21,
+      "publication_marker": "02.02.2026",
+      "model_code": "sandero_stepway_iii",
+      "bytes": 8541016,
+      "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48"
+    }
+  ]
+}
