@@ -202,7 +202,7 @@ class BigsterBrochureFullAssimilationTests(unittest.TestCase):
         self.assertEqual(state["baseline"]["tests"], 2055)
         self.assertEqual(state["baseline"]["rows"], 23490)
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 472)
-        self.assertEqual(state["next_package"]["status"], "active")
+        self.assertEqual(state["next_package"]["status"], "planned")
 
 
 if __name__ == "__main__":

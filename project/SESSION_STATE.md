@@ -590,3 +590,22 @@ Existing source coverage was reconciled: 14 active source-linked configurations,
 
 The candidate adds six commercial items and six exterior-colour attributes only. The Sandero/Stepway catalogue-price history report is explicitly marked needs_review because the shared sources.csv file changed; its original input fingerprints are preserved rather than silently rebased. Both report outputs are updated together.
 
+
+## State regression and source-package selection safeguard — 2026-11-25
+
+PR #907 (merge commit c4138f997c2210961fc0b2149701efe75ac1f465) passed its required Quality and Repository Baselines checks, but its package-selection result reactivated Striker technical work that had already been completed in PR #898 (merge commit b56be440a9c2de592842aae600674a1a964e7e3a). The PR #898 completion receipt and report record 423 scalar observations and 21 bounded ranges across the 11 exact source-linked configurations. PR #899 had also delivered the Sandero/Stepway price-history feature, and PR #904 completed the Bigster brochure. The new Striker package pointer therefore represented a state-selection regression, not missing master data. No repeat import is permitted.
+
+The archived Striker source was independently checked through the existing workflow audit artifact #14963738199 (run #45487054378): SHA-256 d9e1e874ceaf2b65faf37650ad7be4b9a7c9710ee1d09cbdee5856c286e62d35, 1,615,585 bytes, eight pages. Page 6 text and the rendered page-7 dimension diagram agree with the completed PR #898 report. The PDF itself was not replaced or re-downloaded.
+
+The package-selection safeguard now requires every newly selected source-kind next package to carry selection_evidence: registered report IDs reviewed, existing evidence paths reviewed, and a precise residual-scope statement. The state-transition validator rejects missing evidence, unregistered report IDs, missing evidence files and reuse of an already registered candidate report ID; its isolated self-test covers the missing-evidence, valid-evidence and invalid-reference cases. Startup and quality-protocol guidance require checking merged PR history and report/source registries before selecting a new package.
+
+The canonical next package is spring_my26_brochure_full_source_to_master_reconciliation_20261125_001, planned (not active). This is selected because the Spring brochure already has a complete 22-page text/render inventory, while the source portfolio report still marks its source-to-master reconciliation partial. The package must reconcile it against the dated Spring MY26 2026-02-06 price list, preserve source/footnote conflicts, and not repeat the already imported 54 scalar observations, three ranges or the completed dimension/DC 40 kW review. Cennik-first reconciliation is complete for the represented model families; brochure work resumes within the documented evidence boundaries.
+
+
+## Semantic scope and completion-history safeguards — 2026-11-25
+
+Extended the package-selection gate beyond evidence presence. It now compares conservative model-family identifiers in source paths and reviewed report metadata; when a prior report covers the same model family, the new package must provide a per-report `scope_resolutions` entry naming the overlap basis, explicitly excluded/completed scope and genuinely distinct residual scope. The Spring MY26 brochure selection now records its overlap with the prior Spring MY26 price-list review and explicitly excludes already completed price-list and dimension/DC 40 kW work.
+
+Added a state/report-registry consistency gate: every completed current package must have a completion receipt whose exact report path and report ID are registered, and the registered report must declare completion. Conversely, a registered current-package report declaring completion cannot coexist with a non-complete canonical package status. Added isolated tests for same-model overlap without/with resolution and for registered completion-report/state drift.
+
+This exposed and repaired a pre-existing registry omission: `official_bigster_brochure_full_assimilation_20261125` was the canonical completed Bigster report but was absent from `data/reporting/report_registry.json`. The report was verified as `fully_assimilated_with_deferrals` and registered against its exact JSON path. No master-data rows or baseline counters were changed.

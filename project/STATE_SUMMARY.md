@@ -12,7 +12,7 @@
 
 ## Phase
 
-**Dacia Official Cennik Reconciliation**
+**Dacia Official Brochure Assimilation**
 
 ## Reference delivery
 
@@ -42,9 +42,9 @@ Review all 24 pages of the currently linked official Bigster brochure against re
 
 ## Next package
 
-**Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation** — `active`
+**Spring MY26 Brochure Full Source-to-Master Reconciliation** — `planned`
 
-Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics.
+Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.
 
 ## Autonomy
 

@@ -7,7 +7,7 @@
     "source_of_truth": "repository",
     "main_sha_tracking": "dynamic"
   },
-  "phase": "Dacia Official Cennik Reconciliation",
+  "phase": "Dacia Official Brochure Assimilation",
   "reference_delivery": {
     "name": "Sandero Stepway Full Modal Evidence Boundary",
     "pull_request": 638,
@@ -47,17 +47,41 @@
     }
   },
   "next_package": {
-    "package_id": "striker_my26_technical_equipment_dimension_reconciliation_20261125_001",
-    "kind": "source_cennik_reconciliation",
-    "name": "Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation",
-    "status": "active",
-    "goal": "Reconcile the remaining technical, equipment and dimension evidence in the archived official Striker MY26 2026-11-02 Polish price list. First verify the exact archived source path and identity, then compare all remaining printed facts against current source-linked master observations and import only exact gaps; preserve unresolved applicability and measurement semantics.",
+    "package_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125_001",
+    "kind": "source_brochure_assimilation",
+    "name": "Spring MY26 Brochure Full Source-to-Master Reconciliation",
+    "status": "planned",
+    "goal": "Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.",
+    "report_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125",
+    "report_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json",
+    "master_data_changed": false,
     "source_paths": [
-      "PDF/Cenniki/striker-price.pdf",
-      "data/source_intake/striker_my26_20261102_capture.json"
+      "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+      "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf"
     ],
-    "report_id": "striker_my26_technical_equipment_dimension_reconciliation_20261102",
-    "report_path": "data/reporting/striker_my26_technical_equipment_dimension_reconciliation_20261102.json"
+    "selection_evidence": {
+      "reviewed_report_ids": [
+        "spring_my26_price_list_source_assimilation_review_20261114_001",
+        "striker_my26_technical_data_review_20261124_001"
+      ],
+      "reviewed_evidence_paths": [
+        "data/reporting/official_dacia_brochure_portfolio_coverage_reconciliation_20261014.json",
+        "project/source-audit/spring-brochure-20260219-page-inventory.md",
+        "project/packages/spring-brochure-technical-observations-20260219.md",
+        "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
+        "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.json",
+        "data/reporting/striker_my26_technical_data_review_20261124_001.json"
+      ],
+      "residual_scope": "Spring brochure has a complete 22-page text and rendered-image inventory, but its source-to-master reconciliation is explicitly partial. The next package closes that remaining reconciliation against the dated MY26 cennik; it does not repeat the completed Spring dimension/DC 40 kW review or the already imported 54 scalar and 3 range observations.",
+      "scope_resolutions": [
+        {
+          "report_id": "spring_my26_price_list_source_assimilation_review_20261114_001",
+          "overlap_basis": "The Spring MY26 model family is shared with the earlier price-list source review.",
+          "excluded_scope": "The earlier report covered MY26 price-list source registration, the catalogue-price matrix and page-5 technical-table conflict inventory; it did not reconcile the 22-page brochure into source-linked master observations.",
+          "residual_scope": "This package covers the distinct 22-page official brochure, including narrative, equipment matrices, technical content and rendered diagrams, compared with the existing price-list evidence; previously imported 54 scalar observations, 3 ranges and the completed dimension/DC 40 kW review remain excluded."
+        }
+      ]
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -134,6 +158,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Striker MY26 Technical, Equipment and Dimension Evidence Reconciliation",
-  "rationale": "The official Bigster brochure full assimilation is merged in PR #904 with all 24 pages reviewed and unresolved facts explicitly deferred. The Spring MY26 dimension/DC 40 kW review was already completed in PR #870, and Striker catalogue prices and priced options/packages were delivered in PRs #878 and #892. The remaining bounded gap is Striker MY26 technical, equipment and dimension evidence from the archived 2026-11-02 cennik; verify the exact archived source identity before beginning."
+  "next_package_selection": "Spring MY26 Brochure Full Source-to-Master Reconciliation",
+  "rationale": "The Striker MY26 technical and dimension package was already completed and merged in PR #898 (423 scalar observations and 21 bounded ranges); its completion was subsequently lost from the package pointer in PR #907, so it must not be repeated. The Sandero/Sandero Stepway catalogue-price history was delivered in PR #899, and Bigster brochure full assimilation was completed in PR #904. The cennik-first priority is now complete for the represented model families. Spring is the most ready remaining brochure package: all 22 pages already have text and rendered-image inventory, while the portfolio report still marks its source-to-master reconciliation partial. Compare it with the dated Spring MY26 cennik, preserving source conflicts and applicability boundaries."
 }
