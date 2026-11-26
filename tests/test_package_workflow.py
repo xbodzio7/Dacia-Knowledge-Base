@@ -186,8 +186,11 @@ class PackageWorkflowTests(unittest.TestCase):
             "- name: Upload canonical generated files", 1
         )[0]
         self.assertIn('if [[ -z "$changed" ]]; then', generator)
-        self.assertIn("continuing through the no-op verification", generator)
-        self.assertNotIn("exit 1", generator)
+        no_op_branch = generator.split(
+            'if [[ -z "$changed" ]]; then', 1
+        )[1].split("fi", 1)[0]
+        self.assertIn("continuing through the no-op verification", no_op_branch)
+        self.assertNotIn("exit 1", no_op_branch)
 
         self.assertIn(
             'echo "target_head_sha=$EXPECTED_HEAD_SHA" >> "$GITHUB_OUTPUT"',
