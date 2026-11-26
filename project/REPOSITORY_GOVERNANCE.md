@@ -32,7 +32,7 @@ The repository-level merge configuration is also audited against the observed ba
 
 ### 1. Repository Configuration Audit
 
-The existing required Repository state job reads repository-level settings and compares the merge methods and Allow update branch setting with the observed baseline. It also compares the canonical state list and actual workflow job names with the exact six owner-confirmed required contexts. It does not change settings.
+The main-only governance audit reads repository-level merge settings and compares the canonical required-check list with the workflow job-name contract. It does not change settings. The GitHub Actions REST response may omit `allow_update_branch`; an absent field is reported as unverifiable, never as false drift. The owner-confirmed connector value remains the recorded baseline.
 
 GitHub's standard Actions token cannot read the branch-protection endpoint, so CI does not claim to verify the live toggle values or bypass setting. The 2026-11-26 owner screenshot remains the source of truth for those settings. The audit fails if repository settings or the canonical/workflow required-check contract drift from that baseline. Never interpret an API 403 as proof that protection is absent or safe.
 
@@ -40,13 +40,13 @@ GitHub's standard Actions token cannot read the branch-protection endpoint, so C
 
 Quality checks out the exact PR head SHA, fetches the current target branch and verifies that its current SHA is an ancestor of the tested head. A stale PR fails before the test matrix. This remains mandatory even though GitHub's require-branches-up-to-date setting is off.
 
-### 3. Workflow Provenance Guard
+### 3. Unprivileged Pull-request Execution and Main-only Governance Audit
 
-Quality and Repository Baselines use pull_request_target for steady-state PR validation. GitHub therefore loads the workflow definition from the trusted base branch, not from the proposed PR revision. The workflows then check out the exact PR head with persist-credentials: false and read-only permissions.
+Quality and Repository Baselines use only the ordinary `pull_request` event. These workflows check out the exact PR head with `persist-credentials: false`, grant read-only permissions, and do not expose repository secrets or write tokens to PR code. They never use `pull_request_target` or `workflow_run` to execute, build, or consume artifacts from PR code.
 
-The trusted audit runs from pull_request_target (so GitHub loads the workflow definition from the base branch), reads core workflow definitions at the immutable PR base SHA, verifies that actions are pinned to 40-character commit SHAs, and checks that proposed workflow files preserve the trusted event, exact-head checkout, freshness and read-only boundaries.
+The separate governance audit runs only after a push to `main` or a manual dispatch from `main`. It reads the trusted main-branch workflow files and repository metadata through a read-only API token; it does not check out or execute PR code. It verifies immutable action pins, the ordinary PR trigger, the exact six required-check contract and repository merge settings. A missing REST field such as `allow_update_branch` is reported as unverifiable rather than treated as false drift.
 
-The baseline-repair workflow is deliberately excluded from this model: it remains a main-dispatched two-job workflow with isolated read-only generation and privileged allowlisted write-back. Never execute PR code with write credentials.
+Package-closeout receipts are validated by the ordinary read-only Quality job through the canonical transition validator. The baseline-repair workflow remains a main-dispatched two-job workflow with isolated read-only generation and privileged allowlisted write-back. Never execute PR code with write credentials.
 
 ### 4. Package Closure Integrity Guard
 
@@ -68,7 +68,7 @@ A partial closeout, stale receipt, missing registry entry or mismatched report b
 - Third-party actions in the core workflows are pinned to full commit SHAs.
 - The exact tested head SHA must still match the current PR head immediately before merge.
 - The six owner-confirmed protection checks remain enabled; do not weaken or bypass them to repair a failed workflow.
-- Workflow changes are bootstrapped through the currently trusted checks. Once the target-based workflow is present on main, the follow-up migration removes the legacy pull_request trigger so steady-state validation uses only pull_request_target.
+- Workflow changes are validated as ordinary read-only PR code. The main-only governance audit validates the merged workflow configuration after it reaches main. Never add a privileged PR event merely to make a workflow definition trusted.
 
 ## Failure handling
 
