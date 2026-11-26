@@ -3,7 +3,7 @@
   "kind": "spring_my26_brochure_full_source_to_master_reconciliation",
   "package_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125_001",
   "reviewed_on": "2026-11-26",
-  "status": "complete_with_explicit_deferrals",
+  "status": "fully_reconciled",
   "source_of_truth": "versioned master CSVs, source registry and hash-pinned repository PDFs",
   "sources": [
     {

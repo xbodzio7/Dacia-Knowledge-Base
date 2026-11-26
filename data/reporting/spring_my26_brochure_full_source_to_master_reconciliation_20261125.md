@@ -1,7 +1,7 @@
 # Spring MY26 Brochure Full Source-to-Master Reconciliation
 
 **Reviewed:** 2026-11-26  
-**Status:** Complete with explicit source deferrals  
+**Status:** Fully reconciled with explicit source deferrals  
 **Package:** `spring_my26_brochure_full_source_to_master_reconciliation_20261125_001`
 
 ## Scope and source identity
