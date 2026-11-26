@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Reviewed
+* Reconciled all 22 pages of the Spring brochure dated 2026-02-19 against the existing source-linked master and the MY26 price list dated 2026-02-06. Verified 90 scalar observations, 3 ranges, 126 availability rows, 21 brochure commercial mappings, 3 MY26 prices, 10 MY26 commercial mappings and two ground-clearance observations. The 21 candidate technical pairs were already represented; no duplicate master data was added. Preserved the page-2/page-5 conflict, torque-unit uncertainty, 204 kg battery-mass gap and diagram/accessory/Cargo deferrals. Report registered in the source report registry.
+
+
 ### Added
 * Added semantic same-model overlap detection with mandatory per-report scope resolutions; added a cross-check between completed package receipts, report registry IDs/paths and report completion status. Registered the previously omitted Bigster completion report and added isolated overlap/history regression tests.
 * Added source-package selection evidence to the canonical state transition gate: new source-backed next packages must cite registered reports, existing evidence files and a precise residual scope; the isolated self-test rejects missing evidence and duplicate registered report IDs. Corrected the post-PR #907 package pointer after verifying that Striker technical data was already completed in PR #898; selected the partially reconciled Spring brochure as the next planned package.
