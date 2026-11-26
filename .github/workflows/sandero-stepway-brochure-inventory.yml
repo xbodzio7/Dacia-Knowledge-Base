@@ -34,6 +34,8 @@ jobs:
           test "$(pdfinfo -v 2>&1 | head -n 1)" = "pdfinfo version 24.02.0"
 
       - name: Verify PDF integrity and extract all 21 pages
+        env:
+          INVENTORY_DIR: ${{ runner.temp }}/stepway-inventory
         run: |
           mkdir -p "${RUNNER_TEMP}/stepway-inventory"
           python tools/pdf_candidate_ledger.py \
