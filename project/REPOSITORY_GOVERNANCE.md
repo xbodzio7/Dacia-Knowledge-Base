@@ -6,7 +6,7 @@ This document defines the automated controls protecting the Dacia Knowledge Base
 
 ## Owner-confirmed repository baseline
 
-The Project Owner confirmed the following main protection settings on 2026-11-26. CI audits them read-only and fails closed on drift.
+The Project Owner confirmed the following main protection settings on 2026-11-26. CI audits repository-level settings and the declared/emitted required-check contract read-only. Branch-protection toggle values remain the owner-confirmed baseline because the standard Actions token cannot read the branch-protection endpoint.
 
 - Pull request required before merge: enabled.
 - Required approvals: 0.
@@ -32,9 +32,9 @@ The repository-level merge configuration is also audited against the observed ba
 
 ### 1. Repository Configuration Audit
 
-The existing required Repository state job reads repository settings and the main branch protection API. It checks the merge methods, update-branch setting, exact six required status contexts, PR/review settings, bypass enforcement and the remaining owner-confirmed toggles. It does not change settings.
+The existing required Repository state job reads repository-level settings and compares the merge methods and Allow update branch setting with the observed baseline. It also compares the canonical state list and actual workflow job names with the exact six owner-confirmed required contexts. It does not change settings.
 
-A missing API permission, 403, missing protection object or unexpected response fails the audit. It must never be interpreted as a successful or absent protection rule. The connector's inability to read branch protection does not invalidate the owner-confirmed baseline; GitHub Actions uses its own read-only administration permission for this audit.
+GitHub's standard Actions token cannot read the branch-protection endpoint, so CI does not claim to verify the live toggle values or bypass setting. The 2026-11-26 owner screenshot remains the source of truth for those settings. The audit fails if repository settings or the canonical/workflow required-check contract drift from that baseline. Never interpret an API 403 as proof that protection is absent or safe.
 
 ### 2. PR Freshness Guard
 
