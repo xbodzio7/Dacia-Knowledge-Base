@@ -1,0 +1,89 @@
+name: Sandero Stepway brochure inventory
+
+on:
+  pull_request:
+    paths:
+      - "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
+      - "project/sources/sandero-stepway-brochure-20260202.json"
+      - "tools/pdf_candidate_ledger.py"
+      - ".github/workflows/sandero-stepway-brochure-inventory.yml"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sandero-stepway-brochure-inventory-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out exact pull-request head without credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Install pinned Poppler tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+          test "$(pdftotext -v 2>&1 | head -n 1)" = "pdftotext version 24.02.0"
+          test "$(pdfinfo -v 2>&1 | head -n 1)" = "pdfinfo version 24.02.0"
+
+      - name: Verify PDF integrity and extract all 21 pages
+        env:
+          INVENTORY_DIR: ${{ runner.temp }}/stepway-inventory
+        run: |
+          mkdir -p "${RUNNER_TEMP}/stepway-inventory"
+          python tools/pdf_candidate_ledger.py \
+            --receipt project/sources/sandero-stepway-brochure-20260202.json \
+            --json "${RUNNER_TEMP}/stepway-inventory/candidate-ledger.json" \
+            --markdown "${RUNNER_TEMP}/stepway-inventory/candidate-ledger.md"
+          pdfinfo "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf" > "${RUNNER_TEMP}/stepway-inventory/pdfinfo.txt"
+          pdftotext -layout -enc UTF-8 \
+            "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf" \
+            "${RUNNER_TEMP}/stepway-inventory/all-pages-layout.txt"
+          pdftoppm -png -r 110 \
+            "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf" \
+            "${RUNNER_TEMP}/stepway-inventory/page"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import os
+          root = Path(os.environ["INVENTORY_DIR"])
+          text = (root / "all-pages-layout.txt").read_text(encoding="utf-8")
+          pages = text.split(chr(12))
+          while pages and not pages[-1].strip():
+              pages.pop()
+          if len(pages) != 21:
+              raise SystemExit(f"Expected 21 extracted pages, got {len(pages)}")
+          rendered = sorted(root.glob("page-*.png"))
+          if len(rendered) != 21:
+              raise SystemExit(f"Expected 21 rendered pages, got {len(rendered)}")
+          manifest = {
+              "source_code": "src_pl_sandero_stepway_brochure_20260202",
+              "source_sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
+              "declared_pages": 21,
+              "extracted_pages": len(pages),
+              "rendered_pages": len(rendered),
+              "nonempty_pages": [i + 1 for i, page in enumerate(pages) if page.strip()],
+              "empty_text_pages": [i + 1 for i, page in enumerate(pages) if not page.strip()],
+              "page_text_characters": [len(page) for page in pages],
+          }
+          (root / "page-inventory.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload complete text, candidate ledger and rendered pages
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sandero-stepway-brochure-inventory
+          path: ${{ runner.temp }}/stepway-inventory/
+          if-no-files-found: error
+          retention-days: 14
