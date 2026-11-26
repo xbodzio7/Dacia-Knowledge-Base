@@ -18,7 +18,7 @@
 | Configurations | Five exact Eco-G 120 manual/automatic configurations | 0 | 0 | 0 | Existing source links reused |
 | Sources | `src_pl_sandero_stepway_brochure_20260202` | 0 | 0 | 0 | Existing archived PDF reused |
 | Scalar observations | `front_track`, `rear_track`, `ground_clearance` | 15 | 0 | 0 | Three declarative import specs, five configurations each |
-| Reporting scopes | Stepway automatic completeness and shared manual gap evidence | 0 | 2 | 0 | Existing comparison contracts updated to reflect newly observed track dimensions |
+| Reporting scopes | Stepway automatic completeness and two gap-evidence scopes | 0 | 3 | 0 | Existing comparison contracts updated to reflect newly observed track dimensions |
 
 ## Change-impact matrix
 
@@ -27,7 +27,7 @@
 | Canonical registries | Exact IDs and referential integrity | PASS | artifact: data/master/source_configurations.csv | Observed: the brochure remains linked to exactly five active Eco-G 120 configurations; no model, version, configuration or source registry rows were added or changed |
 | Configuration inventory | Active/inactive classification and source-backed applicability | PASS | artifact: data/master/configuration_attribute_values.csv | Observed: 15 new rows cover exactly three attributes across the five source-linked configurations; no TCe 110 or Hybrid 155 applicability was inferred |
 | Portfolio summaries | Derived counts reconcile with emitted records | N/A | artifact: project/state.json | No model/version/configuration portfolio identities or commercial counts changed; only 15 dated scalar observations were added |
-| Comparison scopes | Supported inclusion and reconciled pair/scope totals | PASS | artifact: data/reporting/sandero_stepway_ecog120_automatic_completeness.json | Observed: front_track and rear_track are now included in the Stepway automatic technical scope; six obsolete manual Stepway missing-evidence decisions were removed from the shared manual evidence file |
+| Comparison scopes | Supported inclusion and reconciled pair/scope totals | PASS | artifact: data/reporting/sandero_stepway_ecog120_automatic_completeness.json | Observed: front_track and rear_track are now included in the Stepway automatic technical scope; six obsolete manual Stepway missing-evidence decisions were removed from the shared manual and default repository evidence files |
 | Reports | Direct/transitive consumers reviewed; findings re-evaluated | PASS | artifact: data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json | Observed: page-20 report records 15 imported values, reused observations, the unresolved 1853 mm width conflict, exclusions and source PDF SHA-256; report freshness validation passed after metadata and Markdown parity repair |
 | Exports and release assets | Model/version/configuration coverage and deterministic outputs | N/A | artifact: project/state.json | No export schema, release asset or published data product is changed |
 | Historical tests | Package-owned fixtures unchanged and passing | N/A | artifact: tests/test_configuration_value_import_specs.py | No historical fixture or frozen release baseline is modified; full Quality remains the required exact-head gate |
