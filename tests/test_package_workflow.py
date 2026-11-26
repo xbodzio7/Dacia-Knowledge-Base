@@ -228,7 +228,7 @@ class PackageWorkflowTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
         for candidate in (quality, baselines):
             self.assertRegex(candidate, r"(?m)^  pull_request:$")
-            self.assertNotRegex(candidate, r"(?m)^  pull_request_target:\\s*$")
+            self.assertNotRegex(candidate, r"(?m)^  pull_request_target:\s*$")
             self.assertNotIn("workflow_run:", candidate)
             self.assertIn("github.event.pull_request.head.sha || github.sha", candidate)
             self.assertIn("persist-credentials: false", candidate)
