@@ -233,6 +233,8 @@ class PackageWorkflowTests(unittest.TestCase):
         self.assertIn("git merge-base --is-ancestor", quality)
         self.assertIn("github.event.pull_request.number || github.ref", quality)
         self.assertIn("pull_request_target:", baselines)
+        self.assertNotIn("\\n  pull_request:\\n", quality)
+        self.assertNotIn("\\n  pull_request:\\n", baselines)
         self.assertIn("github.event.pull_request.head.sha || github.sha", baselines)
         self.assertIn("pull-requests: read", baselines)
         self.assertIn("Audit repository configuration and trusted workflow provenance", baselines)
