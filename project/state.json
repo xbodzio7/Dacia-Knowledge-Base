@@ -36,8 +36,12 @@
     "report_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json",
     "master_data_changed": false,
     "source_paths": [
-      "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
-      "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf"
+      "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+      "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+      "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+      "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+      "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+      "PDF/Broszury/DACIA SPRING broszura 20260219.pdf"
     ],
     "selection_evidence": {
       "reviewed_report_ids": [
@@ -55,10 +59,10 @@
       "next_package_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001"
     },
     "completion": {
-      "pull_request": 918,
-      "package_commit_sha": "ce109908b461a9b675670ccf959b8055486a8a95",
+      "pull_request": 919,
+      "package_commit_sha": "5b187468776f09db8740cdbf9e7483970e4b026f",
       "completed_on": "2026-11-26",
-      "merge_commit_sha": "5bfddfc6dff1982f01c00af5d8af28e7011427b6"
+      "report_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json"
     }
   },
   "next_package": {
