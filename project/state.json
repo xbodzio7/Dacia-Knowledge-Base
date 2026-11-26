@@ -97,7 +97,10 @@
       ],
       "residual_scope": "Complete source-wide inventory and reconciliation of the 21-page Sandero Stepway brochure. Reuse the existing page 17-19 evidence and import receipts; no previously reviewed observation or unresolved candidate is promoted or re-imported.",
       "scope_resolutions": []
-    }
+    },
+    "source_paths": [
+      "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
+    ]
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
