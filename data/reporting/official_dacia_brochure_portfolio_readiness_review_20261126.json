@@ -295,5 +295,11 @@
     "unresolved_evidence_promoted": false,
     "ambiguous_labels_corrected_by_inference": false,
     "master_data_changed": false
+  },
+  "state_closeout": {
+    "pull_request": 919,
+    "state_path": "project/state.json",
+    "summary_path": "project/STATE_SUMMARY.md",
+    "note": "Canonical project state transition is included in this PR; package completion is tied to the commit that updates this report."
   }
 }
