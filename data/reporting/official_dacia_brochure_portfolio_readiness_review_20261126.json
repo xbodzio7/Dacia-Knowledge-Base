@@ -295,5 +295,53 @@
     "unresolved_evidence_promoted": false,
     "ambiguous_labels_corrected_by_inference": false,
     "master_data_changed": false
+  },
+  "state_closeout": {
+    "pull_request": 919,
+    "state_path": "project/state.json",
+    "summary_path": "project/STATE_SUMMARY.md",
+    "note": "Canonical project state transition is included in this PR; package completion is tied to the commit that updates this report."
+  },
+  "status": "complete",
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "official_dacia_brochure_portfolio_readiness_review_20261126",
+    "generated_at": "2026-11-26T20:10:00Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "5bfddfc6dff1982f01c00af5d8af28e7011427b6",
+    "input_files": [
+      {
+        "path": "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
+        "git_blob_sha": "a98ce298270c08a0bb38cfa16d430bda43ca2665",
+        "sha256": "76795d4ea524172a324fd44b6a630ffbb14be9d151df8c95de79a8dd4e6aed74"
+      },
+      {
+        "path": "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
+        "git_blob_sha": "4cbc3f8843d75a1ebf0872995f23c3154cf12de8",
+        "sha256": "eb4d44436c314d7e38d018af68e7475f03122a27f1e3f30e768f60432d338dd6"
+      },
+      {
+        "path": "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
+        "git_blob_sha": "ef91c6cbaef8d909fbf10aad5e00697ff52feb4c",
+        "sha256": "adee5017a405a22dffaca0555b47b84b718f2166534652c9863ba2f97f325f97"
+      },
+      {
+        "path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
+        "git_blob_sha": "88b623c214bd15bf33c75479a4fb25c094637628",
+        "sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48"
+      },
+      {
+        "path": "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
+        "git_blob_sha": "d0f9de18b42be8ee950914ee64b9e972accc1589",
+        "sha256": "84040b64bd67391cce4a99ada3021b0ad1a493f9430a666783e4632dd6ce85e8"
+      },
+      {
+        "path": "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+        "git_blob_sha": "e210544997f531b53596275cc366b8a2c7cd0ae4",
+        "sha256": "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d"
+      }
+    ],
+    "scope": "Portfolio-wide readiness review of all six registered Polish Dacia brochures, based on current source registrations and source-specific reports; selects the 21-page Sandero Stepway brochure for full inventory without re-importing reviewed pages.",
+    "status": "current"
   }
 }

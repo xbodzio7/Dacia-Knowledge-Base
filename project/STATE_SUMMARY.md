@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Spring MY26 Brochure Full Source-to-Master Reconciliation** — `complete`
+**Official Dacia Brochure Portfolio Readiness Review** — `complete`
 
-Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.
+Reconcile all six registered Polish Dacia brochures against current source records, page-level inventories and merged source-to-master reports. Close completed Bigster and Spring work, identify partial coverage and residuals for Jogger, Sandero, Sandero Stepway and Duster, and select the next distinct source-wide scope without repeating existing imports.
 
 ## Next package
 
-**Official Dacia Brochure Portfolio Readiness Review** — `planned`
+**Sandero Stepway Full Brochure Inventory and Source-to-Master Reconciliation** — `planned`
 
-Reconcile the six registered Polish Dacia brochures against current source records, rendered-page inventories, merged source-to-master reports and current master coverage. Produce a current portfolio-wide readiness report, identify the highest-priority distinct actionable residual brochure scope, and explicitly exclude completed Spring and Bigster work and all already represented observations.
+Create a complete text and rendered-page inventory of all 21 pages of the official Polish Sandero Stepway brochure dated 2026-02-02. Reconcile every supported statement, table, footnote, symbol and diagram against current source-linked master records and existing Stepway reviews. Reuse completed page 17-19 evidence, classify every candidate, and import only exact unsuperseded gaps with verified configuration, fuel, gear and measurement context; preserve unresolved semantics and conflicts without inference.
 
 ## Autonomy
 
