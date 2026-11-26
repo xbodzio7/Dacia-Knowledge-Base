@@ -850,7 +850,7 @@ def self_test() -> int:
                     "post_merge_receipt": True,
                 }
             )
-            + "\\n",
+            + "\n",
             encoding="utf-8",
         )
         _git(repository, "add", "reports/package.json")
