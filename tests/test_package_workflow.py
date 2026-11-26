@@ -188,7 +188,7 @@ class PackageWorkflowTests(unittest.TestCase):
         self.assertIn('if [[ -z "$changed" ]]; then', generator)
         no_op_branch = generator.split(
             'if [[ -z "$changed" ]]; then', 1
-        )[1].split("\\n          fi\\n", 1)[0]
+        )[1].split("\n          fi\n", 1)[0]
         self.assertIn("continuing through the no-op verification", no_op_branch)
         self.assertNotIn("exit 1", no_op_branch)
 
