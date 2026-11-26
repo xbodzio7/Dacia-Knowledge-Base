@@ -146,6 +146,10 @@ jobs:
               delete_branch_on_merge: false
             };
             for (const [key, value] of Object.entries(expectedSettings)) {
+              if (settings[key] === undefined) {
+                core.notice(`GitHub REST omitted repository setting ${key}; its value is unverifiable through this response and is not treated as false.`);
+                continue;
+              }
               if (settings[key] !== value) {
                 throw new Error(`Repository setting drift: ${key} expected ${value}, received ${settings[key]}.`);
               }
