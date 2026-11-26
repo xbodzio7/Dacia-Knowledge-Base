@@ -162,7 +162,7 @@ CI reporting is not equivalent to merge enforcement. The maintainer must inspect
 
 ## Trusted workflow and repository-governance requirements
 
-- Required PR validation must execute from the trusted base-branch workflow definition using pull_request_target; it may check out the exact PR head only with read-only permissions and persist-credentials: false.
+- Required PR validation must use ordinary pull_request workflows with read-only permissions and persist-credentials: false. Never use pull_request_target or workflow_run to check out, build, test, or consume artifacts from pull-request code. Trusted governance audits must run only on main and inspect PR-independent repository metadata without executing PR code.
 - Do not execute PR-controlled code with write credentials. The baseline-repair workflow remains a separate workflow_dispatch operation from protected main, with isolated read-only generation and privileged allowlisted write-back jobs.
 - Before merging, automatically audit the repository merge settings, Allow update branch and the six required status-check contexts against canonical state and workflow definitions. The live branch-protection toggles remain governed by the owner-confirmed screenshot because the standard Actions token cannot read that endpoint; never infer their state from a 403.
 - Keep the Quality exact-head freshness check: the current target-branch SHA must be an ancestor of the tested PR head. Do not rely on GitHub's optional require-branches-up-to-date toggle.

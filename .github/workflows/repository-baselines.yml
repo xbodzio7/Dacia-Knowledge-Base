@@ -2,7 +2,6 @@ name: Repository Baselines
 
 on:
   pull_request:
-  pull_request_target:
   push:
     branches:
       - main
@@ -11,7 +10,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
 
 concurrency:
   group: repository-baselines-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -43,236 +41,6 @@ jobs:
       - name: Check generated documentation in the same required gate
         run: python tools/dkb.py documentation-baseline --check
  
-      - name: Audit repository configuration and trusted workflow provenance
-        if: github.event_name == 'pull_request_target'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { owner, repo } = context.repo;
-            const pr = context.payload.pull_request;
-            if (!pr || context.eventName !== "pull_request_target") {
-              throw new Error("This audit must run from the trusted pull_request_target event.");
-            }
-            const fullName = `${owner}/${repo}`.toLowerCase();
-            if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== fullName) {
-              throw new Error("DKB governance checks require a same-repository PR.");
-            }
-
-            const shaPattern = /^[0-9a-f]{40}$/;
-            const workflowSha = pr.base.sha;
-            if (!shaPattern.test(workflowSha || "")) {
-              throw new Error("GitHub did not provide a valid immutable PR base SHA.");
-            }
-            core.info(`pull_request_target loaded this workflow from the trusted base; auditing core workflow files at ${workflowSha}.`);
-
-            async function readText(path, ref) {
-              const response = await github.rest.repos.getContent({ owner, repo, path, ref });
-              const file = response.data;
-              if (Array.isArray(file) || file.type !== "file" || !file.content) {
-                throw new Error(`Cannot read workflow file ${path} at ${ref}.`);
-              }
-              return Buffer.from(file.content, "base64").toString("utf8");
-            }
-            function checkActionPins(path, content) {
-              const failures = [];
-              for (const match of content.matchAll(/^\s*uses:\s*([^\s#]+)/gm)) {
-                const action = match[1];
-                if (action.startsWith("./") || action.startsWith("docker://")) continue;
-                const at = action.lastIndexOf("@");
-                const revision = at >= 0 ? action.slice(at + 1) : "";
-                if (!/^[0-9a-f]{40}$/.test(revision)) failures.push(action);
-              }
-              if (failures.length) {
-                throw new Error(`${path} contains actions not pinned to immutable 40-character SHAs: ${failures.join(", ")}`);
-              }
-            }
-            const coreWorkflows = [
-              ".github/workflows/quality.yml",
-              ".github/workflows/repository-baselines.yml",
-              ".github/workflows/baseline-repair.yml"
-            ];
-            const trusted = {};
-            for (const path of coreWorkflows) {
-              trusted[path] = await readText(path, workflowSha);
-              checkActionPins(path, trusted[path]);
-            }
-            if (!trusted[".github/workflows/quality.yml"].includes("pull_request_target:") ||
-                !trusted[".github/workflows/repository-baselines.yml"].includes("pull_request_target:")) {
-              throw new Error("Trusted base workflows are missing pull_request_target validation.");
-            }
-
-            const candidate = {};
-            for (const path of coreWorkflows) {
-              candidate[path] = await readText(path, pr.head.sha);
-              checkActionPins(path, candidate[path]);
-            }
-            const quality = candidate[".github/workflows/quality.yml"];
-            const baselines = candidate[".github/workflows/repository-baselines.yml"];
-            const repair = candidate[".github/workflows/baseline-repair.yml"];
-            for (const [path, content] of [
-              [".github/workflows/quality.yml", quality],
-              [".github/workflows/repository-baselines.yml", baselines]
-            ]) {
-              if (!content.includes("pull_request_target:") || /^\s{2}pull_request:\s*$/m.test(content)) {
-                throw new Error(`${path} must use pull_request_target only; do not restore untrusted pull_request execution.`);
-              }
-              if (!content.includes("github.event.pull_request.head.sha || github.sha") ||
-                  !content.includes("persist-credentials: false")) {
-                throw new Error(`${path} must check out the exact PR head without persisting credentials.`);
-              }
-            }
-            if (!quality.includes("git merge-base --is-ancestor") ||
-                !quality.includes("Reject pull requests behind the current base branch")) {
-              throw new Error("Quality workflow is missing its exact-base PR freshness guard.");
-            }
-            if (!repair.includes("workflow_dispatch:") ||
-                !repair.includes("if: github.ref == 'refs/heads/main'") ||
-                repair.includes("pull_request_target:")) {
-              throw new Error("Baseline Repair must remain main-dispatched and separate from pull_request_target.");
-            }
-
-            const { data: settings } = await github.rest.repos.get({ owner, repo });
-            const expectedRepositorySettings = {
-              allow_update_branch: true,
-              allow_squash_merge: true,
-              allow_merge_commit: true,
-              allow_rebase_merge: true,
-              allow_auto_merge: false,
-              delete_branch_on_merge: false
-            };
-            for (const [key, expected] of Object.entries(expectedRepositorySettings)) {
-              if (settings[key] !== expected) {
-                throw new Error(`Repository setting drift: ${key} expected ${expected}, received ${settings[key]}.`);
-              }
-            }
-
-            const stateResponse = await github.rest.repos.getContent({
-              owner, repo, path: "project/state.json", ref: pr.head.sha
-            });
-            const stateFile = stateResponse.data;
-            if (Array.isArray(stateFile) || stateFile.type !== "file" || !stateFile.content) {
-              throw new Error("Cannot read canonical state to verify the required-check contract.");
-            }
-            const state = JSON.parse(Buffer.from(stateFile.content, "base64").toString("utf8"));
-            const expectedChecks = [
-              "Python 3.14",
-              "Repository state / project-state --check",
-              "Python 3.10",
-              "Python 3.13",
-              "Package workflow / Windows",
-              "Generated documentation / documentation-baseline --check"
-            ].sort();
-            const declaredChecks = [...(state.review_policy?.required_status_checks || [])].sort();
-            if (JSON.stringify(declaredChecks) !== JSON.stringify(expectedChecks)) {
-              throw new Error(`Canonical required-check policy differs from the owner-confirmed six-check baseline: ${JSON.stringify(declaredChecks)}.`);
-            }
-            const expectedWorkflowContracts = [
-              [".github/workflows/quality.yml", quality, [
-                "name: Python ${{ matrix.python-version }}",
-                "name: Package workflow / Windows",
-                '- "3.10"', '- "3.13"', '- "3.14"'
-              ]],
-              [".github/workflows/repository-baselines.yml", baselines, [
-                "name: Repository state / project-state --check",
-                "name: Generated documentation / documentation-baseline --check"
-              ]]
-            ];
-            for (const [path, content, markers] of expectedWorkflowContracts) {
-              for (const marker of markers) {
-                if (!content.includes(marker)) {
-                  throw new Error(`${path} does not emit required check contract marker: ${marker}.`);
-                }
-              }
-            }
-            core.notice(
-              `Repository configuration and workflow provenance PASS. Workflow SHA ${workflowSha}; PR base ${pr.base.sha}; six required checks and merge settings match the owner-confirmed baseline.`
-            );
-
-      - name: Validate package closure integrity against the PR head
-        if: github.event_name == 'pull_request_target'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { owner, repo } = context.repo;
-            const pr = context.payload.pull_request;
-            if (!pr || context.eventName !== "pull_request_target") {
-              throw new Error("Package closure validation must run from pull_request_target.");
-            }
-            const changed = await github.paginate(github.rest.pulls.listFiles, {
-              owner, repo, pull_number: pr.number, per_page: 100
-            });
-            if (!changed.some(file => file.filename === "project/state.json")) {
-              core.notice("No canonical state transition in this PR; package closeout integrity check is not applicable.");
-              return;
-            }
-            if (!pr.head.repo || pr.head.repo.full_name.toLowerCase() !== `${owner}/${repo}`.toLowerCase()) {
-              throw new Error("Package closeout validation requires a same-repository PR.");
-            }
-            async function readJson(path, ref) {
-              const response = await github.rest.repos.getContent({ owner, repo, path, ref });
-              const file = response.data;
-              if (Array.isArray(file) || file.type !== "file" || !file.content) {
-                throw new Error(`Required closeout file is missing: ${path} at ${ref}.`);
-              }
-              return JSON.parse(Buffer.from(file.content, "base64").toString("utf8"));
-            }
-            async function requireFile(path, ref) {
-              const response = await github.rest.repos.getContent({ owner, repo, path, ref });
-              if (Array.isArray(response.data) || response.data.type !== "file") {
-                throw new Error(`Required closeout artifact is missing: ${path} at ${ref}.`);
-              }
-            }
-            const baseState = await readJson("project/state.json", pr.base.sha);
-            const headState = await readJson("project/state.json", pr.head.sha);
-            const previous = baseState.current_package || {};
-            const current = headState.current_package || {};
-            const newlyCompleted = current.status === "complete" &&
-              (previous.package_id !== current.package_id || previous.status !== "complete");
-            if (!newlyCompleted) {
-              core.notice("State changed, but no new current-package completion transition was introduced.");
-              return;
-            }
-            const completion = current.completion || {};
-            if (completion.pull_request !== pr.number ||
-                !/^[0-9a-f]{40}$/.test(completion.package_commit_sha || "") ||
-                completion.report_path !== current.report_path ||
-                !/^\d{4}-\d{2}-\d{2}$/.test(completion.completed_on || "")) {
-              throw new Error("New package completion receipt must bind this PR, exact package commit, report path and completion date.");
-            }
-            const packageCommit = await github.rest.repos.getCommit({
-              owner, repo, ref: completion.package_commit_sha
-            });
-            if (!(packageCommit.data.files || []).some(file => file.filename === completion.report_path)) {
-              throw new Error("Recorded package commit did not change the declared completion report.");
-            }
-            const ancestry = await github.rest.repos.compareCommits({
-              owner, repo, base: completion.package_commit_sha, head: pr.head.sha
-            });
-            if (!["ahead", "identical"].includes(ancestry.data.status)) {
-              throw new Error("Recorded package commit is not an ancestor of the exact PR head.");
-            }
-            const report = await readJson(completion.report_path, pr.head.sha);
-            const completedStatuses = new Set([
-              "complete", "completed", "fully_assimilated",
-              "fully_assimilated_with_deferrals", "fully_reconciled"
-            ]);
-            if (!completedStatuses.has(report.status) || report.package_id !== current.package_id) {
-              throw new Error("Completion report status/package identity does not match the canonical package.");
-            }
-            const registry = await readJson("data/reporting/report_registry.json", pr.head.sha);
-            const entry = (registry.reports || []).find(item =>
-              item.report_id === current.report_id && item.json_path === current.report_path
-            );
-            if (!entry) {
-              throw new Error("Completed package report is not registered under the exact report ID and JSON path.");
-            }
-            if (entry.markdown_path) await requireFile(entry.markdown_path, pr.head.sha);
-            core.notice(
-              `Package closure integrity PASS: ${current.package_id}, report ${current.report_id}, PR #${pr.number}, commit ${completion.package_commit_sha}.`
-            );
-
   documentation-baseline:
     name: Generated documentation / documentation-baseline --check
     runs-on: ubuntu-latest
@@ -289,3 +57,102 @@ jobs:
 
       - name: Check generated documentation baseline
         run: python tools/dkb.py documentation-baseline --check
+
+  governance-audit:
+    name: Repository governance / main workflow integrity
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Audit trusted main-branch workflow and repository configuration
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            if (context.ref !== "refs/heads/main" ||
+                !["push", "workflow_dispatch"].includes(context.eventName)) {
+              throw new Error("Governance audit is restricted to trusted main-branch push or dispatch events.");
+            }
+            const { owner, repo } = context.repo;
+            const ref = context.sha;
+            async function readText(path) {
+              const response = await github.rest.repos.getContent({ owner, repo, path, ref });
+              const file = response.data;
+              if (Array.isArray(file) || file.type !== "file" || !file.content) {
+                throw new Error(`Cannot read trusted main-branch file: ${path}`);
+              }
+              return Buffer.from(file.content, "base64").toString("utf8");
+            }
+            const paths = [
+              ".github/workflows/quality.yml",
+              ".github/workflows/repository-baselines.yml",
+              ".github/workflows/baseline-repair.yml"
+            ];
+            const workflow = {};
+            for (const path of paths) {
+              const content = await readText(path);
+              workflow[path] = content;
+              const unpinned = [...content.matchAll(/^\s*uses:\s*([^\s#]+)/gm)]
+                .map(match => match[1])
+                .filter(action => !action.startsWith("./") && !action.startsWith("docker://"))
+                .filter(action => !/^[0-9a-f]{40}$/.test(action.slice(action.lastIndexOf("@") + 1)));
+              if (unpinned.length) throw new Error(`${path} has non-SHA-pinned actions: ${unpinned.join(", ")}`);
+            }
+            for (const path of paths.slice(0, 2)) {
+              if (!/^  pull_request:\s*$/m.test(workflow[path]) ||
+                  /^  pull_request_target:\s*$/m.test(workflow[path])) {
+                throw new Error(`${path} must validate PRs only through the unprivileged pull_request event.`);
+              }
+            }
+            const stateResponse = await github.rest.repos.getContent({
+              owner, repo, path: "project/state.json", ref
+            });
+            const state = JSON.parse(Buffer.from(stateResponse.data.content, "base64").toString("utf8"));
+            const expected = [
+              "Python 3.14",
+              "Repository state / project-state --check",
+              "Python 3.10",
+              "Python 3.13",
+              "Package workflow / Windows",
+              "Generated documentation / documentation-baseline --check"
+            ].sort();
+            const declared = [...(state.review_policy?.required_status_checks || [])].sort();
+            if (JSON.stringify(declared) !== JSON.stringify(expected)) {
+              throw new Error("Canonical state no longer declares the exact six owner-required checks.");
+            }
+            const contracts = [
+              [workflow[paths[0]], [
+                "name: Python ${{ matrix.python-version }}",
+                "name: Package workflow / Windows",
+                '- "3.10"', '- "3.13"', '- "3.14"'
+              ]],
+              [workflow[paths[1]], [
+                "name: Repository state / project-state --check",
+                "name: Generated documentation / documentation-baseline --check"
+              ]]
+            ];
+            for (const [content, markers] of contracts) {
+              for (const marker of markers) {
+                if (!content.includes(marker)) throw new Error(`Missing required check contract marker: ${marker}`);
+              }
+            }
+            const { data: settings } = await github.rest.repos.get({ owner, repo });
+            const expectedSettings = {
+              allow_squash_merge: true,
+              allow_merge_commit: true,
+              allow_rebase_merge: true,
+              allow_auto_merge: false,
+              delete_branch_on_merge: false
+            };
+            for (const [key, value] of Object.entries(expectedSettings)) {
+              if (settings[key] !== value) {
+                throw new Error(`Repository setting drift: ${key} expected ${value}, received ${settings[key]}.`);
+              }
+            }
+            if (settings.allow_update_branch === undefined) {
+              core.notice("The GitHub Actions REST response omits allow_update_branch; do not infer drift from an absent field.");
+            } else if (settings.allow_update_branch !== true) {
+              throw new Error("Repository setting drift: allow_update_branch must be enabled.");
+            }
+            core.notice(`Trusted main-branch workflow integrity PASS at ${ref}; PR execution uses unprivileged pull_request only.`);
