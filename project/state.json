@@ -27,30 +27,10 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "official_bigster_brochure_full_assimilation_20261014_001",
-    "kind": "source_brochure_assimilation",
-    "name": "Official Bigster Brochure Full Assimilation",
-    "status": "complete",
-    "goal": "Review all 24 pages of the currently linked official Bigster brochure against rendered pages and text, reconcile every supported fact against the 2026-10-01 official price list and existing import specifications, record explicit deferrals, and import only exact unsuperseded gaps.",
-    "report_id": "official_bigster_brochure_full_assimilation_20261125",
-    "report_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
-    "master_data_changed": true,
-    "source_paths": [
-      "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
-      "PDF/Cenniki/DACIA BIGSTER cennik MY26 20261001.pdf"
-    ],
-    "completion": {
-      "pull_request": 904,
-      "merge_commit_sha": "9c9fa938506830518ca810a0dd486f0fac5a70df",
-      "report_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
-      "completed_on": "2026-11-25"
-    }
-  },
-  "next_package": {
     "package_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125_001",
     "kind": "source_brochure_assimilation",
     "name": "Spring MY26 Brochure Full Source-to-Master Reconciliation",
-    "status": "active",
+    "status": "complete",
     "goal": "Reconcile all 22 pages of the official Polish Spring brochure dated 2026-02-19 against the existing source-linked master observations and the dated Spring MY26 2026-02-06 price list. The brochure already has a complete text and rendered-page inventory; complete the source-to-master gap analysis, import only exact unsuperseded facts with explicit configuration and measurement context, and preserve conflicts, footnote applicability and unresolved semantics.",
     "report_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125",
     "report_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json",
@@ -85,7 +65,22 @@
           "residual_scope": "This package performs the complete 22-page source-to-master reconciliation and closes the evidence accounting. The 21 candidate technical pairs are already represented by exact source-linked observations; no new master rows are justified. Remaining ambiguities are explicitly deferred rather than normalized or projected."
         }
       ]
+    },
+    "completion": {
+      "pull_request": 909,
+      "merge_commit_sha": "9f6e0f30036bdb56644323b87e1dbafa7c1ff04c",
+      "completed_on": "2026-11-26",
+      "report_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json"
     }
+  },
+  "next_package": {
+    "package_id": "official_dacia_brochure_portfolio_readiness_review_20261126_001",
+    "kind": "brochure_portfolio_readiness_review",
+    "name": "Official Dacia Brochure Portfolio Readiness Review",
+    "status": "planned",
+    "goal": "Reconcile the six registered Polish Dacia brochures against current source records, rendered-page inventories, merged source-to-master reports and current master coverage. Produce a current portfolio-wide readiness report, identify the highest-priority distinct actionable residual brochure scope, and explicitly exclude completed Spring and Bigster work and all already represented observations.",
+    "report_id": "official_dacia_brochure_portfolio_readiness_review_20261126",
+    "report_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -162,6 +157,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Spring MY26 Brochure Full Source-to-Master Reconciliation",
-  "rationale": "The Striker MY26 technical and dimension package was already completed and merged in PR #898 (423 scalar observations and 21 bounded ranges); its completion was subsequently lost from the package pointer in PR #907, so it must not be repeated. The Sandero/Sandero Stepway catalogue-price history was delivered in PR #899, and Bigster brochure full assimilation was completed in PR #904. The cennik-first priority is now complete for the represented model families. Spring is the most ready remaining brochure package: all 22 pages already have text and rendered-image inventory, while the portfolio report still marks its source-to-master reconciliation partial. Compare it with the dated Spring MY26 cennik, preserving source conflicts and applicability boundaries."
+  "next_package_selection": "Official Dacia Brochure Portfolio Readiness Review",
+  "rationale": "The merged Spring reconciliation explicitly recommends a fresh portfolio-wide readiness comparison before selecting another brochure. The existing portfolio coverage report is dated 2026-10-14 and predates the completed Bigster and Spring source-to-master packages; a current-main comparison is required to avoid repeating completed work and to select the next exact residual scope."
 }

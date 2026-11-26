@@ -136,6 +136,16 @@
       ],
       "markdown_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.md",
       "legacy": true
+    },
+    {
+      "report_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125",
+      "json_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json",
+      "markdown_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.md",
+      "depends_on": [],
+      "depends_on_paths": [
+        "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+        "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf"
+      ]
     }
   ]
 }
