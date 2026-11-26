@@ -301,5 +301,9 @@
     "state_path": "project/state.json",
     "summary_path": "project/STATE_SUMMARY.md",
     "note": "Canonical project state transition is included in this PR; package completion is tied to the commit that updates this report."
+  },
+  "status": "complete",
+  "report_metadata": {
+    "report_id": "official_dacia_brochure_portfolio_readiness_review_20261126"
   }
 }
