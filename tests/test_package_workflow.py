@@ -172,6 +172,52 @@ class PackageWorkflowTests(unittest.TestCase):
         )
         return manifest
 
+    def _assert_baseline_repair_workflow_contract(self) -> None:
+        workflow = (
+            REPOSITORY / ".github" / "workflows" / "baseline-repair.yml"
+        ).read_text(encoding="utf-8")
+        guidance = (
+            REPOSITORY / "project" / "BASELINE_REPAIR_WORKFLOW.md"
+        ).read_text(encoding="utf-8")
+
+        generator = workflow.split(
+            "- name: Reject unexpected generated paths", 1
+        )[1].split(
+            "- name: Upload canonical generated files", 1
+        )[0]
+        self.assertIn('if [[ -z "$changed" ]]; then', generator)
+        self.assertIn("continuing through the no-op verification", generator)
+        self.assertNotIn("exit 1", generator)
+
+        self.assertIn(
+            'echo "target_head_sha=$EXPECTED_HEAD_SHA" >> "$GITHUB_OUTPUT"',
+            workflow,
+        )
+        self.assertIn(
+            'echo "target_head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"',
+            workflow,
+        )
+        dispatch = workflow.split(
+            "- name: Verify exact PR head and dispatch required checks", 1
+        )[1]
+        self.assertIn("if: steps.apply.outcome == 'success'", dispatch)
+        self.assertNotIn("if: steps.apply.outputs.changed == 'true'", dispatch)
+        self.assertIn('workflow_id: "quality.yml", ref: branch', dispatch)
+        self.assertIn(
+            'workflow_id: "repository-baselines.yml", ref: branch',
+            dispatch,
+        )
+        self.assertIn("attempt <= 10", dispatch)
+        self.assertIn("setTimeout(resolve, 2000)", dispatch)
+        self.assertIn("if (!verified)", dispatch)
+        self.assertIn("refusing dispatch", dispatch)
+        self.assertIn("pr.head.sha === targetHead", dispatch)
+        self.assertIn("mainRef.object.sha === expectedBase", dispatch)
+
+        self.assertIn("No-op repairs and dispatch guarantees", guidance)
+        self.assertIn("unchanged head SHA", guidance)
+        self.assertIn("bounded GitHub API reads", guidance)
+
     def test_run_git_ignores_ambient_git_context(self) -> None:
         hostile_environment = {
             "GIT_DIR": str(self.repository / ".git"),
@@ -191,6 +237,7 @@ class PackageWorkflowTests(unittest.TestCase):
             )
 
         self.assertEqual(status, "")
+        self._assert_baseline_repair_workflow_contract()
 
     def test_start_creates_branch_from_synchronized_main(self) -> None:
         result, stdout, stderr = self.run_main(
