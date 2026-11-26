@@ -313,5 +313,26 @@
     "no_duplicate_or_unsupported_master_import_required": true
   },
   "conclusion": "The 22-page Spring brochure and dated MY26 price list are reconciled against current source-linked master data for the three existing passenger configurations. The apparent 21 technical candidates are already represented by earlier exact source-linked observations; the MY26 document supplies corroborating evidence, not 21 missing master facts. The only clear technical value from the MY26 price list already imported specifically from that source is ground clearance: two 155 mm observations for Expression and Extreme. The 204 kg battery mass and unresolved torque/diagram semantics remain explicitly deferred. No master-data mutation is justified by this reconciliation.",
-  "next_scope_recommendation": "Select the next brochure only after a fresh portfolio-wide source-to-master readiness comparison; do not reactivate Spring or re-open the already completed Bigster package."
+  "next_scope_recommendation": "Select the next brochure only after a fresh portfolio-wide source-to-master readiness comparison; do not reactivate Spring or re-open the already completed Bigster package.",
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125",
+    "generated_at": "2026-11-26T14:12:42.905Z",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "b73b4ed36b20f2e168377fc82b36513f357c4044",
+    "input_files": [
+      {
+        "path": "PDF/Broszury/DACIA SPRING broszura 20260219.pdf",
+        "git_blob_sha": "e210544997f531b53596275cc366b8a2c7cd0ae4",
+        "sha256": "73a4c568ce273bc095f6ecf1cfa4f5f2a92324bb2f0bbc171ba45bb4a4cf3c8d"
+      },
+      {
+        "path": "PDF/Cenniki/DACIA SPRING cennik MY26 20260206.pdf",
+        "git_blob_sha": "e5f29a463c3bf9d6b1e93b661cb5bcaee9fbba4f",
+        "sha256": "ab36fba1106ca4929c42330df7896cea8fe56e8774353f6cbb5a7a94cfc18055"
+      }
+    ],
+    "scope": "2026-02-19 Polish Spring brochure and 2026-02-06 MY26 price list; three exact passenger configurations; source-to-master reconciliation only.",
+    "status": "current"
+  }
 }
