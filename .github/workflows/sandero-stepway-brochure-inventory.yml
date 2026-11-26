@@ -52,10 +52,10 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          import re
-          root = Path("${RUNNER_TEMP}/stepway-inventory")
+          import os
+          root = Path(os.environ["INVENTORY_DIR"])
           text = (root / "all-pages-layout.txt").read_text(encoding="utf-8")
-          pages = text.split("\\f")
+          pages = text.split(chr(12))
           while pages and not pages[-1].strip():
               pages.pop()
           if len(pages) != 21:
@@ -73,7 +73,7 @@ jobs:
               "empty_text_pages": [i + 1 for i, page in enumerate(pages) if not page.strip()],
               "page_text_characters": [len(page) for page in pages],
           }
-          (root / "page-inventory.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+          (root / "page-inventory.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
           print(json.dumps(manifest, ensure_ascii=False, indent=2))
           PY
 
