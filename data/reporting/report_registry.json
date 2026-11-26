@@ -136,22 +136,6 @@
       ],
       "markdown_path": "data/reporting/official_bigster_brochure_full_assimilation_20261125.md",
       "legacy": true
-    },
-    {
-      "report_id": "spring_my26_brochure_full_source_to_master_reconciliation_20261125",
-      "json_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json",
-      "markdown_path": "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.md",
-      "depends_on": [
-        "spring_my26_price_list_source_assimilation_review_20261114_001"
-      ],
-      "depends_on_paths": [
-        "project/source-audit/spring-brochure-20260219-page-inventory.md",
-        "project/packages/spring-brochure-technical-observations-20260219.md",
-        "data/reporting/spring_my26_price_list_source_assimilation_review_20261114.json",
-        "data/reporting/spring_my26_price_commercial_matrix_reconciliation_20261116.json",
-        "data/reporting/spring_nonconflicting_technical_observations_review.json",
-        "data/reporting/spring_nonconflicting_common_technical_migration.json"
-      ]
     }
   ]
 }
