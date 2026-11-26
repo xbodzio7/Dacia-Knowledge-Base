@@ -150,7 +150,7 @@
       "markdown_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.md",
       "depends_on": [],
       "depends_on_paths": [
-        "data/master/sources.csv"
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
       ]
     }
   ]
