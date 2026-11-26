@@ -149,6 +149,21 @@ class ProjectStateContractTests(unittest.TestCase):
         self.assertIn('workflow_id: "repository-baselines.yml"', workflow)
         self.assertNotIn("pull_request_target:", workflow)
 
+        quality_workflow = (
+            REPOSITORY / ".github" / "workflows" / "quality.yml"
+        ).read_text(encoding="utf-8")
+        baseline_workflow = (
+            REPOSITORY / ".github" / "workflows" / "repository-baselines.yml"
+        ).read_text(encoding="utf-8")
+        for candidate in (quality_workflow, baseline_workflow):
+            self.assertIn("\\n  pull_request:\\n", candidate)
+            self.assertNotRegex(candidate, r"(?m)^  pull_request_target:\\s*$")
+            self.assertIn("persist-credentials: false", candidate)
+        self.assertIn("Repository governance / main workflow integrity", baseline_workflow)
+        self.assertIn("github.event_name == 'push'", baseline_workflow)
+        self.assertIn("github.event_name == 'workflow_dispatch'", baseline_workflow)
+        self.assertNotIn("secrets.GITHUB_TOKEN", baseline_workflow)
+
     def test_repository_baseline_matches_canonical_state(self) -> None:
         state = project_state.read_state(REPOSITORY / "project" / "state.json")
         live = documentation_baseline.collect_baseline(REPOSITORY)
