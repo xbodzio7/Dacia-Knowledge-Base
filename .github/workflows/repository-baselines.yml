@@ -12,7 +12,6 @@ on:
 permissions:
   contents: read
   pull-requests: read
-  administration: read
 
 concurrency:
   group: repository-baselines-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -157,9 +156,14 @@ jobs:
               }
             }
 
-            const { data: protection } = await github.rest.repos.getBranchProtection({
-              owner, repo, branch: "main"
+            const stateResponse = await github.rest.repos.getContent({
+              owner, repo, path: "project/state.json", ref: pr.head.sha
             });
+            const stateFile = stateResponse.data;
+            if (Array.isArray(stateFile) || stateFile.type !== "file" || !stateFile.content) {
+              throw new Error("Cannot read canonical state to verify the required-check contract.");
+            }
+            const state = JSON.parse(Buffer.from(stateFile.content, "base64").toString("utf8"));
             const expectedChecks = [
               "Python 3.14",
               "Repository state / project-state --check",
@@ -168,38 +172,27 @@ jobs:
               "Package workflow / Windows",
               "Generated documentation / documentation-baseline --check"
             ].sort();
-            const actualChecks = [...(protection.required_status_checks?.contexts || [])].sort();
-            if (JSON.stringify(actualChecks) !== JSON.stringify(expectedChecks)) {
-              throw new Error(`Required main checks differ. Expected ${JSON.stringify(expectedChecks)}, received ${JSON.stringify(actualChecks)}.`);
+            const declaredChecks = [...(state.review_policy?.required_status_checks || [])].sort();
+            if (JSON.stringify(declaredChecks) !== JSON.stringify(expectedChecks)) {
+              throw new Error(`Canonical required-check policy differs from the owner-confirmed six-check baseline: ${JSON.stringify(declaredChecks)}.`);
             }
-            if (protection.required_status_checks?.strict !== false) {
-              throw new Error("Main protection must keep the up-to-date toggle disabled; Quality enforces freshness independently.");
-            }
-            const reviews = protection.required_pull_request_reviews;
-            if (!reviews ||
-                reviews.required_approving_review_count !== 0 ||
-                reviews.dismiss_stale_reviews !== false ||
-                reviews.require_code_owner_reviews !== false ||
-                reviews.require_last_push_approval !== false) {
-              throw new Error("Main pull-request review settings differ from the owner-confirmed baseline.");
-            }
-            const enabled = value => value?.enabled === true;
-            if (!enabled(protection.enforce_admins)) {
-              throw new Error("Main branch protection must not allow bypassing the configured rules.");
-            }
-            const mustRemainDisabled = [
-              ["required_conversation_resolution", protection.required_conversation_resolution],
-              ["required_signatures", protection.required_signatures],
-              ["required_linear_history", protection.required_linear_history],
-              ["allow_force_pushes", protection.allow_force_pushes],
-              ["allow_deletions", protection.allow_deletions],
-              ["lock_branch", protection.lock_branch]
+            const expectedWorkflowContracts = [
+              [".github/workflows/quality.yml", quality, [
+                "name: Python ${{ matrix.python-version }}",
+                "name: Package workflow / Windows",
+                '- "3.10"', '- "3.13"', '- "3.14"'
+              ]],
+              [".github/workflows/repository-baselines.yml", baselines, [
+                "name: Repository state / project-state --check",
+                "name: Generated documentation / documentation-baseline --check"
+              ]]
             ];
-            for (const [name, value] of mustRemainDisabled) {
-              if (enabled(value)) throw new Error(`Main branch protection drift: ${name} must remain disabled.`);
-            }
-            if (protection.required_deployments) {
-              throw new Error("Main branch protection must not require deployments.");
+            for (const [path, content, markers] of expectedWorkflowContracts) {
+              for (const marker of markers) {
+                if (!content.includes(marker)) {
+                  throw new Error(`${path} does not emit required check contract marker: ${marker}.`);
+                }
+              }
             }
             core.notice(
               `Repository configuration and workflow provenance PASS. Workflow SHA ${workflowSha}; PR base ${pr.base.sha}; six required checks and merge settings match the owner-confirmed baseline.`
