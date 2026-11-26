@@ -32,7 +32,7 @@ The repository-level merge configuration is also audited against the observed ba
 
 ### 1. Repository Configuration Audit
 
-The main-only governance audit reads repository-level merge settings and compares the canonical required-check list with the workflow job-name contract. It does not change settings. The GitHub Actions REST response may omit `allow_update_branch`; an absent field is reported as unverifiable, never as false drift. The owner-confirmed connector value remains the recorded baseline.
+The main-only governance audit reads repository-level merge settings and compares the canonical required-check list with the workflow job-name contract. It does not change settings. The GitHub Actions REST response may omit repository-setting fields, including merge-method flags and `allow_update_branch`; any absent field is reported as unverifiable, never as false drift. Only fields actually returned are compared with the expected baseline. The owner-confirmed connector values remain the recorded baseline.
 
 GitHub's standard Actions token cannot read the branch-protection endpoint, so CI does not claim to verify the live toggle values or bypass setting. The 2026-11-26 owner screenshot remains the source of truth for those settings. The audit fails if repository settings or the canonical/workflow required-check contract drift from that baseline. Never interpret an API 403 as proof that protection is absent or safe.
 
@@ -44,7 +44,7 @@ Quality checks out the exact PR head SHA, fetches the current target branch and 
 
 Quality and Repository Baselines use only the ordinary `pull_request` event. These workflows check out the exact PR head with `persist-credentials: false`, grant read-only permissions, and do not expose repository secrets or write tokens to PR code. They never use `pull_request_target` or `workflow_run` to execute, build, or consume artifacts from PR code.
 
-The separate governance audit runs only after a push to `main` or a manual dispatch from `main`. It reads the trusted main-branch workflow files and repository metadata through a read-only API token; it does not check out or execute PR code. It verifies immutable action pins, the ordinary PR trigger, the exact six required-check contract and repository merge settings. A missing REST field such as `allow_update_branch` is reported as unverifiable rather than treated as false drift.
+The separate governance audit runs only after a push to `main` or a manual dispatch from `main`. It reads the trusted main-branch workflow files and repository metadata through a read-only API token; it does not check out or execute PR code. It verifies immutable action pins, the ordinary PR trigger, the exact six required-check contract and repository merge settings. Any missing repository-setting field in the REST response is reported as unverifiable rather than treated as false drift; returned fields are still checked against the expected baseline.
 
 Package-closeout receipts are validated by the ordinary read-only Quality job through the canonical transition validator. The baseline-repair workflow remains a main-dispatched two-job workflow with isolated read-only generation and privileged allowlisted write-back. Never execute PR code with write credentials.
 
