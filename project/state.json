@@ -171,7 +171,7 @@
   "next_package_selection": "Sandero Stepway Remaining Brochure Source-to-Master Reconciliation",
   "rationale": "The page-20 dimension package is complete. The remaining source-wide Stepway brochure reconciliation is the next distinct scope, with existing page-17-19 reports reused and all page-20 work excluded from repetition.",
   "package_replanning": {
-    "from_package_id": "sandero_stepway_full_brochure_source_to_master_reconciliation_20261126_001",
+    "from_package_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001",
     "to_package_id": "sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126",
     "reason": "The complete page inventory and exact current-master crosswalk narrowed the next actionable page-20 scope to three missing exterior attributes. Other dimensions were already represented, and the width label remains semantically unresolved; the rest of the brochure is retained as the next source-wide reconciliation package.",
     "decision_ref": "data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json"
