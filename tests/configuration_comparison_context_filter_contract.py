@@ -325,7 +325,10 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
             core.render_difference_csv(report),
         )
         canonical_rows = core.difference_csv_rows(report)
-        canonical_counts = Counter(row["context"] for row in canonical_rows)
+        canonical_counts = Counter(
+            context_filter.csv_row_filter_context(row)
+            for row in canonical_rows
+        )
         self.assertEqual(sum(canonical_counts.values()), len(canonical_rows))
         filtered_total = 0
         for context in contexts:
