@@ -843,7 +843,18 @@ def self_test() -> int:
         # After the PR-bound closeout has been validated, model the durable
         # post-merge receipt separately. A merge-commit receipt is historical
         # evidence and must not require the report to change in this later PR.
-        _git(repository, "commit", "--allow-empty", "-m", "Merge pull request #123")
+        report.write_text(
+            json.dumps(
+                {
+                    "status": "fully_assimilated_with_deferrals",
+                    "post_merge_receipt": True,
+                }
+            )
+            + "\\n",
+            encoding="utf-8",
+        )
+        _git(repository, "add", "reports/package.json")
+        _git(repository, "commit", "-m", "Merge pull request #123")
         merge_sha = _git(repository, "rev-parse", "HEAD")
         promoted["current_package"]["completion"]["merge_commit_sha"] = merge_sha
         validate_transition(
