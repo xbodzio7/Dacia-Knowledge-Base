@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "kind": "configuration_attribute_values",
+  "id_start": 8970,
+  "attribute_code": "front_track",
+  "attribute_contract": {
+    "data_type": "integer",
+    "unit": "mm",
+    "status": "active"
+  },
+  "observation_date": "2026-02-02",
+  "fuel_type_code": "",
+  "source_page": 20,
+  "source_section": "06. WYMIARY — WYMIARY ZEWNĘTRZNE",
+  "notes_template": "Source page {page}, section {section}: {source_text}",
+  "rows": [
+    {
+      "configuration_code": "sandero_stepway_iii_essential_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "value": "1520",
+      "source_text": "Rozstaw kół przednich: 1520 mm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "value": "1520",
+      "source_text": "Rozstaw kół przednich: 1520 mm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_expression_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "value": "1520",
+      "source_text": "Rozstaw kół przednich: 1520 mm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_manual",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "value": "1520",
+      "source_text": "Rozstaw kół przednich: 1520 mm"
+    },
+    {
+      "configuration_code": "sandero_stepway_iii_extreme_ecog120_automatic",
+      "source_code": "src_pl_sandero_stepway_brochure_20260202",
+      "value": "1520",
+      "source_text": "Rozstaw kół przednich: 1520 mm"
+    }
+  ]
+}

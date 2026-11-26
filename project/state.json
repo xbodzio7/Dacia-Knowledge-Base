@@ -17,9 +17,9 @@
   "baseline": {
     "tests": 2055,
     "csv_files": 48,
-    "rows": 23490,
-    "configuration_values": 8953,
-    "configuration_import_specs": 235,
+    "rows": 23505,
+    "configuration_values": 8968,
+    "configuration_import_specs": 238,
     "configuration_value_ranges": 472,
     "configuration_range_import_specs": 28,
     "availability_records": 10399,
@@ -27,80 +27,33 @@
     "attribute_categories": 30
   },
   "current_package": {
-    "package_id": "official_dacia_brochure_portfolio_readiness_review_20261126_001",
-    "kind": "brochure_portfolio_readiness_review",
-    "name": "Official Dacia Brochure Portfolio Readiness Review",
+    "package_id": "sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126",
+    "kind": "brochure_dimension_import",
+    "name": "Sandero Stepway Page 20 Exterior Dimension Semantic Crosswalk and Import",
     "status": "complete",
-    "goal": "Reconcile all six registered Polish Dacia brochures against current source records, page-level inventories and merged source-to-master reports. Close completed Bigster and Spring work, identify partial coverage and residuals for Jogger, Sandero, Sandero Stepway and Duster, and select the next distinct source-wide scope without repeating existing imports.",
-    "report_id": "official_dacia_brochure_portfolio_readiness_review_20261126",
-    "report_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json",
-    "master_data_changed": false,
+    "goal": "Import only page-20 exterior dimensions absent from current master data for the five exact source-linked Eco-G 120 configurations, reuse existing observations, and preserve unresolved width semantics.",
+    "report_id": "sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126",
+    "report_path": "data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json",
+    "master_data_changed": true,
     "source_paths": [
-      "PDF/Broszury/DACIA BIGSTER broszura 20251210.pdf",
-      "PDF/Broszury/DACIA JOGGER broszura 20251217.pdf",
-      "PDF/Broszury/DACIA SANDERO broszura 20260202.pdf",
-      "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
-      "PDF/Broszury/DACIA DUSTER mini broszura 20251020.pdf",
-      "PDF/Broszury/DACIA SPRING broszura 20260219.pdf"
+      "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
     ],
-    "selection_evidence": {
-      "reviewed_report_ids": [
-        "official_bigster_brochure_full_assimilation_20261125",
-        "spring_my26_brochure_full_source_to_master_reconciliation_20261125",
-        "jogger_page19_source_observation_import_closure",
-        "jogger_page19_remaining_mass_conflict_closure",
-        "jogger_equipment_page20_current_main_reconciliation_20261102",
-        "jogger_equipment_page21_current_main_reconciliation_20261104",
-        "sandero_brochure_page17_current_main_reconciliation_20261102",
-        "sandero_stepway_page17_max_power_rpm_import_closure_20261104",
-        "duster_mini_page20_exact_scalar_import_closure"
-      ],
-      "residual_scope": "The Sandero Stepway 2026-02-02 brochure has 21 pages, but current-main reports cover targeted pages 17-19 only. Existing page-17 imports and page-18/19 ambiguity decisions are explicitly excluded from repeat work. A complete source-wide page inventory and reconciliation is the next distinct scope.",
-      "next_package_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001"
-    },
     "completion": {
-      "pull_request": 919,
-      "package_commit_sha": "af34349fa0dedf5fb9cf845283fd1bbc815c1213",
+      "pull_request": null,
       "completed_on": "2026-11-26",
-      "report_path": "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json"
+      "report_path": "data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json"
     }
   },
   "next_package": {
-    "package_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001",
+    "package_id": "sandero_stepway_full_brochure_source_to_master_reconciliation_20261126_001",
     "kind": "source_brochure_assimilation",
-    "name": "Sandero Stepway Full Brochure Inventory and Source-to-Master Reconciliation",
+    "name": "Sandero Stepway Remaining Brochure Source-to-Master Reconciliation",
     "status": "planned",
-    "goal": "Create a complete text and rendered-page inventory of all 21 pages of the official Polish Sandero Stepway brochure dated 2026-02-02. Reconcile every supported statement, table, footnote, symbol and diagram against current source-linked master records and existing Stepway reviews. Reuse completed page 17-19 evidence, classify every candidate, and import only exact unsuperseded gaps with verified configuration, fuel, gear and measurement context; preserve unresolved semantics and conflicts without inference.",
+    "goal": "Complete classification of non-page-20 residual facts from the 21-page brochure, reuse existing page-17-19 reviews, preserve the page-13/page-18 roof-rail conflict, and import only verified unsuperseded gaps.",
     "source_code": "src_pl_sandero_stepway_brochure_20260202",
     "source_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
-    "source_sha256": "800e6e6df78e55e9fd3ac270dd5df26447c82830c92ced112ee83c3b44595d48",
     "page_count": 21,
-    "report_id": "sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126",
-    "selection_evidence": {
-      "reviewed_report_ids": [
-        "official_dacia_brochure_portfolio_readiness_review_20261126",
-        "official_bigster_brochure_full_assimilation_20261125",
-        "spring_my26_brochure_full_source_to_master_reconciliation_20261125"
-      ],
-      "reviewed_evidence_paths": [
-        "data/reporting/official_dacia_brochure_portfolio_readiness_review_20261126.json",
-        "data/reporting/sandero_stepway_page17_max_power_rpm_import_closure_20261104.json",
-        "data/reporting/sandero_stepway_technical_page17_ambiguity_review.json",
-        "data/reporting/sandero_stepway_equipment_page18_ambiguity_review.json",
-        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk1.json",
-        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk2.json",
-        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk3.json",
-        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk1.json",
-        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk2.json",
-        "data/reporting/official_bigster_brochure_full_assimilation_20261125.json",
-        "data/reporting/spring_my26_brochure_full_source_to_master_reconciliation_20261125.json"
-      ],
-      "residual_scope": "Complete source-wide inventory and reconciliation of the 21-page Sandero Stepway brochure. Reuse the existing page 17-19 evidence and import receipts; no previously reviewed observation or unresolved candidate is promoted or re-imported.",
-      "scope_resolutions": []
-    },
-    "source_paths": [
-      "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
-    ]
+    "report_id": "sandero_stepway_full_brochure_source_to_master_reconciliation_20261126"
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -177,6 +130,6 @@
     "next_package_selection": "Spring MY26 2026-02-06 Dimension Diagram and DC 40 kW Package Marker Review",
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
-  "next_package_selection": "Sandero Stepway Full Brochure Inventory and Source-to-Master Reconciliation",
-  "rationale": "The portfolio readiness review is complete. Stepway has a 21-page source but only targeted page 17-19 reviews; a complete text and rendered-page inventory is required before selecting further imports. Existing Stepway page 17-19 observations and unresolved decisions are explicitly excluded from duplicate work."
+  "next_package_selection": "Sandero Stepway Remaining Brochure Source-to-Master Reconciliation",
+  "rationale": "Page-20 exterior-dimension crosswalk imported only three missing attributes for five exact source-linked Eco-G 120 configurations; remaining source-wide candidates and the 1853 mm width semantic conflict require separate reconciliation."
 }
