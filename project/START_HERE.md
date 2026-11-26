@@ -84,7 +84,7 @@ For remote-only regeneration of canonical counters and managed documentation, fo
 
 ## Automated repository governance
 
-Read project/REPOSITORY_GOVERNANCE.md before changing CI, branch protection, merge settings or package lifecycle rules. Quality and Repository Baselines use a trusted base-branch workflow definition for pull-request validation, check out only the exact PR head with credentials persistence disabled, and independently audit repository configuration and package-closeout receipts. The read-only pull_request_target path is never used for baseline write-back; that remains a separate workflow_dispatch operation from main.
+Read project/REPOSITORY_GOVERNANCE.md before changing CI, branch protection, merge settings or package lifecycle rules. Quality and Repository Baselines use a trusted base-branch workflow definition for pull-request validation, check out only the exact PR head with credentials persistence disabled, and audit repository-level merge settings, the canonical/workflow required-check contract and package-closeout receipts. The owner-confirmed branch-protection screenshot remains authoritative for settings the standard Actions token cannot read. The read-only pull_request_target path is never used for baseline write-back; that remains a separate workflow_dispatch operation from main.
 
 ## Recorded GitHub `main` branch-protection baseline
 
