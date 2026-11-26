@@ -50,7 +50,7 @@ Package-closeout receipts are validated by the ordinary read-only Quality job th
 
 ### 4. Package Closure Integrity Guard
 
-When a PR newly marks the current package complete, the trusted Repository Baselines workflow verifies all of the following from GitHub:
+When a PR newly marks the current package complete, the ordinary read-only Quality job runs the canonical transition validator against the exact base and PR-head trees and verifies all of the following:
 
 - the completion receipt names the current PR and exact package commit;
 - the package commit changed the report declared by canonical state and is an ancestor of the exact PR head;
@@ -59,7 +59,7 @@ When a PR newly marks the current package complete, the trusted Repository Basel
 - the report registry contains the exact report ID and JSON path;
 - a registered Markdown companion, when declared, exists.
 
-A partial closeout, stale receipt, missing registry entry or mismatched report blocks the required Repository state check.
+A partial closeout, stale receipt, missing registry entry or mismatched report blocks the required Quality check.
 
 ## Safe execution model
 
