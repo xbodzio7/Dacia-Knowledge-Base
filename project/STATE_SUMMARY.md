@@ -14,6 +14,13 @@
 
 **Dacia Official Brochure Assimilation**
 
+## Reference delivery
+
+- Package: Sandero Stepway Full Modal Evidence Boundary
+- Pull Request: #638
+- Verified head: `1ec4ae2c85cf01ca7a0b6e6dad73482ae031f2c8`
+- Quality run: #35794419607
+
 ## Verified baseline
 
 - Tests: 2055
@@ -50,6 +57,6 @@ Work stops only for a real source, access, authentication, policy, architecture,
 ## Review policy
 
 - Review-only Pull Requests: exception only
-- Milestone review interval: undefined logical packages
+- Milestone review interval: 5 logical packages
 - One logical package per Pull Request: yes
 - Automatic remote-branch deletion: no

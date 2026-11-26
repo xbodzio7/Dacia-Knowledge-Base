@@ -28,3 +28,11 @@ The 1853 mm width label is not imported. Existing configuration PDFs record `ove
 Interior top-view values 1408, 1406 and 1026 mm and 14° seatback angles remain excluded.
 
 Only the five exact Eco-G 120 configurations linked to this brochure are covered. No TCe 110 or Hybrid 155 applicability is inferred.
+
+## Report metadata
+
+- Report ID: sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126
+- Generated: 2026-11-26T22:05:00Z
+- Analysed commit: c08d93156f3977cd4ba1ce0ad96cbc9e90bfcd57
+- Status: current
+- Scope: Page-20 exterior-dimension crosswalk and append-only import of three verified missing attributes for five exact source-related Eco-G 120 configurations.

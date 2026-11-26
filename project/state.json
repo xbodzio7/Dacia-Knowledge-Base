@@ -39,7 +39,8 @@
       "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf"
     ],
     "completion": {
-      "pull_request": null,
+      "pull_request": 922,
+      "package_commit_sha": "b0d3903ee601fe6ccfc789d34131413af12b3186",
       "completed_on": "2026-11-26",
       "report_path": "data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json"
     }
@@ -53,7 +54,41 @@
     "source_code": "src_pl_sandero_stepway_brochure_20260202",
     "source_path": "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf",
     "page_count": 21,
-    "report_id": "sandero_stepway_full_brochure_source_to_master_reconciliation_20261126"
+    "report_id": "sandero_stepway_full_brochure_source_to_master_reconciliation_20261126",
+    "selection_evidence": {
+      "reviewed_report_ids": [
+        "sandero_stepway_full_brochure_inventory_review_20261126",
+        "sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126"
+      ],
+      "reviewed_evidence_paths": [
+        "data/reporting/sandero_stepway_full_brochure_inventory_review_20261126.json",
+        "data/reporting/sandero_stepway_page17_max_power_rpm_import_closure_20261104.json",
+        "data/reporting/sandero_stepway_technical_page17_ambiguity_review.json",
+        "data/reporting/sandero_stepway_equipment_page18_ambiguity_review.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk1.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk2.json",
+        "data/reporting/sandero_stepway_equipment_page18_unresolved_review_chunk3.json",
+        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk1.json",
+        "data/reporting/sandero_stepway_equipment_page19_unresolved_review_chunk2.json",
+        "data/reporting/sandero_stepway_brochure_cargo_import.json",
+        "data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json"
+      ],
+      "residual_scope": "Reconcile remaining non-page-20 facts on pages 1-16 and 21, reuse page-17 to page-19 evidence, resolve or explicitly preserve the page-13/page-18 roof-rail discrepancy, and inspect the 1853 mm page-20 width semantics. The 15 imported page-20 observations and all reused facts are excluded from duplicate work.",
+      "scope_resolutions": [
+        {
+          "report_id": "sandero_stepway_full_brochure_inventory_review_20261126",
+          "overlap_basis": "Sandero Stepway source-page inventory overlaps the Sandero Stepway model family.",
+          "excluded_scope": "Page-20 dimensions and cargo are already reconciled separately; pages 17-19 are reused from prior reports and not repeated.",
+          "residual_scope": "Remaining source pages and unresolved facts only; no repeated page-20 import."
+        },
+        {
+          "report_id": "sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126",
+          "overlap_basis": "Sandero Stepway page-20 dimension import concerns the same Sandero Stepway model family.",
+          "excluded_scope": "Page-20 imported dimensions, reused measurements and the explicit width conflict review are excluded from new imports.",
+          "residual_scope": "Remaining pages 1-16 and 21 plus cross-page equipment/paint residuals; preserve page-13/page-18 conflict."
+        }
+      ]
+    }
   },
   "autonomy": {
     "mode": "autonomous_until_action_required",
@@ -131,5 +166,11 @@
     "rationale": "The Jogger metallic-paint pair remains explicitly deferred because the cennik provides no exact colour or configuration crosswalk; Extreme heated seats are confirmed as part of the priced ZIMOWY package and existing mappings are complete. Continue the cennik-only priority with Spring's unresolved Extreme DC 40 kW P marker and dimension diagram, preserving all unproven applicability and measurement semantics."
   },
   "next_package_selection": "Sandero Stepway Remaining Brochure Source-to-Master Reconciliation",
-  "rationale": "Page-20 exterior-dimension crosswalk imported only three missing attributes for five exact source-linked Eco-G 120 configurations; remaining source-wide candidates and the 1853 mm width semantic conflict require separate reconciliation."
+  "rationale": "The page-20 dimension package is complete. The remaining source-wide Stepway brochure reconciliation is the next distinct scope, with existing page-17-19 reports reused and all page-20 work excluded from repetition.",
+  "package_replanning": {
+    "from_package_id": "sandero_stepway_full_brochure_source_to_master_reconciliation_20261126_001",
+    "to_package_id": "sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126",
+    "reason": "The complete page inventory and exact current-master crosswalk narrowed the next actionable page-20 scope to three missing exterior attributes. Other dimensions were already represented, and the width label remains semantically unresolved; the rest of the brochure is retained as the next source-wide reconciliation package.",
+    "decision_ref": "data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json"
+  }
 }
