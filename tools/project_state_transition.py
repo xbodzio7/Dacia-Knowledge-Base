@@ -383,6 +383,57 @@ def _validate_registry_state_consistency(
     elif is_complete:
         raise TransitionError("completed current_package has no report_path")
 
+    # A completion receipt must never be published while its package is still
+    # queued as next_package. The report and registry may be introduced in one
+    # PR only when the same state transition promotes that package to a
+    # completed current_package with its PR-bound completion evidence.
+    next_package = state.get("next_package")
+    if isinstance(next_package, dict):
+        next_report_path = next_package.get("report_path")
+        if isinstance(next_report_path, str) and next_report_path:
+            next_entry = by_path.get(next_report_path)
+            if isinstance(next_entry, dict):
+                next_report_id = next_package.get("report_id")
+                if (
+                    isinstance(next_report_id, str)
+                    and next_entry.get("report_id") != next_report_id
+                ):
+                    raise TransitionError(
+                        "next_package report_id does not match report_registry entry"
+                    )
+                next_report_file = _safe_repository_file(
+                    repository, next_report_path, "next_package.report_path"
+                )
+                try:
+                    next_report = json.loads(
+                        next_report_file.read_text(encoding="utf-8")
+                    )
+                except (OSError, json.JSONDecodeError) as exc:
+                    raise TransitionError(
+                        f"cannot read next package report {next_report_path}: {exc}"
+                    ) from exc
+                if _report_declares_completion(repository, next_report_path):
+                    raise TransitionError(
+                        "next_package report is registered as completed before package "
+                        "closeout; promote it to current_package=complete and record "
+                        "completion evidence in the same PR"
+                    )
+                next_metadata = (
+                    next_report.get("report_metadata", {})
+                    if isinstance(next_report, dict)
+                    else {}
+                )
+                if isinstance(next_metadata, dict):
+                    registered_id = next_metadata.get("report_id")
+                    if (
+                        isinstance(next_report_id, str)
+                        and registered_id
+                        and registered_id != next_report_id
+                    ):
+                        raise TransitionError(
+                            "next package report metadata report_id does not match canonical state"
+                        )
+
 
 def _validate_next_package_selection(package: Mapping[str, Any], repository: Path) -> None:
     """Require durable evidence that a newly selected source package was gap-checked."""
@@ -678,6 +729,20 @@ def self_test() -> int:
                 raise
         else:
             raise TransitionError("completed next-package report was not required to close")
+
+        # A report may already be complete and registered in the base tree.
+        # It must still be rejected while canonical state leaves its package
+        # queued as next_package (even when the report itself is unchanged in
+        # the candidate PR).
+        try:
+            _validate_registry_state_consistency(previous, repository)
+        except TransitionError as exc:
+            if "next_package report is registered as completed" not in str(exc):
+                raise
+        else:
+            raise TransitionError(
+                "completed next-package report registry receipt was accepted before closeout"
+            )
 
         promoted = {
             "current_package": {

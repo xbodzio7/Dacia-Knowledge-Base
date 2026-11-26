@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Added
+* Closed a package-lifecycle gap: the state transition gate now rejects a completed report-registry receipt while its package remains queued as `next_package`, including when the completed report predates the candidate PR. Added an isolated regression case for the unchanged-report path and documented the single-PR closeout sequence. Existing generated-documentation equality and baseline checks remain mandatory; generated summaries are produced only by canonical generators.
 * Added semantic same-model overlap detection with mandatory per-report scope resolutions; added a cross-check between completed package receipts, report registry IDs/paths and report completion status. Registered the previously omitted Bigster completion report and added isolated overlap/history regression tests.
 * Added source-package selection evidence to the canonical state transition gate: new source-backed next packages must cite registered reports, existing evidence files and a precise residual scope; the isolated self-test rejects missing evidence and duplicate registered report IDs. Corrected the post-PR #907 package pointer after verifying that Striker technical data was already completed in PR #898; selected the partially reconciled Spring brochure as the next planned package.
 
