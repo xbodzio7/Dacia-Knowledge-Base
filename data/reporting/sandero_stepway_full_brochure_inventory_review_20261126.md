@@ -66,3 +66,11 @@ Pages 17–19 contain 266 candidates and are explicitly handled by existing Step
 - Next: **Sandero Stepway Page 20 Exterior Dimension Semantic Crosswalk and Import**. Validate exact attribute semantics, source-linked configuration scope and duplicate keys before any append-only historical import.
 
 The candidate ledger and rendered page images are reproducible from the archived PDF using `.github/workflows/sandero-stepway-brochure-inventory.yml`; the run artifact is retained temporarily by GitHub Actions.
+
+## Report metadata
+
+- Report ID: sandero_stepway_full_brochure_inventory_review_20261126
+- Generated: 2026-11-26T21:12:00Z
+- Analysed commit: c5cc38f5c1b244c646019eba6c510847c95ad9e4
+- Status: current
+- Scope: Full 21-page visual and text inventory of the official Polish Sandero Stepway brochure, with existing page 17-19 evidence and page-20 cargo import reused; no master-data import.

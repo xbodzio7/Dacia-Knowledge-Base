@@ -213,34 +213,59 @@
   },
   "findings": [
     {
-      "id": "F-001",
+      "finding_id": "F-001",
+      "status": "open",
       "severity": "warning",
       "page": 13,
-      "description": "Essential grade summary calls the roof rails 'black modular roof rails', conflicting with the detailed page-18 matrix. Page 18 has separate rows: plain roof rails standard only in Essential; modular grey Megalith rails standard in Expression and Extreme. Keep page 18's visually distinct matrix row evidence and preserve page-13 wording as a source conflict."
+      "description": "Essential grade summary calls the roof rails 'black modular roof rails', conflicting with the detailed page-18 matrix. Page 18 has separate rows: plain roof rails standard only in Essential; modular grey Megalith rails standard in Expression and Extreme. Keep page 18's visually distinct matrix row evidence and preserve page-13 wording as a source conflict.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=13"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
     },
     {
-      "id": "F-002",
+      "finding_id": "F-002",
+      "status": "resolved",
       "severity": "info",
       "page": 20,
-      "description": "Cargo observations are already represented by the 2026-02-02 brochure cargo import. No duplicate cargo import is needed."
+      "description": "Cargo observations are already represented by the 2026-02-02 brochure cargo import. No duplicate cargo import is needed.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=20"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
     },
     {
-      "id": "F-003",
+      "finding_id": "F-003",
+      "status": "open",
       "severity": "action",
       "page": 20,
-      "description": "Stepway-specific exterior dimension diagram has not been included in the generic dimension semantic mapping review. The eleven visually identified dimensions are a focused next import candidate; applicability should remain limited to exact source-linked configurations until further source relationships are verified."
+      "description": "Stepway-specific exterior dimension diagram has not been included in the generic dimension semantic mapping review. The eleven visually identified dimensions are a focused next import candidate; applicability should remain limited to exact source-linked configurations until further source relationships are verified.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=20"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
     },
     {
-      "id": "F-004",
+      "finding_id": "F-004",
+      "status": "open",
       "severity": "warning",
       "page": 12,
-      "description": "Paint names and starred availability footnote are source evidence, not price/surcharge evidence. Do not infer commercial paint prices from this brochure."
+      "description": "Paint names and starred availability footnote are source evidence, not price/surcharge evidence. Do not infer commercial paint prices from this brochure.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=12"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
     },
     {
-      "id": "F-005",
+      "finding_id": "F-005",
+      "status": "needs_review",
       "severity": "info",
       "page": 17,
-      "description": "The 2026-02-02 source has both TCe 110 and Eco-G 120 technical columns; the existing RPM closure only imports Eco-G 120 max-power RPM ranges. Other unresolved technical slots remain under the existing ambiguity review."
+      "description": "The 2026-02-02 source has both TCe 110 and Eco-G 120 technical columns; the existing RPM closure only imports Eco-G 120 max-power RPM ranges. Other unresolved technical slots remain under the existing ambiguity review.",
+      "evidence_refs": [
+        "PDF/Broszury/DACIA SANDERO STEPWAY broszura 20260202.pdf#page=17"
+      ],
+      "last_verified_at": "2026-11-26T21:12:00Z"
     }
   ],
   "next_package": {
