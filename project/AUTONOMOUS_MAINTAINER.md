@@ -160,6 +160,16 @@ The final quality matrix must validate the exact candidate head SHA. Any subsequ
 
 CI reporting is not equivalent to merge enforcement. The maintainer must inspect branch protection/rulesets and distinguish workflows that report failures from checks GitHub actually requires. If required checks are not configured, never claim that GitHub blocks unsafe merges; apply the procedural no-merge rule and request administrator configuration of the designated baseline and quality checks.
 
+## Trusted workflow and repository-governance requirements
+
+- Required PR validation must execute from the trusted base-branch workflow definition using pull_request_target; it may check out the exact PR head only with read-only permissions and persist-credentials: false.
+- Do not execute PR-controlled code with write credentials. The baseline-repair workflow remains a separate workflow_dispatch operation from protected main, with isolated read-only generation and privileged allowlisted write-back jobs.
+- Before merging, automatically audit the owner-confirmed repository merge settings, Allow update branch, all six required status-check contexts and the recorded branch-protection toggles. A 403, missing protection object or unknown setting is a failed audit, not evidence that protection is absent or safe.
+- Keep the Quality exact-head freshness check: the current target-branch SHA must be an ancestor of the tested PR head. Do not rely on GitHub's optional require-branches-up-to-date toggle.
+- When a PR newly marks a package complete, independently verify from the trusted workflow that the receipt names the current PR, its package commit changed the declared report and is an ancestor of the exact PR head, the report has a completed status, and the exact report ID/path is present in the report registry.
+- Keep third-party workflow actions pinned to immutable 40-character commit SHAs. Changes to trusted workflow definitions must be checked by the base-branch workflow, not by executing the PR's replacement workflow.
+- Preserve the six existing required check names; governance checks run inside the existing required Repository state job and must not silently add or rename a required context.
+
 ## Cross-file consistency is a mandatory package responsibility
 
 Before editing, the maintainer must identify dependent source registry rows, import specifications, importers, tests, master data, manifests, archive files, canonical counters and generated documentation. Related updates must be treated as one logical transaction and included in the package scope.
