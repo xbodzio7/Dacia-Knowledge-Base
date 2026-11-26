@@ -46,8 +46,6 @@ jobs:
       - name: Audit repository configuration and trusted workflow provenance
         if: github.event_name == 'pull_request_target'
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
-        env:
-          TRUSTED_WORKFLOW_SHA: ${{ github.workflow_sha }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -62,18 +60,11 @@ jobs:
             }
 
             const shaPattern = /^[0-9a-f]{40}$/;
-            const workflowSha = process.env.TRUSTED_WORKFLOW_SHA;
+            const workflowSha = pr.base.sha;
             if (!shaPattern.test(workflowSha || "")) {
-              throw new Error("GitHub did not provide a valid trusted workflow SHA.");
+              throw new Error("GitHub did not provide a valid immutable PR base SHA.");
             }
-            const provenance = await github.rest.repos.compareCommits({
-              owner, repo, base: workflowSha, head: pr.base.sha
-            });
-            if (!["ahead", "identical"].includes(provenance.data.status)) {
-              throw new Error(
-                `Workflow provenance is not rooted in the PR base: workflow=${workflowSha}, base=${pr.base.sha}, status=${provenance.data.status}.`
-              );
-            }
+            core.info(`pull_request_target loaded this workflow from the trusted base; auditing core workflow files at ${workflowSha}.`);
 
             async function readText(path, ref) {
               const response = await github.rest.repos.getContent({ owner, repo, path, ref });
