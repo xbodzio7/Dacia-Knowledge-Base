@@ -67,7 +67,7 @@ def check()->dict[str,int]:
     if actual!=want:raise ContractError("2026-11-02 master mappings differ from import specification")
     old=[r for r in rows if r["source_code"]=="src_pl_jogger_price_my26_20261001"]
     oldpaint=[r for r in old if r["commercial_item_code"]==ITEM]
-    if len(old)!=54 or len(oldpaint)!=12 or {r["amount"] for r in oldpaint]!={"2700"}:raise ContractError("historical 2026-10-01 special non-metallic paint mappings must match the visually reverified 2,700 PLN source row")
+    if len(old)!=54 or len(oldpaint)!=12 or {r["amount"] for r in oldpaint}!={"2700"}:raise ContractError("historical 2026-10-01 special non-metallic paint mappings must match the visually reverified 2,700 PLN source row")
     if len([r for r in read_csv(MASTER/"commercial_items.csv") if r["code"]==ITEM])!=1:raise ContractError("existing special non-metallic item must be reused")
     if any(r["code"]=="jogger_metallic_paint_option" for r in read_csv(MASTER/"commercial_items.csv")):raise ContractError("do not create an unsupported metallic-paint item")
     if len({r["id"] for r in rows})!=len(rows) or len({r["code"] for r in rows})!=len(rows):raise ContractError("commercial mapping IDs/codes must be unique")
