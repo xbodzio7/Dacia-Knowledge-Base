@@ -97,7 +97,7 @@ def load_specs(configurations):
     items=read_spec(ITEM_SPEC,ITEM_SPEC_FIELDS)
     expected_item={"code":"jogger_special_nonmetallic_paint_option","name":"Lakier niemetalizowany specjalny",
         "item_type":"option","observation_date":SOURCE_DATE,"source_code":SOURCE,"status":"active",
-        "notes":"Official Polish Jogger MY26 cennik, printed page 3; special non-metallic paint is priced at 2,700 PLN. The source does not assign named colours."}
+        "notes":"Official Polish Jogger MY26 cennik, printed page 3; special non-metallic paint surcharge is 2,700 PLN (the printed row shows 0 / 2,700). The source does not assign named colours."}
     if items!=[expected_item]: raise ContractError("new commercial item differs from reviewed source contract")
     rows=read_spec(MAP_SPEC,MAP_SPEC_FIELDS)
     if len(rows)!=54 or len({r["code"] for r in rows})!=54: raise ContractError("expected 54 unique mapping specification rows")
