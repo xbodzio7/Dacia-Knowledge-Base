@@ -60,6 +60,9 @@ class ConfigurationValueImportSpecTests(unittest.TestCase):
                 "sandero-standing-km-petrol-20260626.json",
                 "sandero-stepway-brochure-elasticity-80-120-20260202.json",
                 "sandero-stepway-essential-wheel-design-20260626.json",
+                "sandero-stepway-page20-front_track-20260202.json",
+                "sandero-stepway-page20-ground_clearance-20260202.json",
+                "sandero-stepway-page20-rear_track-20260202.json",
                 "sandero-total-valve-count-20260626.json",
             ],
         )
