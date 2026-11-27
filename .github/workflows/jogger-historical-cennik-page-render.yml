@@ -1,0 +1,65 @@
+name: Jogger Historical MY26 Cennik Page 3 Visual Evidence
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/jogger-historical-cennik-page-render.yml"
+      - "owner_supplied/2026-10-01/f5cdbd7878.pdf"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jogger-historical-cennik-page3-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render-archived-page:
+    name: Verify and render archived 2026-10-01 page 3
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out trusted main source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Install PDF renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+
+      - name: Verify archived source identity and render only page 3
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdf="owner_supplied/2026-10-01/f5cdbd7878.pdf"
+          expected_sha256="12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46"
+          expected_pages="9"
+          test -f "$pdf"
+          actual_sha256="$(sha256sum "$pdf" | cut -d' ' -f1)"
+          test "$actual_sha256" = "$expected_sha256"
+          actual_pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
+          test "$actual_pages" = "$expected_pages"
+          mkdir -p rendered
+          pdftoppm -f 3 -l 3 -singlefile -png -r 180 "$pdf" rendered/jogger-2026-10-01-page-3
+          test -s rendered/jogger-2026-10-01-page-3.png
+          {
+            echo "## Archived Jogger MY26 2026-10-01 source page 3"
+            echo "- Source path: `$pdf`"
+            echo "- SHA-256: `$actual_sha256`"
+            echo "- Page count: `$actual_pages`"
+            echo "- Rendered page: `rendered/jogger-2026-10-01-page-3.png`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the verified page image
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: jogger-my26-20261001-page-3-visual-evidence
+          path: rendered/jogger-2026-10-01-page-3.png
+          if-no-files-found: error
+          retention-days: 30
