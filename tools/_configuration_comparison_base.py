@@ -1233,6 +1233,7 @@ def difference_csv_rows(
                         raw_cargo_context
                         if isinstance(raw_cargo_context, Mapping)
                         else None,
+                        str(item.get("gear_number", "")),
                     )
                     if item.get("range_relation"):
                         context += (
