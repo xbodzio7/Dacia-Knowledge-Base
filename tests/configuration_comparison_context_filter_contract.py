@@ -309,8 +309,37 @@ class ConfigurationComparisonContextFilterContractTests(unittest.TestCase):
                 "fuel_type_code=petrol;gear_number=6",
             },
         )
-        cargo_contexts = set(contexts) - legacy_contexts - gear_contexts
+        def base_context(context: str) -> str:
+            return ";".join(
+                component
+                for component in context.split(";")
+                if not component.startswith("range_relation=")
+            )
+
+        base_contexts = {base_context(context) for context in contexts}
+        base_gear_contexts = {
+            context for context in base_contexts if "gear_number=" in context
+        }
+        cargo_contexts = base_contexts - legacy_contexts - base_gear_contexts
+        range_relation_contexts = {
+            context for context in contexts if "range_relation=" in context
+        }
+        self.assertEqual(
+            base_gear_contexts,
+            {
+                "fuel_type_code=lpg;gear_number=4",
+                "fuel_type_code=lpg;gear_number=5",
+                "fuel_type_code=lpg;gear_number=6",
+                "fuel_type_code=petrol;gear_number=4",
+                "fuel_type_code=petrol;gear_number=5",
+                "fuel_type_code=petrol;gear_number=6",
+            },
+        )
         self.assertEqual(len(cargo_contexts), 5)
+        self.assertTrue(range_relation_contexts)
+        self.assertTrue(
+            all(base_context(context) in base_contexts for context in range_relation_contexts)
+        )
         self.assertTrue(
             all(
                 context.startswith("fuel_type_code=;")
