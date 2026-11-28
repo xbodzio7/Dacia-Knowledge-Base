@@ -649,9 +649,9 @@ Until then, this document remains the primary collaboration agreement.
 
 ## 18. Mandatory quality and source-validation protocol
 
-The AI must read and apply `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` in every new chat/session and every continuation after a handoff. This obligation is permanent and does not depend on the Project Owner repeating the instruction.
+The AI must apply the controls in `project/QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` whenever the work they govern is performed. Fast resume does not waive any quality, source-fidelity, change-impact, test-isolation or exact-HEAD requirement. Read the full protocol before data imports, source assimilation, code/test changes, CI or release repairs, package closure and merge decisions; for documentation-only continuations, consult the relevant sections when a change affects a governed contract.
 
-`project/START_HERE.md` is the mandatory entry point. Its required reading order includes the protocol. The AI must not begin implementation when the startup contract or protocol cannot be verified.
+`project/START_HERE.md` remains the mandatory entry point. Its full reading order is used for first-time sessions and documented recovery/escalation triggers; ordinary “kontynuuj” sessions use `project/SESSION_CONTINUITY.md` and load only the governing documents needed for the next action. Do not begin governed work when its required protocol cannot be verified.
 
 Every data package requires both technical-integrity validation and independent source-fidelity validation. Tests must primarily assert stable, scoped invariants rather than mutable global catalogue totals. A failing test must be diagnosed to its root cause before changing data, importer logic, validators or test expectations. A green CI result is valid only for the exact head SHA that was tested and does not, by itself, prove source accuracy.
 
