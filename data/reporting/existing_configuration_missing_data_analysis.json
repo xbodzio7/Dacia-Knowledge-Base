@@ -1985,14 +1985,14 @@
         "sha256": "94b5ef0dc34351ce7c940a0085d3884cc91e318c63e5e45e9bcdbf3e6c30569d"
       },
       {
-        "path": "data/reporting/sandero_tce_catalog_source_gap_review.json",
-        "git_blob_sha": "683b7f675625fc180bfbde80cf162750996c3550",
-        "sha256": "acc5d6f3a1b06d95ef92be1afe370894db5c903b292f14ea8257c3403e4205ed"
-      },
-      {
         "path": "data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json",
         "git_blob_sha": "962d1dcf2f4af02f2ca0da9e784cf5bd0fdedf77",
         "sha256": "c599de3098c7a264eefa0181d43ab5a1d348a689404fed92593e74007d2c7e33"
+      },
+      {
+        "path": "data/reporting/sandero_tce_catalog_source_gap_review.json",
+        "git_blob_sha": "683b7f675625fc180bfbde80cf162750996c3550",
+        "sha256": "acc5d6f3a1b06d95ef92be1afe370894db5c903b292f14ea8257c3403e4205ed"
       },
       {
         "path": "data/reporting/spring_electric100_automatic_completeness.json",
