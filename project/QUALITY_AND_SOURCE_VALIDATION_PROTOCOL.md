@@ -1243,3 +1243,15 @@ The following controls are mandatory and are executed by the Quality workflow on
 8. **Failure diagnosis.** When a gate fails, classify the cause as source/product defect, stale report/artifact, incomplete impact matrix, state/documentation drift, test/fixture defect, environment/toolchain issue or external-service issue. Repair the causal defect; do not weaken a validator or mass-refresh fingerprints/counters to make CI green.
 
 The current implementation deliberately separates discovery from verification: `report-impact` explains the affected dependency graph, while `report-freshness`, matrix validation, package preflight, state validation and generated-documentation checks independently decide whether the candidate is publishable. This avoids treating an informational impact list as proof of correctness.
+
+
+## 7. Generated artifact freshness and safe regeneration
+
+Apply the mandatory contract in project/GENERATED_ARTIFACT_FRESHNESS_GUARDRAILS.md whenever source/master data, import specifications, report generators or derived reports change.
+
+Before repairing a stale report, classify it as a live derived artifact, historical snapshot, reviewed decision/evidence record, or source/master data. Trace the affected dependency scope and use only its canonical generator. Do not repair global count mismatches by changing isolated test expectations.
+
+Generators must separate read-only checking from writes. A reports-only mode must preserve canonical project state, package manifests, completion receipts and next-package selection byte-for-byte. Test no-op behavior, idempotency, output allowlists and failure atomicity. Historical snapshots and reviewed decisions must remain unchanged unless their own explicit scope is being revised.
+
+A report-changing package must identify its upstream inputs and downstream outputs, validate denominators against the declared scope, and run focused downstream tests before the full exact-head Quality matrix. The repository enforces freshness for registered analytical reports through data/reporting/report_registry.json, tools/report_impact.py, tools/report_freshness.py, tests/test_report_freshness.py and the Quality workflow. The dependency contract supports exact report IDs, explicit file paths and constrained one-level JSON globs under data/reporting; glob matches must all be fingerprinted in report_metadata.input_files. The existing-configuration missing-data analysis is registered with five master CSVs, its generator and all current completeness/source-gap review files as inputs. This does not imply coverage of every generated output: verify registry coverage and extend it with regression tests when adding report families. The rollout requirements and PR acceptance checklist are in project/GENERATED_ARTIFACT_FRESHNESS_GUARDRAILS.md.
+
