@@ -377,12 +377,19 @@ def render_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def apply(repository: Path = ROOT) -> dict[str, object]:
+def apply(
+    repository: Path = ROOT,
+    *,
+    update_project_state: bool = True,
+) -> dict[str, object]:
     payload = collect(repository)
     write_json(repository / OUT_JSON.relative_to(ROOT), payload)
     (repository / OUT_MD.relative_to(ROOT)).write_text(
         render_markdown(payload), encoding="utf-8"
     )
+    if not update_project_state:
+        return payload
+
     selected = payload.get("selected_next_package")
     package_text = (
         "# Post-Jogger Context Completeness Reanalysis\n\n"
@@ -454,7 +461,13 @@ def apply(repository: Path = ROOT) -> dict[str, object]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--check", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--check", action="store_true")
+    mode.add_argument(
+        "--reports-only",
+        action="store_true",
+        help="Regenerate the two analysis reports without changing project state or package metadata.",
+    )
     args = parser.parse_args(argv)
     payload = collect(ROOT)
     if args.check:
@@ -469,6 +482,10 @@ def main(argv: list[str] | None = None) -> int:
             print("Completeness analysis outputs are stale.")
             return 1
         print("Completeness analysis outputs are current.")
+        return 0
+    if args.reports_only:
+        apply(ROOT, update_project_state=False)
+        print("Completeness analysis reports regenerated; project state and package metadata unchanged.")
         return 0
     apply(ROOT)
     print(render_markdown(payload), end="")
