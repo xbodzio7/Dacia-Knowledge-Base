@@ -456,6 +456,14 @@ class ReportFreshnessTests(unittest.TestCase):
             ["data/reporting/new_scope_completeness.json"],
         )
 
+        nested, nested_errors = analyze_report_impact(
+            self.root,
+            self.registry_path,
+            ["data/reporting/archive/new_scope_completeness.json"],
+        )
+        self.assertEqual(nested, [])
+        self.assertEqual(nested_errors, [])
+
     def case_legacy_report_cannot_claim_current(self) -> None:
         self._write_report(status="current")
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
