@@ -75,12 +75,24 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
     report_id = entry.get("report_id", "<unknown>")
     json_path = _safe_repo_path(repository, entry.get("json_path"))
     markdown_path = _safe_repo_path(repository, entry.get("markdown_path"))
+    metadata_relative = entry.get("metadata_path")
+    metadata_path = (
+        _safe_repo_path(repository, metadata_relative)
+        if metadata_relative is not None
+        else None
+    )
     if json_path is None or markdown_path is None:
         return [f"{report_id}: report paths must be safe repository-relative paths"]
+    if metadata_relative is not None and metadata_path is None:
+        return [f"{report_id}: metadata_path must be a safe repository-relative path"]
+    if metadata_path is not None and metadata_path in {json_path, markdown_path}:
+        return [f"{report_id}: metadata_path must be distinct from JSON and Markdown outputs"]
     if not json_path.is_file():
         return [f"{report_id}: JSON report is missing: {entry.get('json_path')}"]
     if not markdown_path.is_file():
         return [f"{report_id}: Markdown companion is missing: {entry.get('markdown_path')}"]
+    if metadata_path is not None and not metadata_path.is_file():
+        return [f"{report_id}: provenance metadata sidecar is missing: {metadata_relative}"]
 
     try:
         document = _read_json(json_path)
@@ -89,14 +101,24 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
     if not isinstance(document, dict):
         return [f"{report_id}: JSON report root must be an object"]
 
+    if metadata_path is not None:
+        try:
+            metadata = _read_json(metadata_path)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            return [f"{report_id}: cannot parse provenance metadata sidecar: {exc}"]
+        if not isinstance(metadata, dict):
+            return [f"{report_id}: provenance metadata sidecar root must be an object"]
+        if "report_metadata" in document:
+            return [f"{report_id}: metadata_path and embedded report_metadata cannot both be used"]
+    else:
+        metadata = document.get("report_metadata")
+
     if entry.get("legacy") is True:
         # Legacy reports remain available but cannot be advertised as current.
-        metadata = document.get("report_metadata")
         if isinstance(metadata, dict) and metadata.get("status") == "current":
             errors.append(f"{report_id}: legacy registry entry cannot claim current status")
         return errors
 
-    metadata = document.get("report_metadata")
     if not isinstance(metadata, dict):
         return [f"{report_id}: missing report_metadata (new reports must fail closed)"]
 
@@ -187,16 +209,17 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
         markdown = markdown_path.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError) as exc:
         return errors + [f"{report_id}: cannot read Markdown companion: {exc}"]
-    parity = {
-        "Report ID": report_id,
-        "Generated": metadata["generated_at"],
-        "Analysed commit": metadata["base_commit_sha"],
-        "Status": metadata["status"],
-        "Scope": metadata["scope"],
-    }
-    for label, value in parity.items():
-        if f"{label}: {value}" not in markdown:
-            errors.append(f"{report_id}: Markdown companion does not match {label}")
+    if metadata_path is None:
+        parity = {
+            "Report ID": report_id,
+            "Generated": metadata["generated_at"],
+            "Analysed commit": metadata["base_commit_sha"],
+            "Status": metadata["status"],
+            "Scope": metadata["scope"],
+        }
+        for label, value in parity.items():
+            if f"{label}: {value}" not in markdown:
+                errors.append(f"{report_id}: Markdown companion does not match {label}")
     return errors
 
 
@@ -267,11 +290,19 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             if dependency in entries and dependency != report_id
         ]
 
-    json_path_to_id = {
-        str(entry["json_path"]): report_id
-        for report_id, entry in entries.items()
-        if isinstance(entry.get("json_path"), str)
-    }
+    json_path_to_id: dict[str, str] = {}
+    for report_id, entry in entries.items():
+        for output_key in ("json_path", "metadata_path"):
+            output_path = entry.get(output_key)
+            if not isinstance(output_path, str):
+                continue
+            existing = json_path_to_id.get(output_path)
+            if existing is not None and existing != report_id:
+                errors_by_id[report_id].append(
+                    f"{report_id}: output path {output_path} is already owned by {existing}"
+                )
+            else:
+                json_path_to_id[output_path] = report_id
     for report_id, entry in entries.items():
         if "depends_on_paths" not in entry:
             errors_by_id[report_id].append(
@@ -359,7 +390,17 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             document = _read_json(json_path)
         except (OSError, UnicodeDecodeError, json.JSONDecodeError):
             continue
-        metadata = document.get("report_metadata") if isinstance(document, dict) else None
+        metadata_relative = entry.get("metadata_path")
+        if isinstance(metadata_relative, str):
+            metadata_file = _safe_repo_path(repository, metadata_relative)
+            if metadata_file is None or not metadata_file.is_file():
+                continue
+            try:
+                metadata = _read_json(metadata_file)
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+                continue
+        else:
+            metadata = document.get("report_metadata") if isinstance(document, dict) else None
         if not isinstance(metadata, dict):
             if entry.get("legacy") is True:
                 continue
