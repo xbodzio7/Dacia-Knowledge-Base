@@ -17,6 +17,7 @@ MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
 OUT_JSON = REPORTING / "existing_configuration_missing_data_analysis.json"
 OUT_MD = REPORTING / "existing_configuration_missing_data_analysis.md"
+OUT_METADATA = REPORTING / "existing_configuration_missing_data_analysis.metadata.json"
 PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-reanalysis-20260801.md"
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
@@ -429,13 +430,12 @@ def collect(
     }
 
 
-def render_markdown(
-    payload: dict[str, object],
-    metadata: dict[str, object] | None = None,
-) -> str:
+def render_markdown(payload: dict[str, object]) -> str:
     summary = payload["summary"]
     lines = [
         "# Existing Configuration Missing-Data Analysis",
+        "",
+        "## Summary",
         "",
         f"- Active configurations: {summary['active_configuration_count']}",
         f"- Completeness scopes: {summary['completeness_scope_count']}",
@@ -450,18 +450,6 @@ def render_markdown(
         "## Ranked source-backed candidates",
         "",
     ]
-    if metadata is not None:
-        lines.extend(
-            [
-                f"Report ID: {metadata['report_id']}",
-                f"Generated: {metadata['generated_at']}",
-                f"Analysed commit: {metadata['base_commit_sha']}",
-                f"Status: {metadata['status']}",
-                f"Scope: {metadata['scope']}",
-                "",
-            ]
-        )
-    lines.extend(["## Summary", ""])
     for index, item in enumerate(payload["ranked_candidates"][:10], 1):
         status = str(item["selection_status"])
         if status == EXHAUSTED_CLASSIFICATION:
@@ -507,14 +495,17 @@ def apply(
         generated_at=generated_at,
         base_commit_sha=base_commit_sha,
     )
-    document = {**payload, "report_metadata": metadata}
     write_text_atomic(
         repository / OUT_JSON.relative_to(ROOT),
-        json.dumps(document, ensure_ascii=False, indent=2) + "\n",
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
     )
     write_text_atomic(
         repository / OUT_MD.relative_to(ROOT),
-        render_markdown(payload, metadata),
+        render_markdown(payload),
+    )
+    write_text_atomic(
+        repository / OUT_METADATA.relative_to(ROOT),
+        json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
     )
     if not update_project_state:
         return payload
@@ -590,16 +581,15 @@ def apply(
 def check_outputs(repository: Path = ROOT) -> bool:
     json_path = repository / OUT_JSON.relative_to(ROOT)
     markdown_path = repository / OUT_MD.relative_to(ROOT)
-    if not json_path.is_file() or not markdown_path.is_file():
+    metadata_path = repository / OUT_METADATA.relative_to(ROOT)
+    if not json_path.is_file() or not markdown_path.is_file() or not metadata_path.is_file():
         return False
     try:
         document = json.loads(json_path.read_text(encoding="utf-8"))
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, json.JSONDecodeError):
         return False
-    if not isinstance(document, dict):
-        return False
-    metadata = document.pop("report_metadata", None)
-    if not isinstance(metadata, dict):
+    if not isinstance(document, dict) or not isinstance(metadata, dict):
         return False
     try:
         expected_metadata = build_report_metadata(
@@ -614,7 +604,7 @@ def check_outputs(repository: Path = ROOT) -> bool:
         document == payload
         and metadata == expected_metadata
         and markdown_path.read_text(encoding="utf-8")
-        == render_markdown(payload, metadata)
+        == render_markdown(payload)
     )
 
 
@@ -625,7 +615,7 @@ def main(argv: list[str] | None = None) -> int:
     mode.add_argument(
         "--reports-only",
         action="store_true",
-        help="Regenerate only the analysis JSON/Markdown reports without changing project state or package metadata.",
+        help="Regenerate only the analysis JSON/Markdown reports and provenance sidecar without changing project state or package metadata.",
     )
     args = parser.parse_args(argv)
     if args.check:
@@ -637,7 +627,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.reports_only:
         apply(ROOT, update_project_state=False)
         print(
-            "Completeness analysis reports regenerated; project state and package metadata unchanged."
+            "Completeness analysis reports and provenance sidecar regenerated; project state and package metadata unchanged."
         )
         return 0
     payload = apply(ROOT)
