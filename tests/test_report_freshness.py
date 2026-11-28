@@ -383,6 +383,87 @@ class ReportFreshnessTests(unittest.TestCase):
         )
         self.assertFalse(any(upstream_id in error for error in errors))
 
+    def case_dependency_glob_requires_every_current_match_in_metadata(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on_globs"] = [
+            "data/reporting/*_completeness.json"
+        ]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+        def add_input(filename: str) -> None:
+            path = self.root / "data" / "reporting" / filename
+            path.write_text('{"scope":"fixture"}\n', encoding="utf-8")
+            data = path.read_bytes()
+            document = json.loads(self.json_path.read_text(encoding="utf-8"))
+            document["report_metadata"]["input_files"].append({
+                "path": f"data/reporting/{filename}",
+                "git_blob_sha": hashlib.sha1(
+                    f"blob {len(data)}\0".encode() + data
+                ).hexdigest(),
+                "sha256": hashlib.sha256(data).hexdigest(),
+            })
+            self.json_path.write_text(json.dumps(document), encoding="utf-8")
+
+        add_input("alpha_completeness.json")
+        self.assertEqual(validate_registry(self.root, self.registry_path), [])
+
+        (self.root / "data" / "reporting" / "beta_completeness.json").write_text(
+            '{"scope":"new fixture"}\n',
+            encoding="utf-8",
+        )
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any(
+            "beta_completeness.json, which is missing from report_metadata.input_files" in error
+            for error in errors
+        ))
+
+        add_input("beta_completeness.json")
+        self.assertEqual(validate_registry(self.root, self.registry_path), [])
+
+    def case_dependency_glob_rejects_unsafe_and_unmatched_patterns(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on_globs"] = ["../data/reporting/*.json"]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any("unsafe report dependency glob" in error for error in errors))
+
+        registry["reports"][0]["depends_on_globs"] = [
+            "data/reporting/no_match_*.json"
+        ]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+        errors = validate_registry(self.root, self.registry_path)
+        self.assertTrue(any("matches no files" in error for error in errors))
+
+    def case_report_impact_detects_new_glob_match(self) -> None:
+        registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
+        registry["reports"][0]["depends_on_globs"] = [
+            "data/reporting/*_completeness.json"
+        ]
+        self.registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+        impacted, errors = analyze_report_impact(
+            self.root,
+            self.registry_path,
+            ["data/reporting/new_scope_completeness.json"],
+        )
+        self.assertEqual(
+            {item["report_id"] for item in impacted},
+            {self.report_id},
+        )
+        self.assertTrue(any(self.report_id in error for error in errors))
+        self.assertEqual(
+            impacted[0]["direct_inputs_changed"],
+            ["data/reporting/new_scope_completeness.json"],
+        )
+
+        nested, nested_errors = analyze_report_impact(
+            self.root,
+            self.registry_path,
+            ["data/reporting/archive/new_scope_completeness.json"],
+        )
+        self.assertEqual(nested, [])
+        self.assertEqual(nested_errors, [])
+
     def case_legacy_report_cannot_claim_current(self) -> None:
         self._write_report(status="current")
         registry = json.loads(self.registry_path.read_text(encoding="utf-8"))
@@ -408,6 +489,9 @@ def run_contract_cases() -> None:
         "case_legacy_report_is_allowed_but_not_current",
         "case_legacy_report_metadata_still_closes_report_inputs",
         "case_legacy_report_cannot_claim_current",
+        "case_dependency_glob_requires_every_current_match_in_metadata",
+        "case_dependency_glob_rejects_unsafe_and_unmatched_patterns",
+        "case_report_impact_detects_new_glob_match",
         "case_report_impact_detects_direct_and_transitive_consumers_and_allows_needs_review",
         "case_dependency_declaration_is_required",
         "case_dependency_path_declaration_is_required",
