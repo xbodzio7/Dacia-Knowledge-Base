@@ -1,5 +1,11 @@
 # Existing Configuration Missing-Data Analysis
 
+Report ID: existing_configuration_missing_data_analysis
+Generated: 2026-11-28T19:00:00+00:00
+Analysed commit: ea140374a2f0c082342c6aca4f50002b140dd2f7
+Status: current
+Scope: Historical completeness scopes through 2026-07-31; active configurations referenced by those scopes; source-gap review receipts
+
 ## Summary
 
 - Active configurations: 84
