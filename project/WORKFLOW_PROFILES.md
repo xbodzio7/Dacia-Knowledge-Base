@@ -7,6 +7,14 @@
 
 ---
 
+# Fast Resume Contract
+
+For the mandatory “kontynuuj” behavior, `project/SESSION_CONTINUITY.md` is the first operational guide. A new chat must verify its latest checkpoint against current remote GitHub state and continue from the next actionable step. The full bootstrap and full reading sequence below are escalation procedures, not work to repeat automatically at every new chat. A new chat by itself is not a reason to rerun completed analyses or tests.
+
+The checkpoint is an operational pointer only. `project/state.json`, current GitHub refs/PRs/CI and durable source evidence remain authoritative. If the checkpoint is invalid or material drift is found, escalate only to the relevant recovery/quality/source/governance documents.
+
+---
+
 # Workflow Bootstrap Contract
 
 **Never start project work from conversation memory alone.** A new chat, new session, application/browser switch, tool-limit change, recovery event, or handoff must not cause the AI to reconstruct the workflow from memory.
