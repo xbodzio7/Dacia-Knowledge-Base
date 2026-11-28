@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import subprocess
 import sys
@@ -22,6 +23,18 @@ def _safe_path(value: Any) -> str | None:
     if path.is_absolute() or ".." in path.parts:
         return None
     return path.as_posix()
+
+
+def _safe_dependency_glob(value: Any) -> str | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+    path = Path(value)
+    if path.is_absolute() or ".." in path.parts:
+        return None
+    normalized = path.as_posix()
+    if not normalized.startswith("data/reporting/") or not any(char in normalized for char in "*?["):
+        return None
+    return normalized
 
 
 def _read_json(path: Path) -> Any:
@@ -112,6 +125,21 @@ def analyze_report_impact(
                 consumers[upstream_id].add(report_id)
             if normalized in changed_paths_set:
                 direct_reasons[report_id].add(normalized)
+
+        dependency_globs = entry.get("depends_on_globs", [])
+        if not isinstance(dependency_globs, list):
+            return [], [f"{report_id}: depends_on_globs must be a list"]
+        if any(not isinstance(value, str) or not value.strip() for value in dependency_globs):
+            return [], [f"{report_id}: depends_on_globs entries must be non-empty patterns"]
+        if len(dependency_globs) != len(set(dependency_globs)):
+            return [], [f"{report_id}: depends_on_globs contains duplicate patterns"]
+        for value in dependency_globs:
+            pattern = _safe_dependency_glob(value)
+            if pattern is None:
+                return [], [f"{report_id}: unsafe depends_on_globs entry {value!r}"]
+            for changed_path in changed_paths_set:
+                if fnmatch.fnmatchcase(changed_path, pattern):
+                    direct_reasons[report_id].add(changed_path)
 
         for item in input_files:
             if not isinstance(item, dict):
