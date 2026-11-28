@@ -103,15 +103,22 @@ A blank or unknown dependency answer is a blocker, not an implicit approval.
 
 ## 8. Automation boundary and rollout
 
-This policy defines the required contract. Do not claim that a dependency graph or freshness gate is automated until a CI check actually enforces it.
+The repository already has a machine-readable analytical report registry at data/reporting/report_registry.json and CI enforcement in the Quality workflow:
 
-Implement automation incrementally in a dedicated package:
+- tools/report_impact.py identifies direct and transitive analytical reports affected by changed inputs.
+- tools/report_freshness.py validates registered report provenance, input fingerprints, dependency declarations, JSON/Markdown companion parity and freshness propagation.
+- tests/test_report_freshness.py covers changed inputs, direct/transitive consumers, dependency declarations, stale-input handling and scope boundaries.
+- .github/workflows/quality.yml runs report-impact for pull requests and report-freshness as part of the Quality gate.
 
-1. Inventory current live reports and their generators/inputs; mark historical and reviewed records explicitly.
-2. Add a machine-readable dependency registry for high-impact generated reports first.
-3. Add a read-only freshness checker that reports stale, missing, unknown and historical outputs separately.
-4. Add regression tests for input-to-output invalidation and scope isolation.
-5. Integrate the checker into Quality as a required result only after it is deterministic, complete for its declared scope and proven not to rewrite files.
-6. Expand coverage by report family; unknown dependencies must be visible and block only affected closeout, not trigger broad automatic rewrites.
+These controls are real automation for the reports declared in the registry. Do not describe them as covering every generated artifact in the repository: unregistered reports, one-off exports and other generator outputs may remain outside this contract.
+
+The next protection work is coverage expansion and gap closure, not duplicating the existing checker:
+
+1. Inventory report-producing generators and compare their outputs with report_registry.json; explicitly classify historical snapshots and reviewed decisions.
+2. Add missing live analytical reports to the registry with exact direct input paths, upstream report IDs, fingerprints and status.
+3. Add regression cases for each newly covered report family, including input changes, transitive invalidation, historical immutability and unrelated-scope isolation.
+4. Confirm report-impact and report-freshness fail closed for missing or inconsistent declarations, and remain read-only.
+5. Keep these checks in Quality; do not make a separate weaker freshness workflow or silently regenerate reports in CI.
+6. Extend coverage incrementally. Unknown dependencies must be visible and block only affected closeout, not trigger broad automatic rewrites.
 
 Never change branch protection or reduce the existing six required checks as part of this rollout.
