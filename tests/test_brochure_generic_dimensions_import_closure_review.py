@@ -231,12 +231,27 @@ class BrochureGenericDimensionsImportClosureReviewTests(unittest.TestCase):
             for item in evidence["decisions"]
             if item.get("triage_key") in REVIEW_KEYS
         }
-        self.assertEqual(set(selected), REVIEW_KEYS)
+        self.assertEqual(
+            set(selected),
+            set(),
+            "resolved source gaps must not remain in current missing-scope evidence",
+        )
+        plan = json.loads(
+            (REPORTING / "configuration_gap_resolution_plan.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        selected_plan = {
+            item["triage_key"]: item
+            for item in plan["decisions"]
+            if item.get("triage_key") in REVIEW_KEYS
+        }
+        self.assertEqual(set(selected_plan), REVIEW_KEYS)
         self.assertTrue(
-            all(item["reviewed_pages"] == [2] for item in selected.values())
+            all(item["reviewed_pages"] == [2] for item in selected_plan.values())
         )
         self.assertTrue(
-            all(item["classification"] == "not_stated" for item in selected.values())
+            all(item["resolution_state"] == "closed_not_stated" for item in selected_plan.values())
         )
 
         residual = json.loads(
