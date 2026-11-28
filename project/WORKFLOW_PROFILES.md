@@ -19,7 +19,7 @@ The checkpoint is an operational pointer only. `project/state.json`, current Git
 
 **Never start project work from conversation memory alone.** A new chat, new session, application/browser switch, tool-limit change, recovery event, or handoff must not cause the AI to reconstruct the workflow from memory.
 
-Before any project action, the AI shall perform this bootstrap:
+When the fast-resume checkpoint is missing/invalid or an escalation trigger applies, the AI shall perform this full bootstrap:
 
 1. Read `project/state.json` and identify the current package, next package, autonomy policy and execution policy.
 2. Read `project/STATE_SUMMARY.md`, `project/WORKFLOW_PROFILES.md`, `project/AUTONOMOUS_MAINTAINER.md` and `project/SESSION_STATE.md` as required by `START_HERE.md`.
@@ -48,21 +48,13 @@ At session start the AI shall be able to state, internally or in the session rec
 
 ## Cross-chat continuity guard
 
-A new chat must be treated as a clean recovery boundary, even when the model has a summary of the previous conversation. The summary is contextual only.
-
-Before selecting work, the maintainer must reconcile three layers:
-
-1. **Canonical state** — `project/state.json`;
-2. **Durable package evidence** — manifests/reconciliation files plus merged PR/commit history;
-3. **Human-readable state** — `STATE_SUMMARY.md` and `SESSION_STATE.md`.
-
-The layers must agree on the current package, completed package boundary, baseline and unresolved queue. If they do not, the maintainer repairs the durable state before continuing. In particular, a merged package must never remain selectable as the next task merely because `state.json` or a handoff narrative was not advanced.
+A new chat is a checkpoint-verification boundary, not an automatic full recovery exercise. First reconcile the durable checkpoint with canonical `project/state.json` and current GitHub refs/PR/CI. Inspect package manifests, report/source registries and generated human-readable state only when the checkpoint, changed files, merge history or next task makes them relevant. If evidence conflicts, expand the reconciliation to the affected durable package evidence and generated state before continuing. A merged package must never remain selectable merely because `state.json` or a handoff narrative was not advanced.
 
 A continuity check must also reject duplicate capture when the same exact configuration/source identity is already present in a merged manifest. Duplicate enrichment may be retained only when the manifest explicitly marks it as enrichment rather than a new surface.
 
 ## Workflow Check
 
-Before implementation, all of the following must be true:
+When the full bootstrap is invoked, all of the following must be true:
 
 - [ ] canonical `state.json` loaded;
 - [ ] required startup documents loaded;
