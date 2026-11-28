@@ -16,7 +16,7 @@ AS_OF = "2026-06-26"
 SPEC = REPOSITORY / "data/reporting/sandero_stepway_ecog120_automatic_completeness.json"
 EVIDENCE = REPOSITORY / "data/reporting/sandero_stepway_ecog120_automatic_gap_evidence.json"
 CONFIGURATIONS = {"sandero_stepway_iii_expression_ecog120_automatic", "sandero_stepway_iii_extreme_ecog120_automatic"}
-EXPECTED_TECHNICAL = {'applicable': 116, 'coverage_percent': '96.55', 'denominator': 116, 'missing': 4, 'not_applicable': 0, 'present': 112}
+EXPECTED_TECHNICAL = {'applicable': 120, 'coverage_percent': '96.67', 'denominator': 120, 'missing': 4, 'not_applicable': 0, 'present': 116}
 EXPECTED_EQUIPMENT = {'applicable': 138,
  'coverage_percent': '89.13',
  'denominator': 138,
@@ -54,7 +54,7 @@ class SanderoStepwayEcoG120AutomaticReportingScopeTests(unittest.TestCase):
         scope = self.completeness["scope"]
         self.assertEqual(set(scope["reporting_configuration_codes"]), CONFIGURATIONS)
         self.assertEqual(scope["reporting_configurations"], 2)
-        self.assertEqual(scope["technical_slots"], 58)
+        self.assertEqual(scope["technical_slots"], 60)
         self.assertEqual(scope["equipment_attributes"], 69)
         self.assertEqual(scope["sources"], 2)
 
