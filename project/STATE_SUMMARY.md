@@ -25,9 +25,9 @@
 
 - Tests: 2055
 - Master CSV files: 48
-- Master rows: 23490
-- Configuration values: 8953
-- Configuration import specifications: 235
+- Master rows: 23505
+- Configuration values: 8968
+- Configuration import specifications: 238
 - Configuration value ranges: 472
 - Configuration range import specifications: 28
 - Availability records: 10399
@@ -36,15 +36,15 @@
 
 ## Current package
 
-**Official Dacia Brochure Portfolio Readiness Review** — `complete`
+**Sandero Stepway Page 20 Exterior Dimension Semantic Crosswalk and Import** — `complete`
 
-Reconcile all six registered Polish Dacia brochures against current source records, page-level inventories and merged source-to-master reports. Close completed Bigster and Spring work, identify partial coverage and residuals for Jogger, Sandero, Sandero Stepway and Duster, and select the next distinct source-wide scope without repeating existing imports.
+Import only page-20 exterior dimensions absent from current master data for the five exact source-linked Eco-G 120 configurations, reuse existing observations, and preserve unresolved width semantics.
 
 ## Next package
 
-**Sandero Stepway Full Brochure Inventory and Source-to-Master Reconciliation** — `planned`
+**Sandero Stepway Remaining Brochure Source-to-Master Reconciliation** — `planned`
 
-Create a complete text and rendered-page inventory of all 21 pages of the official Polish Sandero Stepway brochure dated 2026-02-02. Reconcile every supported statement, table, footnote, symbol and diagram against current source-linked master records and existing Stepway reviews. Reuse completed page 17-19 evidence, classify every candidate, and import only exact unsuperseded gaps with verified configuration, fuel, gear and measurement context; preserve unresolved semantics and conflicts without inference.
+Complete classification of non-page-20 residual facts from the 21-page brochure, reuse existing page-17-19 reviews, preserve the page-13/page-18 roof-rail conflict, and import only verified unsuperseded gaps.
 
 ## Autonomy
 

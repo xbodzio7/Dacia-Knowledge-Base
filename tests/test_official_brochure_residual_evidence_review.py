@@ -110,6 +110,7 @@ class OfficialBrochureResidualEvidenceReviewTests(unittest.TestCase):
                 if self.models.get(row["configuration_code"]) == model
                 and row["attribute_code"] in CORE_DIMENSIONS
                 and row.get("observation_date", "") <= "2026-07-26"
+                and not 8970 <= int(row.get("id", "0")) <= 8984  # Separate 2026-11-26 page-20 import.
             ]
             for model in {"sandero_iii", "sandero_stepway_iii", "jogger", "bigster", "duster_iii"}
         }

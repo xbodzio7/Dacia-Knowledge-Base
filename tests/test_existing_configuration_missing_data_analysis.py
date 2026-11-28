@@ -128,6 +128,59 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                     scope_as_of_value="2026-08-01",
                 )
 
+    def test_reports_only_regeneration_preserves_project_state_and_package(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_root = Path(temporary)
+            shutil.copytree(
+                ROOT / "data" / "master",
+                temporary_root / "data" / "master",
+            )
+            shutil.copytree(
+                ROOT / "data" / "reporting",
+                temporary_root / "data" / "reporting",
+            )
+            shutil.copytree(
+                ROOT / "project",
+                temporary_root / "project",
+            )
+            state_path = temporary_root / "project" / "state.json"
+            package_path = (
+                temporary_root
+                / "project"
+                / "packages"
+                / "post-jogger-context-completeness-reanalysis-20260801.md"
+            )
+            state_before = state_path.read_bytes()
+            package_before = package_path.read_bytes()
+
+            payload = analysis.apply(
+                temporary_root,
+                update_project_state=False,
+            )
+
+            self.assertEqual(state_path.read_bytes(), state_before)
+            self.assertEqual(package_path.read_bytes(), package_before)
+            report_path = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.json"
+            )
+            markdown_path = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.md"
+            )
+            self.assertEqual(
+                json.loads(report_path.read_text(encoding="utf-8")),
+                payload,
+            )
+            self.assertEqual(
+                markdown_path.read_text(encoding="utf-8"),
+                analysis.render_markdown(payload),
+            )
+
     def test_rendering_and_checked_outputs_are_deterministic(self) -> None:
         self.assertEqual(
             analysis.render_markdown(self.payload),

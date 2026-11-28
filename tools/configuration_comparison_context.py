@@ -26,11 +26,14 @@ def comparison_filter_context(
         )
     if domain == "technical":
         cargo_context = item.get("cargo_context")
-        return technical_context(
+        context = technical_context(
             str(item.get("fuel_type_code", "")),
             cargo_context if isinstance(cargo_context, Mapping) else None,
             str(item.get("gear_number", "")),
         )
+        if item.get("range_relation"):
+            context += f";range_relation={item['range_relation']}"
+        return context
     return ""
 
 

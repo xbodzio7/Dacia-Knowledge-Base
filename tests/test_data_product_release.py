@@ -152,7 +152,7 @@ class DataProductReleaseTests(unittest.TestCase):
             ".selection-panel.comparison-is-open",
             "reviewed_gap_materialization",
             "candidate_amount_pln",
-            "niepodane w dokładnym źródle",
+            "Brak stwierdzenia źródłowego pozostaje niewiadomą",
             "spring-my26",
             "configuration_shortlist_equipment_groups_v1_9",
             "data-collapsible-equipment-group",

@@ -87,23 +87,31 @@ Write concise facts and exact identifiers. Keep historical detail in commits, PR
 
 **Active data work:** PR #922 — [Import missing Sandero Stepway brochure exterior dimensions](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/922)  
 - Branch: `data/sandero-stepway-page20-exterior-dimensions-20261126`
-- Exact head: `58220caf9dfdaffdd8ee969224de359c83c3a165`
-- Recorded PR base: `cb8c7f388034d018f654abc42ddc7c7914aa66d5`; current main advanced to the PR #925 merge commit `18579349b065dbaf45bad5c21446569a246c9f37`. A later GitHub metadata refresh reports `mergeable=true`; no merge conflict is currently reported, but re-check mergeability and exact base/head metadata before any merge decision.
-- Exact-head CI: `Repository Baselines` passed; all reporting/export workflows passed; `Quality` failed (32 failures, 5 errors in 2,055 tests on Python 3.10/3.13; Python 3.14 failed the change-impact matrix); `Versioned Data Product Release` failed one release regression test. The Windows package workflow job passed.
-- Quality root causes evidenced in logs:
-  1. Five historical Sandero Stepway source-gap materialized verifiers reject stale missing-data analysis JSON.
-  2. Brochure residual/generic-dimension evidence is stale after adding front/rear track; old review keys still classify these attributes as missing.
-  3. Dependent completeness/comparison/coverage artifacts and their frozen expectations are inconsistent with the 15 new rows and updated Stepway scopes (e.g. old 23,490 master-row expectation vs 23,505 actual; old 411 comparison-difference expectation vs 431).
-  4. Bigster/Jogger/Duster and broader brochure closure tests also report stale resolution plans/review outputs; inspect dependency graph before regenerating, do not blindly rewrite historical baselines.
-  5. Package lifecycle negative-path tests report fixture contamination (`extra.txt` in staging/working-tree path manifest) and a temporary bare-remote push failure; isolate fixture/environment cause before changing production package code.
-  6. Python 3.14 change-impact matrix fails because its checklist has an extra non-template item, Tooling is marked FAIL, and the evidence cell combines two artifact paths into one path. The current matrix also records an older base SHA.
-  7. Release regression failure: generated shortlist HTML no longer contains the legacy marker `niepodane w dokładnym źródle`; determine whether the generator output or test contract is authoritative before changing either.
-- The report correctly preserves the unresolved 1853 mm width/mirror-state semantic conflict; do not infer or import it.
-- Do not change master data or tests merely to silence totals. Regenerate only declared dependent reports with canonical generators; retain immutable historical fixtures and verify source fidelity.
+- Latest verified head before this checkpoint commit: `2f897aaeb23866fe4b58e9459365199ca79bd370`; resolve the exact head dynamically after this update.
+- Exact base: `7e9c5c4c6c6dbcf9a38b75d5985a48c381350a88`; PR remains open and GitHub reports `mergeable=true`.
+- Data package: 15 source-backed scalar observations across front track, rear track and ground clearance for five exact Eco-G 120 configurations; unresolved 1853 mm width/mirror-state conflict remains excluded. Package state on PR branch marks this package complete and selects Sandero Stepway remaining brochure reconciliation next; canonical main state is not advanced until merge.
 
-**Last completed task:** PR #925 merged and fast-resume documentation is now on main.  
-**Next action:** First reconcile PR #922's base against current main and inspect its exact changed-file/dependency scope. Then repair the change-impact matrix contract and classify the stale dependent reports, historical tests and release marker failure. Use canonical generators and package-owned evidence; do not weaken invariants or alter historical baselines. Re-run focused tests and all six required checks on the final exact head. Do not merge until the PR is mergeable and all six checks pass.
+**Latest exact-head CI before the two safety commits:** head `421c31a1b4bd442ea8ee87c90fe66cb0aaed6429`, Quality run `46171461424`. Windows package workflow, Repository Baselines and cross-platform checks passed; reporting/export/release verification workflows passed (release publishing skipped). Python 3.10, 3.13 and 3.14 Quality jobs all failed with the same 23 failures and 5 errors (2055 tests; 16 skipped). The Tooling change-impact row is no longer the Python 3.14 cause.
 
+**Confirmed Quality failure groups and representative assertions:**
+1. Five historical Sandero Stepway source-gap materialization tests error because their shared `existing_configuration_missing_data_analysis.json` is stale. The deterministic-output test independently confirms tracked JSON differs from fresh `collect()` (missing technical count 97 vs tracked 81). Spring importer and Jogger completeness aligner also reject this same stale shared JSON/Markdown.
+2. Bigster, Duster, Jogger and Sandero Stepway cargo checks fail because the versioned configuration-gap resolution plan differs from current evidence/model. Semantic mapping and residual-evidence checks reject the approved generic-dimension package. Inspect evidence spec, plan spec and model derivation before regeneration; do not replace the plan blindly.
+3. Brochure/global count assertions are stale relative to current materialized rows: Bigster expects 23,431 but sees 23,505; approved generic dimensions expects 396 but sees 411; brochure scalar closure expects 1,559 but sees 1,574. These mutable global counts are not automatically proof of bad rows.
+4. Reviewed-gap materialization expects 12 technical review states but sees 2. Determine whether report generation lost states or the expected scope is obsolete.
+5. Sandero Eco-G 120 manual reporting tests contain stale comparison, completeness, evidence and source-coverage expectations (e.g. technical coverage 96%/288 present vs current 98%/294; evidence total 57 vs 51). Sandero Stepway automatic comparison expects 63 technical comparisons but current output has 65.
+6. Duster reporting test expects 411 comparison differences but current report yields 431. Preserve independent denominators; do not merely edit expected numbers.
+7. Jogger aligner explicitly lists only the shared missing-data JSON and Markdown as outdated. Spring common-technical importer fails on the same JSON.
+8. Earlier Tooling matrix failure was corrected. Temporary `extra.txt` / simulated git-push messages are test-fixture output; the dedicated Windows package suite passed.
+
+**Safety implementation added on PR #922 (CI not yet verified):**
+- Commit `bd01d331eafa925d2211452bb775b371236bb63e`: `tools/existing_configuration_missing_data_analysis.py` now supports mutually exclusive `--check` and `--reports-only`. The latter calls `apply(..., update_project_state=False)`, writing only the JSON/Markdown report and returning before touching `project/state.json` or the package markdown. Default apply behavior is preserved.
+- Commit `2f897aaeb23866fe4b58e9459365199ca79bd370`: added a temporary-repository regression test proving reports-only regeneration leaves both canonical state and package metadata byte-for-byte unchanged while updating the report outputs.
+- These commits trigger a new full PR CI run. The latest checks observed immediately after commit `2f897aa...` were queued; no success is claimed yet. This reports-only interface has not been executed against the live repository outputs.
+
+**Remaining generator/dependency caution:** `tools/configuration_gap_evidence.py` and `tools/configuration_gap_resolution_plan.py` need their output/input dependencies inspected before any generation. Resolution-plan `--write-plan-spec` writes a spec and must not be used as a blind repair. The new reports-only option addresses only the missing-data report generator; it does not make downstream evidence, plan, comparison or closure generators safe by default.
+
+**Last completed task:** assertion-level CI diagnosis plus a state-safe reports-only regeneration mode and regression test. No source/master data or canonical state changed.  
+**Next action:** fetch current PR #922 head and wait for its exact-head CI. Confirm the new reports-only regression test and all Quality jobs. If it passes, use the new mode only on an isolated branch/worktree or in an approved remote execution step to regenerate the shared missing-data JSON/Markdown, then inspect the resulting diff before committing. Next inspect evidence/plan dependency graphs and regenerate only proven-stale dependent outputs. Review mutable test expectations separately and preserve source-family regression coverage. Re-run all six required checks on the final exact head. Do not merge until all six pass.
 **Execution constraints:** GitHub-first only; no local repository synchronization, Git Bash, terminal, Work/Codex; do not change `main` branch protection; do not merge without all six required checks passing on the exact final head.
 
 ---

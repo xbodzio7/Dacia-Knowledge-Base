@@ -93,6 +93,10 @@
       "fuel_type_code": ""
     },
     {
+      "attribute_code": "front_track",
+      "fuel_type_code": ""
+    },
+    {
       "attribute_code": "fuel_consumption_combined",
       "fuel_type_code": "lpg"
     },
@@ -182,6 +186,10 @@
     },
     {
       "attribute_code": "rear_suspension",
+      "fuel_type_code": ""
+    },
+    {
+      "attribute_code": "rear_track",
       "fuel_type_code": ""
     },
     {
