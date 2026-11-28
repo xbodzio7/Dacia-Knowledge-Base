@@ -68,10 +68,7 @@ LATER_SANDERO_ATTRIBUTES = {
     "rear_overhang",
     "wheelbase",
 }
-EXPECTED_REVIEW_KEYS = {
-    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|front_track|none",
-    "technical|src_pl_sandero_stepway_extreme_ecog120_at_20260626|sandero_stepway_iii_extreme_ecog120_automatic|Dimensions|rear_track|none",
-}
+EXPECTED_REVIEW_KEYS: set[str] = set()
 CHECKERS = (
     ROOT / "tools" / "import_brochure_generic_dimensions_20260726.py",
     ROOT / "tools" / "review_brochure_generic_dimensions_semantic_mapping_20260726.py",
