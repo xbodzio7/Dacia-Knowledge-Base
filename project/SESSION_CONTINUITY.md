@@ -80,28 +80,29 @@ Write concise facts and exact identifiers. Keep historical detail in commits, PR
 
 **Snapshot date:** 2026-11-28  
 **Repository:** `xbodzio7/Dacia-Knowledge-Base`  
-**Last verified default-branch SHA:** `cb8c7f388034d018f654abc42ddc7c7914aa66d5` (PR #922 base SHA; re-verify before relying on it)  
-**Last merged work:** PR #924 — Jogger MY26 2026-10-01 special non-metallic paint surcharge correction; merge commit `cb8c7f388034d018f654abc42ddc7c7914aa66d5`.
+**Last verified default-branch SHA:** `18579349b065dbaf45bad5c21446569a246c9f37`  
+**Last merged work:** PR #925 — durable fast-resume workflow; merged 2026-11-28. All six required checks passed on exact head `01fede57df05aed68b4086c184d8684e49bd6fad`.
 
-**Canonical package state last read from main:** phase `Dacia Official Brochure Assimilation`; current package `official_dacia_brochure_portfolio_readiness_review_20261126_001` (`complete`); next package `sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001` (`planned`). Re-read `state.json` on current main before selecting work because PRs may have advanced the queue.
-
-**Continuity implementation:** PR #925 — [durable fast-resume workflow](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/925)  
-- Branch: `docs/session-continuity-fast-resume-20261128`  
-- Previous recorded head before the final checkpoint amendment: `57bd538987bde902f07d3ba062e0654e5a6edd11`. That amendment advanced the PR again; resolve the current exact head dynamically from GitHub rather than treating this historical SHA as current.  
-- Last observed state: open; no exact-head workflow runs or classic status checks were returned for the subsequently observed head. Re-fetch current checks before relying on this snapshot.
+**Canonical package state last read from main:** phase `Dacia Official Brochure Assimilation`; current package `official_dacia_brochure_portfolio_readiness_review_20261126_001` (`complete`); next package `sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001` (`planned`). The active PR branch has a package-scoped state transition; do not treat it as canonical until merged.
 
 **Active data work:** PR #922 — [Import missing Sandero Stepway brochure exterior dimensions](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/922)  
 - Branch: `data/sandero-stepway-page20-exterior-dimensions-20261126`
-- Last observed head: `58220caf9dfdaffdd8ee969224de359c83c3a165`
-- Last observed base: `cb8c7f388034d018f654abc42ddc7c7914aa66d5`
-- Last observed state: open, mergeable, not merged.
-- Last observed required-check outcomes: `Repository Baselines` passed; `Quality` failed; `Versioned Data Product Release` failed. Other package/reporting workflows shown for that SHA succeeded. Re-fetch the exact PR and inspect the two failing workflow logs before deciding the repair.
-- Scope: 15 exact page-20 exterior-dimension observations for five Eco-G 120 configurations; preserve the unresolved 1853 mm width/mirror-state conflict; do not infer.
+- Exact head: `58220caf9dfdaffdd8ee969224de359c83c3a165`
+- Recorded base: `cb8c7f388034d018f654abc42ddc7c7914aa66d5`; main advanced to the PR #925 merge commit `18579349b065dbaf45bad5c21446569a246c9f37`. PR now reports `mergeable=false`; update/reconcile the branch with current main before any merge decision.
+- Exact-head CI: `Repository Baselines` passed; all reporting/export workflows passed; `Quality` failed (32 failures, 5 errors in 2,055 tests on Python 3.10/3.13; Python 3.14 failed the change-impact matrix); `Versioned Data Product Release` failed one release regression test. The Windows package workflow job passed.
+- Quality root causes evidenced in logs:
+  1. Five historical Sandero Stepway source-gap materialized verifiers reject stale missing-data analysis JSON.
+  2. Brochure residual/generic-dimension evidence is stale after adding front/rear track; old review keys still classify these attributes as missing.
+  3. Dependent completeness/comparison/coverage artifacts and their frozen expectations are inconsistent with the 15 new rows and updated Stepway scopes (e.g. old 23,490 master-row expectation vs 23,505 actual; old 411 comparison-difference expectation vs 431).
+  4. Bigster/Jogger/Duster and broader brochure closure tests also report stale resolution plans/review outputs; inspect dependency graph before regenerating, do not blindly rewrite historical baselines.
+  5. Package lifecycle negative-path tests report fixture contamination (`extra.txt` in staging/working-tree path manifest) and a temporary bare-remote push failure; isolate fixture/environment cause before changing production package code.
+  6. Python 3.14 change-impact matrix fails because its checklist has an extra non-template item, Tooling is marked FAIL, and the evidence cell combines two artifact paths into one path. The current matrix also records an older base SHA.
+  7. Release regression failure: generated shortlist HTML no longer contains the legacy marker `niepodane w dokładnym źródle`; determine whether the generator output or test contract is authoritative before changing either.
+- The report correctly preserves the unresolved 1853 mm width/mirror-state semantic conflict; do not infer or import it.
+- Do not change master data or tests merely to silence totals. Regenerate only declared dependent reports with canonical generators; retain immutable historical fixtures and verify source fidelity.
 
-**Last completed task before PR #922:** Jogger paint surcharge correction merged in PR #924.  
-**Next action:** Diagnose the failed `Quality` and `Versioned Data Product Release` jobs on PR #922 head `58220caf9dfdaffdd8ee969224de359c83c3a165`, classify root causes, then repair only in-scope failures and validate the resulting exact head. Do not merge until all six required checks pass on the final exact head and normal merge requirements are met.
-
-**Canonical package note:** Read `project/state.json` on current `main` before selecting any new package. This checkpoint does not override its current/next package fields.
+**Last completed task:** PR #925 merged and fast-resume documentation is now on main.  
+**Next action:** First reconcile PR #922's base against current main and inspect its exact changed-file/dependency scope. Then repair the change-impact matrix contract and classify the stale dependent reports, historical tests and release marker failure. Use canonical generators and package-owned evidence; do not weaken invariants or alter historical baselines. Re-run focused tests and all six required checks on the final exact head. Do not merge until the PR is mergeable and all six checks pass.
 
 **Execution constraints:** GitHub-first only; no local repository synchronization, Git Bash, terminal, Work/Codex; do not change `main` branch protection; do not merge without all six required checks passing on the exact final head.
 
