@@ -36,6 +36,16 @@ When narrative documents disagree about the current phase or package, the canoni
 
 ---
 
+## Fast resume for “kontynuuj” (mandatory)
+
+A new chat started with “kontynuuj” is a continuation request, not a full-audit request. Follow `project/SESSION_CONTINUITY.md` first: read the canonical `state.json`, reconcile the latest durable checkpoint against current GitHub main/PR/CI state, inspect only changes since that checkpoint, and continue with its next action when valid. Do not repeat completed analysis, extraction or checks whose exact evidence remains valid.
+
+The full Required Reading Order and full Workflow Bootstrap below remain mandatory when the checkpoint is missing/invalid or a documented escalation trigger applies. In a fast-resume session, read additional governing documents only when the next task touches their domain or the checkpoint/remote evidence reveals a mismatch. A new chat alone is not an escalation trigger.
+
+When local execution is unavailable or prohibited by the Project Owner, use approved GitHub/remote validation. Do not require terminal, Git Bash or local synchronization; do not claim local validation that was not performed. Exact-head CI and all existing safety/merge gates remain mandatory.
+
+---
+
 # Workflow Bootstrap
 
 **Do not start project work from conversation memory alone.** A new chat, new session, application/browser switch, tool-limit change, recovery event, or handoff must not cause the AI to reconstruct the workflow from memory.
