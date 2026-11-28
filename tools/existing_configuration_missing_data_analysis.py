@@ -38,6 +38,7 @@ def report_input_paths(repository: Path) -> list[str]:
         master / "configuration_attribute_value_ranges.csv",
         master / "configuration_attribute_availability.csv",
         master / "sources.csv",
+        repository / "tools" / "existing_configuration_missing_data_analysis.py",
     }
     paths.update(reporting.glob("*_completeness.json"))
     paths.update(reporting.glob("*_source_gap_review.json"))
@@ -52,6 +53,16 @@ def build_report_metadata(
 ) -> dict[str, object]:
     if generated_at is None:
         generated_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    if not isinstance(generated_at, str) or not generated_at.strip():
+        raise ValueError("generated_at must be a non-empty timezone-aware timestamp")
+    try:
+        parsed_generated_at = datetime.fromisoformat(
+            generated_at.replace("Z", "+00:00")
+        )
+    except ValueError as exc:
+        raise ValueError("generated_at must be a timezone-aware timestamp") from exc
+    if parsed_generated_at.tzinfo is None or parsed_generated_at.utcoffset() is None:
+        raise ValueError("generated_at must be a timezone-aware timestamp")
     if base_commit_sha is None:
         completed = subprocess.run(
             ["git", "rev-parse", "HEAD"],
@@ -66,7 +77,8 @@ def build_report_metadata(
             raise RuntimeError(f"cannot determine report base commit: {detail}")
         base_commit_sha = completed.stdout.strip()
     if (
-        len(base_commit_sha) != 40
+        not isinstance(base_commit_sha, str)
+        or len(base_commit_sha) != 40
         or any(character not in "0123456789abcdef" for character in base_commit_sha)
     ):
         raise ValueError("base_commit_sha must be a 40-character lowercase Git SHA")
