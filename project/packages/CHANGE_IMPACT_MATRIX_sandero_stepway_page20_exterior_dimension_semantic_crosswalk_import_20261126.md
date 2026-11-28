@@ -4,7 +4,7 @@
 
 - Package: `sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126`
 - PR: #922
-- Base SHA: `c08d93156f3977cd4ba1ce0ad96cbc9e90bfcd57`
+- Base SHA: `7e9c5c4c6c6dbcf9a38b75d5985a48c381350a88`
 - Candidate head SHA: pending final matrix commit; all six required checks must run on the resulting exact head
 - Change owner: DKB maintainer
 - Source/evidence IDs: `src_pl_sandero_stepway_brochure_20260202`; page 20; five exact Eco-G 120 source-configuration relationships
@@ -31,7 +31,7 @@
 | Reports | Direct/transitive consumers reviewed; findings re-evaluated | PASS | artifact: data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json | Observed: page-20 report records 15 imported values, reused observations, the unresolved 1853 mm width conflict, exclusions and source PDF SHA-256; report freshness validation passed after metadata and Markdown parity repair |
 | Exports and release assets | Model/version/configuration coverage and deterministic outputs | N/A | artifact: project/state.json | No export schema, release asset or published data product is changed |
 | Historical tests | Package-owned fixtures unchanged and passing | PASS | artifact: tests/configuration_comparison_context_filter_contract.py | Observed: repository-snapshot totals are now derived from canonical comparison rows and per-context partitions; pair-summary totals reconcile to independent per-domain report totals instead of a frozen portfolio-wide count |
-| Tooling | Exact technical CSV context preserved, including gear number; isolated package/release tests | FAIL | artifact: tests/configuration_comparison_context_filter_contract.py | Observed: the Windows package workflow on head `7fc317e` found 10 resolved Stepway track rows still present in current missing-scope evidence; those rows have now been removed from current evidence and retained in the closed-resolution plan. Exact-head rerun is pending |
+| Tooling | Exact technical CSV context preserved, including gear number; isolated package/release tests | PASS | command: python -m unittest -q tests.test_package_workflow tests.test_package_receipt tests.test_package_publish tests.test_dkb_cli tests.test_quality tests.test_report_freshness tests.project_state_contract tests.autonomy_policy_contract tests.quality_artifact_manifest_contract tests.configuration_comparison_context_filter_contract tests.configuration_comparison_pair_summary_contract | Observed: the current-head Windows package workflow completed all 154 tests successfully, including package workflow, receipt and publishing contracts; no remote push was performed by the test run |
 | Generated documentation | Canonical generators and baseline checks pass | PASS | command: python tools/dkb.py project-state --check | Observed: Repository Baselines run #45903565769 passed Generated documentation; project-state validation was still running at the time of matrix preparation and must pass again on the final head |
 | CI | Required checks pass on exact final head SHA | N/A | command: python tools/change_impact_matrix.py --base-ref origin/main --head-ref HEAD | Workflows are unchanged; six required checks remain mandatory and must pass on the exact final PR head before merge |
 
