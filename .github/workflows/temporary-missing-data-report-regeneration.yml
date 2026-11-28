@@ -2,8 +2,6 @@ name: Temporary missing-data report regeneration evidence
 
 on:
   pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read
