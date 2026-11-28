@@ -91,14 +91,22 @@ def analyze_report_impact(
         report_id = entry.get("report_id")
         json_path = _safe_path(entry.get("json_path"))
         markdown_path = _safe_path(entry.get("markdown_path"))
+        metadata_value = entry.get("metadata_path")
+        metadata_path = _safe_path(metadata_value) if metadata_value is not None else None
         if not isinstance(report_id, str) or not report_id.strip():
             return [], ["report registry entry is missing report_id"]
         if report_id in by_id:
             return [], [f"duplicate report registry id: {report_id}"]
         if json_path is None or markdown_path is None:
             return [], [f"{report_id}: report paths must be safe repository-relative paths"]
+        if metadata_value is not None and metadata_path is None:
+            return [], [f"{report_id}: metadata_path must be a safe repository-relative path"]
+        if metadata_path is not None and metadata_path in {json_path, markdown_path}:
+            return [], [f"{report_id}: metadata_path must be distinct from JSON and Markdown outputs"]
         by_id[report_id] = entry
         by_json_path[json_path] = report_id
+        if metadata_path is not None:
+            by_json_path[metadata_path] = report_id
 
     for report_id, entry in by_id.items():
         json_path = repository / entry["json_path"]
@@ -106,7 +114,14 @@ def analyze_report_impact(
             document = _read_json(json_path)
         except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
             return [], [f"{report_id}: cannot read report metadata: {exc}"]
-        metadata = document.get("report_metadata") if isinstance(document, dict) else None
+        metadata_relative = entry.get("metadata_path")
+        if isinstance(metadata_relative, str):
+            try:
+                metadata = _read_json(repository / metadata_relative)
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+                return [], [f"{report_id}: cannot read provenance metadata sidecar: {exc}"]
+        else:
+            metadata = document.get("report_metadata") if isinstance(document, dict) else None
         input_files = metadata.get("input_files", []) if isinstance(metadata, dict) else []
         if not isinstance(input_files, list):
             return [], [f"{report_id}: report_metadata.input_files must be a list"]
@@ -160,7 +175,11 @@ def analyze_report_impact(
 
     changed_report_ids: set[str] = set()
     for report_id, entry in by_id.items():
-        if entry["json_path"] in changed_paths_set or entry["markdown_path"] in changed_paths_set:
+        output_paths = [entry["json_path"], entry["markdown_path"]]
+        metadata_path = entry.get("metadata_path")
+        if isinstance(metadata_path, str):
+            output_paths.append(metadata_path)
+        if any(path in changed_paths_set for path in output_paths):
             changed_report_ids.add(report_id)
 
     impacted = set(direct_reasons)
@@ -182,10 +201,11 @@ def analyze_report_impact(
         document = _read_json(repository / entry["json_path"])
         metadata = document.get("report_metadata", {}) if isinstance(document, dict) else {}
         status = metadata.get("status") if isinstance(metadata, dict) else None
-        outputs_changed = (
-            entry["json_path"] in changed_paths_set
-            and entry["markdown_path"] in changed_paths_set
-        )
+        output_paths = [entry["json_path"], entry["markdown_path"]]
+        metadata_path = entry.get("metadata_path")
+        if isinstance(metadata_path, str):
+            output_paths.append(metadata_path)
+        outputs_changed = all(path in changed_paths_set for path in output_paths)
         reasons = sorted(direct_reasons.get(report_id, set()))
         results.append({
             "report_id": report_id,
@@ -194,12 +214,19 @@ def analyze_report_impact(
             "report_outputs_changed": outputs_changed,
             "json_path": entry["json_path"],
             "markdown_path": entry["markdown_path"],
+            "metadata_path": metadata_path if isinstance(metadata_path, str) else None,
         })
         if status not in REVIEWABLE_STATUSES and not outputs_changed:
             cause = ", ".join(reasons) if reasons else "an upstream report changed"
+            if isinstance(metadata_path, str):
+                output_description = ", ".join(output_paths)
+                requirement = f"regenerate all report outputs ({output_description})"
+            else:
+                requirement = (
+                    f"regenerate both {entry['json_path']} and {entry['markdown_path']}"
+                )
             errors.append(
-                f"{report_id}: current report is affected by {cause}; regenerate both "
-                f"{entry['json_path']} and {entry['markdown_path']}, or explicitly set "
+                f"{report_id}: current report is affected by {cause}; {requirement}, or explicitly set "
                 "report_metadata.status to needs_review with a documented deferral"
             )
     return results, errors
