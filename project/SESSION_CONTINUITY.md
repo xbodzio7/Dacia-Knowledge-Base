@@ -83,7 +83,12 @@ Write concise facts and exact identifiers. Keep historical detail in commits, PR
 **Last verified default-branch SHA:** `cb8c7f388034d018f654abc42ddc7c7914aa66d5` (PR #922 base SHA; re-verify before relying on it)  
 **Last merged work:** PR #924 — Jogger MY26 2026-10-01 special non-metallic paint surcharge correction; merge commit `cb8c7f388034d018f654abc42ddc7c7914aa66d5`.
 
-**Active work:** PR #922 — [Import missing Sandero Stepway brochure exterior dimensions](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/922)  
+**Continuity implementation:** PR #925 — [durable fast-resume workflow](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/925)  
+- Branch: `docs/session-continuity-fast-resume-20261128`  
+- Last observed head: `57bd538987bde902f07d3ba062e0654e5a6edd11`  
+- Last observed state: open; exact-head CI had not yet appeared when this checkpoint was written. Re-fetch before relying on it.
+
+**Active data work:** PR #922 — [Import missing Sandero Stepway brochure exterior dimensions](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/922)  
 - Branch: `data/sandero-stepway-page20-exterior-dimensions-20261126`
 - Last observed head: `58220caf9dfdaffdd8ee969224de359c83c3a165`
 - Last observed base: `cb8c7f388034d018f654abc42ddc7c7914aa66d5`
