@@ -39,7 +39,7 @@ class JoggerCommercialMatrix20261001Tests(unittest.TestCase):
         mappings=[r for r in rows("commercial_item_configurations.csv") if r["source_code"]==SOURCE]
         optional=[r for r in mappings if r["availability_status"]=="optional"]
         amounts=Counter((r["commercial_item_code"],r["amount"]) for r in optional)
-        self.assertEqual(amounts[("jogger_special_nonmetallic_paint_option","2800")],12)
+        self.assertEqual(amounts[("jogger_special_nonmetallic_paint_option","2700")],12)
         self.assertEqual(amounts[("jogger_media_nav_option","1600")],10)
         self.assertEqual(amounts[("jogger_heated_front_seats_option","700")],4)
         self.assertEqual(amounts[("jogger_winter_package","1200")],6)

@@ -82,8 +82,8 @@ def expected_matrix():
                 "currency_code":"PLN","price_date":SOURCE_DATE,"source_code":SOURCE,
                 "source_page":str(page),"source_label":label,"notes":note})
     all_configs=set(EXPECTED_CONFIGS);essential=set(ESSENTIAL);expression=set(EXPRESSION);extreme=set(EXTREME)
-    add("jogger_special_nonmetallic_paint_option",all_configs,"optional","2800",3,
-        "Lakier niemetalizowany / niemetalizowany specjalny","The 2,800 PLN cell is the special non-metallic finish; no named colour is inferred.")
+    add("jogger_special_nonmetallic_paint_option",all_configs,"optional","2700",3,
+        "Lakier niemetalizowany / niemetalizowany specjalny","The 2,700 PLN cell is the special non-metallic finish; no named colour is inferred.")
     add("jogger_media_nav_option",essential,"not_available","",4,"Nowy Media Nav","The printed cell is a dash (-), explicitly unavailable for this configuration.")
     add("jogger_media_nav_option",expression|extreme,"optional","1600",4,"Nowy Media Nav","Optional equipment at the printed 1,600 PLN price.")
     add("jogger_heated_front_seats_option",essential,"not_available","",4,"Przednie fotele podgrzewane","The printed cell is a dash (-), explicitly unavailable for this configuration.")
@@ -97,7 +97,7 @@ def load_specs(configurations):
     items=read_spec(ITEM_SPEC,ITEM_SPEC_FIELDS)
     expected_item={"code":"jogger_special_nonmetallic_paint_option","name":"Lakier niemetalizowany specjalny",
         "item_type":"option","observation_date":SOURCE_DATE,"source_code":SOURCE,"status":"active",
-        "notes":"Official Polish Jogger MY26 cennik, printed page 3; special non-metallic paint is priced at 2,800 PLN. The source does not assign named colours."}
+        "notes":"Official Polish Jogger MY26 cennik, printed page 3; special non-metallic paint surcharge is 2,700 PLN (printed row: 0 / 2,700). The source does not assign named colours."}
     if items!=[expected_item]: raise ContractError("new commercial item differs from reviewed source contract")
     rows=read_spec(MAP_SPEC,MAP_SPEC_FIELDS)
     if len(rows)!=54 or len({r["code"] for r in rows})!=54: raise ContractError("expected 54 unique mapping specification rows")

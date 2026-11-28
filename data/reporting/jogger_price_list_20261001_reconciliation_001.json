@@ -128,7 +128,7 @@
     ]
   },
   "commercial_item_reconciliation": {
-    "status": "complete",
+    "status": "complete_with_visual_source_reverification",
     "existing_source_mappings": 54,
     "new_commercial_items": 1,
     "new_mappings": 54,
@@ -140,7 +140,7 @@
       {
         "code": "jogger_special_nonmetallic_paint_option",
         "source_page": 3,
-        "amount_pln": 2800,
+        "amount_pln": 2700,
         "optional_configurations": 12
       },
       {
@@ -174,10 +174,9 @@
       }
     ],
     "deferred": [
-      "Metallic paint 2,800 / 3,000 PLN pair has no source-backed colour/grade mapping.",
+      "Metallic paint 2,700 / 2,900 PLN pair has no source-backed colour/grade mapping.",
       "No standalone heated-front-seat mapping for Extreme because the source marks P; ZIMOWY package captures the priced bundled offer.",
-      "Separate accessory list and removed KOMFORT packages are outside this matrix.",
-      "Historical 2026-10-01 paint values remain Do sprawdzenia: archived PDF text extraction conflicts with the previous visual review and master mapping; do not overwrite until the archived page-3 render is visually reverified."
+      "Separate accessory list and removed KOMFORT packages are outside this matrix."
     ],
     "imported_on": "2026-11-14",
     "import_artifacts": {
@@ -188,16 +187,29 @@
     },
     "notes": [
       "The 54 rows were imported for the 12 source-linked configurations: 38 optional and 16 explicitly not_available.",
-      "Special non-metallic paint is one new commercial item at 2,800 PLN across all 12 configurations.",
+      "Special non-metallic paint is one new commercial item at 2,700 PLN across all 12 configurations.",
       "Extreme heated front seats are not a standalone mapping because page 4 marks them P (part of a package); the priced ZIMOWY package is represented instead.",
-      "The metallic paint 2,800 / 3,000 PLN pair remains deferred because the source does not assign it to exact colours or grades."
-    ]
+      "The metallic paint 2,700 / 2,900 PLN pair remains deferred because the source does not assign it to exact colours or grades."
+    ],
+    "visual_evidence": {
+      "workflow_run": 46047957727,
+      "workflow_run_url": "https://github.com/xbodzio7/Dacia-Knowledge-Base/actions/runs/46047957727",
+      "artifact_name": "jogger-my26-20261001-page-3-visual-evidence",
+      "archived_source_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
+      "archived_source_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
+      "rendered_page": 3,
+      "verified_rows": {
+        "special_nonmetallic_paint": "0 / 2,700 PLN",
+        "metallic_paint": "2,700 / 2,900 PLN"
+      },
+      "result": "Special non-metallic paint surcharge corrected to 2,700 PLN for all 12 linked configurations; metallic paint remains unmapped pending a source-backed colour/grade crosswalk."
+    }
   },
-  "next_action": "The Jogger 2026-10-01 commercial matrix is reconciled and imported. Next, acquire and hash the live official Spring MY26 PDF as a distinct source version (the same CDN URL currently resolves to MY26 content while the owner-supplied Library PDF is MY25), then close the Bigster 2026-11-02 PDF binary archive gap.",
+  "next_action": "Continue with the next cennik-only unresolved scope: Duster MY26 2026-11-02 page-9 dimension-diagram crosswalk. Metallic paint remains deferred until an exact colour/grade crosswalk is available.",
   "source_url_drift_review": {
     "status": "Do sprawdzenia",
     "archived_path": "owner_supplied/2026-10-01/f5cdbd7878.pdf",
     "archived_sha256": "12e536c1e60e9e7f91228b27a9d962cecacb5a5287d585f419a14af3003e8b46",
-    "note": "The old 2026-10-01 CDN URL now resolves to the 2026-11-02 document. The archived binary is the historical source of truth. Its page-3 text extraction conflicts with the previous visual review/master mapping; preserve the existing historical value until the archived page-3 image is visually reverified."
+    "note": "The archived 2026-10-01 binary is the historical source of truth. Its rendered page 3 was reverified in workflow run 46047957727: special non-metallic paint is 0 / 2,700 PLN and metallic paint is 2,700 / 2,900 PLN. The special-finish mapping is corrected to 2,700 PLN; the metallic pair remains without a colour/grade crosswalk."
   }
 }
