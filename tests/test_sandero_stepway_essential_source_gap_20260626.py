@@ -117,7 +117,7 @@ class SanderoStepwayEssentialSourceGapTests(unittest.TestCase):
             for item in payload["ranked_candidates"]
             if item["source_code"] == package.SOURCE_CODE
         )
-        self.assertEqual(current["missing_technical"], 8)
+        self.assertEqual(current["missing_technical"], 4)
         self.assertEqual(current["selection_status"], package.EXHAUSTED_CLASSIFICATION)
         selected = payload["selected_next_package"]
         self.assertIsNone(selected)
