@@ -143,7 +143,7 @@ def analyze_report_impact(
             if pattern is None:
                 return [], [f"{report_id}: unsafe depends_on_globs entry {value!r}"]
             for changed_path in changed_paths_set:
-                if fnmatch.fnmatchcase(changed_path, pattern):
+                if changed_path.count("/") == 2 and fnmatch.fnmatchcase(changed_path, pattern):
                     direct_reasons[report_id].add(changed_path)
 
         for item in input_files:
