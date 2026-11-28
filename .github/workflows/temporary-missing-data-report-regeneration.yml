@@ -1,0 +1,46 @@
+name: Temporary missing-data report regeneration evidence
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate:
+    if: github.head_ref == 'feat/register-missing-data-analysis-report-20261128'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out exact pull-request head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.13"
+
+      - name: Regenerate only the missing-data analysis reports
+        run: |
+          state_before="$(git hash-object project/state.json)"
+          package_before="$(git hash-object project/packages/post-jogger-context-completeness-reanalysis-20260801.md)"
+          python tools/existing_configuration_missing_data_analysis.py --reports-only
+          test "$state_before" = "$(git hash-object project/state.json)"
+          test "$package_before" = "$(git hash-object project/packages/post-jogger-context-completeness-reanalysis-20260801.md)"
+          python tools/existing_configuration_missing_data_analysis.py --check
+          python tools/report_freshness.py
+          git diff --check
+          git status --short
+
+      - name: Upload regenerated report files
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: missing-data-analysis-regeneration
+          path: |
+            data/reporting/existing_configuration_missing_data_analysis.json
+            data/reporting/existing_configuration_missing_data_analysis.md
