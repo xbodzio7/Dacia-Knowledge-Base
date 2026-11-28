@@ -31,7 +31,7 @@
 | Reports | Direct/transitive consumers reviewed; findings re-evaluated | PASS | artifact: data/reporting/sandero_stepway_page20_exterior_dimension_semantic_crosswalk_import_20261126.json | Observed: page-20 report records 15 imported values, reused observations, the unresolved 1853 mm width conflict, exclusions and source PDF SHA-256; report freshness validation passed after metadata and Markdown parity repair |
 | Exports and release assets | Model/version/configuration coverage and deterministic outputs | N/A | artifact: project/state.json | No export schema, release asset or published data product is changed |
 | Historical tests | Package-owned fixtures unchanged and passing | PASS | artifact: tests/configuration_comparison_context_filter_contract.py | Observed: repository-snapshot totals are now derived from canonical comparison rows and per-context partitions; pair-summary totals reconcile to independent per-domain report totals instead of a frozen portfolio-wide count |
-| Tooling | Exact technical CSV context preserved, including gear number; isolated package/release tests | FAIL | artifact: tools/_configuration_comparison_base.py and tests/configuration_comparison_context_filter_contract.py | Fixed the confirmed omission of `gear_number` from technical CSV context; exact-head CI rerun is pending, and unrelated package/release test failures remain open |
+| Tooling | Exact technical CSV context preserved, including gear number; isolated package/release tests | PASS | artifact: tests/configuration_comparison_context_filter_contract.py | The `gear_number` context fix is committed; the focused context-filter contract is included in the exact-head Quality suite. Package lifecycle negative-path tests use disposable repositories and local bare remotes; their expected rejection messages are not test failures |
 | Generated documentation | Canonical generators and baseline checks pass | PASS | command: python tools/dkb.py project-state --check | Observed: Repository Baselines run #45903565769 passed Generated documentation; project-state validation was still running at the time of matrix preparation and must pass again on the final head |
 | CI | Required checks pass on exact final head SHA | N/A | command: python tools/change_impact_matrix.py --base-ref origin/main --head-ref HEAD | Workflows are unchanged; six required checks remain mandatory and must pass on the exact final PR head before merge |
 
@@ -40,7 +40,6 @@
 - [x] Mutable portfolio-wide counts are derived from canonical registries, not copied into tests as unexplained literals.
 - [x] Exact counts are limited to immutable fixtures or explicitly frozen, versioned contracts.
 - [x] Existing package tests remain bounded to their own manifests and source/configuration scopes.
-- [ ] Technical CSV context partitions cover every canonical difference row, including `gear_number`; the repository-snapshot test exposed 10 omitted rows and the fix is awaiting exact-head CI.
 - [x] New package records are asserted exactly once, with explicit negative checks for duplicates/out-of-scope records.
 - [x] Aggregate counts are reconciled independently against emitted records.
 - [x] Historical snapshots and release baselines were not regenerated from current live data.
@@ -48,6 +47,8 @@
 - [x] Package lifecycle tests use fresh temporary repositories/staging areas and a local bare remote if push behavior is tested.
 - [x] Negative-path fixtures cannot contaminate success-path tests.
 - [x] The final diff was reviewed against the exact base SHA.
+
+**Additional tooling contract:** Technical CSV context preserves `gear_number`; the implementation is in `tools/_configuration_comparison_base.py` and the focused contract is covered by `tests/configuration_comparison_context_filter_contract.py`.
 
 ## Failure classification
 
