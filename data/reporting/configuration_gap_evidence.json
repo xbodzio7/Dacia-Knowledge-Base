@@ -2063,7 +2063,7 @@
       "fuel_type_code": "",
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
+      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
       "reviewed_pages": [
         2
       ],
@@ -2088,7 +2088,7 @@
       "fuel_type_code": "",
       "manual_source_review_required": false,
       "reason_code": "not_stated_on_relevant_pages",
-      "review_note": "The canonical attribute describes gear-change recommendations and the configuration has an automatic transmission.",
+      "review_note": "No direct configured source statement was found on every reviewed relevant PDF page.",
       "reviewed_pages": [
         2
       ],
