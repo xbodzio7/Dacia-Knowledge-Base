@@ -167,7 +167,8 @@
       "depends_on_globs": [
         "data/reporting/*_completeness.json",
         "data/reporting/*_source_gap_review.json"
-      ]
+      ],
+      "metadata_path": "data/reporting/existing_configuration_missing_data_analysis.metadata.json"
     }
   ]
 }
