@@ -201,6 +201,7 @@ def verify_dimension_coverage(payload: Mapping[str, Any]) -> None:
         row for row in rows(MASTER / "configuration_attribute_values.csv")
         if row.get("observation_date", "") <= "2026-07-26"
         and not 8290 <= int(row.get("id", "0")) <= 8415  # Separate 2026-11-05 page-23 import.
+        and not 8970 <= int(row.get("id", "0")) <= 8984  # Separate 2026-11-26 page-20 import; preserve the 2026-07-26 review boundary.
     ]
     selected: dict[str, list[dict[str, str]]] = {model: [] for model in MODEL_CODES}
     for row in values:
