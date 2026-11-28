@@ -88,7 +88,7 @@ Write concise facts and exact identifiers. Keep historical detail in commits, PR
 **Active data work:** PR #922 — [Import missing Sandero Stepway brochure exterior dimensions](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/922)  
 - Branch: `data/sandero-stepway-page20-exterior-dimensions-20261126`
 - Exact head: `58220caf9dfdaffdd8ee969224de359c83c3a165`
-- Recorded base: `cb8c7f388034d018f654abc42ddc7c7914aa66d5`; main advanced to the PR #925 merge commit `18579349b065dbaf45bad5c21446569a246c9f37`. PR now reports `mergeable=false`; update/reconcile the branch with current main before any merge decision.
+- Recorded PR base: `cb8c7f388034d018f654abc42ddc7c7914aa66d5`; current main advanced to the PR #925 merge commit `18579349b065dbaf45bad5c21446569a246c9f37`. A later GitHub metadata refresh reports `mergeable=true`; no merge conflict is currently reported, but re-check mergeability and exact base/head metadata before any merge decision.
 - Exact-head CI: `Repository Baselines` passed; all reporting/export workflows passed; `Quality` failed (32 failures, 5 errors in 2,055 tests on Python 3.10/3.13; Python 3.14 failed the change-impact matrix); `Versioned Data Product Release` failed one release regression test. The Windows package workflow job passed.
 - Quality root causes evidenced in logs:
   1. Five historical Sandero Stepway source-gap materialized verifiers reject stale missing-data analysis JSON.
