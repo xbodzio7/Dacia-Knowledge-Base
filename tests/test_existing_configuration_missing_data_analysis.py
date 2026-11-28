@@ -143,10 +143,90 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
         )
         self.assertTrue(report.is_file())
         self.assertTrue(markdown.is_file())
+        document = json.loads(report.read_text(encoding="utf-8"))
+        metadata = document.pop("report_metadata")
+        self.assertEqual(document, self.payload)
         self.assertEqual(
-            json.loads(report.read_text(encoding="utf-8")),
-            self.payload,
+            markdown.read_text(encoding="utf-8"),
+            analysis.render_markdown(self.payload, metadata),
         )
+        self.assertTrue(analysis.check_outputs(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_root = Path(temporary)
+            shutil.copytree(
+                ROOT / "data" / "master",
+                temporary_root / "data" / "master",
+            )
+            shutil.copytree(
+                ROOT / "data" / "reporting",
+                temporary_root / "data" / "reporting",
+            )
+            shutil.copytree(
+                ROOT / "project",
+                temporary_root / "project",
+            )
+            state_path = temporary_root / "project" / "state.json"
+            package_path = (
+                temporary_root
+                / "project"
+                / "packages"
+                / "post-jogger-context-completeness-reanalysis-20260801.md"
+            )
+            state_before = state_path.read_bytes()
+            package_before = package_path.read_bytes()
+
+            fixed_time = "2026-11-28T18:00:00+00:00"
+            fixed_commit = "a" * 40
+            analysis.apply(
+                temporary_root,
+                update_project_state=False,
+                generated_at=fixed_time,
+                base_commit_sha=fixed_commit,
+            )
+            first_json = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.json"
+            ).read_bytes()
+            first_markdown = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.md"
+            ).read_bytes()
+
+            self.assertEqual(state_path.read_bytes(), state_before)
+            self.assertEqual(package_path.read_bytes(), package_before)
+            self.assertTrue(analysis.check_outputs(temporary_root))
+
+            analysis.apply(
+                temporary_root,
+                update_project_state=False,
+                generated_at=fixed_time,
+                base_commit_sha=fixed_commit,
+            )
+            self.assertEqual(
+                (
+                    temporary_root
+                    / "data"
+                    / "reporting"
+                    / "existing_configuration_missing_data_analysis.json"
+                ).read_bytes(),
+                first_json,
+            )
+            self.assertEqual(
+                (
+                    temporary_root
+                    / "data"
+                    / "reporting"
+                    / "existing_configuration_missing_data_analysis.md"
+                ).read_bytes(),
+                first_markdown,
+            )
+            self.assertEqual(state_path.read_bytes(), state_before)
+            self.assertEqual(package_path.read_bytes(), package_before)
 
 
 if __name__ == "__main__":
