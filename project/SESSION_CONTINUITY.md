@@ -85,8 +85,8 @@ Write concise facts and exact identifiers. Keep historical detail in commits, PR
 
 **Continuity implementation:** PR #925 — [durable fast-resume workflow](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/925)  
 - Branch: `docs/session-continuity-fast-resume-20261128`  
-- Last observed head: `57bd538987bde902f07d3ba062e0654e5a6edd11`  
-- Last observed state: open; exact-head CI had not yet appeared when this checkpoint was written. Re-fetch before relying on it.
+- Previous recorded head before the final checkpoint amendment: `57bd538987bde902f07d3ba062e0654e5a6edd11`. That amendment advanced the PR again; resolve the current exact head dynamically from GitHub rather than treating this historical SHA as current.  
+- Last observed state: open; no exact-head workflow runs or classic status checks were returned for the subsequently observed head. Re-fetch current checks before relying on this snapshot.
 
 **Active data work:** PR #922 — [Import missing Sandero Stepway brochure exterior dimensions](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/922)  
 - Branch: `data/sandero-stepway-page20-exterior-dimensions-20261126`
