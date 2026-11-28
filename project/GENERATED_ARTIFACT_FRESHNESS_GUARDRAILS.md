@@ -112,6 +112,8 @@ The repository already has a machine-readable analytical report registry at data
 
 These controls are real automation for the reports declared in the registry. Do not describe them as covering every generated artifact in the repository: unregistered reports, one-off exports and other generator outputs may remain outside this contract.
 
+A concrete coverage gap was confirmed during the 2026-11-28 review of PR #922: the current report registry does not contain the missing-configuration analysis, configuration-gap evidence or configuration-gap resolution-plan report families, even though stale outputs from these families were among the failures being diagnosed. Treat them as candidates for the next registry-coverage package. First inspect each generator's exact inputs, outputs, scope and state side effects; then classify each output and register it only with verified dependency metadata. Do not add guessed dependencies or automatically regenerate these reports as part of this documentation change.
+
 The next protection work is coverage expansion and gap closure, not duplicating the existing checker:
 
 1. Inventory report-producing generators and compare their outputs with report_registry.json; explicitly classify historical snapshots and reviewed decisions.
