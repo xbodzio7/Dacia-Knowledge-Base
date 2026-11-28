@@ -392,13 +392,13 @@ class ReportFreshnessTests(unittest.TestCase):
 
         def add_input(filename: str) -> None:
             path = self.root / "data" / "reporting" / filename
-            path.write_text('{"scope":"fixture"}\\n', encoding="utf-8")
+            path.write_text('{"scope":"fixture"}\n', encoding="utf-8")
             data = path.read_bytes()
             document = json.loads(self.json_path.read_text(encoding="utf-8"))
             document["report_metadata"]["input_files"].append({
                 "path": f"data/reporting/{filename}",
                 "git_blob_sha": hashlib.sha1(
-                    f"blob {len(data)}\\0".encode() + data
+                    f"blob {len(data)}\0".encode() + data
                 ).hexdigest(),
                 "sha256": hashlib.sha256(data).hexdigest(),
             })
@@ -408,7 +408,7 @@ class ReportFreshnessTests(unittest.TestCase):
         self.assertEqual(validate_registry(self.root, self.registry_path), [])
 
         (self.root / "data" / "reporting" / "beta_completeness.json").write_text(
-            '{"scope":"new fixture"}\\n',
+            '{"scope":"new fixture"}\n',
             encoding="utf-8",
         )
         errors = validate_registry(self.root, self.registry_path)
