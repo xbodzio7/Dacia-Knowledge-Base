@@ -144,11 +144,15 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
         self.assertTrue(report.is_file())
         self.assertTrue(markdown.is_file())
         document = json.loads(report.read_text(encoding="utf-8"))
-        metadata = document.pop("report_metadata")
+        metadata_path = (
+            ROOT
+            / "data/reporting/existing_configuration_missing_data_analysis.metadata.json"
+        )
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
         self.assertEqual(document, self.payload)
         self.assertEqual(
             markdown.read_text(encoding="utf-8"),
-            analysis.render_markdown(self.payload, metadata),
+            analysis.render_markdown(self.payload),
         )
         self.assertTrue(analysis.check_outputs(ROOT))
 
@@ -211,6 +215,12 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                 / "reporting"
                 / "existing_configuration_missing_data_analysis.md"
             ).read_bytes()
+            first_metadata = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.metadata.json"
+            ).read_bytes()
 
             self.assertEqual(state_path.read_bytes(), state_before)
             self.assertEqual(package_path.read_bytes(), package_before)
@@ -224,6 +234,7 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                 {
                     "data/reporting/existing_configuration_missing_data_analysis.json",
                     "data/reporting/existing_configuration_missing_data_analysis.md",
+                    "data/reporting/existing_configuration_missing_data_analysis.metadata.json",
                 },
             )
             self.assertTrue(analysis.check_outputs(temporary_root))
@@ -251,6 +262,15 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                     / "existing_configuration_missing_data_analysis.md"
                 ).read_bytes(),
                 first_markdown,
+            )
+            self.assertEqual(
+                (
+                    temporary_root
+                    / "data"
+                    / "reporting"
+                    / "existing_configuration_missing_data_analysis.metadata.json"
+                ).read_bytes(),
+                first_metadata,
             )
             self.assertEqual(state_path.read_bytes(), state_before)
             self.assertEqual(package_path.read_bytes(), package_before)
