@@ -4,7 +4,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import os
+import subprocess
+from datetime import datetime, timezone
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -13,10 +17,111 @@ MASTER = ROOT / "data" / "master"
 REPORTING = ROOT / "data" / "reporting"
 OUT_JSON = REPORTING / "existing_configuration_missing_data_analysis.json"
 OUT_MD = REPORTING / "existing_configuration_missing_data_analysis.md"
+OUT_METADATA = REPORTING / "existing_configuration_missing_data_analysis.metadata.json"
 PACKAGE = ROOT / "project" / "packages" / "post-jogger-context-completeness-reanalysis-20260801.md"
 STATE = ROOT / "project" / "state.json"
 EXHAUSTED_CLASSIFICATION = "source_exhausted_not_stated"
 DEFAULT_ANALYSIS_AS_OF = "2026-07-31"
+REPORT_ID = "existing_configuration_missing_data_analysis"
+REPORT_SCOPE = (
+    "Historical completeness scopes through 2026-07-31; active configurations "
+    "referenced by those scopes; source-gap review receipts"
+)
+
+
+def report_input_paths(repository: Path) -> list[str]:
+    """Return every direct file input read by the analysis, including dynamic scopes."""
+    master = repository / "data" / "master"
+    reporting = repository / "data" / "reporting"
+    paths = {
+        master / "configurations.csv",
+        master / "configuration_attribute_values.csv",
+        master / "configuration_attribute_value_ranges.csv",
+        master / "configuration_attribute_availability.csv",
+        master / "sources.csv",
+        repository / "tools" / "existing_configuration_missing_data_analysis.py",
+    }
+    paths.update(reporting.glob("*_completeness.json"))
+    paths.update(reporting.glob("*_source_gap_review.json"))
+    return sorted(path.relative_to(repository).as_posix() for path in paths)
+
+
+def build_report_metadata(
+    repository: Path,
+    *,
+    generated_at: str | None = None,
+    base_commit_sha: str | None = None,
+) -> dict[str, object]:
+    if generated_at is None:
+        generated_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    if not isinstance(generated_at, str) or not generated_at.strip():
+        raise ValueError("generated_at must be a non-empty timezone-aware timestamp")
+    try:
+        parsed_generated_at = datetime.fromisoformat(
+            generated_at.replace("Z", "+00:00")
+        )
+    except ValueError as exc:
+        raise ValueError("generated_at must be a timezone-aware timestamp") from exc
+    if parsed_generated_at.tzinfo is None or parsed_generated_at.utcoffset() is None:
+        raise ValueError("generated_at must be a timezone-aware timestamp")
+    if base_commit_sha is None:
+        completed = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=repository,
+            check=False,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        if completed.returncode != 0:
+            detail = (completed.stderr or completed.stdout).strip()
+            raise RuntimeError(f"cannot determine report base commit: {detail}")
+        base_commit_sha = completed.stdout.strip()
+    if (
+        not isinstance(base_commit_sha, str)
+        or len(base_commit_sha) != 40
+        or any(character not in "0123456789abcdef" for character in base_commit_sha)
+    ):
+        raise ValueError("base_commit_sha must be a 40-character lowercase Git SHA")
+
+    input_files: list[dict[str, str]] = []
+    for relative in report_input_paths(repository):
+        path = repository / relative
+        if not path.is_file():
+            raise FileNotFoundError(f"report input is missing: {relative}")
+        data = path.read_bytes()
+        blob_header = f"blob {len(data)}\0".encode("ascii")
+        input_files.append(
+            {
+                "path": relative,
+                "git_blob_sha": hashlib.sha1(blob_header + data).hexdigest(),
+                "sha256": hashlib.sha256(data).hexdigest(),
+            }
+        )
+
+    return {
+        "schema_version": 1,
+        "report_id": REPORT_ID,
+        "generated_at": generated_at,
+        "repository": os.environ.get(
+            "GITHUB_REPOSITORY",
+            "xbodzio7/Dacia-Knowledge-Base",
+        ),
+        "base_commit_sha": base_commit_sha,
+        "input_files": input_files,
+        "scope": REPORT_SCOPE,
+        "status": "current",
+    }
+
+
+def write_text_atomic(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(f".{path.name}.tmp-{os.getpid()}")
+    try:
+        temporary.write_text(content, encoding="utf-8", newline="\n")
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def rows(path: Path) -> list[dict[str, str]]:
@@ -377,12 +482,33 @@ def render_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def apply(repository: Path = ROOT) -> dict[str, object]:
+def apply(
+    repository: Path = ROOT,
+    *,
+    update_project_state: bool = True,
+    generated_at: str | None = None,
+    base_commit_sha: str | None = None,
+) -> dict[str, object]:
     payload = collect(repository)
-    write_json(repository / OUT_JSON.relative_to(ROOT), payload)
-    (repository / OUT_MD.relative_to(ROOT)).write_text(
-        render_markdown(payload), encoding="utf-8"
+    metadata = build_report_metadata(
+        repository,
+        generated_at=generated_at,
+        base_commit_sha=base_commit_sha,
     )
+    write_text_atomic(
+        repository / OUT_JSON.relative_to(ROOT),
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+    )
+    write_text_atomic(
+        repository / OUT_MD.relative_to(ROOT),
+        render_markdown(payload),
+    )
+    write_text_atomic(
+        repository / OUT_METADATA.relative_to(ROOT),
+        json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+    )
+    if not update_project_state:
+        return payload
     selected = payload.get("selected_next_package")
     package_text = (
         "# Post-Jogger Context Completeness Reanalysis\n\n"
@@ -452,25 +578,59 @@ def apply(repository: Path = ROOT) -> dict[str, object]:
     return payload
 
 
+def check_outputs(repository: Path = ROOT) -> bool:
+    json_path = repository / OUT_JSON.relative_to(ROOT)
+    markdown_path = repository / OUT_MD.relative_to(ROOT)
+    metadata_path = repository / OUT_METADATA.relative_to(ROOT)
+    if not json_path.is_file() or not markdown_path.is_file() or not metadata_path.is_file():
+        return False
+    try:
+        document = json.loads(json_path.read_text(encoding="utf-8"))
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return False
+    if not isinstance(document, dict) or not isinstance(metadata, dict):
+        return False
+    try:
+        expected_metadata = build_report_metadata(
+            repository,
+            generated_at=metadata.get("generated_at"),
+            base_commit_sha=metadata.get("base_commit_sha"),
+        )
+    except (OSError, RuntimeError, ValueError):
+        return False
+    payload = collect(repository)
+    return (
+        document == payload
+        and metadata == expected_metadata
+        and markdown_path.read_text(encoding="utf-8")
+        == render_markdown(payload)
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--check", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--check", action="store_true")
+    mode.add_argument(
+        "--reports-only",
+        action="store_true",
+        help="Regenerate only the analysis JSON/Markdown reports and provenance sidecar without changing project state or package metadata.",
+    )
     args = parser.parse_args(argv)
-    payload = collect(ROOT)
     if args.check:
-        expected_json = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
-        expected_md = render_markdown(payload)
-        if (
-            not OUT_JSON.is_file()
-            or OUT_JSON.read_text(encoding="utf-8") != expected_json
-            or not OUT_MD.is_file()
-            or OUT_MD.read_text(encoding="utf-8") != expected_md
-        ):
+        if not check_outputs(ROOT):
             print("Completeness analysis outputs are stale.")
             return 1
         print("Completeness analysis outputs are current.")
         return 0
-    apply(ROOT)
+    if args.reports_only:
+        apply(ROOT, update_project_state=False)
+        print(
+            "Completeness analysis reports and provenance sidecar regenerated; project state and package metadata unchanged."
+        )
+        return 0
+    payload = apply(ROOT)
     print(render_markdown(payload), end="")
     return 0
 

@@ -38,6 +38,23 @@ def _safe_repo_path(repository: Path, value: Any) -> Path | None:
     return resolved
 
 
+def _safe_repo_glob(value: Any) -> str | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+    candidate = Path(value)
+    if candidate.is_absolute() or ".." in candidate.parts:
+        return None
+    normalized = candidate.as_posix()
+    if (
+        not normalized.startswith("data/reporting/")
+        or normalized.count("/") != 2
+        or not normalized.endswith(".json")
+        or not any(char in normalized for char in "*?[")
+    ):
+        return None
+    return normalized
+
+
 def _git_blob_sha(data: bytes) -> str:
     header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
@@ -58,12 +75,24 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
     report_id = entry.get("report_id", "<unknown>")
     json_path = _safe_repo_path(repository, entry.get("json_path"))
     markdown_path = _safe_repo_path(repository, entry.get("markdown_path"))
+    metadata_relative = entry.get("metadata_path")
+    metadata_path = (
+        _safe_repo_path(repository, metadata_relative)
+        if metadata_relative is not None
+        else None
+    )
     if json_path is None or markdown_path is None:
         return [f"{report_id}: report paths must be safe repository-relative paths"]
+    if metadata_relative is not None and metadata_path is None:
+        return [f"{report_id}: metadata_path must be a safe repository-relative path"]
+    if metadata_path is not None and metadata_path in {json_path, markdown_path}:
+        return [f"{report_id}: metadata_path must be distinct from JSON and Markdown outputs"]
     if not json_path.is_file():
         return [f"{report_id}: JSON report is missing: {entry.get('json_path')}"]
     if not markdown_path.is_file():
         return [f"{report_id}: Markdown companion is missing: {entry.get('markdown_path')}"]
+    if metadata_path is not None and not metadata_path.is_file():
+        return [f"{report_id}: provenance metadata sidecar is missing: {metadata_relative}"]
 
     try:
         document = _read_json(json_path)
@@ -72,14 +101,24 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
     if not isinstance(document, dict):
         return [f"{report_id}: JSON report root must be an object"]
 
+    if metadata_path is not None:
+        try:
+            metadata = _read_json(metadata_path)
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+            return [f"{report_id}: cannot parse provenance metadata sidecar: {exc}"]
+        if not isinstance(metadata, dict):
+            return [f"{report_id}: provenance metadata sidecar root must be an object"]
+        if "report_metadata" in document:
+            return [f"{report_id}: metadata_path and embedded report_metadata cannot both be used"]
+    else:
+        metadata = document.get("report_metadata")
+
     if entry.get("legacy") is True:
         # Legacy reports remain available but cannot be advertised as current.
-        metadata = document.get("report_metadata")
         if isinstance(metadata, dict) and metadata.get("status") == "current":
             errors.append(f"{report_id}: legacy registry entry cannot claim current status")
         return errors
 
-    metadata = document.get("report_metadata")
     if not isinstance(metadata, dict):
         return [f"{report_id}: missing report_metadata (new reports must fail closed)"]
 
@@ -170,16 +209,17 @@ def validate_report(repository: Path, entry: dict[str, Any]) -> list[str]:
         markdown = markdown_path.read_text(encoding="utf-8")
     except (OSError, UnicodeDecodeError) as exc:
         return errors + [f"{report_id}: cannot read Markdown companion: {exc}"]
-    parity = {
-        "Report ID": report_id,
-        "Generated": metadata["generated_at"],
-        "Analysed commit": metadata["base_commit_sha"],
-        "Status": metadata["status"],
-        "Scope": metadata["scope"],
-    }
-    for label, value in parity.items():
-        if f"{label}: {value}" not in markdown:
-            errors.append(f"{report_id}: Markdown companion does not match {label}")
+    if metadata_path is None:
+        parity = {
+            "Report ID": report_id,
+            "Generated": metadata["generated_at"],
+            "Analysed commit": metadata["base_commit_sha"],
+            "Status": metadata["status"],
+            "Scope": metadata["scope"],
+        }
+        for label, value in parity.items():
+            if f"{label}: {value}" not in markdown:
+                errors.append(f"{report_id}: Markdown companion does not match {label}")
     return errors
 
 
@@ -250,11 +290,19 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             if dependency in entries and dependency != report_id
         ]
 
-    json_path_to_id = {
-        str(entry["json_path"]): report_id
-        for report_id, entry in entries.items()
-        if isinstance(entry.get("json_path"), str)
-    }
+    json_path_to_id: dict[str, str] = {}
+    for report_id, entry in entries.items():
+        for output_key in ("json_path", "metadata_path"):
+            output_path = entry.get(output_key)
+            if not isinstance(output_path, str):
+                continue
+            existing = json_path_to_id.get(output_path)
+            if existing is not None and existing != report_id:
+                errors_by_id[report_id].append(
+                    f"{report_id}: output path {output_path} is already owned by {existing}"
+                )
+            else:
+                json_path_to_id[output_path] = report_id
     for report_id, entry in entries.items():
         if "depends_on_paths" not in entry:
             errors_by_id[report_id].append(
@@ -293,6 +341,48 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
                     f"{report_id}: registered report dependency {relative} must use depends_on report ID"
                 )
 
+        raw_globs = entry.get("depends_on_globs", [])
+        glob_matches: dict[str, set[str]] = {}
+        if not isinstance(raw_globs, list):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_globs must be an array of repository-relative patterns"
+            )
+            raw_globs = []
+        if any(not isinstance(item, str) or not item.strip() for item in raw_globs):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_globs entries must be non-empty patterns"
+            )
+        valid_globs = [
+            item for item in raw_globs
+            if isinstance(item, str) and item.strip()
+        ]
+        if len(valid_globs) != len(set(valid_globs)):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_globs contains duplicate patterns"
+            )
+        for value in valid_globs:
+            pattern = _safe_repo_glob(value)
+            if pattern is None:
+                errors_by_id[report_id].append(
+                    f"{report_id}: unsafe report dependency glob {value!r}"
+                )
+                continue
+            matches = {
+                path.relative_to(repository).as_posix()
+                for path in repository.glob(pattern)
+                if path.is_file()
+            }
+            if not matches:
+                errors_by_id[report_id].append(
+                    f"{report_id}: report dependency glob matches no files: {pattern}"
+                )
+            for relative in matches:
+                if relative in json_path_to_id:
+                    errors_by_id[report_id].append(
+                        f"{report_id}: registered report dependency {relative} must use depends_on report ID, not a glob"
+                    )
+            glob_matches[pattern] = matches
+
         json_path = _safe_repo_path(repository, entry.get("json_path"))
         if json_path is None or not json_path.is_file():
             continue
@@ -300,7 +390,17 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             document = _read_json(json_path)
         except (OSError, UnicodeDecodeError, json.JSONDecodeError):
             continue
-        metadata = document.get("report_metadata") if isinstance(document, dict) else None
+        metadata_relative = entry.get("metadata_path")
+        if isinstance(metadata_relative, str):
+            metadata_file = _safe_repo_path(repository, metadata_relative)
+            if metadata_file is None or not metadata_file.is_file():
+                continue
+            try:
+                metadata = _read_json(metadata_file)
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+                continue
+        else:
+            metadata = document.get("report_metadata") if isinstance(document, dict) else None
         if not isinstance(metadata, dict):
             if entry.get("legacy") is True:
                 continue
@@ -313,6 +413,11 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             for item in input_files
             if isinstance(item, dict) and isinstance(item.get("path"), str)
         }
+        for pattern, matches in glob_matches.items():
+            for relative in sorted(matches - input_paths):
+                errors_by_id[report_id].append(
+                    f"{report_id}: report dependency glob {pattern} matched {relative}, which is missing from report_metadata.input_files"
+                )
         direct_report_inputs = {
             relative
             for relative in input_paths
@@ -333,7 +438,8 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             )
         expected_paths = direct_report_inputs - set(json_path_to_id)
         declared_paths = set(valid_paths)
-        for relative in sorted(expected_paths - declared_paths):
+        glob_declared_paths = set().union(*glob_matches.values()) if glob_matches else set()
+        for relative in sorted(expected_paths - declared_paths - glob_declared_paths):
             errors_by_id[report_id].append(
                 f"{report_id}: unregistered report input {relative} is missing from depends_on_paths"
             )

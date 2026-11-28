@@ -143,10 +143,138 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
         )
         self.assertTrue(report.is_file())
         self.assertTrue(markdown.is_file())
-        self.assertEqual(
-            json.loads(report.read_text(encoding="utf-8")),
-            self.payload,
+        document = json.loads(report.read_text(encoding="utf-8"))
+        metadata_path = (
+            ROOT
+            / "data/reporting/existing_configuration_missing_data_analysis.metadata.json"
         )
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        self.assertEqual(document, self.payload)
+        self.assertEqual(
+            markdown.read_text(encoding="utf-8"),
+            analysis.render_markdown(self.payload),
+        )
+        self.assertTrue(analysis.check_outputs(ROOT))
+
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_root = Path(temporary)
+            shutil.copytree(
+                ROOT / "data" / "master",
+                temporary_root / "data" / "master",
+            )
+            shutil.copytree(
+                ROOT / "data" / "reporting",
+                temporary_root / "data" / "reporting",
+            )
+            shutil.copytree(
+                ROOT / "project",
+                temporary_root / "project",
+            )
+            (temporary_root / "tools").mkdir(parents=True)
+            shutil.copy2(
+                ROOT / "tools" / "existing_configuration_missing_data_analysis.py",
+                temporary_root
+                / "tools"
+                / "existing_configuration_missing_data_analysis.py",
+            )
+            state_path = temporary_root / "project" / "state.json"
+            package_path = (
+                temporary_root
+                / "project"
+                / "packages"
+                / "post-jogger-context-completeness-reanalysis-20260801.md"
+            )
+            state_before = state_path.read_bytes()
+            package_before = package_path.read_bytes()
+
+            def snapshot_files() -> dict[str, bytes]:
+                return {
+                    path.relative_to(temporary_root).as_posix(): path.read_bytes()
+                    for path in temporary_root.rglob("*")
+                    if path.is_file()
+                }
+
+            before = snapshot_files()
+            fixed_time = "2026-11-28T18:00:00+00:00"
+            fixed_commit = "a" * 40
+            analysis.apply(
+                temporary_root,
+                update_project_state=False,
+                generated_at=fixed_time,
+                base_commit_sha=fixed_commit,
+            )
+            first_json = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.json"
+            ).read_bytes()
+            first_markdown = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.md"
+            ).read_bytes()
+            first_metadata = (
+                temporary_root
+                / "data"
+                / "reporting"
+                / "existing_configuration_missing_data_analysis.metadata.json"
+            ).read_bytes()
+
+            self.assertEqual(state_path.read_bytes(), state_before)
+            self.assertEqual(package_path.read_bytes(), package_before)
+            after_first = snapshot_files()
+            changed = {
+                path for path in before
+                if before[path] != after_first.get(path)
+            }
+            self.assertEqual(
+                changed,
+                {
+                    "data/reporting/existing_configuration_missing_data_analysis.json",
+                    "data/reporting/existing_configuration_missing_data_analysis.md",
+                    "data/reporting/existing_configuration_missing_data_analysis.metadata.json",
+                },
+            )
+            self.assertTrue(analysis.check_outputs(temporary_root))
+
+            analysis.apply(
+                temporary_root,
+                update_project_state=False,
+                generated_at=fixed_time,
+                base_commit_sha=fixed_commit,
+            )
+            self.assertEqual(
+                (
+                    temporary_root
+                    / "data"
+                    / "reporting"
+                    / "existing_configuration_missing_data_analysis.json"
+                ).read_bytes(),
+                first_json,
+            )
+            self.assertEqual(
+                (
+                    temporary_root
+                    / "data"
+                    / "reporting"
+                    / "existing_configuration_missing_data_analysis.md"
+                ).read_bytes(),
+                first_markdown,
+            )
+            self.assertEqual(
+                (
+                    temporary_root
+                    / "data"
+                    / "reporting"
+                    / "existing_configuration_missing_data_analysis.metadata.json"
+                ).read_bytes(),
+                first_metadata,
+            )
+            self.assertEqual(state_path.read_bytes(), state_before)
+            self.assertEqual(package_path.read_bytes(), package_before)
+            self.assertEqual(snapshot_files(), after_first)
 
 
 if __name__ == "__main__":
