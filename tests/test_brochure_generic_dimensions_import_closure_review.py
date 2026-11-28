@@ -246,12 +246,10 @@ class BrochureGenericDimensionsImportClosureReviewTests(unittest.TestCase):
             for item in plan["decisions"]
             if item.get("triage_key") in REVIEW_KEYS
         }
-        self.assertEqual(set(selected_plan), REVIEW_KEYS)
-        self.assertTrue(
-            all(item["reviewed_pages"] == [2] for item in selected_plan.values())
-        )
-        self.assertTrue(
-            all(item["resolution_state"] == "closed_not_stated" for item in selected_plan.values())
+        self.assertEqual(
+            set(selected_plan),
+            set(),
+            "resolved Stepway dimensions must leave the current resolution plan",
         )
 
         residual = json.loads(
