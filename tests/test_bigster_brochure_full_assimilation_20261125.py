@@ -202,9 +202,11 @@ class BigsterBrochureFullAssimilationTests(unittest.TestCase):
         self.assertEqual(state["baseline"]["tests"], 2055)
         self.assertEqual(
             state["baseline"]["rows"],
-            sum(1 for _ in csv.DictReader(
-                (MASTER / "configuration_attribute_values.csv").open(encoding="utf-8-sig", newline="")
-            )),
+            sum(
+                1
+                for path in MASTER.glob("*.csv")
+                for _ in csv.DictReader(path.open(encoding="utf-8-sig", newline=""))
+            ),
         )
         self.assertEqual(state["baseline"]["configuration_value_ranges"], 472)
         # The Spring closeout is complete; the portfolio review is the next planned package.
