@@ -83,6 +83,8 @@ Write concise facts and exact identifiers. Keep historical detail in commits, PR
 **Last verified default-branch SHA:** `cb8c7f388034d018f654abc42ddc7c7914aa66d5` (PR #922 base SHA; re-verify before relying on it)  
 **Last merged work:** PR #924 — Jogger MY26 2026-10-01 special non-metallic paint surcharge correction; merge commit `cb8c7f388034d018f654abc42ddc7c7914aa66d5`.
 
+**Canonical package state last read from main:** phase `Dacia Official Brochure Assimilation`; current package `official_dacia_brochure_portfolio_readiness_review_20261126_001` (`complete`); next package `sandero_stepway_full_brochure_inventory_and_source_to_master_reconciliation_20261126_001` (`planned`). Re-read `state.json` on current main before selecting work because PRs may have advanced the queue.
+
 **Continuity implementation:** PR #925 — [durable fast-resume workflow](https://github.com/xbodzio7/Dacia-Knowledge-Base/pull/925)  
 - Branch: `docs/session-continuity-fast-resume-20261128`  
 - Previous recorded head before the final checkpoint amendment: `57bd538987bde902f07d3ba062e0654e5a6edd11`. That amendment advanced the PR again; resolve the current exact head dynamically from GitHub rather than treating this historical SHA as current.  
