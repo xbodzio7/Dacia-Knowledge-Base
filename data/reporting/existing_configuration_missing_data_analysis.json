@@ -1791,5 +1791,231 @@
       "source_review_path": "sandero_stepway_extreme_source_gap_review.json"
     }
   ],
-  "selected_next_package": null
+  "selected_next_package": null,
+  "report_metadata": {
+    "schema_version": 1,
+    "report_id": "existing_configuration_missing_data_analysis",
+    "generated_at": "2026-11-28T19:00:00+00:00",
+    "repository": "xbodzio7/Dacia-Knowledge-Base",
+    "base_commit_sha": "ea140374a2f0c082342c6aca4f50002b140dd2f7",
+    "input_files": [
+      {
+        "path": "data/master/configuration_attribute_availability.csv",
+        "git_blob_sha": "752b526c4788055011c8cfafa81631417dfe4eb1",
+        "sha256": "211fa666d20881cf896ac45bdc9bc48ce2c32cda1cd05671d1e06d87d1c5c032"
+      },
+      {
+        "path": "data/master/configuration_attribute_value_ranges.csv",
+        "git_blob_sha": "bee657130ca86a5b2acd440590756b37d17fffcf",
+        "sha256": "692da8fc7f06129bcd81c5969055d14b75021ee937e4eb24ccde5c13547e6ca9"
+      },
+      {
+        "path": "data/master/configuration_attribute_values.csv",
+        "git_blob_sha": "836e22ddbacd21aab32e056bed3e931c1181b646",
+        "sha256": "c9616540ee11287ec7489e1a9e2653d56cd8ed44df26235abe7b97716c86a3ed"
+      },
+      {
+        "path": "data/master/configurations.csv",
+        "git_blob_sha": "7d3831694be0de775db21a9fe3f3a88826cf1d26",
+        "sha256": "7075724773cbbb284bc1a071a0e51c2fa92b094a9c60a2e39535fa5f9c08afb3"
+      },
+      {
+        "path": "data/master/sources.csv",
+        "git_blob_sha": "c66773a9d650b8f28455ab2ec81e6c337fd10456",
+        "sha256": "7db867ba5471c3fabc2c9461971b26e2540e30119830e47cecc617c081f5afc6"
+      },
+      {
+        "path": "data/reporting/bigster_hybrid155_4x2_automatic_completeness.json",
+        "git_blob_sha": "09b8bb29f36ed2c51a3a8e9abd0b2ef1c41a02b7",
+        "sha256": "f7f6f6d43302e712312a3403571a4300becb261467b437dab8c0b4b7c10aa152"
+      },
+      {
+        "path": "data/reporting/bigster_hybridg150_4x4_automatic_completeness.json",
+        "git_blob_sha": "91973848df0c8ecb644891c8c4cbf6b057a102b5",
+        "sha256": "1e7b7a542e5cfa7d28593d3ee90eb9550f6fcf52d327128910cceb665aacbd0f"
+      },
+      {
+        "path": "data/reporting/bigster_mildhybrid140_4x2_manual_completeness.json",
+        "git_blob_sha": "480b628008680e1e06fe7fc3cba754836fbdfac5",
+        "sha256": "5de3ca00af9d25902ae5e0d56e77801793f3e2ef39a8a6ece4aa41b4b9299fdb"
+      },
+      {
+        "path": "data/reporting/bigster_mildhybridg140_4x2_automatic_completeness.json",
+        "git_blob_sha": "e0c849feffdd1641e90d8d56528f03345f3cfebd",
+        "sha256": "cf2d9a2823719e260a5dfd23a566761939fb8d73939d65d1805b71688a74fa00"
+      },
+      {
+        "path": "data/reporting/bigster_mildhybridg140_4x2_manual_completeness.json",
+        "git_blob_sha": "559580feeea55d167f4923851201308d91a32917",
+        "sha256": "1286aca05a9e83ba8780b84a0bba2a6be06a7817d934a34a9af8722da5830550"
+      },
+      {
+        "path": "data/reporting/bigster_tribrid150_4x4_automatic_completeness.json",
+        "git_blob_sha": "c8c514862f16cdc77b28effdc06f2ef673aa5cdc",
+        "sha256": "13be9ce9d63b44fc70cbdc84d77983487e4fa50b6b0161d698cd7dc0bf90f6a4"
+      },
+      {
+        "path": "data/reporting/configuration_completeness.json",
+        "git_blob_sha": "efd126e82ace9534e9a79c74ed686ad7b66343e6",
+        "sha256": "8302d2cd94b9144c6aef765cccdf78bfd67d9ab7c0ff0dc274fcd37fa54dec4b"
+      },
+      {
+        "path": "data/reporting/duster_ecog100_completeness.json",
+        "git_blob_sha": "8d2b2dee2a48b0512fbdd934900a068bae192c64",
+        "sha256": "004cfa8142adda088c4727b0533fcb6e22acf34b2541e646d09aefa8ad30a66b"
+      },
+      {
+        "path": "data/reporting/duster_ecog120_automatic_completeness.json",
+        "git_blob_sha": "09688d61f51190492f64c08ec6696f714aec7934",
+        "sha256": "7a65c4fc88c32e7715633683839c24b701a6398aa9a583409454eaacb2b13203"
+      },
+      {
+        "path": "data/reporting/duster_ecog120_completeness.json",
+        "git_blob_sha": "66aefcad994e7a214f9a07b1b41b5f09af69136e",
+        "sha256": "0b25d707a1701efa8567db8c0b21169465db99d3661034896b0b299ac7cf2e8f"
+      },
+      {
+        "path": "data/reporting/duster_hybrid140_completeness.json",
+        "git_blob_sha": "328086792802717d55636f57a6a1da914517c562",
+        "sha256": "8677ffc903369ddff9b537f66f085d544c83212cf6597b757cde75ba82313f66"
+      },
+      {
+        "path": "data/reporting/duster_hybrid155_completeness.json",
+        "git_blob_sha": "584f00afa937744f2296694709d9792a40ff447c",
+        "sha256": "592e67d080e404aad945c3c1ba0271232ac8e811a4adcaa2d2c5ef63aaf72898"
+      },
+      {
+        "path": "data/reporting/duster_hybridg150_4x4_completeness.json",
+        "git_blob_sha": "e512f1639b79e4a09f4458a1afd91debe79758f2",
+        "sha256": "2501ce9d7dc8f3aa05608ace0ad6e3b0e9406a163dfc26a8eb5249366727f663"
+      },
+      {
+        "path": "data/reporting/duster_mildhybrid130_4x2_completeness.json",
+        "git_blob_sha": "742b1a04d0c6cc3ebf016938b5cce05f571d14cc",
+        "sha256": "5441140384d0f7ba1725dfea05ee6e88c32ecb89a3d325a7f5da1cecfc96f34c"
+      },
+      {
+        "path": "data/reporting/duster_mildhybrid130_4x4_completeness.json",
+        "git_blob_sha": "4ceaf2a586ce534db6579a053c5879c2fc6af3e8",
+        "sha256": "8a45b1bfd578067f45d3b86293a2b7b4493a3ec4b22b7e0ac542ef8b0958ea78"
+      },
+      {
+        "path": "data/reporting/duster_mildhybrid140_4x2_completeness.json",
+        "git_blob_sha": "4c61bbe7635aee6f3173e7150649513d03656293",
+        "sha256": "13f4a3019a83aa6d515a1dbf326d903624fb4502a77658dde739e593f84cf2a2"
+      },
+      {
+        "path": "data/reporting/jogger_ecog120_automatic_completeness.json",
+        "git_blob_sha": "32c231b98e962e9581e3a605eec68f5092f528e2",
+        "sha256": "827b285064b560d28a7805b4325595d4488639566f072e7e263bc9c0b589642a"
+      },
+      {
+        "path": "data/reporting/jogger_ecog120_manual_completeness.json",
+        "git_blob_sha": "9101035fff20143989e80dcdf58d5b76b802274c",
+        "sha256": "89a54e5579e688e0645425df26a9ff15e6d9dbb4aa31fde4512692aee786a2f0"
+      },
+      {
+        "path": "data/reporting/jogger_hybrid155_automatic_completeness.json",
+        "git_blob_sha": "4da5bbd75f49d804789c76fee49bf48d4a0ea108",
+        "sha256": "04b2b339577fbe8cc835e3ded8ff82eddd33cbe3fc303d677268159b3f2a29ab"
+      },
+      {
+        "path": "data/reporting/jogger_tce110_manual_completeness.json",
+        "git_blob_sha": "7e19f3735b3246ddf66b21e977c2a2ca87494265",
+        "sha256": "41b88828ec7cf5dc7577bffe8c3b7931c4db9e69793c56530af9a5bd98e954df"
+      },
+      {
+        "path": "data/reporting/sandero_ecog120_automatic_completeness.json",
+        "git_blob_sha": "70db05786e8512ad86900b3abbf73cfe4014606d",
+        "sha256": "44b487fe2f16227f452a611b0a277b6dcccb0492d1c7929a1bc3e611f92dc699"
+      },
+      {
+        "path": "data/reporting/sandero_ecog120_manual_completeness.json",
+        "git_blob_sha": "fb87d3e0fe283604c5ff632cbdf50b0ecda7d642",
+        "sha256": "fb0e7fc0a9895297e9cfb90141a60cd19d38cc8e59aede06e75d2b50ad121cb7"
+      },
+      {
+        "path": "data/reporting/sandero_expression_source_gap_review.json",
+        "git_blob_sha": "39ccaa1ba30652075f8c2187a4da570d52c49e8c",
+        "sha256": "4330b851063ba39227bf676a231135a72b198ea82319760b57f9f8405315a985"
+      },
+      {
+        "path": "data/reporting/sandero_hybrid155_automatic_completeness.json",
+        "git_blob_sha": "0a03c61fa4acc0545ae40aaba5dcd2330107ef4c",
+        "sha256": "b6acaeb4c0977103b78e18e0139ea97068cdd0796b496c6f05f72297aab18ec5"
+      },
+      {
+        "path": "data/reporting/sandero_journey_source_gap_review.json",
+        "git_blob_sha": "d51df2625aaabe56052b2b4664e5c3e6c6249971",
+        "sha256": "73194e3496d9cea6ab6b3afc77cfe914df5da0c1e4ad5bb3f3b3ec4b731c9ba1"
+      },
+      {
+        "path": "data/reporting/sandero_official_web_source_gap_review.json",
+        "git_blob_sha": "946a3d5141894b54eb9ccb31e8a3b011c259e18a",
+        "sha256": "f8f54cf8b789b8574bda1dfb7036f4be0c8d11db26a12f50cae5cb0e46782c3f"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_ecog120_automatic_completeness.json",
+        "git_blob_sha": "cac215df5be229ae2399ffa9b9b5a16e914bcb7f",
+        "sha256": "2942c027abd7d68f0cc3d11cd56be6e848ffa94e855689b59d726a5dd50881a5"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_essential_source_gap_review.json",
+        "git_blob_sha": "2cd7b6575b22fd56380a17ce7e5f5300380b0756",
+        "sha256": "90f1eaeb4f80568c8ca44b27d6013cfad6c54865f35e379234422e7d5c1595d5"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_expression_auto_source_gap_review.json",
+        "git_blob_sha": "c962c9744109fcf7cd9810125a0a7d320f0a27aa",
+        "sha256": "6666cb7907fa4b02d1b8a1bcea707bcb0d6ea3d765d80bd99e9122404d843d51"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_expression_source_gap_review.json",
+        "git_blob_sha": "915d549ab3b836bcccc54865711beb9bafebf6c4",
+        "sha256": "68c166348047e7c9d9cd157f69b8daef35c4bb1831d95c979a16688bfa7af881"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_extreme_auto_source_gap_review.json",
+        "git_blob_sha": "4641effefda8aca04036a2f74df98eb0f7c9d5f7",
+        "sha256": "4f8c4b3b6ea61c178609c7dd0a1b1cef1d11a34c662c12234b21bba8d07d1bb4"
+      },
+      {
+        "path": "data/reporting/sandero_stepway_extreme_source_gap_review.json",
+        "git_blob_sha": "cfdd80a74031c1a0566c65aa47e8b023c242cc33",
+        "sha256": "94b5ef0dc34351ce7c940a0085d3884cc91e318c63e5e45e9bcdbf3e6c30569d"
+      },
+      {
+        "path": "data/reporting/sandero_tce_catalog_source_gap_review.json",
+        "git_blob_sha": "683b7f675625fc180bfbde80cf162750996c3550",
+        "sha256": "acc5d6f3a1b06d95ef92be1afe370894db5c903b292f14ea8257c3403e4205ed"
+      },
+      {
+        "path": "data/reporting/sandero_tce100_stepway_tce110_manual_completeness.json",
+        "git_blob_sha": "962d1dcf2f4af02f2ca0da9e784cf5bd0fdedf77",
+        "sha256": "c599de3098c7a264eefa0181d43ab5a1d348a689404fed92593e74007d2c7e33"
+      },
+      {
+        "path": "data/reporting/spring_electric100_automatic_completeness.json",
+        "git_blob_sha": "40fb1e822c047f0cc81e3df375d30344b8738fca",
+        "sha256": "5529bd61626c5fcc9167e2e1cfb9d02727964080cb6c57dc1a6cba8ae3998bc5"
+      },
+      {
+        "path": "data/reporting/spring_electric70_automatic_completeness.json",
+        "git_blob_sha": "1de9078cd2dea30280dde64a7cfa4aad353fc731",
+        "sha256": "f0a89ea3de51286462de8e5eb855682d798ac42828177a8dd6f1ad886fbfa8d0"
+      },
+      {
+        "path": "data/reporting/striker_my26_catalogue_completeness.json",
+        "git_blob_sha": "2ec9502f4ec086759b641df6fe2e45e98f298c02",
+        "sha256": "83a0c03f74d9a2d562bbeff9b31cb83f85fcb3fa40cd73a044fc3b66db0c17fa"
+      },
+      {
+        "path": "tools/existing_configuration_missing_data_analysis.py",
+        "git_blob_sha": "9caeee6754c6cc17574419cfdc9bd741cbda7529",
+        "sha256": "01ffb53e243107f969fa5814f0c43d0ddbcac2cb446f79ed45a36a52d52469bf"
+      }
+    ],
+    "scope": "Historical completeness scopes through 2026-07-31; active configurations referenced by those scopes; source-gap review receipts",
+    "status": "current"
+  }
 }
