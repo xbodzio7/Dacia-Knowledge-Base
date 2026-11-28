@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import hashlib
 import json
 import os
@@ -36,6 +37,18 @@ def _safe_repo_path(repository: Path, value: Any) -> Path | None:
     except ValueError:
         return None
     return resolved
+
+
+def _safe_repo_glob(value: Any) -> str | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+    candidate = Path(value)
+    if candidate.is_absolute() or ".." in candidate.parts:
+        return None
+    normalized = candidate.as_posix()
+    if not normalized.startswith("data/reporting/") or not any(char in normalized for char in "*?["):
+        return None
+    return normalized
 
 
 def _git_blob_sha(data: bytes) -> str:
@@ -293,6 +306,48 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
                     f"{report_id}: registered report dependency {relative} must use depends_on report ID"
                 )
 
+        raw_globs = entry.get("depends_on_globs", [])
+        glob_matches: dict[str, set[str]] = {}
+        if not isinstance(raw_globs, list):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_globs must be an array of repository-relative patterns"
+            )
+            raw_globs = []
+        if any(not isinstance(item, str) or not item.strip() for item in raw_globs):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_globs entries must be non-empty patterns"
+            )
+        valid_globs = [
+            item for item in raw_globs
+            if isinstance(item, str) and item.strip()
+        ]
+        if len(valid_globs) != len(set(valid_globs)):
+            errors_by_id[report_id].append(
+                f"{report_id}: depends_on_globs contains duplicate patterns"
+            )
+        for value in valid_globs:
+            pattern = _safe_repo_glob(value)
+            if pattern is None:
+                errors_by_id[report_id].append(
+                    f"{report_id}: unsafe report dependency glob {value!r}"
+                )
+                continue
+            matches = {
+                path.relative_to(repository).as_posix()
+                for path in repository.glob(pattern)
+                if path.is_file()
+            }
+            if not matches:
+                errors_by_id[report_id].append(
+                    f"{report_id}: report dependency glob matches no files: {pattern}"
+                )
+            for relative in matches:
+                if relative in json_path_to_id:
+                    errors_by_id[report_id].append(
+                        f"{report_id}: registered report dependency {relative} must use depends_on report ID, not a glob"
+                    )
+            glob_matches[pattern] = matches
+
         json_path = _safe_repo_path(repository, entry.get("json_path"))
         if json_path is None or not json_path.is_file():
             continue
@@ -313,6 +368,11 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             for item in input_files
             if isinstance(item, dict) and isinstance(item.get("path"), str)
         }
+        for pattern, matches in glob_matches.items():
+            for relative in sorted(matches - input_paths):
+                errors_by_id[report_id].append(
+                    f"{report_id}: report dependency glob {pattern} matched {relative}, which is missing from report_metadata.input_files"
+                )
         direct_report_inputs = {
             relative
             for relative in input_paths
@@ -333,7 +393,8 @@ def validate_registry(repository: Path, registry_path: Path) -> list[str]:
             )
         expected_paths = direct_report_inputs - set(json_path_to_id)
         declared_paths = set(valid_paths)
-        for relative in sorted(expected_paths - declared_paths):
+        glob_declared_paths = set().union(*glob_matches.values()) if glob_matches else set()
+        for relative in sorted(expected_paths - declared_paths - glob_declared_paths):
             errors_by_id[report_id].append(
                 f"{report_id}: unregistered report input {relative} is missing from depends_on_paths"
             )
