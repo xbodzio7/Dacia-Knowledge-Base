@@ -32,7 +32,12 @@ def _safe_dependency_glob(value: Any) -> str | None:
     if path.is_absolute() or ".." in path.parts:
         return None
     normalized = path.as_posix()
-    if not normalized.startswith("data/reporting/") or not any(char in normalized for char in "*?["):
+    if (
+        not normalized.startswith("data/reporting/")
+        or normalized.count("/") != 2
+        or not normalized.endswith(".json")
+        or not any(char in normalized for char in "*?[")
+    ):
         return None
     return normalized
 
