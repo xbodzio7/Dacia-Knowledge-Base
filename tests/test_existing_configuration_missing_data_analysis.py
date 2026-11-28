@@ -166,6 +166,13 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
                 ROOT / "project",
                 temporary_root / "project",
             )
+            (temporary_root / "tools").mkdir(parents=True)
+            shutil.copy2(
+                ROOT / "tools" / "existing_configuration_missing_data_analysis.py",
+                temporary_root
+                / "tools"
+                / "existing_configuration_missing_data_analysis.py",
+            )
             state_path = temporary_root / "project" / "state.json"
             package_path = (
                 temporary_root
@@ -176,6 +183,14 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
             state_before = state_path.read_bytes()
             package_before = package_path.read_bytes()
 
+            def snapshot_files() -> dict[str, bytes]:
+                return {
+                    path.relative_to(temporary_root).as_posix(): path.read_bytes()
+                    for path in temporary_root.rglob("*")
+                    if path.is_file()
+                }
+
+            before = snapshot_files()
             fixed_time = "2026-11-28T18:00:00+00:00"
             fixed_commit = "a" * 40
             analysis.apply(
@@ -199,6 +214,18 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
 
             self.assertEqual(state_path.read_bytes(), state_before)
             self.assertEqual(package_path.read_bytes(), package_before)
+            after_first = snapshot_files()
+            changed = {
+                path for path in before
+                if before[path] != after_first.get(path)
+            }
+            self.assertEqual(
+                changed,
+                {
+                    "data/reporting/existing_configuration_missing_data_analysis.json",
+                    "data/reporting/existing_configuration_missing_data_analysis.md",
+                },
+            )
             self.assertTrue(analysis.check_outputs(temporary_root))
 
             analysis.apply(
@@ -227,6 +254,7 @@ class ExistingConfigurationMissingDataAnalysisTests(unittest.TestCase):
             )
             self.assertEqual(state_path.read_bytes(), state_before)
             self.assertEqual(package_path.read_bytes(), package_before)
+            self.assertEqual(snapshot_files(), after_first)
 
 
 if __name__ == "__main__":
