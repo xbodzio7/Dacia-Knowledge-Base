@@ -2,6 +2,12 @@
 
 Ten dokument przechowuje trwały kontekst operacyjny potrzebny do rozpoczęcia kolejnej sesji. Nie przechowuje ręcznie aktualizowanych nazw bieżącego sprintu, gałęzi ani SHA.
 
+## Fast Resume Entry Point
+
+For a new chat started with “kontynuuj”, use `project/SESSION_CONTINUITY.md` as the operational resume checkpoint. Verify current GitHub main/PR/CI state and continue from its next action. Do not repeat completed work or checks whose exact-head evidence remains valid. Escalate to the full startup/recovery procedure only when the checkpoint is missing, inconsistent, stale in a material way, or a documented risk trigger is present.
+
+The checkpoint never overrides `project/state.json`, GitHub or source evidence. Update it after meaningful progress and before ending a work session.
+
 ## Canonical Current State
 
 Jedynym źródłem bieżącego stanu jest:

@@ -8,7 +8,9 @@ This document defines the mandatory startup procedure for every AI session.
 
 ---
 
-# Required Reading Order
+# Full Bootstrap / Recovery Reading Order
+
+Use this complete reading sequence for a first-time project session or when an escalation trigger in `project/SESSION_CONTINUITY.md` requires full recovery. For ordinary “kontynuuj” sessions, follow the fast-resume path first and read only the governing documents needed for the next action.
 
 Read the following documents and state resources in exactly this order:
 
@@ -33,6 +35,16 @@ Read the following documents and state resources in exactly this order:
 `README.md` may be consulted if additional project context is required.
 
 When narrative documents disagree about the current phase or package, the canonical `state.json` wins. Versioned source data and approved decisions remain higher-priority evidence for domain facts.
+
+---
+
+## Fast resume for “kontynuuj” (mandatory)
+
+A new chat started with “kontynuuj” is a continuation request, not a full-audit request. Follow `project/SESSION_CONTINUITY.md` first: read the canonical `state.json`, reconcile the latest durable checkpoint against current GitHub main/PR/CI state, inspect only changes since that checkpoint, and continue with its next action when valid. Do not repeat completed analysis, extraction or checks whose exact evidence remains valid.
+
+The full Required Reading Order and full Workflow Bootstrap below remain mandatory when the checkpoint is missing/invalid or a documented escalation trigger applies. In a fast-resume session, read additional governing documents only when the next task touches their domain or the checkpoint/remote evidence reveals a mismatch. A new chat alone is not an escalation trigger.
+
+When local execution is unavailable or prohibited by the Project Owner, use approved GitHub/remote validation. Do not require terminal, Git Bash or local synchronization; do not claim local validation that was not performed. Exact-head CI and all existing safety/merge gates remain mandatory.
 
 ---
 
@@ -113,7 +125,7 @@ Before implementation the AI shall:
 
 Implementation shall not begin before the required analysis has been completed.
 
-The AI shall read and follow `QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` in every new chat/session and at every continuation after a handoff. This includes the mandatory cross-file change transaction, dependency-impact inventory, canonical-generator-only baseline updates, pre-PR consistency matrix, scope-safe tests for shared sources, failure classification and exact-HEAD revalidation. For model, version, configuration or source-registry changes, also apply sections 24.3–24.6: portfolio-wide tests must derive live inventory from canonical registries, historical tests must use immutable package fixtures, dependent reports must be reviewed by declared input scope, and package/release lifecycle tests must use isolated temporary repositories with no real remote push. Tests must distinguish source identity from package ownership and must never use broad filename-prefix selection or whole-source absence/count assertions where later packages may legitimately extend the same source. Every such extension must be validated alongside the earlier source-family regression tests. These controls apply automatically even when the user only says `kontynuuj`; they must not depend on conversation memory or a repeated user instruction. This is a mandatory startup rule, not an optional checklist and not dependent on the user repeating it. It governs the full package lifecycle, test design, CI failure diagnosis, independent source-fidelity review and PR/merge gates. If this file cannot be read, do not begin implementation; enter recovery/diagnostic mode and report the blocker.
+The AI shall apply the controls in `QUALITY_AND_SOURCE_VALIDATION_PROTOCOL.md` whenever the work they govern is performed; a fast-resume session does not waive any quality, source-fidelity, change-impact, test-isolation or exact-HEAD requirement. Read the full protocol before data imports, source assimilation, code/test changes, CI or release repairs, package closure, and merge decisions; for a documentation-only continuation, consult the relevant sections when the change affects a governed contract. The protocol's mandatory cross-file change transaction, dependency-impact inventory, canonical-generator-only baseline updates, pre-PR consistency matrix, scope-safe tests for shared sources, failure classification and exact-HEAD revalidation remain in force. For model, version, configuration or source-registry changes, apply sections 24.3–24.6: portfolio-wide tests derive live inventory from canonical registries, historical tests use immutable package fixtures, dependent reports are reviewed by declared input scope, and package/release lifecycle tests use isolated temporary repositories with no real remote push. Tests distinguish source identity from package ownership and never use broad filename-prefix selection or whole-source absence/count assertions where later packages may legitimately extend the same source. Every extension is validated alongside earlier source-family regression tests. These controls apply automatically even when the user only says `kontynuuj`; they do not depend on conversation memory or a repeated instruction. If the protocol cannot be read before governed work, do not begin that work; enter recovery/diagnostic mode and report the blocker.
 
 When reviewing or repairing tests of reports, findings, notes or generated documentation, follow section 24.2 of the quality protocol: assert stable semantic contracts and required behavior rather than incidental editorial wording. Exact text matching is reserved for text that is itself a declared interface or contract. A wording-only correction must preserve positive and negative checks for the underlying invariant.
 
